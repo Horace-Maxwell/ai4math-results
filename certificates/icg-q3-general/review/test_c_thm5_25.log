@@ -1,0 +1,199 @@
+=== integer (p,q), exhaustive, (a+1)(b+1) <= 25 ===
+(p,q)=(5,3) (a,b)=(1,1) #Y=16  max=55  d_a d_b=55  #argmax=2  argmax=+-s s^T:True  2nd=49 (ratio 0.89091)  OK
+(p,q)=(5,3) (a,b)=(1,2) #Y=64  max=275  d_a d_b=275  #argmax=2  argmax=+-s s^T:True  2nd=253 (ratio 0.92000)  OK
+(p,q)=(5,3) (a,b)=(2,1) #Y=64  max=445  d_a d_b=445  #argmax=2  argmax=+-s s^T:True  2nd=411 (ratio 0.92360)  OK
+(p,q)=(5,3) (a,b)=(1,3) #Y=256  max=1111  d_a d_b=1111  #argmax=2  argmax=+-s s^T:True  2nd=1033 (ratio 0.92979)  OK
+(p,q)=(5,3) (a,b)=(3,1) #Y=256  max=3055  d_a d_b=3055  #argmax=2  argmax=+-s s^T:True  2nd=2889 (ratio 0.94566)  OK
+(p,q)=(5,3) (a,b)=(2,2) #Y=512  max=2225  d_a d_b=2225  #argmax=2  argmax=+-s s^T:True  2nd=2055 (ratio 0.92360)  OK
+(p,q)=(5,3) (a,b)=(1,4) #Y=1024  max=4235  d_a d_b=4235  #argmax=2  argmax=+-s s^T:True  2nd=3989 (ratio 0.94191)  OK
+(p,q)=(5,3) (a,b)=(4,1) #Y=1024  max=19445  d_a d_b=19445  #argmax=2  argmax=+-s s^T:True  2nd=18611 (ratio 0.95711)  OK
+(p,q)=(5,3) (a,b)=(1,5) #Y=4096  max=15367  d_a d_b=15367  #argmax=2  argmax=+-s s^T:True  2nd=14641 (ratio 0.95276)  OK
+(p,q)=(5,3) (a,b)=(2,3) #Y=4096  max=8989  d_a d_b=8989  #argmax=2  argmax=+-s s^T:True  2nd=8547 (ratio 0.95083)  OK
+(p,q)=(5,3) (a,b)=(3,2) #Y=4096  max=15275  d_a d_b=15275  #argmax=2  argmax=+-s s^T:True  2nd=14445 (ratio 0.94566)  OK
+(p,q)=(5,3) (a,b)=(5,1) #Y=4096  max=118055  d_a d_b=118055  #argmax=2  argmax=+-s s^T:True  2nd=113889 (ratio 0.96471)  OK
+(p,q)=(5,3) (a,b)=(1,6) #Y=16384  max=54131  d_a d_b=54131  #argmax=2  argmax=+-s s^T:True  2nd=51941 (ratio 0.95954)  OK
+(p,q)=(5,3) (a,b)=(6,1) #Y=16384  max=694445  d_a d_b=694445  #argmax=2  argmax=+-s s^T:True  2nd=673611 (ratio 0.97000)  OK
+(p,q)=(5,3) (a,b)=(2,4) #Y=32768  max=34265  d_a d_b=34265  #argmax=2  argmax=+-s s^T:True  2nd=32871 (ratio 0.95932)  OK
+(p,q)=(5,3) (a,b)=(4,2) #Y=32768  max=97225  d_a d_b=97225  #argmax=2  argmax=+-s s^T:True  2nd=93055 (ratio 0.95711)  OK
+(p,q)=(5,3) (a,b)=(1,7) #Y=65536  max=186439  d_a d_b=186439  #argmax=2  argmax=+-s s^T:True  2nd=179881 (ratio 0.96482)  OK
+(p,q)=(5,3) (a,b)=(3,3) #Y=65536  max=61711  d_a d_b=61711  #argmax=2  argmax=+-s s^T:True  2nd=59553 (ratio 0.96503)  OK
+(p,q)=(5,3) (a,b)=(7,1) #Y=65536  max=3993055  d_a d_b=3993055  #argmax=2  argmax=+-s s^T:True  2nd=3888889 (ratio 0.97391)  OK
+(p,q)=(5,3) (a,b)=(1,8) #Y=262144  max=631499  d_a d_b=631499  #argmax=2  argmax=+-s s^T:True  2nd=611813 (ratio 0.96883)  OK
+(p,q)=(5,3) (a,b)=(2,5) #Y=262144  max=124333  d_a d_b=124333  #argmax=2  argmax=+-s s^T:True  2nd=120219 (ratio 0.96691)  OK
+(p,q)=(5,3) (a,b)=(5,2) #Y=262144  max=590275  d_a d_b=590275  #argmax=2  argmax=+-s s^T:True  2nd=569445 (ratio 0.96471)  OK
+(p,q)=(5,3) (a,b)=(8,1) #Y=262144  max=22569445  d_a d_b=22569445  #argmax=2  argmax=+-s s^T:True  2nd=22048611 (ratio 0.97692)  OK
+(p,q)=(5,3) (a,b)=(1,9) #Y=1048576  max=2110999  d_a d_b=2110999  #argmax=2  argmax=+-s s^T:True  2nd=2051953 (ratio 0.97203)  OK
+(p,q)=(5,3) (a,b)=(3,4) #Y=1048576  max=235235  d_a d_b=235235  #argmax=2  argmax=+-s s^T:True  2nd=228429 (ratio 0.97107)  OK
+(p,q)=(5,3) (a,b)=(4,3) #Y=1048576  max=392789  d_a d_b=392789  #argmax=2  argmax=+-s s^T:True  2nd=381947 (ratio 0.97240)  OK
+(p,q)=(5,3) (a,b)=(9,1) #Y=1048576  max=125868055  d_a d_b=125868055  #argmax=2  argmax=+-s s^T:True  2nd=123263889 (ratio 0.97931)  OK
+(p,q)=(5,3) (a,b)=(2,6) #Y=2097152  max=437969  d_a d_b=437969  #argmax=2  argmax=+-s s^T:True  2nd=425559 (ratio 0.97166)  OK
+(p,q)=(5,3) (a,b)=(6,2) #Y=2097152  max=3472225  d_a d_b=3472225  #argmax=2  argmax=+-s s^T:True  2nd=3368055 (ratio 0.97000)  OK
+(p,q)=(5,3) (a,b)=(1,10) #Y=4194304  max=6982547  d_a d_b=6982547  #argmax=2  argmax=+-s s^T:True  2nd=6805397 (ratio 0.97463)  OK
+(p,q)=(5,3) (a,b)=(10,1) #Y=4194304  max=694444445  d_a d_b=694444445  #argmax=2  argmax=+-s s^T:True  2nd=681423611 (ratio 0.98125)  OK
+(p,q)=(5,3) (a,b)=(1,11) #Y=16777216  max=22896247  d_a d_b=22896247  #argmax=2  argmax=+-s s^T:True  2nd=22364809 (ratio 0.97679)  OK
+(p,q)=(5,3) (a,b)=(2,7) #Y=16777216  max=1508461  d_a d_b=1508461  #argmax=2  argmax=+-s s^T:True  2nd=1471299 (ratio 0.97536)  OK
+(p,q)=(5,3) (a,b)=(3,5) #Y=16777216  max=853567  d_a d_b=853567  #argmax=2  argmax=+-s s^T:True  2nd=833481 (ratio 0.97647)  OK
+(p,q)=(5,3) (a,b)=(5,3) #Y=16777216  max=2384711  d_a d_b=2384711  #argmax=2  argmax=+-s s^T:True  2nd=2330553 (ratio 0.97729)  OK
+(p,q)=(5,3) (a,b)=(7,2) #Y=16777216  max=19965275  d_a d_b=19965275  #argmax=2  argmax=+-s s^T:True  2nd=19444445 (ratio 0.97391)  OK
+(p,q)=(5,3) (a,b)=(11,1) #Y=16777216  max=3797743055  d_a d_b=3797743055  #argmax=2  argmax=+-s s^T:True  2nd=3732638889 (ratio 0.98286)  OK
+(p,q)=(5,3) (a,b)=(4,4) #Y=33554432  max=1497265  d_a d_b=1497265  #argmax=2  argmax=+-s s^T:True  2nd=1463071 (ratio 0.97716)  OK
+(p,q)=(7,3) (a,b)=(1,1) #Y=16  max=85  d_a d_b=85  #argmax=2  argmax=+-s s^T:True  2nd=75 (ratio 0.88235)  OK
+(p,q)=(7,3) (a,b)=(1,2) #Y=64  max=425  d_a d_b=425  #argmax=2  argmax=+-s s^T:True  2nd=391 (ratio 0.92000)  OK
+(p,q)=(7,3) (a,b)=(2,1) #Y=64  max=965  d_a d_b=965  #argmax=2  argmax=+-s s^T:True  2nd=891 (ratio 0.92332)  OK
+(p,q)=(7,3) (a,b)=(1,3) #Y=256  max=1717  d_a d_b=1717  #argmax=2  argmax=+-s s^T:True  2nd=1587 (ratio 0.92429)  OK
+(p,q)=(7,3) (a,b)=(3,1) #Y=256  max=9325  d_a d_b=9325  #argmax=2  argmax=+-s s^T:True  2nd=8811 (ratio 0.94488)  OK
+(p,q)=(7,3) (a,b)=(2,2) #Y=512  max=4825  d_a d_b=4825  #argmax=2  argmax=+-s s^T:True  2nd=4455 (ratio 0.92332)  OK
+(p,q)=(7,3) (a,b)=(1,4) #Y=1024  max=6545  d_a d_b=6545  #argmax=2  argmax=+-s s^T:True  2nd=6135 (ratio 0.93736)  OK
+(p,q)=(7,3) (a,b)=(4,1) #Y=1024  max=83285  d_a d_b=83285  #argmax=2  argmax=+-s s^T:True  2nd=79683 (ratio 0.95675)  OK
+(p,q)=(7,3) (a,b)=(1,5) #Y=4096  max=23749  d_a d_b=23749  #argmax=2  argmax=+-s s^T:True  2nd=22539 (ratio 0.94905)  OK
+(p,q)=(7,3) (a,b)=(2,3) #Y=4096  max=19493  d_a d_b=19493  #argmax=2  argmax=+-s s^T:True  2nd=18531 (ratio 0.95065)  OK
+(p,q)=(7,3) (a,b)=(3,2) #Y=4096  max=46625  d_a d_b=46625  #argmax=2  argmax=+-s s^T:True  2nd=44055 (ratio 0.94488)  OK
+(p,q)=(7,3) (a,b)=(5,1) #Y=4096  max=709045  d_a d_b=709045  #argmax=2  argmax=+-s s^T:True  2nd=683835 (ratio 0.96445)  OK
+(p,q)=(7,3) (a,b)=(1,6) #Y=16384  max=83657  d_a d_b=83657  #argmax=2  argmax=+-s s^T:True  2nd=80007 (ratio 0.95637)  OK
+(p,q)=(7,3) (a,b)=(6,1) #Y=16384  max=5845685  d_a d_b=5845685  #argmax=2  argmax=+-s s^T:True  2nd=5669211 (ratio 0.96981)  OK
+(p,q)=(7,3) (a,b)=(2,4) #Y=32768  max=74305  d_a d_b=74305  #argmax=2  argmax=+-s s^T:True  2nd=71271 (ratio 0.95917)  OK
+(p,q)=(7,3) (a,b)=(4,2) #Y=32768  max=416425  d_a d_b=416425  #argmax=2  argmax=+-s s^T:True  2nd=398415 (ratio 0.95675)  OK
+(p,q)=(7,3) (a,b)=(1,7) #Y=65536  max=288133  d_a d_b=288133  #argmax=2  argmax=+-s s^T:True  2nd=277203 (ratio 0.96207)  OK
+(p,q)=(7,3) (a,b)=(3,3) #Y=65536  max=188365  d_a d_b=188365  #argmax=2  argmax=+-s s^T:True  2nd=181683 (ratio 0.96453)  OK
+(p,q)=(7,3) (a,b)=(7,1) #Y=65536  max=47096365  d_a d_b=47096365  #argmax=2  argmax=+-s s^T:True  2nd=45861051 (ratio 0.97377)  OK
+(p,q)=(7,3) (a,b)=(1,8) #Y=262144  max=975953  d_a d_b=975953  #argmax=2  argmax=+-s s^T:True  2nd=943143 (ratio 0.96638)  OK
+(p,q)=(7,3) (a,b)=(2,5) #Y=262144  max=269621  d_a d_b=269621  #argmax=2  argmax=+-s s^T:True  2nd=260667 (ratio 0.96679)  OK
+(p,q)=(7,3) (a,b)=(5,2) #Y=262144  max=3545225  d_a d_b=3545225  #argmax=2  argmax=+-s s^T:True  2nd=3419175 (ratio 0.96445)  OK
+(p,q)=(7,3) (a,b)=(8,1) #Y=262144  max=372910565  d_a d_b=372910565  #argmax=2  argmax=+-s s^T:True  2nd=364263363 (ratio 0.97681)  OK
+(p,q)=(7,3) (a,b)=(1,9) #Y=1048576  max=3262453  d_a d_b=3262453  #argmax=2  argmax=+-s s^T:True  2nd=3164043 (ratio 0.96984)  OK
+(p,q)=(7,3) (a,b)=(3,4) #Y=1048576  max=718025  d_a d_b=718025  #argmax=2  argmax=+-s s^T:True  2nd=696951 (ratio 0.97065)  OK
+(p,q)=(7,3) (a,b)=(4,3) #Y=1048576  max=1682357  d_a d_b=1682357  #argmax=2  argmax=+-s s^T:True  2nd=1635531 (ratio 0.97217)  OK
+(p,q)=(7,3) (a,b)=(9,1) #Y=1048576  max=2913026005  d_a d_b=2913026005  #argmax=2  argmax=+-s s^T:True  2nd=2852495595 (ratio 0.97922)  OK
+(p,q)=(7,3) (a,b)=(2,6) #Y=2097152  max=949753  d_a d_b=949753  #argmax=2  argmax=+-s s^T:True  2nd=922743 (ratio 0.97156)  OK
+(p,q)=(7,3) (a,b)=(6,2) #Y=2097152  max=29228425  d_a d_b=29228425  #argmax=2  argmax=+-s s^T:True  2nd=28346055 (ratio 0.96981)  OK
+(p,q)=(7,3) (a,b)=(1,10) #Y=4194304  max=10791209  d_a d_b=10791209  #argmax=2  argmax=+-s s^T:True  2nd=10495959 (ratio 0.97264)  OK
+(p,q)=(7,3) (a,b)=(10,1) #Y=4194304  max=22509746405  d_a d_b=22509746405  #argmax=2  argmax=+-s s^T:True  2nd=22086033531 (ratio 0.98118)  OK
+(p,q)=(7,3) (a,b)=(1,11) #Y=16777216  max=35385109  d_a d_b=35385109  #argmax=2  argmax=+-s s^T:True  2nd=34499379 (ratio 0.97497)  OK
+(p,q)=(7,3) (a,b)=(2,7) #Y=16777216  max=3271157  d_a d_b=3271157  #argmax=2  argmax=+-s s^T:True  2nd=3190275 (ratio 0.97527)  OK
+(p,q)=(7,3) (a,b)=(3,5) #Y=16777216  max=2605405  d_a d_b=2605405  #argmax=2  argmax=+-s s^T:True  2nd=2543211 (ratio 0.97613)  OK
+(p,q)=(7,3) (a,b)=(5,3) #Y=16777216  max=14322709  d_a d_b=14322709  #argmax=2  argmax=+-s s^T:True  2nd=13994979 (ratio 0.97712)  OK
+(p,q)=(7,3) (a,b)=(7,2) #Y=16777216  max=235481825  d_a d_b=235481825  #argmax=2  argmax=+-s s^T:True  2nd=229305255 (ratio 0.97377)  OK
+(p,q)=(7,3) (a,b)=(11,1) #Y=16777216  max=172398175405  d_a d_b=172398175405  #argmax=2  argmax=+-s s^T:True  2nd=169432185291 (ratio 0.98280)  OK
+(p,q)=(7,3) (a,b)=(4,4) #Y=33554432  max=6412945  d_a d_b=6412945  #argmax=2  argmax=+-s s^T:True  2nd=6265263 (ratio 0.97697)  OK
+(p,q)=(5,4) (a,b)=(1,1) #Y=16  max=88  d_a d_b=88  #argmax=2  argmax=+-s s^T:True  2nd=76 (ratio 0.86364)  OK
+(p,q)=(5,4) (a,b)=(1,2) #Y=64  max=572  d_a d_b=572  #argmax=2  argmax=+-s s^T:True  2nd=512 (ratio 0.89510)  OK
+(p,q)=(5,4) (a,b)=(2,1) #Y=64  max=712  d_a d_b=712  #argmax=2  argmax=+-s s^T:True  2nd=644 (ratio 0.90449)  OK
+(p,q)=(5,4) (a,b)=(1,3) #Y=256  max=3124  d_a d_b=3124  #argmax=2  argmax=+-s s^T:True  2nd=2896 (ratio 0.92702)  OK
+(p,q)=(5,4) (a,b)=(3,1) #Y=256  max=4888  d_a d_b=4888  #argmax=2  argmax=+-s s^T:True  2nd=4556 (ratio 0.93208)  OK
+(p,q)=(5,4) (a,b)=(2,2) #Y=512  max=4628  d_a d_b=4628  #argmax=2  argmax=+-s s^T:True  2nd=4288 (ratio 0.92653)  OK
+(p,q)=(5,4) (a,b)=(1,4) #Y=1024  max=15884  d_a d_b=15884  #argmax=2  argmax=+-s s^T:True  2nd=14960 (ratio 0.94183)  OK
+(p,q)=(5,4) (a,b)=(4,1) #Y=1024  max=31112  d_a d_b=31112  #argmax=2  argmax=+-s s^T:True  2nd=29444 (ratio 0.94639)  OK
+(p,q)=(5,4) (a,b)=(1,5) #Y=4096  max=77044  d_a d_b=77044  #argmax=2  argmax=+-s s^T:True  2nd=73360 (ratio 0.95218)  OK
+(p,q)=(5,4) (a,b)=(2,3) #Y=4096  max=25276  d_a d_b=25276  #argmax=2  argmax=+-s s^T:True  2nd=23984 (ratio 0.94888)  OK
+(p,q)=(5,4) (a,b)=(3,2) #Y=4096  max=31772  d_a d_b=31772  #argmax=2  argmax=+-s s^T:True  2nd=30112 (ratio 0.94775)  OK
+(p,q)=(5,4) (a,b)=(5,1) #Y=4096  max=188888  d_a d_b=188888  #argmax=2  argmax=+-s s^T:True  2nd=180556 (ratio 0.95589)  OK
+(p,q)=(5,4) (a,b)=(1,6) #Y=16384  max=362252  d_a d_b=362252  #argmax=2  argmax=+-s s^T:True  2nd=347504 (ratio 0.95929)  OK
+(p,q)=(5,4) (a,b)=(6,1) #Y=16384  max=1111112  d_a d_b=1111112  #argmax=2  argmax=+-s s^T:True  2nd=1069444 (ratio 0.96250)  OK
+(p,q)=(5,4) (a,b)=(2,4) #Y=32768  max=128516  d_a d_b=128516  #argmax=2  argmax=+-s s^T:True  2nd=123280 (ratio 0.95926)  OK
+(p,q)=(5,4) (a,b)=(4,2) #Y=32768  max=202228  d_a d_b=202228  #argmax=2  argmax=+-s s^T:True  2nd=193888 (ratio 0.95876)  OK
+(p,q)=(5,4) (a,b)=(1,7) #Y=65536  max=1665268  d_a d_b=1665268  #argmax=2  argmax=+-s s^T:True  2nd=1606288 (ratio 0.96458)  OK
+(p,q)=(5,4) (a,b)=(3,3) #Y=65536  max=173524  d_a d_b=173524  #argmax=2  argmax=+-s s^T:True  2nd=167216 (ratio 0.96365)  OK
+(p,q)=(5,4) (a,b)=(7,1) #Y=65536  max=6388888  d_a d_b=6388888  #argmax=2  argmax=+-s s^T:True  2nd=6180556 (ratio 0.96739)  OK
+(p,q)=(5,4) (a,b)=(1,8) #Y=262144  max=7526156  d_a d_b=7526156  #argmax=2  argmax=+-s s^T:True  2nd=7290224 (ratio 0.96865)  OK
+(p,q)=(5,4) (a,b)=(2,5) #Y=262144  max=623356  d_a d_b=623356  #argmax=2  argmax=+-s s^T:True  2nd=602480 (ratio 0.96651)  OK
+(p,q)=(5,4) (a,b)=(5,2) #Y=262144  max=1227772  d_a d_b=1227772  #argmax=2  argmax=+-s s^T:True  2nd=1186112 (ratio 0.96607)  OK
+(p,q)=(5,4) (a,b)=(8,1) #Y=262144  max=36111112  d_a d_b=36111112  #argmax=2  argmax=+-s s^T:True  2nd=35069444 (ratio 0.97115)  OK
+(p,q)=(5,4) (a,b)=(1,9) #Y=1048576  max=33564916  d_a d_b=33564916  #argmax=2  argmax=+-s s^T:True  2nd=32621200 (ratio 0.97188)  OK
+(p,q)=(5,4) (a,b)=(3,4) #Y=1048576  max=882284  d_a d_b=882284  #argmax=2  argmax=+-s s^T:True  2nd=856720 (ratio 0.97103)  OK
+(p,q)=(5,4) (a,b)=(4,3) #Y=1048576  max=1104476  d_a d_b=1104476  #argmax=2  argmax=+-s s^T:True  2nd=1072784 (ratio 0.97131)  OK
+(p,q)=(5,4) (a,b)=(9,1) #Y=1048576  max=201388888  d_a d_b=201388888  #argmax=2  argmax=+-s s^T:True  2nd=196180556 (ratio 0.97414)  OK
+(p,q)=(5,4) (a,b)=(2,6) #Y=2097152  max=2930948  d_a d_b=2930948  #argmax=2  argmax=+-s s^T:True  2nd=2847376 (ratio 0.97149)  OK
+(p,q)=(5,4) (a,b)=(6,2) #Y=2097152  max=7222228  d_a d_b=7222228  #argmax=2  argmax=+-s s^T:True  2nd=7013888 (ratio 0.97115)  OK
+(p,q)=(5,4) (a,b)=(1,10) #Y=4194304  max=148100876  d_a d_b=148100876  #argmax=2  argmax=+-s s^T:True  2nd=144326000 (ratio 0.97451)  OK
+(p,q)=(5,4) (a,b)=(10,1) #Y=4194304  max=1111111112  d_a d_b=1111111112  #argmax=2  argmax=+-s s^T:True  2nd=1085069444 (ratio 0.97656)  OK
+(p,q)=(5,4) (a,b)=(1,11) #Y=16777216  max=647768308  d_a d_b=647768308  #argmax=2  argmax=+-s s^T:True  2nd=632668816 (ratio 0.97669)  OK
+(p,q)=(5,4) (a,b)=(2,7) #Y=16777216  max=13473532  d_a d_b=13473532  #argmax=2  argmax=+-s s^T:True  2nd=13139312 (ratio 0.97519)  OK
+(p,q)=(5,4) (a,b)=(3,5) #Y=16777216  max=4279444  d_a d_b=4279444  #argmax=2  argmax=+-s s^T:True  2nd=4177520 (ratio 0.97618)  OK
+(p,q)=(5,4) (a,b)=(5,3) #Y=16777216  max=6705524  d_a d_b=6705524  #argmax=2  argmax=+-s s^T:True  2nd=6547216 (ratio 0.97639)  OK
+(p,q)=(5,4) (a,b)=(7,2) #Y=16777216  max=41527772  d_a d_b=41527772  #argmax=2  argmax=+-s s^T:True  2nd=40486112 (ratio 0.97492)  OK
+(p,q)=(5,4) (a,b)=(11,1) #Y=16777216  max=6076388888  d_a d_b=6076388888  #argmax=2  argmax=+-s s^T:True  2nd=5946180556 (ratio 0.97857)  OK
+(p,q)=(5,4) (a,b)=(4,4) #Y=33554432  max=5615716  d_a d_b=5615716  #argmax=2  argmax=+-s s^T:True  2nd=5487280 (ratio 0.97713)  OK
+integer part all OK: True  time 84.2s
+=== rational (p,q), exact Fractions, (a+1)(b+1) <= 9 ===
+(p,q)=(5,3) (a,b)=(1,1) max=55 bound=55 #argmax=2 argmax ok=True OK
+(p,q)=(5,3) (a,b)=(1,2) max=275 bound=275 #argmax=2 argmax ok=True OK
+(p,q)=(5,3) (a,b)=(2,1) max=445 bound=445 #argmax=2 argmax ok=True OK
+(p,q)=(5,3) (a,b)=(1,3) max=1111 bound=1111 #argmax=2 argmax ok=True OK
+(p,q)=(5,3) (a,b)=(3,1) max=3055 bound=3055 #argmax=2 argmax ok=True OK
+(p,q)=(5,3) (a,b)=(2,2) max=2225 bound=2225 #argmax=2 argmax ok=True OK
+(p,q)=(11/2,3) (a,b)=(1,1) max=125/2 bound=125/2 #argmax=2 argmax ok=True OK
+(p,q)=(11/2,3) (a,b)=(1,2) max=625/2 bound=625/2 #argmax=2 argmax ok=True OK
+(p,q)=(11/2,3) (a,b)=(2,1) max=2225/4 bound=2225/4 #argmax=2 argmax ok=True OK
+(p,q)=(11/2,3) (a,b)=(1,3) max=2525/2 bound=2525/2 #argmax=2 argmax ok=True OK
+(p,q)=(11/2,3) (a,b)=(3,1) max=33665/8 bound=33665/8 #argmax=2 argmax ok=True OK
+(p,q)=(11/2,3) (a,b)=(2,2) max=11125/4 bound=11125/4 #argmax=2 argmax ok=True OK
+(p,q)=(5,13/4) (a,b)=(1,1) max=253/4 bound=253/4 #argmax=2 argmax ok=True OK
+(p,q)=(5,13/4) (a,b)=(1,2) max=5423/16 bound=5423/16 #argmax=2 argmax ok=True OK
+(p,q)=(5,13/4) (a,b)=(2,1) max=2047/4 bound=2047/4 #argmax=2 argmax ok=True OK
+(p,q)=(5,13/4) (a,b)=(1,3) max=95425/64 bound=95425/64 #argmax=2 argmax ok=True OK
+(p,q)=(5,13/4) (a,b)=(3,1) max=14053/4 bound=14053/4 #argmax=2 argmax ok=True OK
+(p,q)=(5,13/4) (a,b)=(2,2) max=43877/16 bound=43877/16 #argmax=2 argmax ok=True OK
+(p,q)=(17/3,7/2) (a,b)=(1,1) max=169/2 bound=169/2 #argmax=2 argmax ok=True OK
+(p,q)=(17/3,7/2) (a,b)=(1,2) max=1937/4 bound=1937/4 #argmax=2 argmax ok=True OK
+(p,q)=(17/3,7/2) (a,b)=(2,1) max=13949/18 bound=13949/18 #argmax=2 argmax ok=True OK
+(p,q)=(17/3,7/2) (a,b)=(1,3) max=18421/8 bound=18421/8 #argmax=2 argmax ok=True OK
+(p,q)=(17/3,7/2) (a,b)=(3,1) max=326339/54 bound=326339/54 #argmax=2 argmax ok=True OK
+(p,q)=(17/3,7/2) (a,b)=(2,2) max=159877/36 bound=159877/36 #argmax=2 argmax ok=True OK
+(p,q)=(21/4,31/10) (a,b)=(1,1) max=2491/40 bound=2491/40 #argmax=2 argmax ok=True OK
+(p,q)=(21/4,31/10) (a,b)=(1,2) max=5123/16 bound=5123/16 #argmax=2 argmax ok=True OK
+(p,q)=(21/4,31/10) (a,b)=(2,1) max=84641/160 bound=84641/160 #argmax=2 argmax ok=True OK
+(p,q)=(21/4,31/10) (a,b)=(1,3) max=5358799/4000 bound=5358799/4000 #argmax=2 argmax ok=True OK
+(p,q)=(21/4,31/10) (a,b)=(3,1) max=2442823/640 bound=2442823/640 #argmax=2 argmax ok=True OK
+(p,q)=(21/4,31/10) (a,b)=(2,2) max=174073/64 bound=174073/64 #argmax=2 argmax ok=True OK
+rational part all OK: True
+=== informational, outside hypotheses (integer, exhaustive, (a+1)(b+1)<=12) ===
+(p,q)=(3,3) (a,b)=(1,1) max=25 d_a d_b=25 #argmax=8 argmax ok=False
+(p,q)=(3,3) (a,b)=(1,2) max=125 d_a d_b=125 #argmax=2 argmax ok=True
+(p,q)=(3,3) (a,b)=(2,1) max=125 d_a d_b=125 #argmax=2 argmax ok=True
+(p,q)=(3,3) (a,b)=(1,3) max=505 d_a d_b=505 #argmax=2 argmax ok=True
+(p,q)=(3,3) (a,b)=(3,1) max=505 d_a d_b=505 #argmax=2 argmax ok=True
+(p,q)=(3,3) (a,b)=(2,2) max=625 d_a d_b=625 #argmax=2 argmax ok=True
+(p,q)=(3,3) (a,b)=(1,4) max=1925 d_a d_b=1925 #argmax=2 argmax ok=True
+(p,q)=(3,3) (a,b)=(4,1) max=1925 d_a d_b=1925 #argmax=2 argmax ok=True
+(p,q)=(3,3) (a,b)=(1,5) max=6985 d_a d_b=6985 #argmax=2 argmax ok=True
+(p,q)=(3,3) (a,b)=(2,3) max=2525 d_a d_b=2525 #argmax=2 argmax ok=True
+(p,q)=(3,3) (a,b)=(3,2) max=2525 d_a d_b=2525 #argmax=2 argmax ok=True
+(p,q)=(3,3) (a,b)=(5,1) max=6985 d_a d_b=6985 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(1,1) max=40 d_a d_b=40 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(1,2) max=200 d_a d_b=200 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(2,1) max=260 d_a d_b=260 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(1,3) max=808 d_a d_b=808 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(3,1) max=1420 d_a d_b=1420 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(2,2) max=1300 d_a d_b=1300 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(1,4) max=3080 d_a d_b=3080 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(4,1) max=7220 d_a d_b=7220 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(1,5) max=11176 d_a d_b=11176 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(2,3) max=5252 d_a d_b=5252 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(3,2) max=7100 d_a d_b=7100 #argmax=2 argmax ok=True
+(p,q)=(4,3) (a,b)=(5,1) max=35020 d_a d_b=35020 #argmax=2 argmax ok=True
+(p,q)=(5,2) (a,b)=(1,1) max=26 d_a d_b=22 #argmax=8 argmax ok=False
+(p,q)=(5,2) (a,b)=(1,2) max=88 d_a d_b=88 #argmax=4 argmax ok=False
+(p,q)=(5,2) (a,b)=(2,1) max=206 d_a d_b=178 #argmax=8 argmax ok=False
+(p,q)=(5,2) (a,b)=(1,3) max=220 d_a d_b=220 #argmax=8 argmax ok=False
+(p,q)=(5,2) (a,b)=(3,1) max=1414 d_a d_b=1222 #argmax=8 argmax ok=False
+(p,q)=(5,2) (a,b)=(2,2) max=712 d_a d_b=712 #argmax=4 argmax ok=False
+(p,q)=(5,2) (a,b)=(1,4) max=572 d_a d_b=572 #argmax=8 argmax ok=False
+(p,q)=(5,2) (a,b)=(4,1) max=8994 d_a d_b=7778 #argmax=8 argmax ok=False
+(p,q)=(5,2) (a,b)=(1,5) max=1364 d_a d_b=1364 #argmax=8 argmax ok=False
+(p,q)=(5,2) (a,b)=(2,3) max=1780 d_a d_b=1780 #argmax=8 argmax ok=False
+(p,q)=(5,2) (a,b)=(3,2) max=4888 d_a d_b=4888 #argmax=4 argmax ok=False
+(p,q)=(5,2) (a,b)=(5,1) max=54586 d_a d_b=47222 #argmax=8 argmax ok=False
+(p,q)=(3,5) (a,b)=(1,1) max=55 d_a d_b=55 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(1,2) max=445 d_a d_b=445 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(2,1) max=275 d_a d_b=275 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(1,3) max=3055 d_a d_b=3055 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(3,1) max=1111 d_a d_b=1111 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(2,2) max=2225 d_a d_b=2225 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(1,4) max=19445 d_a d_b=19445 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(4,1) max=4235 d_a d_b=4235 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(1,5) max=118055 d_a d_b=118055 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(2,3) max=15275 d_a d_b=15275 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(3,2) max=8989 d_a d_b=8989 #argmax=2 argmax ok=True
+(p,q)=(3,5) (a,b)=(5,1) max=15367 d_a d_b=15367 #argmax=2 argmax ok=True
+total time 84.4s
+python3 test_c_thm5.py 25  63.49s user 20.89s system 99% cpu 1:24.51 total

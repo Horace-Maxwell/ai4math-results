@@ -1,0 +1,16 @@
+V1 ok 0.1
+V2 ok (b<=12, all vertices) 3.4
+V3 b=1: 4000 exact random tests, max excess 0 3.5
+V3 b=2: 4000 exact random tests, max excess 0 3.8
+V3 b=3: 4000 exact random tests, max excess 0 4.3
+V3 b=4: 4000 exact random tests, max excess 0 4.8
+V3 b=5: 4000 exact random tests, max excess 0 5.5
+V3 b=6: 1500 exact random tests, max excess 0 5.9
+V3 b=7: 1500 exact random tests, max excess 0 6.3
+V3 b=8: 1500 exact random tests, max excess -2.733e+04 6.8
+V3 b=9: 1500 exact random tests, max excess -1.188e+05 7.3
+adversarial b=1: max excess found 0 7.5
+adversarial b=2: max excess found 0 8.3
+adversarial b=3: max excess found 0 12.6
+adversarial b=4: max excess found 0 27.2
+adversarial b=5: max excess found 0 82.9

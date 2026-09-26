@@ -1,14 +1,35 @@
-# Lean 4 proofs of OEIS congruence conjectures of P. D. Hanna, and a Lean formalization of the case q = 3 of Roldán's energy conjecture
+# The maximal energy of integral circulant graphs of order p^(2r)·3^(2s+1), and fourteen OEIS congruence conjectures — with Lean 4 proofs
 
-This repository contains Lean 4 formalizations and computational
-certificates for eleven OEIS congruence conjectures (proved), three further
-OEIS conjectures (partly proved and partly refuted, or proved after correcting
-an index), and the case q = 3 of Roldán's energy conjecture (a known result,
-formalized here). A paper with the written proofs of the OEIS results will be
-added in a later version.
+This repository contains two papers, their Lean 4 formalizations and
+computational certificates.
 
-**Formalization of a known result: the case q = 3 of Roldán's Conjecture 1.3
-(arXiv:2604.09491).**
+**Paper 1: [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf).**
+*The maximal energy of integral circulant graphs of order p^(2r)·3^(2s+1).*
+
+- Jiang and Yang (arXiv:2608.29523, Theorem A) determined the maximal energy
+  of integral circulant graphs of order `p^(2r) q^(2s+1)` for distinct odd
+  primes with `q ≥ 5`. They noted that `q = 3` is not covered by their method.
+- We prove the remaining case `q = 3`: for every prime `p ≥ 5` and all
+  `r ≥ 1`, `s ≥ 0`, the checkerboard set `{p^i 3^j : i + j even}` is the
+  unique energy maximiser, and the maximal energy is given by their formula.
+- The key step is a sign-matrix inequality for weighted Ramanujan transforms,
+  proved by a path identity and an explicit potential. It also gives a proof
+  of Jiang–Yang's theorem without semidefinite certificates.
+- **Lean:** `ICGGeneral.jiang_yang_q3`, starting from the adjacency matrix of
+  the graph and its eigenvalues, and `ICGGeneral.jiang_yang_thmA`, which
+  covers all pairs of distinct odd primes. The paper also states a conjecture
+  for exponents of equal parity; it is not proved.
+
+**Paper 2: [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf).** *Proofs of
+eleven congruence conjectures of Hanna from the OEIS, and the resolution of
+three more.*
+
+**Also included:** a complete Lean formalization of the case q = 3 of
+Roldán's Conjecture 1.3 (order `27p²`). This is a known result, proved earlier
+by others; see below.
+
+
+### Formalization of a known result: the case q = 3 of Roldán's Conjecture 1.3 (arXiv:2604.09491)
 
 - For every prime `p ≥ 5`, the divisor set `D* = {1, 9, 3p, 27p, p², 9p²}`
   uniquely maximizes the energy of the integral circulant graph `ICG(27p², D)`.
@@ -25,6 +46,8 @@ added in a later version.
     its eigenvalues, with no additional axioms and no `native_decide`;
   - the observation, also formalized, that the bound is attained at
     `D* ∪ {3p²}`, so the second-largest energy is `242p² − 356p + 154`.
+
+### Paper 2 in detail
 
 **Eleven congruence conjectures of P. D. Hanna from the OEIS**, proved and
 formally verified. Each Lean theorem holds for every integer power series
@@ -49,14 +72,15 @@ entry's offset.
 
 | Entry | Conjecture | What is proved |
 | --- | --- | --- |
-| A184894 | `a(m) ≡ 0 (mod 3)` except at `m = (3^n + 1)/2` | the vanishing part holds for all `m`, and `a(m) ≡ C(m, j) (mod 3)` when `2m − 1 = 3^j`; but `3 ∣ a(365)` with `365 = (3⁶ + 1)/2`, so the implied non-vanishing fails at `n = 6` |
-| A107099 | `[x^n]A ≡ 0 (mod 3)` except at `n = 3^k`, where `A(A(x)) = x + 4x³` | the vanishing part holds; `3 ∣ [x^729]A`, so non-vanishing fails at `3⁶` |
+| A184894 | `a(m) ≡ 0 (mod 3)` except at `m = (3^n + 1)/2` | the statement as written (vanishing outside the exceptions) holds, and `a(m) ≡ C(m, j) (mod 3)` when `2m − 1 = 3^j`; the stronger reading "non-zero at every exception" fails at OEIS index 365 = (3⁶ + 1)/2 |
+| A107099 | `[x^n]A ≡ 0 (mod 3)` except at `n = 3^k`, where `A(A(x)) = x + 4x³` | the statement as written holds; the stronger reading fails at `x^729` (OEIS index 364), since `3 ∣ [x^729]A` |
 | A361047 | stated with an index slip that the entry's own data contradict | the intended statement, in exponent form: `[x^m]A ≡ 1 (mod 3)` if `m = 3^k`, and `≡ 0` otherwise |
 
 ## What is verified, and how
 
 | Claim | Lean 4 declarations | Independent computation |
 | --- | --- | --- |
+| Paper 1: unique maximiser for `p^(2r)·3^(2s+1)`, `p ≥ 5`; value of the maximum; the sign-matrix inequality (all real `p ≥ 5`, `q ≥ 3`, all exponents); energy formula for all `p^a q^b`; Jiang–Yang Theorem A for all distinct odd primes | `ICGGeneral.jiang_yang_q3`, `jiang_yang_q3_value`, `thm5_le`, `thm5_eq`, `energy_icgAdj_pq`, `jiang_yang_thmA`, `checkerboard_unique_max_odd` | exhaustive exact searches over all divisor sets (shapes and primes listed in the paper); sign-matrix enumeration for `(a+1)(b+1) ≤ 25`; floating-point spectra of the actual graphs (`certificates/icg-q3-general/`) |
 | Roldán q=3 for the genuine graph energy: unique maximizer, gap, value of `E(D*)`, sharpness | `ICGBridge.roldan_q3`, `roldan_q3_gap`, `energy_Dstar`, `roldan_q3_sharp`, `roldan_q3_gap_attained`, plus `*_graph` versions for mathlib's `SimpleGraph.circulantGraph` | three independent programs for the certificate; direct numerical diagonalization of the adjacency matrices for p = 5, 7 (all 2047 sets) |
 | Roldán, whole conjecture (two-variable certificate, all real p, q ≥ 3) | not formalized | two independent programs |
 | A389472 | `Oeis389472Mod3.integer_conjecture` | 1000 terms vs. the OEIS b-file |
@@ -72,8 +96,9 @@ defining equation. The energy is `∑ |eigenvalues|`, using
 
 All final theorems depend only on the axioms `propext`, `Classical.choice`
 and `Quot.sound`. There is no `sorry`, no custom axiom and no
-`native_decide`. The whole project was rebuilt from a clean directory; see
-`logs/`.
+`native_decide`. The whole project was rebuilt from a clean directory for
+this version; see `logs/clean-replay-v1.1.0-*.log` and
+`logs/lean-sources-sha256.txt`.
 
 ### Reproduce the Lean checks
 
@@ -85,7 +110,8 @@ and about 10 minutes.
 cd lean
 lake exe cache get                         # prebuilt mathlib, pinned in lake-manifest.json
 lake build                                 # builds everything imported by Research.lean
-lake env lean Research/ICGBridgeAudit.lean # prints the final statements, definitions and axioms
+lake env lean Research/ICGGeneralAudit.lean # Paper 1: prints the final statements, definitions and axioms
+lake env lean Research/ICGBridgeAudit.lean  # Roldán q = 3: the same
 ```
 
 Toolchain: Lean 4.33.1, mathlib commit `0df444a360eaa60ab8c11dca51a86af692955474`.
@@ -112,6 +138,7 @@ A. Perez Fontelles (astrafala/Conjectures, 31 August 2026).
 
 ## Layout
 
+- `papers/`: LaTeX sources and PDFs of the two papers.
 - `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, the statement audit and source hashes from the clean rebuild.
@@ -120,6 +147,14 @@ A. Perez Fontelles (astrafala/Conjectures, 31 August 2026).
 
 - The conjectures and the numerical evidence are due to P. D. Hanna (OEIS)
   and D. G. Roldán (arXiv:2604.09491).
+- Paper 1:
+  - the case `q ≥ 5` of the opposite-parity family is due to Jiang and Yang
+    (arXiv:2608.29523);
+  - for the fixed exponents (2,3), i.e. order `p²q³`, Roldán's conjecture
+    was treated earlier by Park and by Schreib (see below);
+  - we are not aware of any earlier treatment of `q = 3` for general
+    `r, s`.
+  This reports the coverage of our searches, not a guarantee of priority.
 - Roldán's conjecture, case q = 3 (the formalization here is of a known
   result):
   - S. Park, *Exact Energy Maximisation for Integral Circulant Graphs of
@@ -157,7 +192,7 @@ The author chose the research programme and directed the agents. The agents:
 - searched the literature and the OEIS;
 - found the proofs and the certificates;
 - wrote the programs and the Lean code;
-- drafted this README.
+- drafted the papers and this README.
 
 Each agent audited the other's work. AI systems are not authors. The author
 takes full responsibility for the content.
@@ -165,8 +200,10 @@ takes full responsibility for the content.
 ## License
 
 Code (`lean/`, `certificates/`) is licensed under the Apache License 2.0; see
-`LICENSE`. The OEIS b-files in `certificates/oeis-hanna/bfiles/` are from the
-OEIS and are licensed under CC BY-SA 4.0.
+`LICENSE`. The papers in `papers/` are licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The OEIS b-files in
+`certificates/oeis-hanna/bfiles/` are from the OEIS and are licensed under
+CC BY-SA 4.0.
 
 ## Citation
 

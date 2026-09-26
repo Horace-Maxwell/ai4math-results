@@ -15,8 +15,10 @@ We prove: for every integer power series `A` with `A(0) = 0`, `[x^1] A = 1` (the
 term `a(0) = 1`) and `A(A(x)) = x + 4x^3`, the coefficient `[x^n] A` is divisible by 3
 whenever `n` is not a power of 3.
 
-(The OEIS b-file shows `[x^729] A ≡ 0 (mod 3)`, so the implicit non-vanishing at `n = 3^k`
-fails at `k = 6`; that part is not formalized here.)
+We also prove (`hanna_a107099_counterexample`) that `3 ∣ [x^729] A`, where `729 = 3^6`
+(OEIS index 364, since `a(n) = [x^(2n+1)] A`). So the stronger reading of the comment,
+non-vanishing at every `n = 3^k`, is false; the statement as written (vanishing off the
+powers of 3) is `hanna_a107099`.
 
 Proof: modulo 3, `F∘F = x + x^3`.  Call a series *additive* if its coefficients vanish off
 the powers of 3.  Compositions of additive series are additive (Frobenius: `H^(3^j)` is

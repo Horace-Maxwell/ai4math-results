@@ -15,3 +15,5 @@ import Research.HannaA361047
 import Research.CirculantQ3
 import Research.ICGBridgeFinal
 import Research.ICGBridgeSharp
+import Research.ICGGeneralMain
+import Research.ICGGeneralSwap

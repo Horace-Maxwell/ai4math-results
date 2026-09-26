@@ -1,0 +1,386 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\ord}{\operatorname{ord}}
+\title{Proofs of eleven congruence conjectures of Hanna from the OEIS,\\
+and the resolution of three more}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Many entries of the On-Line Encyclopedia of Integer Sequences contributed by
+Paul D.~Hanna define a power series by a functional equation and conjecture a
+congruence for its coefficients. We prove eleven such conjectures:
+\begin{itemize}
+\item the modulo-three conjecture of A389472;
+\item the parity conjectures of A120566, A240998, A273958, A295762, A301933,
+ A338633, A338634 and A388734;
+\item the modulo-three conjectures of A274479 and A377100.
+\end{itemize}
+We also resolve three more:
+\begin{itemize}
+\item for A184894 and A107099 we prove the conjectured vanishing modulo~$3$
+ outside the exceptional indices. We also show that the stronger reading,
+ non-vanishing at every exceptional index, is false. It fails at the
+ OEIS index $365$ of A184894, and at the coefficient of $x^{729}$ (OEIS
+ index $364$) of A107099;
+\item for A361047 we prove the intended statement, which the entry states
+ with an index shift.
+\end{itemize}
+The proofs reduce the functional equations modulo a prime and use the
+Frobenius identity, formal derivatives, explicit solutions with an $x$-adic
+uniqueness argument, and Lucas's theorem. Every theorem is stated for every
+integer power series satisfying the defining equation, and every theorem is
+formally verified in Lean~4. The proofs were found with the assistance of AI
+coding agents; their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+Throughout, $A(x)=\sum_{n\ge0}a(n)x^n\in\Z[[x]]$, $A'$ is its formal
+derivative, and for a series $h$ with $h(0)=0$ we write $A(h)$ or $A\circ h$
+for the composition $\sum_n a(n)h^n$. The results are summarised in
+Table~\ref{tab:summary}; each conjecture is stated in the corresponding
+entry~\cite{oeis}. The theorems hold for every integer solution of the
+defining equation, together with the normalisation of the first terms fixed
+by the entry where the equation alone does not determine it. The equation and
+these initial terms determine the sequence by a triangular recursion with
+integer solutions. There, the new coefficient appears with coefficient $1$
+or~$2$. Where it appears with~$2$, the required divisibility holds: for A274479
+by Lemma~\ref{lem:frob} modulo~$2$, and for A107099 by writing $A=x+2B$. For
+the continued fractions, the tails exist as $x$-adic limits. Hence the
+theorems apply to the sequences in the OEIS. These existence arguments are
+not formalised; the Lean theorems hold for every integer solution.
+
+\begin{table}[ht]\centering\small
+\begin{tabular}{@{}lll@{}}\toprule
+Entry & Defining equation & Result\\\midrule
+A389472 & $A(x^2+x^3)=x^2(1+A)$ & $3\mid a(3n-1)$, $n>1$\\
+A240998 & $A^2=x+A(x+2x^2)$ & $a(n)$ odd $\iff n=2^k$ ($n\ge1$)\\
+A295762 & $A(x-2A(x^2))=x+A(x^2)$ & $a(n)$ odd $\iff n=2^k$ ($n\ge1$)\\
+A273958 & $xA+x^2A^2=C^2$, $C=x+C^2$ & $a(n)$ odd $\iff n=2\cdot4^k-1$\\
+A301933 & $A=x(1+4AA')/(1+AA')$ & $a(n)$ odd $\iff n=2^k$\\
+A338633 & $1=A-x/(A-2^3x/(A-3^3x/\cdots))$ & $a(n)$ odd $\iff n=2^k$ ($n\ge1$)\\
+A338634 & $1=A-x/(A-2^4x/(A-3^4x/\cdots))$ & $a(n)$ odd $\iff n=2^k$ ($n\ge1$)\\
+A388734 & $A=1+xA^2+x^2(1-x)A^3$ & all $a(n)$ odd\\
+A120566 & $A=A\circ A-x\,A\circ A\circ A$ & all $a(n)$ odd ($n\ge1$)\\
+A377100 & $A=A(x^3)/A(x^2)+A^2$ & $a(n)\equiv1\pmod3$ ($n\ge1$)\\
+A274479 & $A^2=A\bigl(x^2/(1-2x-4x^2)\bigr)$ & $a(n)\equiv1\pmod3$ ($n\ge1$)\\\midrule
+A361047 & $A(x-x^3A'^2)=x$ & $[x^m]A\equiv[m=3^k]\pmod3$\\
+A184894 & iterates of $x+x^3$ & vanishing proved; non-vanishing fails at index 365\\
+A107099 & $A\circ A=x+4x^3$ & vanishing proved; non-vanishing fails at $x^{729}$\\\bottomrule
+\end{tabular}
+\caption{Summary. Normalisations and precise statements are given in the
+theorems below.}\label{tab:summary}
+\end{table}
+
+\paragraph{Prior work.} The modulo-two conjecture of A389472 was proved
+earlier by Perez Fontelles~\cite{pf389472} and, independently, in the
+\texttt{trureturing} repository~\cite{tru389472}; both leave the modulo-three
+conjecture open. We found no earlier proof of any of the results in this
+paper in the OEIS entries and their histories, in the literature, or in the
+public repositories of proofs of OEIS conjectures that we searched (among
+them~\cite{pfrepo,trurepo}). This reports the coverage of our searches, not a
+guarantee of priority.
+
+\section{Tools}
+Reduction of the coefficients modulo a prime $p$ is a ring homomorphism
+$\Z[[x]]\to\F_p[[x]]$; it commutes with formal differentiation and with
+composition by series with zero constant term. We write $F=\overline A$ for
+the reduction and $f(n)$ for its coefficients.
+
+\begin{lemma}[Frobenius]\label{lem:frob}
+For $F\in\F_p[[x]]$ we have $F(x)^p=F(x^p)$.
+\end{lemma}
+\begin{proof}
+The map $G\mapsto G^p$ is a continuous ring endomorphism of $\F_p[[x]]$
+that fixes $\F_p$ and sends $x$ to $x^p$.
+\end{proof}
+
+\begin{lemma}\label{lem:fixed}
+Let $K$ be a field, let $h\in xK[[x]]$ have order at least two, and let
+$H\in K[[x]]$ satisfy $H(h)=H$. Then $H$ is constant.
+\end{lemma}
+\begin{proof}
+Put $B=H-H(0)$, so $B(h)=B$. If $B\ne0$, its order $d$ is positive, while
+$\ord B(h)\ge2d>d$.
+\end{proof}
+
+\begin{lemma}[dyadic recursion]\label{lem:dyadic}
+Let $F\in\F_2[[x]]$ satisfy $F(0)=0$ and $F=x+F^2$. Then for $n\ge1$,
+$f(n)=1$ if and only if $n$ is a power of~$2$.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:frob}, $F=x+F(x^2)$, so $f(n)=[n=1]+[2\mid n]f(n/2)$ for
+$n\ge1$. By strong induction, $f(1)=1$, $f(n)=0$ for odd $n\ge3$, and
+$f(2m)=f(m)$.
+\end{proof}
+
+We also use the following observation repeatedly: if $D\in\F_p[[x]]$,
+$x^{n_0}\mid D$, and $x^n\mid D$ implies $x^{n+1}\mid D$ for all $n\ge n_0$,
+then $D=0$.
+
+\section{The modulo-three conjecture of A389472}
+\begin{theorem}\label{thm:389472}
+If $A(x^2+x^3)=x^2(1+A(x))$, then $a(3n-1)\equiv0\pmod3$ for every $n>1$.
+\end{theorem}
+\begin{proof}
+Let $F=\overline A\in\F_3[[x]]$ and $h=x^2+x^3$. Then $F(h)=x^2(1+F)$ and
+$h'=2x+3x^2=-x$. Differentiating, $-xF'(h)=-x(1+F)+x^2F'$, so
+$F'(h)=1+F-xF'$ after cancelling $-x$. Differentiating again, the terms $F'$
+cancel and $-xF''(h)=-xF''$, so $F''(h)=F''$. By Lemma~\ref{lem:fixed},
+$F''$ is constant. For $n>1$ the coefficient of $x^{3n-3}$ in $F''$ is
+therefore zero, and it equals $(3n-1)(3n-2)f(3n-1)=2f(3n-1)$.
+\end{proof}
+
+\section{Parity via the dyadic recursion}
+\begin{theorem}\label{thm:parity}
+In each of the following cases, $a(n)$ is odd for $n\ge1$ if and only if $n$
+is a power of~$2$:
+\begin{enumerate}
+\item (A240998) $A^2=x+A(x+2x^2)$;
+\item (A295762) $a(0)=0$ and $A(x-2A(x^2))=x+A(x^2)$;
+\item (A301933) $a(0)=0$ and $A(1+AA')=x(1+4AA')$;
+\item (A338633, A338634) $A$ satisfies the continued fraction
+ $1=A-x/(A-2^ex/(A-3^ex/(A-\cdots)))$ with $e=3$, resp.\ $e=4$, in the
+ following sense: there are series $T_0,T_1,\dots$ with constant terms
+ $\pm1$ such that $(A-1)T_0=x$ and $(A-T_k)T_{k+1}=(k+2)^ex$ for all
+ $k\ge0$.
+\end{enumerate}
+Moreover (A273958), if $C=x+C^2$ and $xA+x^2A^2=C^2$, then $a(n)$ is odd if
+and only if $n=2\cdot4^k-1$ for some $k\ge0$.
+\end{theorem}
+\begin{proof}
+(1) Modulo~$2$, $(x+2x^2)^k\equiv x^k$, so $F^2=x+F$. Then $G=F-f(0)$
+satisfies $G(0)=0$ and $G^2=F^2-f(0)=x+G$, and Lemma~\ref{lem:dyadic}
+applies to $G$.
+(2) Modulo~$2$ the inner series reduces to $x$, so $F=x+F(x^2)=x+F^2$.
+(3) Modulo~$2$ the equation reads $F+F^2F'=x$. In characteristic~$2$,
+$F''=0$ because $n(n-1)$ is even. Differentiating gives $F'=1$, hence
+$F=x+F^2$.
+(4) Modulo~$2$, $(A-T_0)T_1=0$ with $T_1$ a unit, so $T_0=A$ and
+$(A-1)A=x$. Then $B=A-1$ satisfies $B(0)=0$ and $B+B^2=x$, so $B=x+B^2$, and
+$a(n)=b(n)$ for $n\ge1$.
+
+For A273958, constant terms give $C(0)^2=0$. By Lemma~\ref{lem:dyadic},
+$c=\overline C$ is the indicator of the powers of~$2$. Put $B=x\overline A$,
+so that $b(n+1)=f(n)$ and $B+B^2=c^2$, i.e.\ $B(x)+B(x^2)=c(x^2)$. Hence
+$b(n)=0$ for odd $n$ and $b(2m)=b(m)+c(m)$. The powers of~$2$ split into the
+disjoint sets $\{4^j\}$ and $\{2\cdot4^k\}$, and strong induction gives
+$b(n)=1$ exactly for $n=2\cdot4^k$.
+\end{proof}
+
+\section{Explicit solutions modulo a prime}
+In the next results we exhibit the reduction $F$ explicitly and show that it
+is the only solution by the $x$-adic observation of Section~2.
+
+\begin{theorem}[A388734]\label{thm:388734}
+If $A=1+xA^2+x^2(1-x)A^3$, then every $a(n)$ is odd.
+\end{theorem}
+\begin{proof}
+Modulo~$2$, $U=1/(1-x)$ is a solution: $1+(x+x^2)/(1-x)^2=1/(1-x)$ because
+$x+x^2\equiv x(1-x)$. Subtracting the equations for $F$ and $U$ gives
+$F-U=(F-U)\,x\,[F+U+x(1-x)(F^2+FU+U^2)]$, so $x^n\mid F-U$ implies
+$x^{n+1}\mid F-U$. Hence $F=U$.
+\end{proof}
+
+\begin{theorem}[A377100]\label{thm:377100}
+If $a(0)=0$, $a(1)=1$ and $A=A(x^3)/A(x^2)+A^2$, then $a(n)\equiv1\pmod3$
+for $n\ge1$.
+\end{theorem}
+\begin{proof}
+Modulo~$3$ the equation reads $F(x^2)(F-F^2)=F(x^3)$. The series $E=x/(1-x)$
+is a solution: both sides equal $x^3/(1-x)^3$, because $(1-x)^3=1-x^3$ and
+$1-2x\equiv1+x$. For $D=F-E$ one computes
+$E(x^2)\,D\,(1-F-E)=D(x^3)-D(x^2)(F-F^2)$. If $x^n\mid D$ with $n\ge2$, the
+right-hand side is divisible by $x^{2n+1}$; since $E(x^2)$ is $x^2$ times a
+unit and $1-F-E$ is a unit, $x^{2n-1}\mid D$. As $x^2\mid D$, we get $F=E$.
+\end{proof}
+
+\begin{theorem}[A274479]\label{thm:274479}
+If $a(0)=0$, $a(1)=1$ and $A^2=A\bigl(x^2/(1-2x-4x^2)\bigr)$, then
+$a(n)\equiv1\pmod3$ for $n\ge1$.
+\end{theorem}
+\begin{proof}
+Modulo~$3$, $h=x^2/(1+x-x^2)$ and $E=x/(1-x)$ satisfies
+$E(h)=x^2/(1+x-2x^2)=x^2/(1-x)^2=E^2$. For $D=F-E$ we have $D(F+E)=D(h)$. If
+$x^n\mid D$ then $x^{2n}\mid D(h)$, and $F+E=xW$ with $W(0)=2$ a unit, so
+$x^{2n-1}\mid D$. As $x^2\mid D$, we get $F=E$.
+\end{proof}
+
+\begin{theorem}[A120566]\label{thm:120566}
+If $a(0)=0$, $a(1)=1$ and $A=A\circ A-x\,A\circ A\circ A$, then $a(n)$ is odd
+for every $n\ge1$.
+\end{theorem}
+\begin{proof}
+Modulo~$2$, $E=x/(1-x)$ satisfies $E\circ E=x/(1-2x)=x$, so
+$E\circ E-xE\circ E\circ E=x-xE=E$. Let $D=F-E$ and suppose $x^n\mid D$ with
+$n\ge2$. Since composition preserves congruences modulo $x^n$ and
+$F=x+O(x^2)$, we have $D\circ F\equiv D$,
+$E\circ F-E\circ E=D/((1-F)(1-E))\equiv D$, and
+$x(F\circ F\circ F-E\circ E\circ E)\equiv0$, all modulo $x^{n+1}$. Since
+$F\circ F-E\circ E=D\circ F+(E\circ F-E\circ E)$, subtracting the equations
+for $F$ and $E$ gives $D\equiv2D\equiv0\pmod{x^{n+1}}$. As $x^2\mid D$, we get
+$F=E$.
+\end{proof}
+
+\begin{theorem}[A361047]\label{thm:361047}
+If $A(0)=0$ and $A(x-x^3A'^2)=x$, then $[x^m]A\equiv1\pmod3$ when $m$ is a
+power of~$3$, and $[x^m]A\equiv0\pmod3$ otherwise.
+\end{theorem}
+\begin{proof}
+Modulo~$3$ let $S=\sum_{k\ge0}x^{3^k}$. Then $S'=1$ and, by
+Lemma~\ref{lem:frob}, $S-S^3=S-S(x^3)=x$, so $g\circ S=x$ for $g=x-x^3$.
+Hence $S\circ g=x$, i.e.\ $S(x-x^3S'^2)=x$. For $D=F-S$ with $x^n\mid D$, the
+inner series $g_F=x-x^3F'^2$ and $g_S=x-x^3S'^2$ differ by $x^3D'(F'+S')$,
+which is divisible by $x^{n+2}$. Therefore
+$0=F(g_F)-S(g_S)=D(g_F)+\bigl(S(g_F)-S(g_S)\bigr)\equiv D\pmod{x^{n+1}}$.
+Hence $F=S$.
+\end{proof}
+
+\begin{remark}
+The entry A361047 writes $A=\sum_{n\ge1}a(n)x^{2n-1}$ and conjectures
+$a(n)\equiv1\pmod3$ exactly for $n=(3^k-1)/2$. With this indexing the
+statement is contradicted by the data ($a(2)=1$). It is correct for the
+index $i=n-1$, since $x^{2i+1}$ with $i=(3^k-1)/2$ is $x^{3^k}$.
+Theorem~\ref{thm:361047} is this intended statement.
+\end{remark}
+
+\section{Additive series modulo three}
+Call $G\in\F_3[[x]]$ \emph{additive} if $[x^m]G=0$ whenever $m$ is not a
+power of~$3$. By Lemma~\ref{lem:frob}, $G^{3^j}=G(x^{3^j})$, so the
+composition of two additive series is additive.
+
+\begin{theorem}[A184894]\label{thm:184894}
+Let $P_0=x$, $P_{m+1}=P_m+P_m^3$, and $a(m)=[x^{2m-1}]P_m$ for $m\ge1$.
+\begin{enumerate}
+\item If $2m-1$ is not a power of~$3$, then $3\mid a(m)$.
+\item If $2m-1=3^j$, then $a(m)\equiv\binom mj\pmod3$.
+\item $3\mid a(365)$, although $2\cdot365-1=3^6$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Modulo~$3$, $P_{m+1}=P_m+P_m(x^3)$, so the coefficients $c(m,k)=[x^k]P_m$
+satisfy $c(m+1,k)=c(m,k)+[3\mid k]\,c(m,k/3)$ with $c(0,k)=[k=1]$. By
+induction, $c(m,k)=0$ unless $k$ is a power of~$3$, and
+$c(m,3^j)=\binom mj$. Finally $\binom{365}{6}\equiv0\pmod3$ by Lucas's
+theorem, since $365=(111112)_3$ and $6=(20)_3$.
+\end{proof}
+
+The entry conjectures that $a(m)\equiv0\pmod3$ except at $m=(3^n+1)/2$.
+Part~(1) proves this statement as written, namely vanishing outside the
+exceptional indices. Part~(3) shows that the stronger reading, that $a(m)$ is
+nonzero modulo~$3$ at every exceptional index, is false; the first failure is
+at $n=6$. By Lucas's theorem, $a((3^n+1)/2)\not\equiv0$
+exactly when every base-$3$ digit of $n$ except the last is at most~$1$.
+
+\begin{theorem}[A107099]\label{thm:107099}
+Let $A(0)=0$, $[x^1]A=1$ and $A\circ A=x+4x^3$. Then $3\mid[x^n]A$ whenever
+$n$ is not a power of~$3$, and $3\mid[x^{729}]A$.
+\end{theorem}
+\begin{proof}
+Modulo~$3$ the equation reads $F\circ F=x+x^3$. Suppose $m$ is not a power
+of~$3$ and $f(j)=0$ for all non-powers $j<m$. Let $T$ be the truncation of
+$F$ below degree $m$; it is additive, so $[x^m]T\circ T=0$. Since
+$F=T+f(m)x^m+O(x^{m+1})$ and $f(1)=1$, we get $[x^m]F\circ F=2f(m)$, while
+$[x^m](x+x^3)=0$; hence $f(m)=0$. Thus $F=\sum_kc_kx^{3^k}$ is additive, and
+comparing coefficients of $x^{3^k}$ in $F\circ F=\sum_ic_iF(x^{3^i})$ gives
+$c_0=1$ and $2c_k+\sum_{0<i<k}c_ic_{k-i}=[k=1]$ for $k\ge1$. This yields
+$(c_1,\dots,c_6)=(2,1,1,2,1,0)$.
+\end{proof}
+
+The entry writes $A=\sum_{n\ge0}a(n)x^{2n+1}$ and conjectures that
+$[x^n]A\equiv0\pmod3$ except at $n=3^k$. Theorem~\ref{thm:107099} proves this
+statement as written. It also shows that the stronger reading, non-vanishing
+at every power of~$3$, is false: $[x^{729}]A=a(364)\equiv0\pmod3$. The OEIS
+b-file of A107099 already shows this zero.
+
+\section{Verification}
+\paragraph{Numerical checks.} For each entry, one of two checks was made.
+Either a prefix of the sequence was recomputed from the defining equation and
+compared with the b-file of the entry, or the b-file was substituted into the
+defining equation and checked modulo two primes. The lengths and moduli vary
+between entries and are recorded with the verification programs~\cite{repo}.
+All checks agree with the theorems. They are cross-checks only; the theorems
+rest on the proofs and on the Lean verification.
+
+\paragraph{Formal verification.} All theorems are verified in Lean~4
+(version 4.33.1, Mathlib~\cite{mathlib} commit \texttt{0df444a3}) for every
+integer power series satisfying the stated hypotheses. The Lean files are
+\texttt{Oeis389472Mod3} (Theorem~\ref{thm:389472}) and, for the other
+entries, \texttt{HannaA}\emph{nnnnnn} with the A-number of the entry (the file
+\texttt{HannaA338633} treats both continued fractions). A separate check confirms
+that \texttt{A.subst h} denotes the composition $A(h)$. For example,
+Theorem~\ref{thm:parity} for A273958 reads, in ASCII notation,
+\begin{verbatim}
+theorem hanna_a273958 (C A : PowerSeries Int) (hC : C = X + C ^ 2)
+    (hA : X * A + X ^ 2 * A ^ 2 = C ^ 2) (n : Nat) :
+    Odd (coeff n A) <-> exists k, n + 1 = 2 * 4 ^ k
+\end{verbatim}
+The project was rebuilt from a clean directory. For every theorem,
+\texttt{\#print axioms} reports only the standard axioms \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}; no native evaluation is
+used. The code and logs are available at~\cite{repo}.
+
+\section*{Tool and computational resource disclosure}
+This work was carried out between 25 and 26 September 2026 in a workflow
+directed by the author, using two AI coding agents: OpenAI Codex (desktop
+application; models \texttt{gpt-6-astra} and \texttt{gpt-6-sol}) and
+Anthropic Claude Code (model Claude Opus~5.5). The author chose the research
+programme and directed the agents. Codex found and formalised the proof of
+Theorem~\ref{thm:389472}. Claude Code agents searched the OEIS for candidate
+conjectures, found and formalised the other proofs, and drafted this text.
+Each proof was checked by a second agent, and the agents searched the
+literature for previous proofs.
+The author is not a professional mathematician and has read the paper.
+The correctness of the results rests on the Lean formalisation
+and on the numerical checks described in the previous section. In addition,
+each proof was checked by an AI agent other than the one that found it, and
+the formal statements were compared with the OEIS entries by a second
+agent. AI systems are not authors of this paper; the author takes full
+responsibility for its content.
+
+\begin{thebibliography}{9}
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proceedings of
+the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs}
+(CPP '20), ACM, 2020, \url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{oeis}
+OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences},
+\url{https://oeis.org}, entries A107099, A120566, A184894, A240998, A273958,
+A274479, A295762, A301933, A338633, A338634, A361047, A377100, A388734 and
+A389472 (P.~D.~Hanna), accessed 25--26 September 2026.
+\bibitem{pf389472}
+A.~Perez Fontelles, \emph{Every odd-indexed term of OEIS A389472 after the
+first is even}, 31 August 2026, paper 1042 in~\cite{pfrepo},
+\url{https://github.com/astrafala/Conjectures/blob/58cf4596af4541652fb191e177ef9b7771388d53/paper-sources/01001-01500/01042-PROOF.tex}.
+\bibitem{pfrepo}
+A.~Perez Fontelles, \emph{Proofs and disproofs of open OEIS conjectures},
+repository \texttt{astrafala/Conjectures},
+\url{https://github.com/astrafala/Conjectures}.
+\bibitem{repo}
+H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}.
+\bibitem{tru389472}
+The Omega Institute, \emph{Odd-index parity of the A389472 coefficients},
+\texttt{trureturing} repository, 2026,
+\url{https://github.com/the-omega-institute/trureturing/blob/b5e234ba04d648411140fe79d6ec71b249bc30bb/Blueprint/D5/S1/Recurrence/Parity/SquareCubeSubstitutionOddIndexParity.md}.
+\bibitem{trurepo}
+The Omega Institute, \texttt{trureturing} repository,
+\url{https://github.com/the-omega-institute/trureturing}.
+\end{thebibliography}
+\end{document}

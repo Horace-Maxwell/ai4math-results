@@ -1,0 +1,7 @@
+=== Part 2: random starts + exact 1-D piecewise-linear line search ===
+b=1  max ratio non-alt=0.800000 (exact 0.800000, per-term violations [])  alt=1.000000  time=0.2s  worst y=(1, 1) P=4.000 mu=1.000
+b=2  max ratio non-alt=0.920000 (exact 0.920000, per-term violations [])  alt=1.000000  time=0.6s  worst y=(1, 1, -1) P=11.306 mu=0.985
+b=3  max ratio non-alt=0.910891 (exact 0.910891, per-term violations [])  alt=1.000000  time=2.0s  worst y=(1, 1, -1, 1) P=4.000 mu=1.000
+b=4  max ratio non-alt=0.932468 (exact 0.932468, per-term violations [])  alt=1.000000  time=5.6s  worst y=(1, -1, 1, 1, -1) P=4.000 mu=0.600
+b=5  max ratio non-alt=0.942019 (exact 0.942019, per-term violations [])  alt=1.000000  time=16.0s  worst y=(1, 1, -1, 1, -1, 1) P=4.000 mu=1.000
+b=6  max ratio non-alt=0.950823 (exact 0.950823, per-term violations [])  alt=1.000000  time=44.2s  worst y=(1, -1, 1, -1, 1, 1, -1) P=6.000 mu=1.000

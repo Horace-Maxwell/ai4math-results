@@ -1,0 +1,8 @@
+ramanujan Kluyver vs exp-sum: checked m<60, t<70
+T_ram == T_gen for primes: 28 cases
+T_gen == explicit (2.3)-(2.4): 288 (x,k) pairs, k=1..12, 24 x-values > max degree+1 = 13, so polynomial identity
+structural identities: x in ['3', '4', '5', '7', '11', '5/2', '7/3', '21/4', '13/4', '101/20'], m=1..10
+Lemma 1: 4320 random rational vectors, x in xs+{2,3/2}, m=1..9
+Lemma 2: 21476 (x,m,y) triples, all sign vectors
+FAILURES: 0 []
+time 5.1s

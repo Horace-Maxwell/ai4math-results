@@ -1,0 +1,24 @@
+=== Part 1: full arrangement-vertex enumeration ===
+b=1  #(P,mu,y)=18  vertices/(y,P)~26  max ratio non-alt=0.800000  alt=1.000000  time=0.0s
+     exact recheck worst non-alt: P=4 mu=1 y=(1, 1) ratio=0.800000 per-term-violations=[]
+     exact recheck alt          : P=111/20 mu=3/5 y=(1, -1) ratio=1.000000 per-term-violations=[]
+     exact recheck of all 18 maximisers: violations=0
+b=2  #(P,mu,y)=36  vertices/(y,P)~168  max ratio non-alt=0.920000  alt=1.000000  time=0.0s
+     exact recheck worst non-alt: P=161/20 mu=4/5 y=(1, 1, -1) ratio=0.920000 per-term-violations=[]
+     exact recheck alt          : P=6 mu=3/5 y=(1, -1, 1) ratio=1.000000 per-term-violations=[]
+     exact recheck of all 36 maximisers: violations=0
+b=3  #(P,mu,y)=72  vertices/(y,P)~1066  max ratio non-alt=0.910891  alt=1.000000  time=0.0s
+     exact recheck worst non-alt: P=4 mu=1 y=(1, 1, -1, 1) ratio=0.910891 per-term-violations=[]
+     exact recheck alt          : P=4 mu=3/5 y=(1, -1, 1, -1) ratio=1.000000 per-term-violations=[]
+     exact recheck of all 72 maximisers: violations=0
+b=4  #(P,mu,y)=144  vertices/(y,P)~6644  max ratio non-alt=0.932468  alt=1.000000  time=0.3s
+     exact recheck worst non-alt: P=4 mu=3/5 y=(1, 1, -1, 1, -1) ratio=0.932468 per-term-violations=[]
+     exact recheck alt          : P=4 mu=3/5 y=(1, -1, 1, -1, 1) ratio=1.000000 per-term-violations=[]
+     exact recheck of all 144 maximisers: violations=0
+b=5  #(P,mu,y)=288  vertices/(y,P)~37693  max ratio non-alt=0.942019  alt=1.000000  time=2.3s
+     exact recheck worst non-alt: P=4 mu=1 y=(1, 1, -1, 1, -1, 1) ratio=0.942019 per-term-violations=[]
+     exact recheck alt          : P=4 mu=3/5 y=(1, -1, 1, -1, 1, -1) ratio=1.000000 per-term-violations=[]
+     exact recheck of all 288 maximisers: violations=0
+b=6  #(P,mu,y)=384  vertices/(y,P)~181865  max ratio non-alt=0.950823  alt=1.000000  time=13.1s
+     exact recheck worst non-alt: P=4 mu=4/5 y=(1, 1, -1, 1, -1, 1, -1) ratio=0.950823 per-term-violations=[]
+     exact recheck alt          : P=4 mu=3/5 y=(1, -1, 1, -1, 1, -1, 1) ratio=1.000000 per-term-violations=[]

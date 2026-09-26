@@ -1,0 +1,448 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\ICG}{\operatorname{ICG}}
+\newcommand{\E}{\mathcal E}
+\newcommand{\NA}{\operatorname{NA}}
+\title{The maximal energy of integral circulant graphs\\ of order $p^{2r}3^{2s+1}$}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Jiang and Yang determined the maximal energy of integral circulant graphs of
+order $n=p^{2r}q^{2s+1}$, where $p,q$ are distinct odd primes with $q\ge5$:
+the checkerboard divisor set $\{p^iq^j: i+j \text{ even}\}$ is the unique
+maximiser. They noted that their semidefinite method does not extend to
+$q=3$. We prove the remaining case: for every prime $p\ge5$ and all $r\ge1$,
+$s\ge0$, the checkerboard set is the unique energy maximiser for order
+$p^{2r}3^{2s+1}$, with the maximal energy given by the formula of Jiang and
+Yang. This settles the maximal-energy problem for opposite-parity exponents
+for all pairs of distinct odd primes. The key step is a sharp inequality for
+sign matrices under weighted Ramanujan transforms. We prove it with a path
+identity and an explicit potential function, and the same argument gives a
+semidefinite-free proof of the theorem of Jiang and Yang. We also state a
+conjecture, supported by exhaustive computation, for exponents of equal
+parity. The main theorem, the sign-matrix inequality and the energy formula
+for these graphs are formally verified in Lean~4. The proofs were found with the assistance of AI
+coding agents; their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+The energy of a finite graph is the sum of the absolute values of its
+adjacency eigenvalues~\cite{gutman}. For $n\ge2$ and a nonempty set
+$\mathcal D$ of proper divisors of $n$, the integral circulant graph
+$\ICG_n(\mathcal D)$ has vertex set $\mathbb Z/n\mathbb Z$, two distinct
+vertices $u,v$ being adjacent when $\gcd(u-v,n)\in\mathcal D$. These are the
+circulant graphs with integral spectrum~\cite{so}. The problem of maximising
+the energy of $\ICG_n(\mathcal D)$ over $\mathcal D$ for fixed $n$ has been
+solved for prime powers~\cite{sander2013} and studied for other orders; see
+the introduction of~\cite{jy} for a survey. Rold\'an~\cite{roldan} conjectured
+that for $n=p^2q^3$ the checkerboard set $\{1,p^2,pq,q^2,p^2q^2,pq^3\}$ is the
+unique maximiser. Jiang and Yang~\cite{jy} proved much more.
+
+\begin{theorem}[Jiang--Yang {\cite[Theorem~A]{jy}}]\label{thm:jy}
+Let $p,q$ be distinct odd primes with $q\ge5$, let $r\ge1$, $s\ge0$ and
+$n=p^{2r}q^{2s+1}$. Among all nonempty sets of proper divisors of $n$, the
+energy of $\ICG_n(\mathcal D)$ is uniquely maximised by
+\[
+ \mathcal D^*_{r,s}=\{p^iq^j:\ 0\le i\le 2r,\ 0\le j\le 2s+1,\ i+j\ \text{even}\},
+\]
+and the maximal energy is $\tfrac12\bigl[n+d_{2r}(p)\,d_{2s+1}(q)\bigr]$, where
+$d_k(x)=(2k+1)x^k+4\sum_{j=0}^{k-1}(-1)^{k-j}(j+1)x^j$.
+\end{theorem}
+
+They remark that the case $q=3$ is not covered, because their odd-exponent
+semidefinite argument fails at $x=3$~\cite[Remark~4.2]{jy}. Our main result
+removes this restriction.
+
+\begin{theorem}\label{thm:main}
+The conclusion of Theorem~\ref{thm:jy} holds for $q=3$: for every prime
+$p\ge5$ and all $r\ge1$, $s\ge0$, the set $\mathcal D^*_{r,s}$ is the unique
+energy maximiser among nonempty sets of proper divisors of $n=p^{2r}3^{2s+1}$,
+and the maximal energy is $\tfrac12\bigl[n+d_{2r}(p)\,d_{2s+1}(3)\bigr]$.
+\end{theorem}
+
+Together with Theorem~\ref{thm:jy} (which allows $p=3$ on the even side),
+Theorem~\ref{thm:main} determines the maximal energy and the unique maximiser
+for every order $p^{\mathrm{even}}q^{\mathrm{odd}}$ with $p,q$ distinct odd
+primes. The case $r=s=1$ was treated earlier. Park~\cite{park} proved
+Rold\'an's conjecture for all distinct odd primes. Schreib~\cite{schreib}
+proved the case $q=3$ and combined it with~\cite{jy} to obtain the conjecture.
+An arithmetic certificate for $n=27p^2$ was announced in~\cite{tru}. These
+works concern only the exponents $(2,3)$, and we are not aware of any earlier
+treatment of the case $q=3$ for general $r$ and $s$.
+
+Our proof replaces the semidefinite part of~\cite{jy} by
+Theorem~\ref{thm:sign} below, an inequality for sign matrices that holds for
+all exponents and parities and all real $p\ge5$, $q\ge3$. By symmetry it also
+yields Theorem~\ref{thm:jy} without semidefinite certificates
+(Remark~\ref{rem:swap}). In Section~\ref{sec:equal} we record a conjecture,
+supported by exhaustive computation, for exponents of equal parity.
+
+\section{Weighted Ramanujan transforms}
+We use the notation of~\cite{jy}. For real $x>1$, an integer $k\ge1$ and
+$0\le i,j\le k$, let $T_k(x)=(t_{ij})$ be the symmetric matrix with
+\[
+t_{ij}=\begin{cases}0,& i+j\le k-2,\\ -x^{k-1}(x-1),& i+j=k-1,\\
+x^{2k-i-j-2}(x-1)^2,& i+j\ge k,\end{cases}\qquad (i,j<k),
+\]
+$t_{ik}=t_{ki}=x^{k-i-1}(x-1)$ for $i<k$, and $t_{kk}=1$. When $x$ is prime,
+$t_{ij}=\varphi(x^{k-i})\,c_{x^{k-j}}(x^i)$, where $c_m(u)$ denotes
+Ramanujan's sum~\cite[(2.2)--(2.4)]{jy}. The row sums are
+$T_k(x)\mathbf 1=x^ke_k$~\cite[(2.5)]{jy}, where $e_k$ is the last standard
+basis vector. For a real matrix $Z$ let $\|Z\|_1$ be the sum of the absolute
+values of its entries.
+
+\begin{proposition}[{\cite[Proposition~2.2]{jy}}]\label{prop:model}
+Let $p\ne q$ be primes, $a,b\ge1$, $n=p^aq^b$, and let $X\in\{0,1\}^{(a+1)
+\times(b+1)}$ have $x_{ij}=1$ exactly when $p^iq^j\in\mathcal D$. Then
+$\E(\ICG_n(\mathcal D))=\|T_a(p)XT_b(q)^{\mathsf T}\|_1$.
+\end{proposition}
+
+Let $s_k=(1,-1,1,\dots,(-1)^k)^{\mathsf T}$ and define
+$d_k(x)=\|T_k(x)s_k\|_1$, and put $d_0(x)=1$. By Remark~\ref{rem:closed}
+below, $d_k(x)$ agrees with the closed form in Theorem~\ref{thm:jy} for all
+real $x>2$; see also~\cite[(3.6)]{jy}.
+
+\section{A path identity}
+For $w\in\mathbb R^{k+1}$ define $z_{k-1}=w_k$ and, for
+$j=k-1,k-2,\dots,0$,
+\begin{equation}\label{eq:path}
+z_{j-1}=\frac{z_j+(x-1)w_j}{x}.
+\end{equation}
+Thus $z_j$ is a convex combination of $w_{j+1},\dots,w_k$, and each $z_j$ is a
+linear function of $w$.
+
+\begin{lemma}\label{lem:path}
+For $w\in\mathbb R^{k+1}$ we have
+\[
+\|T_k(x)w\|_1=x^k\Bigl(|z_{-1}|+\sum_{j=0}^{k-1}|z_{j-1}-z_j|\Bigr).
+\]
+\end{lemma}
+\begin{proof}
+Unwinding~\eqref{eq:path} gives
+$z_j=x^{-(k-j-1)}\sum_{i>j}\varphi(x^{k-i})w_i$ with $\varphi(x^0)=1$ and
+$\varphi(x^e)=x^{e-1}(x-1)$. The last row of $T_k(x)$ is
+$(\varphi(x^{k-i}))_i$, so $(T_k(x)w)_k=x^kz_{-1}$. For $u<k$ put
+$j=k-1-u$. Row $u$ has entry $-x^{k-1}(x-1)$ in column $j$, entries
+$x^{j}(x-1)\varphi(x^{k-i})$ in columns $i>j$, and zeros elsewhere. Hence
+$(T_k(x)w)_u=x^{k-1}(x-1)(z_j-w_j)$, while
+$z_{j-1}-z_j=\frac{x-1}{x}(w_j-z_j)$.
+\end{proof}
+
+\section{The one-dimensional potential}
+For $x>2$ let $\mu_{-1}=1$, $\mu_j=(x-1-\mu_{j-1})/x$ for $j\ge0$, and
+$c_j=(x-1)(1+\mu_{j-1})/x$. By induction,
+$\mu_j\in\bigl[\frac{x-2}{x},1\bigr]$ for all $j$.
+
+\begin{lemma}\label{lem:potential}
+Let $x>2$, let $y\in\{\pm1\}^{k+1}$, and let $z_j$ be defined
+by~\eqref{eq:path} with $w=y$. Then $\operatorname{sgn} z_j=y_{j+1}$ and
+$\frac{x-2}{x}\le|z_j|\le1$ for $-1\le j\le k-1$, and
+\[
+\frac{\|T_k(x)y\|_1}{x^k}=\sum_{j=0}^{k-1}c_j+\mu_{k-1}
+ -\sum_{j\in\NA(y)}2\mu_j|z_j|,\qquad
+\NA(y)=\{0\le j\le k-1:\ y_j=y_{j+1}\}.
+\]
+Consequently $\|T_k(x)y\|_1\le d_k(x)$, with equality exactly when
+$y=\pm s_k$, and $d_k(x)=x^k(\sum_jc_j+\mu_{k-1})$. Moreover
+$(T_k(x)s_k)_k>0$.
+\end{lemma}
+\begin{proof}
+We have $z_{k-1}=y_k$, and since $x-1>1\ge|z_j|$, the sign of
+$z_{j-1}=(z_j+(x-1)y_j)/x$ is $y_j$ and
+$|z_{j-1}|=(x-1\pm|z_j|)/x\in[\frac{x-2}{x},1]$. Put
+$f_j=|z_{j-1}-z_j|+\mu_{j-1}|z_{j-1}|-\mu_j|z_j|$. If $y_j=-\operatorname{sgn}z_j$,
+then $|z_{j-1}-z_j|=\frac{x-1}{x}(1+|z_j|)$ and
+$|z_{j-1}|=\frac{x-1-|z_j|}{x}$; using $x\mu_j=x-1-\mu_{j-1}$ one finds
+$f_j=c_j$. If $y_j=\operatorname{sgn}z_j$, the same computation with
+$|z_{j-1}-z_j|=\frac{x-1}{x}(1-|z_j|)$ and $|z_{j-1}|=\frac{x-1+|z_j|}{x}$
+gives $f_j=c_j-2\mu_j|z_j|$. Summing, the terms $\mu_j|z_j|$ telescope, and
+Lemma~\ref{lem:path} gives the identity, since $\mu_{-1}=1$ and
+$|z_{k-1}|=1$. Every $j\in\NA(y)$ contributes a positive term
+$2\mu_j|z_j|$, and $\NA(y)=\emptyset$ exactly for $y=\pm s_k$. Finally
+$(T_k(x)s_k)_k=x^kz_{-1}$ and $\operatorname{sgn}z_{-1}=(s_k)_0=1$.
+\end{proof}
+
+\begin{remark}\label{rem:closed}
+Put $\delta_k(x)=x^k\mu_{k-1}$. Solving the recursion for $\mu$ gives
+$\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)$. Since the potential does not
+depend on $k$, Lemma~\ref{lem:potential} gives
+$d_{k+1}/x^{k+1}-d_k/x^k=c_k+\mu_k-\mu_{k-1}=2\mu_k$, that is,
+$d_{k+1}(x)=x\,d_k(x)+2\delta_{k+1}(x)$, with $d_0=1$. The closed form
+$(2k+1)x^k+4\sum_{j=0}^{k-1}(-1)^{k-j}(j+1)x^j$ satisfies the same recursion
+and initial value, so it equals $d_k(x)$ for all $k\ge0$.
+\end{remark}
+
+\section{A two-variable inequality}
+\begin{lemma}\label{lem:cell}
+Let $P\ge\mu$ and $0\le\mu\le1$, and put
+$h(A,B)=P|A-B|+\mu|B+PA|-(P-\mu)|B|-P(1+\mu)|A|$ for real $A,B$. Then
+$h(A,B)\le2\mu\max\{0,|B|-P|A|\}$.
+\end{lemma}
+\begin{proof}
+As $h(-A,-B)=h(A,B)$ we may assume $A\ge0$. If $0\le B\le A$ then
+$h=-2(P-\mu)B\le0$. If $B>A$ then $h=2(\mu B-PA)\le2\mu(B-PA)$ because
+$\mu\le1$. If $-PA\le B<0$ then $h=0$. If $B<-PA$ then $h=2\mu(|B|-PA)$.
+\end{proof}
+
+\begin{lemma}\label{lem:local}
+Let $q\ge3$, $b\ge1$, $N=T_b(q)$, $F(w)=\|Nw\|_1$ and $D=d_b(q)$. Let
+$P\ge4$ and $\frac35\le\mu\le1$. For all $y\in\{\pm1\}^{b+1}$ and
+$\zeta\in[-1,1]^{b+1}$,
+\[
+\Lambda(y,\zeta):=P\,F(y-\zeta)+\mu\,F(\zeta+Py)-(P-\mu)\,F(\zeta)
+\le P(1+\mu)\,D,
+\]
+with strict inequality unless $y=\pm s_b$.
+\end{lemma}
+\begin{proof}
+Let $\xi_j(w)$ be the path~\eqref{eq:path} with $x=q$, $k=b$, and put
+$\tau_{-1}(w)=\xi_{-1}(w)$, $\tau_j(w)=\xi_{j-1}(w)-\xi_j(w)$ for $0\le j<b$.
+These are linear, and $F(w)=q^b\sum_j|\tau_j(w)|$ by Lemma~\ref{lem:path}.
+With $A_j=\tau_j(y)$ and $B_j=\tau_j(\zeta)$,
+\[
+\Lambda/q^b=P(1+\mu)F(y)/q^b+\textstyle\sum_jh(A_j,B_j).
+\]
+By Lemma~\ref{lem:potential} (with $x=q$ and potential $\mu^q_j$), it
+suffices to show $\sum_jh(A_j,B_j)\le\sum_{j\in\NA(y)}2P(1+\mu)\mu^q_jx_j$,
+where $x_j=|\xi_j(y)|\in[\frac{q-2}{q},1]$, with strict inequality when
+$\NA(y)\ne\emptyset$. Since $\xi_j(\zeta)$ is a convex combination of entries
+of $\zeta$, we have $|B_{-1}|\le1$ and
+$|B_j|=\frac{q-1}{q}|\zeta_j-\xi_j(\zeta)|\le\frac{2(q-1)}{q}$. Also
+$|A_{-1}|\ge\frac{q-2}{q}$, and $|A_j|=\frac{q-1}{q}(1+x_j)$ for
+$j\notin\NA(y)$, $|A_j|=\frac{q-1}{q}(1-x_j)$ for $j\in\NA(y)$. We use
+Lemma~\ref{lem:cell}, noting $P\ge4>\mu$.
+\begin{itemize}
+\item $j=-1$: $P|A_{-1}|\ge\frac{4(q-2)}{q}\ge\frac43>|B_{-1}|$, so $h\le0$.
+\item $j\ge0$, $j\notin\NA(y)$: $P|A_j|\ge\frac{8(q-1)^2}{q^2}\ge
+ \frac{2(q-1)}{q}\ge|B_j|$, so $h\le0$.
+\item $j\in\NA(y)$: it suffices that $\mu|B_j|<P\beta(x_j)$, where
+ $\beta(t)=\mu\frac{q-1}{q}(1-t)+(1+\mu)\mu^q_jt$. As $\beta$ is affine it
+ suffices to check the endpoints. For $q=3$, $\beta(1)\ge\frac85\cdot\frac13$
+ and $\beta(\frac13)\ge\frac35\cdot\frac49+\frac85\cdot\frac19=\frac49$, so
+ $P\beta\ge\frac{16}{9}>\frac43\ge\mu|B_j|$. For general $q\ge3$ the same
+ comparison reduces to $P\beta(1)\ge\frac{32}{5}\cdot\frac{q-2}{q}>
+ \frac{2(q-1)}{q}$ and $\frac{22}5q^2-\frac{94}5q+\frac{104}5>0$.
+\end{itemize}
+Summing over $j$ proves the claim.
+\end{proof}
+
+\section{The sign-matrix inequality}
+\begin{theorem}\label{thm:sign}
+Let $p\ge5$ and $q\ge3$ be real, $a,b\ge1$, $M=T_a(p)$ and $N=T_b(q)$. For
+every $Y\in\{\pm1\}^{(a+1)\times(b+1)}$,
+\[
+\|MYN^{\mathsf T}\|_1\le d_a(p)\,d_b(q),
+\]
+with equality exactly when $Y=\pm s_as_b^{\mathsf T}$.
+\end{theorem}
+\begin{proof}
+Let $\bar y_0,\dots,\bar y_a$ be the rows of $Y$. Define $\zeta_{a-1}=\bar
+y_a$ and $\zeta_{k-1}=(\zeta_k+(p-1)\bar y_k)/p\in[-1,1]^{b+1}$. Column $v$ of
+$MYN^{\mathsf T}$ is $Mw^{(v)}$ with $w^{(v)}_i=(N\bar y_i)_v$, and by
+linearity the path of $w^{(v)}$ is $((N\zeta_k)_v)_k$. Applying
+Lemma~\ref{lem:path} with $x=p$ to every column and summing,
+\[
+\|MYN^{\mathsf T}\|_1=p^a\Bigl(F(\zeta_{-1})+\sum_{k=0}^{a-1}
+F(\zeta_{k-1}-\zeta_k)\Bigr),\qquad F(w)=\|Nw\|_1.
+\]
+Let $\mu_k$ be the potential of Lemma~\ref{lem:potential} for $x=p$ and put
+$f_k=F(\zeta_{k-1}-\zeta_k)+\mu_{k-1}F(\zeta_{k-1})-\mu_kF(\zeta_k)$.
+Telescoping gives
+$\|MYN^{\mathsf T}\|_1/p^a=\sum_kf_k+\mu_{a-1}F(\bar y_a)$. Since
+$\zeta_{k-1}-\zeta_k=\frac{p-1}{p}(\bar y_k-\zeta_k)$ and
+$p\mu_k=p-1-\mu_{k-1}$, we get $pf_k=\Lambda(\bar y_k,\zeta_k)$ with
+$P=p-1\ge4$ and $\mu=\mu_{k-1}\in[\frac{p-2}{p},1]\subseteq[\frac35,1]$.
+Lemma~\ref{lem:local} gives $f_k\le c_kd_b(q)$, and
+Lemma~\ref{lem:potential} gives $F(\bar y_a)\le d_b(q)$; both are strict
+unless the row involved is $\pm s_b$, and $\mu_{a-1}>0$. Hence
+$\|MYN^{\mathsf T}\|_1\le p^a(\sum_kc_k+\mu_{a-1})d_b(q)=d_a(p)d_b(q)$.
+If equality holds, every row of $Y$ is $\pm s_b$, so $Y=gs_b^{\mathsf T}$ with
+$g\in\{\pm1\}^{a+1}$ and $\|MYN^{\mathsf T}\|_1=\|Mg\|_1\,d_b(q)$; by
+Lemma~\ref{lem:potential} this equals $d_a(p)d_b(q)$ only for $g=\pm s_a$.
+\end{proof}
+
+\begin{remark}\label{rem:swap}
+Since $\|MYN^{\mathsf T}\|_1=\|NY^{\mathsf T}M^{\mathsf T}\|_1$, the roles of
+the two factors may be exchanged, so Theorem~\ref{thm:sign} holds whenever
+$\min(p,q)\ge3$ and $\max(p,q)\ge5$. In particular it contains the sign-matrix
+inequality~\cite[Lemma~4.1]{jy} used for Theorem~\ref{thm:jy}, and the
+deduction below then proves Theorem~\ref{thm:jy} as well. The semidefinite
+argument of~\cite{jy} does not extend to $x=3$~\cite[Remark~4.2]{jy}; the
+proof above instead uses the integrality of the signs on both factors.
+\end{remark}
+
+\section{Proof of Theorem~\ref{thm:main}}\label{sec:proofmain}
+Let $a=2r$, $b=2s+1$, $M=T_a(p)$, $N=T_b(3)$, let $X$ be the divisor matrix
+of $\mathcal D$ (so $x_{ab}=0$), and let $Y=2X-J$ with $J$ the all-ones
+matrix. By Proposition~\ref{prop:model} and $M\mathbf 1=p^ae_a$,
+$N\mathbf1=3^be_b$,
+\[
+2\E(\ICG_n(\mathcal D))=\|MJN^{\mathsf T}+MYN^{\mathsf T}\|_1
+=\|n\,e_ae_b^{\mathsf T}+MYN^{\mathsf T}\|_1\le n+d_a(p)\,d_b(3),
+\]
+by Theorem~\ref{thm:sign}. For the checkerboard set, $Y^*=s_as_b^{\mathsf T}$,
+$x^*_{00}=1$, and $x^*_{ab}=0$ because $a+b$ is odd, so $\mathcal D^*_{r,s}$
+is an admissible nonempty set. The $(a,b)$ entry of
+$MY^*N^{\mathsf T}=(Ms_a)(Ns_b)^{\mathsf T}$ is positive by
+Lemma~\ref{lem:potential}, so it does not cancel against $n$, and
+$2\E(\ICG_n(\mathcal D^*_{r,s}))=n+\|Ms_a\|_1\|Ns_b\|_1=n+d_a(p)\,d_b(3)$. If
+$\E(\ICG_n(\mathcal D))=\E(\ICG_n(\mathcal D^*_{r,s}))$, then
+$\|MYN^{\mathsf T}\|_1=d_a(p)d_b(3)$, so $Y=\pm s_as_b^{\mathsf T}$ by
+Theorem~\ref{thm:sign}; since $y_{ab}=-1=(s_as_b^{\mathsf T})_{ab}$, we get
+$Y=Y^*$ and $\mathcal D=\mathcal D^*_{r,s}$. \qed
+
+\section{Exponents of equal parity}\label{sec:equal}
+If $a+b$ is even, the sign matrix $s_as_b^{\mathsf T}$ has entry $+1$ at
+$(a,b)$ and violates the proper-divisor condition. The matrix
+$-s_as_b^{\mathsf T}$, which corresponds to the set $\{p^iq^j: i+j\text{
+odd}\}$, is admissible, and it attains the bound of Theorem~\ref{thm:sign}.
+However, the $(a,b)$ entry of $MYN^{\mathsf T}$ is then negative and cancels
+against $n$ in the argument of Section~\ref{sec:proofmain}. So the energy
+bound $\tfrac12[n+d_a(p)\,d_b(q)]$ is not attained, and the maximiser changes. Let
+$\delta_k$ be as in Remark~\ref{rem:closed}.
+
+\begin{conjecture}\label{conj:equal}
+Let $p,q$ be distinct odd primes, $a,b\ge1$ with $a+b$ even, and
+$n=p^aq^b$. The maximal energy of an integral circulant graph of order $n$ is
+\[
+\tfrac12\bigl[n+d_a(p)\,d_b(q)\bigr]-\delta_a(p)\,\delta_b(q),
+\]
+attained exactly by the sets $\{p^iq^j: i+j\text{ odd}\}$ and
+$\{p^iq^j: i+j\text{ even}\}\setminus\{n\}$.
+\end{conjecture}
+
+For $a=b=1$ the formula gives $4(p-1)(q-1)$. An exhaustive search over all
+divisor sets confirms the conjecture for ten ordered pairs of odd primes and
+each of the exponent pairs $(1,1)$, $(2,2)$, $(1,3)$, $(3,1)$, $(3,3)$,
+$(2,4)$, $(4,2)$, $(4,4)$, $(1,5)$ and $(3,5)$. We have not checked whether small cases
+are covered by the literature.
+
+\section{Verification}\label{sec:verif}
+The proofs above are complete; the following computations are independent
+cross-checks.
+\begin{itemize}
+\item An exhaustive search over all divisor sets, in exact integer
+ arithmetic, confirms Theorem~\ref{thm:main}, including the value of the
+ maximum, in the following cases:
+ \begin{itemize}
+ \item exponent pairs $(4,1)$, $(6,1)$, $(8,1)$, $(2,5)$, $(4,3)$, for the
+  primes $5\le p\le31$;
+ \item $(10,1)$, $(12,1)$, $(2,7)$, $(6,3)$, for $p\in\{5,7,11,13,17\}$;
+ \item $(14,1)$, $(4,5)$, $(2,9)$, for $p\in\{5,7,11\}$ (the largest case has
+  $2^{29}$ divisor sets).
+ \end{itemize}
+\item Theorem~\ref{thm:sign} was checked in exact arithmetic over all sign
+ matrices of every shape with $(a+1)(b+1)\le25$, for $(p,q)=(5,3)$, $(7,3)$
+ and $(5,4)$.
+\item Each lemma was tested separately in exact arithmetic: by adversarial
+ searches for small $b$, and by structured random tests of
+ Lemma~\ref{lem:local} up to $b=20$.
+\item Proposition~\ref{prop:model} was compared, in floating-point
+ arithmetic, with spectra of the actual circulant matrices. The fast Fourier
+ transform was used for all divisor sets of the orders $n=75$, $147$, $363$,
+ $675$, $1323$, $1875$ and $6075$. Dense diagonalisation was used for all
+ divisor sets when $n\le675$ and for samples of them when $n=1323$, $1875$ and
+ $6075$.
+\end{itemize}
+
+\paragraph{Formal verification.}
+Theorems~\ref{thm:main} and~\ref{thm:sign} are verified in Lean~4 (version
+4.33.1, Mathlib commit \texttt{0df444a3}). The development starts from the
+definition of the graph and of its energy:
+\begin{itemize}
+\item the adjacency matrix of $\ICG_n(\mathcal D)$ has entry~$1$ exactly when
+ $\gcd((j-i)\bmod n,n)\in\mathcal D$;
+\item the energy is the sum of the absolute values of its eigenvalues, as
+ given by Mathlib's spectral theorem.
+\end{itemize}
+It proves:
+\begin{itemize}
+\item Lemmas~\ref{lem:path}--\ref{lem:local} and Theorem~\ref{thm:sign} for
+ real $p\ge5$, $q\ge3$ and all $a,b\ge1$, together with the exchanged form of
+ Remark~\ref{rem:swap};
+\item Proposition~\ref{prop:model} for all distinct primes $p,q$ and all
+ exponents, from the eigenvalues of circulant matrices;
+\item the conclusion of Theorem~\ref{thm:main} and the value of the maximal
+ energy, with $d_k(x)$ defined as $\|T_k(x)s_k\|_1$;
+\item the conclusion of Theorem~\ref{thm:jy} for all pairs of distinct odd
+ primes, which includes Theorem~\ref{thm:main} and the case $q\ge5$.
+\end{itemize}
+The whole development was rebuilt from a clean directory. For every theorem,
+the command \texttt{\#print axioms} reports only \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}; no native evaluation is
+used. The code and logs are available at~\cite{repo}.
+
+\section*{Tool and computational resource disclosure}
+This work was carried out between 25 and 26 September 2026 in a workflow
+directed by the author, using the AI coding agents Anthropic Claude Code
+(model Claude Opus~5.5) and OpenAI Codex (desktop application; models
+\texttt{gpt-6-astra} and \texttt{gpt-6-sol}). The author chose the research
+programme and directed the agents.
+\begin{itemize}
+\item A Claude Code agent found the proof of Theorem~\ref{thm:sign} and of
+ Theorem~\ref{thm:main}, formulated Conjecture~\ref{conj:equal}, and wrote
+ the verification programs.
+\item Another Claude Code agent wrote the Lean formalisation.
+\item The proof was checked line by line by a second Claude Code agent and by
+ Codex, and the agents searched the literature.
+\end{itemize} Claude Code drafted this text. The programs and logs are
+available at~\cite{repo}.
+The author is not a professional mathematician and has read the paper.
+The correctness of the results rests on the Lean formalisation
+described in Section~\ref{sec:verif} and on the independent checks listed
+there. In addition, the arguments were checked by AI agents of two different
+model families, and the formal statements were reviewed by an agent that did
+not write them. AI systems are not authors of this paper; the author takes
+full responsibility for its content.
+
+\begin{thebibliography}{99}
+\bibitem{repo}
+H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}.
+\bibitem{gutman}
+I.~Gutman, The energy of a graph, \emph{Ber.\ Math.-Statist.\ Sekt.\
+Forsch.\ Graz} \textbf{103} (1978), 1--22.
+\bibitem{jy}
+J.~Jiang and C.~Yang, Energy maximisation for integral circulant graphs with
+opposite-parity exponents, arXiv:2608.29523v1, 30 August 2026.
+\bibitem{park}
+S.~Park, \emph{Exact energy maximisation for integral circulant graphs of
+order $p^2q^3$}, manuscript posted 21 August 2026,
+\url{https://github.com/coshaman/papers}.
+\bibitem{roldan}
+D.~G. Rold\'an, Graph energy maximisation for integral circulant graphs of
+order $n=p^2q^3$, arXiv:2604.09491v1, 10 April 2026.
+\bibitem{sander2013}
+J.~W. Sander and T.~Sander, The exact maximal energy of integral circulant
+graphs with prime power order, \emph{Contrib.\ Discrete Math.} \textbf{8}
+(2013), 19--40.
+\bibitem{schreib}
+J.~A. Schreib, \emph{The Roldan universality conjecture}, repository, 5
+September 2026,
+\url{https://github.com/jamesschreib/roldan-universality-conjecture}.
+\bibitem{so}
+W.~So, Integral circulant graphs, \emph{Discrete Math.} \textbf{306} (2006),
+153--158.
+\bibitem{tru}
+The Omega Institute, \emph{Rold\'an integral-circulant energy: exceptional
+$q=3$ case}, issue \#8338 of the \texttt{trureturing} repository, opened 16
+September 2026,
+\url{https://github.com/the-omega-institute/trureturing/issues/8338}.
+\end{thebibliography}
+\end{document}

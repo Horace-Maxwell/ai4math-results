@@ -1,0 +1,36 @@
+sign-matrix (a,b)=(3,4) p=5 q=3: max=235235 bound=235235 unique +-checker: True; second=228429
+sign-matrix (a,b)=(3,4) p=101 q=3: max=2729842115 bound=2729842115 unique +-checker: True; second=2647013997
+sign-matrix (a,b)=(4,3) p=5 q=3: max=392789 bound=392789 unique +-checker: True; second=381947
+sign-matrix (a,b)=(4,3) p=101 q=3: max=92938220501 bound=92938220501 unique +-checker: True; second=90285700475
+sign-matrix (a,b)=(5,3) p=5 q=3: max=2384711 bound=2384711 unique +-checker: True; second=2330553
+sign-matrix (a,b)=(5,3) p=101 q=3: max=11468172330599 bound=11468172330599 unique +-checker: True; second=11200267808025
+sign-matrix (a,b)=(3,5) p=5 q=3: max=853567 bound=853567 unique +-checker: True; second=833481
+sign-matrix (a,b)=(3,5) p=101 q=3: max=9905427103 bound=9905427103 unique +-checker: True; second=9660983145
+sign-matrix (a,b)=(6,3) p=5 q=3: max=14027789 bound=14027789 unique +-checker: True; second=13756947
+sign-matrix (a,b)=(6,3) p=101 q=3: max=1368508023450701 bound=1368508023450701 unique +-checker: True; second=1341449666670675
+sign-matrix (a,b)=(2,7) p=5 q=3: max=1508461 bound=1508461 unique +-checker: True; second=1471299
+sign-matrix (a,b)=(2,7) p=101 q=3: max=850856749 bound=850856749 unique +-checker: True; second=828994563
+sign-matrix (a,b)=(7,2) p=5 q=3: max=19965275 bound=19965275 unique +-checker: True; second=19444445
+sign-matrix (a,b)=(7,2) p=101 q=3: max=39468266037772475 bound=39468266037772475 unique +-checker: True; second=38417152947471485
+sign-matrix (a,b)=(5,4) p=5 q=3: max=9090235 bound=9090235 unique +-checker: True; second=8919429
+sign-matrix (a,b)=(5,4) p=101 q=3: max=43715310369115 bound=43715310369115 unique +-checker: True; second=42870380720997
+sign-matrix (a,b)=(2,4) p=5 q=3: max=34265 bound=34265 unique +-checker: True
+sign-matrix (a,b)=(2,4) p=7 q=3: max=74305 bound=74305 unique +-checker: True
+sign-matrix (a,b)=(4,2) p=5 q=3: max=97225 bound=97225 unique +-checker: True
+sign-matrix (a,b)=(4,2) p=7 q=3: max=416425 bound=416425 unique +-checker: True
+sign-matrix (a,b)=(3,3) p=5 q=3: max=61711 bound=61711 unique +-checker: True
+sign-matrix (a,b)=(3,3) p=7 q=3: max=188365 bound=188365 unique +-checker: True
+sign-matrix (a,b)=(4,4) p=5 q=3: max=1497265 bound=1497265 unique +-checker: True
+sign-matrix (a,b)=(4,4) p=7 q=3: max=6412945 bound=6412945 unique +-checker: True
+sign-matrix (a,b)=(6,2) p=5 q=3: max=3472225 bound=3472225 unique +-checker: True
+sign-matrix (a,b)=(6,2) p=7 q=3: max=29228425 bound=29228425 unique +-checker: True
+sign-matrix (a,b)=(2,6) p=5 q=3: max=437969 bound=437969 unique +-checker: True
+sign-matrix (a,b)=(2,6) p=7 q=3: max=949753 bound=949753 unique +-checker: True
+sign-matrix (a,b)=(1,7) p=5 q=3: max=186439 bound=186439 unique +-checker: True
+sign-matrix (a,b)=(1,7) p=7 q=3: max=288133 bound=288133 unique +-checker: True
+sign-matrix (a,b)=(7,1) p=5 q=3: max=3993055 bound=3993055 unique +-checker: True
+sign-matrix (a,b)=(7,1) p=7 q=3: max=47096365 bound=47096365 unique +-checker: True
+sign-matrix (a,b)=(8,2) p=5 q=3: max=112847225 bound=112847225 unique +-checker: True
+sign-matrix (a,b)=(8,2) p=7 q=3: max=1864552825 bound=1864552825 unique +-checker: True
+sign-matrix (a,b)=(3,6) p=5 q=3: max=3006731 bound=3006731 unique +-checker: True
+sign-matrix (a,b)=(3,6) p=7 q=3: max=9177665 bound=9177665 unique +-checker: True

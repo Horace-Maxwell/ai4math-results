@@ -1,0 +1,6 @@
+n=75 (p=5,a=2,b=1): 31 sets, max |FFT energy - exact model| = 1.42e-14, argmax is checkerboard: True, Emax=260, 0.0s
+n=147 (p=7,a=2,b=1): 31 sets, max |FFT energy - exact model| = 5.68e-14, argmax is checkerboard: True, Emax=556, 0.0s
+n=675 (p=5,a=2,b=3): 2047 sets, max |FFT energy - exact model| = 4.55e-13, argmax is checkerboard: True, Emax=4832, 0.1s
+n=1875 (p=5,a=4,b=1): 511 sets, max |FFT energy - exact model| = 2.73e-12, argmax is checkerboard: True, Emax=10660, 0.0s
+n=363 (p=11,a=2,b=1): 31 sets, max |FFT energy - exact model| = 2.27e-13, argmax is checkerboard: True, Emax=1484, 0.0s
+n=6075 (p=5,a=2,b=5): 131071 sets, max |FFT energy - exact model| = 7.28e-12, argmax is checkerboard: True, Emax=65204, 12.6s

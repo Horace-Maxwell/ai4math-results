@@ -1,0 +1,6 @@
+n=675=5^2*3^3 #sets=2047 Emax=4832 formula=4832 #max=1 argmax==D*:True 2nd=4424 fft_bad=0 dense_bad=0/2047 OK 36.5s
+n=363=11^2*3^1 #sets=31 Emax=1484 formula=1484 #max=1 argmax==D*:True 2nd=1300 fft_bad=0 dense_bad=0/31 OK 0.1s
+n=1323=7^2*3^3 #sets=2047 Emax=10408 formula=10408 #max=1 argmax==D*:True 2nd=9520 fft_bad=0 dense_bad=0/40 OK 4.5s
+n=6075=5^2*3^5 #sets=131071 Emax=65204 formula=65204 #max=1 argmax==D*:True 2nd=61532 fft_bad=0 dense_bad=0/2 OK 32.0s
+n=1875=5^4*3^1 #sets=511 Emax=10660 formula=10660 #max=1 argmax==D*:True 2nd=9992 fft_bad=0 dense_bad=0/25 OK 6.5s
+ALL OK: True total 79.7s

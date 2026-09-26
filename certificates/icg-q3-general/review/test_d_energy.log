@@ -1,0 +1,9 @@
+n=75=5^2*3^1: #sets=31  Emax=260  formula=260  #maximisers=1  argmax=[1, 15, 25]  D*=[1, 15, 25]
+     2nd best E=232 (set [1, 15])  model mismatches=0  FFT mismatches=0  dense-eig mismatches=0 (checked 31 sets)  OK  0.0s
+n=147=7^2*3^1: #sets=31  Emax=556  formula=556  #maximisers=1  argmax=[1, 21, 49]  D*=[1, 21, 49]
+     2nd best E=492 (set [1, 21])  model mismatches=0  FFT mismatches=0  dense-eig mismatches=0 (checked 31 sets)  OK  0.0s
+n=675=5^2*3^3: #sets=2047  Emax=4832  formula=4832  #maximisers=1  argmax=[1, 9, 15, 25, 135, 225]  D*=[1, 9, 15, 25, 135, 225]
+     2nd best E=4424 (set [1, 9, 15, 25, 75, 135, 225])  model mismatches=0  FFT mismatches=0  dense-eig mismatches=0 (checked 4 sets)  OK  0.2s
+n=1875=5^4*3^1: #sets=511  Emax=10660  formula=10660  #maximisers=1  argmax=[1, 15, 25, 375, 625]  D*=[1, 15, 25, 375, 625]
+     2nd best E=9992 (set [1, 15, 25, 375])  model mismatches=0  FFT mismatches=0  dense-eig mismatches=0 (checked 4 sets)  OK  1.4s
+ALL OK: True  total 1.6s
