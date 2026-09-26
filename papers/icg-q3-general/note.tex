@@ -4,7 +4,9 @@
 \usepackage[T1]{fontenc}
 \usepackage{xurl}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={The maximal energy of integral circulant graphs of order p\textasciicircum(2r) 3\textasciicircum(2s+1)},
+ pdfauthor={Horace Dong}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -37,8 +39,10 @@ identity and an explicit potential function, and the same argument gives a
 semidefinite-free proof of the theorem of Jiang and Yang. We also state a
 conjecture, supported by exhaustive computation, for exponents of equal
 parity. The main theorem, the sign-matrix inequality and the energy formula
-for these graphs are formally verified in Lean~4. The proofs were found with the assistance of AI
-coding agents; their role is described at the end of the paper.
+for these graphs are formally verified in Lean~4; only the closed-form
+evaluation of the maximal energy is not formalised. The proofs were found by
+AI coding agents working under the author's direction; their role is
+described at the end of the paper.
 \end{abstract}
 
 \section{Introduction}
@@ -79,9 +83,10 @@ and the maximal energy is $\tfrac12\bigl[n+d_{2r}(p)\,d_{2s+1}(3)\bigr]$.
 Together with Theorem~\ref{thm:jy} (which allows $p=3$ on the even side),
 Theorem~\ref{thm:main} determines the maximal energy and the unique maximiser
 for every order $p^{\mathrm{even}}q^{\mathrm{odd}}$ with $p,q$ distinct odd
-primes. The case $r=s=1$ was treated earlier. Park~\cite{park} proved
+primes. The case $r=s=1$ was treated earlier. Park~\cite{park} claims a proof of
 Rold\'an's conjecture for all distinct odd primes. Schreib~\cite{schreib}
-proved the case $q=3$ and combined it with~\cite{jy} to obtain the conjecture.
+gives a written proof of the case $q=3$ and combines it with~\cite{jy} to
+obtain the conjecture.
 An arithmetic certificate for $n=27p^2$ was announced in~\cite{tru}. These
 works concern only the exponents $(2,3)$, and we are not aware of any earlier
 treatment of the case $q=3$ for general $r$ and $s$.
@@ -362,7 +367,8 @@ cross-checks.
 \end{itemize}
 
 \paragraph{Formal verification.}
-Theorems~\ref{thm:main} and~\ref{thm:sign} are verified in Lean~4 (version
+Theorem~\ref{thm:sign}, and Theorem~\ref{thm:main} with $d_k(x)$ taken as
+$\|T_k(x)s_k\|_1$, are verified in Lean~4 (version
 4.33.1, Mathlib commit \texttt{0df444a3}). The development starts from the
 definition of the graph and of its energy:
 \begin{itemize}
@@ -373,7 +379,8 @@ definition of the graph and of its energy:
 \end{itemize}
 It proves:
 \begin{itemize}
-\item Lemmas~\ref{lem:path}--\ref{lem:local} and Theorem~\ref{thm:sign} for
+\item Lemmas~\ref{lem:path}, \ref{lem:potential}, \ref{lem:cell}
+ and~\ref{lem:local}, and Theorem~\ref{thm:sign}, for
  real $p\ge5$, $q\ge3$ and all $a,b\ge1$, together with the exchanged form of
  Remark~\ref{rem:swap};
 \item Proposition~\ref{prop:model} for all distinct primes $p,q$ and all
@@ -383,6 +390,8 @@ It proves:
 \item the conclusion of Theorem~\ref{thm:jy} for all pairs of distinct odd
  primes, which includes Theorem~\ref{thm:main} and the case $q\ge5$.
 \end{itemize}
+The closed form of $d_k(x)$ in Remark~\ref{rem:closed} is proved above but
+not formalised.
 The whole development was rebuilt from a clean directory. For every theorem,
 the command \texttt{\#print axioms} reports only \texttt{propext},
 \texttt{Classical.choice} and \texttt{Quot.sound}; no native evaluation is

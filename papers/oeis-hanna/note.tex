@@ -5,7 +5,9 @@
 \usepackage{booktabs}
 \usepackage{xurl}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={Proofs of eleven congruence conjectures of Hanna from the OEIS, and the resolution of three more},
+ pdfauthor={Horace Dong}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{remark}
@@ -14,8 +16,8 @@
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
 \newcommand{\ord}{\operatorname{ord}}
-\title{Proofs of eleven congruence conjectures of Hanna from the OEIS,\\
-and the resolution of three more}
+\title{Proofs of eleven congruence conjectures of Hanna\\
+from the OEIS, and the resolution of three more}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
@@ -46,8 +48,9 @@ The proofs reduce the functional equations modulo a prime and use the
 Frobenius identity, formal derivatives, explicit solutions with an $x$-adic
 uniqueness argument, and Lucas's theorem. Every theorem is stated for every
 integer power series satisfying the defining equation, and every theorem is
-formally verified in Lean~4. The proofs were found with the assistance of AI
-coding agents; their role is described at the end of the paper.
+formally verified in Lean~4. The proofs were found by AI coding agents
+working under the author's direction; their role is described at the end of
+the paper.
 \end{abstract}
 
 \section{Introduction}

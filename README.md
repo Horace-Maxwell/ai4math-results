@@ -1,4 +1,4 @@
-# The maximal energy of integral circulant graphs of order p^(2r)·3^(2s+1), and fourteen OEIS congruence conjectures — with Lean 4 proofs
+# The maximal energy of integral circulant graphs of order p^(2r)·3^(2s+1), and Hanna's OEIS congruence conjectures (eleven proved, three more resolved), with Lean 4 proofs
 
 This repository contains two papers, their Lean 4 formalizations and
 computational certificates.
@@ -68,7 +68,7 @@ entry's offset.
 | A338634 | `1 = A − x/(A − 2⁴x/(A − 3⁴x/(A − …)))` | for `n > 0`, `a(n)` is odd iff `n` is a power of 2 |
 | A120566 | `A(x) = A(A(x)) − x·A(A(A(x)))` | every `a(n)`, `n ≥ 1`, is odd |
 
-**Three further OEIS conjectures, settled in part:**
+**Three further OEIS conjectures, resolved:**
 
 | Entry | Conjecture | What is proved |
 | --- | --- | --- |
@@ -80,15 +80,16 @@ entry's offset.
 
 | Claim | Lean 4 declarations | Independent computation |
 | --- | --- | --- |
-| Paper 1: unique maximiser for `p^(2r)·3^(2s+1)`, `p ≥ 5`; value of the maximum; the sign-matrix inequality (all real `p ≥ 5`, `q ≥ 3`, all exponents); energy formula for all `p^a q^b`; Jiang–Yang Theorem A for all distinct odd primes | `ICGGeneral.jiang_yang_q3`, `jiang_yang_q3_value`, `thm5_le`, `thm5_eq`, `energy_icgAdj_pq`, `jiang_yang_thmA`, `checkerboard_unique_max_odd` | exhaustive exact searches over all divisor sets (shapes and primes listed in the paper); sign-matrix enumeration for `(a+1)(b+1) ≤ 25`; floating-point spectra of the actual graphs (`certificates/icg-q3-general/`) |
+| Paper 1: unique maximiser for `p^(2r)·3^(2s+1)`, `p ≥ 5`; value of the maximum, expressed through the norms `d_k(x) = ‖T_k(x) s_k‖₁` (their closed form is proved in the paper but not formalized); the sign-matrix inequality (all real `p ≥ 5`, `q ≥ 3`, all exponents); energy formula for all `p^a q^b`; Jiang–Yang Theorem A for all distinct odd primes | `ICGGeneral.jiang_yang_q3`, `jiang_yang_q3_value`, `energy_DstarPQ`, `thm5_le`, `thm5_eq`, `energy_icgAdj_pq`, `jiang_yang_thmA`, `checkerboard_unique_max_odd` | exhaustive exact searches over all divisor sets (shapes and primes listed in the paper); sign-matrix enumeration for `(a+1)(b+1) ≤ 25`; floating-point spectra of the actual graphs (`certificates/icg-q3-general/`) |
 | Roldán q=3 for the genuine graph energy: unique maximizer, gap, value of `E(D*)`, sharpness | `ICGBridge.roldan_q3`, `roldan_q3_gap`, `energy_Dstar`, `roldan_q3_sharp`, `roldan_q3_gap_attained`, plus `*_graph` versions for mathlib's `SimpleGraph.circulantGraph` | three independent programs for the certificate; direct numerical diagonalization of the adjacency matrices for p = 5, 7 (all 2047 sets) |
 | Roldán, whole conjecture (two-variable certificate, all real p, q ≥ 3) | not formalized | two independent programs |
 | A389472 | `Oeis389472Mod3.integer_conjecture` | 1000 terms vs. the OEIS b-file |
 | A240998 | `HannaA240998.hanna_a240998` | exact recomputation vs. the b-file (311 terms) |
 | A295762 | `HannaA295762.hanna_a295762` | b-file (1030 terms), modulo 2^64 and two primes; 260 terms exactly |
 | A273958 | `HannaA273958.hanna_a273958` | exact recomputation vs. the b-file (520 terms) |
-| A301933, A377100, A274479, A388734, A338633, A338634, A120566 | `HannaA301933.hanna_a301933`, `HannaA377100.hanna_a377100`, `HannaA274479.hanna_a274479`, `HannaA388734.hanna_a388734`, `HannaA338633.hanna_a338633`, `HannaA338633.hanna_a338634`, `HannaA120566.hanna_a120566` | recomputation vs. the full b-files (`certificates/oeis-hanna/batch2/`) |
-| A184894, A107099, A361047 (partial) | `HannaA184894.zero_part`, `value_at_pow`, `counterexample`; `HannaA107099.hanna_a107099`, `hanna_a107099_counterexample`; `HannaA361047.hanna_a361047_pow`, `hanna_a361047_nonpow` | recomputation vs. the b-files |
+| A301933, A377100, A274479, A388734 | `HannaA301933.hanna_a301933`, `HannaA377100.hanna_a377100`, `HannaA274479.hanna_a274479`, `HannaA388734.hanna_a388734` | exact recomputation of the full b-files (`certificates/oeis-hanna/batch2/`) |
+| A338633, A338634, A120566 | `HannaA338633.hanna_a338633`, `HannaA338633.hanna_a338634`, `HannaA120566.hanna_a120566` | b-files substituted into the defining equation modulo two primes, and the first 60 (A338633, A338634) or 150 (A120566) terms recomputed independently (`batch2/`) |
+| A184894, A107099, A361047 (resolved) | `HannaA184894.zero_part`, `value_at_pow`, `counterexample`; `HannaA107099.hanna_a107099`, `hanna_a107099_counterexample`; `HannaA361047.hanna_a361047_pow`, `hanna_a361047_nonpow` | A184894: exact recomputation vs. the b-file; A107099: b-file substituted into the defining equation modulo two primes; A361047: the same, plus the first 60 terms recomputed independently (`batch2/`) |
 
 Each OEIS theorem is stated for every integer power series satisfying the
 defining equation. The energy is `∑ |eigenvalues|`, using
@@ -125,7 +126,7 @@ cd certificates/roldan-q3
 python3 circulant_certificate.py      # (i)   integer polynomial arithmetic, all 2048 sets, two variables
 python3 independent_q3_certificate.py # (ii)  Möbius formula, gcd enumeration, exact interpolation (q = 3)
 python3 bivariate_sympy_check.py      # (iii) SymPy; cross-checks (i), the closed forms and the Lean table
-python3 direct_graph_check.py 5 7     # diagnostic: eigenvalues of the actual graphs (n = 675, 1323)
+python3 direct_graph_check.py 5 && python3 direct_graph_check.py 7   # diagnostic: eigenvalues of the actual graphs (n = 675, 1323)
 cd ../oeis-hanna
 python3 verify_389472.py && python3 verify_parity3.py && python3 verify_a295762_mod.py
 cd batch2 && for s in verify_*.py; do python3 $s; done
@@ -136,12 +137,34 @@ warnings are expected. `batch2/verify_batch2.py` also rechecks A091713 and
 A196523. Those two are not claimed here: they were proved earlier by
 A. Perez Fontelles (astrafala/Conjectures, 31 August 2026).
 
+
+### Reproduce the computations of Paper 1
+
+Requires a C compiler and Python 3 with SymPy and NumPy.
+
+```sh
+cd certificates/icg-q3-general
+cc -O2 -o icg_search icg_search.c              # exhaustive search over all divisor sets
+cc -O2 -DSIGNMODE=1 -o icg_sign icg_search.c   # enumeration of sign matrices
+python3 run_search.py 4 1 3 5,7,11             # example: n = p^4·3 for p = 5, 7, 11 (compare logs/search_small.log)
+```
+
+The logs of all runs cited in the paper are in `certificates/icg-q3-general/logs/`.
+The Lean comments and the scripts in `certificates/icg-q3-general/review/`
+use the numbering of the first draft. Draft Lemmas 1–4 and Theorem 5 are
+Lemmas 4, 5, 7, 8 and Theorem 9 of Paper 1. The "Lemma 3 as stated"
+counterexample printed by `review/test_e_misc.py` concerns a superseded
+hypothesis (`P > 0`); Lemma 7 of the paper assumes `P ≥ μ`.
+
 ## Layout
 
 - `papers/`: LaTeX sources and PDFs of the two papers.
 - `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
-- `logs/`: build logs, the statement audit and source hashes from the clean rebuild.
+- `logs/`: build logs, statement audits and source hashes from the clean
+  rebuilds. `roldan-q3-lean-build-receipt.json` predates the formalization of
+  the spectral bridge, so it still lists Lemma 2.1 as not formalized. The
+  `ICGBridge*` files now formalize it (`ICGBridge.energy_icgAdj_eq_exactEnergy`).
 
 ## Prior work
 
@@ -204,7 +227,7 @@ systems are not authors. The author takes full responsibility for the content.
 Code (`lean/`, `certificates/`) is licensed under the Apache License 2.0; see
 `LICENSE`. The papers in `papers/` are licensed under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The OEIS b-files in
-`certificates/oeis-hanna/bfiles/` are from the OEIS and are licensed under
+`certificates/oeis-hanna/bfiles/` and `certificates/oeis-hanna/b389472.txt` are from the OEIS and are licensed under
 CC BY-SA 4.0.
 
 ## Citation

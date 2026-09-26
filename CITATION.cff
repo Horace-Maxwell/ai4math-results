@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "The maximal energy of integral circulant graphs of order p^(2r)·3^(2s+1), and fourteen OEIS congruence conjectures, with Lean 4 proofs"
+title: "The maximal energy of integral circulant graphs of order p^(2r)·3^(2s+1), and Hanna's OEIS congruence conjectures (eleven proved, three more resolved), with Lean 4 proofs"
 type: software
 authors:
   - family-names: "Dong"
