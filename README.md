@@ -102,7 +102,9 @@ All final theorems depend only on the axioms `propext`, `Classical.choice`
 and `Quot.sound`. There is no `sorry`, no custom axiom and no
 `native_decide`. The whole project was rebuilt from a clean directory for
 this version; see `logs/clean-replay-v1.1.0-*.log` and
-`logs/lean-sources-sha256.txt`.
+`logs/lean-sources-sha256.txt`. Every module was also replayed through the
+Lean kernel with `lake env leanchecker <Module>`, and all 26 modules passed
+(`logs/clean-replay-v1.1.0-leanchecker.log`).
 
 ### Reproduce the Lean checks
 
