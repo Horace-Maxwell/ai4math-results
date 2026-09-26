@@ -1,0 +1,28 @@
+d= 3: i0(S)=13 True  i1(S)=28 True  i1(K)=24 True  diff=4 (4d-8=4)
+d= 4: i0(S)=25 True  i1(S)=55 True  i1(K)=47 True  diff=8 (4d-8=8)
+d= 5: i0(S)=49 True  i1(S)=100 True  i1(K)=88 True  diff=12 (4d-8=12)
+d= 6: i0(S)=97 True  i1(S)=179 True  i1(K)=163 True  diff=16 (4d-8=16)
+d= 7: i0(S)=193 True  i1(S)=324 True  i1(K)=304 True  diff=20 (4d-8=20)
+d= 8: i0(S)=385 True  i1(S)=599 True  i1(K)=575 True  diff=24 (4d-8=24)
+d= 9: i0(S)=769 True  i1(S)=1132 True  i1(K)=1104 True  diff=28 (4d-8=28)
+d=10: i0(S)=1537 True  i1(S)=2179 True  i1(K)=2147 True  diff=32 (4d-8=32)
+d=11: i0(S)=3073 True  i1(S)=4252 True  i1(K)=4216 True  diff=36 (4d-8=36)
+d=12: i0(S)=6145 True  i1(S)=8375 True  i1(K)=8335 True  diff=40 (4d-8=40)
+
+d= 3: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2, 3, 4]
+d= 4: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2, 3]
+d= 5: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2, 3]
+d= 6: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2]
+d= 7: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2]
+d= 8: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2]
+d= 9: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2]
+d=10: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2]
+d=11: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2]
+d=12: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2]
+d=13: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1, 2]
+d=14: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1]
+d=15: S_d + (m-1)K_dd beats m K_dd at t=1 exactly for m in [1]
+  brute d=3 m=2: diff=42 predicted=42
+  brute d=3 m=3: diff=360 predicted=360
+  brute d=4 m=2: diff=152 predicted=152
+  brute d=5 m=2: diff=406 predicted=406

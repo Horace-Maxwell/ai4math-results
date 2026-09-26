@@ -1,0 +1,42 @@
+n= 8 d=2 t*=  3 mKdd             T=  0 Q= 2 i_t*=209 formula=OK  minus mKdd = 0
+n= 8 d=2 t*=  3 C_n              T=  0 Q= 0 i_t*=211 formula=OK  minus mKdd = 2
+n= 8 d=2 t*=  3 C3+C(n-3)        T=  1 Q= 0 i_t*=213 formula=OK  minus mKdd = 4
+n= 8 d=2 t*=  3 random           T=  1 Q= 0 i_t*=213 formula=OK  minus mKdd = 4
+n= 8 d=2 t*=  3 random           T=  0 Q= 0 i_t*=211 formula=OK  minus mKdd = 2
+n= 8 d=2 t*=  3 random           T=  0 Q= 0 i_t*=211 formula=OK  minus mKdd = 2
+n= 8 d=2 t*=  3 random           T=  0 Q= 2 i_t*=209 formula=OK  minus mKdd = 0
+n= 8 d=2 t*=  3 random           T=  1 Q= 0 i_t*=213 formula=OK  minus mKdd = 4
+n= 8 d=2 t*=  3 random           T=  1 Q= 0 i_t*=213 formula=OK  minus mKdd = 4
+n=12 d=2 t*=  7 mKdd             T=  0 Q= 3 i_t*=4002 formula=OK  minus mKdd = 0
+n=12 d=2 t*=  7 C_n              T=  0 Q= 0 i_t*=4005 formula=OK  minus mKdd = 3
+n=12 d=2 t*=  7 C3+C(n-3)        T=  1 Q= 0 i_t*=4007 formula=OK  minus mKdd = 5
+n=12 d=2 t*=  7 random           T=  0 Q= 0 i_t*=4005 formula=OK  minus mKdd = 3
+n=12 d=2 t*=  7 random           T=  1 Q= 0 i_t*=4007 formula=OK  minus mKdd = 5
+n=12 d=2 t*=  7 random           T=  0 Q= 0 i_t*=4005 formula=OK  minus mKdd = 3
+n=12 d=2 t*=  7 random           T=  0 Q= 0 i_t*=4005 formula=OK  minus mKdd = 3
+n=12 d=2 t*=  7 random           T=  0 Q= 1 i_t*=4004 formula=OK  minus mKdd = 2
+n=12 d=2 t*=  7 random           T=  0 Q= 0 i_t*=4005 formula=OK  minus mKdd = 3
+n=12 d=2 t*=  7 K_{d+1} union    T=  4 Q= 0 i_t*=4013 formula=OK  minus mKdd = 11
+n= 6 d=3 t*=  1 mKdd             T=  0 Q= 0 i_t*=24 formula=OK  minus mKdd = 0
+n= 6 d=3 t*=  1 prism+(m-1)Kdd   T=  2 Q= 0 i_t*=28 formula=OK  minus mKdd = 4
+n= 6 d=3 t*=  1 random           T=  2 Q= 0 i_t*=28 formula=OK  minus mKdd = 4
+n= 6 d=3 t*=  1 random           T=  2 Q= 0 i_t*=28 formula=OK  minus mKdd = 4
+n= 6 d=3 t*=  1 random           T=  2 Q= 0 i_t*=28 formula=OK  minus mKdd = 4
+n= 6 d=3 t*=  1 random           T=  0 Q= 0 i_t*=24 formula=OK  minus mKdd = 0
+n= 6 d=3 t*=  1 random           T=  0 Q= 0 i_t*=24 formula=OK  minus mKdd = 0
+n= 6 d=3 t*=  1 random           T=  2 Q= 0 i_t*=28 formula=OK  minus mKdd = 4
+n=12 d=3 t*= 10 mKdd             T=  0 Q= 0 i_t*=3981 formula=OK  minus mKdd = 0
+n=12 d=3 t*= 10 prism+(m-1)Kdd   T=  2 Q= 0 i_t*=3985 formula=OK  minus mKdd = 4
+n=12 d=3 t*= 10 random           T=  1 Q= 0 i_t*=3983 formula=OK  minus mKdd = 2
+n=12 d=3 t*= 10 random           T=  3 Q= 0 i_t*=3987 formula=OK  minus mKdd = 6
+n=12 d=3 t*= 10 random           T=  1 Q= 0 i_t*=3983 formula=OK  minus mKdd = 2
+n=12 d=3 t*= 10 random           T=  1 Q= 0 i_t*=3983 formula=OK  minus mKdd = 2
+n=12 d=3 t*= 10 random           T=  4 Q= 1 i_t*=3988 formula=OK  minus mKdd = 7
+n=12 d=3 t*= 10 random           T=  0 Q= 0 i_t*=3981 formula=OK  minus mKdd = 0
+n=12 d=3 t*= 10 K_{d+1} union    T= 12 Q= 3 i_t*=4002 formula=OK  minus mKdd = 21
+n=18 d=3 t*= 19 mKdd             T=  0 Q= 0 i_t*=261918 formula=OK  minus mKdd = 0
+n=18 d=3 t*= 19 prism+(m-1)Kdd   T=  2 Q= 0 i_t*=261922 formula=OK  minus mKdd = 4
+n=18 d=3 t*= 19 random           T=  3 Q= 0 i_t*=261924 formula=OK  minus mKdd = 6
+n=18 d=3 t*= 19 random           T=  1 Q= 0 i_t*=261920 formula=OK  minus mKdd = 2
+n=18 d=3 t*= 19 random           T=  1 Q= 0 i_t*=261920 formula=OK  minus mKdd = 2
+n=18 d=3 t*= 19 random           T=  2 Q= 0 i_t*=261922 formula=OK  minus mKdd = 4

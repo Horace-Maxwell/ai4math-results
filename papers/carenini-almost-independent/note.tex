@@ -1,0 +1,1128 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{placeins}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={A negative answer to a question of Carenini on almost independent sets in regular graphs},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{thmA}{Theorem A}
+\newtheorem*{thmB}{Theorem B}
+\newtheorem*{thmBp}{Theorem B$'$}
+\newtheorem*{propC}{Proposition C}
+\newtheorem*{thmD}{Theorem D}
+\newtheorem*{question}{Question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Prb}{\mathbb P}
+\newcommand{\Ex}{\mathbb E}
+\newcommand{\Nle}[1]{N_{\le #1}}
+\newcommand{\cart}{\mathbin{\square}}
+\title{A negative answer to a question of Carenini\\ on almost independent sets in regular graphs}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a $d$-regular graph $G$ on $n$ vertices and $\gamma\ge0$, let $i_\gamma(G)$
+be the number of vertex sets that span at most $\gamma dn$ edges. Carenini
+asked whether, when $2d\mid n$, the disjoint union of $n/(2d)$ copies of
+$K_{d,d}$ maximises $i_\gamma$ among $d$-regular graphs on $n$ vertices for
+every $\gamma\ge0$. For $\gamma=0$ this is the theorem of Kahn and Zhao on
+independent sets. We show that the answer is no. The smallest counterexample
+(smallest $n$, and smallest $\gamma$ for that $n$) is
+$(n,d,\gamma)=(6,3,1/18)$: the triangular prism has $28$ vertex sets
+spanning at most one edge, and $K_{3,3}$ has $24$. More generally, for every
+pair $(n,d)$ with $2d\mid n$, except the trivial cases $d=1$ and
+$(n,d)=(4,2)$ in which only one $d$-regular graph exists, the answer is
+negative for some $\gamma<1/2$; for $d\ge3$ the union of copies of $K_{d,d}$
+is then even a minimiser, and every $d$-regular graph containing a triangle
+beats it. For small $\gamma$ we give two families: a switched $K_{d,d}$ beats
+$K_{d,d}$ on $2d$ vertices for every $d\ge3$, and a connected bipartite
+$d$-regular graph beats two copies of $K_{d,d}$ on $4d$ vertices for every
+$d\ge2$, so the answer is no even among bipartite graphs. For every fixed
+$\gamma\in(1/8,1/2)$ and every $d\ge2$, a bipartite competitor wins for all
+sufficiently large $n$. On the other hand, the union of copies of $K_{d,d}$ is
+optimal at the exponential scale for every $\gamma$; the upper bound here is
+Carenini's biclique reduction, which rests on a theorem of Sah, Sawhney,
+Stoner and Zhao. The exact question remains open for fixed
+$\gamma\in(0,1/8]$ as $n\to\infty$, and our counterexamples are consistent
+with the weaker statement in which the union of copies of $K_{d,d}$ is
+optimal up to a factor $1+o(1)$. The counterexample at $(6,3,1/18)$, the
+switched family for every $d\ge3$ and three further instances are formally
+verified in Lean~4. The counterexamples and proofs were found by AI coding
+agents working under the author's direction; their role is described at the
+end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+\paragraph{Background.}
+For a graph $G$ and a set $A\subseteq V(G)$ let $e_G(A)$ be the number of
+edges of $G$ with both ends in $A$. Following Carenini~\cite{car}, for a
+$d$-regular graph $G$ on $n$ vertices and a real number $\gamma\ge0$ put
+\[
+ i_\gamma(G)=\bigl|\{A\subseteq V(G):\ e_G(A)\le\gamma dn\}\bigr|,
+\]
+so that $i_0(G)$ is the number of independent sets of~$G$. Alon~\cite{alon}
+proved that a $d$-regular graph on $n$ vertices has at most
+$2^{(1/2+o(1))n}$ independent sets, where $o(1)\to0$ as $d\to\infty$.
+Kahn~\cite{kahn} proved the sharp bound $i_0(G)\le(2^{d+1}-1)^{n/(2d)}$ for
+bipartite $d$-regular graphs, and Zhao~\cite{zhao} extended it to all
+$d$-regular graphs. Since $K_{d,d}$ has $2^{d+1}-1$ independent sets, this
+says that when $2d\mid n$, the disjoint union $mK_{d,d}$ of $m=n/(2d)$ copies
+of $K_{d,d}$ has the largest number of independent sets among $d$-regular
+graphs on $n$ vertices.
+
+In work on tolerant testing of independent sets, Seth~\cite{seth} bounded the
+number of sets $J\subseteq V(G)$ whose edge density $e_G(J)/\binom{|J|}2$ is
+at most $d/(kn)$, and asked for the correct order of this bound and whether
+the disjoint union of $n/(2d)$ copies of $K_{d,d}$ is extremal.
+Carenini~\cite{car} proved a robust form of the Kahn--Zhao theorem for the
+count $i_\gamma$: there is an absolute constant $C$ such that
+\[
+ i_\gamma(G)\le2^{n/2}\exp\bigl\{C\gamma\log(e/\gamma)\,n+Cn/d\bigr\}
+\]
+for every $d$-regular graph $G$ on $n$ vertices with $d\ge2$ and every
+$0<\gamma\le1/2$ \cite[Theorem~1.1]{car}, and both error terms are
+needed~\cite[Proposition~1.2]{car}. As Carenini notes, Seth's density
+condition implies $e_G(J)\le dn/(2k)$, so this answers the quantitative part
+of Seth's question. The key step~\cite[Proposition~2.1]{car} is a biclique
+reduction based on a theorem of Sah, Sawhney, Stoner and
+Zhao~\cite[Corollary~1.15]{sssz} (Corollary~1.14 in version~2 of the arXiv
+preprint, the numbering used in~\cite{car}): for $0<q\le1$, the sum of
+$q^{e_G(A)}$ over
+all $A\subseteq V(G)$ is at most the $n/(2d)$-th power of the sum of
+$q^{e(A)}$ over all subsets $A$ of $V(K_{d,d})$. Carenini then asked for the
+exact extremal statement, which we restate in our notation.
+
+\begin{question}[{\cite[Question~1.3]{car}}]
+Suppose that $2d\mid n$, and let $m=n/(2d)$. Is it true that for every
+$\gamma\ge0$, every $d$-regular graph $G$ on $n$ vertices satisfies
+$i_\gamma(G)\le i_\gamma(mK_{d,d})$?
+\end{question}
+
+For $\gamma=0$ this is the theorem of Kahn and Zhao. For $\gamma\ge1/2$ it
+holds trivially, since every set spans at most $dn/2\le\gamma dn$ edges and so
+$i_\gamma(G)=2^n$. We call a pair $(n,d)$ \emph{admissible} if $d\ge1$ and
+$2d\mid n$. Seth's count differs from $i_\gamma$, because its density
+condition depends on $|J|$; our results concern Question~1.3, and we make no
+claim about Seth's count.
+
+\paragraph{Results.}
+For an integer $t$ let $\Nle t(G)$ be the number of sets $A\subseteq V(G)$
+with $e_G(A)\le t$. Since $e_G(A)$ is an integer,
+$i_\gamma(G)=\Nle{\lfloor\gamma dn\rfloor}(G)$. Hence an inequality
+$\Nle t(G)>\Nle t(mK_{d,d})$ at an integer $t\ge0$ gives a negative answer to
+Question~1.3 for every $\gamma\in[t/(dn),(t+1)/(dn))$. We write $T(G)$ for
+the number of triangles of $G$, $C_k$ for the cycle of length $k$, and
+$G\cart H$ for the Cartesian product.
+
+\begin{thmA}
+Let $d\ge2$, let $n$ be a multiple of $2d$ with $(n,d)\ne(4,2)$, let
+$m=n/(2d)$, and put
+\[
+ t^*=\frac{dn}2-3d+1,\qquad
+ \gamma^*=\frac{t^*}{dn}=\frac12-\frac{3d-1}{dn}.
+\]
+Then $t^*\ge1$, and the following hold.
+\begin{itemize}
+\item[(a)] If $d\ge3$, every $d$-regular graph $G$ on $n$ vertices satisfies
+ $i_{\gamma^*}(G)-i_{\gamma^*}(mK_{d,d})\ge\frac75T(G)$, and
+ $i_{\gamma^*}(G)=i_{\gamma^*}(mK_{d,d})$ if and only if $G$ is
+ triangle-free. So $mK_{d,d}$ minimises $i_{\gamma^*}$ among $d$-regular graphs
+ on $n$ vertices, and every such graph that contains a triangle has a larger
+ value.
+\item[(b)] If $d=2$, every $2$-regular graph $G\ne mC_4$ on $n$ vertices
+ satisfies $i_{\gamma^*}(G)>i_{\gamma^*}(mC_4)$.
+\end{itemize}
+\end{thmA}
+
+\begin{table}[t]\centering\small
+\begin{tabular}{@{}lcccccccccc@{}}\toprule
+$t$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\\midrule
+$\Nle t(K_{3,3})$ & 15 & 24 & 42 & 48 & 57 & 57 & 63 & 63 & 63 & 64\\
+$\Nle t(K_3\cart K_2)$ & 13 & 28 & 40 & 48 & 57 & 57 & 63 & 63 & 63 & 64\\
+\bottomrule
+\end{tabular}
+\caption{The number of vertex sets spanning at most $t$ edges, for the two
+cubic graphs on six vertices. Here $i_\gamma=\Nle t$ with
+$t=\lfloor18\gamma\rfloor$.}\label{tab:six}
+\end{table}
+
+The excluded cases are trivial: for $d=1$ the only $1$-regular graph on $n$
+vertices is $\frac n2K_2=\frac n2K_{1,1}$, and $C_4=K_{2,2}$ is the only
+$2$-regular graph on four vertices. For every other admissible pair there is a
+competitor. If $d\ge3$, the graph $(K_d\cart K_2)\cup(m-1)K_{d,d}$ is
+$d$-regular and contains a triangle; if $d=2$ and $n\ge8$, the cycle $C_n$
+differs from $mC_4$. So \emph{the answer to Question~1.3 is negative for every
+admissible pair $(n,d)$ except the trivial ones.}
+
+For $(n,d)=(6,3)$ we get $t^*=1$ and $\gamma^*=1/18$. The only cubic graphs on
+six vertices are $K_{3,3}$ and the triangular prism $K_3\cart K_2$, and
+Table~\ref{tab:six} lists their counts. The prism has $28$ sets spanning at
+most one edge, and $K_{3,3}$ has $24$. So $K_{3,3}$ fails to be a maximiser
+exactly for $\gamma\in[1/18,1/9)$. Since $n=6$ is the smallest order at which
+Question~1.3 is not trivial, $(n,d,\gamma)=(6,3,1/18)$ is the smallest
+counterexample, in the sense that it has the smallest $n$ and, for that $n$,
+the smallest $\gamma$.
+
+For small $\gamma$ we give two explicit families.
+
+\begin{thmB}
+Let $d\ge3$, let $K_{d,d}$ have sides $X=\{x_1,\dots,x_d\}$ and
+$Y=\{y_1,\dots,y_d\}$, and let $S_d$ be obtained from $K_{d,d}$ by deleting
+the edges $x_1y_1$ and $x_2y_2$ and adding the edges $x_1x_2$ and $y_1y_2$.
+Then $S_d$ is $d$-regular, every set spanning at most one edge of $K_{d,d}$
+spans at most one edge of $S_d$, and
+\[
+ \Nle1(S_d)=\Nle1(K_{d,d})+4d-8=2^{d+1}+d^2+4d-9.
+\]
+Consequently, for $n=2d$ and every $\gamma\in[1/(2d^2),1/d^2)$, $K_{d,d}$
+does not maximise $i_\gamma$ among $d$-regular graphs on $n$ vertices.
+\end{thmB}
+
+The graph $S_3$ is the prism. Corollary~\ref{cor:copies} gives an explicit
+criterion for $S_d\cup(m-1)K_{d,d}$ to beat $mK_{d,d}$.
+
+\begin{thmBp}
+Let $d\ge2$. Take two disjoint copies $(X_1,Y_1)$ and $(X_2,Y_2)$ of
+$K_{d,d}$, choose $u_k\in X_k$ and $w_k\in Y_k$ for $k=1,2$, delete the edges
+$u_1w_1$ and $u_2w_2$, and add the edges $u_1w_2$ and $u_2w_1$. The resulting
+graph $H_d$ is $d$-regular, bipartite and connected, and
+\[
+ \Nle1(H_d)-\Nle1(2K_{d,d})=2(d-1)(2^d+d-3)>0,\qquad
+ i_0(H_d)-i_0(2K_{d,d})=-2(2^{d-1}-1)^2.
+\]
+Consequently, for $n=4d$ and every $\gamma\in[1/(4d^2),1/(2d^2))$,
+$2K_{d,d}$ does not maximise $i_\gamma$, even among bipartite $d$-regular
+graphs on $n$ vertices.
+\end{thmBp}
+
+So the answer is negative even within the bipartite class for which Kahn
+proved the case $\gamma=0$. The graph $H_2$ is the cycle $C_8$.
+
+At the exponential scale, on the other hand, the answer is positive for every
+$\gamma$. For $q>0$ put
+\[
+ P_d(q)=\sum_{a,b=0}^d\binom da\binom db q^{ab},
+\]
+which is the sum of $q^{e(A)}$ over all subsets $A$ of $V(K_{d,d})$.
+
+\begin{propC}
+Let $d\ge2$ and $\gamma\ge0$, and put
+\[
+ \rho(d,\gamma)=\inf_{0<q\le1}\Bigl(\frac1{2d}\log P_d(q)-\gamma d\log q\Bigr).
+\]
+Every $d$-regular graph $G$ on $n$ vertices satisfies
+$\frac1n\log i_\gamma(G)\le\rho(d,\gamma)$, and
+$\frac1n\log i_\gamma(mK_{d,d})\to\rho(d,\gamma)$ as $n\to\infty$ through
+multiples of $2d$, where $m=n/(2d)$.
+\end{propC}
+
+The upper bound is Carenini's Proposition~2.1 with the fugacity equal to~$1$,
+optimised over~$q$. Proposition~C shows that the maximum of $i_\gamma$ over
+$d$-regular graphs on $n$ vertices is $i_\gamma(mK_{d,d})\,e^{o(n)}$ for fixed
+$d$ and $\gamma$; all the failures in this paper are subexponential. They are
+not confined to small $n$, however.
+
+\begin{thmD}
+Let $d\ge2$ and $1/8<\gamma<1/2$. For $n$ divisible by $2d$ write
+$n/(2d)=2k+r$ with $r\in\{0,1\}$, and let $G_n=kH_d\cup rK_{d,d}$, a bipartite
+$d$-regular graph on $n$ vertices. Then $i_\gamma(G_n)>i_\gamma(mK_{d,d})$,
+where $m=n/(2d)$, for all sufficiently large $n$ divisible by $2d$.
+\end{thmD}
+
+The proof compares the upper tails of the two counts with Cramér's theorem in
+its qualitative form, so it gives no explicit threshold $n_0$ beyond which the
+inequality holds.
+
+\paragraph{Scope.}
+Our counterexamples are exact-count effects. In Theorems~B and~B$'$ the
+threshold is a single edge, $\lfloor\gamma dn\rfloor=1$. In Theorem~A,
+$\gamma^*$ exceeds $1/8$ unless $(n,d)=(6,3)$, and $\gamma^*\to1/2$ as
+$n\to\infty$. In Theorem~D, $\gamma>1/8$ is fixed; both counts are then
+$(1-o(1))2^n$, and their relative difference tends to~$0$
+(Remark~\ref{rem:size}). The value $1/8$ is where the mean crosses the
+threshold: a uniformly random subset of a $d$-regular graph on $n$ vertices
+spans $dn/8$ edges on average. Question~1.3 remains open for fixed
+$\gamma\in(0,1/8]$ as $n\to\infty$. All our counterexamples with
+$\gamma\le1/8$ have $\gamma d<1$. In particular, we know no counterexample
+with $\gamma\le1/8$ and $\gamma d\ge2$, the range of small $\gamma$ in which
+Carenini's Proposition~1.2 shows that the term $\gamma\log(e/\gamma)\,n$ of
+her Theorem~1.1 is needed. Our counterexamples also do not refute the weaker
+statement $i_\gamma(G)\le(1+o(1))\,i_\gamma(mK_{d,d})$.
+Section~\ref{sec:readings} lists several readings of the question with our
+status for each, and Section~\ref{sec:open} states open questions.
+
+\paragraph{Prior work.}
+Question~1.3 appeared in version~1 of~\cite{car}, submitted to the arXiv on
+22 September 2026. We found no earlier answer to it, and no discussion of it,
+in the following sources, which we searched on 26 September 2026 between
+05:12 and 05:23 UTC: the arXiv (the listing of~\cite{car}, which had only
+version~1, and searches of the arXiv API for later papers on the topic or by
+the same author); Semantic Scholar, which listed no citations of~\cite{car};
+the problem database MathDB (\url{https://mathdb.com}); GitHub searches of
+code, commits, issues, pull requests and repositories; the public
+repositories of AI-assisted work on open problems that we check, among them
+the \texttt{trureturing} repository~\cite{trurepo}; and web search. Some of
+these searches were repeated on 26 September 2026 between 06:39 and 06:42 UTC,
+with the same result: we searched the issues and pull requests of the
+\texttt{trureturing} repository for the versioned identifier
+\texttt{2609.28527v1} (as a positive control, the same search for the
+versioned identifier of another recent arXiv paper found the expected issue),
+searched GitHub issues and commits, and searched MathDB by title. We did not
+search Google Scholar, zbMATH or MathOverflow. This reports the coverage of
+our searches, not a guarantee of priority. Theorem~1.1 and Proposition~2.1
+of~\cite{car} are due to Carenini. The upper bound in Proposition~C is a
+direct consequence of the latter, which rests on the theorem of Sah, Sawhney,
+Stoner and Zhao~\cite[Corollary~1.15]{sssz}.
+
+\paragraph{Organisation.}
+Section~\ref{sec:readings} discusses readings of the question.
+Section~\ref{sec:prelim} collects notation and a complement identity.
+Theorem~A is proved in Section~\ref{sec:A}, Theorems~B and~B$'$ in
+Section~\ref{sec:B}, Proposition~C in Section~\ref{sec:C} and Theorem~D in
+Section~\ref{sec:D}. Section~\ref{sec:comp} reports computations,
+Section~\ref{sec:lean} the formal verification, and Section~\ref{sec:open}
+open questions.
+
+\section{Readings of the question}\label{sec:readings}
+Question~1.3 is a single universal statement, but it can be weakened in
+several natural ways. Table~\ref{tab:readings} lists the readings we
+considered; R1 is the literal one. In R4--R6, $d$ and $\gamma$ are fixed and
+$n\to\infty$ through multiples of $2d$.
+
+\begin{table}[ht]\centering\small
+\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{0.41\textwidth}
+ >{\raggedright\arraybackslash}p{0.47\textwidth}@{}}\toprule
+ & Reading & Status\\\midrule
+R1 & Literal: for all admissible $(n,d)$ and all $\gamma\ge0$,
+ $i_\gamma(G)\le i_\gamma(mK_{d,d})$ for every $d$-regular graph $G$ on $n$
+ vertices.
+ & False. Smallest counterexample (smallest $n$, then smallest $\gamma$):
+ $(n,d,\gamma)=(6,3,1/18)$ (Theorems~A and~B); formally
+ verified.\\\addlinespace
+R2 & For a given admissible pair $(n,d)$, the inequality holds for all
+ $\gamma\ge0$.
+ & False for every admissible pair with $d\ge2$ and $(n,d)\ne(4,2)$
+ (Theorem~A); true in the trivial cases $d=1$ and $(n,d)=(4,2)$.\\\addlinespace
+R3 & Small $\gamma$: the inequality holds for all admissible $(n,d)$ and all
+ $0\le\gamma<1/8$.
+ & False: for $n=2d$ and every $d\ge3$ (Theorem~B); for $n=4d$ and every
+ $d\ge2$, with a connected bipartite competitor (Theorem~B$'$); for some
+ $n=2dm$ with $m\ge2$ (Corollary~\ref{cor:copies}); at $\gamma=1/10$ for many
+ $n\le400$ (Remark~\ref{rem:tenth}).\\\addlinespace
+R4 & Fixed $\gamma$: the inequality holds for all large $n$.
+ & False for every $d\ge2$ and every $\gamma\in(1/8,1/2)$ (Theorem~D); true
+ for $\gamma=0$ and for $\gamma\ge1/2$.\\\addlinespace
+R5 & R4 for fixed $\gamma\in(0,1/8]$.
+ & Open. True at the exponential scale (Proposition~C). The competitors of
+ Theorem~D lose for large $n$ when $\gamma<1/8$
+ (Remark~\ref{rem:lower}).\\\addlinespace
+R6 & Ratio form: $\max_Gi_\gamma(G)\le(1+o(1))\,i_\gamma(mK_{d,d})$.
+ & Not refuted. True for $\gamma=0$; for $\gamma=1/8$, where
+ $i_{1/8}(G)=(1/2+o(1))2^n$ uniformly in $G$; and for $\gamma>1/8$, where
+ $i_\gamma(mK_{d,d})=(1-o(1))2^n$ (Remark~\ref{rem:size}). Open for
+ $0<\gamma<1/8$.\\\bottomrule
+\end{tabular}
+\caption{Readings of Question~1.3 of~\cite{car}; here $m=n/(2d)$.}
+\label{tab:readings}
+\end{table}
+
+\FloatBarrier
+\section{Preliminaries}\label{sec:prelim}
+All graphs are finite and simple. For a graph $G$ let $N_s(G)$ be the number
+of sets $A\subseteq V(G)$ with $e_G(A)=s$, and let
+\[
+ P_G(z)=\sum_{A\subseteq V(G)}z^{e_G(A)}=\sum_{s\ge0}N_s(G)\,z^s,
+\]
+so that $\Nle t(G)=\sum_{s\le t}[z^s]P_G(z)$ and $i_0(G)=N_0(G)$, where
+$[z^s]F(z)$ denotes the coefficient of $z^s$ in a polynomial $F$. In the
+notation of~\cite{car}, $P_G(q)=Z_G(1,q)$. For a disjoint union,
+$P_{G\cup F}=P_GP_F$, since $e_{G\cup F}(A)=e_G(A\cap V(G))+e_F(A\cap V(F))$.
+Choosing $a$ vertices on one side of $K_{d,d}$ and $b$ on the other spans
+$ab$ edges, so $P_{K_{d,d}}=P_d$ and $P_{mK_{d,d}}=P_d^{\,m}$. For a
+$d$-regular graph $G$ on $n$ vertices we write $E=e(G)=dn/2$. Every integer
+$t\ge0$ arises as $\lfloor\gamma dn\rfloor$, namely for
+$\gamma\in[t/(dn),(t+1)/(dn))$, so Question~1.3 is equivalent to the
+inequalities $\Nle t(G)\le\Nle t(mK_{d,d})$ for all integers $t\ge0$.
+
+\begin{lemma}[complement identity]\label{lem:complement}
+Let $G$ be a $d$-regular graph with $n$ vertices and $E$ edges, and for
+$S\subseteq V(G)$ let $\partial(S)$ be the number of edges meeting $S$. Then
+$\partial(S)=d|S|-e_G(S)$, and for every integer $t$,
+\[
+ \Nle t(G)=2^n-\bigl|\{S\subseteq V(G):\ \partial(S)\le E-t-1\}\bigr|.
+\]
+\end{lemma}
+\begin{proof}
+Summing the degrees of the vertices of $S$ counts each edge inside $S$ twice
+and each edge between $S$ and its complement once, so
+$d|S|=e_G(S)+\partial(S)$. The edges inside $V(G)\setminus S$ are exactly the
+edges not meeting $S$, so $e_G(V(G)\setminus S)=E-\partial(S)$. Hence
+$e_G(A)\le t$ if and only if $\partial(V(G)\setminus A)\ge E-t$, and
+$A\mapsto V(G)\setminus A$ is a bijection.
+\end{proof}
+
+\section{Proof of Theorem A}\label{sec:A}
+\begin{proposition}\label{prop:formula}
+Let $d\ge2$, let $G$ be a $d$-regular graph on $n$ vertices, and let
+$t^*=dn/2-3d+1$. Then
+\[
+ \Nle{t^*}(G)=2^n-1-n-\binom n2-n\binom d2+2T(G)-Q(G),
+\]
+where $Q(G)$ is the number of $4$-sets spanning at least $d+2$ edges plus the
+number of $5$-sets spanning at least $2d+2$ edges.
+\end{proposition}
+\begin{proof}
+We have $E-t^*-1=3d-2$. By Lemma~\ref{lem:complement}, $2^n-\Nle{t^*}(G)$ is
+the number of sets $S$ with $\partial(S)=d|S|-e_G(S)\le3d-2$. We count these
+sets by their size $k$.
+\begin{itemize}
+\item $k\le2$: every set qualifies, since $\partial(S)\le kd\le2d\le3d-2$.
+ This gives $1+n+\binom n2$ sets.
+\item $k=3$: the condition is $e_G(S)\ge2$. Call a pair of edges with a
+ common end a \emph{cherry}; there are $n\binom d2$ cherries. A $3$-set with
+ exactly two edges contains exactly one cherry, and a triangle contains three.
+ Hence there are $n\binom d2-3T(G)$ sets of size $3$ with exactly two edges,
+ and $n\binom d2-2T(G)$ with at least two.
+\item $k=4$ and $k=5$: the conditions are $e_G(S)\ge d+2$ and
+ $e_G(S)\ge2d+2$, so these sets are counted by $Q(G)$.
+\item $k\ge6$: we would need $e_G(S)\ge(k-3)d+2$, while $2e_G(S)\le kd$ as
+ every vertex has degree $d$. Together these give $(k-6)d\le-4$, which is
+ impossible.
+\end{itemize}
+Adding up proves the formula.
+\end{proof}
+
+\begin{lemma}\label{lem:Q}
+Let $G$ be a $d$-regular graph. If $d\ge5$ then $Q(G)=0$; if $d=4$ then
+$Q(G)\le\frac35T(G)$; if $d=3$ then $Q(G)\le\frac12T(G)$; and if $d=2$ then
+$Q(G)$ is the number $c_4(G)$ of components of $G$ isomorphic to $C_4$. In
+particular, if $d\ge3$ then $2T(G)-Q(G)\ge\frac75T(G)$.
+\end{lemma}
+\begin{proof}
+If $d\ge5$, a $4$-set spans at most $6<d+2$ edges and a $5$-set spans at most
+$10<2d+2$ edges.
+
+Let $d=4$. Then $Q(G)$ is the number of copies of $K_4$ plus the number of
+copies of $K_5$. A triangle $xyz$ lies in at most two copies of $K_4$, because
+the fourth vertex is a neighbour of $x$ other than $y$ and $z$, and $x$ has
+only two such neighbours. As each $K_4$ contains four triangles, the number
+of copies of $K_4$ is at most $2T(G)/4$. Each vertex of a $K_4$ has exactly one
+neighbour outside it, so a $K_4$ lies in at most one $K_5$. As each $K_5$
+contains five copies of $K_4$, the number of copies of $K_5$ is at most a
+fifth of the number of copies of $K_4$. Hence
+$Q(G)\le\frac65\cdot\frac{T(G)}2=\frac35T(G)$.
+
+Let $d=3$. A $5$-set spans at most $\lfloor15/2\rfloor=7<8$ edges, so $Q(G)$
+counts the $4$-sets with at least five edges. Each of them contains at least
+two triangles. A triangle $xyz$ lies in at most one of them: its fourth
+vertex must be adjacent to at least two of $x,y,z$; if $w$ and $w'$ both have
+this property, then some vertex of $\{x,y,z\}$ is adjacent to both, and since
+that vertex has only one neighbour outside $\{x,y,z\}$, $w=w'$. Counting pairs
+consisting of a triangle and a set counted by $Q(G)$ that contains it gives
+$2Q(G)\le T(G)$.
+
+Let $d=2$. A $4$-set with four edges induces a $2$-regular graph on four
+vertices, that is, a component $C_4$; and a $5$-set spans at most five edges.
+
+The last assertion follows because $\frac35\ge\frac12$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~A]
+First, $t^*\ge1$: if $d\ge3$, then $n\ge2d$ gives $t^*\ge d^2-3d+1\ge1$; if
+$d=2$, then $n\ge8$ and $t^*=n-5\ge3$. As $\gamma^*dn=t^*$, we have
+$i_{\gamma^*}=\Nle{t^*}$. By Proposition~\ref{prop:formula}, for $d$-regular
+graphs $G$ and $G'$ on $n$ vertices,
+\[
+ \Nle{t^*}(G)-\Nle{t^*}(G')=\bigl(2T(G)-Q(G)\bigr)-\bigl(2T(G')-Q(G')\bigr).
+\]
+The graph $mK_{d,d}$ is bipartite, so $T(mK_{d,d})=0$. If $d\ge3$, then also
+$Q(mK_{d,d})=0$ by Lemma~\ref{lem:Q}, and (a) follows from
+Lemma~\ref{lem:Q}: the difference $2T(G)-Q(G)$ is at least $\frac75T(G)$, and
+it vanishes when $T(G)=0$. If $d=2$, Lemma~\ref{lem:Q} gives
+$\Nle{t^*}(G)-\Nle{t^*}(mC_4)=2T(G)+n/4-c_4(G)$, which is positive unless
+$T(G)=0$ and $c_4(G)=n/4$, that is, unless $G=mC_4$.
+\end{proof}
+
+\begin{remark}\label{rem:n2d}
+For $n=2d$, every $d$-regular graph $G\ne K_{d,d}$ contains a triangle.
+Indeed, if $G$ is triangle-free and $uv$ is an edge, the neighbourhoods $N(u)$
+and $N(v)$ are disjoint independent sets of size $d$, so they partition
+$V(G)$; every vertex of $N(u)$ then has all its $d$ neighbours in $N(v)$, and
+$G=K_{d,d}$. (This is also the equality case of Mantel's
+theorem~\cite{mantel}, since $G$ has $d^2$ edges.) Hence, for every $d\ge3$,
+every $d$-regular graph on $2d$ vertices other than $K_{d,d}$ beats $K_{d,d}$
+at $t^*=d^2-3d+1$. As a second
+example, for $(n,d)=(12,3)$ we have $t^*=10$ and $\gamma^*=5/18$, and the
+graph $3K_4$ has $T=12$ and $Q=3$; so
+$\Nle{10}(3K_4)-\Nle{10}(2K_{3,3})=21$, the two counts being $4002$ and
+$3981$.
+\end{remark}
+
+\section{\texorpdfstring{Small thresholds: proofs of Theorems B and B$'$}{Small thresholds: proofs of Theorems B and B'}}\label{sec:B}
+
+\subsection{The switched complete bipartite graph}
+\begin{proof}[Proof of Theorem~B]
+Write $K=K_{d,d}$. Each of $x_1,x_2,y_1,y_2$ loses one edge and gains one, so
+$S_d$ is $d$-regular. For $A\subseteq X\cup Y$ put $A_X=A\cap X$,
+$A_Y=A\cap Y$, $a=|A_X|$ and $b=|A_Y|$, so that $e_K(A)=ab$.
+
+\emph{Inclusion.} If $e_K(A)\le1$, then $a=0$, or $b=0$, or $a=b=1$. If
+$b=0$, then $A\subseteq X$, and the only edge of $S_d$ inside $X$ is
+$x_1x_2$; the case $a=0$ is symmetric; and a set of two vertices spans at most
+one edge. So $e_{S_d}(A)\le1$. The inclusion is strict: $A_0=\{x_1,y_1,y_3\}$
+has $e_K(A_0)=2$, but $e_{S_d}(A_0)=1$, since $x_1y_1$ was deleted and
+$y_1y_3$ is not an edge. (Here $d\ge3$ is used.)
+
+\emph{Exact count.} By the inclusion, $\Nle1(S_d)-\Nle1(K)$ is the number of
+sets $A$ with $e_K(A)\ge2$ and $e_{S_d}(A)\le1$. Writing $[\cdot]$ for the
+indicator of a statement,
+\[
+ e_{S_d}(A)=ab-[x_1\in A_X,\,y_1\in A_Y]-[x_2\in A_X,\,y_2\in A_Y]
+ +[x_1,x_2\in A_X]+[y_1,y_2\in A_Y].
+\]
+We need $ab\ge2$ and $e_{S_d}(A)\le1$. At most two terms are subtracted, so
+$ab\le3$.
+\begin{itemize}
+\item $(a,b)=(1,2)$: we need one subtraction and no addition, that is,
+ $A_X=\{x_1\}$ and $y_1\in A_Y$, or $A_X=\{x_2\}$ and $y_2\in A_Y$, and in
+ both cases $A_Y\ne\{y_1,y_2\}$. The second vertex of $A_Y$ is then one of
+ $y_3,\dots,y_d$, so there are $2(d-2)$ such sets.
+\item $(a,b)=(2,1)$: by symmetry, there are $2(d-2)$ such sets.
+\item $ab=3$: then $a=1$ or $b=1$, at most one term is subtracted, and
+ $e_{S_d}(A)\ge2$.
+\end{itemize}
+Hence $\Nle1(S_d)-\Nle1(K)=4d-8$. Finally, $\Nle1(K)=2^{d+1}-1+d^2$: the
+independent sets of $K$ are the $2^{d+1}-1$ subsets of $X$ or of $Y$, and
+the sets spanning exactly one edge are the $d^2$ pairs $\{x,y\}$ with $x\in X$
+and $y\in Y$. For $n=2d$ and $\gamma\in[1/(2d^2),1/d^2)$ we have
+$\lfloor\gamma dn\rfloor=1$, which gives the last assertion.
+\end{proof}
+
+\begin{corollary}\label{cor:copies}
+Let $d\ge3$ and $m\ge2$, and put $I=2^{d+1}-1$. Then
+\[
+ \Nle1\bigl(S_d\cup(m-1)K_{d,d}\bigr)-\Nle1(mK_{d,d})
+ =I^{m-2}\bigl[(4d-8)I-(m-1)d^2(2^{d-1}-2)\bigr].
+\]
+Hence, for $n=2dm$ and $\gamma\in[1/(dn),2/(dn))$, the graph
+$S_d\cup(m-1)K_{d,d}$ beats $mK_{d,d}$ if and only if
+$(4d-8)I>(m-1)d^2(2^{d-1}-2)$. This holds exactly for $d=3$ with
+$2\le m\le4$, for $d\in\{4,5\}$ with $2\le m\le3$, and for $6\le d\le13$ with
+$m=2$. For $d\ge14$ it fails for every $m\ge2$.
+\end{corollary}
+\begin{proof}
+For disjoint graphs $G$ and $F$, a set spans at most one edge of $G\cup F$
+exactly when it spans at most one edge of $G$ and none of $F$, or none of $G$
+and exactly one of $F$. Hence
+\[
+ \Nle1(G\cup F)=\Nle1(G)\,i_0(F)+i_0(G)\bigl(\Nle1(F)-i_0(F)\bigr).
+\]
+Take $F=(m-1)K_{d,d}$, so that $i_0(F)=I^{m-1}$ and
+$\Nle1(F)-i_0(F)=(m-1)d^2I^{m-2}$: one block spans one edge and the others
+none. Subtracting the identities for $G=S_d$ and $G=K_{d,d}$ and using
+Theorem~B, it remains to show $i_0(K_{d,d})-i_0(S_d)=2^{d-1}-2$, that is,
+$i_0(S_d)=3\cdot2^{d-1}+1$. An independent set of $S_d$ inside $X$ is a subset
+of $X$ not containing both $x_1$ and $x_2$, and there are $3\cdot2^{d-2}$ of
+these; the same holds for $Y$. An independent set meeting both sides has
+$a,b\ge1$; if $a=b=1$ it must be $\{x_1,y_1\}$ or $\{x_2,y_2\}$, and if
+$ab\ge2$ then, by the formula for $e_{S_d}(A)$ above, $e_{S_d}(A)\ge ab-1\ge1$
+when $\min(a,b)=1$, and $e_{S_d}(A)\ge ab-2\ge2$ otherwise. So
+$i_0(S_d)=2\cdot3\cdot2^{d-2}-1+2=3\cdot2^{d-1}+1$.
+
+For the list, note that the right-hand side of the criterion increases with
+$m$, so for each $d$ the values of $m$ for which it holds form an interval
+starting at $m=2$; for $3\le d\le13$ the list follows by direct evaluation.
+For $d\ge14$, the right-hand side minus the left-hand side at $m=2$ equals
+$(d^2-16d+32)2^{d-1}-2d^2+4d-8$, which is positive because
+$d^2-16d+32=(d-8)^2-32\ge4$ and $2^{d+1}>2d^2+8$.
+\end{proof}
+
+\subsection{A two-block switch}
+Let $K=K_{d,d}$ and, for $\alpha,\beta\in\{0,1\}$,
+\[
+ W_{\alpha\beta}(z)=\sum_{i,j=0}^{d-1}\binom{d-1}i\binom{d-1}j
+ z^{ij+\alpha j+\beta i}.
+\]
+Exchanging $i$ and $j$ shows $W_{10}=W_{01}$. Put
+$D(z)=W_{00}(z)W_{11}(z)-W_{10}(z)^2$.
+
+\begin{lemma}\label{lem:switch}
+Let $d\ge2$ and let $H_d$ be as in Theorem~B$'$. Then
+\[
+ P_{2K}(z)-P_{H_d}(z)=2(z-1)D(z).
+\]
+Consequently, for every graph $F$, possibly with no vertices, and every
+integer $t\ge0$,
+\[
+ \Nle t(H_d\cup F)-\Nle t(2K\cup F)=2\,[z^t]\bigl(D(z)P_F(z)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+The graphs $2K$ and $H_d$ have the same vertex set. For $A$ in it and $k=1,2$
+let $\alpha_k=[u_k\in A]$, $\beta_k=[w_k\in A]$,
+$i_k=|A\cap(X_k\setminus\{u_k\})|$ and $j_k=|A\cap(Y_k\setminus\{w_k\})|$.
+The edges of the $k$-th copy of $K$ other than $u_kw_k$ that lie inside $A$
+number $i_kj_k+\alpha_kj_k+\beta_ki_k$, and both graphs contain all of them.
+In addition, $2K$ contains the edges $u_1w_1$ and $u_2w_2$, which contribute
+$\alpha_1\beta_1+\alpha_2\beta_2$, while $H_d$ contains $u_1w_2$ and
+$u_2w_1$, which contribute $\alpha_1\beta_2+\alpha_2\beta_1$. Summing over
+$A$ with $(\alpha_1,\beta_1,\alpha_2,\beta_2)$ fixed,
+\[
+ P_{2K}=\sum W_{\alpha_1\beta_1}W_{\alpha_2\beta_2}\,
+ z^{\alpha_1\beta_1+\alpha_2\beta_2},\qquad
+ P_{H_d}=\sum W_{\alpha_1\beta_1}W_{\alpha_2\beta_2}\,
+ z^{\alpha_1\beta_2+\alpha_2\beta_1},
+\]
+the sums being over $\{0,1\}^4$. The two exponents differ by
+$(\alpha_1-\alpha_2)(\beta_1-\beta_2)$, which vanishes unless
+$\alpha_1\ne\alpha_2$ and $\beta_1\ne\beta_2$. The patterns
+$(\alpha_1,\beta_1,\alpha_2,\beta_2)=(1,1,0,0)$ and $(0,0,1,1)$ each
+contribute $(z-1)W_{00}W_{11}$ to $P_{2K}-P_{H_d}$, and the patterns
+$(1,0,0,1)$ and $(0,1,1,0)$ each contribute $(1-z)W_{10}W_{01}$. As
+$W_{10}=W_{01}$, this proves the identity. For the second assertion, put
+$R=DP_F$. Since $P_{G\cup F}=P_GP_F$,
+\begin{align*}
+ \Nle t(H_d\cup F)-\Nle t(2K\cup F)
+ &=-2\sum_{s\le t}[z^s]\bigl((z-1)R\bigr)\\
+ &=-2\sum_{s\le t}\bigl([z^{s-1}]R-[z^s]R\bigr)=2\,[z^t]R.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{lemma}\label{lem:sign}
+Let $d\ge2$ and $q>0$. Then $D(q)>0$ if $q>1$, and $D(q)<0$ if $q<1$.
+\end{lemma}
+\begin{proof}
+For $i,j\in\{0,\dots,d-1\}$ put
+$\mu(i,j)=\binom{d-1}i\binom{d-1}jq^{ij}$, and consider
+\[
+ \Delta=\sum_{i,i',j,j'}\bigl[\mu(i,j)\mu(i',j')-\mu(i,j')\mu(i',j)\bigr]
+ \bigl(q^i-q^{i'}\bigr)\bigl(q^j-q^{j'}\bigr),
+\]
+where all four indices range over $\{0,\dots,d-1\}$. We have
+$W_{00}(q)=\sum\mu(i,j)$, $W_{11}(q)=\sum\mu(i,j)q^{i+j}$ and
+$W_{10}(q)=\sum\mu(i,j)q^j=\sum\mu(i,j)q^i$. Expanding
+$(q^i-q^{i'})(q^j-q^{j'})$ into four terms, we find
+\begin{align*}
+ \sum_{i,i',j,j'}\mu(i,j)\mu(i',j')\bigl(q^i-q^{i'}\bigr)\bigl(q^j-q^{j'}\bigr)
+ &=2W_{00}W_{11}-2W_{10}^2,\\
+ \sum_{i,i',j,j'}\mu(i,j')\mu(i',j)\bigl(q^i-q^{i'}\bigr)\bigl(q^j-q^{j'}\bigr)
+ &=2W_{10}^2-2W_{00}W_{11},
+\end{align*}
+all at the point $q$. Subtracting, $\Delta=4D(q)$.
+
+Now let $q\ne1$. The bracket equals
+$\binom{d-1}i\binom{d-1}{i'}\binom{d-1}j\binom{d-1}{j'}\,
+q^{ij'+i'j}\bigl(q^{(i-i')(j-j')}-1\bigr)$, which has the sign of
+$(i-i')(j-j')\log q$. Since $q^x$ is strictly monotone in $x$, the product
+$(q^i-q^{i'})(q^j-q^{j'})$ has the sign of $(i-i')(j-j')$. So every term of
+$\Delta$ is zero or has the sign of $\log q$, and the term with $i=j=0$ and
+$i'=j'=1$, which exists because $d-1\ge1$, is not zero.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~B$'$]
+Each of $u_1,u_2,w_1,w_2$ loses one edge and gains one, so $H_d$ is
+$d$-regular. It is bipartite with sides $X_1\cup X_2$ and $Y_1\cup Y_2$,
+since the new edges join $X_1$ to $Y_2$ and $X_2$ to $Y_1$. A copy of
+$K_{d,d}$ minus one edge is connected when $d\ge2$, and the edge $u_1w_2$ joins
+the two copies, so $H_d$ is connected.
+
+By Lemma~\ref{lem:switch} with $F$ the graph with no vertices ($P_F=1$),
+$\Nle t(H_d)-\Nle t(2K_{d,d})=2[z^t]D$ for every $t\ge0$. The exponent in
+$W_{00}$ is $ij$, so $[z^0]W_{00}=2^d-1$ (the pairs with $i=0$ or $j=0$) and
+$[z^1]W_{00}=(d-1)^2$. The exponent in $W_{11}$ is $(i+1)(j+1)-1$, so
+$[z^0]W_{11}=1$ and $[z^1]W_{11}=2(d-1)$. The exponent in $W_{10}$ is
+$j(i+1)$, so $[z^0]W_{10}=2^{d-1}$ and $[z^1]W_{10}=d-1$. Hence
+\begin{align*}
+ [z^0]D&=2^d-1-4^{d-1}=-(2^{d-1}-1)^2,\\
+ [z^1]D&=2(d-1)(2^d-1)+(d-1)^2-2\cdot2^{d-1}(d-1)=(d-1)(2^d+d-3).
+\end{align*}
+Since $i_0=N_{\le0}$, this proves the two formulas. For $n=4d$ and
+$\gamma\in[1/(4d^2),1/(2d^2))$ we have $\lfloor\gamma dn\rfloor=1$.
+\end{proof}
+
+\section{The exponential scale: proof of Proposition C}\label{sec:C}
+Let $\xi$ be the number of edges of $K_{d,d}$ spanned by a uniformly random
+subset of $V(K_{d,d})$. Then $\xi$ takes values in $\{0,\dots,d^2\}$,
+$\Prb(\xi=0)>0$, $\Prb(\xi=d^2)=4^{-d}$, $\Ex\xi=d^2/4$ because each edge is
+spanned with probability $1/4$, and $\Ex q^\xi=4^{-d}P_d(q)$ for $q>0$. For
+$m\ge1$ let $\Sigma_m=\xi_1+\dots+\xi_m$, where $\xi_1,\dots,\xi_m$ are
+independent copies of $\xi$. A uniformly random subset of $V(mK_{d,d})$ meets
+the $m$ copies in
+independent uniformly random subsets. Hence, for $n=2dm$ and $x=2\gamma d^2$,
+so that $\gamma dn=mx$,
+\begin{equation}\label{eq:prob}
+ i_\gamma(mK_{d,d})=2^n\,\Prb(\Sigma_m\le mx),\qquad
+ 2^n-i_\gamma(mK_{d,d})=2^n\,\Prb(\Sigma_m>mx).
+\end{equation}
+We use the lower bound in Cramér's theorem in the following form.
+
+\begin{lemma}\label{lem:cramer}
+Let $\xi$ be a random variable with values in $\{0,1,\dots,M\}$ such that
+$\Prb(\xi=0)>0$ and $\Prb(\xi=M)>0$, let $\Sigma_m$ be the sum of $m$ independent
+copies of $\xi$, and let $\Lambda(\lambda)=\log\Ex e^{\lambda\xi}$.
+\begin{itemize}
+\item[(a)] If $\Ex\xi<x<M$, then
+ $\liminf_{m\to\infty}\frac1m\log\Prb(\Sigma_m>mx)\ge
+ \inf_{\lambda\ge0}\bigl(\Lambda(\lambda)-\lambda x\bigr)$.
+\item[(b)] If $0<x<\Ex\xi$, then
+ $\liminf_{m\to\infty}\frac1m\log\Prb(\Sigma_m<mx)\ge
+ \inf_{\lambda\le0}\bigl(\Lambda(\lambda)-\lambda x\bigr)$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+Let $\Lambda^*(y)=\sup_{\lambda\in\mathbb R}\bigl(\lambda y-\Lambda(\lambda)\bigr)$.
+By Cramér's theorem~\cite[Theorem~2.2.3]{dz}, for every open set
+$U\subseteq\mathbb R$,
+\[
+ \liminf_{m\to\infty}\frac1m\log\Prb(\Sigma_m/m\in U)\ge-\inf_{y\in U}\Lambda^*(y).
+\]
+The function $\Lambda^*$ is convex, as a supremum of affine
+functions. It is finite on $[0,M]$: for all $\lambda$ we have
+$\Lambda(\lambda)\ge\lambda M+\log\Prb(\xi=M)$ and
+$\Lambda(\lambda)\ge\log\Prb(\xi=0)$, so for $0\le y\le M$ the quantity
+$\lambda y-\Lambda(\lambda)$ is at most $-\log\Prb(\xi=M)$ when $\lambda\ge0$ and
+at most $-\log\Prb(\xi=0)$ when $\lambda\le0$. Hence $\Lambda^*$ is continuous on
+$(0,M)$. By Jensen's inequality $\Lambda(\lambda)\ge\lambda\Ex\xi$, so for
+$y\ge\Ex\xi$ the terms with $\lambda<0$ are at most $0$, the value at
+$\lambda=0$; thus $\Lambda^*(y)=\sup_{\lambda\ge0}(\lambda y-\Lambda(\lambda))$, which
+is nondecreasing in $y\ge\Ex\xi$. In case~(a), take $U=(x,\infty)$; then
+$\inf_{y>x}\Lambda^*(y)=\lim_{y\downarrow x}\Lambda^*(y)=\Lambda^*(x)=
+-\inf_{\lambda\ge0}(\Lambda(\lambda)-\lambda x)$. Case~(b) is symmetric, with
+$U=(-\infty,x)$ and $\Lambda^*$ nonincreasing on $(-\infty,\Ex\xi]$.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~C]
+\emph{Upper bound.} By~\cite[Proposition~2.1]{car} with $\lambda=1$, every
+$d$-regular graph $G$ on $n$ vertices satisfies
+$i_\gamma(G)\le e^{\gamma tn}P_d(e^{-t/d})^{n/(2d)}$ for every $t\ge0$. With
+$q=e^{-t/d}\in(0,1]$ this reads $i_\gamma(G)\le q^{-\gamma dn}P_d(q)^{n/(2d)}$.
+Taking logarithms, dividing by $n$ and taking the infimum over $q$ gives
+$\frac1n\log i_\gamma(G)\le\rho(d,\gamma)$. (The proof in~\cite{car} combines
+the bound $P_G(q)\le P_d(q)^{n/(2d)}$ of~\cite[Corollary~1.15]{sssz} with the
+inequality $[e_G(A)\le\gamma dn]\le q^{e_G(A)-\gamma dn}$.)
+
+\emph{Lower bound.} Let $n=2dm$, and let $x=2\gamma d^2$ and $\Sigma_m$ be as
+in~\eqref{eq:prob}. By the upper bound, it suffices to show that the lower
+limit of $\frac1n\log i_\gamma(mK_{d,d})$ as $m\to\infty$ is at least
+$\rho(d,\gamma)$.
+\begin{itemize}
+\item $\gamma=0$: here $i_0(mK_{d,d})=i_0(K_{d,d})^m$ exactly, so
+ $\frac1n\log i_0(mK_{d,d})=\frac1{2d}\log i_0(K_{d,d})=
+ \lim_{q\to0}\frac1{2d}\log P_d(q)\ge\rho(d,0)$.
+\item $0<\gamma<1/8$: then $0<x<d^2/4=\Ex\xi$. By~\eqref{eq:prob} and
+ Lemma~\ref{lem:cramer}(b), with $q=e^\lambda$,
+ \begin{align*}
+ \liminf_{m\to\infty}\frac1m\log i_\gamma(mK_{d,d})
+ &\ge2d\log2+\inf_{0<q\le1}\bigl(\log(4^{-d}P_d(q))-x\log q\bigr)\\
+ &=\inf_{0<q\le1}\bigl(\log P_d(q)-x\log q\bigr).
+ \end{align*}
+ Dividing by $2d$ and noting $x/(2d)=\gamma d$ gives the claim.
+\item $\gamma\ge1/8$: then $x\ge\Ex\xi$, and
+ $\Prb(\Sigma_m\le mx)\ge\Prb(\Sigma_m\le m\Ex\xi)\to1/2$ by the central limit theorem,
+ as $\xi$ is not constant. Hence $\frac1n\log i_\gamma(mK_{d,d})\to\log2$, and
+ $\log2\ge\rho(d,\gamma)$ is the value at $q=1$.\qedhere
+\end{itemize}
+\end{proof}
+
+\begin{remark}
+In the notation of~\cite{car}, $P_d(e^{-t/d})=B_d(t)$, so
+$\rho(d,\gamma)=\inf_{t\ge0}\bigl(\gamma t+\frac1{2d}\log B_d(t)\bigr)$.
+Carenini's Theorem~1.1 bounds this infimum by choosing $t=2\log(e/\gamma)$.
+\end{remark}
+
+\section{Fixed thresholds above one eighth: proof of Theorem D}\label{sec:D}
+Let $n=2dm$, $x=2\gamma d^2$ and $\xi$, $\Sigma_m$ as in Section~\ref{sec:C}; for
+$1/8<\gamma<1/2$ we have $d^2/4<x<d^2$. For a graph $G$ on $n$ vertices let
+$U(G)=2^n-i_\gamma(G)$, the number of sets spanning more than $\gamma dn$
+edges. We must show $U(G_n)<U(mK_{d,d})$ for all large $m$. Write $H=H_d$.
+
+\begin{proof}[Proof of Theorem~D]
+\emph{Lower bound for $U(mK_{d,d})$.} Let $\varphi(q)=\log P_d(q)-x\log q$
+for $q>0$. Since $P_d(q)=4^d\Ex q^\xi$, we have $\varphi'(1)=\Ex\xi-x<0$;
+and $\varphi(q)\ge(d^2-x)\log q\to\infty$ as $q\to\infty$, because
+$P_d(q)\ge q^{d^2}$. Hence $\varphi$ attains its minimum over $[1,\infty)$ at
+some $q^*>1$. By~\eqref{eq:prob} and Lemma~\ref{lem:cramer}(a), with
+$q=e^\lambda$, for every $\varepsilon>0$ and all large $m$,
+\[
+ U(mK_{d,d})=2^n\Prb(\Sigma_m>mx)\ge2^n\exp\bigl(m(\varphi(q^*)-d\log4-\varepsilon)
+ \bigr)=P_d(q^*)^m(q^*)^{-mx}e^{-\varepsilon m}.
+\]
+
+\emph{Upper bound for $U(G_n)$.} For $q\ge1$ and every set $A$ we have
+$[e(A)>\gamma dn]\le q^{e(A)-\gamma dn}$. Summing over $A$ with $q=q^*$ gives
+$U(G_n)\le(q^*)^{-mx}P_{G_n}(q^*)=(q^*)^{-mx}P_H(q^*)^kP_d(q^*)^r$.
+
+\emph{Comparison.} As $m-r=2k$,
+\[
+ \frac{U(mK_{d,d})}{U(G_n)}\ge
+ \Bigl(\frac{P_d(q^*)^2}{P_H(q^*)}\Bigr)^ke^{-\varepsilon m}.
+\]
+By Lemma~\ref{lem:switch} at $z=q^*$ and Lemma~\ref{lem:sign},
+$P_d(q^*)^2-P_H(q^*)=2(q^*-1)D(q^*)>0$, so
+$\beta=\log\bigl(P_d(q^*)^2/P_H(q^*)\bigr)>0$. Take $\varepsilon=\beta/4$.
+Since $k\ge(m-1)/2$, the ratio is at least
+$\exp\bigl(\beta(m-1)/2-\beta m/4\bigr)=\exp\bigl(\beta(m-2)/4\bigr)>1$ for all
+large $m$. Hence $U(G_n)<U(mK_{d,d})$, that is,
+$i_\gamma(G_n)>i_\gamma(mK_{d,d})$, for all large $n$ divisible by $2d$.
+\end{proof}
+
+\begin{remark}\label{rem:size}
+For $\gamma>1/8$ the law of large numbers gives $\Prb(\Sigma_m\le mx)\to1$, so
+$i_\gamma(mK_{d,d})=(1-o(1))2^n$, and the relative difference
+$i_\gamma(G_n)/i_\gamma(mK_{d,d})-1\le U(mK_{d,d})/i_\gamma(mK_{d,d})$ tends to
+$0$ exponentially fast. For example, for $d=2$, $\gamma=1/4$ and $n=400$ the
+relative difference is about $1.3\cdot10^{-17}$. In particular, Theorem~D is
+consistent with reading R6. Our proof gives no explicit $n_0$; one could be
+extracted from a quantitative form of Cramér's theorem (for example,
+exponential tilting combined with the Berry--Esseen theorem, or the theorem of
+Bahadur and Rao~\cite{br}), which we have not done. The base
+$P_d(q^*)^2/P_H(q^*)$ tends to $1$ as $\gamma\downarrow1/8$, since then
+$q^*\to1$; for $d=2$ it is about $1.0006$ at $\gamma=1/4$ and $1.0001$ at
+$\gamma=0.49$. So $n_0$ can be large, and we give no value.
+
+Reading R6 also holds at $\gamma=1/8$. Let $A$ be a uniformly random subset of
+$V(G)$, where $G$ is $d$-regular on $n$ vertices. Then $e_G(A)$ is the sum of
+the indicators $[u,v\in A]$ over the $dn/2$ edges $uv$ of $G$; it has mean
+$dn/8$ and variance $dn(2d+1)/32$, as each indicator has variance $3/16$ and
+each of the $nd(d-1)$ ordered pairs of distinct edges with a common end has
+covariance $1/16$. The indicators of two sets of edges that share no vertex are
+independent, so the line graph of $G$, of maximum degree $2d-2$, is a
+dependency graph for them, and a normal approximation
+bound~\cite[Theorem~3.5 and Proposition~1.2]{ross} gives
+$i_{1/8}(G)=2^n\Prb(e_G(A)\le dn/8)=(1/2+O(n^{-1/4}))\,2^n$, uniformly in $G$
+for fixed $d$.
+\end{remark}
+
+\begin{remark}\label{rem:lower}
+For $0<\gamma<1/8$ the same argument, applied to the lower tail, shows that
+$G_n$ loses to $mK_{d,d}$ for all large $n$. Indeed, now $0<x<\Ex\xi$, so
+$\varphi$ is minimised over $(0,1]$ at some $q^*<1$ (note $\varphi'(1)>0$ and
+$\varphi(q)\to\infty$ as $q\to0$). By Lemma~\ref{lem:sign},
+$D(q^*)<0$, so again $P_d(q^*)^2-P_H(q^*)=2(q^*-1)D(q^*)>0$.
+Lemma~\ref{lem:cramer}(b) gives
+$i_\gamma(mK_{d,d})\ge P_d(q^*)^m(q^*)^{-mx}e^{-\varepsilon m}$, the inequality
+$[e(A)\le\gamma dn]\le q^{e(A)-\gamma dn}$ for $q\le1$ gives
+$i_\gamma(G_n)\le(q^*)^{-mx}P_H(q^*)^kP_d(q^*)^r$, and the comparison is as
+above. This is consistent with Proposition~C.
+\end{remark}
+
+\begin{remark}\label{rem:tenth}
+The small-$\gamma$ failures are nevertheless not confined to tiny graphs. At
+$\gamma=1/10$, the graph $G_n=kH_d\cup rK_{d,d}$ of Theorem~D beats
+$mK_{d,d}$ for $92$ of the $119$ values $n\in\{8,12,\dots,480\}$ when $d=2$,
+the largest being $n=400$, and for $56$ of the $119$ values
+$n\in\{12,18,\dots,720\}$ when $d=3$, the largest being $n=360$
+(Section~\ref{sec:comp}). By Remark~\ref{rem:lower} these are finite-size
+effects.
+\end{remark}
+
+\section{Computations}\label{sec:comp}
+All counts in this paper were computed in exact integer arithmetic. Our
+programs compute the distribution $(N_s(G))_s$ in two independent ways: by a
+recursion over bitmasks, $e_G(A\cup\{v\})=e_G(A)+|N(v)\cap A|$ for a vertex
+$v$ larger than every element of $A$, and by a direct loop over all sets and
+all edges. The two agree on eleven test graphs. Counts for disjoint unions are
+obtained from $P_{G\cup F}=P_GP_F$. Two referee agents (see the disclosure at
+the end of the paper) recomputed the main numbers, each with its own programs.
+Our programs and their logs are available in version~1.3.0 of the
+repository~\cite{repo} (directory \texttt{certificates/carenini/}).
+
+\paragraph{Exhaustive search at $n=2d$.}
+For $d\in\{3,4,5\}$ we generated all $d$-regular graphs on $2d$ vertices up to
+isomorphism, starting from $K_{d,d}$ and applying $2$-switches (replacing two
+edges $ab$, $cd$ by $ac$, $bd$ or by $ad$, $bc$ when these are not edges), with
+exact isomorphism tests. Any two graphs with the same degree sequence are
+connected by a sequence of $2$-switches~\cite{hakimi,fhm}, so this finds every
+class. We found $2$, $6$ and $60$ classes. Every $d$-regular graph on $2d$
+vertices is connected, since each component has at least $d+1$ vertices, and
+these are the numbers of connected cubic graphs on $6$ vertices, quartic
+graphs on $8$ vertices and quintic graphs on $10$ vertices (sequences A002851,
+A006820 and A006821 of~\cite{oeis}). The first referee agent confirmed the cases
+$d=3,4$ from all $70$ and $19355$ labelled graphs. Table~\ref{tab:exh} lists
+the thresholds at which $K_{d,d}$ is not a maximiser.
+
+\begin{table}[ht]\centering\small
+\begin{tabular}{@{}cccccc@{}}\toprule
+$d$ & $n$ & classes & $t$ & $\max_G\Nle t(G)$ & $\Nle t(K_{d,d})$\\\midrule
+3 & 6 & 2 & 1 & 28 & 24\\\addlinespace
+4 & 8 & 6 & 1 & 61 & 47\\
+ & & & 3 & 137 & 127\\
+ & & & 5 & 187 & 171\\\addlinespace
+5 & 10 & 60 & 1 & 116 & 88\\
+ & & & 2 & 203 & 188\\
+ & & & 3 & 321 & 288\\
+ & & & 5 & 524 & 448\\
+ & & & 7 & 679 & 648\\
+ & & & 8 & 783 & 748\\
+ & & & 11 & 908 & 868\\\bottomrule
+\end{tabular}
+\caption{All thresholds $t$ at which $K_{d,d}$ does not maximise $\Nle t$
+among $d$-regular graphs on $n=2d$ vertices, for $3\le d\le5$. The maximum is over
+all such graphs; the failure holds for $\gamma\in[t/(2d^2),(t+1)/(2d^2))$.}
+\label{tab:exh}
+\end{table}
+
+At every other threshold $t\le d^2$, $K_{d,d}$ is a maximiser. It is the unique
+maximiser for $t\in\{0,2\}$ when $d=3$, for $t\in\{0,4,6\}$ when $d=4$, and
+for $t\in\{0,4,6,9,10,12\}$ when $d=5$; at the remaining thresholds it ties
+with other graphs. (By Lemma~\ref{lem:complement}, for $d\ge3$ all $d$-regular
+graphs on $n$ vertices have the same value of $\Nle t$ when $t\ge dn/2-2d$.)
+The failures at $t=1$ are those of Theorem~B, and the failures at
+$t=d^2-3d+1$, that is, $t=1,5,11$, are those of Theorem~A (see also
+Remark~\ref{rem:n2d}); the other failures are not covered by our theorems.
+
+\paragraph{Other checks.}
+The formula of Proposition~\ref{prop:formula} was checked on $100$ regular
+graphs with $2\le d\le8$ and $n\le20$ (unions of copies of $K_{d,d}$,
+$(K_d\cart K_2)\cup(m-1)K_{d,d}$, cycles, $C_3\cup C_{n-3}$, unions of copies
+of $K_{d+1}$, and random regular graphs), with no mismatch; the first referee
+agent checked $75$ further graphs, including graphs in which $5$-sets contribute
+to~$Q$. Theorem~B was checked for $3\le d\le12$, and
+Corollary~\ref{cor:copies} against brute force for
+$(d,m)\in\{(3,2),(3,3),(4,2),(5,2)\}$. The identity of
+Lemma~\ref{lem:switch} was checked symbolically for $2\le d\le5$, and the
+difference in Theorem~B$'$ for $2\le d\le20$; the sign in
+Lemma~\ref{lem:sign} was checked on a grid of values of $q$, as a sanity
+check. For Theorem~D, we compared $kH_d$ with $2kK_{d,d}$ exactly for
+$d\in\{2,3,4\}$ and all $n\le600$ divisible by $4d$. At $n=192$ the competitor
+wins for $\gamma\in\{1/5,1/4,1/3,2/5,9/20\}$, while for $\gamma=3/20$, closer
+to $1/8$, it still loses, as expected when $n_0$ is large. The outcome is not
+monotone in $n$, so this does not show that $n_0\le192$: for $d=4$ and
+$\gamma=9/20$ the competitor loses at $n=128$ and again at $n=208$, and for
+$d=3$ and $\gamma=9/20$ it wins at $n=96$ and $n=192$ but loses at $n=144$.
+For $\gamma=3/20$ it wins for every such $n$ from $360$ to $600$ when $d=2$,
+from $336$ to $600$ when $d=3$, and from $320$ to $592$ when $d=4$, in line
+with Theorem~D. The counts in
+Remark~\ref{rem:tenth} are exact comparisons for all $n$ in the stated
+ranges.
+
+\section{Formal verification}\label{sec:lean}
+The Lean file \texttt{lean/Research/Carenini.lean} in version~1.3.0 of the
+repository~\cite{repo} formalises Question~1.3 literally and proves five
+negative results: four instances and one infinite family ($d\ge3$). It uses
+Lean~4
+(version 4.33.1) and Mathlib~\cite{mathlib} (commit \texttt{0df444a3}); all
+declarations are in the namespace \texttt{Carenini}. The basic definitions are
+the following.
+\begin{itemize}
+\item \texttt{edgesIn G A} is the number of edges of \texttt{G} (elements of
+ Mathlib's \texttt{G.edgeFinset}) with both ends in the finite set \texttt{A};
+ this is $e_G(A)$. \texttt{iCount G t} is the number of sets \texttt{A} with
+ \texttt{edgesIn G A} $\le t$, for $t\in\mathbb N$; this is $\Nle t(G)$.
+\item \texttt{iGamma G d gamma} is the number of sets \texttt{A} with
+ $\texttt{edgesIn G A}\le\gamma\cdot d\cdot|V|$, the comparison being made in
+ $\mathbb R$ for a real number $\gamma$; this is $i_\gamma(G)$.
+\item \texttt{KddUnion m d} is the graph on
+ $\texttt{Fin m}\times(\texttt{Fin d}\oplus\texttt{Fin d})$ in which $(i,x)$
+ and $(j,y)$ are adjacent when $i=j$ and $x,y$ are adjacent in Mathlib's
+ \texttt{completeBipartiteGraph (Fin d) (Fin d)}; this is $mK_{d,d}$.
+\end{itemize}
+The question and the two main theorems read, in ASCII notation:
+\begin{verbatim}
+def CareniniQuestion (n d : Nat) (gamma : Real) : Prop :=
+  forall (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V)
+    [DecidableRel G.Adj], Fintype.card V = n -> G.IsRegularOfDegree d ->
+      iGamma G d gamma <= iGamma (KddUnion (n / (2 * d)) d) d gamma
+
+theorem not_careniniQuestion_six : Not (CareniniQuestion 6 3 (1 / 18))
+
+theorem not_careniniQuestion_two_d {d : Nat} (hd : 3 <= d) :
+    Not (CareniniQuestion (2 * d) d (1 / (2 * (d : Real) ^ 2)))
+\end{verbatim}
+The predicate quantifies over every finite vertex type of cardinality $n$ and
+every $d$-regular simple graph on it (Mathlib's \texttt{IsRegularOfDegree});
+the threshold $\gamma dn$ is a real number, as in the question; and the
+reference graph consists of $n/(2d)$ disjoint copies of Mathlib's $K_{d,d}$.
+The standing hypothesis $2d\mid n$ is not part of the predicate. Every
+instance refuted below satisfies it, and at such an instance the predicate is
+exactly the claim of Question~1.3. The lemma \texttt{iGamma\_eq\_iCount\_floor}
+shows that $i_\gamma=\Nle{\lfloor\gamma dn\rfloor}$ for $\gamma\ge0$, and
+\texttt{iGamma\_iso} shows that $i_\gamma$ is invariant under isomorphism.
+Table~\ref{tab:lean} lists the five negative results: four instances and one
+infinite family ($d\ge3$).
+
+\begin{table}[ht]\centering\small
+\begin{tabular}{@{}lll@{}}\toprule
+Lean theorem & $(n,d,\gamma)$ & competitor and counts\\\midrule
+\texttt{not\_careniniQuestion\_six} & $(6,3,1/18)$ &
+ prism, $28>24$ (Theorems~A, B)\\
+\texttt{not\_careniniQuestion\_two\_d} & $(2d,d,1/(2d^2))$, $d\ge3$ &
+ $S_d$ (Theorem~B)\\
+\texttt{not\_careniniQuestion\_eight\_two} & $(8,2,1/16)$ &
+ $C_8=H_2$, $111>105$ (Theorem~B$'$)\\
+\texttt{not\_careniniQuestion\_twelve\_bip} & $(12,3,1/36)$ &
+ $H_3$, $527>495$ (Theorem~B$'$)\\
+\texttt{not\_careniniQuestion\_twelve\_top} & $(12,3,5/18)$ &
+ $3K_4$, $4002>3981$ (Theorem~A)\\\bottomrule
+\end{tabular}
+\caption{The negative results proved in Lean. In each case the reference
+graph is $\frac n{2d}K_{d,d}$.}\label{tab:lean}
+\end{table}
+
+Supporting declarations make the statements concrete. For $n=6$,
+\texttt{prism\_regular} and \texttt{K33\_regular} are proved by
+\texttt{decide}, the counts $28$ and $24$ are evaluated by \texttt{decide},
+and \texttt{prismIso}, \texttt{K33Iso} and \texttt{K33IsoKddUnion} show that the
+two graphs are Mathlib's $K_3\cart K_2$ and $K_{3,3}$, the latter also as
+\texttt{KddUnion 1 3}; \texttt{prism\_beats\_K33} is the explicit form of the
+instance. For general $d$, \texttt{switchedKdd\_regular} shows that $S_d$ is
+$d$-regular, \texttt{edgesIn\_switched\_le\_one} is the inclusion in
+Theorem~B, \texttt{switched\_extra\_set} is the witness $\{x_1,y_1,y_3\}$
+(indexed from $0$ in Lean), \texttt{iCount\_one\_lt} gives
+$\Nle1(K_{d,d})<\Nle1(S_d)$, and \texttt{kddUnionOneIso} identifies $K_{d,d}$
+with \texttt{KddUnion 1 d}. Finally, \texttt{H3\_regular},
+\texttt{H3\_bipartite} and \texttt{H3\_connected} prove the properties of $H_3$
+stated in Theorem~B$'$.
+
+The following are not formalised: Theorem~A (only two instances of its
+conclusion are formal, the prism at $(6,3,1/18)$ and $3K_4$ at $(12,3,5/18)$;
+Proposition~\ref{prop:formula}, Lemma~\ref{lem:Q} and the minimiser statement
+are not); the exact value $4d-8$ in Theorem~B (only the strict inequality is)
+and Corollary~\ref{cor:copies}; Theorem~B$'$ (only
+$\Nle1(H_d)>\Nle1(2K_{d,d})$ for $d=2,3$, via the counts $111>105$ and
+$527>495$, the regularity of $H_2=C_8$ and of $H_3$, and the bipartiteness and
+connectivity of $H_3$ are formal), and Lemmas~\ref{lem:switch}
+and~\ref{lem:sign}; Proposition~C and
+Theorem~D, which use Cramér's theorem and, for the upper bound in
+Proposition~C, the theorem of Sah, Sawhney, Stoner and Zhao; and the
+computations of Section~\ref{sec:comp}.
+
+The file contains no \texttt{sorry} and does not use \texttt{native\_decide};
+the finite counts are evaluated by the kernel, using \texttt{decide} and
+\texttt{decide +kernel}. The file was rebuilt with \texttt{lake build} in a
+clean directory, with exit code~$0$, and the compiled module was checked again
+with \texttt{leanchecker}. The recorded axiom audits (\texttt{\#print axioms})
+of the fourteen main declarations report only the standard axioms
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and no
+axioms at all for \texttt{H3\_bipartite}. An audit file,
+\texttt{lean/Research/CareniniAudit.lean}, prints the basic definitions and the
+statements of Table~\ref{tab:lean} together with their axioms. The Lean file,
+the audit file and the logs of the clean rebuild and of the \texttt{leanchecker}
+run (files \texttt{logs/clean-replay-v1.3.0-*}) are in version~1.3.0 of the
+repository~\cite{repo}.
+
+\section{Open questions}\label{sec:open}
+\begin{enumerate}
+\item (Reading R5.) Let $d\ge2$ and $0<\gamma\le1/8$ be fixed. Is
+ $i_\gamma(G)\le i_\gamma(mK_{d,d})$ for every $d$-regular graph $G$ on $n$
+ vertices, for all sufficiently large $n$ divisible by $2d$? At
+ $\gamma=1/10$ the inequality fails for many $n$ up to $400$
+ (Remark~\ref{rem:tenth}), but the competitors used there lose for large $n$
+ (Remark~\ref{rem:lower}). For $\gamma<1/8$ the infimum defining
+ $\rho(d,\gamma)$ is attained at some $q<1$, in the antiferromagnetic range in
+ which the theorem of Sah, Sawhney, Stoner and Zhao favours $K_{d,d}$. This
+ suggests a positive answer, but we make no claim.
+\item All our counterexamples with $\gamma\le1/8$ have $\gamma d<1$. Is
+ there a counterexample, for some $n$, with $\gamma\le1/8$ and $\gamma d\ge2$,
+ the range of small $\gamma$ in Carenini's Proposition~1.2?
+\item (Reading R6.) For fixed $d$ and $0<\gamma<1/8$, is the maximum of
+ $i_\gamma$ over $d$-regular graphs on $n$ vertices at most
+ $(1+o(1))\,i_\gamma(mK_{d,d})$ as $n\to\infty$? (For $\gamma=1/8$ it is; see
+ Remark~\ref{rem:size}.)
+\item Which $d$-regular graphs maximise $i_\gamma$ when $1/8<\gamma<1/2$ and
+ $n$ is large? By Proposition~\ref{prop:formula}, at $\gamma=\gamma^*$ the
+ maximisers are the graphs that maximise $2T(G)-Q(G)$.
+\end{enumerate}
+
+\section*{Tool and computational resource disclosure}
+This work was carried out on 26 September 2026 (UTC) in a workflow directed
+by the author, using AI coding agents: Anthropic Claude Code, with the model
+Claude Opus~5.5. The author set the research programme, namely resolving
+open problems with AI agents and formal verification, and directed the
+agents; the agents selected this question. Claude Code agents found
+the counterexamples and the proofs, wrote the verification programs and the
+Lean formalisation, carried out the literature searches described in the
+introduction, and drafted this text. An independent Claude Code agent, without
+access to the reasoning of the agents that found the proofs, refereed the
+proofs and the correspondence between the Lean statements and the question,
+and recomputed the main numbers with its own programs. A second independent
+Claude Code agent then reviewed the whole paper: it checked the proofs and the
+statements against the Lean file, recomputed the numbers with its own
+programs, and checked the references. The programs, logs and Lean code are
+available in version~1.3.0 of the repository~\cite{repo} (directories
+\texttt{certificates/carenini/}, \texttt{lean/Research/} and \texttt{logs/}).
+The author is not a professional mathematician.
+%% AUTHOR-ROLE-SENTENCE: to be completed after the author has read the paper
+The correctness of the results rests on the written proofs and, for the
+results listed in Table~\ref{tab:lean}, also on the Lean formalisation; the
+computations of Section~\ref{sec:comp} are additional cross-checks. AI systems
+are not authors of this paper; the author takes full responsibility for its
+content.
+
+\begin{thebibliography}{99}
+\bibitem{alon}
+N.~Alon, Independent sets in regular graphs and sum-free subsets of finite
+groups, \emph{Israel J.\ Math.} \textbf{73} (1991), 247--256.
+\bibitem{br}
+R.~R. Bahadur and R.~Ranga Rao, On deviations of the sample mean,
+\emph{Ann.\ Math.\ Statist.} \textbf{31} (1960), 1015--1027,
+\url{https://doi.org/10.1214/aoms/1177705674}.
+\bibitem{car}
+G.~Carenini, Counting almost independent sets in regular graphs,
+arXiv:2609.28527v1, 22 September 2026.
+\bibitem{dz}
+A.~Dembo and O.~Zeitouni, \emph{Large Deviations Techniques and
+Applications}, 2nd ed., Applications of Mathematics~38, Springer, New York,
+1998.
+\bibitem{repo}
+H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~1.3.0
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{fhm}
+D.~R. Fulkerson, A.~J. Hoffman and M.~H. McAndrew, Some properties of graphs
+with multiple edges, \emph{Canad.\ J.\ Math.} \textbf{17} (1965), 166--177.
+\bibitem{hakimi}
+S.~L. Hakimi, On realizability of a set of integers as degrees of the
+vertices of a linear graph.~I, \emph{J.\ Soc.\ Indust.\ Appl.\ Math.}
+\textbf{10} (1962), 496--506.
+\bibitem{kahn}
+J.~Kahn, An entropy approach to the hard-core model on bipartite graphs,
+\emph{Combin.\ Probab.\ Comput.} \textbf{10} (2001), 219--237.
+\bibitem{mantel}
+W.~Mantel, Problem 28 (solution by H.~Gouwentak, W.~Mantel, J.~Teixeira de
+Mattes, F.~Schuh and W.~A. Wythoff), \emph{Wiskundige Opgaven} \textbf{10}
+(1907), 60--61.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proceedings of
+the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs}
+(CPP '20), ACM, 2020, \url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{oeis}
+OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences},
+\url{https://oeis.org}, sequences A002851, A006820 and A006821, accessed 26
+September 2026.
+\bibitem{ross}
+N.~Ross, Fundamentals of Stein's method, \emph{Probab.\ Surv.} \textbf{8}
+(2011), 210--293, \url{https://doi.org/10.1214/11-PS182}; theorem numbers as
+in arXiv:1109.1880v1.
+\bibitem{sssz}
+A.~Sah, M.~Sawhney, D.~Stoner and Y.~Zhao, A reverse Sidorenko inequality,
+\emph{Invent.\ Math.} \textbf{221} (2020), 665--711,
+\url{https://doi.org/10.1007/s00222-020-00956-9}; also arXiv:1809.09462v3.
+\bibitem{seth}
+C.~Seth, A tolerant independent set tester, in \emph{Proceedings of the 57th
+Annual ACM Symposium on Theory of Computing} (STOC '25), 2025, 1031--1042,
+\url{https://doi.org/10.1145/3717823.3718290}; also arXiv:2503.21441.
+\bibitem{trurepo}
+The Omega Institute, \texttt{trureturing} repository,
+\url{https://github.com/the-omega-institute/trureturing}, accessed 26
+September 2026.
+\bibitem{zhao}
+Y.~Zhao, The number of independent sets in a regular graph,
+\emph{Combin.\ Probab.\ Comput.} \textbf{19} (2010), 315--320.
+\end{thebibliography}
+\end{document}

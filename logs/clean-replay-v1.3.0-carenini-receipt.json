@@ -1,0 +1,27 @@
+{
+  "purpose": "Clean-directory rebuild of the new module Research.Carenini for v1.3.0",
+  "start_utc": "2026-09-26T06:27:34Z",
+  "end_utc": "2026-09-26T06:30:51Z",
+  "exit_code": 0,
+  "toolchain": "leanprover/lean4:v4.33.1 (commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6)",
+  "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "procedure": [
+    "Fresh directory; sources and configuration copied from the release tree (lean/); shared Lake package cache for Mathlib at the pinned revision; fresh .lake/build.",
+    "`/usr/bin/time -l lake build Research.Carenini` (log: clean-replay-v1.3.0-carenini-build.log). The module imports only Mathlib, so this compiles Research.Carenini alone; its #print axioms lines are in the build log.",
+    "`lake env leanchecker Research.Carenini` (log: clean-replay-v1.3.0-leanchecker-carenini.log), exit 0.",
+    "`shasum -a 256` of sources and configuration (logs/lean-sources-sha256.txt, 40 files), checked in the replay directory with `shasum -c` (40 of 40 OK). Relative to v1.2.0 the new files are Research/Carenini.lean and Research/CareniniAudit.lean, and Research.lean gains `import Research.Carenini`; the other 37 files are unchanged since v1.2.0 and were replayed then (clean-replay-v1.2.0-receipt.json).",
+    "`lake env lean Research/CareniniAudit.lean` in the same replay directory (log: clean-replay-v1.3.0-audit-carenini.log), 2026-09-26, exit 0: 10 axiom lines, all within {propext, Classical.choice, Quot.sound}."
+  ],
+  "source_manifest": "logs/lean-sources-sha256.txt",
+  "source_manifest_sha256": "9260811baf5eeb853ea0c07ed6a9a6857bc62bf3f0c17ad0ecfe4a243bbf6be4",
+  "build": {
+    "real_seconds": 196.42,
+    "max_rss_bytes": 12096159744
+  },
+  "axiom_audit": {
+    "declarations": 14,
+    "nonstandard": 0,
+    "note": "13 depend on [propext, Classical.choice, Quot.sound]; Carenini.H3_bipartite depends on no axioms"
+  },
+  "notes": "Written from the logs listed above; paths are logical names."
+}

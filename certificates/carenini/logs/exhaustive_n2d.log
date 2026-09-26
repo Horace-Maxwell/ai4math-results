@@ -1,0 +1,23 @@
+d=3: 2 isomorphism classes of 3-regular graphs on 6 vertices (expected 2)
+   thresholds t in [0,9] where K_{d,d} is NOT a maximiser of i_t: [1]
+   thresholds where K_{d,d} is the unique maximiser: [0, 2]
+   thresholds where K_{d,d} ties for max with another graph: [3, 4, 5, 6, 7, 8, 9]
+     t= 1: max i_t=28  K_dd=24  #maximisers=1  (triangles of maximisers: [2])
+d=4: 6 isomorphism classes of 4-regular graphs on 8 vertices (expected 6)
+   thresholds t in [0,16] where K_{d,d} is NOT a maximiser of i_t: [1, 3, 5]
+   thresholds where K_{d,d} is the unique maximiser: [0, 4, 6]
+   thresholds where K_{d,d} ties for max with another graph: [2, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+     t= 1: max i_t=61  K_dd=47  #maximisers=2  (triangles of maximisers: [8, 8])
+     t= 3: max i_t=137  K_dd=127  #maximisers=1  (triangles of maximisers: [8])
+     t= 5: max i_t=187  K_dd=171  #maximisers=1  (triangles of maximisers: [8])
+d=5: 60 isomorphism classes of 5-regular graphs on 10 vertices (expected 60)
+   thresholds t in [0,25] where K_{d,d} is NOT a maximiser of i_t: [1, 2, 3, 5, 7, 8, 11]
+   thresholds where K_{d,d} is the unique maximiser: [0, 4, 6, 9, 10, 12]
+   thresholds where K_{d,d} ties for max with another graph: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+     t= 1: max i_t=116  K_dd=88  #maximisers=2  (triangles of maximisers: [20, 20])
+     t= 2: max i_t=203  K_dd=188  #maximisers=1  (triangles of maximisers: [14])
+     t= 3: max i_t=321  K_dd=288  #maximisers=1  (triangles of maximisers: [20])
+     t= 5: max i_t=524  K_dd=448  #maximisers=1  (triangles of maximisers: [16])
+     t= 7: max i_t=679  K_dd=648  #maximisers=1  (triangles of maximisers: [14])
+     t= 8: max i_t=783  K_dd=748  #maximisers=1  (triangles of maximisers: [20])
+     t=11: max i_t=908  K_dd=868  #maximisers=2  (triangles of maximisers: [20, 20])

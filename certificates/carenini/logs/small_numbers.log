@@ -1,0 +1,27 @@
+d=2 n=8: H_d (bipartite, connected) beats 2K_dd at t = [1, 3]
+      t=1: i_t(H_d)=111  i_t(2K_dd)=105
+      t=3: i_t(H_d)=211  i_t(2K_dd)=209
+d=3 n=12: H_d (bipartite, connected) beats 2K_dd at t = [1, 3, 5, 7, 9]
+      t=1: i_t(H_d)=527  i_t(2K_dd)=495
+      t=3: i_t(H_d)=1652  i_t(2K_dd)=1620
+      t=5: i_t(H_d)=2740  i_t(2K_dd)=2700
+      t=7: i_t(H_d)=3472  i_t(2K_dd)=3456
+      t=9: i_t(H_d)=3863  i_t(2K_dd)=3855
+d=4 n=16: H_d (bipartite, connected) beats 2K_dd at t = [1, 3, 5, 7, 9, 11, 13, 14, 17, 19]
+      t=1: i_t(H_d)=2055  i_t(2K_dd)=1953
+      t=3: i_t(H_d)=8907  i_t(2K_dd)=8705
+      t=5: i_t(H_d)=19733  i_t(2K_dd)=19241
+      t=7: i_t(H_d)=32291  i_t(2K_dd)=31817
+      t=9: i_t(H_d)=43777  i_t(2K_dd)=43553
+      t=11: i_t(H_d)=52105  i_t(2K_dd)=51745
+2C4 i_3 = 209
+C8 i_3 = 211
+C3+C5 i_3 = 213
+2K33 i_1 = 495  i_10 = 3981  i_9 = 3855
+3K4 i_1 = 575  i_10 = 4002  i_9 = 3858
+S3+K33 i_1 = 537  i_10 = 3985  i_9 = 3853
+K44 i_1 = 47  i_5 = 171
+S4 i_1 = 55  i_5 = 179
+prism K4xK2 i_1 = 61  i_5 = 185
+K55 i_1 = 88  i_11 = 868
+S5 i_1 = 100  i_11 = 880

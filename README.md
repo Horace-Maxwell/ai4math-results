@@ -1,6 +1,6 @@
-# The maximal energy of integral circulant graphs of orders p^(2r)·3^(2s+1) and pq^m, and Hanna's OEIS congruence conjectures (eleven proved, three more resolved), with Lean 4 proofs
+# Maximal energy of integral circulant graphs, Hanna's OEIS congruence conjectures, and a question of Carenini on almost independent sets, with Lean 4 proofs
 
-This repository contains two papers, their Lean 4 formalizations and
+This repository contains three papers, their Lean 4 formalizations and
 computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254); version 1.0.0
 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255); version 1.1.0
@@ -13,6 +13,7 @@ computational certificates. It is archived on Zenodo: all versions
 | --- | --- | --- | --- | --- |
 | Paper 1 | Maximal energy of integral circulant graphs of orders `p^(2r)·3^(2s+1)` and `pq^m` | new theorems; one computer-assisted proposition | `ICGGeneral.jiang_yang_q3`, `ICGGeneral.jiang_yang_thmA`, `ICGEqualParity.corollaryA` | [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) |
 | Paper 2 | Hanna's OEIS congruence conjectures: eleven proved, three more resolved | proofs; several follow quickly from classical results (stated in the corrected version 1.2.1) | `Oeis389472Mod3.*`, `HannaA*.*` | [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) |
+| Paper 3 | A negative answer to a question of Carenini on almost independent sets in regular graphs | new theorems (counterexamples and an asymptotic result) | `Carenini.not_careniniQuestion_six`, `Carenini.not_careniniQuestion_two_d` | [`papers/carenini-almost-independent`](papers/carenini-almost-independent/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
@@ -69,6 +70,34 @@ three more.*
 > - **No classical connection found:** A389472 (mod 3) and A377100.
 >
 > The theorems, proofs and Lean formalisation are unchanged.
+
+**Paper 3: [`papers/carenini-almost-independent`](papers/carenini-almost-independent/note.pdf).**
+*A negative answer to a question of Carenini on almost independent sets in
+regular graphs.*
+
+- For a `d`-regular graph `G` on `n` vertices, `i_γ(G)` counts the vertex
+  sets spanning at most `γdn` edges. Carenini (arXiv:2609.28527, Question 1.3)
+  asked whether, when `2d | n`, the disjoint union of `n/(2d)` copies of
+  `K_{d,d}` maximises `i_γ` for every `γ ≥ 0`; for `γ = 0` this is the
+  Kahn–Zhao theorem.
+- **The answer is no.** The smallest counterexample is `(n,d,γ) = (6,3,1/18)`:
+  the triangular prism has 28 vertex sets spanning at most one edge, `K_{3,3}`
+  has 24.
+- **Theorem A.** For every `(n,d)` with `2d | n`, except the trivial cases
+  `d = 1` and `(4,2)`, some `γ < 1/2` gives a counterexample.
+- **Theorems B and B′.** A switched `K_{d,d}` wins on `2d` vertices for every
+  `d ≥ 3`; a connected bipartite graph wins on `4d` vertices for every
+  `d ≥ 2`.
+- **Theorem D.** For every fixed `γ ∈ (1/8, 1/2)` and `d ≥ 2`, a bipartite
+  competitor wins for all large `n`.
+- **Proposition C.** At the exponential scale the union of copies of `K_{d,d}`
+  is optimal for every `γ` (the upper bound is Carenini's biclique reduction,
+  which rests on Sah–Sawhney–Stoner–Zhao).
+- Still open: fixed `γ ∈ (0, 1/8]` as `n → ∞`, and the `(1 + o(1))` form.
+- Lean: the counterexample at `(6,3,1/18)`, the switched family for every
+  `d ≥ 3`, and three further instances (`lean/Research/Carenini.lean`).
+  Theorems A, B′ (general `d`), D and Proposition C are proved in the paper,
+  not in Lean.
 
 **Also formalized (known results): OEIS A246056 and A376230.** Both are
 Hanna conjectures listed as open on the OEIS, but their content follows from
@@ -158,6 +187,7 @@ entry's indexing and initial coefficients.
 | A338633, A338634, A120566 | `HannaA338633.hanna_a338633`, `HannaA338633.hanna_a338634`, `HannaA120566.hanna_a120566` | b-files substituted into the defining equation modulo two primes, and the first 60 (A338633, A338634) or 150 (A120566) terms recomputed independently (`batch2/`) |
 | A246056 (formalization of a known result) | `HannaA246056.hanna_a246056_one`, `hanna_a246056_zero`; data check `a_initial` | 320 terms recomputed from the definition vs. the b-file (301 terms) (`certificates/oeis-hanna/round5/a246056/`) |
 | A376230 (formalization of a known result; the comment is refuted) | `HannaA376230.hanna_a376230`, `hanna_a376230_literal_false` | 48 terms computed exactly from the equation; the parity pattern checked on all 1030 b-file terms (`certificates/oeis-hanna/round5/a376230/`) |
+| Paper 3: the answer to Carenini's Question 1.3 is no at `(6,3,1/18)`, at `(2d, d, 1/(2d²))` for every `d ≥ 3`, and at `(8,2,1/16)`, `(12,3,1/36)` (connected bipartite competitor), `(12,3,5/18)` | `Carenini.not_careniniQuestion_six`, `not_careniniQuestion_two_d`, `not_careniniQuestion_eight_two`, `not_careniniQuestion_twelve_bip`, `not_careniniQuestion_twelve_top` | exact edge-count distributions by two independent methods; exhaustive check over all `d`-regular graphs on `2d` vertices for `d = 3, 4, 5`; Theorem D's competitor checked exactly for `γ = 1/10` (`certificates/carenini/`) |
 | A184894, A107099, A361047 (resolved) | `HannaA184894.zero_part`, `value_at_pow`, `counterexample`; `HannaA107099.hanna_a107099`, `hanna_a107099_counterexample`; `HannaA361047.hanna_a361047_pow`, `hanna_a361047_nonpow` | A184894: exact recomputation vs. the b-file; A107099: b-file substituted into the defining equation modulo two primes; A361047: the same, plus the first 60 terms recomputed independently (`batch2/`) |
 
 Each OEIS theorem is stated for every integer power series satisfying the
@@ -172,9 +202,15 @@ this version; see `logs/clean-replay-v1.2.0-*.log` and
 are recorded in `logs/clean-replay-v1.2.0-receipt.json`. The 67 audited
 declarations depend only on the three standard axioms. All proof and
 semantic-check modules were also replayed through the Lean kernel with
-`lake env leanchecker <Module>`, and all passed: the six modules new in this
-version in `logs/clean-replay-v1.2.0-leanchecker-new-modules.log`, the other
+`lake env leanchecker <Module>`, and all passed: the six modules new in
+version 1.2 in `logs/clean-replay-v1.2.0-leanchecker-new-modules.log`, the other
 26, unchanged since version 1.1.0, in `logs/clean-replay-v1.1.0-leanchecker.log`.
+The module `Carenini`, new in version 1.3.0, imports only mathlib; it was
+rebuilt from a clean directory and replayed through `leanchecker` on its own,
+and its audit file `CareniniAudit.lean` prints the final statements and their
+axioms (`logs/clean-replay-v1.3.0-carenini-*`,
+`logs/clean-replay-v1.3.0-audit-carenini.log`); the source manifest now lists
+40 files.
 
 ### Reproduce the Lean checks
 
@@ -237,6 +273,17 @@ python3 cert_fast.py 4 4 5 3      # the same for (4,4), vectorised (about 4 minu
 python3 cert_sympy_check.py 2 2 5 3
 ```
 
+Paper 3 (requires Python 3 with NumPy, NetworkX and SymPy):
+
+```sh
+cd lean && lake build Research.Carenini && cd ..   # the Carenini module alone (a few minutes)
+cd certificates/carenini
+python3 small_numbers.py         # the counts quoted in the paper
+python3 checkB.py                # Theorem B: the count 4d - 8 and the several-copies condition
+python3 exhaustive_n2d.py        # all d-regular graphs on 2d vertices, d = 3, 4, 5
+python3 check_gamma_tenth.py     # Theorem D's competitor at gamma = 1/10
+```
+
 Formalizations of the known results A246056 and A376230:
 
 ```sh
@@ -254,9 +301,10 @@ hypothesis (`P > 0`); Lemma 7 of the paper assumes `P ≥ μ`.
 
 ## Layout
 
-- `papers/`: LaTeX sources and PDFs of the two papers.
+- `papers/`: LaTeX sources and PDFs of the three papers.
 - `certificates/icg-equal-parity/`: programs, logs and a negative control for Theorem 3 and Proposition 13 of Paper 1; `PROOF-working-note.md` is the working note.
 - `certificates/oeis-hanna/round5/`: checks for A246056 and A376230.
+- `certificates/carenini/`: programs and logs for Paper 3.
 - `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
@@ -283,6 +331,12 @@ hypothesis (`P > 0`); Lemma 7 of the paper assumes `P ≥ μ`.
     we found no earlier treatment of `pq^m` with `m ≥ 3`, or of any other
     equal-parity shape (deep search, 2026-09-26).
   This reports the coverage of our searches, not a guarantee of priority.
+- Paper 3: Carenini's question was posted on 22 September 2026. We found no
+  earlier answer to it or discussion of it (arXiv listing and API, Semantic
+  Scholar, MathDB, GitHub code, commits, issues, pull requests and
+  repositories, the AI-assisted repositories listed below, and web search;
+  26 September 2026, 05:12–05:23 and 06:39–06:42 UTC, and again before release). This reports the coverage of
+  our searches, not a guarantee of priority.
 - Roldán's conjecture, case q = 3 (the formalization here is of a known
   result):
   - S. Park, *Exact Energy Maximisation for Integral Circulant Graphs of
@@ -338,7 +392,11 @@ mathematician, has read both papers (Paper 2 in its version 1) and, using a
 side-by-side table, compared the statements of the final Lean theorems with
 the theorems in the papers. The correction to Paper 2 in version 1.2.1 was
 drafted by Claude Code and checked by an independent Claude agent; it changes
-no theorem. AI
+no theorem. Paper 3 (version 1.3.0) was selected, proved, formalized and
+drafted by Claude Code agents, and independent Claude agents refereed the
+proofs, the Lean statements and the paper.
+AUTHOR-ROLE-PAPER3: to be completed after the author has read Paper 3.
+AI
 systems are not authors. The author takes full responsibility for the content.
 
 ## License
