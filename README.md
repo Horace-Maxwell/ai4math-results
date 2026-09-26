@@ -11,7 +11,7 @@ computational certificates. It is archived on Zenodo: all versions
 | | What | Status | Main Lean declarations | Where |
 | --- | --- | --- | --- | --- |
 | Paper 1 | Maximal energy of integral circulant graphs of orders `p^(2r)·3^(2s+1)` and `pq^m` | new theorems; one computer-assisted proposition | `ICGGeneral.jiang_yang_q3`, `ICGGeneral.jiang_yang_thmA`, `ICGEqualParity.corollaryA` | [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) |
-| Paper 2 | Hanna's OEIS congruence conjectures: eleven proved, three more resolved | proofs; several follow quickly from classical results (see the correction below); revision pending | `Oeis389472Mod3.*`, `HannaA*.*` | [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) |
+| Paper 2 | Hanna's OEIS congruence conjectures: eleven proved, three more resolved | proofs; several follow quickly from classical results (stated in the corrected version 1.2.1) | `Oeis389472Mod3.*`, `HannaA*.*` | [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
@@ -48,32 +48,26 @@ computational certificates. It is archived on Zenodo: all versions
 eleven congruence conjectures of Hanna from the OEIS, and the resolution of
 three more.*
 
-> **Correction (2026-09-26).** A structural prior-work check made after the
-> release of version 1.1.0 found that several of these conjectures are quick
-> consequences of classical results that Paper 2 does not cite. The proofs
-> and the Lean theorems remain correct, but the paper's statement that we
-> found no earlier proof must be read with these connections:
-> - **A240998, A295762, A301933, A338633, A338634:** modulo 2 the series
->   (minus 1 for A240998, A338633, A338634) equals the Catalan series
->   `C = x + C²`, so `a(n) ≡ C_{n−1} (mod 2)` and the parity patterns are the
->   classical fact that `C_n` is odd iff `n = 2^k − 1` (e.g. Deutsch–Sagan
->   2006, Theorem 2.1).
-> - **A273958:** by formula (1) of the entry, `xA ≡ C(C(x²)) (mod 2)`; that
->   `C(C(x)) ≡ Σ_k x^(4^k) (mod 2)` is also the key step of the trureturing
->   proof for A374568 (8 Sep 2026).
-> - **A184894:** the reduction is the classical correspondence for
->   linearised polynomials over F₃ (Ore 1933; Lidl–Niederreiter, *Finite
->   Fields*, Lemma 3.59).
-> - **Partly related:**
->   - A107099: the residues at the exceptional indices are Catalan numbers
->     modulo 3.
->   - A361047: `a(n) ≡ A001764(n−1) (mod 3)`, whose residues are recorded in
->     A113047.
->   - A274479, A388734, A120566: identities stated in the entries themselves
->     give short proofs.
+> **Correction (version 1.2.1).** Version 1 of Paper 2 did not cite that
+> several of these conjectures are quick consequences of classical results
+> or of identities stated in the OEIS entries; the revised paper now states
+> this, in the abstract, in a new paragraph
+> "Relation to classical results" and in remarks at the relevant theorems.
+> In short:
+> - **A240998, A295762, A301933, A338633, A338634:** modulo 2 they reduce to
+>   the Catalan series, so the patterns follow from the parity of the
+>   Catalan numbers (Deutsch–Sagan 2006; Theorem 2.1 in arXiv:math/0407326v1).
+> - **A273958:** modulo 2, `xA ≡ C(C(x²))`.
+> - **A184894:** the classical correspondence for linearised polynomials
+>   over F₃ (Ore 1933; Lidl–Niederreiter).
+> - **A120566, A274479, A388734:** identities stated in the entries
+>   themselves give short proofs.
+> - **A107099, A361047:** the reduced series are classical series (for
+>   A361047 that of the ternary numbers A001764, whose residues modulo 3 are
+>   recorded in A113047), identified by a routine uniqueness argument.
 > - **No classical connection found:** A389472 (mod 3) and A377100.
 >
-> Paper 2 will be revised accordingly in the next version.
+> The theorems, proofs and Lean formalisation are unchanged.
 
 **Also formalized (known results): OEIS A246056 and A376230.** Both are
 Hanna conjectures listed as open on the OEIS, but their content follows from
@@ -308,8 +302,10 @@ hypothesis (`P > 0`); Lemma 7 of the paper assumes `P ≥ μ`.
   explained above; we found
   this in a structural prior-work check before releasing them as new, and we
   present them only as formalizations.
-- For the OEIS results listed above, we found no earlier proof in the
-  following sources (searched 25–26 September 2026):
+- For the OEIS results listed above, apart from the connections with
+  classical results and entry identities given in the correction above, we
+  found no earlier proof in the following sources (searched 25–26 September
+  2026):
   - the OEIS entries and their revision histories;
   - the-omega-institute/trureturing (files, issues and pull requests);
   - astrafala/Conjectures and twentyseventhllc-lgtm/OEIS-Settled;
@@ -337,8 +333,11 @@ the material new in version 1.2, Claude Code agents found the equal-parity
 results and wrote the Lean code, and independent Claude agents checked the
 proofs; for A246056 and A376230, Codex selected the entries and outlined the
 key steps, and Claude Code completed the proofs and the Lean code. The author, who is not a professional
-mathematician, has read both papers and, using a side-by-side table, compared
-the statements of the final Lean theorems with the theorems in the papers. AI
+mathematician, has read both papers (Paper 2 in its version 1) and, using a
+side-by-side table, compared the statements of the final Lean theorems with
+the theorems in the papers. The correction to Paper 2 in version 1.2.1 was
+drafted by Claude Code and checked by an independent Claude agent; it changes
+no theorem. AI
 systems are not authors. The author takes full responsibility for the content.
 
 ## License

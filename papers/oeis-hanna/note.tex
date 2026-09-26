@@ -12,12 +12,22 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
 \newcommand{\F}{\mathbb F}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
 \newcommand{\ord}{\operatorname{ord}}
+\newcommand{\dsarxiv}{arXiv:\allowbreak math/\allowbreak0407326v1}
 \title{Proofs of eleven congruence conjectures of Hanna\\
-from the OEIS, and the resolution of three more}
+from the OEIS, and the resolution of three more\thanks{\emph{Correction.}
+This version corrects version~1 (released 2026-09-26), which did not cite
+the connections with classical results and with identities stated in the
+OEIS entries described in Section~\ref{sec:intro}
+under ``Relation to classical results'' and in Sections~\ref{sec:tools},
+\ref{sec:explicit} and~\ref{sec:additive}. Several of the
+conjectures proved here are quick consequences of classical results, whereas
+version~1 implied that all the proofs were new. The theorems, their proofs
+and the Lean formalisation are unchanged.}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
@@ -44,6 +54,17 @@ We also resolve three more:
 \item for A361047 we prove the intended statement, which the entry states
  with an index shift.
 \end{itemize}
+Several of these results are quick consequences of classical results, which
+we point out. Modulo~$2$, the series of A240998, A295762, A301933, A338633 and
+A338634 reduce, up to an additive constant, to the Catalan series, and that
+of A273958, multiplied by~$x$, to a composition of two Catalan series, so these parity patterns
+follow from the classical parity of the Catalan numbers. The results for
+A184894 follow quickly from the classical correspondence for linearised
+polynomials over~$\F_3$. For A120566, A274479 and A388734, identities stated
+in the entries themselves give short proofs. For A107099 and A361047 the
+reduced series are classical series, identified by a routine uniqueness
+argument. Only for the modulo-three conjecture of A389472 and for A377100 did
+we find neither an earlier proof nor a classical derivation.
 The proofs reduce the functional equations modulo a prime and use the
 Frobenius identity, formal derivatives, explicit solutions with an $x$-adic
 uniqueness argument, and Lucas's theorem. Every theorem is stated for every
@@ -53,7 +74,7 @@ working under the author's direction; their role is described at the end of
 the paper.
 \end{abstract}
 
-\section{Introduction}
+\section{Introduction}\label{sec:intro}
 Throughout, $A(x)=\sum_{n\ge0}a(n)x^n\in\Z[[x]]$, $A'$ is its formal
 derivative, and for a series $h$ with $h(0)=0$ we write $A(h)$ or $A\circ h$
 for the composition $\sum_n a(n)h^n$. The results are summarised in
@@ -88,19 +109,58 @@ A184894 & iterates of $x+x^3$ & vanishing proved; non-vanishing fails at index 3
 A107099 & $A\circ A=x+4x^3$ & vanishing proved; non-vanishing fails at $x^{729}$\\\bottomrule
 \end{tabular}
 \caption{Summary. Normalisations and precise statements are given in the
-theorems below.}\label{tab:summary}
+theorems below. Several of these results are quick consequences of classical
+results or of identities stated in the entries; see ``Relation to classical
+results'' below.}\label{tab:summary}
 \end{table}
 
 \paragraph{Prior work.} The modulo-two conjecture of A389472 was proved
 earlier by Perez Fontelles~\cite{pf389472} and, independently, in the
 \texttt{trureturing} repository~\cite{tru389472}; both leave the modulo-three
-conjecture open. We found no earlier proof of any of the results in this
-paper in the OEIS entries and their histories, in the literature, or in the
-public repositories of proofs of OEIS conjectures that we searched (among
-them~\cite{pfrepo,trurepo}). This reports the coverage of our searches, not a
+conjecture open.
+
+\paragraph{Relation to classical results.} Several of the conjectures proved
+here are quick consequences of classical results. Write
+$C_n=\binom{2n}{n}/(n+1)$ for the Catalan numbers and
+$C=\sum_{n\ge1}C_{n-1}x^n$ for the Catalan series, so that $C=x+C^2$.
+Modulo~$2$, the series of A295762 and A301933, and those of A240998, A338633
+and A338634 minus~$1$, all equal~$C$; this is how the proof of
+Theorem~\ref{thm:parity} proceeds. For A301933 it can also be read off from
+the remark in the entry that $C=x(1+2CC')/(1+CC')$: since
+$2\equiv4\equiv0\pmod2$, both equations reduce to $F=x/(1+FF')$, which
+determines~$F$. Hence $a(n)\equiv C_{n-1}\pmod2$ for $n\ge1$, and these five
+patterns follow from the classical fact that $C_n$ is odd if and only if
+$n=2^k-1$, a corollary of $\nu_2(C_n)=s_2(n+1)-1$, where $\nu_2$ is the
+$2$-adic valuation and $s_2$ the binary digit
+sum~\cite[Theorem~2.1 in \dsarxiv]{ds}. Lemma~\ref{lem:dyadic} is this fact.
+The continued fractions of A338633 and A338634 are the cases $e=3,4$ of a
+family whose cases $e=1,2$ are A000699 and A158119. All of them reduce to
+$A(A-1)=x$ modulo~$2$, and the parity of A000699 is recorded in A036987
+(J.~M.~Campbell, 2016). For A273958, formula~(1) of the entry, which solves
+the defining equation as a quadratic in $xA$, gives $xA=-C(-C^2)$, hence
+$xA\equiv C(C(x^2))\pmod2$. The congruence
+$C(C(x))\equiv\sum_{k\ge0}x^{4^k}\pmod2$ is also the key step of the proof of
+Hanna's conjecture for A374568 in the \texttt{trureturing}
+repository~\cite{tru374568}. Parts~(1) and~(2) of Theorem~\ref{thm:184894}
+are an instance of the classical correspondence for linearised polynomials
+over~$\F_3$, and the residues at the exceptional indices of A184894 and
+A107099 are, up to sign, Catalan numbers modulo~$3$; see the remark at the
+end of Section~\ref{sec:additive}. For A361047 the reduced series coincides with that of the
+ternary numbers A001764, whose residues modulo~$3$ are known; see
+Remark~\ref{rem:361047}. For A120566, A274479 and A388734 we found no
+classical connection, but identities stated in the entries themselves give
+short proofs; see the remarks after Theorems~\ref{thm:388734},
+\ref{thm:274479} and~\ref{thm:120566}.
+
+Apart from the connections with classical results noted above, we found no
+earlier proof of any of the results in this paper in the OEIS entries and
+their histories, in the literature, or in the public repositories of proofs
+of OEIS conjectures that we searched (among them~\cite{pfrepo,trurepo}). For
+the modulo-three conjecture of A389472 and for A377100 we also found no
+classical connection. This reports the coverage of our searches, not a
 guarantee of priority.
 
-\section{Tools}
+\section{Tools}\label{sec:tools}
 Reduction of the coefficients modulo a prime $p$ is a ring homomorphism
 $\Z[[x]]\to\F_p[[x]]$; it commutes with formal differentiation and with
 composition by series with zero constant term. We write $F=\overline A$ for
@@ -132,6 +192,10 @@ By Lemma~\ref{lem:frob}, $F=x+F(x^2)$, so $f(n)=[n=1]+[2\mid n]f(n/2)$ for
 $n\ge1$. By strong induction, $f(1)=1$, $f(n)=0$ for odd $n\ge3$, and
 $f(2m)=f(m)$.
 \end{proof}
+
+Since the reduction of the Catalan series $C$ satisfies $F=x+F^2$,
+Lemma~\ref{lem:dyadic} is the classical fact that $C_n$ is odd if and only if
+$n=2^k-1$; see Section~\ref{sec:intro}.
 
 We also use the following observation repeatedly: if $D\in\F_p[[x]]$,
 $x^{n_0}\mid D$, and $x^n\mid D$ implies $x^{n+1}\mid D$ for all $n\ge n_0$,
@@ -187,7 +251,7 @@ disjoint sets $\{4^j\}$ and $\{2\cdot4^k\}$, and strong induction gives
 $b(n)=1$ exactly for $n=2\cdot4^k$.
 \end{proof}
 
-\section{Explicit solutions modulo a prime}
+\section{Explicit solutions modulo a prime}\label{sec:explicit}
 In the next results we exhibit the reduction $F$ explicitly and show that it
 is the only solution by the $x$-adic observation of Section~2.
 
@@ -200,6 +264,18 @@ $x+x^2\equiv x(1-x)$. Subtracting the equations for $F$ and $U$ gives
 $F-U=(F-U)\,x\,[F+U+x(1-x)(F^2+FU+U^2)]$, so $x^n\mid F-U$ implies
 $x^{n+1}\mid F-U$. Hence $F=U$.
 \end{proof}
+
+\begin{remark*}
+Formula~(4) of the entry, read as a formula for $xA$ as in the program of
+the entry, gives another short proof: $xA$ is the series reversion of
+$\varphi=x(1-x-x^2)/(1-x^3)$. (This holds because $B=(1-x^3)/(1-x-x^2)$
+satisfies $B=1+\varphi B^2+\varphi^2(1-\varphi)B^3$ with $\varphi=x/B$; since
+$\varphi$ has no constant term, the equation $Y=1+\varphi Y^2+\varphi^2(1-\varphi)Y^3$
+has a unique power-series solution, so $A(\varphi)=B$, which is formula~(5)
+of the entry.) Since $1-x^3=(1-x)(1+x+x^2)$, we have
+$\varphi\equiv x/(1+x)\pmod2$, whose reversion is $x/(1-x)$; hence
+$A\equiv1/(1-x)$.
+\end{remark*}
 
 \begin{theorem}[A377100]\label{thm:377100}
 If $a(0)=0$, $a(1)=1$ and $A=A(x^3)/A(x^2)+A^2$, then $a(n)\equiv1\pmod3$
@@ -225,6 +301,13 @@ $x^n\mid D$ then $x^{2n}\mid D(h)$, and $F+E=xW$ with $W(0)=2$ a unit, so
 $x^{2n-1}\mid D$. As $x^2\mid D$, we get $F=E$.
 \end{proof}
 
+\begin{remark*}
+The entry already notes, in its comment~(1), that $x/(1-x)$ satisfies
+$F^2=F\bigl(x^2/(1-2x+2x^2)\bigr)$. As $-4\equiv2\pmod3$, this is the reduced
+equation, so with this identity the conjecture has a short proof: only the
+uniqueness argument above is needed.
+\end{remark*}
+
 \begin{theorem}[A120566]\label{thm:120566}
 If $a(0)=0$, $a(1)=1$ and $A=A\circ A-x\,A\circ A\circ A$, then $a(n)$ is odd
 for every $n\ge1$.
@@ -241,6 +324,15 @@ for $F$ and $E$ gives $D\equiv2D\equiv0\pmod{x^{n+1}}$. As $x^2\mid D$, we get
 $F=E$.
 \end{proof}
 
+\begin{remark*}
+Formula~(2) of the entry, $A(-A(-x))=x$, gives a shorter proof. It follows
+from the defining equation: both $-A(-x)$ and the compositional inverse
+of~$A$ satisfy $B=B\circ B+x\,B\circ B\circ B$, and this equation has only
+one solution $B=x+O(x^2)$. Modulo~$2$ we have $-A(-x)\equiv A$, so
+formula~(2) gives $F\circ F=x$, and the defining equation becomes $F=x-xF$,
+that is, $F=x/(1+x)$.
+\end{remark*}
+
 \begin{theorem}[A361047]\label{thm:361047}
 If $A(0)=0$ and $A(x-x^3A'^2)=x$, then $[x^m]A\equiv1\pmod3$ when $m$ is a
 power of~$3$, and $[x^m]A\equiv0\pmod3$ otherwise.
@@ -255,15 +347,26 @@ $0=F(g_F)-S(g_S)=D(g_F)+\bigl(S(g_F)-S(g_S)\bigr)\equiv D\pmod{x^{n+1}}$.
 Hence $F=S$.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{rem:361047}
 The entry A361047 writes $A=\sum_{n\ge1}a(n)x^{2n-1}$ and conjectures
 $a(n)\equiv1\pmod3$ exactly for $n=(3^k-1)/2$. With this indexing the
 statement is contradicted by the data ($a(2)=1$). It is correct for the
 index $i=n-1$, since $x^{2i+1}$ with $i=(3^k-1)/2$ is $x^{3^k}$.
 Theorem~\ref{thm:361047} is this intended statement.
+
+Over~$\Z$ the reversion of $x-x^3$ is $V=\sum_{k\ge0}t(k)x^{2k+1}$, where
+$t(k)=\binom{3k}{k}/(2k+1)$ are the ternary numbers (A001764), since
+$V-V^3=x$. Modulo~$3$ this reversion is $S$, so Theorem~\ref{thm:361047} says
+that $a(n)\equiv t(n-1)\pmod3$. The residues of $t(k)$ modulo~$3$ form
+A113047, which is $1$ for $k=(3^j-1)/2$ and $0$ otherwise; this was
+conjectured by P.~Barry and proved by K.~Ryde in 2021~\cite{ryde}. The
+statement in A361047 is this pattern without the index shift. The remaining
+step, $F=S$, or equivalently $F'=1$, which reduces the defining equation
+modulo~$3$ to $F(x-x^3)=x$, follows by the routine uniqueness argument in the
+proof above.
 \end{remark}
 
-\section{Additive series modulo three}
+\section{Additive series modulo three}\label{sec:additive}
 Call $G\in\F_3[[x]]$ \emph{additive} if $[x^m]G=0$ whenever $m$ is not a
 power of~$3$. By Lemma~\ref{lem:frob}, $G^{3^j}=G(x^{3^j})$, so the
 composition of two additive series is additive.
@@ -312,6 +415,28 @@ statement as written. It also shows that the stronger reading, non-vanishing
 at every power of~$3$, is false: $[x^{729}]A=a(364)\equiv0\pmod3$. The OEIS
 b-file of A107099 already shows this zero.
 
+\begin{remark*}
+Parts~(1) and~(2) of Theorem~\ref{thm:184894} are an instance of the
+classical correspondence between linearised polynomials over~$\F_3$ and
+their conventional $3$-associates, $\sum_jc_jx^{3^j}\leftrightarrow
+\sum_jc_jt^j$, under which composition corresponds to
+multiplication~\cite{ore},~\cite[Lemma~3.59]{ln}: since $x+x^3$ corresponds
+to $1+t$, we get $P_m\equiv\sum_j\binom mjx^{3^j}\pmod3$. Likewise, the
+correspondence, which extends to series, shows that the additive series
+$\sum_j\binom{1/2}{j}x^{3^j}$, which corresponds to $(1+t)^{1/2}$, composes
+with itself to $x+x^3$ modulo~$3$. For $m\ge2$ the coefficient of $x^m$ in
+$F\circ F$ is $2f(m)$ plus terms in lower coefficients, so by a routine
+uniqueness argument the reduction $F$ in Theorem~\ref{thm:107099} is this
+series. For $j\ge1$ we have
+$\binom{1/2}{j}=2(-1)^{j-1}C_{j-1}/4^j\equiv(-1)^jC_{j-1}\pmod3$, and
+$\binom{(3^j+1)/2}{j}\equiv\binom{1/2}{j}\pmod3$ by Lucas's theorem, because
+$(3^j+1)/2\equiv1/2\pmod{3^j}$ and $j<3^j$. So in both entries the residue at
+an exceptional index with $j\ge1$ is $(-1)^jC_{j-1}$ modulo~$3$.
+By~\cite[Theorem~5.2 in \dsarxiv]{ds}, it is nonzero exactly when every
+base-$3$ digit of $j$ except the last is $0$ or~$1$. Both failures come from
+$3\mid C_5=42$.
+\end{remark*}
+
 \section{Verification}
 \paragraph{Numerical checks.} For each entry, one of two checks was made.
 Either a prefix of the sequence was recomputed from the defining equation and
@@ -348,10 +473,15 @@ programme and directed the agents. Codex found and formalised the proof of
 Theorem~\ref{thm:389472}. Claude Code agents searched the OEIS for candidate
 conjectures, found and formalised the other proofs, and drafted this text.
 Each proof was checked by a second agent, and the agents searched the
-literature for previous proofs.
-The author is not a professional mathematician. The author has read the
-paper and, using a side-by-side table, compared the statements of the Lean
-theorems with the theorems stated here. The correctness of the results rests on the written proofs and on the Lean
+literature for previous proofs. After version~1 was released, a further agent
+check, which compared the reduced series with classical sequences, found the
+connections with classical results and with identities stated in the OEIS
+entries described in Section~\ref{sec:intro}; Claude Code drafted the
+corresponding changes, which an independent Claude agent checked.
+The author is not a professional mathematician. The author has read
+version~1 of the paper and, using a side-by-side table, compared the
+statements of the Lean theorems with the theorems stated here, which are
+unchanged in this version. The correctness of the results rests on the written proofs and on the Lean
 formalisation; the numerical checks described in the previous section are
 additional cross-checks. In addition,
 each proof was checked by an AI agent other than the one that found it, and
@@ -359,7 +489,16 @@ the formal statements were compared with the OEIS entries by a second
 agent. AI systems are not authors of this paper; the author takes full
 responsibility for its content.
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
+\bibitem{ds}
+E.~Deutsch and B.~E.~Sagan, Congruences for Catalan and Motzkin numbers and
+related sequences, \emph{J. Number Theory} 117 (2006) 191--215,
+\url{https://doi.org/10.1016/j.jnt.2005.06.005}; also
+\url{https://arxiv.org/abs/math/0407326}. Theorem numbers cited in this paper
+are those of the arXiv version~v1 (\dsarxiv).
+\bibitem{ln}
+R.~Lidl and H.~Niederreiter, \emph{Finite Fields}, 2nd ed., Encyclopedia of
+Mathematics and its Applications~20, Cambridge University Press, 1997.
 \bibitem{mathlib}
 The mathlib Community, The Lean mathematical library, in \emph{Proceedings of
 the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs}
@@ -368,7 +507,11 @@ the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs}
 OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences},
 \url{https://oeis.org}, entries A107099, A120566, A184894, A240998, A273958,
 A274479, A295762, A301933, A338633, A338634, A361047, A377100, A388734 and
-A389472 (P.~D.~Hanna), accessed 25--26 September 2026.
+A389472 (P.~D.~Hanna), and the related entries A000699, A001764, A036987,
+A113047, A158119 and A374568, accessed 25--26 September 2026.
+\bibitem{ore}
+O.~Ore, On a special class of polynomials, \emph{Trans. Amer. Math. Soc.} 35
+(1933) 559--584, \url{https://doi.org/10.1090/S0002-9947-1933-1501703-0}.
 \bibitem{pf389472}
 A.~Perez Fontelles, \emph{Every odd-indexed term of OEIS A389472 after the
 first is even}, 31 August 2026, paper 1042 in~\cite{pfrepo},
@@ -381,6 +524,15 @@ repository \texttt{astrafala/Conjectures},
 H.~Dong, \emph{ai4math-results}, repository,
 \url{https://github.com/Horace-Maxwell/ai4math-results}; archived at Zenodo,
 \url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{ryde}
+K.~Ryde, \emph{Proof of characteristic function of the ternary repunits},
+file \texttt{a113047.txt} in entry A113047 of~\cite{oeis}, June 2021,
+\url{https://oeis.org/A113047/a113047.txt}.
+\bibitem{tru374568}
+The Omega Institute, \emph{Double Catalan Composition and Powers of Four}
+(proof of Hanna's conjecture for A374568), \texttt{trureturing} repository,
+commit \texttt{587bcc0}, 8 September 2026,
+\url{https://github.com/the-omega-institute/trureturing/blob/587bcc03210934dda7c8c7507a4ae34fd3c6f932/Blueprint/D5/S1/Recurrence/Invariants/CatalanDoubleCompositionPowersOfFour.md}.
 \bibitem{tru389472}
 The Omega Institute, \emph{Hanna's Odd-Index Parity Conjecture},
 \texttt{trureturing} repository, 2026,
