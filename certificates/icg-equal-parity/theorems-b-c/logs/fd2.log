@@ -1,0 +1,10 @@
+p=3 q=5: min ratio (chain+dev)/(4P rho) = 1.0588 at b=2, dev=full chain, J'=-1   b2:1.059 b4:1.897 b6:1.900 b8:1.900 b10:1.900 b12:1.900 b20:1.900 b30:1.900
+p=3 q=7: min ratio (chain+dev)/(4P rho) = 1.0541 at b=2, dev=full chain, J'=-1   b2:1.054 b4:2.062 b6:2.071 b8:2.071 b10:2.071 b12:2.071 b20:2.071 b30:2.071
+p=3 q=11: min ratio (chain+dev)/(4P rho) = 1.0396 at b=2, dev=full chain, J'=-1   b2:1.040 b4:2.042 b6:2.205 b8:2.205 b10:2.205 b12:2.205 b20:2.205 b30:2.205
+p=3 q=13: min ratio (chain+dev)/(4P rho) = 1.0345 at b=2, dev=full chain, J'=-1   b2:1.034 b4:2.036 b6:2.212 b8:2.212 b10:2.212 b12:2.212 b20:2.212 b30:2.212
+p=3 q=101: min ratio (chain+dev)/(4P rho) = 1.0049 at b=2, dev=full chain, J'=-1   b2:1.005 b4:2.005 b6:2.245 b8:2.245 b10:2.245 b12:2.245 b20:2.245 b30:2.245
+p=3 q=1009: min ratio (chain+dev)/(4P rho) = 1.0005 at b=2, dev=full chain, J'=-1   b2:1.000 b4:2.000 b6:2.250 b8:2.250 b10:2.250 b12:2.250 b20:2.250 b30:2.250
+p=5 q=3: min ratio (chain+dev)/(4P rho) = 2.4000 at b=2, dev=(-1, 1, 1), J'=1   b2:2.400 b4:2.561 b6:2.581 b8:2.583 b10:2.583 b12:2.583 b20:2.583 b30:2.583
+p=7 q=3: min ratio (chain+dev)/(4P rho) = 3.5333 at b=2, dev=(-1, 1, 1), J'=1   b2:3.533 b4:3.797 b6:3.807 b8:3.806 b10:3.806 b12:3.806 b20:3.806 b30:3.806
+p=5 q=7: min ratio (chain+dev)/(4P rho) = 3.0179 at b=30, dev=(1, -1, 1), J'=29   b2:3.024 b4:3.018 b6:3.018 b8:3.018 b10:3.018 b12:3.018 b20:3.018 b30:3.018
+p=101 q=3: min ratio (chain+dev)/(4P rho) = 50.6750 at b=30, dev=(1, -1, 1), J'=29   b2:50.807 b4:50.691 b6:50.677 b8:50.675 b10:50.675 b12:50.675 b20:50.675 b30:50.675

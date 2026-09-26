@@ -1,0 +1,47 @@
+Research/HKOTriameter.lean:150:23: error: don't know how to synthesize placeholder for argument `w`
+context:
+V : Type u_1
+G : SimpleGraph V
+D : V → V → ℕ
+hself : ∀ (x : V), D x x = 0
+hzero : ∀ (x y : V), D x y = 0 → x = y
+hstep : ∀ (x y : V), D x y ≠ 0 → ∃ z, G.Adj x z ∧ D z y + 1 = D x y
+hlip : ∀ (u v w : V), G.Adj u v → D u w ≤ D v w + 1
+hwalk : ∀ (n : ℕ) (x y : V), D x y = n → ∃ p, p.length = n
+x y u✝ v✝ w✝ : V
+h : G.Adj u✝ v✝
+p : G.Walk v✝ w✝
+ih : D v✝ w✝ ≤ p.length
+⊢ V
+Research/HKOTriameter.lean:150:11: error: failed to infer `have` declaration type
+Research/HKOTriameter.lean:157:46: error(lean.invalidField): Invalid field `exists_walk_length_eq_dist`: The environment does not contain `Nonempty.exists_walk_length_eq_dist`, so it is not possible to project the field `exists_walk_length_eq_dist` from an expression
+  Nonempty.intro p
+of type `Nonempty (G.Walk x y)`
+Research/HKOTriameter.lean:157:11: error: Tactic `rcases` failed: `x✝ : ?m.224` is not an inductive datatype
+Research/HKOTriameter.lean:182:12: warning: `ENat.coe_toNat` has been deprecated: Use `ENat.natCast_toNat` instead
+Research/HKOTriameter.lean:263:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a ≤ triameter G1
+Error: Application type mismatch: The argument
+  G1
+has type
+  SimpleGraph (Fin 8)
+but is expected to have type
+  SimpleGraph (Fin _a)
+in the application
+  triameter G1
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+case a
+hle : ∀ (a b c : Fin 8), D1 a b + D1 a c + D1 b c ≤ 8
+h : triDist G1 1 5 6 = 8
+⊢ 8 ≤ triameter G1
+'HKOTriameter.not_problem1Claim' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem2Claim' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'HKOTriameter.G1_counterexample' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'HKOTriameter.G2_counterexample' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'HKOTriameter.not_question3_G1' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+lake env lean Research/HKOTriameter.lean  7.01s user 3.25s system 96% cpu 10.649 total

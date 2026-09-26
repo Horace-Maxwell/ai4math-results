@@ -1,0 +1,5 @@
+n=6 r=2: e_I0 e_I1 e_I2 e_I0 = transposition of free points 3,4 in the group H-class of e_I0 (odd); e_I0 e_I1 e_I0 = e_I0
+n=7 r=3: e_I0 e_I1 e_I2 e_I0 = transposition of free points 3,4 in the group H-class of e_I0 (odd); e_I0 e_I1 e_I0 = e_I0
+n=10 r=2: e_I0 e_I1 e_I2 e_I0 = transposition of free points 3,4 in the group H-class of e_I0 (odd); e_I0 e_I1 e_I0 = e_I0
+n=11 r=3: e_I0 e_I1 e_I2 e_I0 = transposition of free points 3,4 in the group H-class of e_I0 (odd); e_I0 e_I1 e_I0 = e_I0
+TRIANGLE CHECK (implementation 2) PASSED

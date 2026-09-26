@@ -1,0 +1,32 @@
+(a) T_k(x) definition == Ramanujan-sum formula for k=1..6, x in {3,5,7}: OK
+(b) d_k, delta_k definitions == closed forms (k<=11); x^k mu_{k-1} = delta_k; d_k = x^k (sum c_j + mu_{k-1}); T_2(p), D_p = 5P^2+2P+1 = 5p^2-8p+4, delta_p = P^2+1 = p^2-2p+2: OK
+(c) type table alpha(t), F_p(t), Delta(t) and max|(Mc)_i| = (2pP, 2pP, p^2): OK (7 values of p incl. non-integer)
+(d) Lemma P (nu(w) = sum chat_j|w_j| + (1/q) sum h_{mu_(j-1)}(w_j, z_j(w))) and (T_b w)_b = q^b z_-1: 3000 random exact cases OK
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(5,3)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(3,5)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(7,3)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(3,7)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(5,7)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(7,5)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(11,13)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(11/2,7/2)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(3,9/2)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(101,3)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(3,101)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(4,3)
+(e) Prop 1 exact for all 256 Y, shape (2,2), (p,q)=(5/2,5/2)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(5,3)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(3,5)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(7,3)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(3,7)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(5,7)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(7,5)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(11,13)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(11/2,7/2)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(3,9/2)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(101,3)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(3,101)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(4,3)
+(e) Prop 1 exact for all 16384 Y, shape (2,4), (p,q)=(5/2,5/2)
+(e) Prop 1 exact for 1200 random Y with b in {6,8,10,12}
+ALL OK

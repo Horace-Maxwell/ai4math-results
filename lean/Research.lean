@@ -21,3 +21,13 @@ import Research.HannaA246056
 import Research.HannaA376230
 import Research.ICGEqualParityUnique
 import Research.Carenini
+import Research.ICGEqualParityBGraph
+import Research.ICGEqualParityBCert1
+import Research.ICGEqualParityBCert2
+import Research.ICGEqualParityBCert3
+import Research.ICGEqualParityBCert4
+import Research.ICGEqualParityBCert5
+import Research.ICGEqualParityBCert6
+import Research.HKOTriameterDH
+import Research.BrauerCMCore
+import Research.RM714Weights

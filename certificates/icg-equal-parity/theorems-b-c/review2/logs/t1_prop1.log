@@ -1,0 +1,4 @@
+(1) T formula == Ramanujan-sum definition (x prime <= 13, k <= 7); d_k, delta_k closed forms == matrix values: OK
+(2)+(3) Proposition 1 identity, s_j >= 0 (strict off +-s_a), alt cells <= 0, kappa >= 0: 880 random (Y, p, q), a in 2..5: OK
+(4)+(5)+(6-numeric) exact anti state, Y+ cells all zero, kappa(Y+)=0, Delta(g_trunc)=2 delta_a, G(Y+)=G(Y-)=Theta, Q delta_a > p^a: 192 (a,b,p,q) cases, a<=6, b<=13: OK
+(6) (p+1)(Q delta_a - p^a) has nonnegative coefficients and positive constant term after P=4+s,Q=2+t / P=2,Q=4+t, a=2..8: OK

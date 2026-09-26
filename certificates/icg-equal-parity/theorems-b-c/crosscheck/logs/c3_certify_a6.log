@@ -1,0 +1,5 @@
+a=6 region=big: validated q*s branch-min against direct cell computation at 50 random exact points: OK
+a=6 region=big: cheap last columns [((1, 1, -1, 1, -1, 1, -1), 1), ((1, -1, 1, 1, -1, 1, -1), 1), ((1, -1, 1, -1, 1, 1, -1), 1), ((1, -1, 1, -1, -1, 1, -1), 1), ((1, -1, -1, 1, -1, 1, -1), 1)]; columns with Delta > 2 delta: 57; trunc = (1, -1, 1, -1, 1, -1, -1)
+a=6 region=p3: validated q*s branch-min against direct cell computation at 50 random exact points: OK
+a=6 region=p3: cheap last columns [((1, 1, -1, 1, -1, 1, -1), 1), ((1, 1, -1, -1, 1, 1, -1), 1), ((1, -1, 1, 1, -1, 1, -1), 1), ((1, -1, 1, -1, 1, 1, -1), 1), ((1, -1, 1, -1, -1, 1, -1), 1), ((1, -1, -1, 1, -1, 1, -1), 1), ((-1, 1, 1, -1, 1, 1, -1), 1), ((-1, 1, 1, -1, -1, 1, -1), 1), ((-1, 1, -1, -1, 1, 1, -1), 1), ((-1, -1, 1, 1, -1, 1, -1), 1), ((-1, -1, 1, -1, 1, 1, -1), 1), ((-1, -1, 1, -1, -1, 1, -1), 1)]; columns with Delta > 2 delta: 50; trunc = (1, -1, 1, -1, 1, -1, -1)
+a=6 K=4: checks {'S': 256, 'FD1': 7505, 'CH': 57655, 'CHalone': 34, 'full': 17, 'EQ': 20, 'validated': 28956}; failures 0; time 23s

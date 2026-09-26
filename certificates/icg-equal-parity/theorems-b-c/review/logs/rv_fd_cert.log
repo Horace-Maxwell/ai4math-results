@@ -1,0 +1,149 @@
+FD1: 84 vertex checks done
+FD2: 53 vertex checks done
+TOTAL: 137 vertex checks, 325 certified polynomials (branches x regions), failures: 0; methods: {'coeff': 325}
+   OK   FD1 Asame R0 m=mu0
+   OK   FD1 Asame R0 m=L
+   OK   FD1 Asame R1 mu=mu0
+   OK   FD1 Asame R1 mu=L
+   OK   FD1 Asame R2a mu=L m=mu0
+   OK   FD1 Asame R2a mu=L m=L
+   OK   FD1 Asame R2a mu=mu1 m=mu0
+   OK   FD1 Asame R2a mu=mu1 m=L
+   OK   FD1 Asame R2b mu=mu0 m=L
+   OK   FD1 Asame R2b mu=mu0 m=mu1
+   OK   FD1 Asame R2b mu=L m=L
+   OK   FD1 Asame R2b mu=L m=mu1
+   OK   FD1 Bsame R0 m=mu0
+   OK   FD1 Bsame R0 m=L
+   OK   FD1 Bsame R1 mu=mu0
+   OK   FD1 Bsame R1 mu=L
+   OK   FD1 Bsame R2a mu=L m=mu0
+   OK   FD1 Bsame R2a mu=L m=L
+   OK   FD1 Bsame R2a mu=mu1 m=mu0
+   OK   FD1 Bsame R2a mu=mu1 m=L
+   OK   FD1 Bsame R2b mu=mu0 m=L
+   OK   FD1 Bsame R2b mu=mu0 m=mu1
+   OK   FD1 Bsame R2b mu=L m=L
+   OK   FD1 Bsame R2b mu=L m=mu1
+   OK   FD1 Bopp R0 m=mu0
+   OK   FD1 Bopp R0 m=L
+   OK   FD1 Bopp R1 mu=mu0
+   OK   FD1 Bopp R1 mu=L
+   OK   FD1 Bopp R2a mu=L m=mu0
+   OK   FD1 Bopp R2a mu=L m=L
+   OK   FD1 Bopp R2a mu=mu1 m=mu0
+   OK   FD1 Bopp R2a mu=mu1 m=L
+   OK   FD1 Bopp R2b mu=mu0 m=L
+   OK   FD1 Bopp R2b mu=mu0 m=mu1
+   OK   FD1 Bopp R2b mu=L m=L
+   OK   FD1 Bopp R2b mu=L m=mu1
+   OK   FD1 Csame R0 m=mu0
+   OK   FD1 Csame R0 m=L
+   OK   FD1 Csame R1 mu=mu0
+   OK   FD1 Csame R1 mu=L
+   OK   FD1 Csame R2a mu=L m=mu0
+   OK   FD1 Csame R2a mu=L m=L
+   OK   FD1 Csame R2a mu=mu1 m=mu0
+   OK   FD1 Csame R2a mu=mu1 m=L
+   OK   FD1 Csame R2b mu=mu0 m=L
+   OK   FD1 Csame R2b mu=mu0 m=mu1
+   OK   FD1 Csame R2b mu=L m=L
+   OK   FD1 Csame R2b mu=L m=mu1
+   OK   FD1 Copp R0 m=mu0
+   OK   FD1 Copp R0 m=L
+   OK   FD1 Copp R1 mu=mu0
+   OK   FD1 Copp R1 mu=L
+   OK   FD1 Copp R2a mu=L m=mu0
+   OK   FD1 Copp R2a mu=L m=L
+   OK   FD1 Copp R2a mu=mu1 m=mu0
+   OK   FD1 Copp R2a mu=mu1 m=L
+   OK   FD1 Copp R2b mu=mu0 m=L
+   OK   FD1 Copp R2b mu=mu0 m=mu1
+   OK   FD1 Copp R2b mu=L m=L
+   OK   FD1 Copp R2b mu=L m=mu1
+   OK   FD1 Esame R0 m=mu0
+   OK   FD1 Esame R0 m=L
+   OK   FD1 Esame R1 mu=mu0
+   OK   FD1 Esame R1 mu=L
+   OK   FD1 Esame R2a mu=L m=mu0
+   OK   FD1 Esame R2a mu=L m=L
+   OK   FD1 Esame R2a mu=mu1 m=mu0
+   OK   FD1 Esame R2a mu=mu1 m=L
+   OK   FD1 Esame R2b mu=mu0 m=L
+   OK   FD1 Esame R2b mu=mu0 m=mu1
+   OK   FD1 Esame R2b mu=L m=L
+   OK   FD1 Esame R2b mu=L m=mu1
+   OK   FD1 Eopp R0 m=mu0
+   OK   FD1 Eopp R0 m=L
+   OK   FD1 Eopp R1 mu=mu0
+   OK   FD1 Eopp R1 mu=L
+   OK   FD1 Eopp R2a mu=L m=mu0
+   OK   FD1 Eopp R2a mu=L m=L
+   OK   FD1 Eopp R2a mu=mu1 m=mu0
+   OK   FD1 Eopp R2a mu=mu1 m=L
+   OK   FD1 Eopp R2b mu=mu0 m=L
+   OK   FD1 Eopp R2b mu=mu0 m=mu1
+   OK   FD1 Eopp R2b mu=L m=L
+   OK   FD1 Eopp R2b mu=L m=mu1
+   OK   FD2(a) Asame mu=mu0
+   OK   FD2(a) Asame mu=L
+   OK   FD2(a) Aopp mu=mu0
+   OK   FD2(a) Aopp mu=L
+   OK   FD2(a) Bsame mu=mu0
+   OK   FD2(a) Bsame mu=L
+   OK   FD2(a) Csame mu=mu0
+   OK   FD2(a) Csame mu=L
+   OK   FD2(a) Copp mu=mu0
+   OK   FD2(a) Copp mu=L
+   OK   FD2(a) Esame mu=mu0
+   OK   FD2(a) Esame mu=L
+   OK   FD2(a) Eopp mu=mu0
+   OK   FD2(a) Eopp mu=L
+   OK   FD2(a) chain column, P>=4, mu=mu0
+   OK   FD2(a) chain column, P>=4, mu=L
+   OK   FD2(b) k=1 Asame mu=L
+   OK   FD2(b) k=1 Asame mu=mu1
+   OK   FD2(b) k=1 Asame mu=1
+   OK   FD2(b) k=1 Aopp mu=L
+   OK   FD2(b) k=1 Aopp mu=mu1
+   OK   FD2(b) k=1 Aopp mu=1
+   OK   FD2(b) k=1 Bsame mu=L
+   OK   FD2(b) k=1 Bsame mu=mu1
+   OK   FD2(b) k=1 Bsame mu=1
+   OK   FD2(b) k=1 Csame mu=L
+   OK   FD2(b) k=1 Csame mu=mu1
+   OK   FD2(b) k=1 Csame mu=1
+   OK   FD2(b) k=1 Copp mu=L
+   OK   FD2(b) k=1 Copp mu=mu1
+   OK   FD2(b) k=1 Copp mu=1
+   OK   FD2(b) k=1 Esame mu=L
+   OK   FD2(b) k=1 Esame mu=mu1
+   OK   FD2(b) k=1 Esame mu=1
+   OK   FD2(b) k=1 Eopp mu=L
+   OK   FD2(b) k=1 Eopp mu=mu1
+   OK   FD2(b) k=1 Eopp mu=1
+   OK   FD2(b) k=2 Asame mu=mu0
+   OK   FD2(b) k=2 Asame mu=L
+   OK   FD2(b) k=2 Aopp mu=mu0
+   OK   FD2(b) k=2 Aopp mu=L
+   OK   FD2(b) k=2 Bsame mu=mu0
+   OK   FD2(b) k=2 Bsame mu=L
+   OK   FD2(b) k=2 Csame mu=mu0
+   OK   FD2(b) k=2 Csame mu=L
+   OK   FD2(b) k=2 Copp mu=mu0
+   OK   FD2(b) k=2 Copp mu=L
+   OK   FD2(b) k=2 Esame mu=mu0
+   OK   FD2(b) k=2 Esame mu=L
+   OK   FD2(b) k=2 Eopp mu=mu0
+   OK   FD2(b) k=2 Eopp mu=L
+   OK   FD2(b) k>=3 chain alone x=mu0
+   OK   FD2(b) k>=3 chain alone x=L
+negative control 1: FD1 A-same R0 m=mu0 with need 2.1*delta_p*rho instead of 2*delta_p*rho: certified=[False] (expected [False])
+negative control 2: same vertex on the enlarged region P>=2, Q>=2 (contains p=q=3): certified=[False] (expected [False]: equality at P=Q=2)
+   value at P=Q=2: 0 (expected 0)
+negative control 3: FD2 chain column alone at P=2 (the case that needs part (b)): certified=[False] (expected [False])
+FD2(a) chain value at mu0: equals (4/q)[...]? False;  equals (4/q^2)[...]? True
+FD2(b) k>=3: value at (x,y,w)=(mu0,L,mu0) equals (2/q)[(2Q+4)mu0+QL-Q]? True; equals text's (2/q)[(4Q+8)mu0-2Q+2QL]? False (text = 2 x value)
+   d/dx = 2*(Q + 4)/(Q + 1) > 0, d/dy = d/dw = 2*Q/(Q + 1) > 0: bound at x=mu0,y=L,w=mu0 is valid
+   (2/q)[(2Q+4)mu0+QL-Q] > 0 on Q>=4: True (coeff)
+DONE

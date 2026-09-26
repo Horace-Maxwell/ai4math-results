@@ -1,0 +1,3 @@
+(A) cell case formula (-h) verified on 200000 random exact points: OK
+(B) referee's uniform surplus formula == direct cell computation: 12000 random exact cases (a = 3, 4, both regions, random g incl. g = s_a, eps, m, mu): OK
+(C) authors' surplus_terms (symbolic, region-certified signs; min over alternatives) == direct cell computation: 450 random exact cases, a = 3, 4: OK

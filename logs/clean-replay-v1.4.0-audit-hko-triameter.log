@@ -1,0 +1,137 @@
+2026-09-26T15:17:32Z
+def HKOTriameter.triDist.{u_1} : {V : Type u_1} → SimpleGraph V → V → V → V → ℕ :=
+fun {V} G u v w => G.dist u v + G.dist u w + G.dist v w
+def HKOTriameter.triameter.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → ℕ :=
+fun {V} [Fintype V] G => Finset.univ.sup fun t => triDist G t.1 t.2.1 t.2.2
+def HKOTriameter.IsTriametral.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → V → V → V → Prop :=
+fun {V} [Fintype V] G u v w => triDist G u v w = triameter G
+def HKOTriameter.IsDiametral.{u_1} : {V : Type u_1} → SimpleGraph V → V → V → Prop :=
+fun {V} G u v => G.dist u v = G.diam
+def HKOTriameter.IsPeripheral.{u_1} : {V : Type u_1} → SimpleGraph V → V → Prop :=
+fun {V} G u => G.eccent u = G.ediam
+def HKOTriameter.IsPeripheralPair.{u_1} : {V : Type u_1} → SimpleGraph V → V → Prop :=
+fun {V} G u => ∃ v, IsDiametral G u v
+def HKOTriameter.InInterval.{u_1} : {V : Type u_1} → SimpleGraph V → V → V → V → Prop :=
+fun {V} G u v x => G.dist u x + G.dist x v = G.dist u v
+def HKOTriameter.IsMedian.{u_1} : {V : Type u_1} → SimpleGraph V → Prop :=
+fun {V} G => G.Connected ∧ ∀ (u v w : V), ∃! x, InInterval G u v x ∧ InInterval G u w x ∧ InInterval G v w x
+def HKOTriameter.Question3'.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G => ∀ (a b c : V), IsTriametral G a b c → IsPeripheral G a ∨ IsPeripheral G b ∨ IsPeripheral G c
+def HKOTriameter.Question3'Pair.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G =>
+  ∀ (a b c : V), IsTriametral G a b c → IsPeripheralPair G a ∨ IsPeripheralPair G b ∨ IsPeripheralPair G c
+def HKOTriameter.Question3.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G => ∀ (a b c : V), IsTriametral G a b c → IsDiametral G a b ∨ IsDiametral G a c ∨ IsDiametral G b c
+def HKOTriameter.Question4.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G => ∀ (x y : V), IsDiametral G x y → ∃ z, IsTriametral G x y z
+def HKOTriameter.Question4'.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G => ∀ (x : V), IsPeripheral G x → ∃ y z, IsTriametral G x y z
+def HKOTriameter.Problem2ClaimWeak : Prop :=
+∀ (V : Type) [inst : Fintype V] (G : SimpleGraph V), IsMedian G → Question4' G
+def HKOTriameter.Problem1Claim : Prop :=
+∀ (V : Type) [inst : Fintype V] (G : SimpleGraph V), IsMedian G → Question3' G
+def HKOTriameter.Problem1ClaimPair : Prop :=
+∀ (V : Type) [inst : Fintype V] (G : SimpleGraph V), IsMedian G → Question3'Pair G
+def HKOTriameter.Problem2Claim : Prop :=
+∀ (V : Type) [inst : Fintype V] (G : SimpleGraph V), IsMedian G → Question4 G
+def HKOTriameter.g1Edges : List (ℕ × ℕ) :=
+[(0, 1), (0, 2), (0, 4), (0, 6), (1, 3), (2, 3), (2, 5), (4, 5), (4, 7), (6, 7)]
+def HKOTriameter.G1 : SimpleGraph (Fin 8) :=
+{ Adj := fun i j => (↑i, ↑j) ∈ g1Edges ∨ (↑j, ↑i) ∈ g1Edges, symm := G1._proof_1, loopless := G1._proof_2 }
+def HKOTriameter.g2Edges : List (ℕ × ℕ) :=
+[(0, 2), (0, 3), (0, 6), (1, 2), (2, 5), (3, 4), (3, 5), (6, 7)]
+def HKOTriameter.G2 : SimpleGraph (Fin 8) :=
+{ Adj := fun i j => (↑i, ↑j) ∈ g2Edges ∨ (↑j, ↑i) ∈ g2Edges, symm := G2._proof_1, loopless := G2._proof_2 }
+def HKOTriameter.FP : ℕ → ℕ → ℕ → Prop :=
+fun A B C => A = B ∧ C ≤ A + 2 ∨ A = C ∧ B ≤ A + 2 ∨ B = C ∧ A ≤ B + 2
+def HKOTriameter.FourPointBM.{u_1} : {V : Type u_1} → SimpleGraph V → Prop :=
+fun {V} G => ∀ (u v w x : V), FP (G.dist u v + G.dist w x) (G.dist u w + G.dist v x) (G.dist u x + G.dist v w)
+def HKOTriameter.Problem3ClaimFP : Prop :=
+∀ (V : Type) [inst : Fintype V] (G : SimpleGraph V), G.Connected → FourPointBM G → Question3' G ∨ Question4 G
+def HKOTriameter.f1gEdges : List (ℕ × ℕ) :=
+[(0, 1), (1, 2), (1, 3), (1, 4), (2, 5), (3, 5), (4, 5)]
+def HKOTriameter.f1hEdges : List (ℕ × ℕ) :=
+[(0, 3), (0, 4), (0, 5), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (4, 5)]
+def SimpleGraph.dist.{u_1} : {V : Type u_1} → SimpleGraph V → V → V → ℕ :=
+fun {V} G u v => (G.edist u v).toNat
+def SimpleGraph.edist.{u_1} : {V : Type u_1} → SimpleGraph V → V → V → ℕ∞ :=
+fun {V} G u v => ⨅ w, ↑w.length
+def SimpleGraph.diam.{u_1} : {α : Type u_1} → SimpleGraph α → ℕ :=
+fun {α} G => G.ediam.toNat
+def SimpleGraph.ediam.{u_1} : {α : Type u_1} → SimpleGraph α → ℕ∞ :=
+fun {α} G => ⨆ u, G.eccent u
+def SimpleGraph.eccent.{u_1} : {α : Type u_1} → SimpleGraph α → α → ℕ∞ :=
+fun {α} G u => ⨆ v, G.edist u v
+not_problem1Claim : ¬Problem1Claim
+not_problem1ClaimPair : ¬Problem1ClaimPair
+not_problem2Claim : ¬Problem2Claim
+not_problem2ClaimWeak : ¬Problem2ClaimWeak
+G1_counterexample : IsMedian G1 ∧
+  1 ≠ 5 ∧ 1 ≠ 6 ∧ 5 ≠ 6 ∧ IsTriametral G1 1 5 6 ∧ ¬IsPeripheral G1 1 ∧ ¬IsPeripheral G1 5 ∧ ¬IsPeripheral G1 6
+G2_counterexample : IsMedian G2 ∧ IsDiametral G2 5 7 ∧ ∀ (z : Fin 8), ¬IsTriametral G2 5 7 z
+not_question3_G1 : ¬Question3 G1
+@isPeripheral_iff_isPeripheralPair : ∀ {V : Type u_1} (G : SimpleGraph V) [Fintype V] [Nonempty V],
+  G.Connected → ∀ (u : V), IsPeripheral G u ↔ IsPeripheralPair G u
+@dist_eq_of_certificate : ∀ {V : Type u_1} (G : SimpleGraph V) (D : V → V → ℕ),
+  (∀ (x : V), D x x = 0) →
+    (∀ (x y : V), D x y = 0 → x = y) →
+      (∀ (x y : V), D x y ≠ 0 → ∃ z, G.Adj x z ∧ D z y + 1 = D x y) →
+        (∀ (u v w : V), G.Adj u v → D u w ≤ D v w + 1) → ∀ (x y : V), G.dist x y = D x y
+G1_diam : G1.diam = 4
+G1_triameter : triameter G1 = 8
+G2_diam : G2.diam = 4
+G2_triameter : triameter G2 = 12
+C6_not_median : ¬IsMedian C6
+core : ∀ (D eab eac ebc pa pb pc qa qb qc : ℕ),
+  eab + 1 ≤ D →
+    eac + 1 ≤ D →
+      ebc + 1 ≤ D →
+        FP (D + eab) (pa + qb) (pb + qa) →
+          FP (D + eac) (pa + qc) (pc + qa) →
+            FP (D + ebc) (pb + qc) (pc + qb) →
+              D + pa + qa + 1 ≤ eab + eac + ebc →
+                D + pb + qb + 1 ≤ eab + eac + ebc → D + pc + qc + 1 ≤ eab + eac + ebc → False
+@extends_of_no_diametral : ∀ {V : Type u_1} [inst : Fintype V] (G : SimpleGraph V),
+  FourPointBM G →
+    ∀ (a b c : V),
+      IsTriametral G a b c →
+        G.dist a b < G.diam →
+          G.dist a c < G.diam →
+            G.dist b c < G.diam →
+              ∀ (x y : V), IsDiametral G x y → IsTriametral G x y a ∨ IsTriametral G x y b ∨ IsTriametral G x y c
+@question3_or_question4 : ∀ {V : Type u_1} [inst : Fintype V] (G : SimpleGraph V),
+  G.Connected → FourPointBM G → Question3 G ∨ Question4 G
+@question3'_of_question3 : ∀ {V : Type u_1} [inst : Fintype V] (G : SimpleGraph V),
+  G.Connected → Question3 G → Question3' G
+@problem3_fourPoint : ∀ {V : Type u_1} [inst : Fintype V] (G : SimpleGraph V),
+  G.Connected → FourPointBM G → Question3' G ∨ Question4 G
+problem3ClaimFP : Problem3ClaimFP
+F1G_fourPoint : FourPointBM F1G
+F1G_not_question3' : ¬Question3' F1G
+F1H_fourPoint : FourPointBM F1H
+F1H_not_question4 : ¬Question4 F1H
+G1_not_fourPoint : ¬FourPointBM G1
+G2_fourPoint : FourPointBM G2
+F1G_not_median : ¬IsMedian F1G
+'HKOTriameter.not_problem1Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem2Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem2ClaimWeak' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.G1_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.G2_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_question3_G1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.isPeripheral_iff_isPeripheralPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.C6_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.core' depends on axioms: [propext, Quot.sound]
+'HKOTriameter.extends_of_no_diametral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.question3_or_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.problem3_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.problem3ClaimFP' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.F1G_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.F1G_not_question3'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.F1H_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.F1H_not_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.G1_not_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.G2_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.F1G_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0

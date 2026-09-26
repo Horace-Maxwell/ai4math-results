@@ -1,0 +1,976 @@
+[OK] FD1 Asame R0 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 12*s**2*t + 68*s*t**2 + 104*s*t + 4*s + 144*t**2 + 220*t + 8
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Asame R0 m=mu0 | region=P=2,Q=4+t
+    numerator = 40*t**2 + 220*t + 280
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Asame R0 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 20*s**2*t + 8*s**2 + 68*s*t**2 + 172*s*t + 72*s + 144*t**2 + 364*t + 152
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Asame R0 m=L | region=P=2,Q=4+t
+    numerator = 40*t**2 + 260*t + 400
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Asame R1 mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 32*s**2*t + 40*s**2 + 68*s*t**2 + 272*s*t + 340*s + 144*t**2 + 576*t + 720
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Asame R1 mu=mu0 | region=P=2,Q=4+t
+    numerator = 40*t**2 + 320*t + 680
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Asame R1 mu=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t + 16*s**2 + 68*s*t + 136*s + 144*t + 288
+    denominator (positive) = (t + 4)^1
+[OK] FD1 Asame R1 mu=L | region=P=2,Q=4+t
+    numerator = 40*t + 160
+    denominator (positive) = (t + 6)^1
+[OK] FD1 Asame R2a mu=L m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 20*s**2*t + 8*s**2 + 68*s*t**2 + 172*s*t + 72*s + 144*t**2 + 364*t + 152
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Asame R2a mu=L m=mu0 | region=P=2,Q=4+t
+    numerator = 40*t**2 + 260*t + 400
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Asame R2a mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 28*s**2*t + 24*s**2 + 68*s*t**2 + 240*s*t + 208*s + 144*t**2 + 508*t + 440
+    denominator (positive) = (t + 4)^2
+[OK] FD1 Asame R2a mu=L m=L | region=P=2,Q=4+t
+    numerator = 40*t**2 + 300*t + 560
+    denominator (positive) = (t + 6)^2
+[OK] FD1 Asame R2a mu=mu1 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 60*s**2*t**3 + 164*s**2*t**2 + 168*s**2*t + 40*s**2 + 68*s*t**4 + 512*s*t**3 + 1408*s*t**2 + 1464*s*t + 372*s + 144*t**4 + 1084*t**3 + 2980*t**2 + 3096*t + 784
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Asame R2a mu=mu1 m=mu0 | region=P=2,Q=4+t
+    numerator = 40*t**4 + 620*t**3 + 3580*t**2 + 9000*t + 8200
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Asame R2a mu=mu1 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 68*s**2*t**3 + 220*s**2*t**2 + 304*s**2*t + 140*s**2 + 68*s*t**4 + 580*s*t**3 + 1884*s*t**2 + 2620*s*t + 1224*s + 144*t**4 + 1228*t**3 + 3988*t**2 + 5544*t + 2588
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Asame R2a mu=mu1 m=L | region=P=2,Q=4+t
+    numerator = 40*t**4 + 660*t**3 + 4100*t**2 + 11280*t + 11500
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Asame R2b mu=mu0 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 44*s**2*t**2 + 88*s**2*t + 64*s**2 + 68*s*t**3 + 376*s*t**2 + 756*s*t + 552*s + 144*t**3 + 796*t**2 + 1600*t + 1168
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Asame R2b mu=mu0 m=L | region=P=2,Q=4+t
+    numerator = 40*t**3 + 460*t**2 + 1800*t + 2400
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Asame R2b mu=mu0 m=mu1 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 60*s**2*t**3 + 184*s**2*t**2 + 268*s**2*t + 160*s**2 + 68*s*t**4 + 512*s*t**3 + 1576*s*t**2 + 2304*s*t + 1380*s + 144*t**4 + 1084*t**3 + 3336*t**2 + 4876*t + 2920
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Asame R2b mu=mu0 m=mu1 | region=P=2,Q=4+t
+    numerator = 40*t**4 + 620*t**3 + 3680*t**2 + 9900*t + 10200
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Asame R2b mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 28*s**2*t + 24*s**2 + 68*s*t**2 + 240*s*t + 208*s + 144*t**2 + 508*t + 440
+    denominator (positive) = (t + 4)^2
+[OK] FD1 Asame R2b mu=L m=L | region=P=2,Q=4+t
+    numerator = 40*t**2 + 300*t + 560
+    denominator (positive) = (t + 6)^2
+[OK] FD1 Asame R2b mu=L m=mu1 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 44*s**2*t**2 + 88*s**2*t + 60*s**2 + 68*s*t**3 + 376*s*t**2 + 756*s*t + 520*s + 144*t**3 + 796*t**2 + 1600*t + 1100
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Asame R2b mu=L m=mu1 | region=P=2,Q=4+t
+    numerator = 40*t**3 + 460*t**2 + 1800*t + 2380
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Bsame R0 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 24*s**2*t + 20*s**2 + 56*s*t**2 + 152*s*t + 112*s + 100*t**2 + 240*t + 144
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Bsame R0 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**2 + 12*s**2*t + 12*s**2 + 28*s*t**2 + 76*s*t + 72*s + 52*t**2 + 128*t + 112
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Bsame R0 m=mu0 | region=P=2,Q=4+t
+    numerator = 20*t**2 + 112*t + 144
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Bsame R0 m=mu0 | region=P=2,Q=4+t
+    numerator = 12*t**2 + 72*t + 112
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Bsame R0 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 32*s**2*t + 32*s**2 + 56*s*t**2 + 208*s*t + 192*s + 100*t**2 + 340*t + 280
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Bsame R0 m=L | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**2 + 16*s**2*t + 16*s**2 + 28*s*t**2 + 104*s*t + 96*s + 52*t**2 + 180*t + 152
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Bsame R0 m=L | region=P=2,Q=4+t
+    numerator = 20*t**2 + 132*t + 208
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Bsame R0 m=L | region=P=2,Q=4+t
+    numerator = 12*t**2 + 84*t + 144
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Bsame R1 mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 32*s**2*t + 36*s**2 + 56*s*t**2 + 224*s*t + 256*s + 100*t**2 + 400*t + 464
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Bsame R1 mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**2 + 12*s**2*t + 12*s**2 + 28*s*t**2 + 84*s*t + 88*s + 52*t**2 + 160*t + 176
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Bsame R1 mu=mu0 | region=P=2,Q=4+t
+    numerator = 20*t**2 + 160*t + 336
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Bsame R1 mu=mu0 | region=P=2,Q=4+t
+    numerator = 12*t**2 + 88*t + 176
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Bsame R1 mu=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t + 16*s**2 + 56*s*t + 112*s + 100*t + 200
+    denominator (positive) = (t + 4)^1
+[OK] FD1 Bsame R1 mu=L | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**2 + 16*s**2*t + 16*s**2 + 28*s*t**2 + 112*s*t + 112*s + 52*t**2 + 212*t + 216
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Bsame R1 mu=L | region=P=2,Q=4+t
+    numerator = 20*t + 80
+    denominator (positive) = (t + 6)^1
+[OK] FD1 Bsame R1 mu=L | region=P=2,Q=4+t
+    numerator = 12*t**2 + 100*t + 208
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Bsame R2a mu=L m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 28*s**2*t + 24*s**2 + 56*s*t**2 + 184*s*t + 144*s + 100*t**2 + 304*t + 208
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Bsame R2a mu=L m=mu0 | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**3 + 24*s**2*t**2 + 52*s**2*t + 40*s**2 + 28*s*t**3 + 164*s*t**2 + 352*s*t + 272*s + 52*t**3 + 300*t**2 + 640*t + 496
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Bsame R2a mu=L m=mu0 | region=P=2,Q=4+t
+    numerator = 20*t**2 + 128*t + 192
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Bsame R2a mu=L m=mu0 | region=P=2,Q=4+t
+    numerator = 12*t**3 + 140*t**2 + 560*t + 768
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Bsame R2a mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 36*s**2*t + 40*s**2 + 56*s*t**2 + 240*s*t + 256*s + 100*t**2 + 404*t + 408
+    denominator (positive) = (t + 4)^2
+[OK] FD1 Bsame R2a mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**3 + 28*s**2*t**2 + 68*s**2*t + 56*s**2 + 28*s*t**3 + 192*s*t**2 + 464*s*t + 384*s + 52*t**3 + 352*t**2 + 852*t + 712
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Bsame R2a mu=L m=L | region=P=2,Q=4+t
+    numerator = 20*t**2 + 148*t + 272
+    denominator (positive) = (t + 6)^2
+[OK] FD1 Bsame R2a mu=L m=L | region=P=2,Q=4+t
+    numerator = 12*t**3 + 152*t**2 + 660*t + 976
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Bsame R2a mu=mu1 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 68*s**2*t**3 + 220*s**2*t**2 + 308*s**2*t + 156*s**2 + 56*s*t**4 + 464*s*t**3 + 1456*s*t**2 + 1944*s*t + 912*s + 100*t**4 + 804*t**3 + 2428*t**2 + 3036*t + 1256
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Bsame R2a mu=mu1 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**4 + 32*s**2*t**3 + 104*s**2*t**2 + 152*s**2*t + 84*s**2 + 28*s*t**4 + 220*s*t**3 + 708*s*t**2 + 1020*s*t + 552*s + 52*t**4 + 404*t**3 + 1292*t**2 + 1836*t + 968
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Bsame R2a mu=mu1 m=mu0 | region=P=2,Q=4+t
+    numerator = 20*t**4 + 308*t**3 + 1764*t**2 + 4380*t + 3904
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Bsame R2a mu=mu1 m=mu0 | region=P=2,Q=4+t
+    numerator = 12*t**4 + 188*t**3 + 1132*t**2 + 3060*t + 3104
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Bsame R2a mu=mu1 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 76*s**2*t**3 + 276*s**2*t**2 + 444*s**2*t + 260*s**2 + 56*s*t**4 + 520*s*t**3 + 1848*s*t**2 + 2896*s*t + 1632*s + 100*t**4 + 904*t**3 + 3128*t**2 + 4736*t + 2524
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Bsame R2a mu=mu1 m=L | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**4 + 36*s**2*t**3 + 128*s**2*t**2 + 204*s**2*t + 116*s**2 + 28*s*t**4 + 248*s*t**3 + 876*s*t**2 + 1384*s*t + 768*s + 52*t**4 + 456*t**3 + 1608*t**2 + 2528*t + 1372
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Bsame R2a mu=mu1 m=L | region=P=2,Q=4+t
+    numerator = 20*t**4 + 328*t**3 + 2024*t**2 + 5520*t + 5548
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Bsame R2a mu=mu1 m=L | region=P=2,Q=4+t
+    numerator = 12*t**4 + 200*t**3 + 1280*t**2 + 3680*t + 3948
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Bsame R2b mu=mu0 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 52*s**2*t**2 + 116*s**2*t + 88*s**2 + 56*s*t**3 + 352*s*t**2 + 768*s*t + 576*s + 100*t**3 + 604*t**2 + 1280*t + 944
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Bsame R2b mu=mu0 m=L | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**3 + 24*s**2*t**2 + 52*s**2*t + 40*s**2 + 28*s*t**3 + 164*s*t**2 + 360*s*t + 288*s + 52*t**3 + 300*t**2 + 672*t + 560
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Bsame R2b mu=mu0 m=L | region=P=2,Q=4+t
+    numerator = 20*t**3 + 228*t**2 + 880*t + 1152
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Bsame R2b mu=mu0 m=L | region=P=2,Q=4+t
+    numerator = 12*t**3 + 140*t**2 + 576*t + 832
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Bsame R2b mu=mu0 m=mu1 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 68*s**2*t**3 + 228*s**2*t**2 + 348*s**2*t + 204*s**2 + 56*s*t**4 + 464*s*t**3 + 1528*s*t**2 + 2304*s*t + 1344*s + 100*t**4 + 804*t**3 + 2588*t**2 + 3836*t + 2216
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Bsame R2b mu=mu0 m=mu1 | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**4 + 32*s**2*t**3 + 104*s**2*t**2 + 152*s**2*t + 84*s**2 + 28*s*t**4 + 220*s*t**3 + 716*s*t**2 + 1060*s*t + 600*s + 52*t**4 + 404*t**3 + 1324*t**2 + 1996*t + 1160
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Bsame R2b mu=mu0 m=mu1 | region=P=2,Q=4+t
+    numerator = 20*t**4 + 308*t**3 + 1812*t**2 + 4812*t + 4864
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Bsame R2b mu=mu0 m=mu1 | region=P=2,Q=4+t
+    numerator = 12*t**4 + 188*t**3 + 1148*t**2 + 3204*t + 3424
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Bsame R2b mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 36*s**2*t + 40*s**2 + 56*s*t**2 + 240*s*t + 256*s + 100*t**2 + 404*t + 408
+    denominator (positive) = (t + 4)^2
+[OK] FD1 Bsame R2b mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**3 + 28*s**2*t**2 + 68*s**2*t + 56*s**2 + 28*s*t**3 + 192*s*t**2 + 464*s*t + 384*s + 52*t**3 + 352*t**2 + 852*t + 712
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Bsame R2b mu=L m=L | region=P=2,Q=4+t
+    numerator = 20*t**2 + 148*t + 272
+    denominator (positive) = (t + 6)^2
+[OK] FD1 Bsame R2b mu=L m=L | region=P=2,Q=4+t
+    numerator = 12*t**3 + 152*t**2 + 660*t + 976
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Bsame R2b mu=L m=mu1 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 52*s**2*t**2 + 120*s**2*t + 92*s**2 + 56*s*t**3 + 352*s*t**2 + 792*s*t + 592*s + 100*t**3 + 604*t**2 + 1316*t + 948
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Bsame R2b mu=L m=mu1 | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**4 + 36*s**2*t**3 + 128*s**2*t**2 + 204*s**2*t + 116*s**2 + 28*s*t**4 + 248*s*t**3 + 876*s*t**2 + 1392*s*t + 784*s + 52*t**4 + 456*t**3 + 1608*t**2 + 2560*t + 1436
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Bsame R2b mu=L m=mu1 | region=P=2,Q=4+t
+    numerator = 20*t**3 + 228*t**2 + 884*t + 1148
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Bsame R2b mu=L m=mu1 | region=P=2,Q=4+t
+    numerator = 12*t**4 + 200*t**3 + 1280*t**2 + 3696*t + 4012
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Bopp R0 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 20*s**2*t + 18*s**2 + 44*s*t**2 + 128*s*t + 100*s + 82*t**2 + 204*t + 126
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Bopp R0 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 16*s**2*t + 14*s**2 + 48*s*t**2 + 116*s*t + 92*s + 98*t**2 + 220*t + 158
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Bopp R0 m=mu0 | region=P=2,Q=4+t
+    numerator = 18*t**2 + 100*t + 126
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Bopp R0 m=mu0 | region=P=2,Q=4+t
+    numerator = 26*t**2 + 156*t + 238
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Bopp R0 m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 26*s**2*t + 28*s**2 + 44*s*t**2 + 172*s*t + 168*s + 82*t**2 + 286*t + 244
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Bopp R0 m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 22*s**2*t + 20*s**2 + 48*s*t**2 + 164*s*t + 136*s + 98*t**2 + 318*t + 244
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Bopp R0 m=L | region=P=2,Q=4+t
+    numerator = 18*t**2 + 118*t + 184
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Bopp R0 m=L | region=P=2,Q=4+t
+    numerator = 26*t**2 + 182*t + 312
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Bopp R1 mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 24*s**2*t + 26*s**2 + 44*s*t**2 + 176*s*t + 196*s + 82*t**2 + 328*t + 374
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Bopp R1 mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 20*s**2*t + 22*s**2 + 48*s*t**2 + 156*s*t + 172*s + 98*t**2 + 312*t + 342
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Bopp R1 mu=mu0 | region=P=2,Q=4+t
+    numerator = 18*t**2 + 144*t + 302
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Bopp R1 mu=mu0 | region=P=2,Q=4+t
+    numerator = 26*t**2 + 184*t + 350
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Bopp R1 mu=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t + 12*s**2 + 44*s*t + 88*s + 82*t + 164
+    denominator (positive) = (t + 4)^1
+[OK] FD1 Bopp R1 mu=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 26*s**2*t + 28*s**2 + 48*s*t**2 + 204*s*t + 216*s + 98*t**2 + 410*t + 428
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Bopp R1 mu=L | region=P=2,Q=4+t
+    numerator = 18*t + 72
+    denominator (positive) = (t + 6)^1
+[OK] FD1 Bopp R1 mu=L | region=P=2,Q=4+t
+    numerator = 26*t**2 + 210*t + 424
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Bopp R2a mu=L m=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 22*s**2*t + 20*s**2 + 44*s*t**2 + 148*s*t + 120*s + 82*t**2 + 250*t + 172
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Bopp R2a mu=L m=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**3 + 36*s**2*t**2 + 74*s**2*t + 52*s**2 + 48*s*t**3 + 276*s*t**2 + 532*s*t + 344*s + 98*t**3 + 544*t**2 + 986*t + 580
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Bopp R2a mu=L m=mu0 | region=P=2,Q=4+t
+    numerator = 18*t**2 + 114*t + 168
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Bopp R2a mu=L m=mu0 | region=P=2,Q=4+t
+    numerator = 26*t**3 + 292*t**2 + 1074*t + 1288
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Bopp R2a mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 28*s**2*t + 32*s**2 + 44*s*t**2 + 192*s*t + 208*s + 82*t**2 + 332*t + 336
+    denominator (positive) = (t + 4)^2
+[OK] FD1 Bopp R2a mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**3 + 42*s**2*t**2 + 100*s**2*t + 80*s**2 + 48*s*t**3 + 324*s*t**2 + 736*s*t + 560*s + 98*t**3 + 642*t**2 + 1396*t + 1008
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Bopp R2a mu=L m=L | region=P=2,Q=4+t
+    numerator = 18*t**2 + 132*t + 240
+    denominator (positive) = (t + 6)^2
+[OK] FD1 Bopp R2a mu=L m=L | region=P=2,Q=4+t
+    numerator = 26*t**3 + 318*t**2 + 1284*t + 1712
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Bopp R2a mu=mu1 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 52*s**2*t**3 + 172*s**2*t**2 + 248*s**2*t + 130*s**2 + 44*s*t**4 + 368*s*t**3 + 1168*s*t**2 + 1584*s*t + 756*s + 82*t**4 + 660*t**3 + 1996*t**2 + 2496*t + 1022
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Bopp R2a mu=mu1 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 48*s**2*t**3 + 152*s**2*t**2 + 212*s**2*t + 110*s**2 + 48*s*t**4 + 372*s*t**3 + 1132*s*t**2 + 1492*s*t + 716*s + 98*t**4 + 740*t**3 + 2172*t**2 + 2704*t + 1182
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Bopp R2a mu=mu1 m=mu0 | region=P=2,Q=4+t
+    numerator = 18*t**4 + 276*t**3 + 1572*t**2 + 3872*t + 3406
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Bopp R2a mu=mu1 m=mu0 | region=P=2,Q=4+t
+    numerator = 26*t**4 + 396*t**3 + 2268*t**2 + 5720*t + 5310
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Bopp R2a mu=mu1 m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 58*s**2*t**3 + 214*s**2*t**2 + 350*s**2*t + 208*s**2 + 44*s*t**4 + 412*s*t**3 + 1476*s*t**2 + 2332*s*t + 1320*s + 82*t**4 + 742*t**3 + 2570*t**2 + 3890*t + 2056
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Bopp R2a mu=mu1 m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 54*s**2*t**3 + 190*s**2*t**2 + 298*s**2*t + 168*s**2 + 48*s*t**4 + 420*s*t**3 + 1432*s*t**2 + 2164*s*t + 1160*s + 98*t**4 + 838*t**3 + 2778*t**2 + 4050*t + 2056
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Bopp R2a mu=mu1 m=L | region=P=2,Q=4+t
+    numerator = 18*t**4 + 294*t**3 + 1806*t**2 + 4898*t + 4884
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Bopp R2a mu=mu1 m=L | region=P=2,Q=4+t
+    numerator = 26*t**4 + 422*t**3 + 2582*t**2 + 7010*t + 7060
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Bopp R2b mu=mu0 m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**3 + 40*s**2*t**2 + 90*s**2*t + 68*s**2 + 44*s*t**3 + 280*s*t**2 + 612*s*t + 456*s + 82*t**3 + 496*t**2 + 1046*t + 764
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Bopp R2b mu=mu0 m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**3 + 36*s**2*t**2 + 78*s**2*t + 60*s**2 + 48*s*t**3 + 276*s*t**2 + 572*s*t + 424*s + 98*t**3 + 544*t**2 + 1078*t + 764
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Bopp R2b mu=mu0 m=L | region=P=2,Q=4+t
+    numerator = 18*t**3 + 204*t**2 + 782*t + 1016
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Bopp R2b mu=mu0 m=L | region=P=2,Q=4+t
+    numerator = 26*t**3 + 292*t**2 + 1102*t + 1400
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Bopp R2b mu=mu0 m=mu1 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 52*s**2*t**3 + 176*s**2*t**2 + 268*s**2*t + 154*s**2 + 44*s*t**4 + 368*s*t**3 + 1216*s*t**2 + 1824*s*t + 1044*s + 82*t**4 + 660*t**3 + 2120*t**2 + 3116*t + 1766
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Bopp R2b mu=mu0 m=mu1 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 48*s**2*t**3 + 156*s**2*t**2 + 232*s**2*t + 134*s**2 + 48*s*t**4 + 372*s*t**3 + 1172*s*t**2 + 1692*s*t + 956*s + 98*t**4 + 740*t**3 + 2264*t**2 + 3164*t + 1734
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Bopp R2b mu=mu0 m=mu1 | region=P=2,Q=4+t
+    numerator = 18*t**4 + 276*t**3 + 1616*t**2 + 4268*t + 4286
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Bopp R2b mu=mu0 m=mu1 | region=P=2,Q=4+t
+    numerator = 26*t**4 + 396*t**3 + 2296*t**2 + 5972*t + 5870
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Bopp R2b mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 28*s**2*t + 32*s**2 + 44*s*t**2 + 192*s*t + 208*s + 82*t**2 + 332*t + 336
+    denominator (positive) = (t + 4)^2
+[OK] FD1 Bopp R2b mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**3 + 42*s**2*t**2 + 100*s**2*t + 80*s**2 + 48*s*t**3 + 324*s*t**2 + 736*s*t + 560*s + 98*t**3 + 642*t**2 + 1396*t + 1008
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Bopp R2b mu=L m=L | region=P=2,Q=4+t
+    numerator = 18*t**2 + 132*t + 240
+    denominator (positive) = (t + 6)^2
+[OK] FD1 Bopp R2b mu=L m=L | region=P=2,Q=4+t
+    numerator = 26*t**3 + 318*t**2 + 1284*t + 1712
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Bopp R2b mu=L m=mu1 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**3 + 40*s**2*t**2 + 94*s**2*t + 72*s**2 + 44*s*t**3 + 280*s*t**2 + 636*s*t + 472*s + 82*t**3 + 496*t**2 + 1082*t + 768
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Bopp R2b mu=L m=mu1 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 54*s**2*t**3 + 190*s**2*t**2 + 302*s**2*t + 176*s**2 + 48*s*t**4 + 420*s*t**3 + 1432*s*t**2 + 2204*s*t + 1240*s + 98*t**4 + 838*t**3 + 2778*t**2 + 4142*t + 2240
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Bopp R2b mu=L m=mu1 | region=P=2,Q=4+t
+    numerator = 18*t**3 + 204*t**2 + 786*t + 1012
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Bopp R2b mu=L m=mu1 | region=P=2,Q=4+t
+    numerator = 26*t**4 + 422*t**3 + 2582*t**2 + 7038*t + 7172
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Csame R0 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 20*s**2*t + 16*s**2 + 64*s*t**2 + 156*s*t + 124*s + 132*t**2 + 320*t + 256
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Csame R0 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 24*s**2*t + 24*s**2 + 64*s*t**2 + 188*s*t + 188*s + 128*t**2 + 368*t + 368
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Csame R0 m=mu0 | region=P=2,Q=4+t
+    numerator = 36*t**2 + 232*t + 392
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Csame R0 m=mu0 | region=P=2,Q=4+t
+    numerator = 32*t**2 + 216*t + 392
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Csame R0 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 28*s**2*t + 24*s**2 + 64*s*t**2 + 220*s*t + 184*s + 132*t**2 + 452*t + 376
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Csame R0 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 32*s**2*t + 32*s**2 + 64*s*t**2 + 252*s*t + 248*s + 128*t**2 + 496*t + 480
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Csame R0 m=L | region=P=2,Q=4+t
+    numerator = 36*t**2 + 268*t + 496
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Csame R0 m=L | region=P=2,Q=4+t
+    numerator = 32*t**2 + 248*t + 480
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Csame R1 mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 28*s**2*t + 32*s**2 + 64*s*t**2 + 220*s*t + 252*s + 132*t**2 + 448*t + 512
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Csame R1 mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 28*s**2*t + 32*s**2 + 64*s*t**2 + 220*s*t + 252*s + 128*t**2 + 428*t + 488
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Csame R1 mu=mu0 | region=P=2,Q=4+t
+    numerator = 36*t**2 + 264*t + 520
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Csame R1 mu=mu0 | region=P=2,Q=4+t
+    numerator = 32*t**2 + 228*t + 440
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Csame R1 mu=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 36*s**2*t + 40*s**2 + 64*s*t**2 + 284*s*t + 312*s + 132*t**2 + 580*t + 632
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Csame R1 mu=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 36*s**2*t + 40*s**2 + 64*s*t**2 + 284*s*t + 312*s + 128*t**2 + 556*t + 600
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Csame R1 mu=L | region=P=2,Q=4+t
+    numerator = 36*t**2 + 300*t + 624
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Csame R1 mu=L | region=P=2,Q=4+t
+    numerator = 32*t**2 + 260*t + 528
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Csame R2a mu=L m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 48*s**2*t**2 + 96*s**2*t + 64*s**2 + 64*s*t**3 + 380*s*t**2 + 756*s*t + 504*s + 132*t**3 + 780*t**2 + 1552*t + 1040
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Csame R2a mu=L m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 52*s**2*t**2 + 120*s**2*t + 96*s**2 + 64*s*t**3 + 412*s*t**2 + 948*s*t + 760*s + 128*t**3 + 812*t**2 + 1856*t + 1488
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Csame R2a mu=L m=mu0 | region=P=2,Q=4+t
+    numerator = 36*t**3 + 428*t**2 + 1704*t + 2272
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Csame R2a mu=L m=mu0 | region=P=2,Q=4+t
+    numerator = 32*t**3 + 388*t**2 + 1608*t + 2272
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Csame R2a mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 56*s**2*t**2 + 132*s**2*t + 104*s**2 + 64*s*t**3 + 444*s*t**2 + 1040*s*t + 816*s + 132*t**3 + 912*t**2 + 2132*t + 1672
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Csame R2a mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 60*s**2*t**2 + 156*s**2*t + 136*s**2 + 64*s*t**3 + 476*s*t**2 + 1232*s*t + 1072*s + 128*t**3 + 940*t**2 + 2412*t + 2088
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Csame R2a mu=L m=L | region=P=2,Q=4+t
+    numerator = 36*t**3 + 464*t**2 + 2004*t + 2896
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Csame R2a mu=L m=L | region=P=2,Q=4+t
+    numerator = 32*t**3 + 420*t**2 + 1868*t + 2800
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Csame R2a mu=mu1 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 64*s**2*t**3 + 200*s**2*t**2 + 272*s**2*t + 136*s**2 + 64*s*t**4 + 508*s*t**3 + 1580*s*t**2 + 2140*s*t + 1068*s + 132*t**4 + 1044*t**3 + 3244*t**2 + 4396*t + 2200
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Csame R2a mu=mu1 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 68*s**2*t**3 + 232*s**2*t**2 + 356*s**2*t + 208*s**2 + 64*s*t**4 + 540*s*t**3 + 1836*s*t**2 + 2812*s*t + 1644*s + 128*t**4 + 1068*t**3 + 3608*t**2 + 5500*t + 3208
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Csame R2a mu=mu1 m=mu0 | region=P=2,Q=4+t
+    numerator = 36*t**4 + 572*t**3 + 3452*t**2 + 9300*t + 9400
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Csame R2a mu=mu1 m=mu0 | region=P=2,Q=4+t
+    numerator = 32*t**4 + 516*t**3 + 3192*t**2 + 8900*t + 9400
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Csame R2a mu=mu1 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 72*s**2*t**3 + 252*s**2*t**2 + 392*s**2*t + 220*s**2 + 64*s*t**4 + 572*s*t**3 + 1992*s*t**2 + 3084*s*t + 1720*s + 132*t**4 + 1176*t**3 + 4088*t**2 + 6320*t + 3516
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Csame R2a mu=mu1 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 76*s**2*t**3 + 284*s**2*t**2 + 476*s**2*t + 292*s**2 + 64*s*t**4 + 604*s*t**3 + 2248*s*t**2 + 3756*s*t + 2296*s + 128*t**4 + 1196*t**3 + 4420*t**2 + 7340*t + 4452
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Csame R2a mu=mu1 m=L | region=P=2,Q=4+t
+    numerator = 36*t**4 + 608*t**3 + 3896*t**2 + 11160*t + 11980
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Csame R2a mu=mu1 m=L | region=P=2,Q=4+t
+    numerator = 32*t**4 + 548*t**3 + 3580*t**2 + 10500*t + 11580
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Csame R2b mu=mu0 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 48*s**2*t**2 + 104*s**2*t + 80*s**2 + 64*s*t**3 + 380*s*t**2 + 820*s*t + 632*s + 132*t**3 + 780*t**2 + 1680*t + 1296
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Csame R2b mu=mu0 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 52*s**2*t**2 + 124*s**2*t + 104*s**2 + 64*s*t**3 + 412*s*t**2 + 980*s*t + 824*s + 128*t**3 + 812*t**2 + 1916*t + 1608
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Csame R2b mu=mu0 m=L | region=P=2,Q=4+t
+    numerator = 36*t**3 + 428*t**2 + 1736*t + 2400
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Csame R2b mu=mu0 m=L | region=P=2,Q=4+t
+    numerator = 32*t**3 + 388*t**2 + 1620*t + 2320
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Csame R2b mu=mu0 m=mu1 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 64*s**2*t**3 + 208*s**2*t**2 + 312*s**2*t + 184*s**2 + 64*s*t**4 + 508*s*t**3 + 1644*s*t**2 + 2460*s*t + 1452*s + 132*t**4 + 1044*t**3 + 3372*t**2 + 5036*t + 2968
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Csame R2b mu=mu0 m=mu1 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 68*s**2*t**3 + 236*s**2*t**2 + 376*s**2*t + 232*s**2 + 64*s*t**4 + 540*s*t**3 + 1868*s*t**2 + 2972*s*t + 1836*s + 128*t**4 + 1068*t**3 + 3668*t**2 + 5800*t + 3568
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Csame R2b mu=mu0 m=mu1 | region=P=2,Q=4+t
+    numerator = 36*t**4 + 572*t**3 + 3484*t**2 + 9588*t + 10040
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Csame R2b mu=mu0 m=mu1 | region=P=2,Q=4+t
+    numerator = 32*t**4 + 516*t**3 + 3204*t**2 + 9008*t + 9640
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Csame R2b mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 56*s**2*t**2 + 132*s**2*t + 104*s**2 + 64*s*t**3 + 444*s*t**2 + 1040*s*t + 816*s + 132*t**3 + 912*t**2 + 2132*t + 1672
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Csame R2b mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 60*s**2*t**2 + 156*s**2*t + 136*s**2 + 64*s*t**3 + 476*s*t**2 + 1232*s*t + 1072*s + 128*t**3 + 940*t**2 + 2412*t + 2088
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Csame R2b mu=L m=L | region=P=2,Q=4+t
+    numerator = 36*t**3 + 464*t**2 + 2004*t + 2896
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Csame R2b mu=L m=L | region=P=2,Q=4+t
+    numerator = 32*t**3 + 420*t**2 + 1868*t + 2800
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Csame R2b mu=L m=mu1 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 72*s**2*t**3 + 252*s**2*t**2 + 400*s**2*t + 236*s**2 + 64*s*t**4 + 572*s*t**3 + 1992*s*t**2 + 3148*s*t + 1848*s + 132*t**4 + 1176*t**3 + 4088*t**2 + 6448*t + 3772
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Csame R2b mu=L m=mu1 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 76*s**2*t**3 + 284*s**2*t**2 + 480*s**2*t + 300*s**2 + 64*s*t**4 + 604*s*t**3 + 2248*s*t**2 + 3788*s*t + 2360*s + 128*t**4 + 1196*t**3 + 4420*t**2 + 7400*t + 4572
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Csame R2b mu=L m=mu1 | region=P=2,Q=4+t
+    numerator = 36*t**4 + 608*t**3 + 3896*t**2 + 11192*t + 12108
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Csame R2b mu=L m=mu1 | region=P=2,Q=4+t
+    numerator = 32*t**4 + 548*t**3 + 3580*t**2 + 10512*t + 11628
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Copp R0 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**2 + 8*s**2*t + 10*s**2 + 16*s*t**2 + 60*s*t + 76*s + 34*t**2 + 124*t + 158
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Copp R0 m=mu0 | region=P=2,Q=4+t
+    numerator = 10*t**2 + 76*t + 158
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Copp R0 m=L | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**2 + 10*s**2*t + 12*s**2 + 16*s*t**2 + 76*s*t + 88*s + 34*t**2 + 158*t + 180
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Copp R0 m=L | region=P=2,Q=4+t
+    numerator = 10*t**2 + 86*t + 184
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Copp R1 mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**2 + 4*s**2*t + 2*s**2 + 16*s*t**2 + 28*s*t + 12*s + 34*t**2 + 56*t + 22
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Copp R1 mu=mu0 | region=P=2,Q=4+t
+    numerator = 10*t**2 + 56*t + 78
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Copp R1 mu=L | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**2 + 6*s**2*t + 4*s**2 + 16*s*t**2 + 44*s*t + 24*s + 34*t**2 + 90*t + 44
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Copp R1 mu=L | region=P=2,Q=4+t
+    numerator = 10*t**2 + 66*t + 104
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Copp R2a mu=L m=mu0 | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**3 + 12*s**2*t**2 + 30*s**2*t + 28*s**2 + 16*s*t**3 + 92*s*t**2 + 228*s*t + 216*s + 34*t**3 + 192*t**2 + 474*t + 452
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Copp R2a mu=L m=mu0 | region=P=2,Q=4+t
+    numerator = 10*t**3 + 116*t**2 + 482*t + 712
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Copp R2a mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**3 + 14*s**2*t**2 + 36*s**2*t + 32*s**2 + 16*s*t**3 + 108*s*t**2 + 272*s*t + 240*s + 34*t**3 + 226*t**2 + 564*t + 496
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Copp R2a mu=L m=L | region=P=2,Q=4+t
+    numerator = 10*t**3 + 126*t**2 + 548*t + 816
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Copp R2a mu=mu1 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**4 + 16*s**2*t**3 + 56*s**2*t**2 + 92*s**2*t + 58*s**2 + 16*s*t**4 + 124*s*t**3 + 428*s*t**2 + 700*s*t + 444*s + 34*t**4 + 260*t**3 + 892*t**2 + 1456*t + 926
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Copp R2a mu=mu1 m=mu0 | region=P=2,Q=4+t
+    numerator = 10*t**4 + 156*t**3 + 956*t**2 + 2696*t + 2926
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Copp R2a mu=mu1 m=L | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**4 + 18*s**2*t**3 + 66*s**2*t**2 + 110*s**2*t + 64*s**2 + 16*s*t**4 + 140*s*t**3 + 504*s*t**2 + 828*s*t + 472*s + 34*t**4 + 294*t**3 + 1050*t**2 + 1714*t + 968
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Copp R2a mu=mu1 m=L | region=P=2,Q=4+t
+    numerator = 10*t**4 + 166*t**3 + 1062*t**2 + 3074*t + 3348
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Copp R2b mu=mu0 m=L | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**3 + 12*s**2*t**2 + 26*s**2*t + 20*s**2 + 16*s*t**3 + 92*s*t**2 + 196*s*t + 152*s + 34*t**3 + 192*t**2 + 406*t + 316
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Copp R2b mu=mu0 m=L | region=P=2,Q=4+t
+    numerator = 10*t**3 + 116*t**2 + 462*t + 632
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Copp R2b mu=mu0 m=mu1 | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**4 + 16*s**2*t**3 + 52*s**2*t**2 + 72*s**2*t + 34*s**2 + 16*s*t**4 + 124*s*t**3 + 396*s*t**2 + 540*s*t + 252*s + 34*t**4 + 260*t**3 + 824*t**2 + 1116*t + 518
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Copp R2b mu=mu0 m=mu1 | region=P=2,Q=4+t
+    numerator = 10*t**4 + 156*t**3 + 936*t**2 + 2516*t + 2526
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Copp R2b mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**3 + 14*s**2*t**2 + 36*s**2*t + 32*s**2 + 16*s*t**3 + 108*s*t**2 + 272*s*t + 240*s + 34*t**3 + 226*t**2 + 564*t + 496
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Copp R2b mu=L m=L | region=P=2,Q=4+t
+    numerator = 10*t**3 + 126*t**2 + 548*t + 816
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Copp R2b mu=L m=mu1 | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**4 + 18*s**2*t**3 + 66*s**2*t**2 + 106*s**2*t + 56*s**2 + 16*s*t**4 + 140*s*t**3 + 504*s*t**2 + 796*s*t + 408*s + 34*t**4 + 294*t**3 + 1050*t**2 + 1646*t + 832
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Copp R2b mu=L m=mu1 | region=P=2,Q=4+t
+    numerator = 10*t**4 + 166*t**3 + 1062*t**2 + 3054*t + 3268
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Esame R0 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 28*s**2*t + 32*s**2 + 64*s*t**2 + 220*s*t + 252*s + 128*t**2 + 428*t + 488
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Esame R0 m=mu0 | region=P=2,Q=4+t
+    numerator = 32*t**2 + 228*t + 440
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Esame R0 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 36*s**2*t + 40*s**2 + 64*s*t**2 + 284*s*t + 312*s + 128*t**2 + 556*t + 600
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Esame R0 m=L | region=P=2,Q=4+t
+    numerator = 32*t**2 + 260*t + 528
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Esame R1 mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 24*s**2*t + 24*s**2 + 64*s*t**2 + 188*s*t + 188*s + 128*t**2 + 368*t + 368
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Esame R1 mu=mu0 | region=P=2,Q=4+t
+    numerator = 32*t**2 + 216*t + 392
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Esame R1 mu=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 32*s**2*t + 32*s**2 + 64*s*t**2 + 252*s*t + 248*s + 128*t**2 + 496*t + 480
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Esame R1 mu=L | region=P=2,Q=4+t
+    numerator = 32*t**2 + 248*t + 480
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Esame R2a mu=L m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 52*s**2*t**2 + 124*s**2*t + 104*s**2 + 64*s*t**3 + 412*s*t**2 + 980*s*t + 824*s + 128*t**3 + 812*t**2 + 1916*t + 1608
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Esame R2a mu=L m=mu0 | region=P=2,Q=4+t
+    numerator = 32*t**3 + 388*t**2 + 1620*t + 2320
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Esame R2a mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 60*s**2*t**2 + 156*s**2*t + 136*s**2 + 64*s*t**3 + 476*s*t**2 + 1232*s*t + 1072*s + 128*t**3 + 940*t**2 + 2412*t + 2088
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Esame R2a mu=L m=L | region=P=2,Q=4+t
+    numerator = 32*t**3 + 420*t**2 + 1868*t + 2800
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Esame R2a mu=mu1 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 68*s**2*t**3 + 236*s**2*t**2 + 376*s**2*t + 232*s**2 + 64*s*t**4 + 540*s*t**3 + 1868*s*t**2 + 2972*s*t + 1836*s + 128*t**4 + 1068*t**3 + 3668*t**2 + 5800*t + 3568
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Esame R2a mu=mu1 m=mu0 | region=P=2,Q=4+t
+    numerator = 32*t**4 + 516*t**3 + 3204*t**2 + 9008*t + 9640
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Esame R2a mu=mu1 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 76*s**2*t**3 + 284*s**2*t**2 + 480*s**2*t + 300*s**2 + 64*s*t**4 + 604*s*t**3 + 2248*s*t**2 + 3788*s*t + 2360*s + 128*t**4 + 1196*t**3 + 4420*t**2 + 7400*t + 4572
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Esame R2a mu=mu1 m=L | region=P=2,Q=4+t
+    numerator = 32*t**4 + 548*t**3 + 3580*t**2 + 10512*t + 11628
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Esame R2b mu=mu0 m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 52*s**2*t**2 + 120*s**2*t + 96*s**2 + 64*s*t**3 + 412*s*t**2 + 948*s*t + 760*s + 128*t**3 + 812*t**2 + 1856*t + 1488
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Esame R2b mu=mu0 m=L | region=P=2,Q=4+t
+    numerator = 32*t**3 + 388*t**2 + 1608*t + 2272
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Esame R2b mu=mu0 m=mu1 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 68*s**2*t**3 + 232*s**2*t**2 + 356*s**2*t + 208*s**2 + 64*s*t**4 + 540*s*t**3 + 1836*s*t**2 + 2812*s*t + 1644*s + 128*t**4 + 1068*t**3 + 3608*t**2 + 5500*t + 3208
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Esame R2b mu=mu0 m=mu1 | region=P=2,Q=4+t
+    numerator = 32*t**4 + 516*t**3 + 3192*t**2 + 8900*t + 9400
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Esame R2b mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**3 + 60*s**2*t**2 + 156*s**2*t + 136*s**2 + 64*s*t**3 + 476*s*t**2 + 1232*s*t + 1072*s + 128*t**3 + 940*t**2 + 2412*t + 2088
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Esame R2b mu=L m=L | region=P=2,Q=4+t
+    numerator = 32*t**3 + 420*t**2 + 1868*t + 2800
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Esame R2b mu=L m=mu1 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**4 + 76*s**2*t**3 + 284*s**2*t**2 + 476*s**2*t + 292*s**2 + 64*s*t**4 + 604*s*t**3 + 2248*s*t**2 + 3756*s*t + 2296*s + 128*t**4 + 1196*t**3 + 4420*t**2 + 7340*t + 4452
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Esame R2b mu=L m=mu1 | region=P=2,Q=4+t
+    numerator = 32*t**4 + 548*t**3 + 3580*t**2 + 10500*t + 11580
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Eopp R0 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 24*s**2*t + 30*s**2 + 48*s*t**2 + 188*s*t + 236*s + 94*t**2 + 360*t + 454
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Eopp R0 m=mu0 | region=P=2,Q=4+t
+    numerator = 22*t**2 + 168*t + 350
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Eopp R0 m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 30*s**2*t + 36*s**2 + 48*s*t**2 + 236*s*t + 280*s + 94*t**2 + 454*t + 532
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Eopp R0 m=L | region=P=2,Q=4+t
+    numerator = 22*t**2 + 190*t + 408
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Eopp R1 mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 16*s**2*t + 14*s**2 + 48*s*t**2 + 124*s*t + 108*s + 94*t**2 + 232*t + 198
+    denominator (positive) = (t + 3)^2
+[OK] FD1 Eopp R1 mu=mu0 | region=P=2,Q=4+t
+    numerator = 22*t**2 + 136*t + 222
+    denominator (positive) = (t + 5)^2
+[OK] FD1 Eopp R1 mu=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 22*s**2*t + 20*s**2 + 48*s*t**2 + 172*s*t + 152*s + 94*t**2 + 326*t + 276
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD1 Eopp R1 mu=L | region=P=2,Q=4+t
+    numerator = 22*t**2 + 158*t + 280
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD1 Eopp R2a mu=L m=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**3 + 40*s**2*t**2 + 102*s**2*t + 92*s**2 + 48*s*t**3 + 316*s*t**2 + 804*s*t + 728*s + 94*t**3 + 608*t**2 + 1542*t + 1404
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Eopp R2a mu=L m=mu0 | region=P=2,Q=4+t
+    numerator = 22*t**3 + 268*t**2 + 1150*t + 1720
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Eopp R2a mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**3 + 46*s**2*t**2 + 124*s**2*t + 112*s**2 + 48*s*t**3 + 364*s*t**2 + 976*s*t + 880*s + 94*t**3 + 702*t**2 + 1868*t + 1680
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Eopp R2a mu=L m=L | region=P=2,Q=4+t
+    numerator = 22*t**3 + 290*t**2 + 1308*t + 2000
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Eopp R2a mu=mu1 m=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 52*s**2*t**3 + 188*s**2*t**2 + 316*s**2*t + 206*s**2 + 48*s*t**4 + 412*s*t**3 + 1484*s*t**2 + 2492*s*t + 1628*s + 94*t**4 + 796*t**3 + 2852*t**2 + 4780*t + 3126
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Eopp R2a mu=mu1 m=mu0 | region=P=2,Q=4+t
+    numerator = 22*t**4 + 356*t**3 + 2244*t**2 + 6468*t + 7150
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Eopp R2a mu=mu1 m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 58*s**2*t**3 + 222*s**2*t**2 + 386*s**2*t + 248*s**2 + 48*s*t**4 + 460*s*t**3 + 1752*s*t**2 + 3036*s*t + 1944*s + 94*t**4 + 890*t**3 + 3366*t**2 + 5802*t + 3688
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Eopp R2a mu=mu1 m=L | region=P=2,Q=4+t
+    numerator = 22*t**4 + 378*t**3 + 2490*t**2 + 7402*t + 8308
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD1 Eopp R2b mu=mu0 m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**3 + 40*s**2*t**2 + 94*s**2*t + 76*s**2 + 48*s*t**3 + 316*s*t**2 + 740*s*t + 600*s + 94*t**3 + 608*t**2 + 1414*t + 1148
+    denominator (positive) = (t + 4)^1 * (t + 3)^2
+[OK] FD1 Eopp R2b mu=mu0 m=L | region=P=2,Q=4+t
+    numerator = 22*t**3 + 268*t**2 + 1118*t + 1592
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD1 Eopp R2b mu=mu0 m=mu1 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 52*s**2*t**3 + 180*s**2*t**2 + 276*s**2*t + 158*s**2 + 48*s*t**4 + 412*s*t**3 + 1420*s*t**2 + 2172*s*t + 1244*s + 94*t**4 + 796*t**3 + 2724*t**2 + 4140*t + 2358
+    denominator (positive) = (t + 3)^4
+[OK] FD1 Eopp R2b mu=mu0 m=mu1 | region=P=2,Q=4+t
+    numerator = 22*t**4 + 356*t**3 + 2212*t**2 + 6180*t + 6510
+    denominator (positive) = (t + 5)^4
+[OK] FD1 Eopp R2b mu=L m=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**3 + 46*s**2*t**2 + 124*s**2*t + 112*s**2 + 48*s*t**3 + 364*s*t**2 + 976*s*t + 880*s + 94*t**3 + 702*t**2 + 1868*t + 1680
+    denominator (positive) = (t + 3)^1 * (t + 4)^2
+[OK] FD1 Eopp R2b mu=L m=L | region=P=2,Q=4+t
+    numerator = 22*t**3 + 290*t**2 + 1308*t + 2000
+    denominator (positive) = (t + 5)^1 * (t + 6)^2
+[OK] FD1 Eopp R2b mu=L m=mu1 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**4 + 58*s**2*t**3 + 222*s**2*t**2 + 378*s**2*t + 232*s**2 + 48*s*t**4 + 460*s*t**3 + 1752*s*t**2 + 2972*s*t + 1816*s + 94*t**4 + 890*t**3 + 3366*t**2 + 5674*t + 3432
+    denominator (positive) = (t + 4)^1 * (t + 3)^3
+[OK] FD1 Eopp R2b mu=L m=mu1 | region=P=2,Q=4+t
+    numerator = 22*t**4 + 378*t**3 + 2490*t**2 + 7370*t + 8180
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD2 J=b-1 Asame mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**2 + 8*s**2*t + 10*s**2 + 20*s*t**2 + 80*s*t + 100*s + 46*t**2 + 184*t + 230
+    denominator (positive) = (t + 3)^2
+[OK] FD2 J=b-1 Asame mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**2 + 8*s**2*t + 10*s**2 + 16*s*t**2 + 60*s*t + 76*s + 34*t**2 + 124*t + 158
+    denominator (positive) = (t + 3)^2
+[OK] FD2 J=b-1 Asame mu=mu0 | region=P=2,Q=4+t
+    numerator = 14*t**2 + 112*t + 238
+    denominator (positive) = (t + 5)^2
+[OK] FD2 J=b-1 Asame mu=mu0 | region=P=2,Q=4+t
+    numerator = 10*t**2 + 76*t + 158
+    denominator (positive) = (t + 5)^2
+[OK] FD2 J=b-1 Asame mu=L | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t + 4*s**2 + 20*s*t + 40*s + 46*t + 92
+    denominator (positive) = (t + 4)^1
+[OK] FD2 J=b-1 Asame mu=L | region=P=4+s,Q=2+t
+    numerator = 2*s**2*t**2 + 10*s**2*t + 12*s**2 + 16*s*t**2 + 76*s*t + 88*s + 34*t**2 + 158*t + 180
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD2 J=b-1 Asame mu=L | region=P=2,Q=4+t
+    numerator = 14*t + 56
+    denominator (positive) = (t + 6)^1
+[OK] FD2 J=b-1 Asame mu=L | region=P=2,Q=4+t
+    numerator = 10*t**2 + 86*t + 184
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD2 J=b-1 Aopp mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**2 + 16*s**2*t + 20*s**2 + 32*s*t**2 + 128*s*t + 160*s + 64*t**2 + 256*t + 320
+    denominator (positive) = (t + 3)^2
+[OK] FD2 J=b-1 Aopp mu=mu0 | region=P=2,Q=4+t
+    numerator = 16*t**2 + 128*t + 272
+    denominator (positive) = (t + 5)^2
+[OK] FD2 J=b-1 Aopp mu=L | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t + 8*s**2 + 32*s*t + 64*s + 64*t + 128
+    denominator (positive) = (t + 4)^1
+[OK] FD2 J=b-1 Aopp mu=L | region=P=2,Q=4+t
+    numerator = 16*t + 64
+    denominator (positive) = (t + 6)^1
+[OK] FD2 J=b-1 Bsame mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 10*s**2*t**2 + 40*s**2*t + 46*s**2 + 80*s*t**2 + 320*s*t + 376*s + 162*t**2 + 648*t + 774
+    denominator (positive) = (t + 3)^2
+[OK] FD2 J=b-1 Bsame mu=mu0 | region=P=2,Q=4+t
+    numerator = 42*t**2 + 336*t + 710
+    denominator (positive) = (t + 5)^2
+[OK] FD2 J=b-1 Bsame mu=L | region=P=4+s,Q=2+t
+    numerator = 10*s**2*t + 20*s**2 + 80*s*t + 160*s + 162*t + 324
+    denominator (positive) = (t + 4)^1
+[OK] FD2 J=b-1 Bsame mu=L | region=P=2,Q=4+t
+    numerator = 42*t + 168
+    denominator (positive) = (t + 6)^1
+[OK] FD2 J=b-1 Csame mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 20*s**2*t + 22*s**2 + 52*s*t**2 + 172*s*t + 192*s + 114*t**2 + 376*t + 422
+    denominator (positive) = (t + 3)^2
+[OK] FD2 J=b-1 Csame mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 20*s**2*t + 22*s**2 + 48*s*t**2 + 152*s*t + 168*s + 98*t**2 + 296*t + 326
+    denominator (positive) = (t + 3)^2
+[OK] FD2 J=b-1 Csame mu=mu0 | region=P=2,Q=4+t
+    numerator = 34*t**2 + 248*t + 486
+    denominator (positive) = (t + 5)^2
+[OK] FD2 J=b-1 Csame mu=mu0 | region=P=2,Q=4+t
+    numerator = 26*t**2 + 176*t + 326
+    denominator (positive) = (t + 5)^2
+[OK] FD2 J=b-1 Csame mu=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 26*s**2*t + 28*s**2 + 52*s*t**2 + 224*s*t + 240*s + 114*t**2 + 490*t + 524
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD2 J=b-1 Csame mu=L | region=P=4+s,Q=2+t
+    numerator = 6*s**2*t**2 + 26*s**2*t + 28*s**2 + 48*s*t**2 + 200*s*t + 208*s + 98*t**2 + 394*t + 396
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD2 J=b-1 Csame mu=L | region=P=2,Q=4+t
+    numerator = 34*t**2 + 282*t + 584
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD2 J=b-1 Csame mu=L | region=P=2,Q=4+t
+    numerator = 26*t**2 + 202*t + 392
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD2 J=b-1 Copp mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**2 + 12*s**2*t + 12*s**2 + 28*s*t**2 + 76*s*t + 72*s + 52*t**2 + 128*t + 112
+    denominator (positive) = (t + 3)^2
+[OK] FD2 J=b-1 Copp mu=mu0 | region=P=2,Q=4+t
+    numerator = 12*t**2 + 72*t + 112
+    denominator (positive) = (t + 5)^2
+[OK] FD2 J=b-1 Copp mu=L | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**2 + 16*s**2*t + 16*s**2 + 28*s*t**2 + 104*s*t + 96*s + 52*t**2 + 180*t + 152
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD2 J=b-1 Copp mu=L | region=P=2,Q=4+t
+    numerator = 12*t**2 + 84*t + 144
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD2 J=b-1 Esame mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 10*s**2*t**2 + 36*s**2*t + 38*s**2 + 80*s*t**2 + 280*s*t + 296*s + 158*t**2 + 536*t + 566
+    denominator (positive) = (t + 3)^2
+[OK] FD2 J=b-1 Esame mu=mu0 | region=P=2,Q=4+t
+    numerator = 38*t**2 + 272*t + 518
+    denominator (positive) = (t + 5)^2
+[OK] FD2 J=b-1 Esame mu=L | region=P=4+s,Q=2+t
+    numerator = 10*s**2*t**2 + 46*s**2*t + 52*s**2 + 80*s*t**2 + 360*s*t + 400*s + 158*t**2 + 694*t + 756
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD2 J=b-1 Esame mu=L | region=P=2,Q=4+t
+    numerator = 38*t**2 + 310*t + 632
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD2 J=b-1 Eopp mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 28*s**2*t + 28*s**2 + 60*s*t**2 + 200*s*t + 196*s + 112*t**2 + 352*t + 336
+    denominator (positive) = (t + 3)^2
+[OK] FD2 J=b-1 Eopp mu=mu0 | region=P=2,Q=4+t
+    numerator = 24*t**2 + 160*t + 280
+    denominator (positive) = (t + 5)^2
+[OK] FD2 J=b-1 Eopp mu=L | region=P=4+s,Q=2+t
+    numerator = 8*s**2*t**2 + 36*s**2*t + 40*s**2 + 60*s*t**2 + 260*s*t + 280*s + 112*t**2 + 464*t + 480
+    denominator (positive) = (t + 3)^1 * (t + 4)^1
+[OK] FD2 J=b-1 Eopp mu=L | region=P=2,Q=4+t
+    numerator = 24*t**2 + 184*t + 352
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD2(i) -B at b-1 (P>=4) mu=mu0 | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t**2 + 16*s**2*t + 16*s**2 + 20*s*t**2 + 80*s*t + 76*s + 20*t**2 + 80*t + 64
+    denominator (positive) = (t + 3)^2
+[OK] FD2(i) -B at b-1 (P>=4) mu=L | region=P=4+s,Q=2+t
+    numerator = 4*s**2*t + 8*s**2 + 20*s*t + 40*s + 20*t + 40
+    denominator (positive) = (t + 4)^1
+[OK] FD2(ii) k=1 Asame mu=L | region=P=2,Q=4+t
+    numerator = 18*t**2 + 118*t + 184
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD2(ii) k=1 Asame mu=L | region=P=2,Q=4+t
+    numerator = 14*t**3 + 176*t**2 + 758*t + 1112
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD2(ii) k=1 Asame mu=mu1 | region=P=2,Q=4+t
+    numerator = 18*t**4 + 280*t**3 + 1624*t**2 + 4116*t + 3806
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=1 Asame mu=mu1 | region=P=2,Q=4+t
+    numerator = 14*t**4 + 232*t**3 + 1476*t**2 + 4236*t + 4606
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=1 Asame mu=one | region=P=2,Q=4+t
+    numerator = 18*t**2 + 100*t + 126
+    denominator (positive) = (t + 5)^2
+[OK] FD2(ii) k=1 Asame mu=one | region=P=2,Q=4+t
+    numerator = 14*t**2 + 92*t + 158
+    denominator (positive) = (t + 5)^2
+[OK] FD2(ii) k=1 Aopp mu=L | region=P=2,Q=4+t
+    numerator = 20*t**2 + 132*t + 208
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD2(ii) k=1 Aopp mu=mu1 | region=P=2,Q=4+t
+    numerator = 20*t**4 + 312*t**3 + 1816*t**2 + 4624*t + 4304
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=1 Aopp mu=one | region=P=2,Q=4+t
+    numerator = 20*t**2 + 112*t + 144
+    denominator (positive) = (t + 5)^2
+[OK] FD2(ii) k=1 Bsame mu=L | region=P=2,Q=4+t
+    numerator = 46*t**2 + 322*t + 552
+    denominator (positive) = (t + 5)^1 * (t + 6)^1
+[OK] FD2(ii) k=1 Bsame mu=mu1 | region=P=2,Q=4+t
+    numerator = 46*t**4 + 736*t**3 + 4416*t**2 + 11688*t + 11462
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=1 Bsame mu=one | region=P=2,Q=4+t
+    numerator = 46*t**2 + 280*t + 422
+    denominator (positive) = (t + 5)^2
+[OK] FD2(ii) k=1 Csame mu=L | region=P=2,Q=4+t
+    numerator = 38*t**3 + 464*t**2 + 1906*t + 2632
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD2(ii) k=1 Csame mu=L | region=P=2,Q=4+t
+    numerator = 30*t**3 + 372*t**2 + 1594*t + 2344
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD2(ii) k=1 Csame mu=mu1 | region=P=2,Q=4+t
+    numerator = 38*t**4 + 616*t**3 + 3800*t**2 + 10512*t + 10982
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=1 Csame mu=mu1 | region=P=2,Q=4+t
+    numerator = 30*t**4 + 492*t**3 + 3112*t**2 + 8932*t + 9782
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=1 Csame mu=one | region=P=2,Q=4+t
+    numerator = 38*t**2 + 256*t + 454
+    denominator (positive) = (t + 5)^2
+[OK] FD2(ii) k=1 Csame mu=one | region=P=2,Q=4+t
+    numerator = 30*t**2 + 212*t + 406
+    denominator (positive) = (t + 5)^2
+[OK] FD2(ii) k=1 Copp mu=L | region=P=2,Q=4+t
+    numerator = 16*t**3 + 200*t**2 + 872*t + 1312
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD2(ii) k=1 Copp mu=mu1 | region=P=2,Q=4+t
+    numerator = 16*t**4 + 264*t**3 + 1688*t**2 + 4924*t + 5504
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=1 Copp mu=one | region=P=2,Q=4+t
+    numerator = 16*t**2 + 124*t + 256
+    denominator (positive) = (t + 5)^2
+[OK] FD2(ii) k=1 Esame mu=L | region=P=2,Q=4+t
+    numerator = 42*t**3 + 528*t**2 + 2254*t + 3256
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD2(ii) k=1 Esame mu=mu1 | region=P=2,Q=4+t
+    numerator = 42*t**4 + 696*t**3 + 4408*t**2 + 12580*t + 13622
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=1 Esame mu=one | region=P=2,Q=4+t
+    numerator = 42*t**2 + 308*t + 598
+    denominator (positive) = (t + 5)^2
+[OK] FD2(ii) k=1 Eopp mu=L | region=P=2,Q=4+t
+    numerator = 28*t**3 + 360*t**2 + 1596*t + 2416
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD2(ii) k=1 Eopp mu=mu1 | region=P=2,Q=4+t
+    numerator = 28*t**4 + 472*t**3 + 3064*t**2 + 9024*t + 10136
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=1 Eopp mu=one | region=P=2,Q=4+t
+    numerator = 28*t**2 + 224*t + 472
+    denominator (positive) = (t + 5)^2
+[OK] FD2(ii) k=2 Asame mu=mu0 | region=P=2,Q=4+t
+    numerator = 22*t**4 + 352*t**3 + 2156*t**2 + 5988*t + 6366
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=2 Asame mu=mu0 | region=P=2,Q=4+t
+    numerator = 18*t**4 + 304*t**3 + 1980*t**2 + 5856*t + 6606
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=2 Asame mu=L | region=P=2,Q=4+t
+    numerator = 22*t**3 + 264*t**2 + 1078*t + 1496
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD2(ii) k=2 Asame mu=L | region=P=2,Q=4+t
+    numerator = 18*t**4 + 322*t**3 + 2194*t**2 + 6718*t + 7768
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD2(ii) k=2 Aopp mu=mu0 | region=P=2,Q=4+t
+    numerator = 24*t**4 + 384*t**3 + 2352*t**2 + 6532*t + 6944
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=2 Aopp mu=L | region=P=2,Q=4+t
+    numerator = 24*t**3 + 288*t**2 + 1176*t + 1632
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD2(ii) k=2 Bsame mu=mu0 | region=P=2,Q=4+t
+    numerator = 50*t**4 + 808*t**3 + 4992*t**2 + 13956*t + 14902
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=2 Bsame mu=L | region=P=2,Q=4+t
+    numerator = 50*t**3 + 608*t**2 + 2514*t + 3528
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD2(ii) k=2 Csame mu=mu0 | region=P=2,Q=4+t
+    numerator = 42*t**4 + 688*t**3 + 4312*t**2 + 12204*t + 13142
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=2 Csame mu=mu0 | region=P=2,Q=4+t
+    numerator = 34*t**4 + 564*t**3 + 3596*t**2 + 10372*t + 11382
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=2 Csame mu=L | region=P=2,Q=4+t
+    numerator = 42*t**4 + 730*t**3 + 4810*t**2 + 14210*t + 15848
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD2(ii) k=2 Csame mu=L | region=P=2,Q=4+t
+    numerator = 34*t**4 + 598*t**3 + 4010*t**2 + 12082*t + 13736
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD2(ii) k=2 Copp mu=mu0 | region=P=2,Q=4+t
+    numerator = 20*t**4 + 336*t**3 + 2156*t**2 + 6220*t + 6784
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=2 Copp mu=L | region=P=2,Q=4+t
+    numerator = 20*t**4 + 356*t**3 + 2412*t**2 + 7324*t + 8368
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD2(ii) k=2 Esame mu=mu0 | region=P=2,Q=4+t
+    numerator = 46*t**4 + 768*t**3 + 4892*t**2 + 14020*t + 15222
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=2 Esame mu=L | region=P=2,Q=4+t
+    numerator = 46*t**4 + 814*t**3 + 5462*t**2 + 16414*t + 18584
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD2(ii) k=2 Eopp mu=mu0 | region=P=2,Q=4+t
+    numerator = 32*t**4 + 544*t**3 + 3520*t**2 + 10212*t + 11176
+    denominator (positive) = (t + 5)^4
+[OK] FD2(ii) k=2 Eopp mu=L | region=P=2,Q=4+t
+    numerator = 32*t**4 + 576*t**3 + 3936*t**2 + 12032*t + 13824
+    denominator (positive) = (t + 6)^1 * (t + 5)^3
+[OK] FD2(ii) k>=3 chain alone x=mu0 | region=P=2,Q=4+t
+    numerator = 4*t**3 + 56*t**2 + 252*t + 352
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+[OK] FD2(ii) k>=3 chain alone x=L | region=P=2,Q=4+t
+    numerator = 4*t**3 + 56*t**2 + 256*t + 384
+    denominator (positive) = (t + 6)^1 * (t + 5)^2
+TOTAL branches certified: 325 failures: 0

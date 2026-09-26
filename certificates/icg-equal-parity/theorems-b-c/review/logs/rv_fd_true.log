@@ -1,0 +1,14 @@
+(A) FD1 at true values: 58800 (b,J,c,p,q) cases, all s_J > 2 delta_p rho.  Global min ratio 1.000396 at p=1009 q=3 b=2 J=0 c=(1, -1, 1)
+    Asame : min ratio 1.000396 (p=1009, q=3, b=2, J=0)
+    Bopp  : min ratio 1.741176 (p=5, q=3, b=2, J=0)
+    Bsame : min ratio 1.658824 (p=5, q=3, b=2, J=0)
+    Copp  : min ratio 1.129412 (p=5, q=3, b=2, J=1)
+    Csame : min ratio 2.505882 (p=5, q=3, b=2, J=0)
+    Eopp  : min ratio 2.164706 (p=5, q=3, b=2, J=1)
+    Esame : min ratio 3.164706 (p=5, q=3, b=2, J=1)
+(B) FD2(a): 3060 cases, all s_(b-1) > 4P rho; min ratio 1.800000 at p=5 q=3 b=2 c=(-1, -1, 1)
+(C) FD2(b) (P=2): 19740 cases, all chain + s_J' (+kappa) > 8 rho; min ratio 1.000495 at p=3 q=1009 b=2 full chain
+    k>=3 claim (chain cost of b-1,b-2,b-3 alone > 8 rho): min ratio 1.482014 at p=3 q=5 b=4
+(D) dense exact grid over relaxed boxes (11 (P,Q) incl. P=4,Q=2 and P=2,Q=4): 103600 points, all positive, grid min >= vertex min everywhere
+text's k>=3 inequality '... >= (2/q)[(4Q+8)mu0-2Q+2QL]' at true values: violated in 95 of 95 (q,b) cases, e.g. (5, 4, 2.5728, 4.693333333333333)
+DONE

@@ -1,0 +1,5 @@
+a=2 region=big: validated q*s branch-min against direct cell computation at 400 random exact points: OK
+a=2 region=big: cheap last columns [((1, 1, -1), 1)]; columns with Delta > 2 delta: 1; trunc = (1, -1, -1)
+a=2 region=p3: validated q*s branch-min against direct cell computation at 400 random exact points: OK
+a=2 region=p3: cheap last columns [((1, 1, -1), 1)]; columns with Delta > 2 delta: 1; trunc = (1, -1, -1)
+a=2 K=4: checks {'S': 16, 'FD1': 193, 'CH': 198, 'CHalone': 4, 'full': 2, 'EQ': 12, 'validated': 336}; failures 0; time 0s

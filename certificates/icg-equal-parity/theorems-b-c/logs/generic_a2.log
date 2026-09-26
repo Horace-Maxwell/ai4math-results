@@ -1,0 +1,1 @@
+a=2: checks S=16, FD1=864, chains=870, EQ=6; cheap last columns: {'big': 1, 'p3': 1}; failures: 0  (166s)

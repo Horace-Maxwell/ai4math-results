@@ -1,0 +1,57 @@
+== G1: n=8 m=10 median=True FP(viii)=False (vii)=False DH(def)=False
+   diam=4 tr=8 ecc=[2, 3, 3, 4, 3, 3, 3, 4] peripheral=[3, 7]
+   triametral (as multisets) 13: [(0, 3, 7), (1, 2, 7), (1, 3, 7), (1, 5, 6), (1, 5, 7), (2, 3, 7), (3, 3, 7), (3, 4, 6), (3, 4, 7), (3, 5, 6), (3, 5, 7), (3, 6, 7), (3, 7, 7)]
+   diametral pairs: [(3, 7)]
+   Q3=False Q3'=False Q4=True Q4strong=True Q4'=True
+   G1 = 3x3 grid minus corner (0,2): induced, isometric, median-closed: OK
+   d(1,5), d(1,6), d(5,6) = 3 2 3 ; ecc of 1,5,6 = [3, 3, 3]
+   triametral triples without peripheral vertex: [(1, 5, 6)]
+   G1 FP counterexample (1,3,4,5) sums: 2 4 6
+   induced subgraph on 3,1,0,4,5 : d_S(3,5) = 4  d_G(3,5) = 2
+== G2: n=8 m=8 median=True FP(viii)=True (vii)=True DH(def)=True
+   diam=4 tr=12 ecc=[2, 4, 3, 3, 4, 4, 3, 4] peripheral=[1, 4, 5, 7]
+   triametral (as multisets) 1: [(1, 4, 7)]
+   diametral pairs: [(1, 4), (1, 7), (4, 7), (5, 7)]
+   Q3=True Q3'=True Q4=False Q4strong=False Q4'=False
+   G2 grid embedding: induced, isometric, median-closed: OK
+   d(5,z)+d(7,z), z=0..7: [4, 6, 4, 4, 6, 4, 4, 4]
+   max_{y,z} d(5,y,z) = 10
+   G2 = K2 (0-2) + pendant 5@2 + false twin 3 of 2 + pendants 1@2, 4@3, 6@0, 7@6: OK
+== H11: n=11 m=12 median=False FP(viii)=True (vii)=True DH(def)=True
+   diam=5 tr=12 ecc=[3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5] peripheral=[9, 10]
+   triametral (as multisets) 7: [(6, 7, 8), (6, 7, 10), (6, 8, 10), (6, 9, 10), (7, 8, 10), (7, 9, 10), (8, 9, 10)]
+   diametral pairs: [(9, 10)]
+   Q3=False Q3'=False Q4=True Q4strong=True Q4'=True
+   non-median witness (1, 2, 3, [0, 4])
+   d(6,7),d(6,8),d(7,8) = 4 4 4 ; extensions of (9,10): [6, 7, 8]
+== HKO Fig.3 G: n=6 m=7 median=False FP(viii)=True (vii)=True DH(def)=True
+   diam=3 tr=6 ecc=[3, 2, 2, 2, 2, 3] peripheral=[0, 5]
+   triametral (as multisets) 10: [(0, 0, 5), (0, 1, 5), (0, 2, 3), (0, 2, 4), (0, 2, 5), (0, 3, 4), (0, 3, 5), (0, 4, 5), (0, 5, 5), (2, 3, 4)]
+   diametral pairs: [(0, 5)]
+   Q3=False Q3'=False Q4=True Q4strong=True Q4'=True
+   non-median witness (2, 3, 4, [1, 5])
+== HKO Fig.3 H: n=6 m=11 median=False FP(viii)=True (vii)=True DH(def)=True
+   diam=2 tr=6 ecc=[2, 2, 2, 2, 1, 2] peripheral=[0, 1, 2, 3, 5]
+   triametral (as multisets) 1: [(0, 1, 2)]
+   diametral pairs: [(0, 1), (0, 2), (1, 2), (3, 5)]
+   Q3=True Q3'=True Q4=False Q4strong=False Q4'=False
+   non-median witness (0, 1, 2, [3, 4, 5])
+== HKO Fig.4: n=5 m=5 median=True FP(viii)=True (vii)=True DH(def)=True
+   diam=3 tr=6 ecc=[3, 2, 2, 2, 3] peripheral=[0, 4]
+   triametral (as multisets) 6: [(0, 0, 4), (0, 1, 4), (0, 2, 3), (0, 2, 4), (0, 3, 4), (0, 4, 4)]
+   diametral pairs: [(0, 4)]
+   Q3=False Q3'=True Q4=True Q4strong=True Q4'=True
+== HKO Fig.2: n=12 m=13 median=False FP(viii)=False (vii)=False DH(def)=False
+   diam=5 tr=12 ecc=[5, 4, 4, 4, 4, 5, 4, 4, 4, 4, 4, 4] peripheral=[0, 5]
+   triametral (as multisets) 1: [(2, 7, 10)]
+   diametral pairs: [(0, 5)]
+   Q3=False Q3'=False Q4=False Q4strong=False Q4'=False
+   non-median witness (0, 2, 8, [])
+== MO 506536: n=11 m=14 median=True FP(viii)=False (vii)=False
+   diam=4 tr=12 ecc=[2, 3, 3, 4, 3, 3, 4, 4, 3, 3, 4] peripheral=[3, 6, 7, 10]
+   triametral (as multisets) 1: [(3, 6, 10)]
+   diametral pairs: [(3, 6), (3, 7), (3, 10), (6, 10)]
+   Q3=True Q3'=True Q4=False Q4strong=False Q4'=False
+   triametral: [['a', 'b', 'c']] pairs: [['a', 'b'], ['a', 'x'], ['a', 'c'], ['b', 'c']]
+   MO induced edges on b,v2,s,w1,x: [('b', 'v2'), ('s', 'w1'), ('v2', 's'), ('w1', 'x')] ; d(b,x) = 2 ; d in induced path = 4
+ALL ASSERTIONS PASSED

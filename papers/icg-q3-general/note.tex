@@ -5,7 +5,7 @@
 \usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
- pdftitle={The maximal energy of integral circulant graphs of orders p\textasciicircum(2r) 3\textasciicircum(2s+1) and pq\textasciicircum m},
+ pdftitle={The maximal energy of integral circulant graphs of orders p\textasciicircum(2r) 3\textasciicircum(2s+1), pq\textasciicircum m and p\textasciicircum 2 q\textasciicircum b},
  pdfauthor={Horace Dong}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -17,7 +17,16 @@
 \newcommand{\ICG}{\operatorname{ICG}}
 \newcommand{\E}{\mathcal E}
 \newcommand{\NA}{\operatorname{NA}}
-\title{The maximal energy of integral circulant graphs\\ of orders $p^{2r}3^{2s+1}$ and $pq^m$}
+\title{The maximal energy of integral circulant graphs\\ of orders
+$p^{2r}3^{2s+1}$, $pq^m$ and $p^2q^b$\thanks{Version~1.4, released as
+version~1.4.0 of~\cite{repo}; the previous version of this paper is
+version~1.2 (release~1.2.0). This version adds Theorems~\ref{thm:ptwo}
+and~\ref{thm:minfour} (exponents of equal parity, one of them at most~$4$)
+and Sections~\ref{sec:column}--\ref{sec:minfour}. The statements after
+Theorem~\ref{thm:onem} are renumbered, and the section on verification is
+now Section~\ref{sec:verif}; Theorem~10, Conjecture~12 and Proposition~13 of
+version~1.2 are now Theorem~\ref{thm:sign}, Conjecture~\ref{conj:equal} and
+Proposition~\ref{prop:cert}. The results of version~1.2 are unchanged.}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
@@ -39,17 +48,22 @@ identity and an explicit potential function, and the same argument gives a
 semidefinite-free proof of the theorem of Jiang and Yang. For exponents of
 equal parity the checkerboard set contains $n$ and is not admissible. We
 conjecture the maximal energy in this case, with two maximisers, and prove
-the conjecture for the orders $pq^m$ and $p^mq$ with $m$ odd and $p,q$ any
+the conjecture when one of the exponents is $1$ or $2$ and $p,q$ are any
 distinct odd primes; for $n=pq$ it also follows from known energy formulas.
+For example, for $n=p^2q^b$ with $b$ even the maximal energy is
+$\frac12[n+(5p^2-8p+4)\,d_b(q)]-(p^2-2p+2)\,\delta_b(q)$, where $d_b$ and
+$\delta_b$ are explicit polynomials, and it is attained exactly by
+$\{p^iq^j: i+j\text{ odd}\}$ and $\{p^iq^j: i+j\text{ even}\}\setminus\{n\}$.
 With the opposite-parity case, this determines the maximal energy for every
-order $pq^m$. Exact computer-assisted certificates for eleven further
-exponent pairs show that the conjecture holds for all such orders $p^aq^b$
-with $(a+1)(b+1)\le27$. The main theorem, the sign-matrix inequality, the
-energy formula for these graphs and the theorem for the orders $pq^m$ and
-$p^mq$ are formally verified in Lean~4; the closed-form evaluation of the
-maximal energies and the certificates are not formalised. The proofs were found by
-AI coding agents working under the author's direction; their role is
-described at the end of the paper.
+order $p^aq^b$ with $\min\{a,b\}\le2$. A computer-assisted extension of the
+argument, whose certificates were checked by two independent programs, proves
+the conjecture also when one of the exponents is $3$ or $4$. The main
+theorem, the two sign-matrix inequalities, the energy formula for these
+graphs and the theorems for exponents $1$ and $2$ are formally verified in
+Lean~4; the closed-form evaluation of the maximal energies and the
+computer-assisted results are not formalised. The proofs were found by AI
+coding agents working under the author's direction; their role is described
+at the end of the paper.
 \end{abstract}
 
 \section{Introduction}
@@ -101,8 +115,9 @@ treatment of the case $q=3$ for general $r$ and $s$.
 If the two exponents have the same parity, the checkerboard set contains $n$
 itself and is not a set of proper divisors, and the maximiser changes. For
 this case we state a conjecture (Conjecture~\ref{conj:equal}), with two
-maximisers and an explicit maximal energy, and we prove it when one of the
-exponents equals~$1$. For $n=p^aq^b$, a set written as $\{p^iq^j:\ \dots\}$
+maximisers and an explicit maximal energy. We prove it when one of the
+exponents equals~$1$ or~$2$, and, with computer assistance, when one of them
+equals $3$ or~$4$. For $n=p^aq^b$, a set written as $\{p^iq^j:\ \dots\}$
 consists of the divisors $p^iq^j$ of $n$ ($0\le i\le a$, $0\le j\le b$) with
 the stated property, and $\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)$
 (Remark~\ref{rem:closed}).
@@ -123,24 +138,82 @@ the two sets with the same description.
 For $m=1$ the maximal energy is $4(p-1)(q-1)$, attained by $\{p,q\}$ and
 $\{1\}$. This case can also be derived from published energy formulas of
 Ili\'c~\cite{ilic} and of Ili\'c and Ba\v{s}i\'c~\cite{ilicbasic}
-(Remark~\ref{rem:pq}), although we have not found it stated. We are not aware
-of an earlier determination of the maximal energy for other orders with
-exponents of equal parity. If $m$ is even, the exponents of $pq^m$ have
-opposite parity. Theorems~\ref{thm:jy}, \ref{thm:main} and~\ref{thm:onem}
-therefore determine the maximal energy, and all maximisers, for every order
-$pq^m$ ($m\ge1$) with $p,q$ distinct odd primes. Exact computer-assisted
-certificates (Proposition~\ref{prop:cert}) prove the conjecture for every
-exponent pair $(a,b)$ with $a,b\ge2$ and $(a+1)(b+1)\le27$; in general it
-remains open.
+(Remark~\ref{rem:pq}), although we have not found it stated. For the
+exponent $2$ we prove the following.
+
+\begin{theorem}\label{thm:ptwo}
+Let $p,q$ be distinct odd primes, let $b\ge2$ be even, and let $n=p^2q^b$.
+The maximal energy of an integral circulant graph of order $n$ is
+\[
+ \tfrac12\bigl[n+(5p^2-8p+4)\,d_b(q)\bigr]-(p^2-2p+2)\,\delta_b(q),
+\]
+and it is attained exactly by the sets $\{p^iq^j:\ i+j\ \text{odd}\}$ and
+$\{p^iq^j:\ i+j\ \text{even}\}\setminus\{n\}$. Exchanging the names of the
+primes, for $n=p^bq^2$ the maximal energy is
+$\tfrac12\bigl[n+(5q^2-8q+4)\,d_b(p)\bigr]-(q^2-2q+2)\,\delta_b(p)$, attained
+exactly by the two sets with the same description.
+\end{theorem}
+
+Here $5x^2-8x+4=d_2(x)$ and $x^2-2x+2=\delta_2(x)$, so
+Theorems~\ref{thm:onem} and~\ref{thm:ptwo} are the cases $\min\{a,b\}=1$
+and $\min\{a,b\}=2$ of Conjecture~\ref{conj:equal}. Theorem~\ref{thm:ptwo}
+contains the exponent pairs $(2,2)$, $(2,4)$, $(2,6)$, $(2,8)$ and their
+transposes, which were previously covered only by the computer-assisted
+certificates of Proposition~\ref{prop:cert}. Its proof gives a sign-matrix
+inequality for all real $p\ge5$, $q\ge3$ and for $p=3$, $q\ge5$
+(Theorem~\ref{thm:signB}). The same method, with a computer-assisted step,
+gives the following.
+
+\begin{theorem}\label{thm:minfour}
+Let $p,q$ be distinct odd primes, let $a,b\ge1$ with $a+b$ even and
+$\min\{a,b\}\le4$, and let $n=p^aq^b$. The maximal energy of an integral
+circulant graph of order $n$ is
+$\tfrac12\bigl[n+d_a(p)\,d_b(q)\bigr]-\delta_a(p)\,\delta_b(q)$, and it is
+attained exactly by the sets $\{p^iq^j:\ i+j\ \text{odd}\}$ and
+$\{p^iq^j:\ i+j\ \text{even}\}\setminus\{n\}$. For $\min\{a,b\}\in\{3,4\}$
+the proof is computer-assisted, and it is not formalised in Lean.
+\end{theorem}
+
+For $\min\{a,b\}\le2$ this is Theorem~\ref{thm:onem} or
+Theorem~\ref{thm:ptwo}. For $\min\{a,b\}\in\{3,4\}$, the method of
+Theorem~\ref{thm:ptwo} reduces the claim, separately for the exponents $3$
+and $4$ and for all values of the other exponent at once, to a finite list of
+inequalities between explicit rational functions of $p$ and $q$. We verified
+this list by exact computer calculation with two independent programs, one of
+them written by a referee agent (Section~\ref{sec:minfour}).
+Proposition~\ref{prop:cert} gives an independent check of eleven of the
+exponent pairs.
+
+Theorems~\ref{thm:jy} and~\ref{thm:main} cover every order whose exponents
+have opposite parity. So Theorems~\ref{thm:jy}--\ref{thm:minfour} determine
+the maximal energy, and all maximisers, for every order $p^aq^b$ with
+$\min\{a,b\}\le4$, where $p,q$ are distinct odd primes; for
+$\min\{a,b\}\le2$ the proof does not depend on a computer. The conjecture
+remains open when $\min\{a,b\}\ge5$. Our searches for earlier work on
+exponents of equal parity were made on 26 September 2026, between 03:37 and
+04:32 UTC, in arXiv, OpenAlex, Semantic Scholar, Google Scholar, web search
+engines, and GitHub code, issues, pull requests and commits, including the
+repositories of~\cite{park,schreib,tru}; an incremental search of arXiv,
+OpenAlex and GitHub followed between 05:53 and 05:58 UTC. They found no
+earlier determination of the maximal energy for such orders; for $n=pq$ it
+can be derived from known energy formulas (Remark~\ref{rem:pq}). A final
+check on 26 September 2026 between 15:49 and 15:52 UTC (the arXiv, including
+the versions of~\cite{jy}; GitHub, including the issues of~\cite{tru}; MathDB;
+and MathOverflow, through the Stack Exchange API) found nothing new. This
+reports the coverage of our searches, not a guarantee of priority.
 
 Our proof replaces the semidefinite part of~\cite{jy} by
 Theorem~\ref{thm:sign} below, an inequality for sign matrices that holds for
 all exponents and parities and all real $p\ge5$, $q\ge3$. By symmetry it also
 yields Theorem~\ref{thm:jy} without semidefinite certificates
 (Remark~\ref{rem:swap}). Section~\ref{sec:equal} treats exponents of equal
-parity, and Section~\ref{sec:onem} proves Theorem~\ref{thm:onem}; the proof
-applies the path identity and the potential of Sections~\ref{sec:path}
+parity, and Section~\ref{sec:onem} proves Theorem~\ref{thm:onem} by applying
+the path identity and the potential of Sections~\ref{sec:path}
 and~\ref{sec:potential} to the two rows of the sign matrix.
+Section~\ref{sec:column} applies them to all rows of $T_a(p)Y$ at once, so
+that the states of the path are vectors built from the columns of the sign
+matrix~$Y$. With this, Section~\ref{sec:ptwo} proves Theorem~\ref{thm:ptwo}
+and Section~\ref{sec:minfour} proves Theorem~\ref{thm:minfour}.
 
 \section{Weighted Ramanujan transforms}
 We use the notation of~\cite{jy}. For real $x>1$, an integer $k\ge1$ and
@@ -396,9 +469,12 @@ $\{p^iq^j: i+j\text{ even}\}\setminus\{n\}$.
 \end{conjecture}
 
 By the computation above, the first of the two sets always attains the
-conjectured value. Since $d_1(x)=3x-4$ and $\delta_1(x)=x-2$,
-Theorem~\ref{thm:onem} is the case $\min\{a,b\}=1$ of the conjecture; it is
-proved in Section~\ref{sec:onem}. The next result is computer-assisted.
+conjectured value. Since $d_1(x)=3x-4$, $\delta_1(x)=x-2$,
+$d_2(x)=5x^2-8x+4$ and $\delta_2(x)=x^2-2x+2$, Theorems~\ref{thm:onem}
+and~\ref{thm:ptwo} are the cases $\min\{a,b\}=1$ and $\min\{a,b\}=2$ of the
+conjecture, and Theorem~\ref{thm:minfour} is the case $\min\{a,b\}\le4$; they
+are proved in Sections~\ref{sec:onem}, \ref{sec:ptwo}
+and~\ref{sec:minfour}. The next result is computer-assisted.
 
 \begin{proposition}\label{prop:cert}
 Conjecture~\ref{conj:equal} holds for the exponent pairs $(a,b)=(2,2)$,
@@ -437,10 +513,13 @@ $\Theta_{ab}-L=0$ exactly when $Y$ is one of the two matrices above. The
 programs are described in Section~\ref{sec:verif}.
 \end{proof}
 
-Together with Theorem~\ref{thm:onem}, Conjecture~\ref{conj:equal} therefore
-holds whenever $\min\{a,b\}=1$ or $(a+1)(b+1)\le27$. It is open for all other
-exponent pairs of equal parity; the smallest are $(3,7)$, $(2,10)$ and their
-transposes.
+Every exponent pair in Proposition~\ref{prop:cert} has $\min\{a,b\}\le4$, so
+the proposition is contained in Theorem~\ref{thm:minfour}, and for the pairs
+$(2,b)$ and $(b,2)$ in Theorem~\ref{thm:ptwo}. Its proof treats each sign
+matrix separately and does not use Sections~\ref{sec:column}
+to~\ref{sec:minfour}, so it is an independent check of these cases.
+Conjecture~\ref{conj:equal} remains open when $\min\{a,b\}\ge5$; the
+smallest open exponent pairs are $(5,5)$, $(5,7)$, $(7,5)$ and $(6,6)$.
 
 \begin{remark}\label{rem:pq}
 For $n=pq$, Theorem~\ref{thm:onem} gives the maximal energy $4(p-1)(q-1)$,
@@ -471,7 +550,7 @@ $z_1=-1$, $z_0=\frac13$, $z_{-1}=\frac79$, and $\NA(y)=\{0\}$, so
 Lemma~\ref{lem:potential} gives $\|Ny\|_1=d_2(3)-2=23$, and
 $Z_{22}=9\,\delta_2(p)\,z_{-1}>0$. By~\eqref{eq:G}, $G(Y)=23\,d_2(p)$, while
 the maximum of $G$ is $25\,d_2(p)-10\,\delta_2(p)=G(Y)+4(p-3)$
-(Proposition~\ref{prop:cert}). So the energy of $\mathcal D$ is smaller than
+(Theorem~\ref{thm:signB}). So the energy of $\mathcal D$ is smaller than
 the maximal energy $62p^2-90p+40$ only by $2(p-3)$.
 \end{remark}
 
@@ -689,11 +768,714 @@ The three cases cover all $Y$, which proves the theorem. For $m=1$ the value
 is $4(p-1)(q-1)$, since $d_1(q)=3q-4$ and $\delta_1(q)=q-2$.
 \end{proof}
 
+\section{The column path}\label{sec:column}
+In this section and the next two, the exponent $a\ge2$ of $p$ is fixed, $b\ge1$
+is any integer with $a+b$ even, and $p,q$ are real numbers with
+\begin{equation}\label{eq:regions}
+p\ge5\ \text{and}\ q\ge3,\qquad\text{or}\qquad p=3\ \text{and}\ q\ge5.
+\end{equation}
+Every ordered pair of distinct odd primes satisfies~\eqref{eq:regions}. We use
+the notation of Section~\ref{sec:onem} with $m$ replaced by $b$: $x=q$,
+$P=x-1$ and $R=p-1$; $\mu_j$ and $c_j$ form the potential of
+Lemma~\ref{lem:potential} for $x$, and $\mu_\infty=P/(x+1)$; $\rho=\mu_{b-1}$,
+$\hat c_j=c_j$ for $j<b$, $\hat c_b=\rho$ and $\hat D=\sum_{j=0}^b\hat c_j$,
+so that $\hat D=d_b(q)/x^b$ and $\rho=\delta_b(q)/x^b$; for
+$w\in\mathbb R^{b+1}$, $z_j(w)$ is the path~\eqref{eq:path} with $k=b$ and
+$\nu(w)=\|T_b(x)w\|_1/x^b$; and $h_\mu$ is the function $h$ of
+Lemma~\ref{lem:cell} with $P=x-1$. Lemma~\ref{lem:realpot}
+and~\eqref{eq:muinf} hold with the same proofs, which do not use that $m$ is
+odd. By Lemma~\ref{lem:potential} and~\eqref{eq:muinf},
+\begin{equation}\label{eq:murange}
+\mu_0\le\mu_j\le1\ \ (j\ge-1),\qquad \mu_j\le\mu_1\ \ (j\ge0),\qquad
+\mu_0=\frac{P-1}{x},\quad \mu_1=\frac{P^2+1}{x^2}.
+\end{equation}
+By~\eqref{eq:regions}, either $R\ge4$ and $P\ge2$, or $R=2$ and $P\ge4$; in
+particular $P\ge2$ and $PR\ge8$.
+
+\paragraph{Values of the cell function.} Besides the three values of $h_\mu$
+listed in Section~\ref{sec:onem}, the case analysis in the proof of
+Lemma~\ref{lem:cell}, together with $h_\mu(-A,-B)=h_\mu(A,B)$, gives
+\begin{equation}\label{eq:hmore}
+h_\mu(A,B)=\begin{cases}2(\mu|B|-P|A|)&\text{if $AB>0$ and $|B|\ge|A|$,}\\
+2\mu(|B|-P|A|)&\text{if $AB\le0$ and $|B|\ge P|A|$.}\end{cases}
+\end{equation}
+Consequently, for $0\le\mu\le1$,
+\begin{equation}\label{eq:hneg}
+h_\mu(A,B)<0\qquad\text{if $AB>0$ and $|B|<P|A|$},
+\end{equation}
+since the value is then $-2(P-\mu)|B|$ or $2(\mu|B|-P|A|)\le2(|B|-P|A|)$. The
+assumption $|B|<P|A|$ is needed here: $h_\mu(A,PA/\mu)=0$ for $A>0$ and
+$0<\mu\le1$.
+
+\paragraph{The matrix $M$.} Let $M=T_a(p)$, $\alpha=Ms_a$ and $u=Me_a$, and
+let $\omega_i$ be the sum of the absolute values of the entries of row $i$ of
+$M$. Thus $\|\alpha\|_1=d_a(p)$, $\alpha_a=\delta_a(p)$ by
+Remark~\ref{rem:closed}, and $|(M\zeta)_i|\le\omega_i$ for
+$\zeta\in[-1,1]^{a+1}$. Let $\mu^{(p)}_j$ denote the potential of
+Lemma~\ref{lem:potential} for $p$ in place of $x$. For $i<a$,
+\begin{equation}\label{eq:Mfacts}
+u_i=p^{a-1-i}R,\qquad \omega_i=2p^{a-1}R,\qquad
+\alpha_i=(-1)^{a-i}p^{a-1}R\bigl(1+\mu^{(p)}_{i-1}\bigr),
+\end{equation}
+and $u_a=1$, $\omega_a=p^a$. Indeed, by the proof of Lemma~\ref{lem:path}
+with $x=p$ and $k=a$, row $i<a$ of $M$ has the entry $-p^{a-1}R$ in column
+$l=a-1-i$ and nonnegative entries with sum $p^{a-1}R$ in the columns after
+$l$, and $\alpha_i=p^{a-1}R\,(z_l-(s_a)_l)$ for the path $z$ of $s_a$, where
+$\operatorname{sgn}z_l=(s_a)_{l+1}$ and $|z_l|=\mu^{(p)}_{a-2-l}$ by
+Lemma~\ref{lem:potential} and Remark~\ref{rem:closed}; the last row of $M$ is
+$(p^{a-1}R,\dots,pR,R,1)$. Moreover
+$\delta_a(p)=p^a\mu^{(p)}_{a-1}\ge p^{a-1}(p-2)\ge3$. Hence
+\begin{equation}\label{eq:Afacts}
+2u_i\le|\alpha_i|\ \ (i<a),\qquad \delta_a(p)\ge3,\qquad
+P\,\delta_a(p)>p^a,\qquad \omega_i\le P|\alpha_i|\ \ (0\le i\le a).
+\end{equation}
+The first inequality reads $2\le p^i(1+\mu^{(p)}_{i-1})$, with equality for
+$i=0$. Next, $P\delta_a(p)\ge2p^{a-1}(p-2)>p^a$ if $p\ge5$, and
+$P\delta_a(p)\ge4\cdot3^{a-1}>3^a$ if $p=3$. Finally
+$\omega_i\le2|\alpha_i|\le P|\alpha_i|$ for $i<a$, and
+$\omega_a=p^a<P\delta_a(p)$.
+
+\paragraph{Columns.} For $c\in\{\pm1\}^{a+1}$ put $\Delta(c)=d_a(p)-\|Mc\|_1$.
+By Lemma~\ref{lem:potential}, $\Delta(c)\ge0$, with equality exactly for
+$c=\pm s_a$. Let $Y\in\{\pm1\}^{(a+1)\times(b+1)}$ have columns
+$c_0,\dots,c_b$. Define $\zeta_{b-1}=c_b$ and $\zeta_{j-1}=(\zeta_j+Pc_j)/x$
+for $j=b-1,\dots,0$; this is the path~\eqref{eq:path} applied to the sequence
+of columns. Each $\zeta_j$ is a convex combination of $c_{j+1},\dots,c_b$, so
+$\zeta_j\in[-1,1]^{a+1}$, and if $r_0,\dots,r_a$ are the rows of $MY$, then
+$z_j(r_i)=(M\zeta_j)_i$ by linearity. For $0\le\mu\le1$,
+$c\in\{\pm1\}^{a+1}$ and $\zeta\in[-1,1]^{a+1}$ let
+\[
+\psi_\mu(c,\zeta)=P(1+\mu)\,\Delta(c)-\sum_{i=0}^{a}
+h_\mu\bigl((Mc)_i,(M\zeta)_i\bigr);
+\]
+we call the terms $h_\mu((Mc)_i,(M\zeta)_i)$ the \emph{cells} of
+$\psi_\mu(c,\zeta)$. As $h_\mu(-A,-B)=h_\mu(A,B)$, we have
+$\psi_\mu(-c,-\zeta)=\psi_\mu(c,\zeta)$. For $0\le j<b$ put
+$\psi_j=\psi_{\mu_{j-1}}(c_j,\zeta_j)$.
+
+Let $N=T_b(q)$ and $\Theta=d_a(p)\,d_b(q)-2\delta_a(p)\,\delta_b(q)$, and let
+$G(Y)$ be the middle expression in~\eqref{eq:G} with $Z=MYN^{\mathsf T}$. Let
+$Y^-=-s_as_b^{\mathsf T}$ and $Y^+=s_as_b^{\mathsf T}-2e_ae_b^{\mathsf T}$.
+The columns of $Y^-$ are $(-1)^{j+1}s_a$; those of $Y^+$ are $(-1)^js_a$ for
+$j<b$ and $g_+=(-1)^as_a-2e_a$ for $j=b$, as $(-1)^b=(-1)^a$. By
+Section~\ref{sec:equal}, $G(Y^-)=\Theta$.
+
+\begin{lemma}\label{lem:colid}
+For every $Y\in\{\pm1\}^{(a+1)\times(b+1)}$,
+\[
+x^{1-b}\bigl(\Theta-G(Y)\bigr)=\sum_{j=0}^{b-1}\psi_j
++x\rho\bigl(\Delta(c_b)-2\delta_a(p)\bigr)+2x\bigl((M\zeta_{-1})_a\bigr)^-.
+\]
+\end{lemma}
+\begin{proof}
+Row $i$ of $Z$ is $(Nr_i)^{\mathsf T}$, so the absolute values of its entries
+have sum $x^b\nu(r_i)$, and $Z_{ab}=(Nr_a)_b=x^bz_{-1}(r_a)=x^b(M\zeta_{-1})_a$
+by the proof of Lemma~\ref{lem:path}. Hence
+$G(Y)=x^b\bigl[\sum_i\nu(r_i)-2((M\zeta_{-1})_a)^-\bigr]$ by~\eqref{eq:G}. We
+apply Lemma~\ref{lem:realpot} to each $r_i$ and add. As
+$\sum_i|(r_i)_j|=\|Mc_j\|_1=d_a(p)-\Delta(c_j)$, $z_j(r_i)=(M\zeta_j)_i$ and
+$\hat c_j=P(1+\mu_{j-1})/x$ for $j<b$, this gives
+\[
+x^{-b}G(Y)=d_a(p)\hat D-\sum_{j=0}^{b}\hat c_j\Delta(c_j)
++\frac1x\sum_{j=0}^{b-1}\sum_{i=0}^{a}h_{\mu_{j-1}}\bigl((Mc_j)_i,(M\zeta_j)_i\bigr)
+-2\bigl((M\zeta_{-1})_a\bigr)^-.
+\]
+Since $x^{-b}\Theta=d_a(p)\hat D-2\delta_a(p)\rho$ and $\hat c_b=\rho$,
+subtracting and multiplying by $x$ proves the lemma.
+\end{proof}
+
+\begin{lemma}\label{lem:onecol}
+Let $0\le\mu\le1$, $c\in\{\pm1\}^{a+1}$ and $\zeta\in[-1,1]^{a+1}$. Then
+\[
+\psi_\mu(c,\zeta)\ge P(1+\mu)\Delta(c)-2\mu\sum_{i=0}^a
+\max\bigl\{0,\ |(M\zeta)_i|-P|(Mc)_i|\bigr\}.
+\]
+If $c=\pm s_a$, all cells of $\psi_\mu(c,\zeta)$ are $\le0$; so
+$\psi_\mu(c,\zeta)\ge0$, with equality exactly when all cells vanish.
+\end{lemma}
+\begin{proof}
+The bound follows from Lemma~\ref{lem:cell}, which applies as $P\ge2>\mu$. If
+$c=\pm s_a$, then $\Delta(c)=0$ and
+$|(M\zeta)_i|\le\omega_i\le P|\alpha_i|=P|(Mc)_i|$ by~\eqref{eq:Afacts}, so
+every cell is $\le0$ by Lemma~\ref{lem:cell}.
+\end{proof}
+
+\begin{lemma}\label{lem:chain}
+Let $g\in\{\pm1\}^{a+1}$ and $0\le k\le b$, and suppose that $c_b=g$ and
+$c_{b-i}=(-1)^ig$ for $1\le i\le k$. Then $\zeta_{b-1-i}=(-1)^i\mu_{i-1}g$
+for $0\le i\le k$, and $\psi_{b-i}=P(1+\mu_{b-i-1})\Delta(g)$ for
+$1\le i\le k$. In particular, if $c_l=(-1)^{l+1}s_a$ for $J<l\le b$, then
+$\zeta_J=(-1)^J\mu_{b-2-J}s_a$.
+\end{lemma}
+\begin{proof}
+The formula for $\zeta_{b-1-i}$ holds for $i=0$ as $\mu_{-1}=1$, and if it
+holds for $i-1$, then
+$\zeta_{b-1-i}=\bigl((-1)^{i-1}\mu_{i-2}g+P(-1)^ig\bigr)/x=(-1)^i\mu_{i-1}g$.
+For $1\le i\le k$, the cells of $\psi_{b-i}$ have the arguments
+$A=(-1)^iMg$ and $B=M\zeta_{b-i}=-\mu_{i-2}A$, so that $A_lB_l\le0$ and
+$|B_l|\le|A_l|\le P|A_l|$ for every $l$, and all cells vanish. For the last
+claim take $g=(-1)^{b+1}s_a$ and $i=b-1-J$.
+\end{proof}
+
+\begin{lemma}\label{lem:eqgen}
+We have $\Delta(g_+)=2\delta_a(p)$. For $Y=Y^+$, every $\psi_j$ vanishes and
+$(M\zeta_{-1})_a>0$, so that $G(Y^+)=\Theta$. Conversely, if $c_b=g_+$ and,
+for every $j<b$, $c_j=\pm s_a$ and $\psi_j=0$, then $Y=Y^+$.
+\end{lemma}
+\begin{proof}
+By~\eqref{eq:Mfacts},
+$(Mg_+)_i=(-1)^a\alpha_i-2u_i=(-1)^i\bigl(|\alpha_i|-2(-1)^iu_i\bigr)$, and
+$|\alpha_i|-2(-1)^iu_i\ge0$ by~\eqref{eq:Afacts}. Hence
+$\|Mg_+\|_1=\sum_i|\alpha_i|-2\sum_i(-1)^iu_i=d_a(p)-2s_a^{\mathsf T}Me_a
+=d_a(p)-2\delta_a(p)$, as $M$ is symmetric.
+
+Let $Y=Y^+$. By induction on $j$ downwards,
+$\zeta_j=(-1)^{j+1}\mu_{b-2-j}s_a-2x^{j+1-b}e_a$ for $-1\le j\le b-1$. At a
+column $j<b$, the cells of $\psi_j$ have the arguments $A_i=(-1)^j\alpha_i$
+and $B_i=(M\zeta_j)_i$, and with $\sigma_i=\operatorname{sgn}A_i=(-1)^{j+a-i}$,
+\[
+\sigma_iB_i=-\mu_{b-2-j}|\alpha_i|-2(-1)^{j+a-i}x^{j+1-b}u_i.
+\]
+We claim that $-P|A_i|\le\sigma_iB_i\le0$, so that every cell vanishes. The
+upper bound holds if $\mu_{b-2-j}|\alpha_i|\ge2x^{j+1-b}u_i$: for $j=b-1$ this
+is $|\alpha_i|\ge2u_i$, and for $j\le b-2$ it follows from
+$\mu_{b-2-j}\ge\mu_0=(P-1)/x$, $x^{j+1-b}\le1/x$ and
+$(P-1)|\alpha_i|\ge|\alpha_i|\ge2u_i$, where $|\alpha_a|=\delta_a(p)$ and
+$u_a=1$. The lower bound holds as
+$\mu_{b-2-j}|\alpha_i|+2u_i\le2|\alpha_i|\le P|\alpha_i|$. Since
+$\Delta(\pm s_a)=0$, every $\psi_j$ vanishes. Moreover
+$(M\zeta_{-1})_a=\mu_{b-1}\delta_a(p)-2x^{-b}\ge\bigl((P-1)\delta_a(p)-2\bigr)/x>0$.
+By Lemma~\ref{lem:colid} and $\Delta(g_+)=2\delta_a(p)$, $G(Y^+)=\Theta$.
+
+Conversely, let $c_b=g_+$, and let $c_j=\varepsilon_js_a$ with
+$\varepsilon_j=\pm1$ and $\psi_j=0$ for $j<b$; by Lemma~\ref{lem:onecol}, all
+cells of every $\psi_j$ vanish. Put $\beta_j=(M\zeta_j)_a$, so that
+$|\beta_j|\le\omega_a=p^a$. We show $\varepsilon_j=(-1)^j$ by induction on $j$
+downwards. The cell of $\psi_j$ at $i=a$ has the arguments
+$A=\varepsilon_j\delta_a(p)$ and $B=\beta_j$, and by~\eqref{eq:hneg} it is
+negative if $AB>0$ and $|B|<P|A|$. So it suffices to check these two
+conditions for $\varepsilon_j=(-1)^{j+1}$. For $j=b-1$,
+$\beta_{b-1}=(Mg_+)_a=(-1)^b\delta_a(p)-2$ has the sign $(-1)^b$, and
+$|\beta_{b-1}|\le\delta_a(p)+2<P\delta_a(p)$. For $j\le b-2$, if
+$\varepsilon_{j+1}=(-1)^{j+1}$, then
+$\beta_j=\bigl(\beta_{j+1}+(-1)^{j+1}P\delta_a(p)\bigr)/x$ has the sign
+$(-1)^{j+1}$, since $|\beta_{j+1}|\le p^a<P\delta_a(p)$, and
+$|\beta_j|\le p^a<P\delta_a(p)$. Hence $\varepsilon_j=(-1)^j$ for all $j<b$,
+that is, $Y=Y^+$.
+\end{proof}
+
+\section{Proof of Theorem~\ref{thm:ptwo}}\label{sec:ptwo}
+\begin{theorem}\label{thm:signB}
+Let $b\ge2$ be even, let $p,q$ be real numbers with $p\ge5$ and $q\ge3$, or
+with $p=3$ and $q\ge5$, and put
+$\Theta=d_2(p)\,d_b(q)-2\delta_2(p)\,\delta_b(q)$. Every
+$Y\in\{\pm1\}^{3\times(b+1)}$ with $y_{2b}=-1$ satisfies $G(Y)\le\Theta$,
+where $G(Y)$ is the middle expression in~\eqref{eq:G} with
+$Z=T_2(p)\,Y\,T_b(q)^{\mathsf T}$, and equality holds exactly for
+$Y=-s_2s_b^{\mathsf T}$ and $Y=s_2s_b^{\mathsf T}-2e_2e_b^{\mathsf T}$.
+\end{theorem}
+
+\begin{proof}[Proof of Theorem~\ref{thm:ptwo}]
+Let $n=p^2q^b$. By~\eqref{eq:G}, $2\E(\ICG_n(\mathcal D))=n+G(Y)$ for the sign
+matrix $Y$ of a set $\mathcal D$ of proper divisors of $n$, and $y_{2b}=-1$.
+The two matrices in Theorem~\ref{thm:signB} are the sign matrices of
+$\{p^iq^j:\ i+j\ \text{odd}\}$ and of
+$\{p^iq^j:\ i+j\ \text{even}\}\setminus\{n\}$. These are nonempty sets of
+proper divisors of $n$: the first contains $p$, and it does not contain $n$
+because $2+b$ is even, and the second contains~$1$. Distinct odd primes
+satisfy the hypothesis of Theorem~\ref{thm:signB}, so the maximal energy is
+$\frac12(n+\Theta)$, attained exactly by these two sets. By
+Remark~\ref{rem:closed}, $d_2(p)=5p^2-8p+4$ and $\delta_2(p)=p^2-2p+2$. The
+case $n=p^bq^2$ follows by exchanging the names of the primes.
+\end{proof}
+
+We now prove Theorem~\ref{thm:signB}, with the notation of
+Section~\ref{sec:column} for $a=2$. Here
+\[
+M=T_2(p)=\begin{pmatrix}0&-pR&pR\\-pR&R^2&R\\pR&R&1\end{pmatrix},
+\]
+and we put $g_1=s_2=(1,-1,1)^{\mathsf T}$, $g_2=(1,1,-1)^{\mathsf T}$,
+$g_3=(1,-1,-1)^{\mathsf T}=g_+$ and $g_4=(1,1,1)^{\mathsf T}$. Using $p=R+1$,
+\[
+Mg_1=\begin{pmatrix}2pR\\-2R^2\\R^2+1\end{pmatrix},\quad
+Mg_2=\begin{pmatrix}-2pR\\-2R\\R^2+2R-1\end{pmatrix},\quad
+Mg_3=\begin{pmatrix}0\\-2pR\\R^2-1\end{pmatrix},\quad
+Mg_4=\begin{pmatrix}0\\0\\p^2\end{pmatrix}.
+\]
+Every $c\in\{\pm1\}^3$ equals $\pm g_k$ for exactly one $k$. As
+$d_2(p)=5R^2+2R+1$ and $\delta_2(p)=R^2+1$, we get $\Delta(\pm g_k)=\Delta_k$
+with
+\begin{equation}\label{eq:Deltas}
+\Delta_1=0,\qquad\Delta_2=2(R-1)^2,\qquad\Delta_3=2(R^2+1)=2\delta_2(p),
+\qquad\Delta_4=4R^2.
+\end{equation}
+Moreover $\omega=(2pR,2pR,p^2)$, and
+\begin{equation}\label{eq:Wtwo}
+p^2<P(R^2+2R-1),\qquad p^2<P(R^2-1),
+\end{equation}
+because $2(R^2+2R-1)-p^2=(R+3)(R-1)>0$, $2(R^2-1)-p^2=(R+1)(R-3)>0$ if
+$R\ge4$, and $P(R^2-1)\ge12>9=p^2$ if $R=2$.
+
+\begin{lemma}\label{lem:colS}
+Let $0\le\mu\le1$ and $\zeta\in[-1,1]^3$, and put $B=M\zeta$. If
+$c\ne\pm s_2$, then $\psi_\mu(c,\zeta)>0$. Moreover
+\begin{equation}\label{eq:S34}
+\psi_\mu(\pm g_3,\zeta)\ge2P(1+\mu)(R^2+1)-2\mu|B_0|,\qquad
+\psi_\mu(\pm g_4,\zeta)\ge4PR^2(1+\mu)-2\mu\bigl(|B_0|+|B_1|\bigr).
+\end{equation}
+\end{lemma}
+\begin{proof}
+We use Lemma~\ref{lem:onecol}, $|B_i|\le\omega_i$ and~\eqref{eq:Wtwo}. For
+$c=\pm g_2$ we have $|Mc|=(2pR,2R,R^2+2R-1)$, so the terms with $i=0,2$ of
+the sum in Lemma~\ref{lem:onecol} vanish, and
+$\psi_\mu(c,\zeta)\ge2P(1+\mu)(R-1)^2-4\mu R\max\{0,p-P\}$. If $P\ge p$, this
+is positive. Otherwise $R\ge4$ by~\eqref{eq:regions}, and the bound is affine
+in $\mu$, positive at $\mu=0$, and at $\mu=1$ equal to
+$4[P(R^2-R+1)-R(R+1)]\ge4(R-1)(R-2)>0$. For $c=\pm g_3$ we have
+$|Mc|=(0,2pR,R^2-1)$, so the terms with $i=1,2$ vanish, which gives the first
+bound in~\eqref{eq:S34}; with $|B_0|\le2pR$ and $P\ge2$ its right side is at
+least $4(1+\mu)(R^2+1)-4\mu pR=4(R^2+1)-4\mu(R-1)>0$. For $c=\pm g_4$ we have
+$|Mc|=(0,0,p^2)$, which gives the second bound; its right side is at least
+$8R^2(1+\mu)-8\mu pR=8R(R-\mu)>0$.
+\end{proof}
+
+\begin{lemma}\label{lem:ineq}
+Let $R\ge4$ and $P\ge2$, or $R=2$ and $P\ge4$, and put
+$T=(R^2+1)(P^2+1)$. Then:
+\begin{itemize}
+\item[(i)] $(P-1)^2(5R^2+2R+1)>T$;
+\item[(ii)] $P(P+1)(R-1)^2+(P-1)^2(3R^2+1)>T$;
+\item[(iii)] $(R^2+1)(P-1)+(P+1)\bigl[2P(R^2-R+1)-3R^2-1\bigr]>0$;
+\item[(iv)] $P(P+1)(R-1)^2+2(P-1)^2R(R+1)>T$;
+\item[(v)] $(P+1)\bigl[P(R-1)^2+2P^2(R+1)\bigr]>T$;
+\item[(vi)] $(P+1)\bigl[2PR(R-3)+2P^2(R+1)\bigr]>T$ if $R\ge4$;
+\item[(vii)] $P(P+1)^2(R^2+1)>2R(R+1)(P^2+1)$;
+\item[(viii)] $2R(PR-1)(P+1)>T$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+The function $f(P)=(P-1)^2/(P^2+1)=1-2P/(P^2+1)$ increases for $P\ge1$, and
+$f(2)=\frac15$, $f(4)=\frac9{17}$.
+(i) We have $5R^2+2R+1-5(R^2+1)=2(R-2)\ge0$ and
+$5(P-1)^2-(P^2+1)=2(2P-1)(P-2)\ge0$, so
+$(P-1)^2(5R^2+2R+1)\ge5(P-1)^2(R^2+1)\ge T$, and one of the two inequalities
+is strict.
+(ii) The left side minus $T$ equals
+$(R-1)^2(P-1)+(P-1)^2(3R^2+1)-2R(P^2+1)$, and
+$(P-1)^2(3R^2+1)=f(P)(3R^2+1)(P^2+1)\ge2R(P^2+1)$: if $R\ge4$, then
+$f(P)\ge\frac15$ and $3R^2+1-10R=R(3R-10)+1>0$; if $R=2$, then
+$f(P)\ge\frac9{17}$ and $\frac9{17}\cdot13>4$.
+(iii) If $R\ge4$, then
+$2P(R^2-R+1)-3R^2-1\ge4(R^2-R+1)-3R^2-1=(R-1)(R-3)>0$; if $R=2$, it equals
+$6P-13>0$.
+(iv) The left side minus $T$ equals
+$(R-1)^2(P-1)+2R\bigl[(P-1)^2(R+1)-(P^2+1)\bigr]$, and $f(P)(R+1)\ge1$ both
+for $R\ge4$ and for $R=2$.
+(v) The left side minus $T$ equals
+$(R-1)^2(P-1)+2\bigl[R(P^3-1)+P^3+P^2\bigr]>0$.
+(vi) As $P(P+1)\ge P^2+1$, $R\ge3$, $P^2\ge\frac45(P^2+1)$ and $P+1\ge3$, the
+left side is at least $(P^2+1)\bigl[2R(R-3)+\frac{24}5(R+1)\bigr]$, and
+$2R(R-3)+\frac{24}5(R+1)-(R^2+1)=R^2-\frac65R+\frac{19}5>0$.
+(vii) $P(P+1)^2=(P+2)(P^2+1)-2$, so $P(P+1)^2\ge\frac{18}5(P^2+1)$ for $P\ge2$,
+and $\frac{18}5(R^2+1)-2R(R+1)=\frac15(8R^2-10R+18)>0$.
+(viii) Twice the left side minus $2T$ equals
+$PR(PR-4)+P^2(R^2-2)+(4PR^2-2R^2-4R-2)$, where $PR\ge8$, $R\ge2$ and
+$4PR^2-2R^2-4R-2\ge2(3R+1)(R-1)>0$.
+\end{proof}
+
+Each of these inequalities also follows from the substitutions $R=4+s$,
+$P=2+t$ and $R=2$, $P=4+t$ with $s,t\ge0$: in both cases the left side minus
+the right side is a polynomial in $s$ and $t$ with nonnegative coefficients
+and a positive constant term. This is how they are proved in the Lean
+formalisation (Section~\ref{sec:verif}), where $R$ and $P$ are named $P$
+and $Q$, respectively, $s$ and $t$ are written as squares, and (iii)--(vi)
+and (viii) appear multiplied by~$2$.
+
+\begin{lemma}\label{lem:fd1}
+Let $b$ be even, $0\le J<b$, $\mu=\mu_{J-1}$ and $m=\mu_{b-2-J}$. For every
+$c\in\{\pm1\}^3$ other than $-s_2$, $\psi_\mu(c,ms_2)>2x\delta_2(p)\rho$.
+\end{lemma}
+\begin{proof}
+By~\eqref{eq:murange}, $\mu,m\in[\mu_0,1]$ and $\rho\le\mu_1=(P^2+1)/x^2$.
+Put $T=(R^2+1)(P^2+1)$ and $\psi=\psi_\mu(c,ms_2)$. Then
+$2x\delta_2(p)\rho\le2T/x$, so it suffices to show $x\psi>2T$; we do so
+except in one subcase of~(d). We use
+\begin{equation}\label{eq:K}
+x(P-\mu)m\ge(P-1)^2,
+\end{equation}
+which holds as $P-\mu\ge P-1\ge0$ and $xm\ge x\mu_0=P-1$. Let $A=Mc$ and
+$B=M(ms_2)=m\,(2pR,-2R^2,R^2+1)$, and write $h_i=h_\mu(A_i,B_i)$; the cells
+are computed with the values of $h_\mu$ in Section~\ref{sec:onem}
+and~\eqref{eq:hmore}, using $0\le m\le1$.
+\begin{itemize}
+\item[(a)] $c=s_2$. For each $i$, $A_iB_i\ge0$ and $|B_i|\le|A_i|$, so
+ $h_i=-2(P-\mu)m|A_i|$ and $\psi=2(P-\mu)m\,d_2(p)$. By~\eqref{eq:K} and
+ Lemma~\ref{lem:ineq}(i), $x\psi\ge2(P-1)^2(5R^2+2R+1)>2T$.
+\item[(b)] $c=g_2$, so $A=(-2pR,-2R,R^2+2R-1)$. Here $h_0=0$, as
+ $A_0B_0\le0$ and $|B_0|\le P|A_0|$, and $h_2=-2(P-\mu)m(R^2+1)$, as
+ $A_2B_2\ge0$ and $|B_2|\le|A_2|$; also $A_1B_1\ge0$. If $mR\le1$, then
+ $|B_1|\le|A_1|$, $h_1=-4(P-\mu)mR^2$ and
+ $\psi=2P(1+\mu)(R-1)^2+2(P-\mu)m(3R^2+1)$, so $x\psi>2T$ by $\mu\ge0$,
+ \eqref{eq:K} and Lemma~\ref{lem:ineq}(ii). If $mR>1$, then
+ $h_1=4R(\mu mR-P)$ by~\eqref{eq:hmore}, and expanding gives
+ \[
+ x\psi-2T=2(R^2+1)(P-1)+2Px(R-1)^2\mu+2Px(R^2+1)m-2x(3R^2+1)\mu m.
+ \]
+ This is affine in $\mu$ and in $m$ separately, so its minimum over
+ $[0,1]^2$ is attained at a corner. It is positive at the corners with
+ $\mu m=0$, and at $\mu=m=1$ it equals twice the left side of
+ Lemma~\ref{lem:ineq}(iii).
+\item[(c)] $c=-g_2$, so $A=(2pR,2R,-(R^2+2R-1))$. Here
+ $h_0=-4(P-\mu)mpR$ and $h_2=0$, and $A_1B_1\le0$. If $mR\le P$, then
+ $|B_1|\le P|A_1|$, $h_1=0$ and $\psi=2P(1+\mu)(R-1)^2+4(P-\mu)mpR$, so
+ $x\psi>2T$ by~\eqref{eq:K} and Lemma~\ref{lem:ineq}(iv). If $mR>P$, then
+ $R\ge4$, since $mR\le2<P$ when $R=2$; now $h_1=4\mu R(mR-P)$
+ by~\eqref{eq:hmore}, and
+ \[
+ \psi=2P(1+\mu)(R-1)^2+4\mu PR+4mR\bigl(Pp-\mu(2R+1)\bigr).
+ \]
+ As $Pp-\mu(2R+1)\ge2(R+1)-(2R+1)>0$ and $mR>P$, we get
+ $\psi>2P(R-1)^2+4P^2(R+1)+2\mu P(R^2-4R-1)$. The right side is affine in
+ $\mu$, and $x$ times it exceeds $2T$ at $\mu=0$ by
+ Lemma~\ref{lem:ineq}(v) and at $\mu=1$ by Lemma~\ref{lem:ineq}(vi), since
+ $(R-1)^2+R^2-4R-1=2R(R-3)$.
+\item[(d)] $c=\pm g_3$. By~\eqref{eq:S34} with $|B_0|=2mpR$,
+ $\psi\ge2P(1+\mu)(R^2+1)-4\mu mpR$. If $J\le b-2$, then $m\le\mu_1$
+ by~\eqref{eq:murange}, so $2mpR\le2pR(P^2+1)/x^2<P(R^2+1)$ by
+ Lemma~\ref{lem:ineq}(vii); hence $\psi\ge2P(R^2+1)$ and
+ $x\psi\ge2P(P+1)(R^2+1)>2T$. If $J=b-1$, then $m=\mu_{-1}=1$,
+ $\mu=\mu_{b-2}>0$ and $x\rho=P-\mu$, and directly
+ \[
+ \psi-2x\delta_2(p)\rho\ge2\mu\bigl[(R^2+1)x-2pR\bigr]\ge2\mu(R^2-2R+3)>0.
+ \]
+\item[(e)] $c=\pm g_4$. By~\eqref{eq:S34} with $|B_0|+|B_1|=2mR(2R+1)$ and
+ $m\le1$,
+ $\psi\ge4PR^2(1+\mu)-4\mu R(2R+1)=4R(PR-1)+4R\bigl[\mu R(P-2)+1-\mu\bigr]
+ \ge4R(PR-1)$, so $x\psi>2T$ by Lemma~\ref{lem:ineq}(viii).
+\end{itemize}
+These are all the columns $c\ne-s_2$.
+\end{proof}
+
+\begin{lemma}\label{lem:fd2}
+Let $b$ be even. If $c_b=g_2$, then $\sum_{j<b}\psi_j>4Rx\rho$.
+\end{lemma}
+\begin{proof}
+All $\psi_j$ are nonnegative by Lemmas~\ref{lem:onecol} and~\ref{lem:colS}.
+Here $\zeta_{b-1}=g_2$, so $B=M\zeta_{b-1}=(-2pR,-2R,R^2+2R-1)$, and
+$x\rho=P-\mu$ with $\mu=\mu_{b-2}$. Let $c=c_{b-1}$, $A=Mc$ and
+$h_i=h_\mu(A_i,B_i)$.
+
+Suppose first that $c\ne-g_2$ or $R\ge4$. We show that
+$\psi_{b-1}>4R(P-\mu)$.
+\begin{itemize}
+\item $c=\pm g_4$: by~\eqref{eq:S34},
+ $\psi_{b-1}-4R(P-\mu)\ge4PR^2(1+\mu)-4\mu R(R+2)-4R(P-\mu)
+ =4PR(R-1)+4\mu R(PR-R-1)>0$.
+\item $c=\pm g_3$: by~\eqref{eq:S34},
+ $\psi_{b-1}-4R(P-\mu)\ge2P(1+\mu)(R^2+1)-4\mu pR-4R(P-\mu)
+ =2P(R-1)^2+2\mu\bigl[P(R^2+1)-2R^2\bigr]>0$.
+\item $c=g_2$ or $c=-s_2$: then $A_0=B_0<0$, so $h_0=-4(P-\mu)pR$, while
+ $h_1,h_2\le0$, for $g_2$ because $A_i=B_i$ and for $-s_2$ by
+ Lemma~\ref{lem:onecol}. Hence $\psi_{b-1}\ge4(P-\mu)pR>4R(P-\mu)$.
+\item $c=s_2$: here $A=(2pR,-2R^2,R^2+1)$, so $h_0=0$, $h_1=-4(P-\mu)R$ and
+ $h_2=2\mu(R^2+2R-1)-2P(R^2+1)$ by~\eqref{eq:hmore}. Hence
+ $\psi_{b-1}-4R(P-\mu)=2P(R^2+1)-2\mu(R^2+2R-1)\ge2(R^2-2R+3)>0$.
+\item $c=-g_2$ and $R\ge4$: by Lemma~\ref{lem:chain},
+ $\psi_{b-1}=2P(1+\mu)(R-1)^2$, and
+ $\psi_{b-1}-4R(P-\mu)\ge2P(R^2-4R+1)>0$.
+\end{itemize}
+
+Now let $c=-g_2$ and $R=2$, so that $p=3$ and $P\ge4$. By
+Lemma~\ref{lem:chain}, $\psi_{b-1}=2P(1+\mu_{b-2})$ and
+$\zeta_{b-2}=-\mu_0g_2$, so $B'=M\zeta_{b-2}=m\,(12,4,-7)$ with $m=\mu_0<1$.
+We show that $\psi_{b-2}\ge2P(1+\mu')$, where $\mu'=\mu_{b-3}$, for every
+column $c'=c_{b-2}$. Here $Mg_1=(12,-8,5)$, $Mg_2=(-12,-4,7)$,
+$Mg_3=(0,-12,3)$ and $Mg_4=(0,0,9)$, and
+\begin{equation}\label{eq:22}
+22(P-\mu')m\ge2P(1+\mu'),
+\end{equation}
+because $x\cdot22(P-\mu')m=22(P-\mu')(P-1)\ge22(P-1)^2\ge4P(P+1)\ge
+2P(1+\mu')x$; indeed $22(P-1)^2-4P(P+1)=18P^2-48P+22>0$ for $P\ge4$. Let
+$h'_i$ be the cells of $\psi_{b-2}$.
+\begin{itemize}
+\item $c'=\pm g_4$: by~\eqref{eq:S34},
+ $\psi_{b-2}\ge16P(1+\mu')-32\mu'm\ge2P(1+\mu')+14P(1+\mu')-32\mu'
+ >2P(1+\mu')$.
+\item $c'=\pm g_3$: by~\eqref{eq:S34},
+ $\psi_{b-2}\ge10P(1+\mu')-24\mu'm>2P(1+\mu')$.
+\item $c'=\pm g_2$: $|B'_i|\le|(Mc')_i|$ for all $i$, so all cells are
+ $\le0$ and $\psi_{b-2}\ge P(1+\mu')\Delta_2=2P(1+\mu')$.
+\item $c'=s_2$: $h'_0=-24(P-\mu')m$ and $h'_1,h'_2\le0$ by
+ Lemma~\ref{lem:onecol}, so $\psi_{b-2}\ge24(P-\mu')m$, and~\eqref{eq:22}
+ applies.
+\item $c'=-s_2$: then $Mc'=(-12,8,-5)$, $h'_0\le0$ and $h'_1=-8(P-\mu')m$.
+ If $7m\le5$, then $h'_2=-14(P-\mu')m$ and $\psi_{b-2}\ge22(P-\mu')m$. If
+ $7m>5$, then $h'_2=14\mu'm-10P$ by~\eqref{eq:hmore}, and
+ $\psi_{b-2}\ge8(P-\mu')m-14\mu'm+10P\ge8Pm-22m+10P>4P\ge2P(1+\mu')$.
+\end{itemize}
+Finally put $u=\mu_{b-2}$ and $v=\mu_{b-3}$, so that $xu=P-v$ and
+$x\rho=P-u$. By~\eqref{eq:muinf}, $v>\mu_\infty=P/(P+2)$, since $b-3$ is odd
+or $v=\mu_{-1}=1$. Using $xu=P-v$, one finds
+\[
+x\bigl[2P(1+u)+2P(1+v)-8(P-u)\bigr]=2(P-2)\bigl[(P+2)v-P\bigr]>0.
+\]
+Hence $\psi_{b-1}+\psi_{b-2}\ge2P(1+u)+2P(1+v)>8x\rho=4Rx\rho$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:signB}]
+Let $Y\in\{\pm1\}^{3\times(b+1)}$ with $y_{2b}=-1$. By
+Lemmas~\ref{lem:onecol} and~\ref{lem:colS}, all $\psi_j$ are nonnegative, so
+Lemma~\ref{lem:colid} gives
+\begin{equation}\label{eq:budgetB}
+x^{1-b}\bigl(\Theta-G(Y)\bigr)\ge\sum_{j<b}\psi_j
++x\rho\bigl(\Delta(c_b)-2\delta_2(p)\bigr).
+\end{equation}
+If $Y=Y^-$, then $G(Y)=\Theta$. Otherwise let $J$ be the largest index with
+$c_J\ne(-1)^{J+1}s_2$.
+
+If $J<b$, then $c_b=-s_2$ as $b$ is even, so $\Delta(c_b)=0$. By
+Lemma~\ref{lem:chain}, $\zeta_J=\varepsilon\mu_{b-2-J}s_2$ with
+$\varepsilon=(-1)^J$, so
+$\psi_J=\psi_{\mu_{J-1}}(\varepsilon c_J,\mu_{b-2-J}s_2)$ with
+$\varepsilon c_J\ne-s_2$. By Lemma~\ref{lem:fd1},
+$\psi_J>2x\delta_2(p)\rho$, and~\eqref{eq:budgetB} gives $G(Y)<\Theta$.
+
+If $J=b$, then $c_b\ne-s_2$ and $y_{2b}=-1$, so $c_b$ is $g_2$, $g_3$ or
+$-g_4$. If $c_b=-g_4$, then $\Delta(c_b)-2\delta_2(p)=2R^2-2>0$
+by~\eqref{eq:Deltas}, and $G(Y)<\Theta$. If $c_b=g_2$, then
+$\Delta(c_b)-2\delta_2(p)=-4R$, and $G(Y)<\Theta$ by Lemma~\ref{lem:fd2}. If
+$c_b=g_3=g_+$, then Lemma~\ref{lem:colid} gives
+$x^{1-b}(\Theta-G(Y))=\sum_j\psi_j+2x((M\zeta_{-1})_2)^-\ge0$. If equality
+holds, all $\psi_j$ vanish, so every $c_j$ with $j<b$ is $\pm s_2$ by
+Lemma~\ref{lem:colS}, and $Y=Y^+$ by Lemma~\ref{lem:eqgen}. Conversely
+$G(Y^+)=\Theta$ by Lemma~\ref{lem:eqgen}.
+\end{proof}
+
+\begin{remark}\label{rem:tightB}
+The argument has little room in two families. For $b=2$, $q=3$ and
+$Y=s_2(1,1,-1)^{\mathsf T}$, which is case~(a) of Lemma~\ref{lem:fd1} with
+$J=0$, we have $\Theta-G(Y)=4(p-3)$ (Remark~\ref{rem:near}). For $p=3$ and
+$Y=(1,1,-1)^{\mathsf T}s_b^{\mathsf T}$, whose columns are $\pm g_2$, we have
+$\Theta-G(Y)=2\bigl(d_b(q)-5\delta_b(q)\bigr)$, which is $4(q-3)$ for $b=2$.
+Both differences are small compared with $\Theta$ when $p$, respectively $q$,
+is large.
+\end{remark}
+
+\section{Proof of Theorem~\ref{thm:minfour}}\label{sec:minfour}
+For $\min\{a,b\}\le2$, Theorem~\ref{thm:minfour} is Theorem~\ref{thm:onem}
+or Theorem~\ref{thm:ptwo}, after exchanging the names of the primes if
+necessary. Let $\min\{a,b\}\in\{3,4\}$; exchanging the names of the primes if
+necessary, we may assume that $a\in\{3,4\}$ is the exponent of~$p$. As in the
+proof of Theorem~\ref{thm:ptwo}, it suffices to show, for all real $p,q$
+satisfying~\eqref{eq:regions} and all $b\ge1$ with $b\equiv a\pmod2$, that
+every $Y\in\{\pm1\}^{(a+1)\times(b+1)}$ with $y_{ab}=-1$ satisfies
+$G(Y)\le\Theta$, with equality exactly for $Y^-$ and $Y^+$. We use the
+notation of Section~\ref{sec:column}. The proof of Theorem~\ref{thm:signB}
+used $a=2$ only in Lemmas~\ref{lem:colS}, \ref{lem:fd1} and~\ref{lem:fd2}
+and in the list~\eqref{eq:Deltas} of the possible last columns.
+Proposition~\ref{prop:reduction} below replaces them by finitely many
+inequalities that do not depend on~$b$; for $a=3$ and $a=4$ these were
+verified by computer.
+
+Let $\mathcal R_1$ and $\mathcal R_2$ be the two sets of pairs $(p,q)$
+in~\eqref{eq:regions}, and put $P_{\min}=2$ on $\mathcal R_1$ and
+$P_{\min}=4$ on $\mathcal R_2$. For real $y$ let $\eta_0(y)=y$ and
+$\eta_{n+1}(y)=(P-\eta_n(y))/x$, so that $\mu_{j+n}=\eta_n(\mu_j)$. Put
+$\hat D_1=d_1(x)/x=(3x-4)/x$ and $\hat D_2=d_2(x)/x^2=(5x^2-8x+4)/x^2$. For
+$a$ even, let $\mathcal F_a$ be the set of the triples $(\mu,m,r)$ of the
+forms $(1,m,(P-m)/x)$ with $\mu_0\le m\le\mu_\infty$; $(\mu,1,(P-\mu)/x)$ with
+$\mu_0\le\mu\le\mu_\infty$; $(\mu,m,\mu)$ with $\mu_\infty\le\mu\le\mu_1$ and
+$\mu_0\le m\le\mu_\infty$; and $(\mu,m,m)$ with $\mu_0\le\mu\le\mu_\infty$ and
+$\mu_\infty\le m\le\mu_1$. For $a$ odd, let $\mathcal F_a$ consist of
+$(1,1,\mu_0)$; the triples $(1,m,(P-m)/x)$ and $(\mu,1,(P-\mu)/x)$ with
+$\mu_\infty\le m,\mu\le\mu_1$; and the triples $(\mu,m,\mu_\infty)$ with
+$\mu,m$ both in $[\mu_0,\mu_\infty]$ or both in $[\mu_\infty,\mu_1]$.
+
+\begin{proposition}\label{prop:reduction}
+Let $a\ge2$, and suppose that the following conditions hold at every point
+of $\mathcal R_1$, or at every point of $\mathcal R_2$.
+\begin{itemize}
+\item[(S$_a$)] $P_{\min}\Delta(c)>\sum_{i=0}^a
+ \max\{0,\ \omega_i-P_{\min}|(Mc)_i|\}$ for every $c\in\{\pm1\}^{a+1}$
+ other than $\pm s_a$.
+\item[(F$_a$)] $\psi_\mu(c,ms_a)>2x\delta_a(p)\,r$ for every
+ $c\in\{\pm1\}^{a+1}$ other than $-s_a$ and every $(\mu,m,r)\in\mathcal F_a$.
+\item[(C$_a$)] Every $g\in\{\pm1\}^{a+1}$ with $g_a=-1$, other than
+ $-(-1)^as_a$ and $g_+$, satisfies $\Delta(g)>2\delta_a(p)$ or the following
+ three conditions, where $\gamma=2\delta_a(p)-\Delta(g)$.
+ \begin{itemize}
+ \item[(C1)] For $0\le k\le4$, every $y\in I_k$ and every
+ $c\in\{\pm1\}^{a+1}$ other than $(-1)^{k+1}g$,
+ \[
+ \sum_{n=1}^{k}P\bigl(1+\eta_n(y)\bigr)\Delta(g)
+ +\psi_y\bigl(c,(-1)^k\mu_{k-1}g\bigr)>x\,\eta_{k+1}(y)\,\gamma,
+ \]
+ where $I_k=[\mu_0,\mu_\infty]$ if $k\equiv a\pmod2$, and
+ $I_k=[\mu_\infty,\mu_1]\cup\{1\}$ otherwise.
+ \item[(C2)] $\sum_{n=0}^{4}P\bigl(1+\eta_n(y)\bigr)\Delta(g)
+ >x\,\eta_5(y)\,\gamma$ for every $y\in[\mu_0,\mu_\infty]$ if $a$ is even,
+ and for every $y\in[\mu_\infty,\mu_1]$ if $a$ is odd.
+ \item[(C3)] $\Delta(g)\bigl(\hat D_1/\mu_1+2\bigr)>2\delta_a(p)$ if $a$ is
+ even; $\Delta(g)\hat D_1/\mu_0>2\delta_a(p)$ and
+ $\Delta(g)\bigl(\hat D_2/\mu_\infty+2\bigr)>2\delta_a(p)$ if $a$ is odd.
+ \end{itemize}
+\end{itemize}
+Then at every point of that region and for every $b\ge1$ with
+$b\equiv a\pmod2$, every $Y\in\{\pm1\}^{(a+1)\times(b+1)}$ with $y_{ab}=-1$
+satisfies $G(Y)\le\Theta$, with equality exactly for $Y^-$ and $Y^+$.
+\end{proposition}
+
+\begin{proof}
+First, $\psi_\mu(c,\zeta)>0$ for all $c\ne\pm s_a$, $0\le\mu\le1$ and
+$\zeta\in[-1,1]^{a+1}$. Indeed, by Lemma~\ref{lem:onecol} and
+$|(M\zeta)_i|\le\omega_i$, $\psi_\mu(c,\zeta)$ is at least
+$P(1+\mu)\Delta(c)-2\mu\sum_i\max\{0,\omega_i-P|(Mc)_i|\}$, which is affine in
+$\mu$; at $\mu=0$ it equals $P\Delta(c)>0$, and at $\mu=1$ it is at least twice
+the difference of the two sides of~(S$_a$), since $P\ge P_{\min}$. So, by
+Lemma~\ref{lem:onecol}, all $\psi_j$ are nonnegative, $\psi_j=0$ only if
+$c_j=\pm s_a$, and Lemma~\ref{lem:colid} gives
+\begin{equation}\label{eq:budgetA}
+x^{1-b}\bigl(\Theta-G(Y)\bigr)\ge\sum_{j<b}\psi_j
++x\rho\bigl(\Delta(c_b)-2\delta_a(p)\bigr).
+\end{equation}
+If $Y=Y^-$, then $G(Y)=\Theta$. Otherwise let $J$ be the largest index with
+$c_J\ne(-1)^{J+1}s_a$.
+
+\emph{Case $J<b$.} Then $\Delta(c_b)=0$, and as in the proof of
+Theorem~\ref{thm:signB}, $\psi_J=\psi_\mu(\varepsilon c_J,ms_a)$ with
+$\mu=\mu_{J-1}$, $m=\mu_{b-2-J}$, $\varepsilon=(-1)^J$ and
+$\varepsilon c_J\ne-s_a$. We claim that $(\mu,m,r)\in\mathcal F_a$ for some
+$r\ge\rho$; then $\psi_J>2x\delta_a(p)\rho$ by~(F$_a$), and $G(Y)<\Theta$
+by~\eqref{eq:budgetA}. Let $a$, and hence $b$, be even. If $J=0$, then
+$\mu=\mu_{-1}=1$, $m=\mu_{b-2}\in[\mu_0,\mu_\infty]$ by~\eqref{eq:muinf},
+and $\rho=(P-m)/x$. If $J=b-1$, then $m=1$, $\mu=\mu_{b-2}$ and
+$\rho=(P-\mu)/x$. If $1\le J\le b-2$, the indices $J-1$ and $b-2-J$ are
+nonnegative with odd sum; by~\eqref{eq:muinf}, the value with the even index
+lies in $[\mu_0,\mu_\infty]$ and the value with the odd index lies in
+$[\mu_\infty,\mu_1]$ and exceeds $\rho=\mu_{b-1}$, since the $\mu_j$ with odd
+$j$ decrease. Now let $a$ be odd. If $b=1$, then $J=0$ and
+$(\mu,m,\rho)=(1,1,\mu_0)$. If $b\ge3$, the cases $J=0$ and $J=b-1$ are as
+before, now with $\mu_{b-2}\in[\mu_\infty,\mu_1]$; and if $1\le J\le b-2$,
+the indices $J-1$ and $b-2-J$ have the same parity, while
+$\rho=\mu_{b-1}<\mu_\infty$ as $b-1$ is even.
+
+\emph{Case $J=b$.} Then $g=c_b$ satisfies $g_a=-1$ and $g\ne-(-1)^as_a$. If
+$g=g_+$, then Lemmas~\ref{lem:colid} and~\ref{lem:eqgen} give
+$x^{1-b}(\Theta-G(Y))=\sum_j\psi_j+2x((M\zeta_{-1})_a)^-\ge0$; equality forces
+all $\psi_j$ to vanish, so that $c_j=\pm s_a$ for $j<b$ and $Y=Y^+$ by
+Lemma~\ref{lem:eqgen}, while $G(Y^+)=\Theta$. If $\Delta(g)>2\delta_a(p)$,
+then $G(Y)<\Theta$ by~\eqref{eq:budgetA}. Otherwise (C1)--(C3) hold, and
+by~\eqref{eq:budgetA} it suffices to show $\sum_j\psi_j>x\rho\gamma$. Let $k$
+be the largest integer with $k\le b$ and $c_{b-i}=(-1)^ig$ for $1\le i\le k$.
+By Lemma~\ref{lem:chain}, $\psi_{b-i}=P(1+\mu_{b-i-1})\Delta(g)$ for
+$1\le i\le k$.
+\begin{itemize}
+\item If $k<b$ and $k\le4$, put $y=\mu_{b-2-k}$, so that
+ $\mu_{b-i-1}=\eta_{k+1-i}(y)$ and $\rho=\eta_{k+1}(y)$. Then $y\in I_k$:
+ if $b-2-k\ge0$, by~\eqref{eq:muinf}, as $b-2-k\equiv a-k\pmod2$; and if
+ $b=k+1$, then $y=\mu_{-1}=1$ and $k\not\equiv a\pmod2$. The column
+ $j=b-1-k$ satisfies $c_j\ne(-1)^{k+1}g$ and, by Lemma~\ref{lem:chain},
+ $\zeta_j=(-1)^k\mu_{k-1}g$; so $\psi_j=\psi_y(c_j,(-1)^k\mu_{k-1}g)$, and
+ (C1) gives $\sum_{i=1}^{k}\psi_{b-i}+\psi_j>x\rho\gamma$.
+\item If $5\le k<b$, then $b\ge6$, and $y=\mu_{b-6}$ lies in
+ $[\mu_0,\mu_\infty]$ if $a$ is even and in $[\mu_\infty,\mu_1]$ if $a$ is
+ odd. The columns $b-1,\dots,b-5$ give
+ $\sum_{i=1}^{5}\psi_{b-i}=\sum_{n=0}^{4}P(1+\eta_n(y))\Delta(g)$, and
+ $\rho=\eta_5(y)$, so (C2) applies.
+\item If $k=b$, then $\sum_j\psi_j=x\Delta(g)(\hat D-\rho)$, and the claim
+ reads $\Delta(g)\hat D/\rho>2\delta_a(p)$. By Remark~\ref{rem:closed},
+ $\hat D=\hat D_1+2\sum_{i=1}^{b-1}\mu_i$. If $b$ is even, then
+ $\rho=\mu_{b-1}\le\mu_1$, so $\hat D/\rho\ge\hat D_1/\mu_1+2$; if $b=1$,
+ then $\hat D/\rho=\hat D_1/\mu_0$; and if $b\ge3$ is odd, then
+ $\hat D\ge\hat D_2+2\mu_{b-1}$ and $\rho<\mu_\infty$, so
+ $\hat D/\rho\ge\hat D_2/\mu_\infty+2$. Since $\Delta(g)>0$, (C3) applies.
+ \qedhere
+\end{itemize}
+\end{proof}
+
+\paragraph{The certificates.} For $a=3$ and $a=4$ we verified (S$_a$),
+(F$_a$) and (C$_a$) on both regions by exact computer calculation. The
+entries of $M$, $Mc$, $\alpha$ and $Mg$ are polynomials in $p$, while
+$\mu_0$, $\mu_\infty$, $\mu_1$ and the maps $\eta_n$ are rational in $q$.
+Consider (F$_a$) for a fixed $c$ and one of the families of triples in
+$\mathcal F_a$. The programs first certify the sign of every entry of $Mc$
+and of $\alpha$ on the region, and they stop if a sign is not constant. By
+the values of $h_\mu$ in Section~\ref{sec:onem} and~\eqref{eq:hmore}, minus
+the cell $h_\mu((Mc)_i,m\alpha_i)$ then equals $-2\mu m|\alpha_i|$ if
+$(Mc)_i=0$; $0$ if $\alpha_i=0\ne(Mc)_i$;
+$2\min\{(P-\mu)m|\alpha_i|,\ P|(Mc)_i|-\mu m|\alpha_i|\}$ if
+$(Mc)_i\alpha_i>0$; and $-2\mu\max\{0,\ m|\alpha_i|-P|(Mc)_i|\}$ if
+$(Mc)_i\alpha_i<0$. So $\psi_\mu(c,ms_a)-2x\delta_a(p)r$ is a minimum of
+finitely many functions, each affine in $\mu$ for fixed $m$ and affine in $m$
+for fixed $\mu$; it is therefore concave in each variable, and its minimum
+over each family is attained at a corner, where $\mu$ and $m$ take values
+among $\mu_0$, $\mu_\infty$, $\mu_1$ and $1$. At a corner it is positive
+exactly when each of the finitely many branches, obtained by choosing one
+term in every minimum, is positive. Each branch is a rational function of $p$
+and $q$ whose denominator is a product of powers of $x$ and $x+1$. It is
+certified positive by substituting $p=5+s$, $q=3+t$ on $\mathcal R_1$, or
+$p=3$, $q=5+t$ on $\mathcal R_2$, and checking that the numerator is a
+polynomial in $s,t$ with nonnegative coefficients and a positive constant
+term. Condition (C1) is treated in the same way, with the parameter $y$, on
+which the sum over the chain and $\eta_{k+1}(y)$ depend affinely. Conditions
+(S$_a$), (C2) and (C3), and the sign of $\Delta(g)-2\delta_a(p)$ for each
+last column $g$, are certified directly by the same coefficient test; as
+(C2) is affine in $y$, it is checked at the endpoints of its interval.
+
+The last columns that need (C$_a$) are $(-1,1,1,-1)$ and $(-1,-1,1,-1)$ for
+$a=3$, together with $(1,1,1,-1)$ on $\mathcal R_2$, and $(1,1,-1,1,-1)$,
+$(1,-1,1,1,-1)$ and $(1,-1,-1,1,-1)$ for $a=4$, together with
+$(-1,-1,1,1,-1)$ on $\mathcal R_2$; every other last column $g$ with
+$g_a=-1$, other than $-(-1)^as_a$ and $g_+$, has $\Delta(g)>2\delta_a(p)$ on
+the region. The program
+\texttt{generic\_prover.py}, with the parallel driver
+\texttt{generic\_prover\_fast.py}, generates the branches for (F$_a$) and
+(C1) and certifies them with SymPy: for $a=3$ there are $4\,056$ for
+(F$_3$) and $10\,140$ for (C1), $14\,196$ in all, and for $a=4$ there are
+$15\,648$ and $54\,768$, $70\,416$ in all. It checks (S$_a$), (C2) and (C3)
+directly. All certificates succeed. The program \texttt{generic\_fast2.py}
+repeats the computation with its own exact integer arithmetic for
+polynomials over the denominators $x^k(x+1)^l$, and obtains the same lists,
+again without failures. Independently, a referee agent wrote
+\texttt{c3\_certify.py} (with \texttt{r2poly.py}). It does not use the
+formula for the cells above, but expands every cell from the definition of
+$h_\mu$, splitting each absolute value whose sign is not constant on the
+region into its two branches, and it evaluates every certified expression at
+a random rational point as a check. It certifies the complete conditions for
+$a=3$ and $a=4$ without failures. As negative controls, it rejects them when
+the right-hand side of (F$_a$) is multiplied by $\frac54$, and on regions
+enlarged to contain $p=q=3$. These programs and their logs are in the
+directory \texttt{certificates/\allowbreak icg-equal-parity/\allowbreak theorems-b-c}
+of~\cite{repo}, the referee's programs in its subdirectory
+\texttt{review2}. The proof of Theorem~\ref{thm:minfour} for
+$\min\{a,b\}\in\{3,4\}$ rests on these computations; it is not formalised.
+
+\paragraph{Checks.} For $a=3$ and $a=4$ the conclusion of
+Proposition~\ref{prop:reduction} was also checked directly from
+$Z=MYN^{\mathsf T}$, by complete enumeration of the sign matrices of the
+shapes $(3,7)$ at $(p,q)=(5,3)$, $(3,5)$ and $(7,3)$, with $2^{31}$ matrices
+each, and $(4,6)$ at $(5,3)$ and $(3,5)$, with $2^{34}$ matrices each
+(\texttt{t7\_brute\_numpy.py}). For larger $b$ we used an exact
+branch-and-bound search (\texttt{bnb.py}). It bounds $G$ with
+Lemmas~\ref{lem:colid} and~\ref{lem:onecol}, checks (S$_a$) exactly at the
+given parameters, and recomputes every sign matrix it reports from the matrix
+model. It agreed with complete enumeration in all $41$ comparisons made
+(\texttt{t5\_bnb\_validate.py}). In $786$ runs at integer and rational points
+of both regions (\texttt{t6\_bnb\_runs.py}, \texttt{t9\_bnb\_random.py}), for
+the shapes $(3,b)$ with odd $b\le21$ or $b\in\{25,31,41\}$ and $(4,b)$ with
+even $b\le16$ or $b\in\{20,30,40\}$, it found the maximum $\Theta$, attained
+exactly at $Y^-$ and $Y^+$. Runs of the same certification for $a=5$, $6$,
+$7$ and~$8$ have not been reviewed, and we do not claim these cases.
+
 \section{Verification}\label{sec:verif}
-The proofs above are complete, except that the proof of
-Proposition~\ref{prop:cert} rests on the computer calculation described in the
-paragraph on certificates below. The following computations are independent
-cross-checks.
+The proofs above are complete, except that the proofs of
+Proposition~\ref{prop:cert} and of the case $\min\{a,b\}\in\{3,4\}$ of
+Theorem~\ref{thm:minfour} rest on computer calculations, described in the
+paragraph on certificates below and in Section~\ref{sec:minfour}. The
+programs and logs for Theorems~\ref{thm:ptwo} and~\ref{thm:minfour},
+including those of the two referee agents, are in the directory
+\texttt{certificates/\allowbreak icg-equal-parity/\allowbreak theorems-b-c} of~\cite{repo}. The
+following computations are independent cross-checks.
 \begin{itemize}
 \item An exhaustive search over all divisor sets, in exact integer
  arithmetic, confirms Theorem~\ref{thm:main}, including the value of the
@@ -732,7 +1514,29 @@ cross-checks.
  Conjecture~\ref{conj:equal} for ten ordered pairs of odd primes and each of
  the exponent pairs $(1,1)$, $(2,2)$, $(1,3)$, $(3,1)$, $(3,3)$, $(2,4)$,
  $(4,2)$, $(4,4)$, $(1,5)$ and $(3,5)$. These cases are now covered by
- Theorem~\ref{thm:onem} and Proposition~\ref{prop:cert}.
+ Theorems~\ref{thm:onem}, \ref{thm:ptwo} and~\ref{thm:minfour} and by
+ Proposition~\ref{prop:cert}.
+\item Theorem~\ref{thm:signB} was confirmed by exhaustive maximisation of $G$
+ over all sign matrices, in exact arithmetic, in $69$ runs with
+ $b\in\{2,4,6,8\}$ at prime and at non-integer parameters. The main steps of
+ its proof in Sections~\ref{sec:column} and~\ref{sec:ptwo} were replayed in
+ exact arithmetic on all sign matrices with $b\in\{2,4\}$ at ten parameter pairs,
+ including non-integer ones, and on random sign matrices with $b\in\{6,8\}$;
+ the bounds in the proofs of Lemmas~\ref{lem:colS}, \ref{lem:fd1}
+ and~\ref{lem:fd2} were tested at $40\,000$ random rational points of the
+ parameter ranges used there.
+\item Theorem~\ref{thm:ptwo} was confirmed by exhaustive searches over all
+ divisor sets of $21$ orders $p^2q^b$ with $b\in\{2,4,6\}$, up to
+ $n=3^2\cdot7^6=1\,058\,841$, with the eigenvalues computed in exact
+ arithmetic from Ramanujan sums, independently of
+ Proposition~\ref{prop:model}.
+\item The first proof of Theorem~\ref{thm:signB} that we found treated
+ Lemmas~\ref{lem:fd1} and~\ref{lem:fd2} by a finer case analysis of the
+ parameters, which reduced them to $137$ corners of parameter boxes and
+ $325$ polynomial inequalities with nonnegative coefficients, certified by
+ computer. A referee agent re-derived and re-certified these inequalities
+ independently, and all $325$ are also proved in Lean. They are not needed
+ for the proof in Section~\ref{sec:ptwo}.
 \end{itemize}
 
 \paragraph{Certificates for Proposition~\ref{prop:cert}.}
@@ -757,9 +1561,9 @@ the region is enlarged to $p,q\ge3$: at $p=q=3$ further sign matrices attain
 the target. Proposition~\ref{prop:cert} is not formalised.
 
 \paragraph{Formal verification.}
-Theorem~\ref{thm:sign}, and Theorems~\ref{thm:main} and~\ref{thm:onem} with
-$d_k(x)$ taken as $\|T_k(x)s_k\|_1$ and $\delta_k(x)$ as $(T_k(x)s_k)_k$, are
-verified in Lean~4 (version
+Theorems~\ref{thm:sign} and~\ref{thm:signB}, and Theorems~\ref{thm:main},
+\ref{thm:onem} and~\ref{thm:ptwo} with $d_k(x)$ taken as $\|T_k(x)s_k\|_1$
+and $\delta_k(x)$ as $(T_k(x)s_k)_k$, are verified in Lean~4 (version
 4.33.1, Mathlib commit \texttt{0df444a3}). The development starts from the
 definition of the graph and of its energy:
 \begin{itemize}
@@ -794,16 +1598,58 @@ It proves:
  $\Phi\le\Theta$ of Section~\ref{sec:onem}, strict except for the two
  extremal sign matrices, is proved for all real $x,R$ with $x\ge5$, $R\ge2$
  or $x=3$, $R\ge4$.
+\item Theorem~\ref{thm:ptwo}, as the theorems \texttt{theoremB} and
+ \texttt{theoremB\_swap}. These names, and those in the next item, are in
+ the namespace \texttt{ICGEqualParityB}. For distinct primes $p,q\ge3$,
+ even $b\ge2$ and $n=p^2q^b$,
+ \texttt{theoremB} states that every set $\mathcal D$ of proper divisors of
+ $n$ satisfies
+ \[
+ \E(\ICG_n(\mathcal D))\le\tfrac12\bigl[n+(5p^2-8p+4)\|T_b(q)s_b\|_1\bigr]
+ -(p^2-2p+2)\,(T_b(q)s_b)_b,
+ \]
+ with equality if and only if $\mathcal D=\mathcal D^-$ or
+ $\mathcal D=\mathcal D^+\setminus\{n\}$, where
+ $\mathcal D^-=\{p^iq^j: i+j\text{ odd}\}$ and
+ $\mathcal D^+=\{p^iq^j: i+j\text{ even}\}$. The theorem
+ \texttt{theoremB\_swap} is the same statement for $n=p^bq^2$, with the roles
+ of $p$ and $q$ in the bound exchanged, and
+ \texttt{corollaryB} restates \texttt{theoremB} in the format of the
+ theorem for Theorem~\ref{thm:onem}.
+\item Theorem~\ref{thm:signB}, with its equality cases, as
+ \texttt{thmB\textquotesingle}, for real $p\ge5$, $q\ge3$ or $p=3$,
+ $q\ge5$. There $G(Y)$ is written as
+ $\sum_{i=0}^2\|T_b(q)r_i\|_1-2\bigl((T_b(q)r_2)_b\bigr)^-$, where
+ $r_0,r_1,r_2$ are the rows of $T_2(p)Y$; this is the middle expression
+ in~\eqref{eq:G}. The Lean proof follows Sections~\ref{sec:column}
+ and~\ref{sec:ptwo} with $a=2$. Its main steps are \texttt{prop1}
+ (Lemma~\ref{lem:colid}) and \texttt{eq\_all} (the converse part of
+ Lemma~\ref{lem:eqgen}) in the module \texttt{ICGEqualParityBMain};
+ \texttt{lemS} (Lemmas~\ref{lem:onecol} and~\ref{lem:colS}) in the module
+ \texttt{ICGEqualParityBCol}; \texttt{fd1} (Lemma~\ref{lem:fd1}) and
+ \texttt{fd2a}, \texttt{fd2dom} and \texttt{two\_col}
+ (Lemma~\ref{lem:fd2}) in the module \texttt{ICGEqualParityBFD}; and
+ \texttt{G\_Yp} (the rest of Lemma~\ref{lem:eqgen}) in the module
+ \texttt{ICGEqualParityBGraph}, which also contains \texttt{thmB\textquotesingle},
+ \texttt{theoremB}, \texttt{theoremB\_swap} and \texttt{corollaryB}. In
+ addition, the $325$ polynomial inequalities of the first proof mentioned
+ above are proved in the modules \texttt{ICGEqualParityBCert1} to
+ \texttt{ICGEqualParityBCert6}.
 \end{itemize}
 The closed forms of $d_k(x)$ and $\delta_k(x)$ in Remark~\ref{rem:closed} are
-proved above but not formalised; in the Lean statements, $d_m(q)$ and
-$\delta_m(q)$ appear as $\|T_m(q)s_m\|_1$ and $(T_m(q)s_m)_m$.
-The whole development was rebuilt from a clean directory; the files for
-Theorem~\ref{thm:onem} were rebuilt in the same way, together with all files
-they import. The recorded axiom
-audits of the main results (the command \texttt{\#print axioms}) report only
+proved above but not formalised. In the Lean statements, $d_m(q)$ and
+$\delta_m(q)$ appear as \texttt{L1 q m sgnv} and \texttt{Tv q m sgnv m},
+that is, as $\|T_m(q)s_m\|_1$ and $(T_m(q)s_m)_m$; in the theorems for
+$n=p^2q^b$, $d_b(q)$ and $\delta_b(q)$ appear in the same way, as
+\texttt{L1 q b sgnv} and \texttt{Tv q b sgnv b}. Theorem~\ref{thm:minfour}
+for $\min\{a,b\}\in\{3,4\}$ and Proposition~\ref{prop:cert} are not
+formalised. The whole development, including the files for
+Theorems~\ref{thm:onem} and~\ref{thm:ptwo}, was rebuilt from a clean
+directory. The recorded axiom audits of
+the main results (the command \texttt{\#print axioms}) report only
 \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}; no native
-evaluation is used. The code and logs are available at~\cite{repo}.
+evaluation is used, and the modules were also checked with the kernel replay
+tool \texttt{leanchecker}. The code and logs are available at~\cite{repo}.
 
 \section*{Tool and computational resource disclosure}
 This work was carried out between 25 and 26 September 2026 in a workflow
@@ -818,25 +1664,46 @@ programme and directed the agents.
 \item Another Claude Code agent wrote the Lean formalisation.
 \item The proof was checked line by line by a second Claude Code agent and by
  Codex, and the agents searched the literature.
-\item The results on exponents of equal parity, Theorem~\ref{thm:onem} and
- Proposition~\ref{prop:cert}, were found by a Claude Code research agent,
- and Theorem~\ref{thm:onem} was checked by an independent Claude referee
- agent.
+\item The results on exponents of equal parity in version~1.2,
+ Theorem~\ref{thm:onem} and Proposition~\ref{prop:cert}, were found by a
+ Claude Code research agent, and Theorem~\ref{thm:onem} was checked by an
+ independent Claude referee agent.
+\item The material added in version~1.4, namely
+ Theorems~\ref{thm:ptwo}, \ref{thm:minfour} and~\ref{thm:signB} and
+ Sections~\ref{sec:column}--\ref{sec:minfour}, was found, formalised in Lean
+ (Theorems~\ref{thm:ptwo} and~\ref{thm:signB}) and drafted by Claude Code
+ agents (model Claude Opus~5.5). Theorems~\ref{thm:ptwo}
+ and~\ref{thm:signB} were checked by the Lean formalisation, which does not
+ cover the case $\min\{a,b\}\in\{3,4\}$ of Theorem~\ref{thm:minfour}.
+ Earlier write-ups of the new proofs were checked by two independent Claude
+ Code referee agents. One of them checked an earlier write-up of the proof
+ of Theorem~\ref{thm:ptwo}, which used the $325$ certified inequalities
+ mentioned in Section~\ref{sec:verif}; the written proof given here follows
+ the Lean formalisation instead. The other referee agent checked the
+ certificates and an earlier write-up of the computer-assisted proof of
+ Theorem~\ref{thm:minfour}, and wrote the second certification program.
 \end{itemize} Claude Code drafted this text. The programs and logs are
 available at~\cite{repo}.
-The author is not a professional mathematician. The author has read the
-paper and, using a side-by-side table, compared the statements of the Lean
-theorems with the theorems stated here. The correctness of
-Theorems~\ref{thm:main}, \ref{thm:sign} and~\ref{thm:onem} rests on the
-written proofs and on the Lean formalisation described in
-Section~\ref{sec:verif}; Proposition~\ref{prop:cert} rests on the computer
-calculation described there; the other independent checks are additional
-cross-checks. In addition, the arguments for Theorems~\ref{thm:main}
-and~\ref{thm:sign} were checked by AI agents of two different model families,
-the argument for Theorem~\ref{thm:onem} was checked by an independent Claude
-agent, and the formal statements were reviewed by an agent that did not write
-them. AI systems are not authors of this paper; the author takes
-full responsibility for its content.
+The author is not a professional mathematician. The author has read
+version~1.2 of this paper, which did not contain Theorems~\ref{thm:ptwo}
+and~\ref{thm:minfour} or Sections~\ref{sec:column}--\ref{sec:minfour}, and,
+using a side-by-side table, compared the statements of the Lean theorems of
+that version with the theorems stated there.
+%% AUTHOR-ROLE-THEOREM-B: to be completed after the author has read the new section
+The correctness of Theorems~\ref{thm:main}, \ref{thm:onem}, \ref{thm:ptwo},
+\ref{thm:sign} and~\ref{thm:signB} rests on the written proofs and on the
+Lean formalisation described in Section~\ref{sec:verif};
+Proposition~\ref{prop:cert} and the case $\min\{a,b\}\in\{3,4\}$ of
+Theorem~\ref{thm:minfour} rest on the computer calculations described in
+Sections~\ref{sec:minfour} and~\ref{sec:verif}; the other independent checks
+are additional cross-checks. In addition, the arguments for
+Theorems~\ref{thm:main} and~\ref{thm:sign} were checked by AI agents of two
+different model families, the argument for Theorem~\ref{thm:onem} was checked
+by an independent Claude agent, the earlier write-ups of the proofs of
+Theorems~\ref{thm:ptwo} and~\ref{thm:minfour} were checked by two further
+independent Claude agents, and the formal statements of version~1.2 were
+reviewed by an agent that did not write them. AI systems are not authors
+of this paper; the author takes full responsibility for its content.
 
 \begin{thebibliography}{99}
 \bibitem{repo}

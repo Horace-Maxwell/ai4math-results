@@ -1,0 +1,12 @@
+wrote ../certificates/cm_B1_all.txt (1 lines) sha256=4b30fc6034d5d24ca1a1b19e58cedea07b162db2c353681a0348ea0fe53a87be time=0.0s
+VERIFIED ../certificates/cm_B1_all.txt: family=B n=1 rank=all entries=1 sha256=4b30fc6034d5d24ca1a1b19e58cedea07b162db2c353681a0348ea0fe53a87be
+wrote ../certificates/cm_B4_all.txt (105 lines) sha256=4cb7b2ddc85c6535053c8a0af143b2c6c6efa1be4480ff4a5b60b036b6b10326 time=0.0s
+VERIFIED ../certificates/cm_B4_all.txt: family=B n=4 rank=all entries=105 sha256=4cb7b2ddc85c6535053c8a0af143b2c6c6efa1be4480ff4a5b60b036b6b10326
+wrote ../certificates/cm_B5_all.txt (945 lines) sha256=026dc8b4eda557b3f09d53d8b11660567649e573336d44f2a1a98f80034b2709 time=0.0s
+VERIFIED ../certificates/cm_B5_all.txt: family=B n=5 rank=all entries=945 sha256=026dc8b4eda557b3f09d53d8b11660567649e573336d44f2a1a98f80034b2709
+wrote ../certificates/cm_PB1_all.txt (2 lines) sha256=fc98246d3d0aa8aa5304d12d975468dd6aed60c93e4d31c9c9d953c2b41b44ec time=0.0s
+VERIFIED ../certificates/cm_PB1_all.txt: family=PB n=1 rank=all entries=2 sha256=fc98246d3d0aa8aa5304d12d975468dd6aed60c93e4d31c9c9d953c2b41b44ec
+wrote ../certificates/cm_PB4_all.txt (764 lines) sha256=8fb17908d28b52b2bebda4a405085f2773aee1c99daeb43768e6c063df817a32 time=0.0s
+VERIFIED ../certificates/cm_PB4_all.txt: family=PB n=4 rank=all entries=764 sha256=8fb17908d28b52b2bebda4a405085f2773aee1c99daeb43768e6c063df817a32
+wrote ../certificates/cm_PB5_all.txt (9496 lines) sha256=e5a5f6d0d2a50b48891f16afb6bbdc4ca80cefe17772335c8fca784590b70d23 time=0.2s
+VERIFIED ../certificates/cm_PB5_all.txt: family=PB n=5 rank=all entries=9496 sha256=e5a5f6d0d2a50b48891f16afb6bbdc4ca80cefe17772335c8fca784590b70d23

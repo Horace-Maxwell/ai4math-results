@@ -1,0 +1,7 @@
+(a) anti-checkerboard state zeta_J = (-1)^J mu_(b-2-J) s_2: 3360 exact cases (b even <= 40, 8 values of q) OK
+    parity: state formula also holds for odd b (15/15 cases) but then the anti-checkerboard corner is +1 (inadmissible); for even b the corner is -1.  => b even is used for admissibility of c_b = -s_2, not in the induction.
+(b) B-chain states zeta_j = (-1)^(j+1) mu_(b-2-j) B, all chain cells = 0, full-chain kappa = 0: 5760 exact steps OK
+(c) Lemma M facts (mu_j - L = (-1/q)^(j+1)(1-L), parity monotonicity, mu_0, mu_1): OK
+(d) FD1 regimes at the true mu-values (b even <= 40, 8 q's): {'R0': 160, 'R1': 160, 'R2a': 1520, 'R2b': 1520} all OK
+(e) FD2 parameter claims (mu_(b-2) in [mu0,L), rho=(Q-mu_(b-2))/q, mu_(b-3) in (L,mu1], mu_(b-4) in [mu0,L)): OK
+DONE

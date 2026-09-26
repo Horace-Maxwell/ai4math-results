@@ -1,0 +1,59 @@
+{"n": 6, "r": 2, "family": "B", "N": 45, "construction": "C (odd N; proof triangle + proof matching)", "triangle": ["(1, 0, 'F', 'F', 5, 4)", "(2, 'F', 0, 'F', 5, 4)", "(3, 'F', 'F', 0, 5, 4)"], "triangle_sign_bits": [0, 0, 1]}
+wrote ../certificates/cm_B6_rank2.txt (4050 lines) sha256=246e42f73b9347d809a20ab31fa3a1c748ea44f40c7f526c482a0b91b704d9d0 time=0.2s
+VERIFIED ../certificates/cm_B6_rank2.txt: family=B n=6 rank=2 entries=4050 sha256=246e42f73b9347d809a20ab31fa3a1c748ea44f40c7f526c482a0b91b704d9d0
+{"n": 7, "r": 3, "family": "B", "N": 105, "construction": "C (odd N; proof triangle + proof matching)", "triangle": ["(1, 0, 'F', 'F', 'F', 6, 5)", "(2, 'F', 0, 'F', 'F', 6, 5)", "(3, 'F', 'F', 0, 'F', 6, 5)"], "triangle_sign_bits": [0, 0, 1]}
+wrote ../certificates/cm_B7_rank3.txt (66150 lines) sha256=203422dd249bf72dfe6befd5f9faa20c1bbcadf8044de768fa3150e817cbfec6 time=1.5s
+VERIFIED ../certificates/cm_B7_rank3.txt: family=B n=7 rank=3 entries=66150 sha256=203422dd249bf72dfe6befd5f9faa20c1bbcadf8044de768fa3150e817cbfec6
+{"n": 1, "r": 1, "family": "B", "N": 1, "construction": "A (Brandt level, CM of S_r)"}
+wrote ../certificates/cm_B1_all.txt (1 lines) sha256=4b30fc6034d5d24ca1a1b19e58cedea07b162db2c353681a0348ea0fe53a87be time=0.0s
+VERIFIED ../certificates/cm_B1_all.txt: family=B n=1 rank=all entries=1 sha256=4b30fc6034d5d24ca1a1b19e58cedea07b162db2c353681a0348ea0fe53a87be
+{"n": 4, "r": 0, "family": "B", "N": 3, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 4, "r": 2, "family": "B", "N": 6, "construction": "B (Brandt level, N even)"}
+{"n": 4, "r": 4, "family": "B", "N": 1, "construction": "A (Brandt level, CM of S_r)"}
+wrote ../certificates/cm_B4_all.txt (105 lines) sha256=4cb7b2ddc85c6535053c8a0af143b2c6c6efa1be4480ff4a5b60b036b6b10326 time=0.0s
+VERIFIED ../certificates/cm_B4_all.txt: family=B n=4 rank=all entries=105 sha256=4cb7b2ddc85c6535053c8a0af143b2c6c6efa1be4480ff4a5b60b036b6b10326
+{"n": 5, "r": 1, "family": "B", "N": 15, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 5, "r": 3, "family": "B", "N": 10, "construction": "B (Brandt level, N even)"}
+{"n": 5, "r": 5, "family": "B", "N": 1, "construction": "A (Brandt level, CM of S_r)"}
+wrote ../certificates/cm_B5_all.txt (945 lines) sha256=026dc8b4eda557b3f09d53d8b11660567649e573336d44f2a1a98f80034b2709 time=0.0s
+VERIFIED ../certificates/cm_B5_all.txt: family=B n=5 rank=all entries=945 sha256=026dc8b4eda557b3f09d53d8b11660567649e573336d44f2a1a98f80034b2709
+{"n": 6, "r": 0, "family": "B", "N": 15, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 6, "r": 2, "family": "B", "N": 45, "construction": "C (odd N; proof triangle + proof matching)", "triangle": ["(1, 0, 'F', 'F', 5, 4)", "(2, 'F', 0, 'F', 5, 4)", "(3, 'F', 'F', 0, 5, 4)"], "triangle_sign_bits": [0, 0, 1]}
+{"n": 6, "r": 4, "family": "B", "N": 15, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 6, "r": 6, "family": "B", "N": 1, "construction": "A (Brandt level, CM of S_r)"}
+wrote ../certificates/cm_B6_all.txt (10395 lines) sha256=fc5420821a2d40bcaa1fd090f980db9d892e24e640ee455f1d136f3d64d2dc55 time=0.3s
+VERIFIED ../certificates/cm_B6_all.txt: family=B n=6 rank=all entries=10395 sha256=fc5420821a2d40bcaa1fd090f980db9d892e24e640ee455f1d136f3d64d2dc55
+{"n": 1, "r": 0, "family": "PB", "N": 1, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 1, "r": 1, "family": "PB", "N": 1, "construction": "A (Brandt level, CM of S_r)"}
+wrote ../certificates/cm_PB1_all.txt (2 lines) sha256=fc98246d3d0aa8aa5304d12d975468dd6aed60c93e4d31c9c9d953c2b41b44ec time=0.0s
+VERIFIED ../certificates/cm_PB1_all.txt: family=PB n=1 rank=all entries=2 sha256=fc98246d3d0aa8aa5304d12d975468dd6aed60c93e4d31c9c9d953c2b41b44ec
+{"n": 4, "r": 0, "family": "PB", "N": 10, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 4, "r": 1, "family": "PB", "N": 16, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 4, "r": 2, "family": "PB", "N": 12, "construction": "B (Brandt level, N even)"}
+{"n": 4, "r": 3, "family": "PB", "N": 4, "construction": "B (Brandt level, N even)"}
+{"n": 4, "r": 4, "family": "PB", "N": 1, "construction": "A (Brandt level, CM of S_r)"}
+wrote ../certificates/cm_PB4_all.txt (764 lines) sha256=8fb17908d28b52b2bebda4a405085f2773aee1c99daeb43768e6c063df817a32 time=0.0s
+VERIFIED ../certificates/cm_PB4_all.txt: family=PB n=4 rank=all entries=764 sha256=8fb17908d28b52b2bebda4a405085f2773aee1c99daeb43768e6c063df817a32
+{"n": 5, "r": 0, "family": "PB", "N": 26, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 5, "r": 1, "family": "PB", "N": 50, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 5, "r": 2, "family": "PB", "N": 40, "construction": "B (Brandt level, N even)"}
+{"n": 5, "r": 3, "family": "PB", "N": 20, "construction": "B (Brandt level, N even)"}
+{"n": 5, "r": 4, "family": "PB", "N": 5, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 5, "r": 5, "family": "PB", "N": 1, "construction": "A (Brandt level, CM of S_r)"}
+wrote ../certificates/cm_PB5_all.txt (9496 lines) sha256=e5a5f6d0d2a50b48891f16afb6bbdc4ca80cefe17772335c8fca784590b70d23 time=0.2s
+VERIFIED ../certificates/cm_PB5_all.txt: family=PB n=5 rank=all entries=9496 sha256=e5a5f6d0d2a50b48891f16afb6bbdc4ca80cefe17772335c8fca784590b70d23
+{"n": 6, "r": 0, "family": "PB", "N": 76, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 6, "r": 1, "family": "PB", "N": 156, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 6, "r": 2, "family": "PB", "N": 150, "construction": "B (Brandt level, N even)"}
+{"n": 6, "r": 3, "family": "PB", "N": 80, "construction": "B (Brandt level, N even)"}
+{"n": 6, "r": 4, "family": "PB", "N": 30, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 6, "r": 5, "family": "PB", "N": 6, "construction": "A (Brandt level, CM of S_r)"}
+{"n": 6, "r": 6, "family": "PB", "N": 1, "construction": "A (Brandt level, CM of S_r)"}
+wrote ../certificates/cm_PB6_all.txt (140152 lines) sha256=b8c9c943cee54ac8ea213ceffb4800fcbecb13e45273f966c3159fb3017625e7 time=2.9s
+VERIFIED ../certificates/cm_PB6_all.txt: family=PB n=6 rank=all entries=140152 sha256=b8c9c943cee54ac8ea213ceffb4800fcbecb13e45273f966c3159fb3017625e7
+{"n": 6, "r": 2, "family": "B", "N": 45, "construction": "C (odd N; searched triangle + max matching)", "triangle": ["('F', 'F', 3, 2, 5, 4)", "('F', 'F', 4, 5, 2, 3)", "(2, 5, 0, 'F', 'F', 1)"], "triangle_sign_bits": [0, 1, 0]}
+wrote ../certificates/alt/cm_B6_rank2.txt (4050 lines) sha256=603ec41c38101b76314a9cc0a42da1ff9a32d4cf8e13a44beefb22e3e2cbe96b time=0.2s
+VERIFIED ../certificates/alt/cm_B6_rank2.txt: family=B n=6 rank=2 entries=4050 sha256=603ec41c38101b76314a9cc0a42da1ff9a32d4cf8e13a44beefb22e3e2cbe96b
+{"n": 7, "r": 3, "family": "B", "N": 105, "construction": "C (odd N; searched triangle + max matching)", "triangle": ["('F', 'F', 'F', 4, 3, 6, 5)", "('F', 'F', 'F', 5, 6, 3, 4)", "('F', 3, 6, 1, 'F', 'F', 2)"], "triangle_sign_bits": [0, 1, 0]}
+wrote ../certificates/alt/cm_B7_rank3.txt (66150 lines) sha256=0f836e59057354d03bd5742d34b73e688e2e2188251c13300bba67d6056df28b time=1.4s
+VERIFIED ../certificates/alt/cm_B7_rank3.txt: family=B n=7 rank=3 entries=66150 sha256=0f836e59057354d03bd5742d34b73e688e2e2188251c13300bba67d6056df28b

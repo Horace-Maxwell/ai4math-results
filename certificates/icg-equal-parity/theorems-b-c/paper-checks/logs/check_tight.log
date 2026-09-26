@@ -1,0 +1,13 @@
+vertical b=2 q=5: Theta-G=8  2(d_b-5delta_b)=8
+vertical b=2 q=7: Theta-G=16  2(d_b-5delta_b)=16
+vertical b=2 q=11: Theta-G=32  2(d_b-5delta_b)=32
+vertical b=4 q=5: Theta-G=3608  2(d_b-5delta_b)=3608
+vertical b=4 q=7: Theta-G=15304  2(d_b-5delta_b)=15304
+vertical b=4 q=11: Theta-G=101672  2(d_b-5delta_b)=101672
+vertical b=6 q=5: Theta-G=173608  2(d_b-5delta_b)=173608
+vertical b=6 q=7: Theta-G=1455904  2(d_b-5delta_b)=1455904
+vertical b=6 q=11: Theta-G=24112912  2(d_b-5delta_b)=24112912
+horizontal p=5: Theta-G=8 4(p-3)=8
+horizontal p=7: Theta-G=16 4(p-3)=16
+horizontal p=101: Theta-G=392 4(p-3)=392
+python3 check_tight.py  0.02s user 0.01s system 88% cpu 0.024 total

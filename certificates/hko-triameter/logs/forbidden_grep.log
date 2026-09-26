@@ -1,0 +1,18 @@
+Research/HKOTriameterAudit.lean:56:#print axioms HKOTriameter.not_problem1Claim
+Research/HKOTriameterAudit.lean:57:#print axioms HKOTriameter.not_problem1ClaimPair
+Research/HKOTriameterAudit.lean:58:#print axioms HKOTriameter.not_problem2Claim
+Research/HKOTriameterAudit.lean:59:#print axioms HKOTriameter.G1_counterexample
+Research/HKOTriameterAudit.lean:60:#print axioms HKOTriameter.G2_counterexample
+Research/HKOTriameterAudit.lean:61:#print axioms HKOTriameter.not_question3_G1
+Research/HKOTriameterAudit.lean:62:#print axioms HKOTriameter.isPeripheral_iff_isPeripheralPair
+Research/HKOTriameterAudit.lean:63:#print axioms HKOTriameter.C6_not_median
+Research/HKOTriameter.lean:30:done by `decide` / `decide +kernel` (kernel reduction, no `native_decide`).
+Research/HKOTriameter.lean:477:#print axioms HKOTriameter.not_problem1Claim
+Research/HKOTriameter.lean:478:#print axioms HKOTriameter.not_problem1ClaimPair
+Research/HKOTriameter.lean:479:#print axioms HKOTriameter.not_problem2Claim
+Research/HKOTriameter.lean:480:#print axioms HKOTriameter.G1_counterexample
+Research/HKOTriameter.lean:481:#print axioms HKOTriameter.G2_counterexample
+Research/HKOTriameter.lean:482:#print axioms HKOTriameter.not_question3_G1
+Research/HKOTriameter.lean:483:#print axioms HKOTriameter.isPeripheral_iff_isPeripheralPair
+Research/HKOTriameter.lean:484:#print axioms HKOTriameter.dist_eq_of_certificate
+Research/HKOTriameter.lean:485:#print axioms HKOTriameter.C6_not_median

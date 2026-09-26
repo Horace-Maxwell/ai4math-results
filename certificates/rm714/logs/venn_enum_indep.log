@@ -1,0 +1,18 @@
+venn_enum_indep.c (independent 2nd implementation for Prop E), run 2026-09-26T13:45:51Z..~13:54Z, 4 processes (round-robin over 3-monomial prefixes), nice 5
+sha256 venn_enum_indep.c: ba6cf4be544ae103ddaad8affa633158673988663dd05306e2070a49ab956196
+k=1 count 8 (unsplit)
+k=2 count 204 (unsplit)
+k=3 count 20708 (unsplit)
+k=4 count 8568777 (unsplit)
+k=5 part count 2922960207
+k=5 part count 2918104554
+k=5 part count 2910185132
+k=5 part count 2939197935
+k=1 count 8 (venn_enum: 8) match=True; weights<=400 match venn_enum log: True
+k=2 count 204 (venn_enum: 204) match=True; weights<=400 match venn_enum log: True
+k=3 count 20708 (venn_enum: 20708) match=True; weights<=400 match venn_enum log: True
+k=4 count 8568777 (venn_enum: 8568777) match=True; weights<=400 match venn_enum log: True
+k=5 total configurations 11690447828 (venn_enum_fast log: 11690447828) match=True
+k=5 distinct weights 5676 (venn_enum_fast log: 5676) match=True
+k=5 targets in U hit: none
+k=5 weights = 2 mod 4 in [250,400]: 254 314 318 338 342 346 350 354 358 362 366 370 374 378 382 386 390 394 398

@@ -1,0 +1,11 @@
+(2,6) p=5 q=3: max G = 425559, Theta = 425559, equal: True, maximisers exactly the two: True
+(2,6) p=3 q=5: max G = 3368055, Theta = 3368055, equal: True, maximisers exactly the two: True
+(2,6) p=7 q=3: max G = 922743, Theta = 922743, equal: True, maximisers exactly the two: True
+(2,6) p=3 q=7: max G = 28346055, Theta = 28346055, equal: True, maximisers exactly the two: True
+(2,6) p=5 q=7: max G = 101053135, Theta = 101053135, equal: True, maximisers exactly the two: True
+(2,6) p=7 q=5: max G = 26034719, Theta = 26034719, equal: True, maximisers exactly the two: True
+(2,6) p=11 q=3: max G = 2490111, Theta = 2490111, equal: True, maximisers exactly the two: True
+(2,6) p=3 q=11: max G = 471186015, Theta = 471186015, equal: True, maximisers exactly the two: True
+(2,6) p=13 q=17: max G = 203351568935, Theta = 203351568935, equal: True, maximisers exactly the two: True
+(2,8) p=5 q=3: max G = 4997847, Theta = 4997847, equal: True, maximisers exactly the two: True
+(2,8) p=3 q=5: max G = 110243055, Theta = 110243055, equal: True, maximisers exactly the two: True

@@ -1,0 +1,18 @@
+full-chain ratio bounds Dhat_b/rho_b hold for b <= 60 at q in {3,5,7,7/2,101,1001}: OK
+a=3 p=5 q=3: cheap=[(-1, 1, 1, -1), (-1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 15.939
+a=3 p=7 q=3: cheap=[(-1, 1, 1, -1), (-1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 25.696
+a=3 p=3 q=5: cheap=[(1, 1, 1, -1), (-1, 1, 1, -1), (-1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 6.250
+a=3 p=3 q=7: cheap=[(1, 1, 1, -1), (-1, 1, 1, -1), (-1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 6.250
+a=3 p=11/2 q=7/2: cheap=[(-1, 1, 1, -1), (-1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 18.365
+a=3 p=3 q=21/4: cheap=[(1, 1, 1, -1), (-1, 1, 1, -1), (-1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 6.250
+a=3 p=101 q=3: cheap=[(-1, 1, 1, -1), (-1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 495.086
+a=3 p=3 q=101: cheap=[(1, 1, 1, -1), (-1, 1, 1, -1), (-1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 6.250
+a=4 p=5 q=3: cheap=[(1, 1, -1, 1, -1), (1, -1, 1, 1, -1), (1, -1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 14.553
+a=4 p=7 q=3: cheap=[(1, 1, -1, 1, -1), (1, -1, 1, 1, -1), (1, -1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 24.453
+a=4 p=3 q=5: cheap=[(1, 1, -1, 1, -1), (1, -1, 1, 1, -1), (1, -1, -1, 1, -1), (-1, -1, 1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 4.612
+a=4 p=3 q=7: cheap=[(1, 1, -1, 1, -1), (1, -1, 1, 1, -1), (1, -1, -1, 1, -1), (-1, -1, 1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 4.626
+a=4 p=11/2 q=7/2: cheap=[(1, 1, -1, 1, -1), (1, -1, 1, 1, -1), (1, -1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 17.121
+a=4 p=3 q=21/4: cheap=[(1, 1, -1, 1, -1), (1, -1, 1, 1, -1), (1, -1, -1, 1, -1), (-1, -1, 1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 4.614
+a=4 p=101 q=3: cheap=[(1, 1, -1, 1, -1), (1, -1, 1, 1, -1), (1, -1, -1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 486.049
+a=4 p=3 q=101: cheap=[(1, 1, -1, 1, -1), (1, -1, 1, 1, -1), (1, -1, -1, 1, -1), (-1, -1, 1, 1, -1)] b<=12: bookkeeping (a)-(g) OK; chain-alone min ratio 4.643
+counts {'dev': 4832, 'full': 288, 'alone': 2752}

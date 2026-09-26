@@ -1,0 +1,15 @@
+k=5 configurations=11690447828
+target 322: no
+target 326: no
+target 330: no
+target 334: no
+target 16050: no
+target 16054: no
+target 16058: no
+target 16062: no
+weights = 2 mod 4 in [250,400]: 254 314 318 338 342 346 350 354 358 362 366 370 374 378 382 386 390 394 398
+distinct weights: 5676
+
+real	22m44.577s
+user	21m17.482s
+sys	0m13.070s

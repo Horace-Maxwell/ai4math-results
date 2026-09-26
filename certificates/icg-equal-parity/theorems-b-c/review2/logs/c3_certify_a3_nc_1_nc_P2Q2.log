@@ -1,0 +1,7 @@
+a=3 region=nc_P2Q2: validated q*s branch-min against direct cell computation at 50 random exact points: OK
+a=3 region=nc_P2Q2: cheap last columns [((1, 1, 1, -1), 1), ((-1, 1, 1, -1), 1), ((-1, -1, 1, -1), 1)]; columns with Delta > 2 delta: 3; trunc = (-1, 1, -1, -1)
+a=3 K=4: checks {'S': 16, 'FD1': 280, 'CH': 757, 'CHalone': 6, 'full': 6, 'EQ': 8}; failures 4; time 0s
+  FAIL ('S', 'nc_P2Q2', (1, 1, -1, 1))
+  FAIL ('S alt', 'nc_P2Q2', (1, -1, 1, -1))
+  FAIL ('S alt', 'nc_P2Q2', (-1, 1, -1, 1))
+  FAIL ('S', 'nc_P2Q2', (-1, -1, 1, -1))

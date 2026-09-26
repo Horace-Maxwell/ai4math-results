@@ -1,0 +1,138 @@
+OK   FD1 Asame R0 m=mu0
+OK   FD1 Asame R0 m=L
+OK   FD1 Asame R1 mu=mu0
+OK   FD1 Asame R1 mu=L
+OK   FD1 Asame R2a mu=L m=mu0
+OK   FD1 Asame R2a mu=L m=L
+OK   FD1 Asame R2a mu=mu1 m=mu0
+OK   FD1 Asame R2a mu=mu1 m=L
+OK   FD1 Asame R2b mu=mu0 m=L
+OK   FD1 Asame R2b mu=mu0 m=mu1
+OK   FD1 Asame R2b mu=L m=L
+OK   FD1 Asame R2b mu=L m=mu1
+OK   FD1 Bsame R0 m=mu0
+OK   FD1 Bsame R0 m=L
+OK   FD1 Bsame R1 mu=mu0
+OK   FD1 Bsame R1 mu=L
+OK   FD1 Bsame R2a mu=L m=mu0
+OK   FD1 Bsame R2a mu=L m=L
+OK   FD1 Bsame R2a mu=mu1 m=mu0
+OK   FD1 Bsame R2a mu=mu1 m=L
+OK   FD1 Bsame R2b mu=mu0 m=L
+OK   FD1 Bsame R2b mu=mu0 m=mu1
+OK   FD1 Bsame R2b mu=L m=L
+OK   FD1 Bsame R2b mu=L m=mu1
+OK   FD1 Bopp R0 m=mu0
+OK   FD1 Bopp R0 m=L
+OK   FD1 Bopp R1 mu=mu0
+OK   FD1 Bopp R1 mu=L
+OK   FD1 Bopp R2a mu=L m=mu0
+OK   FD1 Bopp R2a mu=L m=L
+OK   FD1 Bopp R2a mu=mu1 m=mu0
+OK   FD1 Bopp R2a mu=mu1 m=L
+OK   FD1 Bopp R2b mu=mu0 m=L
+OK   FD1 Bopp R2b mu=mu0 m=mu1
+OK   FD1 Bopp R2b mu=L m=L
+OK   FD1 Bopp R2b mu=L m=mu1
+OK   FD1 Csame R0 m=mu0
+OK   FD1 Csame R0 m=L
+OK   FD1 Csame R1 mu=mu0
+OK   FD1 Csame R1 mu=L
+OK   FD1 Csame R2a mu=L m=mu0
+OK   FD1 Csame R2a mu=L m=L
+OK   FD1 Csame R2a mu=mu1 m=mu0
+OK   FD1 Csame R2a mu=mu1 m=L
+OK   FD1 Csame R2b mu=mu0 m=L
+OK   FD1 Csame R2b mu=mu0 m=mu1
+OK   FD1 Csame R2b mu=L m=L
+OK   FD1 Csame R2b mu=L m=mu1
+OK   FD1 Copp R0 m=mu0
+OK   FD1 Copp R0 m=L
+OK   FD1 Copp R1 mu=mu0
+OK   FD1 Copp R1 mu=L
+OK   FD1 Copp R2a mu=L m=mu0
+OK   FD1 Copp R2a mu=L m=L
+OK   FD1 Copp R2a mu=mu1 m=mu0
+OK   FD1 Copp R2a mu=mu1 m=L
+OK   FD1 Copp R2b mu=mu0 m=L
+OK   FD1 Copp R2b mu=mu0 m=mu1
+OK   FD1 Copp R2b mu=L m=L
+OK   FD1 Copp R2b mu=L m=mu1
+OK   FD1 Esame R0 m=mu0
+OK   FD1 Esame R0 m=L
+OK   FD1 Esame R1 mu=mu0
+OK   FD1 Esame R1 mu=L
+OK   FD1 Esame R2a mu=L m=mu0
+OK   FD1 Esame R2a mu=L m=L
+OK   FD1 Esame R2a mu=mu1 m=mu0
+OK   FD1 Esame R2a mu=mu1 m=L
+OK   FD1 Esame R2b mu=mu0 m=L
+OK   FD1 Esame R2b mu=mu0 m=mu1
+OK   FD1 Esame R2b mu=L m=L
+OK   FD1 Esame R2b mu=L m=mu1
+OK   FD1 Eopp R0 m=mu0
+OK   FD1 Eopp R0 m=L
+OK   FD1 Eopp R1 mu=mu0
+OK   FD1 Eopp R1 mu=L
+OK   FD1 Eopp R2a mu=L m=mu0
+OK   FD1 Eopp R2a mu=L m=L
+OK   FD1 Eopp R2a mu=mu1 m=mu0
+OK   FD1 Eopp R2a mu=mu1 m=L
+OK   FD1 Eopp R2b mu=mu0 m=L
+OK   FD1 Eopp R2b mu=mu0 m=mu1
+OK   FD1 Eopp R2b mu=L m=L
+OK   FD1 Eopp R2b mu=L m=mu1
+OK   FD2 J=b-1 Asame mu=mu0
+OK   FD2 J=b-1 Asame mu=L
+OK   FD2 J=b-1 Aopp mu=mu0
+OK   FD2 J=b-1 Aopp mu=L
+OK   FD2 J=b-1 Bsame mu=mu0
+OK   FD2 J=b-1 Bsame mu=L
+OK   FD2 J=b-1 Csame mu=mu0
+OK   FD2 J=b-1 Csame mu=L
+OK   FD2 J=b-1 Copp mu=mu0
+OK   FD2 J=b-1 Copp mu=L
+OK   FD2 J=b-1 Esame mu=mu0
+OK   FD2 J=b-1 Esame mu=L
+OK   FD2 J=b-1 Eopp mu=mu0
+OK   FD2 J=b-1 Eopp mu=L
+OK   FD2(i) -B at b-1 (P>=4) mu=mu0
+OK   FD2(i) -B at b-1 (P>=4) mu=L
+OK   FD2(ii) k=1 Asame mu=L
+OK   FD2(ii) k=1 Asame mu=mu1
+OK   FD2(ii) k=1 Asame mu=one
+OK   FD2(ii) k=1 Aopp mu=L
+OK   FD2(ii) k=1 Aopp mu=mu1
+OK   FD2(ii) k=1 Aopp mu=one
+OK   FD2(ii) k=1 Bsame mu=L
+OK   FD2(ii) k=1 Bsame mu=mu1
+OK   FD2(ii) k=1 Bsame mu=one
+OK   FD2(ii) k=1 Csame mu=L
+OK   FD2(ii) k=1 Csame mu=mu1
+OK   FD2(ii) k=1 Csame mu=one
+OK   FD2(ii) k=1 Copp mu=L
+OK   FD2(ii) k=1 Copp mu=mu1
+OK   FD2(ii) k=1 Copp mu=one
+OK   FD2(ii) k=1 Esame mu=L
+OK   FD2(ii) k=1 Esame mu=mu1
+OK   FD2(ii) k=1 Esame mu=one
+OK   FD2(ii) k=1 Eopp mu=L
+OK   FD2(ii) k=1 Eopp mu=mu1
+OK   FD2(ii) k=1 Eopp mu=one
+OK   FD2(ii) k=2 Asame mu=mu0
+OK   FD2(ii) k=2 Asame mu=L
+OK   FD2(ii) k=2 Aopp mu=mu0
+OK   FD2(ii) k=2 Aopp mu=L
+OK   FD2(ii) k=2 Bsame mu=mu0
+OK   FD2(ii) k=2 Bsame mu=L
+OK   FD2(ii) k=2 Csame mu=mu0
+OK   FD2(ii) k=2 Csame mu=L
+OK   FD2(ii) k=2 Copp mu=mu0
+OK   FD2(ii) k=2 Copp mu=L
+OK   FD2(ii) k=2 Esame mu=mu0
+OK   FD2(ii) k=2 Esame mu=L
+OK   FD2(ii) k=2 Eopp mu=mu0
+OK   FD2(ii) k=2 Eopp mu=L
+OK   FD2(ii) k>=3 chain alone x=mu0
+OK   FD2(ii) k>=3 chain alone x=L
+TOTAL 137 vertex checks, failures: 0

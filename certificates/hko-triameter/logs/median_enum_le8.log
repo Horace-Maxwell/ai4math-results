@@ -1,0 +1,10 @@
+n=1 labeled_graphs=1 connected=1 median_labeled=1 iso_classes_fullcanon=1 iso_classes_refinedcanon=1 Q3'_fail_labeled=0 Q4_fail_labeled=0 Q4distinctz_fail_labeled=1 Q3_fail_labeled=0 Q3'_fail_iso=0 Q4_fail_iso=0
+n=2 labeled_graphs=2 connected=1 median_labeled=1 iso_classes_fullcanon=1 iso_classes_refinedcanon=1 Q3'_fail_labeled=0 Q4_fail_labeled=0 Q4distinctz_fail_labeled=1 Q3_fail_labeled=0 Q3'_fail_iso=0 Q4_fail_iso=0
+n=3 labeled_graphs=8 connected=4 median_labeled=3 iso_classes_fullcanon=1 iso_classes_refinedcanon=1 Q3'_fail_labeled=0 Q4_fail_labeled=0 Q4distinctz_fail_labeled=0 Q3_fail_labeled=0 Q3'_fail_iso=0 Q4_fail_iso=0
+n=4 labeled_graphs=64 connected=38 median_labeled=19 iso_classes_fullcanon=3 iso_classes_refinedcanon=3 Q3'_fail_labeled=0 Q4_fail_labeled=0 Q4distinctz_fail_labeled=0 Q3_fail_labeled=0 Q3'_fail_iso=0 Q4_fail_iso=0
+n=5 labeled_graphs=1024 connected=728 median_labeled=185 iso_classes_fullcanon=4 iso_classes_refinedcanon=4 Q3'_fail_labeled=0 Q4_fail_labeled=0 Q4distinctz_fail_labeled=0 Q3_fail_labeled=60 Q3'_fail_iso=0 Q4_fail_iso=0
+n=6 labeled_graphs=32768 connected=26704 median_labeled=2556 iso_classes_fullcanon=11 iso_classes_refinedcanon=11 Q3'_fail_labeled=0 Q4_fail_labeled=0 Q4distinctz_fail_labeled=0 Q3_fail_labeled=540 Q3'_fail_iso=0 Q4_fail_iso=0
+n=7 labeled_graphs=2097152 connected=1866256 median_labeled=45577 iso_classes_fullcanon=23 iso_classes_refinedcanon=23 Q3'_fail_labeled=0 Q4_fail_labeled=0 Q4distinctz_fail_labeled=0 Q3_fail_labeled=8190 Q3'_fail_iso=0 Q4_fail_iso=0
+n=8 labeled_graphs=268435456 connected=251548592 median_labeled=1008904 iso_classes_fullcanon=0 iso_classes_refinedcanon=69 Q3'_fail_labeled=20160 Q4_fail_labeled=20160 Q4distinctz_fail_labeled=20160 Q3_fail_labeled=106680 Q3'_fail_iso=1 Q4_fail_iso=1
+  Q3'-violator (canonical) edges: 0-3 0-6 1-2 1-5 2-7 3-7 4-5 4-6 5-7 6-7 | diam=4 tr=8 bad_triple=(2,3,4)
+  Q4-violator (canonical) edges: 0-3 1-6 2-5 3-7 4-5 4-6 5-7 6-7 | diam=4 tr=12 bad_pair=(0,4)

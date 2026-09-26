@@ -1,0 +1,6 @@
+n=6 r=2: N=45 (odd); triangle sign bits [0, 0, 1]; perfect matching of G-X with 21 compatible pairs; 0.1s
+n=7 r=3: N=105 (odd); triangle sign bits [0, 0, 1]; perfect matching of G-X with 51 compatible pairs; 0.0s
+n=10 r=2: N=4725 (odd); triangle sign bits [0, 0, 1]; perfect matching of G-X with 2361 compatible pairs; 0.1s
+n=11 r=3: N=17325 (odd); triangle sign bits [0, 0, 1]; perfect matching of G-X with 8661 compatible pairs; 0.2s
+n=14 r=2: N=945945 (odd); triangle sign bits [0, 0, 1]; perfect matching of G-X with 472971 compatible pairs; 15.0s
+PROOF INGREDIENTS CHECKED

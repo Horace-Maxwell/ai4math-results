@@ -1,0 +1,10 @@
+n=2 {'graphs': 1, 'fp_fail': 0, 'Sstar_cases': 0, 'Sstar_fail': 0, 'q3_or_q4_fail': 0, 'q3p_or_q4_fail': 0, 'q3_fail': 0, 'q3p_fail': 0, 'q4_fail': 0, 'reduction_fail': 0} elapsed 238s
+n=3 {'graphs': 2, 'fp_fail': 0, 'Sstar_cases': 0, 'Sstar_fail': 0, 'q3_or_q4_fail': 0, 'q3p_or_q4_fail': 0, 'q3_fail': 0, 'q3p_fail': 0, 'q4_fail': 0, 'reduction_fail': 0} elapsed 238s
+n=4 {'graphs': 6, 'fp_fail': 0, 'Sstar_cases': 0, 'Sstar_fail': 0, 'q3_or_q4_fail': 0, 'q3p_or_q4_fail': 0, 'q3_fail': 0, 'q3p_fail': 0, 'q4_fail': 0, 'reduction_fail': 0} elapsed 238s
+n=5 {'graphs': 18, 'fp_fail': 0, 'Sstar_cases': 1, 'Sstar_fail': 0, 'q3_or_q4_fail': 0, 'q3p_or_q4_fail': 0, 'q3_fail': 1, 'q3p_fail': 0, 'q4_fail': 3, 'reduction_fail': 0} elapsed 238s
+n=6 {'graphs': 73, 'fp_fail': 0, 'Sstar_cases': 11, 'Sstar_fail': 0, 'q3_or_q4_fail': 0, 'q3p_or_q4_fail': 0, 'q3_fail': 6, 'q3p_fail': 1, 'q4_fail': 14, 'reduction_fail': 0} elapsed 238s
+n=7 {'graphs': 308, 'fp_fail': 0, 'Sstar_cases': 68, 'Sstar_fail': 0, 'q3_or_q4_fail': 0, 'q3p_or_q4_fail': 0, 'q3_fail': 24, 'q3p_fail': 6, 'q4_fail': 58, 'reduction_fail': 0} elapsed 238s
+n=8 {'graphs': 1484, 'fp_fail': 0, 'Sstar_cases': 372, 'Sstar_fail': 0, 'q3_or_q4_fail': 0, 'q3p_or_q4_fail': 0, 'q3_fail': 91, 'q3p_fail': 27, 'q4_fail': 233, 'reduction_fail': 0} elapsed 238s
+n=9 {'graphs': 7492, 'fp_fail': 0, 'Sstar_cases': 1806, 'Sstar_fail': 0, 'q3_or_q4_fail': 0, 'q3p_or_q4_fail': 0, 'q3_fail': 323, 'q3p_fail': 102, 'q4_fail': 985, 'reduction_fail': 0} elapsed 239s
+n=10 {'graphs': 40010, 'fp_fail': 0, 'Sstar_cases': 8378, 'Sstar_fail': 0, 'q3_or_q4_fail': 0, 'q3p_or_q4_fail': 0, 'q3_fail': 1161, 'q3p_fail': 359, 'q4_fail': 4566, 'reduction_fail': 0} elapsed 241s
+n=11 {'graphs': 220676, 'fp_fail': 0, 'Sstar_cases': 37472, 'Sstar_fail': 0, 'q3_or_q4_fail': 0, 'q3p_or_q4_fail': 0, 'q3_fail': 4282, 'q3p_fail': 1197, 'q4_fail': 23404, 'reduction_fail': 1} elapsed 251s

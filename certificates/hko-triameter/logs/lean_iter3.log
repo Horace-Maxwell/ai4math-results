@@ -1,0 +1,17 @@
+Research/HKOTriameter.lean:379:2: error: failed to synthesize
+  Decidable
+    (∀ (x : Fin 6),
+      (∀ (y : Fin 6), (fun x => InInterval C6 0 2 x ∧ InInterval C6 0 4 x ∧ InInterval C6 2 4 x) y → y = x) →
+        D6 0 x + D6 x 2 = D6 0 2 ∧ D6 0 x + D6 x 4 = D6 0 4 ∧ D6 2 x + D6 x 4 = D6 2 4 → False)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+'HKOTriameter.not_problem1Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem2Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.G1_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.G2_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_question3_G1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.isPeripheral_iff_isPeripheralPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.dist_eq_of_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.C6_not_median' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+lake env lean Research/HKOTriameter.lean  8.16s user 3.62s system 90% cpu 12.989 total

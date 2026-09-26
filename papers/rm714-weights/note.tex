@@ -1,0 +1,793 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{upquote}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={The weight spectrum of the Reed-Muller code RM(7,14) up to four weights},
+ pdfauthor={Horace Dong}}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem*{thmA}{Theorem A}
+\newtheorem*{thmB}{Theorem B}
+\newtheorem*{thmC}{Theorem C}
+\newtheorem*{propCp}{Proposition C$'$}
+\newtheorem*{propD}{Proposition D}
+\newtheorem*{propE}{Proposition E}
+\newtheorem*{propF}{Proposition F}
+\theoremstyle{remark}
+\newtheorem{remark}[lemma]{Remark}
+\newcommand{\F}{\mathbb F}
+\newcommand{\RM}{\mathrm{RM}}
+\DeclareMathOperator{\wt}{wt}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\spn}{span}
+\newcommand{\cat}{\mathbin{\|}}
+\newcommand{\sa}{\mathsf a}
+\newcommand{\sbb}{\mathsf b}
+\setlength{\emergencystretch}{1.5em}
+\interfootnotelinepenalty=10000
+\DeclareUrlCommand\code{\urlstyle{tt}\def\UrlBreaks{\do\_\do\/\do\.}\def\UrlBigBreaks{}}
+\title{The weight spectrum of the Reed--Muller code $\mathrm{RM}(7,14)$\\ up to four weights}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The binary Reed--Muller code $\RM(7,14)$ has minimum distance $d=128$.
+Leuenberger and Albrizzio (arXiv:2606.21425) showed that every even number from
+$312$ to $2^{14}-312$ is a weight of $\RM(7,14)$, except possibly $22$ values.
+We show that $14$ of them are weights, by explicit codewords. We also give
+explicit codewords, checked by two independent programs, for all even numbers
+from $320$ to $2^{14}-320$ except $322$, $326$, $330$, $334$ and their
+complements. Hence an open question of Carlet on the weight spectra of
+$\RM(m-c,m)$ has, for $(c,m)=(7,14)$, a positive answer if and only if these
+four numbers are weights. Together with the theorem of Kasami, Tokura and Azumi
+on weights below $2.5d$, which we cite but could not consult, this determines
+the weight spectrum of $\RM(7,14)$ except for these four numbers and their
+complements; the equivalence with Carlet's question does not depend on that
+theorem. Conjecture~2 of Lou and Wang, which would imply a positive answer, is
+false for $m=6$. For the open weights we prove non-existence in restricted
+families and reduce each of them to a question about $\RM(6,13)$ and
+$\RM(7,13)$; calibrated searches found no codeword of weight $322$, $326$,
+$330$ or $334$, which is heuristic evidence only. The $17$ explicit weights
+are formally verified in Lean~4. The results were found by AI coding agents working under the author's
+direction; their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+For $0\le r\le m$, the binary Reed--Muller code $\RM(r,m)$ consists of the
+truth tables on $\F_2^m$ of the polynomials in $x_1,\dots,x_m$ over $\F_2$ of
+degree at most $r$, where $x_i^2=x_i$. We identify a codeword with its
+polynomial (its algebraic normal form), write $\wt f$ for the number of points
+at which $f=1$, and call the set of weights of the codewords the \emph{weight
+spectrum}. The minimum distance of $\RM(r,m)$ is $d=2^{m-r}$. Kasami and
+Tokura~\cite{kt} determined the weights below $2d$, and Kasami, Tokura and
+Azumi~\cite{kta} those below $2.5d$. The whole weight spectrum of $\RM(m-c,m)$
+is known, for all $m\ge2c$, for $c\le2$ (classical), for $c=3,4$ (Carlet and
+Sol\'e~\cite{cs}), for $c=5$ (Carlet~\cite{c24}) and for $c=6$ (Lou and
+Wang~\cite{lw}).
+Carlet asked~\cite{c24} whether, for every $c\ge1$ and $m\ge2c$, the weight
+spectrum of $\RM(m-c,m)$ consists of $0$, $2^m$, the weights in $[2^c,2^{c+1}]$
+given by Kasami and Tokura and in $[2^{c+1},2^{c+1}+2^{c-1}]$ given by Kasami,
+Tokura and Azumi, their complements to $2^m$, and \emph{all} even numbers in
+$[2^{c+1}+2^{c-1},2^m-2^{c+1}-2^{c-1}]$. (We paraphrase the wording of Carlet's
+extended abstract~\cite{cdmd} of~\cite{c24}, which is also that
+of~\cite[Conjecture~1]{la}; we could not access the full text of~\cite{c24}.
+In the earlier conjecture of Carlet and Sol\'e~\cite[Section~6]{cs} the last
+interval starts at $3\cdot2^c$.) Since $d=2^c$, the last interval starts at
+$2.5d$. The first open case is $(c,m)=(7,14)$: here $d=128$, and the question
+asks whether every even number from $320$ to $2^{14}-320=16064$ is a weight of
+$\RM(7,14)$.
+
+Leuenberger and Albrizzio~\cite[Proposition~4]{la} showed that every even
+number from $312$ to $2^{14}-312$ is a weight of $\RM(7,14)$, except possibly
+the $22$ elements of
+\begin{multline*}
+M=\{322,326,330,334,354,8174,8178,8182,8186,8188,8190,\\
+8194,8196,8198,8202,8206,8210,16030,16050,16054,16058,16062\};
+\end{multline*}
+parts of their proof rest on computer searches whose details are not given
+(Lemmas~6 and~9 of~\cite{la}). They were unsure whether this is the whole
+spectrum, and remarked that their constructions would produce all of $M$ from
+the eight weights $322,326,330,334,354,4378,4380,4382$. Their constructions
+follow Lou and Wang, whose Conjecture~2~\cite{lw} would give $322$, $326$,
+$330$, $334$ and $354$ (see Theorem~C).
+
+\paragraph{Results.}
+Throughout, we write
+\begin{gather*}
+U_0=\{322,326,330,334\},\qquad U=U_0\cup(2^{14}-U_0)=U_0\cup\{16050,16054,16058,16062\},\\
+K=\{0,128,192,224,240,248,252,254,256,272,288,296,304,308,312,314,316,318\};
+\end{gather*}
+by the theorem of Kasami, Tokura and Azumi, $K$ is the set of weights of
+$\RM(7,14)$ below $320$; see (P4a) in Section~\ref{sec:prelim}.
+
+\begin{thmA}
+The following $17$ numbers are weights of $\RM(7,14)$: $354$, $4378$, $4380$,
+$4382$, $8174$, $8178$, $8182$, $8186$, $8188$, $8190$, $8194$, $8196$,
+$8198$, $8202$, $8206$, $8210$ and $16030$. Table~\ref{tab:wit} gives
+codewords with at most seven monomials.
+\end{thmA}
+
+Fourteen of these numbers, the elements of $M\setminus U$, are listed as
+missing in~\cite{la}; to our knowledge they are new. The other three, $4378$,
+$4380$ and $4382$, are not new: they are weights by~\cite[Proposition~4]{la},
+and the remark of~\cite{la} lists them among the eight weights from which its
+constructions would produce $M$. We include codewords for them because we do
+not use~\cite[Proposition~4]{la}.
+
+\begin{thmB}
+Let $S_0=\bigl(K\cup\{320,322,\dots,16064\}\cup(2^{14}-K)\bigr)\setminus U$.
+The weight spectrum of $\RM(7,14)$ is $S_0\cup X$ for a set $X\subseteq U$ with
+$X=2^{14}-X$. Every element of $S_0$ is the weight of an explicit codeword with
+at most eight monomials.
+\end{thmB}
+
+In Carlet's question the weights below $2.5d$ and their complements are, by
+definition, those given by~\cite{kt,kta}, and all weights are even by (P1). So
+for $(c,m)=(7,14)$ the question asks exactly whether every even number from
+$320$ to $16064$ is a weight. By the explicit codewords of Theorem~B and by
+(P1), \emph{it has a positive answer if and only if $322$, $326$, $330$ and
+$334$ are weights}. This equivalence does not depend on the theorem of Kasami,
+Tokura and Azumi; only the determination of the whole spectrum in Theorem~B
+does, where that theorem is the only external input: it excludes weights below
+$320$ outside $K$ (see (P4a)). We could not consult~\cite{kta} ourselves.
+
+Construction~2 of~\cite{lw} takes
+$g_1=x_1\cdots x_m+x_{i_1}\cdots x_{i_m}+x_{i_{m+1}}\cdots x_{i_{2m}}$ and
+$g_2=x_1\cdots x_m+x_{i_{2m+1}}\cdots x_{i_{3m}}+x_{i_{3m+1}}\cdots x_{i_{4m}}$
+with $1\le i_j\le2m$, and $a_1,a_2\in\F_2$, and forms the concatenation
+$g=0\cat(g_1+a_1)\cat g_2\cat(g_1+g_2+a_2)\in\RM(m+1,2m+2)$ of four truth
+tables (Section~\ref{sec:lw}). Conjecture~2 of~\cite{lw} states that, for
+$m\ge4$, the weights of these codewords include $2^{m+2}+2^m+2i$ and
+$2^{2m}+2^m+2i$ for $0\le i<2^m$; for $m=6$ the first family is
+$\{320,322,\dots,446\}$.
+
+\begin{thmC}
+Conjecture~2 of~\cite{lw} is false for $m=6$: no codeword of Construction~2
+with $m=6$ has weight $322$. This remains true if $g_1$ and $g_2$ range over all
+of $\RM(6,12)$, as in the proof of~\cite[Proposition~5]{lw}.
+\end{thmC}
+
+These codewords even miss all of $U$ (Proposition~C$'$), and so do the sums of
+at most three indicators of flats of dimension at least $7$ (Proposition~D) and
+the sums of at most five monomials of degree at most $7$ (Proposition~E, by
+exhaustive computation). Proposition~F reduces each $w\in U_0$ to a question
+about $\RM(6,13)$ and $\RM(7,13)$. Searches based on it found no codeword of
+weight in $U_0$, although on $\RM(6,12)$ they find the analogues
+$162,166,170,174$ of $U_0$ within two minutes; this is heuristic evidence only
+(Section~\ref{sec:search}). Theorem~A is formally verified in Lean~4
+(Section~\ref{sec:lean}).
+
+\paragraph{Prior work.}
+We found no earlier claim that an element of $M\setminus U$ is a weight of
+$\RM(7,14)$, no determination of its spectrum, and no disproof of Conjecture~2
+of~\cite{lw}. We searched on 26 September 2026, 06:41--07:15 and 13:43--14:03
+UTC: the arXiv (listing of~\cite{la}, still at version~1 at 13:43 UTC, and API
+searches); the works citing~\cite{la,lw,c24,cs} in Semantic Scholar; Crossref;
+zbMATH Open; the MathSciNet reference lookup; MathDB, whose entries on
+Carlet's question and on
+Conjecture~2 of~\cite{lw} were open, without solutions or comments;
+MathOverflow and Mathematics Stack Exchange; the IACR ePrint archive; HAL;
+GitHub, including \texttt{trureturing}~\cite{tru} and other repositories of
+AI-assisted work on open problems; and web search. Citation queries to OpenAlex
+and keyword searches of Semantic Scholar hit rate limits; the full texts
+of~\cite{kta}, \cite{c24} and the published version of~\cite{lw} were not
+accessible, so we quote~\cite{lw} and~\cite{la} from their arXiv versions~1;
+we did not search Google Scholar, and Scopus was not accessible. One possibly
+relevant paper could not be read: the note~\cite{lw2} of Lou and Wang (online
+4 April 2026), whose title refers to two conjectures about the weight spectra
+of Reed--Muller codes; no abstract was available, its reference list in
+Crossref includes~\cite{c24,cs,kt,kta,lw}, and~\cite{la} does not cite it. It
+may concern the conjectures of~\cite{lw}, and so may anticipate
+Theorem~C or other results here. A final check on 26 September 2026 between
+15:49 and 15:52 UTC (the arXiv, where~\cite{la} still had only version~1;
+GitHub; MathDB; and MathOverflow) found nothing new. This reports the coverage
+of our searches, not a guarantee of priority.
+
+\section{Preliminaries}\label{sec:prelim}
+A \emph{$k$-flat} is an affine subspace of dimension $k$, with $2^k$ points; its
+indicator $1_F$ is a product of $m-k$ affine functions, so it lies in
+$\RM(m-k,m)$. A nonempty intersection of flats is a flat. We write
+$x_S=\prod_{i\in S}x_i$ ($x_\emptyset=1$). Affine bijections preserve degrees,
+weights and flats. A \emph{quadratic function} has degree at most $2$. We use
+the following known results.
+
+{\setlength{\leftmargini}{3.2em}%
+\begin{itemize}
+\item[(P1)] If $r<m$, every codeword of $\RM(r,m)$ has even weight, since
+$\wt f\bmod2$ is the coefficient of $x_1\cdots x_m$ in $f$. As
+$\wt(f+1)=2^m-\wt f$, the weight spectrum is invariant under $w\mapsto2^m-w$.
+\item[(P2)] The weights of $\RM(r,m)$ are divisible by
+$2^{\lfloor(m-1)/r\rfloor}$ (McEliece~\cite{mc}). In particular the weights of
+$\RM(6,13)$ are divisible by $4$.
+\item[(P3)] The codewords of weight $d$ are the indicators of $(m-r)$-flats
+\cite[Chapter~13]{ms}. By the theorem of Kasami and Tokura~\cite{kt}, in the
+form stated in~\cite[Section~2]{caims}, every codeword of $\RM(r,m)$, $r\ge2$,
+with weight in $[d,2d)$ is affinely equivalent to
+$x_1\cdots x_{r-2}(x_{r-1}x_r+x_{r+1}x_{r+2}+\dots+x_{r+2l-3}x_{r+2l-2})$ with
+$2\le2l\le m-r+2$, or to
+$x_1\cdots x_{r-l}(x_{r-l+1}\cdots x_r+x_{r+1}\cdots x_{r+l})$ with
+$3\le l\le\min(r,m-r)$; both have weight $2d-2^{m-r+1-l}$. Hence in
+$\RM(6,12)$ ($d=64$) a codeword of weight $96$ is $1_Gq$ with $G$ an $8$-flat
+and $q$ quadratic; one of weight $112$ is of this form or is $1_F+1_{F'}$ with
+$6$-flats $F,F'$, $|F\cap F'|=8$; and one of weight $126$ is $1_F+1_{F'}$ with
+$6$-flats $F,F'$, $|F\cap F'|=1$.
+\item[(P4a)] The weights of $\RM(7,14)$ below $320$ are exactly the elements
+of $K$, by the theorem of Kasami, Tokura and
+Azumi~\cite[pp.~392\,ff.]{kta}.\footnote{We could not consult~\cite{kta}
+ourselves; the page reference is the one given by
+Carlet~\cite[Section~1]{cdmd} and by Carlet and Sol\'e~\cite[Section~6]{cs}.
+No source we read gives the complete list of the weights of $\RM(7,14)$
+between $256$ and $320$; Carlet~\cite[Section~2]{caims} says that the weights
+between $2d$ and $2.5d$ are too numerous to be recalled. Leuenberger and
+Albrizzio~\cite[Proposition~4]{la} assert only that the elements of $K$ are
+weights, not that there are no others below $320$. The part of (P4a) below
+$2d=256$ follows from (P3), and the computation after Proposition~E agrees
+with (P4a).}
+\item[(P4b)] The weights of $\RM(6,12)$ below $160$ are $0$, $64$, $96$,
+$112$, $120$, $124$, $126$, $128$, $136$, $144$, $148$, $152$, $154$, $156$
+and $158$ (\cite[Lemma~2]{lw}, which cites~\cite{kt,kta}).
+\end{itemize}}
+
+\begin{lemma}\label{lem:ie}
+For $S_1,\dots,S_k\subseteq\{1,\dots,m\}$,
+\[
+\wt\Bigl(\sum_{i=1}^kx_{S_i}\Bigr)=\sum_{\emptyset\ne T\subseteq\{1,\dots,k\}}
+(-2)^{|T|-1}\,2^{m-|\bigcup_{i\in T}S_i|}.
+\]
+In particular, the weight depends only on the sizes of the $2^k-1$ Venn regions
+of $S_1,\dots,S_k$.
+\end{lemma}
+\begin{proof}
+For $y_1,\dots,y_k\in\{0,1\}$ the exclusive or of the $y_i$ equals
+$\sum_{\emptyset\ne T}(-2)^{|T|-1}\prod_{i\in T}y_i$, by induction on $k$ from
+$y\oplus y'=y+y'-2yy'$. Put $y_i=x_{S_i}(x)$ and sum over $x\in\F_2^m$: the
+product over $T$ equals $1$ exactly when $x_j=1$ for all
+$j\in\bigcup_{i\in T}S_i$, which happens at $2^{m-|\bigcup_{i\in T}S_i|}$
+points. The size of a union is a sum of sizes of Venn regions.
+\end{proof}
+
+\begin{lemma}\label{lem:halves}
+Let $f\colon\F_2^{m+1}\to\F_2$, and put $g(x)=f(x,0)$ and $g'(x)=f(x,1)$ for
+$x\in\F_2^m$. Then $f=g+x_{m+1}(g+g')$, and $f\in\RM(r+1,m+1)$ if and only if
+$g\in\RM(r+1,m)$ and $g+g'\in\RM(r,m)$. Moreover
+$\wt f=\wt g+\wt g'=\wt(g+g')+2|\supp g\cap\supp g'|$, and
+$\supp g\cap\supp g'=\supp g\setminus\supp(g+g')$.
+\end{lemma}
+\begin{proof}
+The identity holds at $x_{m+1}=0$ and at $x_{m+1}=1$. The polynomials $g$ and
+$x_{m+1}(g+g')$ have no monomial in common, so $\deg f\le r+1$ if and only if
+$\deg g\le r+1$ and $\deg(g+g')\le r$. The rest is counting.
+\end{proof}
+
+\section{Explicit codewords: Theorems A and B}\label{sec:AB}
+
+\begin{table}[t]\centering\footnotesize
+\begin{tabular}{@{}r>{\raggedright\arraybackslash}p{0.66\textwidth}l@{}}
+\toprule
+$w$ & codeword $f_w$ & $(\sigma_1,\dots,\sigma_k)$\\
+\midrule
+$354$ & $\sa+\sbb+x_1x_2x_3x_5x_6x_7x_{11}+x_1x_3x_6x_7x_{10}x_{12}x_{13}+x_3x_4x_6x_7x_{10}x_{12}x_{13}$ & $(640,203,50,12,1)$\\
+$4378$ & $\sa+\sbb+x_3x_4x_6+x_1x_5x_7x_{11}x_{13}+x_6x_{14}$ & $(6912,1537,173,21,1)$\\
+$4380$ & $x_2x_6x_7x_9x_{12}+x_3x_4x_5x_8x_9x_{10}x_{13}+x_8x_{14}+x_1x_3x_5x_9x_{10}x_{11}x_{14}$ & $(4864,288,25,1)$\\
+$4382$ & $\sa+\sbb+x_1x_2x_5x_6x_7+x_4x_9+x_3x_4x_6x_8x_{12}$ & $(5376,725,150,20,1)$\\
+$8174$ & $\sa+\sbb+x_7+x_5x_{10}+x_2x_3x_4x_5x_8x_{10}x_{11}+x_1x_2x_4x_6x_{13}x_{14}$ & $(12928,2825,314,59,9,1)$\\
+$8178$ & $\sa+\sbb+x_7+x_2x_5x_6x_{13}+x_2x_5x_8x_{10}x_{13}x_{14}$ & $(9728,1081,187,19,1)$\\
+$8182$ & $\sa+\sbb+x_8+x_1x_2x_3x_4x_6x_{11}x_{13}+x_1x_{14}+x_2x_7x_8x_{10}x_{11}x_{12}x_{14}$ & $(12800,2765,304,50,8,1)$\\
+$8186$ & $\sa+\sbb+x_{11}+x_4x_{12}+x_1x_2x_8x_{10}x_{11}x_{12}x_{13}$ & $(12672,2597,219,23,1)$\\
+$8188$ & $x_1+x_2x_5x_6x_8x_9x_{10}x_{13}+x_2x_{14}+x_1x_4x_6x_7x_{11}x_{12}x_{14}$ & $(12544,2370,100,2)$\\
+$8190$ & $\sa+\sbb+x_2+x_1x_7x_8$ & $(10496,1313,82,1)$\\
+\bottomrule
+\end{tabular}
+\caption{The codewords of Theorem~A; $\sa=x_1\cdots x_7$, $\sbb=x_8\cdots
+x_{14}$. If $f_w=\sum_{i=1}^kx_{S_i}$, then $\sigma_j=\sum_{|T|=j}
+2^{14-|\bigcup_{i\in T}S_i|}$ over $T\subseteq\{1,\dots,k\}$, and $\wt
+f_w=\sum_j(-2)^{j-1}\sigma_j$ (Lemma~\ref{lem:ie}). The complements $1+f_w$
+for $w=354,8190,8188,8186,8182,8178,8174$ have the weights
+$16030,8194,8196,8198,8202,8206,8210$.}\label{tab:wit}
+\end{table}
+
+\begin{proof}[Proof of Theorem~A]
+Each $f_w$ in Table~\ref{tab:wit} is a sum of distinct monomials of degree at
+most $7$, so $f_w\in\RM(7,14)$. By Lemma~\ref{lem:ie}, $\wt
+f_w=\sum_j(-2)^{j-1}\sigma_j$ with the $\sigma_j$ of the table; for instance
+$\wt f_{354}=640-2\cdot203+4\cdot50-8\cdot12+16=354$. The other seven weights
+are those of the complements $1+f_w$, by (P1). All $17$ weights were also
+checked by machine (Sections~\ref{sec:comp} and~\ref{sec:lean}).
+\end{proof}
+
+\begin{remark}\label{rem:direct}
+The weights $8174$ to $8210$ also follow from a direct sum: if $A$ depends only
+on $x_1,\dots,x_7$ and $B$ only on $x_8,\dots,x_{14}$, then $\deg(A+B)\le7$ and
+$\wt(A+B)=\wt A(128-\wt B)+(128-\wt A)\wt B=8192-2(64-\wt A)(64-\wt B)$. As
+$\wt A$ and $\wt B$ can take any value from $0$ to $128$, taking $\wt B=63$ and
+$\wt A=64-n$ shows that every even number $8192-2n$ with $|n|\le64$ is a
+weight.
+\end{remark}
+
+\begin{proof}[Proof of Theorem~B]
+The file \code{rm714_all_witnesses.json} of~\cite{repo} lists, for each of the
+$7901$ elements $w$ of $S_0$, a sum of at most eight distinct monomials of
+degree at most $7$ with weight $w$, as two independent programs confirm
+(Section~\ref{sec:comp}). So every element of $S_0$ is a weight. Conversely,
+by (P1) every weight is even; by (P4a) the weights below $320$ lie in $K$, and
+by complementation the weights above $16064$ lie in $2^{14}-K$. So the spectrum lies in $S_0\cup U$, and it equals $S_0\cup X$ with
+$X$ the set of weights in $U$; $X=2^{14}-X$ by (P1).
+\end{proof}
+
+Most entries of the file were found by random sampling of sparse polynomials,
+and $362$ by~\cite[Lemma~8]{la}; this plays no role in the proof. As $S_0$
+consists of the weights asserted in~\cite[Proposition~4]{la} and the new
+weights of Theorem~A, the file also checks that proposition independently.
+
+
+
+\section{Construction 2 of Lou and Wang: Theorem C}\label{sec:lw}
+Following~\cite{lw}, for functions $f_1,f_2,f_3,f_4$ on $\F_2^{12}$ let
+$f_1\cat f_2\cat f_3\cat f_4$ be the function on $\F_2^{14}$ equal to $f_1$,
+$f_2$, $f_3$, $f_4$ on the cosets $(x_{13},x_{14})=(0,0),(1,0),(0,1),(1,1)$, so
+that its weight is $\sum\wt f_i$. For $A,B\in\RM(6,12)$ we have
+$0\cat A\cat B\cat(A+B)=x_{13}A+x_{14}B\in\RM(7,14)$.
+
+\begin{lemma}\label{lem:triples}
+Let $A,B\in\RM(6,12)$ and $f=x_{13}A+x_{14}B$. Then
+$\wt f=\wt A+\wt B+\wt(A+B)$. If $\wt f\in U_0$, then $\wt f\ne322$, and the
+multiset $\{\wt A,\wt B,\wt(A+B)\}$ is $\{64,126,136\}$ if $\wt f=326$,
+$\{64,112,154\}$ if $\wt f=330$, and one of $\{64,112,158\}$,
+$\{64,126,144\}$, $\{96,112,126\}$ if $\wt f=334$.
+\end{lemma}
+\begin{proof}
+The first claim is the weight of the concatenation. Each of $A$, $B$, $A+B$ is
+the sum of the other two, and $\supp(Y+Z)\subseteq\supp Y\cup\supp Z$, so each
+of the three weights is at most the sum of the other two. Hence, writing
+$a\le b\le c$ for the three weights, $c\le a+b$ and $c\le\wt f/2\le167$. By (P1)
+and (P4b), $a,b,c$ lie in
+\[
+L=\{0,64,96,112,120,124,126,128,136,144,148,152,154,156,158,160,162,164,166\}.
+\]
+The triples in $L$ with $a\le b\le c\le a+b$ and $a+b+c\in U_0$ are the ones
+listed (certificate \code{cert_arith}, Section~\ref{sec:comp}). For
+$\wt f=322$ this is also easy to see by hand. Then $c\le161$, so $a,b,c\le160$.
+The elements of $L$ that are $2$ modulo $4$ are $126$, $154$ and $158$, and
+$322\equiv2\pmod4$, so an odd number of $a,b,c$ are among them; as three of them
+sum to at least $378$, exactly one is. But
+none of $322-126=196$, $322-154=168$ and $322-158=164$ is a sum of two elements
+of $\{0,64,96,112,120,124,128,136,144,148,152,156,160\}$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~C]
+In both readings $g_1,g_2\in\RM(6,12)$, so let $g_1,g_2\in\RM(6,12)$ be
+arbitrary and $g=0\cat(g_1+a_1)\cat g_2\cat(g_1+g_2+a_2)$. If $a_1=a_2=0$, then
+$g=x_{13}g_1+x_{14}g_2$, and $\wt g\ne322$ by Lemma~\ref{lem:triples}. If
+$a_1=a_2=1$, then $g=0\cat G_1\cat g_2\cat(G_1+g_2)=x_{13}G_1+x_{14}g_2$ with
+$G_1=g_1+1\in\RM(6,12)$, and the same holds. If $a_1=1$ and $a_2=0$, then
+$\wt g=(4096-\wt g_1)+\wt g_2+\wt(g_1+g_2)\ge4096$, as
+$\wt g_2+\wt(g_1+g_2)\ge\wt g_1$; similarly $\wt g\ge4096$ if $a_1=0$ and
+$a_2=1$. So $322$ is not a weight of Construction~2 for $m=6$, whereas
+Conjecture~2 of~\cite{lw} asserts that $2^8+2^6+2=322$ is one.
+\end{proof}
+
+\begin{propCp}
+Let $A,B\in\RM(6,12)$. Then $\wt(x_{13}A+x_{14}B)\notin U$. Consequently no
+codeword of Construction~2 with $m=6$ has weight in $U$, whether $g_1$ and
+$g_2$ are as in~\cite{lw} or arbitrary in $\RM(6,12)$.
+\end{propCp}
+\begin{proof}
+We use the fact $(\ast)$: if $G,E$ are flats of $\F_2^{12}$ and $q$ is
+quadratic, then $|G\cap E\cap\supp q|$ is even or at most $3$, since $q$
+restricted to the flat $G\cap E$ (if nonempty, of dimension $k$) has even weight
+if $k\ge3$ by (P1), and weight at most $2^k\le4$ otherwise.
+
+The weight of $f=x_{13}A+x_{14}B$ is at most $3\cdot2^{12}=12288<16050$, and it
+is not $322$ by Lemma~\ref{lem:triples}. For the five remaining triples of
+Lemma~\ref{lem:triples} we choose two of the functions $A$, $B$, $A+B$, say
+$X$ and $Y$, so that $X+Y$ is the third; then
+$|\supp X\cap\supp Y|=(\wt X+\wt Y-\wt(X+Y))/2$. We use (P3) throughout.
+
+\emph{The triples $\{64,126,136\}$ and $\{64,126,144\}$.} Take $X=1_E$ with $E$
+a $6$-flat and $Y=1_F+1_{F'}$ with $F\cap F'=\{p\}$. Then
+$|E\cap\supp Y|=27$, resp.\ $23$. As $\supp Y=(F\cup F')\setminus\{p\}$,
+$|E\cap F|+|E\cap F'|=|E\cap\supp Y|+2[p\in E]$ is $27$ or $29$, resp.\ $23$ or
+$25$. Both summands are $0$ or powers of $2$, so one of them is $1$, and the
+other is $22$, $24$, $26$ or $28$, which is impossible.
+
+\emph{The triples $\{64,112,154\}$ and $\{64,112,158\}$.} Take $X=1_E$ with
+$E$ a $6$-flat and $\wt Y=112$. Then $|E\cap\supp Y|=11$, resp.\ $9$. If
+$Y=1_Gq$, this contradicts $(\ast)$. Otherwise $Y=1_F+1_{F'}$ with
+$|F\cap F'|=8$. Put $s=|E\cap F|$, $s'=|E\cap F'|$ and $t=|E\cap F\cap F'|$,
+each $0$ or a power of $2$. Then $s+s'-2t$ is $11$, resp.\ $9$. It is odd, so
+$s=1$ or $s'=1$; by symmetry let $s=1$. Then $t\le1$, and $s'=10+2t$,
+resp.\ $s'=8+2t$, so we are in the second case with $s'=8$ and $t=0$. By (P3)
+we may take $F=\{x_1=\dots=x_6=1\}$ and $F'=\{x_1=x_2=x_3=x_7=x_8=x_9=1\}$
+(the form $x_1x_2x_3(x_4x_5x_6+x_7x_8x_9)$). Since $|E\cap F|=1$, the affine
+map $E\to\F_2^6$, $x\mapsto(x_1,\dots,x_6)$, has a fibre with one point, so it
+is injective and hence bijective. So the set $E_3$ of points of $E$ with
+$x_1=x_2=x_3=1$ has $8$ points. As $E\cap F'\subseteq E_3$ and
+$|E\cap F'|=8$, we get $E\cap F'=E_3$. The point of $E\cap F$ lies in $E_3$,
+hence in $F'$, so $t=1$, a contradiction.
+
+\emph{The triple $\{96,112,126\}$.} Take $X=1_Gq$ of weight $96$ and
+$Y=1_F+1_{F'}$ of weight $126$ with $F\cap F'=\{p\}$, so that $\wt(X+Y)=112$.
+Then $|\supp X\cap\supp Y|=55$, and $|\supp X\cap F|+|\supp X\cap F'|$ is $55$
+or $57$. One summand is odd, hence at most $3$ by $(\ast)$. The other is at most
+$48$. Indeed, it is the weight of $q$ on the flat $G\cap F$ (or $G\cap F'$). If
+this flat has dimension at most $5$, the weight is at most $32$. Otherwise
+$F\subseteq G$, and $q$ is not constant $1$ on $F$: otherwise
+$\supp X\supseteq F$, and $X+1_F$ would be a nonzero codeword of $\RM(6,12)$
+of weight $32<64$. So $1+q$ restricted to $F$ is a nonzero codeword of
+$\RM(2,6)$, of weight at least $16$, and $q$ has weight at most $48$ on $F$.
+The total is at most $51<55$, a contradiction.
+
+Finally, in Construction~2 the cases $a_1=a_2$ give codewords
+$x_{13}A+x_{14}B$ with $A,B\in\RM(6,12)$, as in the proof of Theorem~C, and the
+other cases give weights between $4096$ and $12288$.
+\end{proof}
+
+In particular, the codewords of~\cite[Constructions~1--3, Propositions~1
+and~2]{la}, which are of this form, have no weight in $U$.
+
+\section{Partial non-existence results for the open weights}\label{sec:nonex}
+
+\subsection{Sums of flats}
+Call two flats \emph{transversal} if they meet in exactly one point. Two
+transversal flats of $\F_2^{14}$ of dimension at least $7$ both have dimension
+$7$: if their direction spaces are $V$ and $V'$, then $V\cap V'=\{0\}$, so
+$\dim V+\dim V'\le14$.
+
+\begin{propD}
+Let $F_1,F_2,F_3$ be flats of $\F_2^{14}$ of dimension at least $7$, not
+necessarily distinct (the whole space is allowed). Then none of $\wt 1_{F_1}$,
+$\wt(1_{F_1}+1_{F_2})$ and $\wt(1_{F_1}+1_{F_2}+1_{F_3})$ lies in $U$.
+\end{propD}
+\begin{proof}
+The weight of $1_{F_1}+1_{F_2}+1_{F_3}$ is
+$\sum|F_i|-2\sum_{i<j}|F_i\cap F_j|+4|F_1\cap F_2\cap F_3|$, and a nonempty
+intersection of flats has a power of $2$ as its size. As $4\mid|F_i|$, the
+weight is $2$ modulo $4$ if and only if an odd number of the three pairs are
+transversal. The same holds for one or two flats. All elements of $U$ are $2$
+modulo $4$.
+
+For one flat there is no transversal pair. Two transversal $7$-flats give the
+weight $128+128-2=254$. Three pairwise transversal $7$-flats give
+$384-6+4|F_1\cap F_2\cap F_3|\in\{378,382\}$. It remains to treat exactly one
+transversal pair, say $F_1\cap F_2=\{p\}$ with $\dim F_1=\dim F_2=7$, and
+$\dim F_3=d\in[7,14]$. Translate so that $p=0$; then $F_1=V_1$ and $F_2=V_2$
+are linear subspaces with $V_1\oplus V_2=\F_2^{14}$. Let $V_3$ be the direction
+space of $F_3$. The pairs $(F_1,F_3)$ and $(F_2,F_3)$ are not transversal.
+
+\emph{Case $p\in F_3$.} Then $F_3=V_3$, $|V_1\cap V_3|=2^a$ and
+$|V_2\cap V_3|=2^b$ with $a,b\ge1$, and the weight is
+$258+2^d-2^{a+1}-2^{b+1}$. Since $(V_3\cap V_1)\oplus(V_3\cap V_2)\subseteq V_3$,
+we have $a+b\le d$. The only solutions of $258+2^d-2^{a+1}-2^{b+1}\in U$ with
+$1\le a\le b\le7$ and $7\le d\le14$ are $(w,d,a,b)=(322,7,4,4)$ and
+$(322,8,5,6)$, and both violate $a+b\le d$.
+
+\emph{Case $p\notin F_3$.} Then the weight is $254+2^d-2(\alpha+\beta)$, where
+$\alpha=|F_1\cap F_3|$ and $\beta=|F_2\cap F_3|$ are $0$ or powers of $2$ from
+$2$ to $128$. The
+only solution in $U$ is $w=334$, $d=7$, $\{\alpha,\beta\}=\{8,16\}$. Then
+$\dim(V_3\cap V_1)+\dim(V_3\cap V_2)=3+4=7=\dim V_3$, so
+$V_3=(V_3\cap V_1)\oplus(V_3\cap V_2)$. Write $F_3=c+V_3$ and $c=c_1+c_2$ with
+$c_i\in V_i$. As $F_3$ meets $F_1$, $c\in V_1+V_3=V_1+(V_3\cap V_2)$, so
+$c_2\in V_3\cap V_2$; similarly $c_1\in V_3\cap V_1$. Hence $c\in V_3$ and
+$0=p\in F_3$, a contradiction.
+
+Both statements about solutions are checked by \code{cert_arith}, and by hand
+they are quick, as $2^{a+1}+2^{b+1}$ and $\alpha+\beta$ have at most two binary
+digits $1$.
+\end{proof}
+
+The obstruction is dimension counting: in $\RM(6,12)$ the $6$-flats spanned by
+$e_1,\dots,e_6$, by $e_7,\dots,e_{12}$ and by $e_1,e_2,e_3,e_7,e_8,e_9$ give
+$162=2.5\cdot64+2$, whereas $322$ in $\RM(7,14)$ would need $a=b=4$, against
+$a+b\le7$.
+
+\subsection{Sums of few monomials}
+\begin{propE}
+No sum of at most five monomials of degree at most $7$ in $x_1,\dots,x_{14}$
+(the constant $1$ allowed) has weight in $U$. The same holds for $f\circ\phi$ for
+every such sum $f$ and every affine bijection $\phi$ of $\F_2^{14}$.
+\end{propE}
+\begin{proof}[Proof by exhaustive computation]
+By Lemma~\ref{lem:ie}, the weight of $\sum_{i=1}^kx_{S_i}$ depends only on the
+Venn region sizes $n_T$, $\emptyset\ne T\subseteq\{1,\dots,k\}$, which satisfy
+$\sum_Tn_T\le14$ and $|S_i|=\sum_{T\ni i}n_T\le7$. Equal monomials cancel in
+pairs, so the sums of at most five distinct monomials are exactly the sums
+$\sum_{i=1}^kx_{S_i}$ with $k\in\{4,5\}$ and not necessarily distinct $S_i$. We
+enumerated all vectors $(n_T)$ for $k\le5$: there are $8$, $204$, $20{,}708$,
+$8{,}568{,}777$ and $11{,}690{,}447{,}828$ of them for $k=1,\dots,5$. Two
+independent programs (Section~\ref{sec:comp}) agree on these counts, and
+neither finds a weight in $U$. The second statement holds because $\phi$
+preserves weights.
+\end{proof}
+
+Among these sums, the weights $2$ modulo $4$ in $[250,400]$ are $254$, $314$,
+$318$ and all such numbers from $338$ to $398$, and the weights below $320$ are
+exactly the elements of $K$, in agreement with (P4a).
+
+\subsection{A reduction}
+\begin{lemma}\label{lem:dir}
+Let $f\in\RM(7,14)$ have support $S$ and weight $w\equiv2\pmod4$. For
+$a\in\F_2^{14}\setminus\{0\}$ let $n_a$ be the number of pairs $\{x,x+a\}$
+contained in $S$. Then $\sum_{a\ne0}n_a=\binom w2$, every $n_a$ is odd, and in
+coordinates in which $a$ is the last unit vector we have $f=g+x_{14}h$ with
+$g\in\RM(7,13)$, $h\in\RM(6,13)$, $n_a=|\supp g\setminus\supp h|$ and
+$\wt h=w-2n_a$.
+\end{lemma}
+\begin{proof}
+Each $2$-subset $\{x,y\}$ of $S$ is counted once, by $a=x+y$. Composing $f$
+with an invertible linear map sending $e_{14}$ to $a$, we may assume
+$a=e_{14}$. By Lemma~\ref{lem:halves} with
+$m=13$ and $r=6$, $f=g+x_{14}h$ with $g=f(\cdot,0)\in\RM(7,13)$ and
+$h=f(\cdot,0)+f(\cdot,1)\in\RM(6,13)$; the pairs in direction $e_{14}$
+correspond to the points of $\supp g\cap\supp(g+h)=\supp g\setminus\supp h$,
+and $\wt h=w-2n_a$. By (P2), $4\mid\wt h$, so $2n_a\equiv w\equiv2\pmod4$.
+\end{proof}
+
+\begin{propF}
+Let $w\in U_0$. Then $w$ is a weight of $\RM(7,14)$ if and only if there are
+$h\in\RM(6,13)$ and $g\in\RM(7,13)$ with
+\[
+(\wt h,\ |\supp g\setminus\supp h|)=(w-2,1)\quad\text{or}\quad(w-6,3).
+\]
+Moreover, a codeword of weight $w=322,326,330,334$ has such a decomposition, as
+in Lemma~\ref{lem:dir}, in at least $7559$, $7235$, $6908$, $6576$ directions.
+\end{propF}
+\begin{proof}
+If $g$ and $h$ are as stated, then $f=g+x_{14}h\in\RM(7,14)$ has weight
+$\wt h+2|\supp g\setminus\supp h|=w$ by Lemma~\ref{lem:halves}. Conversely,
+let $f$ have weight $w$. By Lemma~\ref{lem:dir} the $n_a$ are odd and
+$\sum_{a\ne0}(n_a-1)=\binom w2-16383$. A direction with $n_a\ge5$ contributes
+at least $4$ to this sum, so at most $\lfloor(\binom w2-16383)/4\rfloor$
+directions have $n_a\ge5$; for $w=322,326,330,334$ this bound is $8824$,
+$9148$, $9475$, $9807$. In each of the remaining directions $n_a\in\{1,3\}$, and
+Lemma~\ref{lem:dir} gives the decomposition with $\wt h=w-2n_a$.
+\end{proof}
+
+\section{Computations}\label{sec:comp}
+
+\subsection{Certificates}
+Every computation used in a proof was done by two programs written separately
+(in \code{certificates/rm714/} of version~1.4.0 of~\cite{repo}, with data and
+logs). For Theorems~A and~B, \code{verify_witnesses.c} (binary M\"obius
+transform) and \code{verify_bitset.py} with \code{verify_all_py.py}
+(big-integer bit sets) check degrees and weights; both accept the codewords of
+Table~\ref{tab:wit}, their complements and the $7901$ entries of
+\code{rm714_all_witnesses.json} (SHA-256 \texttt{784bca3b}\dots), whose
+weights are exactly the elements of $S_0$. For Lemma~\ref{lem:triples} and
+Propositions~C$'$, D and~F, \code{cert_arith.py} and \code{cert_arith.c} print
+the same $38$ lines. For Proposition~E, \code{venn_enum.c} (for $k\le4$) and
+\code{venn_enum_fast.c} (for $k=5$) recurse over the Venn regions and use
+Lemma~\ref{lem:ie}, while \code{venn_enum_indep.c} splits the regions monomial
+by monomial and uses M\"obius inversion. Their logs agree on the counts for
+every $k$, on all weights up to $400$ for $k\le4$, and, for $k=5$, on the
+weights $2$ modulo $4$ in $[250,400]$ and on the number $5676$ of distinct
+weights. No run finds a weight in $U$. The complete sets of weights, which
+\code{venn_enum_indep.c} writes to files, were not compared.
+
+\subsection{Searches for the open weights (heuristic)}\label{sec:search}
+For fixed $h\in\RM(6,13)$, the existence of $g\in\RM(7,13)$ with
+$|\supp g\setminus\supp h|=n$, for $n=1$ or $3$ as in Proposition~F, is linear
+algebra: let $H=\supp h$ and let
+$c(x)\in\F_2^{2380}$ be the values at $x\in\F_2^{13}$ of the monomials of
+degree at most $5$, a column of a parity-check matrix of $\RM(7,13)$, whose dual
+is $\RM(5,13)$~\cite[Chapter~13]{ms}. A vector supported on a set $P$ disjoint
+from $H$ agrees outside $H$ with a codeword if and only if
+$\sum_{x\in P}c(x)\in\spn c(H)$. The program \code{closure_search.c} samples
+structured $h$ of degree at most $6$ (sums of two to four pieces, each the
+indicator of a $7$- to $9$-flat or the indicator of a $9$- to $11$-flat times
+a sum of one to three products of two or three affine forms; or, with the
+option \texttt{GEN\_FLATS}, sums of three or four such pieces, mostly
+indicators of $7$- and $8$-flats) and decides $n=1$ and $n=3$ exactly for each
+$h$ of a relevant weight. It first maps the $c(x)$ by a fixed random linear map
+to $\F_2^{512}$, which can create false positives but no false negatives; each
+positive is re-solved with the full vectors and the codeword is rebuilt and
+rechecked. No positive was false, and \code{check_closure_hits.py} rechecks in
+pure Python every codeword printed in the logs ($18$ distinct ones for each
+code). With $m=11$ the same program runs on $\RM(6,12)$ as a calibration.
+
+\begin{table}[t]\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}rrrrr@{\hspace{14pt}}rrrrr@{}}
+\toprule
+\multicolumn{5}{c}{$\RM(7,14)$, $h\in\RM(6,13)$} &
+\multicolumn{5}{c}{$\RM(6,12)$, $h\in\RM(5,11)$}\\
+\cmidrule(r){1-5}\cmidrule(l){6-10}
+& \multicolumn{2}{c}{$n=1$} & \multicolumn{2}{c}{$n=3$}
+& & \multicolumn{2}{c}{$n=1$} & \multicolumn{2}{c}{$n=3$}\\
+$w$ & sampled & found & sampled & found & $w$ & sampled & found & sampled & found\\
+\midrule
+$318^*$ & $2782+549$ & $2782+549$ & $4285+1010$ & $1360+276$ & $158^*$ & $3420$ & $3245$ & $4581$ & $1616$\\
+$322$ & $6574+1958$ & $0$ & $2782+549$ & $0$ & $162$ & $9581$ & $58$ & $3420$ & $0$\\
+$326$ & $15+89$ & $0$ & $6574+1958$ & $0$ & $166$ & $1213$ & $366$ & $9581$ & $58$\\
+$330$ & $229+728$ & $0$ & $15+89$ & $0$ & $170$ & $3996$ & $1678$ & $1213$ & $803$\\
+$334$ & $170+587$ & $0$ & $229+728$ & $0$ & $174$ & $3052$ & $2820$ & $3996$ & $1679$\\
+$338^*$ & $1159+3623$ & $43+165$ & $170+587$ & $0$ & $178^*$ & $32029$ & $886$ & $3052$ & $754$\\
+$342^*$ & $1059+2140$ & $239+700$ & $1159+3623$ & $43+165$ & & & & &\\
+\bottomrule
+\end{tabular}
+\caption{Searches of Section~\ref{sec:search}: for a target weight $w$ and
+$n=1$ (resp.\ $3$), the number of distinct sampled $h$ of weight $w-2$
+(resp.\ $w-6$), and the number of them admitting $g$ with
+$|\supp g\setminus\supp h|=n$, i.e.\ giving a codeword of weight $w$. Entries
+$x+y$: default generator $+$ \texttt{GEN\_FLATS} (one $h$ of weight $340$ was
+sampled by both). Starred: known weights, used as controls.}\label{tab:search}
+\end{table}
+
+The runs for $\RM(7,14)$ (26 September 2026, 13:59--14:33 UTC) were five of
+$1200$ seconds with the default generator (seeds $11$--$15$), five of $720$
+seconds with \texttt{GEN\_FLATS} (seeds $41$--$45$) and one of $240$ seconds
+(seed $51$); the calibration was one run of $120$ seconds (seed $21$).
+Consecutive seeds give shifted copies of one random stream, and the runs of each
+group sampled the same sequence of $h$. Regenerating the samples from the
+recorded seeds and iteration counts (\code{closure_replay.c}) confirms this, and
+shows that no $h$ of these weights repeats within a run and that the run with
+seed $51$ sampled a subset of the first group. Table~\ref{tab:search} counts each $h$ once:
+$26{,}956$ distinct $h$ of weights $312$ to $340$, of which $13{,}681$ have the
+weights $316$ to $332$ relevant for $U_0$.
+
+In $\RM(6,12)$ all four analogues $162,166,170,174$ of $U_0$ were found, and
+$162=2.5\cdot64+2$ arose only from $h$ of weight exactly $2.5\cdot64$, with
+$n=1$ ($58$ of $9581$ such $h$). In $\RM(7,14)$ none of the $8532$ sampled $h$
+of weight $320=2.5\cdot128$ admits $n=1$, and none of the $3331$ of weight
+$316$ admits $n=3$. Earlier, cruder searches found no weight in $U_0$ either
+(they did not reach weights near $2^{14}-U_0$): random sparse polynomials
+(\code{sparsefind.c}; the weights it found are listed in
+\code{sparse_table_s7.txt}), and about $6.7\cdot10^9$ random sums of three to
+six flat indicators and hill-climbing steps (\code{flatsearch.c}), which met
+$318$ and $338$ millions of times. All this is heuristic: the test is exact for
+each sampled $h$, but the sampled $h$ are few and special.
+
+\section{Formal verification}\label{sec:lean}
+Theorem~A is formalised in \code{RM714Weights.lean} and
+\code{RM714WeightsAudit.lean} (in \code{lean/Research/} of version~1.4.0
+of~\cite{repo}; Lean~4.33.1, Mathlib~\cite{mathlib} commit \texttt{0df444a3}).
+In the namespace \texttt{RM714} a polynomial is a list of monomials, a monomial
+being the set $S\subseteq\{0,\dots,13\}$ of the indices of its variables
+(index $i$ stands for $x_{i+1}$), and \texttt{evalPoly L x} is
+\texttt{(L.map fun S => prod i in S, x i).sum} in \texttt{ZMod 2}. In ASCII
+notation (\texttt{\#} is the cardinality of a finite set) the other definitions
+and the main theorem read:
+\begin{footnotesize}
+\begin{verbatim}
+def weight (L : List (Finset (Fin 14))) : Nat :=
+  #{x : Fin 14 -> ZMod 2 | evalPoly L x = 1}
+def IsRM714Weight (w : Nat) : Prop :=
+  exists L : List (Finset (Fin 14)), (forall S in L, S.card <= 7) /\ weight L = w
+theorem rm714_new_weights :
+  forall w in [354, 16030, 4378, 4380, 4382, 8174, 8178, 8182, 8186, 8188,
+               8190, 8194, 8196, 8198, 8202, 8206, 8210], IsRM714Weight w
+\end{verbatim}
+\end{footnotesize}
+So \texttt{IsRM714Weight w} says exactly that $w$ is a weight of $\RM(7,14)$
+(repeated monomials are allowed; they cancel).
+
+\emph{A note on the name.} Despite its name, \texttt{rm714\_new\_weights}
+certifies all $17$ weights of Theorem~A, of which only $14$ are new: $354$,
+$8174$, $8178$, $8182$, $8186$, $8188$, $8190$, $8194$, $8196$, $8198$, $8202$,
+$8206$, $8210$ and $16030$, the elements of $M\setminus U$. The other three,
+$4378$, $4380$ and $4382$, are asserted by~\cite[Proposition~4]{la}. The name
+is historical; the claim of novelty rests on the text of this paper, not on the
+name of the declaration.
+
+The weights are computed on $14$-bit masks: \texttt{weightNat} counts the bit
+patterns at which the exclusive or of the monomials is $1$;
+\texttt{weight\_map\_maskSet} proves that this count is \texttt{weight} (using
+Mathlib's \texttt{finFunctionFinEquiv}); and \texttt{isRM714Weight\_of} turns
+masks of degree (\texttt{degNat}) at most $7$ with count $w$ into
+\texttt{IsRM714Weight w}. The witnesses \texttt{L354}, \dots, \texttt{L8210}
+(Table~\ref{tab:wit} and complements) are checked by
+\texttt{isRM714Weight\_354}, \dots, \texttt{isRM714Weight\_8210} with
+\texttt{decide +kernel}, that is, by evaluation in the kernel. An audit file
+prints the definitions and statements and tests the definitions on examples.
+There is no \texttt{sorry}, no \texttt{axiom} and no \texttt{native\_decide};
+\texttt{\#print axioms} for \texttt{rm714\_new\_weights},
+\texttt{weight\_map\_maskSet} and \texttt{isRM714Weight\_of} reports only
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. A rebuild
+with \texttt{lake build} in a clean directory (fresh sources, Mathlib build from
+the local cache) and \texttt{leanchecker} on both modules exited with code $0$
+(26 September 2026, 13:49--13:55 UTC; the log is in version~1.4.0 of the
+repository). Not formalised are Theorem~B (its $7901$ codewords would need
+hours of kernel time in this encoding, and its upper bound rests
+on~\cite{kta}), Theorem~C, Propositions~C$'$, D, E and~F, and the searches.
+
+\section{Open questions}\label{sec:open}
+Are $322$, $326$, $330$ and $334$ weights of $\RM(7,14)$? This is all that
+remains of its spectrum, and it decides Carlet's question for $(c,m)=(7,14)$.
+For $322$, Proposition~F suggests a route: the case $n=3$ concerns the
+codewords of weight $316$ of $\RM(6,13)$, described in~\cite{kta}, and for each
+normal form the existence of $g$ is finite linear algebra; the case $n=1$ asks
+whether some $h\in\RM(6,13)$ of weight exactly $320$ has a point
+$p\notin\supp h$ with $c(p)\in\spn c(\supp h)$, as some codewords of weight
+$160$ of $\RM(5,11)$ do in the calibration.
+
+\section*{Tool and computational resource disclosure}
+This work was carried out on 26 September 2026 (UTC) in a workflow directed by
+the author, using AI coding agents: Anthropic Claude Code, with the model
+Claude Opus~5.5. Claude Code agents selected the problem, found the results and
+their proofs, wrote the programs and the Lean formalisation, carried out the
+literature searches described in the introduction, and drafted this text; the
+programs, data, logs and Lean code are in~\cite{repo}. Throughout, ``we''
+refers to this workflow; the reading and searching described in the paper were
+done by the agents. The computations ran on one computer (macOS, arm64) on the
+same day: Proposition~E took about $21$ CPU minutes with
+\code{venn_enum_fast.c} and about $8$ minutes on four processes with
+\code{venn_enum_indep.c}, the runs behind Table~\ref{tab:search} about $2.8$
+CPU hours, those of \code{flatsearch.c} $2$ hours, and the clean Lean rebuild
+with \texttt{leanchecker} about $5$ minutes. The author is not a professional
+mathematician.
+%% AUTHOR-ROLE-SENTENCE: to be completed after the author has read the paper
+The results rest on the written proofs, on the codewords of
+Section~\ref{sec:AB} with their machine checks, on the computation behind
+Proposition~E and on the known results (P1)--(P4b); the searches of
+Section~\ref{sec:search} are heuristic and not used in any proof. AI systems are not authors of this paper; the author
+takes full responsibility for its content.
+
+{\footnotesize
+\begin{thebibliography}{99}
+\bibitem{cdmd}
+C.~Carlet, The weight spectrum of the Reed--Muller codes $\RM(m-5,m)$,
+extended abstract, Discrete Mathematics Days 2024,
+\url{https://dmd2024.web.uah.es/files/abstracts/paper_10.pdf}.
+\bibitem{c24}
+C.~Carlet, The weight spectrum of the Reed--Muller codes $\RM(m-5,m)$,
+\emph{IEEE Trans.\ Inf.\ Theory} \textbf{70}(7) (2024), 4799--4807,
+\url{https://doi.org/10.1109/TIT.2023.3343697}.
+\bibitem{caims}
+C.~Carlet, Identifying codewords in general Reed--Muller codes and determining
+their weights, \emph{AIMS Math.} \textbf{9}(5) (2024), 10609--10637,
+\url{https://doi.org/10.3934/math.2024518}.
+\bibitem{cs}
+C.~Carlet and P.~Sol\'e, The weight spectrum of two families of Reed--Muller
+codes, \emph{Discrete Math.} \textbf{346}(10) (2023), 113568,
+\url{https://doi.org/10.1016/j.disc.2023.113568}.
+\bibitem{repo}
+H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~1.4.0
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{kt}
+T.~Kasami and N.~Tokura, On the weight structure of Reed--Muller codes,
+\emph{IEEE Trans.\ Inf.\ Theory} \textbf{16}(6) (1970), 752--759,
+\url{https://doi.org/10.1109/TIT.1970.1054545}.
+\bibitem{kta}
+T.~Kasami, N.~Tokura and S.~Azumi, On the weight enumeration of weights less
+than $2.5d$ of Reed--Muller codes, \emph{Inform.\ and Control}
+\textbf{30}(4) (1976), 380--395,
+\url{https://doi.org/10.1016/S0019-9958(76)90355-7}.
+\bibitem{la}
+M.~Leuenberger and M.~Albrizzio, On the weight spectrum of the Reed--Muller
+codes $\RM(7,14)$, arXiv:2606.21425v1, 19 June 2026.
+\bibitem{lw}
+Y.~Lou and Q.~Wang, Determining the weight spectrum of the Reed--Muller codes
+$\RM(m-6,m)$, \emph{Des.\ Codes Cryptogr.} \textbf{93} (2025), 4925--4936,
+\url{https://doi.org/10.1007/s10623-025-01708-7}; quoted from
+arXiv:2406.03803v1.
+\bibitem{lw2}
+Y.~Lou and Q.~Wang, A note on two conjectures about the weight spectra of the
+Reed--Muller codes, \emph{Discrete Appl.\ Math.} \textbf{388} (2026),
+142--145, \url{https://doi.org/10.1016/j.dam.2026.03.038}.
+\bibitem{ms}
+F.~J. MacWilliams and N.~J.~A. Sloane, \emph{The Theory of Error-Correcting
+Codes}, North-Holland, Amsterdam, 1977.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{CPP 2020},
+ACM, 2020, \url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{mc}
+R.~J. McEliece, Weight congruences for $p$-ary cyclic codes, \emph{Discrete
+Math.} \textbf{3} (1972), 177--192.
+\bibitem{tru}
+The Omega Institute, \texttt{trureturing} repository,
+\url{https://github.com/the-omega-institute/trureturing}, accessed 26
+September 2026.
+\end{thebibliography}
+}
+\end{document}

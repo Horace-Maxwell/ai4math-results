@@ -1,0 +1,2 @@
+input: DH=True 
+    {'diam': 5, 'tr': 12, 'Q3': False, 'Q3prime': False, 'Q4': True, 'bad_Q3prime': [(6, 7, 8)]}

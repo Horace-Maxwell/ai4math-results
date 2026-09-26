@@ -1,0 +1,27 @@
+exact cube minimisation over 90 (P,Q) pairs (incl. boundaries P=4,Q=2 / P=2,Q=4 and +1/1000), 8 columns each: violations of Lemma S or of the hand bounds: 0
+  type A: smallest q*min s = 0 (=0) at P=4, Q=2, c=(1, -1, 1), mu=0, zeta=('-1', '1', '-1')
+  type B: smallest q*min s = 8 (=8) at P=2, Q=4, c=(1, 1, -1), mu=0, zeta=('-1', '1', '1')
+  type C: smallest q*min s = 40 (=40) at P=2, Q=4, c=(1, -1, -1), mu=0, zeta=('-1', '1', '-1')
+  type E: smallest q*min s = 64 (=64) at P=2, Q=4, c=(1, 1, 1), mu=0, zeta=('0', '-1/2', '1')
+  hand-proof inequality A1: Q*2P^2 - 2pP >= 0 [big]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality A1: Q*2P^2 - 2pP >= 0 [p3]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality A2: Q(P^2+1) - p^2 >= 0 [big]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality A2: Q(P^2+1) - p^2 >= 0 [p3]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality B2: Q(p^2-2) - p^2 >= 0 [big]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality B2: Q(p^2-2) - p^2 >= 0 [p3]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality C2: Q(P^2-1) - p^2 >= 0 (> 0) [big]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality C2: Q(P^2-1) - p^2 >= 0 (> 0) [p3]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality E/C: Q(1+mu)(P^2+1) - 2 mu p P - 2[P^2+1-mu(P-1)] >= 0 [big]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality E/C: Q(1+mu)(P^2+1) - 2 mu p P - 2[P^2+1-mu(P-1)] >= 0 [p3]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality E: Q(1+mu)P^2 - 2mu pP - 2P(P-mu) >= 0 [big]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  hand-proof inequality E: Q(1+mu)P^2 - 2mu pP - 2P(P-mu) >= 0 [p3]: OK (all coefficients >= 0 at mu=0,1; affine in mu)
+  type B bracket at mu=1: equals 2(P-1)(P-2) at Q=2, dQ = 2(P-1)^2+2P > 0: OK
+Outside the stated range (informative only):
+  P=3 Q=2: exact min s per type A:0 B:2.667 C:10.67 E:20
+  P=2 Q=3: exact min s per type A:0 B:1.5 C:7.5 E:12
+  P=2 Q=2: exact min s per type A:0 B:0 C:4.667 E:8
+  P=1 Q=4: exact min s per type A:0 B:0 C:3.2 E:3.2
+  P=3/2 Q=2: exact min s per type A:0 B:-0.3333 C:2.5 E:4
+  P=4 Q=3/2: exact min s per type A:0 B:-0.8 C:8.4 E:19.2
+  P=2 Q=7/2: exact min s per type A:0 B:1.556 C:7.778 E:12.44
+DONE

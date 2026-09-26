@@ -1,0 +1,29 @@
+{
+  "purpose": "Clean-directory rebuild of the Lean sources for v1.4.0",
+  "start_utc": "2026-09-26T14:59:24Z",
+  "end_utc": "2026-09-26T15:17:11Z",
+  "exit_code": 0,
+  "toolchain": "leanprover/lean4:v4.33.1 (commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6)",
+  "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "procedure": [
+    "Same procedure as logs/clean-replay-v1.2.0-receipt.json: fresh directory, sources and configuration copied from the release tree, shared Lake package cache for Mathlib at the pinned revision, fresh .lake/build.",
+    "`/usr/bin/time -l lake build` (log: clean-replay-v1.4.0-build.log): 8754 jobs, exit 0.",
+    "Audit files run with `lake env lean` (logs: clean-replay-v1.4.0-audit-{general,bridge,carenini,equal-parity-b,equal-parity-b-certificates,hko-triameter,rm714}.log), all exit 0.",
+    "`lake env leanchecker <Module>` for the 14 modules new in v1.4.0 (ICGEqualParityB{Col,FD,Main,Graph,Cert1..6}, HKOTriameter, HKOTriameterDH, BrauerCMCore, RM714Weights), all exit 0 (log: clean-replay-v1.4.0-leanchecker-new-modules.log). Carenini was checked for v1.3.0 (clean-replay-v1.3.0-leanchecker-carenini.log); the other modules are unchanged since v1.2.0.",
+    "`shasum -a 256` of sources and configuration (logs/lean-sources-sha256.txt, 58 files), checked in the replay directory with `shasum -c` (58 of 58 OK)."
+  ],
+  "source_manifest": "logs/lean-sources-sha256.txt",
+  "source_manifest_sha256": "a4c20af04b9eaadb0a2f53d168649bb7f3585fce5797a48031ae03799b698fe5",
+  "build": {
+    "jobs": 8754,
+    "real_seconds": 1066.91,
+    "max_rss_bytes": 15852306432
+  },
+  "axiom_audit": {
+    "build_log_axiom_lines": 106,
+    "audit_files_axiom_lines": 381,
+    "nonstandard": 0,
+    "note": "Every printed axiom list is a subset of {propext, Classical.choice, Quot.sound}; Carenini.H3_bipartite depends on no axioms."
+  },
+  "notes": "Written from the logs listed above; paths are logical names."
+}

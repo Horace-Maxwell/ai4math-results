@@ -1,0 +1,10 @@
+four-point (sharp BM) holds: True
+diam 5 tr 12 ecc [3, 3, 3, 3, 4, 4, 3, 4, 3, 3, 4, 4, 3, 4, 5, 4, 4, 4, 4, 5]
+peripheral [14, 19]
+#triametral 17 triples w/o peripheral: [(4, 5, 17), (4, 11, 17), (5, 15, 17), (11, 15, 17)]
+  triple (4, 5, 17) dists 4 4 4 eccs [4, 4, 4]
+  triple (4, 11, 17) dists 4 4 4 eccs [4, 4, 4]
+  triple (5, 15, 17) dists 4 4 4 eccs [4, 4, 4]
+diametral pairs [(14, 19)]
+  pair (14, 19) best extension 12
+Q3p False Q4 True

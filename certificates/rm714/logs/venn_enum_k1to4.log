@@ -1,0 +1,44 @@
+k=1 configurations=8
+target 322: no
+target 326: no
+target 330: no
+target 334: no
+target 16050: no
+target 16054: no
+target 16058: no
+target 16062: no
+weights = 2 mod 4 in [250,400]:
+all weights in [0,400]: 128 256
+k=2 configurations=204
+target 322: no
+target 326: no
+target 330: no
+target 334: no
+target 16050: no
+target 16054: no
+target 16058: no
+target 16062: no
+weights = 2 mod 4 in [250,400]: 254
+all weights in [0,400]: 0 128 192 224 240 248 252 254 256 320 352 368 376 380 384
+k=3 configurations=20708
+target 322: no
+target 326: no
+target 330: no
+target 334: no
+target 16050: no
+target 16054: no
+target 16058: no
+target 16062: no
+weights = 2 mod 4 in [250,400]: 254 314 338 378
+all weights in [0,400]: 128 192 224 240 248 252 254 256 272 288 296 304 308 312 314 316 320 324 328 332 336 338 340 344 348 352 356 360 368 372 376 378 380 384 392 400
+k=4 configurations=8568777
+target 322: no
+target 326: no
+target 330: no
+target 334: no
+target 16050: no
+target 16054: no
+target 16058: no
+target 16062: no
+weights = 2 mod 4 in [250,400]: 254 314 318 338 342 350 366 374 378 382 386 390 398
+all weights in [0,400]: 0 128 192 224 240 248 252 254 256 272 288 296 304 308 312 314 316 318 320 324 328 332 336 338 340 342 344 348 350 352 356 360 364 366 368 372 374 376 378 380 382 384 386 388 390 392 396 398 400

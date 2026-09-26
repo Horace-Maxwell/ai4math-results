@@ -1,0 +1,61 @@
+=== build start 2026-09-26T07:38:24Z lock B taken (attempt 4)
+ℹ [8706/8706] Built Research.BrauerCMCore (4.6s)
+info: Research/BrauerCMCore.lean:315:0: 'BrauerCMCore.lemmaC' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/BrauerCMCore.lean:316:0: 'BrauerCMCore.lemmaB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/BrauerCMCore.lean:319:0: @BrauerCMCore.lemmaC : ∀ {H : Type u_1} (P : H → H → Option (ZMod 2)) (L : H → H → H) (ρ : H ≃ H) (c s : H → ZMod 2)
+  [Finite H],
+  (∀ (l : H), P l l = some 0) →
+    (∀ (l : H), P l (ρ l) = some (s l)) →
+      (∀ (l : H), c (ρ l) = c l + 1 + s l) →
+        (∀ (i : H), Function.Injective (L i)) →
+          (∀ (l : H), Function.Injective fun i => L i l) →
+            BrauerCMCore.IsCompleteMapping (BrauerCMCore.mul P) (BrauerCMCore.fC L ρ c)
+info: Research/BrauerCMCore.lean:320:0: @BrauerCMCore.lemmaB : ∀ {H : Type u_1} (P : H → H → Option (ZMod 2)) (L : H → H → H) (δ : H ≃ H) (t : H → ZMod 2)
+  [Finite H],
+  (∀ (l : H), P l l = some 0) →
+    (∀ (μ : H), t (δ μ) = t μ + 1) →
+      (∀ (i : H), Function.Injective (L i)) →
+        (∀ (l : H), Function.Injective fun i => L i l) →
+          BrauerCMCore.IsCompleteMapping (BrauerCMCore.mul P) (BrauerCMCore.fB L δ t)
+info: Research/BrauerCMCore.lean:321:0: def BrauerCMCore.mul.{u_1} : {H : Type u_1} →
+  (H → H → Option (ZMod 2)) → BrauerCMCore.Elt H → BrauerCMCore.Elt H → BrauerCMCore.Elt H :=
+fun {H} P x x_1 =>
+  match x, x_1 with
+  | none, x => none
+  | some val, none => none
+  | some (i, a, l), some (j, b, m) => Option.map (fun p => (i, a + p + b, m)) (P l j)
+info: Research/BrauerCMCore.lean:322:0: def BrauerCMCore.fC.{u_1} : {H : Type u_1} →
+  (H → H → H) → H ≃ H → (H → ZMod 2) → BrauerCMCore.Elt H → BrauerCMCore.Elt H :=
+fun {H} L ρ c x =>
+  match x with
+  | none => none
+  | some (i, a, l) => if a = c l then some (l, 1 + c l, L i l) else some (ρ l, c (ρ l), L i (ρ l))
+info: Research/BrauerCMCore.lean:323:0: def BrauerCMCore.fB.{u_1} : {H : Type u_1} →
+  (H → H → H) → H ≃ H → (H → ZMod 2) → BrauerCMCore.Elt H → BrauerCMCore.Elt H :=
+fun {H} L δ t x =>
+  match x with
+  | none => none
+  | some (i, a, l) => if a = 1 + t (L i l) then some (l, 1, L i l) else some (l, 0, δ (L i l))
+info: Research/BrauerCMCore.lean:324:0: def BrauerCMCore.IsCompleteMapping.{u_2} : {S : Type u_2} → (S → S → S) → (S → S) → Prop :=
+fun {S} op α => Function.Bijective α ∧ Function.Bijective fun x => op x (α x)
+Build completed successfully (8706 jobs).
+        7.82 real         5.57 user         6.72 sys
+          5904039936  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              506025  page reclaims
+               15201  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               70008  voluntary context switches
+              123560  involuntary context switches
+         55568738558  instructions retired
+         32616032173  cycles elapsed
+           339387504  peak memory footprint
+=== exit 0 end 2026-09-26T07:38:32Z
+=== lock B released 2026-09-26T07:38:32Z

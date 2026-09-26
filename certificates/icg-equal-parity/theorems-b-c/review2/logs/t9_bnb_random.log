@@ -1,0 +1,34 @@
+(3,3): 60 parameter points (corners + random rationals in both regions): OK
+(3,5): 60 parameter points (corners + random rationals in both regions): OK
+(3,7): 60 parameter points (corners + random rationals in both regions): OK
+(3,9): 60 parameter points (corners + random rationals in both regions): OK
+(4,4): 60 parameter points (corners + random rationals in both regions): OK
+(4,6): 60 parameter points (corners + random rationals in both regions): OK
+(4,8): 60 parameter points (corners + random rationals in both regions): OK
+(3,1): 60 parameter points (corners + random rationals in both regions): OK
+(4,2): 60 parameter points (corners + random rationals in both regions): OK
+(3,31) p=5 q=3: OK (nodes 1032)
+(3,31) p=3 q=5: OK (nodes 1048)
+(3,31) p=7 q=3: OK (nodes 1032)
+(3,31) p=11/2 q=7/2: OK (nodes 1032)
+(3,41) p=5 q=3: OK (nodes 1352)
+(3,41) p=3 q=5: OK (nodes 1368)
+(3,41) p=7 q=3: OK (nodes 1352)
+(3,41) p=11/2 q=7/2: OK (nodes 1352)
+(4,30) p=5 q=3: OK (nodes 2032)
+(4,30) p=3 q=5: OK (nodes 2128)
+(4,30) p=7 q=3: OK (nodes 2032)
+(4,30) p=11/2 q=7/2: OK (nodes 2032)
+(4,40) p=5 q=3: OK (nodes 2672)
+(4,40) p=3 q=5: OK (nodes 2768)
+(4,40) p=7 q=3: OK (nodes 2672)
+(4,40) p=11/2 q=7/2: OK (nodes 2672)
+(5,25) p=5 q=3: OK (nodes 3488)
+(5,25) p=3 q=5: OK (nodes 3680)
+(5,25) p=7 q=3: OK (nodes 3488)
+(5,25) p=11/2 q=7/2: OK (nodes 3488)
+(6,20) p=5 q=3: OK (nodes 5824)
+(6,20) p=3 q=5: OK (nodes 6976)
+(6,20) p=7 q=3: OK (nodes 5824)
+(6,20) p=11/2 q=7/2: OK (nodes 5824)
+total 564 B&B runs, failures 0  [22s]

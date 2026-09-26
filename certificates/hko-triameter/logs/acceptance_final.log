@@ -1,0 +1,44 @@
+== acceptance start 2026-09-26T07:36:40Z
+Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+mathlib rev: 0df444a360eaa60ab8c11dca51a86af692955474
+== 1. lake build Research.HKOTriameterDH (also builds Research.HKOTriameter)
+Build completed successfully (8707 jobs).
+        2.60 real         2.78 user         3.97 sys
+           858079232  maximum resident set size
+build exit: 0
+== 2. audit file
+audit exit: 0
+expected declarations: 21 (distinct 21); printed: 21 lines for 21 distinct
+missing: []
+duplicates: {}
+violations: {}
+unrecognised lines: 0
+AXIOM AUDIT PASS
+== 3. forbidden-token grep (hits other than '#print axioms' lines)
+Research/HKOTriameter.lean:29:done by `decide` / `decide +kernel` (kernel reduction, no `native_decide`).
+== 4. leanchecker (kernel replay of each module's own declarations; imports trusted)
+leanchecker HKOTriameter exit: 0
+leanchecker HKOTriameterDH exit: 0
+== 5. clean-directory replay in <scratch>/replay-hko2 (.lake/packages symlinked to the dev project's trusted Mathlib cache)
+375599ede626ff8dbbd04083d4fdcd49cadf0aac3a23736d42627eebd4234b29  lakefile.toml
+3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71  lean-toolchain
+9cb2278091171314d2816e57efa3c813f64d9da54bd82e5ecbdaf779c2b203e8  lake-manifest.json
+a356f94f77367f32aacfbcbc42351d9c9cc287d8f39e69dccac95420a06bfba9  Research/HKOTriameter.lean
+ad737720df8ea40d12ebc74c617347dd0046fd9338e1ae2789bd07067a1477cf  Research/HKOTriameterAudit.lean
+1e70117893cc372561088b6c2a7e541ac9f9ab140308fa890392d588cbb4e722  Research/HKOTriameterDH.lean
+Build completed successfully (8707 jobs).
+replay build exit: 0
+replay audit exit: 0
+AXIOM AUDIT PASS
+replay leanchecker 1 exit: 0
+replay leanchecker 2 exit: 0
+7ddc9872ff9a6707d2505acd255f3d22be2a95501ba30c8f2a04b7eeaa4fce54  .lake/build/lib/lean/Research/HKOTriameter.olean
+e631805abf1117bb17d8215ee8ea351dd9e235bb8fce7b03fe16d0ee50fa2c74  .lake/build/lib/lean/Research/HKOTriameterDH.olean
+39cca698ce503f24b7ab68d888009a06c301c9669a8d9e30c01f617d576a2782  audit.out
+replay axiom lines identical to dev-tree audit
+== 6. copy sources to <project>/work/round6/hko-triameter/lean
+a356f94f77367f32aacfbcbc42351d9c9cc287d8f39e69dccac95420a06bfba9  HKOTriameter.lean
+ad737720df8ea40d12ebc74c617347dd0046fd9338e1ae2789bd07067a1477cf  HKOTriameterAudit.lean
+1e70117893cc372561088b6c2a7e541ac9f9ab140308fa890392d588cbb4e722  HKOTriameterDH.lean
+== acceptance end 2026-09-26T07:37:59Z
+LOCK B RELEASED 2026-09-26T07:37:59Z

@@ -1,0 +1,12 @@
+n=1: median graphs (atlas, up to iso) = 1
+n=2: median graphs (atlas, up to iso) = 1
+n=3: median graphs (atlas, up to iso) = 1
+n=4: median graphs (atlas, up to iso) = 3
+n=5: median graphs (atlas, up to iso) = 4
+n=6: median graphs (atlas, up to iso) = 11
+n=7: median graphs (atlas, up to iso) = 23
+connected triangle-free 7-vertex atlas graphs: 59
+n=8: candidates 1857; median graphs up to iso = 69; Q3'-violators up to iso = 1; Q4-violators up to iso = 1
+Q3'-violator(s) isomorphic to G1: [True]
+Q4-violator(s) isomorphic to G2: [True]
+elapsed 0s

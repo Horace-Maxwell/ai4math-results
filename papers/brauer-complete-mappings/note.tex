@@ -1,0 +1,959 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{alltt}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={Complete mappings of the Brauer and partial Brauer monoids},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\B}{\mathcal B}
+\newcommand{\PB}{\mathcal{PB}}
+\newcommand{\M}{\mathcal M}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\tp}{\operatorname{top}}
+\newcommand{\bt}{\operatorname{bot}}
+\newcommand{\rk}{\operatorname{rank}}
+\newcommand{\Mt}{\M_2}
+\title{Complete mappings of the Brauer\\ and partial Brauer monoids}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A complete mapping of a semigroup $S$ is a bijection $\alpha\colon S\to S$
+such that $x\mapsto x\cdot x\alpha$ is also a bijection. Problem~15.11 of
+Ara\'ujo, Bentz, Cameron, Hendrey and Kinyon (arXiv:2608.25092) asks for a
+classification of complete mappings of the Brauer monoid $\B_n$ and the
+partial Brauer monoid $\PB_n$. By their reduction to principal factors and the
+Hall--Paige theorem, the open cases are the principal factors of ranks $2$
+and~$3$, together with the question of which of the monoids have a complete
+mapping. We settle the existence question in all cases. Every proper
+principal factor of $\B_n$ has a complete mapping. Every proper principal
+factor of $\PB_n$ has one, except the rank-$2$ factor of $\PB_3$, which is the
+Brandt semigroup $B(S_2,3)$ and has none. Consequently $\B_n$ and $\PB_n$ have
+a complete mapping if and only if $n\notin\{2,3\}$, as for the full
+transformation monoid and the partition monoid. The new case is that of $\B_n$
+with $n\equiv2,3\pmod 4$, in which the rank-$2$ or rank-$3$ factor has an odd
+number of $\mathcal L$-classes. For it we give an explicit complete mapping,
+built from a triangle of half-diagrams whose sandwich permutations have odd
+product and from a perfect matching of the remaining half-diagrams. The other
+cases follow directly from results of Ara\'ujo et al.\ once the Rees structure
+of the principal factors is written down. The two explicit constructions of
+complete mappings of Rees $0$-matrix semigroups over $\Z_2$ on which the
+proofs rest are formally verified in Lean~4, for arbitrary finite index sets;
+the rest of the argument is not formalised. We also give explicit complete
+mappings of $\B_n$ and $\PB_n$ for $n\in\{1,4,5,6\}$ and of the two smallest
+factors in the new case, each checked by a program that shares no code with
+the program that built it. The proofs were found by AI coding agents working
+under the author's direction; their role is described at the end of the
+paper.
+\end{abstract}
+
+\section{Introduction}
+
+\paragraph{Background.}
+Let $(S,\cdot)$ be a magma. A \emph{complete mapping} of $S$ is a bijection
+$\alpha\colon S\to S$ such that the map $\theta\colon S\to S$,
+$x\theta=x\cdot x\alpha$, is also a bijection. As in~\cite{abchk}, maps act on
+the right. For a finite magma this is the same as a transversal of the Cayley
+table. For finite groups, existence is decided by the Hall--Paige theorem, in
+the form recorded as \cite[Theorem~1.1]{abchk}: a finite group has a complete
+mapping if and only if its Sylow $2$-subgroups are trivial or non-cyclic. In
+particular, the symmetric group $S_r$ has a complete mapping if and only if
+$r\notin\{2,3\}$.
+
+Ara\'ujo, Bentz, Cameron, Hendrey and Kinyon~\cite{abchk} developed the theory
+for finite semigroups. A finite semigroup has a complete mapping if and only
+if each of its principal factors has one \cite[Theorem~4.4]{abchk}, which
+reduces the question to Rees $0$-matrix semigroups; these are studied in
+detail in \cite[Sections~6 and~7]{abchk}. Among the applications, the full
+transformation monoid $T_n$ and the partition monoid $\mathcal P_n$ have
+complete mappings if and only if $n=1$ or $n\ge4$
+\cite[Theorems~9.16 and~8.5]{abchk}, the symmetric inverse monoid $I_n$ has one
+if and only if $n\equiv0,1\pmod4$ \cite[Corollary~10.2]{abchk}, and the planar
+partition, Motzkin and Jones monoids have complete mappings
+\cite[Corollary~8.8]{abchk}. The Brauer monoid $\B_n$ and the partial Brauer
+monoid $\PB_n$ were left open. Problem~15.11 of~\cite{abchk} asks for a
+classification of their complete mappings; it notes that, by the Hall--Paige
+theorem, the proper principal factors still to be decided are those of ranks
+$2$ and~$3$, and it also asks for which $n$ the whole monoid has a complete
+mapping. Here a principal factor is \emph{proper} if it is not the principal
+factor of the group of units.
+
+\paragraph{Results.}
+We decide every case.
+
+\begin{theorem}\label{thm:main}
+Let $n\ge1$.
+\begin{itemize}
+\item[(a)] Every proper principal factor of $\B_n$ has a complete mapping.
+\item[(b)] Every proper principal factor of $\PB_n$ has a complete mapping,
+ except the principal factor of rank~$2$ of $\PB_3$. That factor is isomorphic
+ to the Brandt semigroup $B(S_2,3)=\M^0(S_2,[3],[3],\Delta_3)$, where
+ $\Delta_3$ is the $3\times3$ identity matrix, and it has no complete mapping.
+\item[(c)] The following are equivalent: (i) $\B_n$ has a complete mapping;
+ (ii) $\PB_n$ has a complete mapping; (iii) $S_n$ has a complete mapping;
+ (iv) $n=1$ or $n\ge4$.
+\end{itemize}
+\end{theorem}
+
+The principal factor of rank $r$ is a Rees $0$-matrix semigroup
+$\M^0(S_r,H_r,H_r,P)$ over the symmetric group $S_r$, indexed on both sides by
+the set $H_r$ of half-diagrams of rank~$r$ (Proposition~\ref{prop:rees}). Its
+sandwich matrix has identity diagonal. So when $S_r$ has a complete mapping,
+that is, when $r\notin\{2,3\}$, the factor has one by
+\cite[Theorem~6.2]{abchk}. When $r\in\{2,3\}$ and $N=|H_r|$ is even, it has one
+by \cite[Corollary~7.6]{abchk}. The remaining factors are those with
+$r\in\{2,3\}$ and $N$ odd, the case in which both index sets are odd and, as
+\cite[Section~7]{abchk} explains, the images of the sandwich entries in a
+cyclic $2$-quotient of $S_r$ matter, not just the pattern of non-zero entries.
+Table~\ref{tab:cases} lists the parities. For $\PB_n$ the only proper factor
+with $r\in\{2,3\}$ and $N$ odd is the rank-$2$ factor of $\PB_3$, and it has no
+complete mapping by \cite[Theorem~7.19]{abchk}. For $\B_n$ there are
+infinitely many such factors, those of rank~$2$ for $n\equiv2\pmod4$ and of
+rank~$3$ for $n\equiv3\pmod4$; the first are the rank-$2$ factor of $\B_6$,
+with $N=45$ and $4050$ non-zero elements, and the rank-$3$ factor of $\B_7$,
+with $N=105$ and $66150$ non-zero elements. For these factors we construct
+complete mappings explicitly (Section~\ref{sec:odd}), from three pairwise
+compatible half-diagrams whose sandwich permutations have odd product and a
+perfect matching of the other half-diagrams by compatible pairs.
+
+\begin{table}[ht]\centering\small
+\begin{tabular}{@{}l l l l >{\raggedright\arraybackslash}p{0.33\textwidth}@{}}
+\toprule
+Monoid & rank $r$ & $N=|H_r|$ & $N$ odd exactly when & complete mapping of the factor\\
+\midrule
+$\B_n$ & $2$ & $\binom n2\,(n-3)!!$ & $n\equiv2\pmod4$ &
+ yes: \cite[Corollary~7.6]{abchk} if $N$ is even, Section~\ref{sec:odd} if
+ $N$ is odd\\\addlinespace
+$\B_n$ & $3$ & $\binom n3\,(n-4)!!$ & $n\equiv3\pmod4$ &
+ yes: as for rank $2$\\\addlinespace
+$\PB_n$ & $2,3$ & $\binom nr\,a(n-r)$ & $(n,r)=(3,2)$ &
+ yes if $N$ is even \cite[Corollary~7.6]{abchk}; none for $(n,r)=(3,2)$
+ (Proposition~\ref{prop:pb3})\\
+\bottomrule
+\end{tabular}
+\caption{The proper principal factors of ranks $2$ and $3$ ($r<n$, and
+$r\equiv n\pmod 2$ for $\B_n$). Here $N$ is the number of $\mathcal
+L$-classes of the factor, which equals the number of $\mathcal R$-classes, and
+$a(k)$ is the number of involutions of a $k$-set. The factors of rank
+$r\notin\{2,3\}$ have complete mappings by \cite[Theorem~6.2]{abchk}.}
+\label{tab:cases}
+\end{table}
+
+All our complete mappings are given by explicit formulas
+(Lemmas~\ref{lem:A}--\ref{lem:C}). The two constructions for ranks $2$ and $3$
+(Lemmas~\ref{lem:B} and~\ref{lem:C}), stated for a Rees $0$-matrix semigroup
+over $\Z_2$ with identity diagonal and an arbitrary finite index set, are
+formally verified in Lean~4 (Section~\ref{sec:lean}). The facts about diagrams
+(Sections~\ref{sec:rees}, \ref{sec:odd} and~\ref{sec:pb}) and the results of
+\cite{abchk} that we use are not formalised; for them the evidence is the
+written proofs, supported by the computer checks of Section~\ref{sec:comp}.
+
+\paragraph{Scope.}
+We read ``classify complete mappings'' in the sense explained by the second
+sentence of Problem~15.11: decide, for every $n$ and every rank~$r$, whether the
+principal factor of rank~$r$ has a complete mapping, and decide whether the
+whole monoid has one. Theorem~\ref{thm:main} does this completely. We do not
+describe the set of all complete mappings, as \cite[Proposition~6.5]{abchk}
+does for the combinatorial Brandt semigroups by means of Latin squares.
+
+\paragraph{Prior work.}
+Problem~15.11 appears in version~1 of~\cite{abchk}, submitted to the arXiv on
+25 August 2026, which was still the only version when we checked on
+26~September 2026. We found no solution of, and no announced progress on,
+Problem~15.11 in the following sources, which we searched on 26~September 2026
+between 06:49 and 07:46 UTC: the arXiv (the listing of~\cite{abchk} and eight
+title and abstract searches through the arXiv API); GitHub searches of issues,
+pull requests, commits, code and repositories; the public repositories of
+AI-assisted work on open problems that we check, namely the file tree, issues
+and pull requests of the \texttt{trureturing} repository~\cite{trurepo}, and
+the repositories SCOPE2026, AI-Has-Taste, formal-conjectures and astrafala; the
+problem database MathDB (\url{https://mathdb.com}); MathOverflow and Mathematics
+Stack Exchange, through their search interface; Crossref; web search; the blog
+post announcing~\cite{abchk} and its comments~\cite{camblog}, and the
+publication list and arXiv listing of the third author; and the slides of a
+2025 talk on the subject by the fifth author~\cite{kinyon}. The only earlier
+AI-assisted work on~\cite{abchk} that we found is issue~\#9377 and pull
+request~\#9405 of~\cite{trurepo}, which concern Problem~15.5 and do not mention
+Problem~15.11 or diagram monoids. Our searches on 26~September 2026 for works
+citing~\cite{abchk} in OpenAlex and Semantic Scholar failed (HTTP error 429,
+rate limit exceeded), so citing works were not checked systematically; we did
+not search Google Scholar, zbMATH or MathSciNet. A final check on 26 September
+2026 between 15:49 and 15:52 UTC (the arXiv, where~\cite{abchk} still had only
+version~1; GitHub; MathDB; and MathOverflow) found nothing new. This reports
+the coverage of our searches, not a guarantee of priority. Our results are a direct extension
+of the methods of~\cite{abchk}: the reduction to principal factors, the
+criteria for Rees $0$-matrix semigroups, the lifting lemma and the
+non-existence theorem that we use are theirs, and our treatment of $\B_n$
+follows their proof for the partition monoid \cite[Theorem~8.5]{abchk},
+including the triangle of half-diagrams in Lemma~\ref{lem:triangle}.
+
+\paragraph{Organisation.}
+Section~\ref{sec:prelim} fixes notation and lists the results
+of~\cite{abchk} that we use. Section~\ref{sec:rees} gives the Rees structure of
+the principal factors of $\B_n$ and $\PB_n$. Section~\ref{sec:cm} gives
+explicit complete mappings of Rees $0$-matrix semigroups with identity
+diagonal. Section~\ref{sec:odd} treats $\B_n$ and proves
+Theorem~\ref{thm:main}(a), Section~\ref{sec:pb} treats $\PB_n$ and proves
+Theorem~\ref{thm:main}(b), and Section~\ref{sec:whole} proves
+Theorem~\ref{thm:main}(c). Section~\ref{sec:comp} reports the computations and
+Section~\ref{sec:lean} the formal verification.
+
+\section{Preliminaries}\label{sec:prelim}
+
+\paragraph{Rees $0$-matrix semigroups.}
+We follow \cite[Section~4]{abchk}. Let $G$ be a finite group, let $I$ and
+$\Lambda$ be non-empty finite sets, and let $P=(p_{\lambda i})$ be a
+$\Lambda\times I$ matrix over $G\cup\{0\}$ with no zero row or column. The
+Rees $0$-matrix semigroup $\M^0(G,I,\Lambda,P)$ is $(I\times G\times\Lambda)
+\cup\{0\}$ with the product
+\[
+ (i,a,\lambda)(j,b,\mu)=\begin{cases}(i,\,a\,p_{\lambda j}\,b,\,\mu)&
+ \text{if }p_{\lambda j}\ne0,\\ 0&\text{otherwise,}\end{cases}
+\]
+and $0x=x0=0$. The \emph{pattern} of $P$ is the zero-one matrix obtained by
+replacing every element of $G$ by~$1$. For a $\mathcal J$-class $J$ of a finite
+semigroup $S$, the principal factor $J^0$ is $J\cup\{0\}$, with the product of
+$S$ when it lies in $J$ and $0$ otherwise.
+
+\paragraph{Results of~\cite{abchk} that we use.}
+We use the following results, with the numbering of~\cite{abchk}.
+\begin{itemize}
+\item[(R1)] \cite[Theorem~1.1]{abchk} (Hall--Paige). A finite group has a
+ complete mapping if and only if its Sylow $2$-subgroups are trivial or
+ non-cyclic.
+\item[(R2)] \cite[Proposition~1.4]{abchk}. A complete mapping of a magma with
+ zero fixes the zero, and so does the corresponding map $\theta$.
+\item[(R3)] \cite[Corollary~3.4]{abchk}. If a finite monoid has a complete
+ mapping, then so does its group of units.
+\item[(R4)] \cite[Theorem~4.4]{abchk}. A finite semigroup has a complete mapping
+ if and only if every principal factor $J^0$ has one.
+\item[(R5)] \cite[Lemma~6.3]{abchk}, which extends the lifting construction of
+ \cite[Theorem~5.2]{abchk} to Rees $0$-matrix semigroups. Let $N$ be a normal
+ subgroup of $G$ that has a complete mapping, and let $\bar P$ be the entrywise
+ image of $P$ in $G/N$, zero entries staying zero. If $\M^0(G/N,I,\Lambda,\bar
+ P)$ has a complete mapping, then so does $\M^0(G,I,\Lambda,P)$.
+\item[(R6)] \cite[Theorem~6.2]{abchk}, implication (c)$\Rightarrow$(a). If $G$
+ has a complete mapping and, for every $s$ rows of the pattern, at least
+ $s|I|/|\Lambda|$ columns have a non-zero entry in one of these rows, then
+ $\M^0(G,I,\Lambda,P)$ has a complete mapping. If $|I|=|\Lambda|$ and the pattern
+ contains a one-transversal (a permutation matrix), the condition holds.
+\item[(R7)] \cite[Corollary~7.6]{abchk}. If $G$ has no complete mapping,
+ $|I|=|\Lambda|$ is even and the pattern of $P$ contains a one-transversal,
+ then $\M^0(G,I,\Lambda,P)$ has a complete mapping.
+\item[(R8)] \cite[Theorem~7.19]{abchk}. If $G$ has non-trivial cyclic Sylow
+ $2$-subgroups, $|I|$ and $|\Lambda|$ are odd, and $P$ is obtained from a
+ normalised matrix over $G$ in which every entry has odd order by replacing
+ some entries by~$0$, then $\M^0(G,I,\Lambda,P)$ has no complete mapping.
+\end{itemize}
+By (R1), $S_r$ has a complete mapping for $r\le1$ (the trivial group) and for
+$r\ge4$ (its Sylow $2$-subgroups contain $\langle(1\,2),(3\,4)\rangle\cong
+C_2\times C_2$), and none for $r\in\{2,3\}$ (the Sylow $2$-subgroups have
+order~$2$).
+
+\paragraph{Diagrams.}
+Let $[n]=\{1,\dots,n\}$ and $[n]'=\{1',\dots,n'\}$. The partial Brauer monoid
+$\PB_n$ consists of the partitions of $[n]\cup[n]'$ into blocks of size $1$
+or~$2$, and the Brauer monoid $\B_n$ of those with all blocks of size~$2$; see
+\cite[Section~2.2]{emrt}. We draw $[n]$ as the top row and $[n]'$ as the
+bottom row. The product $xy$ is formed by drawing $x$ above~$y$, identifying
+the bottom row of $x$ with the top row of $y$ (the \emph{middle row}), keeping
+the connectivity of the outer points, and discarding closed loops and
+components contained in the middle row. A block meeting both rows is a
+\emph{through block}; the \emph{rank} of $x$ is its number of through blocks,
+and $\rk(xy)\le\min(\rk x,\rk y)$. As recalled in \cite[Section~15]{abchk},
+it is proved in \cite[Proposition~2.1 and Remark~2.2(v)--(vii)]{emrt} that the
+$\mathcal J$-classes of $\B_n$ and $\PB_n$ are the rank classes and that a
+maximal subgroup in rank~$r$ is isomorphic to~$S_r$. We write $J_r$ for the
+set of elements of rank~$r$; in $\B_n$ it is non-empty exactly when $r\le n$
+and $r\equiv n\pmod2$. The group of units is $J_n$, the set of permutation
+diagrams, isomorphic to $S_n$.
+
+\section{Rees coordinates}\label{sec:rees}
+Let $D\in\{\B_n,\PB_n\}$ and let $r$ be a rank that occurs in~$D$. A
+\emph{half-diagram} of rank~$r$ is a pair $h=(F,M)$, where $F=F(h)\subseteq[n]$
+has $|F|=r$ (the \emph{free points}) and $M=M(h)$ is a set of disjoint
+$2$-subsets (\emph{arcs}) of $[n]\setminus F$ covering $[n]\setminus F$ if
+$D=\B_n$, and arbitrary if $D=\PB_n$; the points of $[n]\setminus F$ not
+covered by $M$ are \emph{singletons}. Let $H=H_r(D)$ be the set of
+half-diagrams of rank~$r$ and $N=|H|$. Then
+\[
+ N=\binom nr(n-r-1)!!\ \text{ for }\B_n,\qquad N=\binom nr\,a(n-r)\ \text{ for
+ }\PB_n,
+\]
+where $(-1)!!=1$ and $a(k)$ is the number of involutions of a $k$-set.
+
+For $x\in J_r$, let $\tp(x)=(F,M)$, where $F$ is the set of top points of
+through blocks and $M$ the set of blocks contained in the top row; let
+$\bt(x)$ be defined in the same way from the bottom row, with primes removed.
+If $a_1<\dots<a_r$ are the top points and $b_1<\dots<b_r$ the bottom points
+(without primes) of the through blocks, define $g(x)\in S_r$ by requiring that
+$\{a_k,b'_{k\,g(x)}\}$ is a block of~$x$ for every~$k$. Permutations act on the
+right, and $gh$ means first $g$, then~$h$.
+
+For $\lambda,i\in H$, let $\Gamma(\lambda,i)$ be the multigraph on $[n]$ whose
+edges are the arcs of $\lambda$ and the arcs of~$i$ (an arc of both gives a
+double edge). Every vertex has degree at most~$2$, so the components are paths
+and cycles. A point of $F(\lambda)$ lies on no arc of $\lambda$, so it has
+degree at most~$1$ and is an end of a path. We say that $\lambda$ and $i$ are
+\emph{compatible}, and write $\lambda\sim i$, if the path starting at each
+point of $F(\lambda)$ ends at a point of $F(i)$; a point of $F(\lambda)\cap
+F(i)$ is a path of length~$0$. The $r$ paths are distinct components, so they
+then match $F(\lambda)$ bijectively with $F(i)$, and we define $p_{\lambda
+i}\in S_r$ by requiring that the $k$-th smallest point of $F(\lambda)$ is joined
+to the $(k\,p_{\lambda i})$-th smallest point of~$F(i)$.
+
+\begin{proposition}\label{prop:rees}
+Let $D\in\{\B_n,\PB_n\}$, let $r$ be a rank that occurs in $D$, and let
+$H=H_r(D)$.
+\begin{itemize}
+\item[(a)] The map $x\mapsto(\tp(x),g(x),\bt(x))$ is a bijection from $J_r$ to
+ $H\times S_r\times H$.
+\item[(b)] For $x,y\in J_r$ we have $\rk(xy)=r$ if and only if
+ $\bt(x)\sim\tp(y)$, and then $\tp(xy)=\tp(x)$, $\bt(xy)=\bt(y)$ and
+ $g(xy)=g(x)\,p_{\bt(x),\tp(y)}\,g(y)$.
+\item[(c)] For all $\lambda,i\in H$: $\lambda\sim\lambda$ and
+ $p_{\lambda\lambda}=1$; and $\lambda\sim i$ if and only if $i\sim\lambda$, in
+ which case $p_{i\lambda}=p_{\lambda i}^{-1}$.
+\item[(d)] If $F(\lambda)=F(i)$, then $\lambda\sim i$ and $p_{\lambda i}=1$.
+\end{itemize}
+Consequently $J_r^0\cong\M^0(S_r,H,H,P)$, where $P$ is the $H\times H$ matrix
+with entries $p_{\lambda i}$ if $\lambda\sim i$ and $0$ otherwise; the
+isomorphism extends the map in~(a) by $0\mapsto0$.
+\end{proposition}
+
+\begin{proof}
+(a) An element of rank $r$ is determined by its blocks inside the top row, its
+blocks inside the bottom row, and a bijection from its top through points to
+its bottom through points, and every such choice occurs. The first two data
+are $\tp(x)$ and $\bt(x)$, and $g(x)$ encodes the bijection.
+
+(b) The blocks of $x$ inside the top row are blocks of~$xy$. Consider the top
+point $a_k$ of a through block of $x$. Its strand reaches the middle row at
+$b=b_{k\,g(x)}\in F(\bt(x))$ and continues along the path of
+$\Gamma(\bt(x),\tp(y))$ starting at~$b$. This path alternates between arcs of
+$\tp(y)$ and arcs of $\bt(x)$, beginning with an arc of $\tp(y)$, and stops at
+a point $e$ at which the next arc is missing. So either $e\in F(\tp(y))$, and
+the strand continues through $y$ to the bottom row; or $e\ne b$ and $e\in
+F(\bt(x))$, and $a_k$ is joined to another top through point of~$x$; or $e$ is
+a singleton of $\bt(x)$ or of $\tp(y)$ (only in $\PB_n$), and $a_k$ becomes a
+singleton. Every through block of $xy$ contains a top point of a through block
+of $x$, so $\rk(xy)=r$ if and only if the first case occurs for all~$k$, that
+is, if and only if $\bt(x)\sim\tp(y)$. In that case the blocks of $xy$ inside
+the top row are exactly those of $x$, so $\tp(xy)=\tp(x)$. The $r$ strands end
+at $r$ distinct bottom through points of $y$, that is, at all of them, so the
+blocks of $xy$ inside the bottom row are those of $y$ and $\bt(xy)=\bt(y)$.
+Following $a_k$: it reaches the $(k\,g(x))$-th smallest point of
+$F(\bt(x))$, which is joined to the $(k\,g(x)\,p)$-th smallest point of
+$F(\tp(y))$, where $p=p_{\bt(x),\tp(y)}$, and this point is joined in $y$ to
+the $(k\,g(x)\,p\,g(y))$-th smallest bottom through point of~$y$.
+
+(c) In $\Gamma(\lambda,\lambda)$ each arc of $\lambda$ is a double edge and each
+point of $F(\lambda)$ is isolated, which gives $\lambda\sim\lambda$ and
+$p_{\lambda\lambda}=1$. The graphs $\Gamma(\lambda,i)$ and $\Gamma(i,\lambda)$
+coincide. If $\lambda\sim i$, the $r$ paths starting in $F(\lambda)$ end at $r$
+distinct points of $F(i)$, hence at all of them; so the path starting at a
+point of $F(i)$ is one of these paths, read backwards. Hence $i\sim\lambda$ and
+$p_{i\lambda}=p_{\lambda i}^{-1}$.
+
+(d) Each point of $F(\lambda)=F(i)$ lies on no arc of $\lambda$ or of $i$, so it
+is a path of length~$0$.
+
+Finally, $J_r$ is a $\mathcal J$-class \cite[Proposition~2.1]{emrt}, and
+$\rk(xy)\le r$ for $x,y\in J_r$. So by (b) the product of $x,y\in J_r$ in
+$J_r^0$ is $xy$ if $\bt(x)\sim\tp(y)$ and $0$ otherwise, and by (a) and~(b)
+the stated map is an isomorphism. By~(c), $P$ has no zero row or column.
+\end{proof}
+
+The rows of $P$ are indexed by bottom halves ($\mathcal L$-classes) and the
+columns by top halves ($\mathcal R$-classes). Proposition~\ref{prop:rees} is
+the analogue for $\B_n$ and $\PB_n$ of \cite[Proposition~8.3]{abchk} for the
+partition monoid.
+
+For $\lambda\in H$, let $e_\lambda\in J_r$ be the element with coordinates
+$(\lambda,1,\lambda)$, that is, the diagram whose top and bottom halves are
+both $\lambda$ and whose through blocks are the pairs $\{a,a'\}$ with $a\in
+F(\lambda)$. Since $p_{\lambda\lambda}=1$, Proposition~\ref{prop:rees}(b) gives
+$(\lambda,g,\lambda)(\lambda,h,\lambda)=(\lambda,gh,\lambda)$ for $g,h\in
+S_r$. So $e_\lambda$ is an idempotent, and its $\mathcal H$-class
+$\{(\lambda,g,\lambda):g\in S_r\}$ is a group isomorphic to~$S_r$.
+
+\section{Explicit complete mappings}\label{sec:cm}
+Throughout this section $H$ is a non-empty finite set, $r\ge0$, and $P$ is an
+$H\times H$ matrix over $S_r\cup\{0\}$ with $p_{\lambda\lambda}=1$ for all
+$\lambda$. We write $\lambda\sim\mu$ when $p_{\lambda\mu}\ne0$. By
+Proposition~\ref{prop:rees}, the principal factors of $\B_n$ and $\PB_n$ are
+of this form. We fix a Latin square on $H$, that is, a map $L\colon H\times
+H\to H$ such that $L(i,\cdot)$ and $L(\cdot,\lambda)$ are bijections for all
+$i,\lambda$; for instance, identify $H$ with $\Z_N$ and put
+$L(i,\lambda)=i+\lambda$.
+
+\begin{lemma}\label{lem:A}
+If $S_r$ has a complete mapping $\varphi$, then the map $f$ with $0f=0$ and
+$(i,g,\lambda)f=(\lambda,\,g\varphi,\,L(i,\lambda))$ is a complete mapping of
+$\M^0(S_r,H,H,P)$.
+\end{lemma}
+
+\begin{proof}
+The map $(i,\lambda)\mapsto(\lambda,L(i,\lambda))$ is a bijection of $H\times
+H$ and $\varphi$ is a bijection, so $f$ is a bijection. Since
+$p_{\lambda\lambda}=1$, we get $(i,g,\lambda)\cdot(i,g,\lambda)f=(i,\,g\cdot
+g\varphi,\,L(i,\lambda))\ne0$, and this is a bijection because
+$(i,\lambda)\mapsto(i,L(i,\lambda))$ and $g\mapsto g\cdot g\varphi$ are
+bijections.
+\end{proof}
+
+Lemma~\ref{lem:A} uses only the diagonal of $P$, as in
+\cite[Proposition~6.5]{abchk}; the existence statement is a case of~(R6).
+
+Now let $r\in\{2,3\}$. Let $s\colon S_r\to\Z_2=\{0,1\}$ be the sign
+homomorphism written additively, with $s(g)=0$ exactly for even $g$; its kernel
+is the alternating group $A_r$. We write $\Mt$ for the Rees $0$-matrix
+semigroup $\M^0(\Z_2,H,H,s(P))$, with $\Z_2$ written additively: its non-zero
+elements are the triples $(i,a,\lambda)\in H\times\Z_2\times H$, and
+\[
+ (i,a,\lambda)(j,b,\mu)=(i,\,a+s(p_{\lambda j})+b,\,\mu)\ \text{ if
+ }\lambda\sim j,\qquad (i,a,\lambda)(j,b,\mu)=0\ \text{ otherwise.}
+\]
+Note that $s(p_{\lambda\lambda})=0$.
+
+\begin{lemma}[lifting]\label{lem:lift}
+Let $r\in\{2,3\}$, and suppose that $\Mt$ has a complete mapping. Then
+$\M^0(S_r,H,H,P)$ also has a complete mapping.
+\end{lemma}
+
+\begin{proof}
+The group $A_r$ has odd order ($1$ or $3$), so $h\mapsto h^2$ is a bijection of
+$A_r$ and the identity map is a complete mapping of~$A_r$. Since
+$S_r/A_r\cong\Z_2$ via~$s$, (R5) applies with $N=A_r$. Explicitly, following
+the proof of \cite[Theorem~5.2]{abchk}: put $g_0=1$ and $g_1=(1\,2)$, and write
+each $g\in S_r$ as $g=g_uh$ with $u=s(g)$ and $h\in A_r$. If $\bar f$ is a
+complete mapping of $\Mt$ and $(i,u,\lambda)\bar f=(j,v,\mu)$, put
+$(i,g_uh,\lambda)f=(j,\,p^{-1}hp\,g_v,\,\mu)$ with $p=p_{\lambda j}$, and $0f=0$.
+Then $f$ is a bijection, and
+$(i,g_uh,\lambda)\cdot(i,g_uh,\lambda)f=(i,\,g_uh^2p\,g_v,\,\mu)$; for fixed
+$(i,u,\lambda)$ this runs bijectively through the coset of $A_r$ determined by
+the product $(i,u,\lambda)\cdot(i,u,\lambda)\bar f$ in~$\Mt$.
+\end{proof}
+
+\begin{lemma}\label{lem:B}
+Let $r\in\{2,3\}$. Let $\delta$ be a permutation of $H$ and $t\colon H\to\Z_2$
+a map with $t(\mu\delta)=t(\mu)+1$ for all $\mu\in H$. Define $\bar f$ on $\Mt$
+by $0\bar f=0$ and, writing $\mu=L(i,\lambda)$,
+\[
+ (i,\,1+t(\mu),\,\lambda)\bar f=(\lambda,\,1,\,\mu),\qquad
+ (i,\,t(\mu),\,\lambda)\bar f=(\lambda,\,0,\,\mu\delta).
+\]
+Then $\bar f$ is a complete mapping of $\Mt$. Such $\delta$ and $t$ exist when
+$N=|H|$ is even, so in that case $\M^0(S_r,H,H,P)$ has a complete mapping.
+\end{lemma}
+
+\begin{proof}
+The element $(\lambda,1,\nu)$ is the image of exactly one element, coming from
+the unique $i$ with $L(i,\lambda)=\nu$; the element $(\lambda,0,\nu)$ is the
+image of exactly one element, coming from the unique $i$ with
+$L(i,\lambda)\delta=\nu$. So $\bar f$ is a bijection. Since
+$s(p_{\lambda\lambda})=0$, the products are
+\[
+ (i,1+t(\mu),\lambda)(\lambda,1,\mu)=(i,\,t(\mu),\,\mu),\qquad
+ (i,t(\mu),\lambda)(\lambda,0,\mu\delta)=(i,\,t(\mu),\,\mu\delta)=
+ (i,\,t(\mu\delta)+1,\,\mu\delta).
+\]
+For fixed $i$, $\mu=L(i,\lambda)$ runs through $H$ as $\lambda$ does, so the
+products are the elements $(i,t(\nu),\nu)$ and $(i,t(\nu)+1,\nu)$ for $\nu\in
+H$, each exactly once. If $N$ is even, let $\delta$ be a fixed-point-free
+involution of $H$ and let $t$ take the values $0$ and $1$ on the two points of
+each $2$-cycle. The last statement follows from Lemma~\ref{lem:lift}.
+\end{proof}
+
+Since the diagonal of $P$ is a one-transversal of its pattern, the existence
+statement of Lemma~\ref{lem:B} is also a case of~(R7); the lemma gives an
+explicit formula.
+
+\begin{lemma}\label{lem:C}
+Let $r\in\{2,3\}$. Let $\rho$ be a permutation of $H$ with $\lambda\sim\lambda\rho$
+for all $\lambda\in H$ such that, for every cycle
+$(\lambda_0,\lambda_1,\dots,\lambda_{m-1})$ of $\rho$, with indices modulo~$m$,
+\begin{equation}\tag{$\ast$}\label{eq:star}
+ m+\sum_{t=0}^{m-1}s(p_{\lambda_t\lambda_{t+1}})\equiv0\pmod2.
+\end{equation}
+Then there is a map $c\colon H\to\Z_2$ with
+$c(\lambda\rho)=c(\lambda)+1+s(p_{\lambda,\lambda\rho})$ for all $\lambda$. For
+such $c$, the map $\bar f$ with $0\bar f=0$ and
+\[
+ (i,\,c(\lambda),\,\lambda)\bar f=(\lambda,\,1+c(\lambda),\,L(i,\lambda)),\qquad
+ (i,\,1+c(\lambda),\,\lambda)\bar f=(\lambda\rho,\,c(\lambda\rho),\,
+ L(i,\lambda\rho))
+\]
+is a complete mapping of $\Mt$, and hence $\M^0(S_r,H,H,P)$ has a complete
+mapping.
+\end{lemma}
+
+\begin{proof}
+On each cycle of $\rho$, choose $c(\lambda_0)$ arbitrarily and define
+$c(\lambda_{t+1})=c(\lambda_t)+1+s(p_{\lambda_t\lambda_{t+1}})$ for
+$t=0,\dots,m-2$; condition \eqref{eq:star} says exactly that the required
+relation also holds for $t=m-1$. The images under the first rule are the
+elements $(\lambda,1+c(\lambda),\mu)$, and those under the second rule the
+elements $(\kappa,c(\kappa),\mu)$ with $\kappa=\lambda\rho$; in both cases
+$\mu$ runs through $H$ as $i$ does. These two sets are complementary, so $\bar
+f$ is a bijection. The products are
+\[
+ (i,\,c(\lambda)+0+1+c(\lambda),\,L(i,\lambda))=(i,1,L(i,\lambda))
+\]
+from the first rule, which is non-zero since $\lambda\sim\lambda$, and
+\[
+ (i,\,1+c(\lambda)+s(p_{\lambda,\lambda\rho})+c(\lambda\rho),\,
+ L(i,\lambda\rho))=(i,0,L(i,\lambda\rho))
+\]
+from the second, which is non-zero since $\lambda\sim\lambda\rho$. For fixed
+$i$ they fill $\{i\}\times\{1\}\times H$ and $\{i\}\times\{0\}\times H$
+bijectively. The last statement follows from Lemma~\ref{lem:lift}.
+\end{proof}
+
+\begin{remark}\label{rem:C}
+(1) A fixed point of $\rho$ would be a cycle with $m=1$ and sum $0$, so $\rho$
+has no fixed points. (2) If $\lambda\sim\mu$ implies $\mu\sim\lambda$ and
+$p_{\mu\lambda}=p_{\lambda\mu}^{-1}$, as in Proposition~\ref{prop:rees}(c),
+then every transposition $(a\ b)$ with $a\sim b$ satisfies \eqref{eq:star},
+because $s(p_{ab})=s(p_{ba})$. (3) A $3$-cycle $(a\ b\ c)$ satisfies
+\eqref{eq:star} if and only if $s(p_{ab})+s(p_{bc})+s(p_{ca})=1$, that is,
+if and only if $p_{ab}p_{bc}p_{ca}$ is odd. (4) Lemma~\ref{lem:C} is the
+special case of the residual-routing criterion \cite[Definition~7.13 and
+Theorem~7.14]{abchk} in which the normal subgroup is $A_r$, the routing is
+$(i,\lambda)\mapsto(\lambda,L(i,\lambda))$ and the residual permutation is
+$(i,\lambda)\mapsto(i,\lambda\rho)$: the cycles of the residual permutation are
+the sets $\{i\}\times C$ for the cycles $C$ of~$\rho$, and the cycle condition
+of \cite{abchk} becomes~\eqref{eq:star}. We give the direct proof because it
+yields the explicit formula that is formalised in Section~\ref{sec:lean}.
+\end{remark}
+
+\section{The Brauer monoid}\label{sec:odd}
+In this section $D=\B_n$, $r\in\{2,3\}$, $r<n$ and $n\equiv r\pmod 2$, and
+$H=H_r(\B_n)$. For an $r$-subset $F$ of $[n]$, the \emph{fibre} over $F$ is
+$H_F=\{h\in H:F(h)=F\}$. It has $m=(n-r-1)!!$ elements, an odd number, and by
+Proposition~\ref{prop:rees}(d) any two of its elements are compatible.
+
+\begin{lemma}\label{lem:parity}
+$N=|H|$ is odd if and only if $r=2$ and $n\equiv2\pmod4$, or $r=3$ and
+$n\equiv3\pmod4$. In these cases $n-r\ge4$ and $\binom nr$ is odd.
+\end{lemma}
+
+\begin{proof}
+Since $m$ is odd, $N=\binom nr m$ is odd if and only if $\binom nr$ is odd. For
+even $n$, $\binom n2=\frac n2(n-1)$ is odd if and only if $n\equiv2\pmod4$. For
+odd $n$, the $2$-adic valuation of $n(n-1)(n-2)$ is that of $n-1$, so
+$\binom n3=n(n-1)(n-2)/6$ is odd if and only if $n-1\equiv2\pmod4$, that is,
+$n\equiv3\pmod4$. Since $r<n$, this gives $n\ge6$ for $r=2$ and $n\ge7$ for
+$r=3$, so $n-r\ge4$.
+\end{proof}
+
+\begin{lemma}[the triangle]\label{lem:triangle}
+Suppose that $n-r\ge2$. Let $E=\varnothing$ if $r=2$ and $E=\{5\}$ if $r=3$, and
+let $R_0$ be the perfect matching $\{r+3,r+4\},\{r+5,r+6\},\dots$ of
+$\{r+3,\dots,n\}$. Put
+\begin{align*}
+ I_0&=(\{3,4\}\cup E,\ \{\{1,2\}\}\cup R_0),\\
+ I_1&=(\{2,4\}\cup E,\ \{\{1,3\}\}\cup R_0),\\
+ I_2&=(\{2,3\}\cup E,\ \{\{1,4\}\}\cup R_0).
+\end{align*}
+Then $I_0\sim I_1$, $I_1\sim I_2$ and $I_2\sim I_0$, with
+$p_{I_0I_1}=p_{I_1I_2}=1$ and $p_{I_2I_0}=(1\,2)$. In particular
+$p_{I_0I_1}p_{I_1I_2}p_{I_2I_0}$ is odd.
+\end{lemma}
+
+\begin{proof}
+The arcs of $R_0$ are common to the three half-diagrams and give double edges,
+and the point $5$ (if $r=3$) is free in all three and is the largest free
+point, so it is joined to itself. Only the points $1,\dots,4$ matter. In
+$\Gamma(I_0,I_1)$ the path from $3$ is $3,1,2$ (arcs $\{1,3\}$ of $I_1$ and
+$\{1,2\}$ of $I_0$) and ends at $2\in F(I_1)$, and $4$ is fixed; the order is
+preserved. In $\Gamma(I_1,I_2)$, $2$ is fixed and the path from $4$ is $4,1,3$;
+the order is preserved. In $\Gamma(I_2,I_0)$ the path from $2$ is $2,1,4$ and
+$3$ is fixed, so the smaller free point $2$ of $I_2$ is joined to the larger
+free point $4$ of $I_0$, and $p_{I_2I_0}=(1\,2)$.
+\end{proof}
+
+These are the three half-diagrams used for $\mathcal P_n$ in the proof of
+\cite[Theorem~8.5]{abchk}, where the marked singletons become free points,
+completed to perfect matchings by~$R_0$. With the idempotents $e_\lambda$
+defined after Proposition~\ref{prop:rees}, Lemma~\ref{lem:triangle} says that
+$e_{I_0}e_{I_1}e_{I_2}e_{I_0}=(I_0,\,p_{I_0I_1}p_{I_1I_2}p_{I_2I_0},\,I_0)$
+is an odd element of the group $\mathcal H$-class of~$e_{I_0}$.
+
+\begin{lemma}[joining two fibres]\label{lem:join}
+Let $F\ne F'$ be $r$-subsets of $[n]$ with $F\setminus F'=\{x_1,\dots,x_k\}$
+and $F'\setminus F=\{y_1,\dots,y_k\}$, and suppose that $r+2k\le n$. Then
+there are $v\in H_F$ and $w\in H_{F'}$ with $v\sim w$.
+\end{lemma}
+
+\begin{proof}
+Choose distinct points $z_1,\dots,z_k\notin F\cup F'$, which is possible since
+$|F\cup F'|+k=r+2k\le n$, and a perfect matching $R$ of the remaining
+$n-r-2k$ points, an even number. Put
+\[
+ v=(F,\ \{\{z_t,y_t\}:t\le k\}\cup R),\qquad w=(F',\ \{\{x_t,z_t\}:t\le k\}\cup
+ R).
+\]
+In $\Gamma(v,w)$ the path from $x_t$ is $x_t,z_t,y_t$ and ends in $F'$, the
+points of $F\cap F'$ are paths of length~$0$, and the arcs of $R$ give double
+edges. So $v\sim w$.
+\end{proof}
+
+\begin{lemma}[matching]\label{lem:matching}
+Suppose that $n-r\ge4$ and $\binom nr$ is odd, and let $X=\{I_0,I_1,I_2\}$ be
+as in Lemma~\ref{lem:triangle}. Then $H\setminus X$ can be partitioned into
+pairs $\{v,w\}$ with $v\sim w$.
+\end{lemma}
+
+\begin{proof}
+The elements of $X$ lie in the three distinct fibres over $\{3,4\}\cup E$,
+$\{2,4\}\cup E$ and $\{2,3\}\cup E$, one in each. The other $\binom nr-3$
+fibres, an even number, can be paired so that each pair $(F,F')$ satisfies
+$r+2|F\setminus F'|\le n$. Indeed, if $r=2$ then $|F\setminus F'|\le2$ and
+$n\ge6$, and if $r=3$ and $n\ge9$ then $|F\setminus F'|\le3$; in these cases
+any pairing works. If $(n,r)=(7,3)$ the condition is $F\cap F'\ne\varnothing$,
+and the following $16$ pairs of $3$-subsets of $[7]$ work: $\{a,b,6\}$ with
+$\{a,b,7\}$ for the ten $2$-subsets $\{a,b\}$ of $[5]$; $\{1,6,7\}$ with
+$\{1,2,3\}$, $\{2,6,7\}$ with $\{1,2,4\}$, $\{3,6,7\}$ with $\{1,3,4\}$,
+$\{4,6,7\}$ with $\{2,3,4\}$ and $\{5,6,7\}$ with $\{1,2,5\}$; and $\{1,3,5\}$
+with $\{1,4,5\}$. These are exactly the $32$ subsets other than $\{3,4,5\}$,
+$\{2,4,5\}$ and $\{2,3,5\}$, and the two sets in each pair meet. For each
+pair of fibres, Lemma~\ref{lem:join} gives compatible $v\in H_F$ and $w\in
+H_{F'}$, and we take $\{v,w\}$ as a pair. Now exactly one element of each fibre
+has been used, either in $X$ or in a pair. The remaining $m-1$ elements of each
+fibre, an even number, are pairwise compatible, and we pair them arbitrarily.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}(a)]
+Let $r<n$ be a rank that occurs in $\B_n$. By Proposition~\ref{prop:rees},
+$J_r^0\cong\M^0(S_r,H,H,P)$ with $p_{\lambda\lambda}=1$ for all $\lambda$. If
+$r\notin\{2,3\}$, then $S_r$ has a complete mapping by (R1), and
+Lemma~\ref{lem:A} applies. If $r\in\{2,3\}$ and $N$ is even,
+Lemma~\ref{lem:B} applies. If $r\in\{2,3\}$ and $N$ is odd, then $n-r\ge4$ and
+$\binom nr$ is odd by Lemma~\ref{lem:parity}. Let $\rho$ be the permutation of
+$H$ that maps $I_0\mapsto I_1\mapsto I_2\mapsto I_0$ and interchanges the two
+elements of each pair given by Lemma~\ref{lem:matching}. Then
+$\lambda\sim\lambda\rho$ for all $\lambda$. The $3$-cycle satisfies
+\eqref{eq:star} by Lemma~\ref{lem:triangle} and Remark~\ref{rem:C}(3), and the
+transpositions satisfy it by Proposition~\ref{prop:rees}(c) and
+Remark~\ref{rem:C}(2). So Lemma~\ref{lem:C} gives a complete mapping of
+$J_r^0$.
+\end{proof}
+
+\section{The partial Brauer monoid}\label{sec:pb}
+
+\begin{lemma}\label{lem:pbparity}
+The number $a(k)$ of involutions of a $k$-set is even for $k\ge2$. Hence, if
+$n\ge4$, $r\in\{2,3\}$ and $r<n$, then $N=\binom nr a(n-r)$ is even.
+\end{lemma}
+
+\begin{proof}
+We have $a(2)=2$, $a(3)=4$ and $a(k)=a(k-1)+(k-1)a(k-2)$, so $a(k)$ is even for
+$k\ge2$ by induction. If $n-r\ge2$ this gives the claim; otherwise $n-r=1$, so
+$(n,r)=(4,3)$ and $N=4$.
+\end{proof}
+
+\begin{proposition}\label{prop:pb3}
+The principal factor of rank~$2$ of $\PB_3$ is isomorphic to the Brandt
+semigroup $B(S_2,3)=\M^0(S_2,[3],[3],\Delta_3)$ and has no complete mapping.
+\end{proposition}
+
+\begin{proof}
+The half-diagrams of rank $2$ are the three pairs $(F,\varnothing)$ with
+$|F|=2$, the third point being a singleton. If $F(\lambda)\ne F(i)$, a point of
+$F(\lambda)\setminus F(i)$ is a singleton of $i$, hence an isolated vertex of
+$\Gamma(\lambda,i)$ outside $F(i)$, so $\lambda\not\sim i$. With
+Proposition~\ref{prop:rees}(c), the sandwich matrix is the identity matrix
+$\Delta_3$ over $S_2$. It is obtained from the normalised $3\times3$ matrix all
+of whose entries are the identity, which has odd order, by replacing the
+off-diagonal entries by~$0$. Since $S_2\cong C_2$ has a non-trivial cyclic
+Sylow $2$-subgroup and $3$ is odd, (R8) shows that there is no complete
+mapping.
+\end{proof}
+
+The same conclusion follows from \cite[Theorem~10.1]{abchk}, since $B(S_2,3)$
+is an inverse semigroup whose non-zero $\mathcal J$-class has three $\mathcal
+L$-classes and maximal subgroup~$S_2$. An exhaustive computer search confirms
+it (Section~\ref{sec:comp}).
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}(b)]
+Let $r<n$. If $r\notin\{2,3\}$, Lemma~\ref{lem:A} applies as in the proof of
+part~(a). If $r\in\{2,3\}$ and $n\ge4$, then $N$ is even by
+Lemma~\ref{lem:pbparity}, and Lemma~\ref{lem:B} applies. If $r\in\{2,3\}$ and
+$n\le3$, then $(n,r)=(3,2)$, and Proposition~\ref{prop:pb3} applies.
+\end{proof}
+
+\section{The whole monoids}\label{sec:whole}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}(c)]
+The group of units of $\B_n$ and of $\PB_n$ is $J_n\cong S_n$, so (i) and (ii)
+each imply (iii) by (R3). Statements (iii) and (iv) are equivalent by (R1).
+Suppose that (iii) holds, and let $\varphi$ be a complete mapping of $S_n$. The
+principal factor of the group of units is $S_n$ with a zero adjoined, and
+$\varphi$ extended by $0\mapsto0$ is a complete mapping of it. Every proper
+principal factor of $\B_n$ has a complete mapping by part~(a). Every proper
+principal factor of $\PB_n$ has one by part~(b), since $n\ne3$. So (i) and
+(ii) hold by (R4).
+\end{proof}
+
+\section{Computations}\label{sec:comp}
+No statement of this paper depends on a computation: each has a written proof
+above. The computations are independent checks of these proofs and of our
+conventions. The programs (in Python), certificates and logs are in the
+directory \texttt{certificates/brauer-complete} of version~1.4.0 of the
+repository~\cite{repo}.
+
+\paragraph{Two implementations.}
+The first implementation multiplies diagrams with a union--find structure,
+computes the Rees coordinates of Proposition~\ref{prop:rees}, and builds
+complete mappings exactly as in the proofs (Lemmas~\ref{lem:A}--\ref{lem:C}
+and~\ref{lem:triangle}--\ref{lem:matching}, with $L(i,\lambda)=i+\lambda$ after
+indexing $H$ by~$\Z_N$). The second implementation shares no code with the
+first: it has its own parser, multiplies diagrams by following alternating
+paths through the middle row, enumerates the elements itself, and never uses
+Rees coordinates. A certificate is a text file with one line
+$x\mapsto x\alpha$ for every element $x$ of a principal factor (without the
+zero, which is fixed) or of a whole monoid. For a factor $J_r^0$, the second
+implementation checks that the listed $x$ are valid diagrams of rank~$r$,
+pairwise distinct, and $N^2r!=|J_r|$ in number, so that they are exactly the
+elements of $J_r$; that the values $x\alpha$ are pairwise distinct and of
+rank~$r$; and that the products $x\cdot x\alpha$ have rank~$r$ (that is, are
+non-zero in $J_r^0$) and are pairwise distinct. For a whole monoid it checks
+that the listed $x$ are all the elements, that $\alpha$ is a bijection, and
+that $x\mapsto x\cdot x\alpha$ is a bijection. Table~\ref{tab:certs} lists the
+certificates; all passed.
+
+\begin{table}[ht]\centering\small
+\begin{tabular}{@{}l r >{\raggedright\arraybackslash}p{0.56\textwidth}@{}}
+\toprule
+Certificate for & elements & construction\\\midrule
+$J_2^0(\B_6)$, $N=45$ & $4050$ & Lemmas~\ref{lem:C}, \ref{lem:triangle},
+ \ref{lem:matching} and~\ref{lem:lift}; the first case with $N$ odd\\
+$J_3^0(\B_7)$, $N=105$ & $66150$ & the same; the first case with $N$ odd and
+ $r=3$\\
+$\B_6$ & $10395$ & ranks $0$, $2$, $4$, $6$; rank~$2$ as above\\
+$\B_1$, $\B_4$, $\B_5$ & $1$, $105$, $945$ & Lemmas~\ref{lem:A},
+ \ref{lem:lift} and~\ref{lem:B}\\
+$\PB_6$ & $140152$ & ranks $0$ to $6$; ranks $2$ and $3$ by Lemma~\ref{lem:B}\\
+$\PB_1$, $\PB_4$, $\PB_5$ & $2$, $764$, $9496$ & Lemmas~\ref{lem:A},
+ \ref{lem:lift} and~\ref{lem:B}\\\addlinespace
+$J_2^0(\B_6)$, $J_3^0(\B_7)$ & $4050$, $66150$ & second versions: a
+ triangle with sign bits $(0,1,0)$ found by search and a maximum matching
+ computed with the NetworkX library in place of
+ Lemmas~\ref{lem:triangle} and~\ref{lem:matching}\\
+\bottomrule
+\end{tabular}
+\caption{Certificates. The number of elements excludes the zero of a
+principal factor. Each certificate was built by the first implementation and
+checked by the second.}
+\label{tab:certs}
+\end{table}
+
+For the whole monoids, the factors of rank at least $4$ and the groups of units
+need complete mappings of $S_4$, $S_5$ and $S_6$. Those of $S_4$ and $S_5$ were
+found with the SAT solver CaDiCaL, and one of $S_6$ by an exact-cover search
+(Knuth's Algorithm~X) in about seven minutes, after CaDiCaL had not finished
+in twenty minutes. They are checked implicitly by the whole-monoid
+certificates. For the theorems themselves, (R1) supplies these complete
+mappings.
+
+\paragraph{Further checks.}
+\begin{itemize}
+\item \emph{Rees coordinates.} The first implementation confirms that the
+ $\mathcal J$-classes are the rank classes for $\B_n$ with $n\le5$ and $\PB_n$
+ with $n\le4$, and that Proposition~\ref{prop:rees}(a)--(c) and the product
+ rule~(b) hold for all pairs in $J_r$ for these monoids. For $\B_6$ the product
+ rule was checked for all pairs in ranks $0$ and $6$ and for $400\,000$ random
+ pairs in each of ranks $2$ and~$4$; for $\PB_5$, for all pairs in the ranks
+ with $|J_r|^2\le4\cdot10^6$ and for $400\,000$ random pairs in each other
+ rank. The values of $N$ agree with the formulas of Section~\ref{sec:rees}.
+\item \emph{The odd case.} For $(n,r)=(6,2)$, $(7,3)$, $(10,2)$, $(11,3)$ and
+ $(14,2)$, that is, for $N=45$, $105$, $4725$, $17325$ and $945945$, the first
+ implementation confirms the sandwich permutations of
+ Lemma~\ref{lem:triangle} and that the construction of
+ Lemma~\ref{lem:matching} yields a partition of $H\setminus X$ into
+ compatible pairs. The second implementation confirms, without Rees
+ coordinates, that for $n\in\{6,7,10,11\}$ the product
+ $e_{I_0}e_{I_1}e_{I_2}e_{I_0}$, with $e_\lambda$ as defined after
+ Proposition~\ref{prop:rees}, is the element of the group $\mathcal H$-class
+ of $e_{I_0}$ that interchanges the through strands at the points $3$ and~$4$.
+\item \emph{Parities.} The parity pattern of Table~\ref{tab:cases} holds for
+ all $n\le200$ in both families.
+\item \emph{Non-existence.} An exhaustive search, using the second
+ implementation, confirms that $S_2$ and $S_3$ have no complete mapping, that
+ the units of $\B_2$, $\B_3$, $\PB_2$ and $\PB_3$ are the permutation diagrams,
+ and that the $19$-element rank-$2$ principal factor of $\PB_3$ has no complete
+ mapping (a depth-first search over all bijections, with $67\,911\,890$
+ nodes). As positive controls, the same search finds complete mappings of
+ three other small principal factors.
+\end{itemize}
+One script reruns all these checks and regenerates the certificates; on its
+last run (26 September 2026, 07:42--07:44 UTC) every certificate was
+reproduced with the same SHA-256 hash, and the hashes are recorded in the
+repository.
+
+\section{Formal verification}\label{sec:lean}
+The Lean file \texttt{lean/Research/BrauerCMCore.lean} of version~1.4.0 of
+the repository~\cite{repo} (324 lines) formalises Lemmas~\ref{lem:B}
+and~\ref{lem:C} at the level of the semigroup $\Mt$, for an arbitrary finite
+index set. It uses Lean~4 (version 4.33.1) and Mathlib~\cite{mathlib} (commit
+\texttt{0df444a3}). The declarations are in the namespace
+\texttt{BrauerCMCore}. The assertion of Lemma~\ref{lem:B} that $\bar f$ is a
+complete mapping of $\Mt$ is the theorem \texttt{BrauerCMCore.lemmaB}, and the
+corresponding assertion of Lemma~\ref{lem:C} is the theorem
+\texttt{BrauerCMCore.lemmaC}. The following listing is an excerpt of this
+file, not the complete file. It shows the definitions of \texttt{Elt},
+\texttt{mul} and \texttt{IsCompleteMapping} and the statements of
+\texttt{lemmaC} and \texttt{lemmaB}, each inside its section together with the
+\texttt{variable} declaration of that section. Proofs, auxiliary lemmas,
+comments and the definitions of \texttt{fC} and \texttt{fB} are omitted, and
+some long lines are broken differently.
+
+\vspace{12pt}
+\noindent\begin{minipage}{\linewidth}
+\begin{alltt}\small
+abbrev Elt (H : Type*) := Option (H \(\times\) ZMod 2 \(\times\) H)
+variable \{H : Type*\}
+def mul (P : H \(\to\) H \(\to\) Option (ZMod 2)) : Elt H \(\to\) Elt H \(\to\) Elt H
+  | none, _ => none
+  | some _, none => none
+  | some (i, a, l), some (j, b, m) => (P l j).map (fun p => (i, a + p + b, m))
+def IsCompleteMapping \{S : Type*\} (op : S \(\to\) S \(\to\) S) (\(\alpha\) : S \(\to\) S) : Prop :=
+  Function.Bijective \(\alpha\) \(\wedge\) Function.Bijective (fun x => op x (\(\alpha\) x))
+\end{alltt}
+\end{minipage}
+
+\vspace{10pt}
+\noindent\begin{minipage}{\linewidth}
+\begin{alltt}\small
+section LemmaC
+variable (P : H \(\to\) H \(\to\) Option (ZMod 2)) (L : H \(\to\) H \(\to\) H) (\(\rho\) : H \(\simeq\) H)
+  (c s : H \(\to\) ZMod 2)
+theorem lemmaC [Finite H] (hdiag : \(\forall\) l, P l l = some 0)
+    (h\(\rho\) : \(\forall\) l, P l (\(\rho\) l) = some (s l)) (hc : \(\forall\) l, c (\(\rho\) l) = c l + 1 + s l)
+    (hrow : \(\forall\) i, Function.Injective (L i))
+    (hcol : \(\forall\) l, Function.Injective (fun i => L i l)) :
+    IsCompleteMapping (mul P) (fC L \(\rho\) c)
+end LemmaC
+\end{alltt}
+\end{minipage}
+
+\vspace{10pt}
+\noindent\begin{minipage}{\linewidth}
+\begin{alltt}\small
+section LemmaB
+variable (P : H \(\to\) H \(\to\) Option (ZMod 2)) (L : H \(\to\) H \(\to\) H) (\(\delta\) : H \(\simeq\) H)
+  (t : H \(\to\) ZMod 2)
+theorem lemmaB [Finite H] (hdiag : \(\forall\) l, P l l = some 0)
+    (h\(\delta\) : \(\forall\) \(\mu\), t (\(\delta\) \(\mu\)) = t \(\mu\) + 1)
+    (hrow : \(\forall\) i, Function.Injective (L i))
+    (hcol : \(\forall\) l, Function.Injective (fun i => L i l)) :
+    IsCompleteMapping (mul P) (fB L \(\delta\) t)
+end LemmaB
+\end{alltt}
+\end{minipage}
+
+\vspace{14pt}
+\noindent Here \texttt{none} is the zero of $\Mt$, \texttt{some (i, a, l)} is the
+element $(i,a,\lambda)$, and \texttt{P l j = none} means $\lambda\not\sim j$.
+The maps \texttt{fC} and \texttt{fB} send \texttt{none} to \texttt{none} and
+are the maps of Lemmas~\ref{lem:C} and~\ref{lem:B}: \texttt{fC} sends
+\texttt{some (i, a, l)} to \texttt{some (l, 1~+~c~l, L~i~l)} if
+\texttt{a~=~c~l}, and to \texttt{some ($\rho$~l, c~($\rho$~l),
+L~i~($\rho$~l))} otherwise; \texttt{fB} sends it to \texttt{some (l, 1, L~i~l)} if
+\texttt{a~=~1~+~t~(L~i~l)}, and to \texttt{some (l, 0, $\delta$~(L~i~l))}
+otherwise. The predicate \texttt{IsCompleteMapping} is the definition of a
+complete mapping of a magma; associativity is not used.
+
+The Lean statements differ from Lemmas~\ref{lem:B} and~\ref{lem:C} as
+follows. The matrix is over $\Z_2$ directly, with no reference to $S_r$ or to
+diagrams; only its diagonal entries (\texttt{hdiag}) and, for
+\texttt{lemmaC}, its entries at $(\lambda,\lambda\rho)$ (\texttt{h$\rho$}) are
+constrained. In \texttt{lemmaC} the map $c$ is a hypothesis; that such a $c$
+exists under condition~\eqref{eq:star} is the first step of the proof of
+Lemma~\ref{lem:C} and is not formalised. The Latin square is given by the
+hypotheses \texttt{hrow} and \texttt{hcol}.
+
+The following are not formalised: Proposition~\ref{prop:rees} (diagram monoids
+are not in Mathlib); the lifting Lemma~\ref{lem:lift}, that is, (R5);
+Lemma~\ref{lem:A}; Lemmas~\ref{lem:parity}--\ref{lem:matching},
+\ref{lem:pbparity} and Proposition~\ref{prop:pb3}; the results (R1)--(R8)
+of~\cite{abchk} and the results of~\cite{emrt} that we use; and hence
+Theorem~\ref{thm:main} itself. The Lean proof certifies the two constructions
+of complete mappings over $\Z_2$ for every finite index set, in particular for
+every $N$; it does not certify that the hypotheses hold for the principal
+factors of $\B_n$ and $\PB_n$.
+
+The file contains no \texttt{sorry} and no axiom declarations, and does not use
+\texttt{native\_decide}; the ten uses of \texttt{decide} are closed statements
+about $\Z_2$ with at most three variables. The module was built with
+\texttt{lake build Research.BrauerCMCore} on 26 September 2026 (exit code~$0$).
+The axiom audits (\texttt{\#print axioms}) of \texttt{lemmaC} and
+\texttt{lemmaB} report only the standard axioms \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. The compiled module was
+then checked with \texttt{leanchecker} (exit code~$0$), which replays its
+declarations in Lean's kernel and trusts the imported Mathlib; this is not an
+independent kernel. The code and logs are available at~\cite{repo}.
+
+\section*{Tool and computational resource disclosure}
+This work was carried out on 26 September 2026 (UTC) in a workflow directed by
+the author, using AI coding agents: Anthropic Claude Code, with the model
+Claude Opus~5.5. The author set the research programme, namely resolving open
+problems with AI agents and formal verification, and directed the agents; the
+agents selected this problem. Claude Code agents found the proofs, wrote the
+programs and the Lean formalisation, carried out the literature searches
+described in the introduction, and drafted this text. The programs, logs and
+Lean code are available at~\cite{repo}. The author is not a professional
+mathematician.
+%% AUTHOR-ROLE-SENTENCE: to be completed after the author has read the paper
+The correctness of the results rests on the written proofs, which use the
+results of~\cite{abchk} and~\cite{emrt} listed in Section~\ref{sec:prelim}; the
+Lean formalisation covers only the two constructions described in
+Section~\ref{sec:lean}, and the computations of Section~\ref{sec:comp} are
+additional checks. AI systems are not authors of this paper; the author takes
+full responsibility for its content.
+
+\begin{thebibliography}{9}
+\bibitem{abchk}
+J.~Ara\'ujo, W.~Bentz, P.~J. Cameron, K.~Hendrey and M.~Kinyon, Complete
+mappings of semigroups, arXiv:2608.25092v1, 25 August 2026.
+\bibitem{camblog}
+P.~J. Cameron, Complete mappings of semigroups, \emph{Peter Cameron's Blog},
+27 August 2026,
+\url{https://cameroncounts.wordpress.com/2026/08/27/complete-mappings-of-semigroups/}.
+\bibitem{repo}
+H.~Dong, \emph{ai4math-results}, repository, version~1.4.0,
+\url{https://github.com/Horace-Maxwell/ai4math-results}; archived at Zenodo,
+concept DOI \url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{emrt}
+J.~East, J.~D. Mitchell, N.~Ru\v{s}kuc and M.~Torpey, Congruence lattices of
+finite diagram monoids, \emph{Adv.\ Math.} \textbf{333} (2018), 931--1003,
+\url{https://doi.org/10.1016/j.aim.2018.05.016}.
+\bibitem{kinyon}
+M.~Kinyon, Complete mappings for semigroups, slides of a talk at AGTA,
+University of Naples Federico II, 24 June 2025,
+\url{https://www.advgrouptheory.com/agta2025/Talks/Kinyon.pdf}.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proceedings of
+the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs}
+(CPP '20), ACM, 2020, 367--381,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{trurepo}
+The Omega Institute, \texttt{trureturing} repository,
+\url{https://github.com/the-omega-institute/trureturing}.
+\end{thebibliography}
+\end{document}

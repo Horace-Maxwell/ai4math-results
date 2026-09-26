@@ -1,0 +1,3 @@
+# complete mapping certificate: B_1 whole monoid
+# format: x TAB alpha(x); blocks 'a:b' (a,b in 1..n, 1'..n'); singletons listed alone
+1:1'	1:1'

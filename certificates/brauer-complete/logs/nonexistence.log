@@ -1,0 +1,11 @@
+S_2: complete mapping exists? False  (exhaustive, 3 DFS nodes)
+S_3: complete mapping exists? False  (exhaustive, 217 DFS nodes)
+B_2: |monoid|=3, group of units = the 2 rank-2 permutation diagrams (S_2)
+B_3: |monoid|=15, group of units = the 6 rank-3 permutation diagrams (S_3)
+PB_2: |monoid|=10, group of units = the 2 rank-2 permutation diagrams (S_2)
+PB_3: |monoid|=76, group of units = the 6 rank-3 permutation diagrams (S_3)
+PB_3 rank-2 principal factor: 19 elements (incl. 0); complete mapping exists? False  (exhaustive DFS, 67911890 nodes)
+control PB_3 rank-0 factor (17 elements): complete mapping found? True (18 nodes)
+control B_4 rank-0 factor (10 elements): complete mapping found? True (11 nodes)
+control PB_2 rank-1 factor (5 elements): complete mapping found? True (14 nodes)
+NONEXISTENCE CHECKS PASSED

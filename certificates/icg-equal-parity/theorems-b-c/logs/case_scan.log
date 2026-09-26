@@ -1,0 +1,369 @@
+=== (2,2) p=5 q=3
+  last=+B u0=-1: n=32 min ratio=2.4588  #no-single-payer=0
+      ratio=2.4588 single=1.4000 Y=-++/+-+/-+- types=-A+A+B
+      ratio=3.2118 single=2.0000 Y=--+/+-+/-+- types=-A-B+B
+      ratio=3.9647 single=2.3882 Y=-++/+-+/--- types=-A+C+B
+      ratio=4.2471 single=1.9294 Y=-++/+-+/++- types=-C+A+B
+  last=+B u0=+1: n=32 min ratio=1.6588  #no-single-payer=1
+      ratio=1.6588 single=1.1294 Y=+-+/-++/++- types=+A-C+B
+      ratio=1.8471 single=0.8471 Y=+-+/--+/++- types=+A-B+B
+      ratio=2.6471 single=1.2706 Y=+-+/+-+/-+- types=+B-B+B
+      ratio=2.8824 single=2.3529 Y=+-+/-++/+-- types=+A-A+B
+  last=+C u0=-1: n=32 min ratio=3.4941  #no-single-payer=0
+      ratio=3.4941 single=2.5647 Y=--+/+--/-+- types=-A-B+C
+      ratio=3.8706 single=2.4235 Y=--+/++-/--- types=-A-A+C
+      ratio=4.2471 single=1.8235 Y=-++/++-/--- types=-A+B+C
+      ratio=4.2471 single=2.2824 Y=--+/++-/+-- types=-C-A+C
+  last=+C u0=+1: n=32 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=+-+/-+-/+-- types=+A-A+C
+      ratio=2.4588 single=1.4588 Y=+-+/-+-/--- types=+C-A+C
+      ratio=2.6000 single=1.6000 Y=+-+/-+-/++- types=+A-C+C
+      ratio=2.7882 single=1.2235 Y=+-+/---/++- types=+A-B+C
+  last=-A u0=-1: n=32 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=-+-/+-+/-+- types=-A+A-A
+      ratio=2.6471 single=1.1294 Y=-+-/+-+/--- types=-A+C-A
+      ratio=2.7882 single=1.9294 Y=-+-/+-+/++- types=-C+A-A
+      ratio=3.1647 single=1.7412 Y=-+-/--+/++- types=-B+A-A
+  last=-A u0=+1: n=32 min ratio=1.0471  #no-single-payer=0
+      ratio=1.0471 single=1.0471 Y=++-/--+/++- types=+A+A-A
+      ratio=1.6588 single=1.6588 Y=++-/+-+/-+- types=+B+A-A
+      ratio=1.8471 single=1.1294 Y=++-/--+/+-- types=+A+C-A
+      ratio=2.5059 single=2.0353 Y=+--/--+/++- types=+A-B-A
+  last=-E u0=-1: n=32 min ratio=2.9765  #no-single-payer=0
+      ratio=2.9765 single=2.9765 Y=-+-/+--/-+- types=-A+A-E
+      ratio=4.2941 single=2.8353 Y=-+-/+--/++- types=-C+A-E
+      ratio=4.6235 single=2.8353 Y=-+-/++-/--- types=-A+B-E
+      ratio=4.6235 single=3.0235 Y=-+-/+--/--- types=-A+C-E
+  last=-E u0=+1: n=32 min ratio=2.7882  #no-single-payer=0
+      ratio=2.7882 single=1.8824 Y=+--/-+-/+-- types=+A-A-E
+      ratio=3.0706 single=1.8824 Y=++-/+--/-+- types=+B+A-E
+      ratio=3.1647 single=1.8824 Y=++-/-+-/+-- types=+A+B-E
+      ratio=3.6824 single=1.8824 Y=++-/---/++- types=+A+A-E
+=== (2,2) p=3 q=5
+  last=+B u0=-1: n=32 min ratio=2.7882  #no-single-payer=0
+      ratio=2.7882 single=1.7294 Y=-++/+-+/-+- types=-A+A+B
+      ratio=3.1647 single=1.6235 Y=--+/+-+/-+- types=-A-B+B
+      ratio=4.2471 single=1.9294 Y=-++/+-+/++- types=-C+A+B
+      ratio=4.2941 single=2.7176 Y=-++/+-+/--- types=-A+C+B
+  last=+B u0=+1: n=32 min ratio=1.0471  #no-single-payer=1
+      ratio=1.0471 single=0.4706 Y=+-+/+-+/-+- types=+B-B+B
+      ratio=1.6588 single=1.4588 Y=+-+/-++/++- types=+A-C+B
+      ratio=1.8471 single=1.2706 Y=+-+/--+/++- types=+A-B+B
+      ratio=2.5059 single=1.9294 Y=+-+/--+/-+- types=+C-B+B
+  last=+C u0=-1: n=32 min ratio=3.8706  #no-single-payer=0
+      ratio=3.8706 single=2.4706 Y=--+/+--/-+- types=-A-B+C
+      ratio=3.9647 single=2.0588 Y=-++/+--/-+- types=-A+A+C
+      ratio=4.2471 single=2.2824 Y=-++/-+-/+-- types=-B+B+C
+      ratio=4.6235 single=1.7882 Y=-++/++-/+-- types=-C+B+C
+  last=+C u0=+1: n=32 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=+-+/-+-/+-- types=+A-A+C
+      ratio=1.8471 single=1.0000 Y=+-+/+--/-+- types=+B-B+C
+      ratio=2.7882 single=1.7882 Y=+-+/-+-/--- types=+C-A+C
+      ratio=2.8824 single=1.8824 Y=+-+/-+-/++- types=+A-C+C
+  last=-A u0=-1: n=32 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=-+-/+-+/-+- types=-A+A-A
+      ratio=2.4588 single=1.9294 Y=-+-/+-+/++- types=-C+A-A
+      ratio=2.9765 single=1.4588 Y=-+-/+-+/--- types=-A+C-A
+      ratio=3.2118 single=1.7412 Y=-+-/--+/++- types=-B+A-A
+  last=-A u0=+1: n=32 min ratio=1.6588  #no-single-payer=0
+      ratio=1.6588 single=1.6588 Y=++-/+-+/-+- types=+B+A-A
+      ratio=2.5059 single=2.0353 Y=+--/+-+/-+- types=+B-B-A
+      ratio=2.6471 single=2.6471 Y=++-/--+/++- types=+A+A-A
+      ratio=3.0706 single=1.6118 Y=++-/+-+/--- types=+B+C-A
+  last=-E u0=-1: n=32 min ratio=2.6471  #no-single-payer=0
+      ratio=2.6471 single=2.6471 Y=-+-/+--/-+- types=-A+A-E
+      ratio=3.8706 single=3.0235 Y=-+-/-+-/+-- types=-B+B-E
+      ratio=3.9647 single=2.1765 Y=-+-/+--/++- types=-C+A-E
+      ratio=4.2471 single=2.0824 Y=-+-/++-/+-- types=-C+B-E
+  last=-E u0=+1: n=32 min ratio=2.4588  #no-single-payer=0
+      ratio=2.4588 single=1.6000 Y=+--/-+-/+-- types=+A-A-E
+      ratio=3.0235 single=1.6000 Y=++-/+--/-+- types=+B+A-E
+      ratio=3.2118 single=1.6000 Y=++-/-+-/+-- types=+A+B-E
+      ratio=3.7765 single=1.7059 Y=+--/+--/-+- types=+B-B-E
+=== (2,2) p=7 q=3
+  last=+B u0=-1: n=32 min ratio=2.4919  #no-single-payer=0
+      ratio=2.4919 single=1.2703 Y=-++/+-+/-+- types=-A+A+B
+      ratio=3.5297 single=2.1297 Y=--+/+-+/-+- types=-A-B+B
+      ratio=4.0486 single=2.3514 Y=-++/+-+/--- types=-A+C+B
+      ratio=4.3730 single=1.9459 Y=-++/+-+/++- types=-C+A+B
+  last=+B u0=+1: n=32 min ratio=1.8216  #no-single-payer=0
+      ratio=1.8216 single=1.1459 Y=+-+/-++/++- types=+A-C+B
+      ratio=2.2108 single=1.0811 Y=+-+/--+/++- types=+A-B+B
+      ratio=2.9459 single=2.2703 Y=+-+/-++/+-- types=+A-A+B
+      ratio=3.3351 single=2.5946 Y=+-+/--+/+-- types=+A-E+B
+  last=+C u0=-1: n=32 min ratio=3.5946  #no-single-payer=0
+      ratio=3.5946 single=2.5189 Y=--+/+--/-+- types=-A-B+C
+      ratio=3.8541 single=2.4108 Y=--+/++-/--- types=-A-A+C
+      ratio=4.3730 single=1.9622 Y=-++/++-/--- types=-A+B+C
+      ratio=4.3730 single=2.3459 Y=--+/++-/+-- types=-C-A+C
+  last=+C u0=+1: n=32 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=+-+/-+-/+-- types=+A-A+C
+      ratio=2.4919 single=1.4919 Y=+-+/-+-/--- types=+C-A+C
+      ratio=2.6000 single=1.6000 Y=+-+/-+-/++- types=+A-C+C
+      ratio=2.9892 single=1.2324 Y=+-+/---/++- types=+A-B+C
+  last=-A u0=-1: n=32 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=-+-/+-+/-+- types=-A+A-A
+      ratio=2.6216 single=1.1459 Y=-+-/+-+/--- types=-A+C-A
+      ratio=2.8811 single=1.9459 Y=-+-/+-+/++- types=-C+A-A
+      ratio=3.4000 single=2.0757 Y=-+-/--+/++- types=-B+A-A
+  last=-A u0=+1: n=32 min ratio=1.0432  #no-single-payer=0
+      ratio=1.0432 single=1.0432 Y=++-/--+/++- types=+A+A-A
+      ratio=1.8216 single=1.8216 Y=++-/+-+/-+- types=+B+A-A
+      ratio=1.8432 single=1.1459 Y=++-/--+/+-- types=+A+C-A
+      ratio=2.5351 single=2.0811 Y=+--/--+/++- types=+A-B-A
+  last=-E u0=-1: n=32 min ratio=3.0108  #no-single-payer=0
+      ratio=3.0108 single=3.0108 Y=-+-/+--/-+- types=-A+A-E
+      ratio=4.4378 single=2.9459 Y=-+-/+--/++- types=-C+A-E
+      ratio=4.6324 single=3.0324 Y=-+-/+--/--- types=-A+C-E
+      ratio=4.8919 single=2.9027 Y=-+-/++-/--- types=-A+B-E
+  last=-E u0=+1: n=32 min ratio=2.8811  #no-single-payer=0
+      ratio=2.8811 single=1.9459 Y=+--/-+-/+-- types=+A-A-E
+      ratio=3.3135 single=1.9459 Y=++-/+--/-+- types=+B+A-E
+      ratio=3.4000 single=1.9459 Y=++-/-+-/+-- types=+A+B-E
+      ratio=3.7676 single=1.9459 Y=++-/---/++- types=+A+A-E
+=== (2,4) p=5 q=3
+  last=+B u0=-1: n=2048 min ratio=2.8307  #no-single-payer=0
+      ratio=2.8307 single=1.4720 Y=-+-++/+-+-+/-+-+- types=-A+A-A+A+B
+      ratio=3.1980 single=1.5868 Y=-+--+/+-+-+/-+-+- types=-A+A-A-B+B
+      ratio=4.4720 single=1.2425 Y=-++-+/+-+-+/-+-+- types=-A+A+B-B+B
+      ratio=4.5638 single=1.8881 Y=-+-++/+-+-+/++-+- types=-C+A-A+A+B
+  last=+B u0=+1: n=2048 min ratio=1.7346  #no-single-payer=0
+      ratio=1.7346 single=1.2052 Y=+-+-+/-+-++/+-++- types=+A-A+A-C+B
+      ratio=2.3085 single=1.0330 Y=+-+-+/-+--+/+-++- types=+A-A+A-B+B
+      ratio=2.8824 single=2.3529 Y=+-+-+/-+-++/+-+-- types=+A-A+A-A+B
+      ratio=3.3242 single=1.7618 Y=+-+-+/-+--+/+--+- types=+A-A+C-B+B
+  last=+C u0=-1: n=2048 min ratio=3.2324  #no-single-payer=0
+      ratio=3.2324 single=2.0689 Y=-+--+/+-+--/-+-+- types=-A+A-A-B+C
+      ratio=4.3113 single=1.9039 Y=-++-+/++-+-/--+-- types=-A+B+A-A+C
+      ratio=4.3113 single=2.2769 Y=-+--+/+-++-/-++-- types=-A+A-C-A+C
+      ratio=4.3458 single=2.2941 Y=-+--+/+-++-/-+--- types=-A+A-A-A+C
+  last=+C u0=+1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=+-+-+/-+-+-/+-+-- types=+A-A+A-A+C
+      ratio=2.7561 single=1.5265 Y=+-+-+/-+-+-/+++-- types=+A-C+A-A+C
+      ratio=2.8307 single=1.8307 Y=+-+-+/-+-+-/--+-- types=+C-A+A-A+C
+      ratio=2.9512 single=1.9512 Y=+-+-+/-+-+-/+-++- types=+A-A+A-C+C
+  last=-A u0=-1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=-+-+-/+-+-+/-+-+- types=-A+A-A+A-A
+      ratio=2.7331 single=1.8881 Y=-+-+-/+-+-+/++-+- types=-C+A-A+A-A
+      ratio=2.8077 single=1.4692 Y=-+-+-/+-+-+/---+- types=-A+C-A+A-A
+      ratio=2.9570 single=1.2052 Y=-+-+-/+-+-+/-+--- types=-A+A-A+C-A
+  last=-A u0=+1: n=2048 min ratio=1.6600  #no-single-payer=0
+      ratio=1.6600 single=1.6600 Y=++-+-/--+-+/++-+- types=+A+A-A+A-A
+      ratio=1.6600 single=1.6600 Y=+-++-/-+--+/+-++- types=+A-A+A+A-A
+      ratio=1.7346 single=1.7346 Y=++-+-/+-+-+/-+-+- types=+B+A-A+A-A
+      ratio=2.3429 single=1.2052 Y=+-++-/-+--+/+-+-- types=+A-A+A+C-A
+  last=-E u0=-1: n=2048 min ratio=2.8938  #no-single-payer=0
+      ratio=2.8938 single=2.8938 Y=-+-+-/+-+--/-+-+- types=-A+A-A+A-E
+      ratio=4.5696 single=2.7389 Y=-+-+-/+-+--/++-+- types=-C+A-A+A-E
+      ratio=4.7016 single=2.9455 Y=-+-+-/+-+--/---+- types=-A+C-A+A-E
+      ratio=4.8508 single=2.8996 Y=-+-+-/+-+--/-+--- types=-A+A-A+C-E
+  last=-E u0=+1: n=2048 min ratio=2.7331  #no-single-payer=0
+      ratio=2.7331 single=1.8824 Y=+-+--/-+-+-/+-+-- types=+A-A+A-A-E
+      ratio=3.5595 single=1.8824 Y=++-+-/+-+--/-+-+- types=+B+A-A+A-E
+      ratio=3.6055 single=1.8824 Y=+-++-/-+-+-/+-+-- types=+A-A+A+B-E
+      ratio=3.6341 single=1.8824 Y=++-+-/--+--/++-+- types=+A+A-A+A-E
+=== (2,4) p=3 q=5
+  last=+B u0=-1: n=2048 min ratio=2.9146  #no-single-payer=0
+      ratio=2.9146 single=1.7204 Y=-+-++/+-+-+/-+-+- types=-A+A-A+A+B
+      ratio=2.9300 single=1.3137 Y=-+--+/+-+-+/-+-+- types=-A+A-A-B+B
+      ratio=3.4288 single=1.5247 Y=-++-+/+-+-+/-+-+- types=-A+A+B-B+B
+      ratio=4.1770 single=1.6777 Y=--+-+/+-+-+/-+-+- types=-A-B+B-B+B
+  last=+B u0=+1: n=2048 min ratio=1.7175  #no-single-payer=1
+      ratio=1.7175 single=1.5175 Y=+-+-+/-+-++/+-++- types=+A-A+A-C+B
+      ratio=1.8652 single=0.4796 Y=+-+-+/+-+-+/-+-+- types=+B-B+B-B+B
+      ratio=2.0321 single=1.4331 Y=+-+-+/-+--+/+-++- types=+A-A+A-B+B
+      ratio=2.3199 single=1.7209 Y=+-+-+/-+--+/+--+- types=+A-A+C-B+B
+  last=+C u0=-1: n=2048 min ratio=3.5727  #no-single-payer=0
+      ratio=3.5727 single=2.0192 Y=-+--+/+-+--/-+-+- types=-A+A-A-B+C
+      ratio=4.0369 single=2.0408 Y=-+-++/+-+--/-+-+- types=-A+A-A+A+C
+      ratio=4.2633 single=1.9041 Y=-++-+/+-+--/-+-+- types=-A+A+B-B+C
+      ratio=4.6010 single=2.3031 Y=-++-+/-+-+-/+-+-- types=-B+B+A-A+C
+  last=+C u0=+1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=+-+-+/-+-+-/+-+-- types=+A-A+A-A+C
+      ratio=2.6652 single=1.0000 Y=+-+-+/+-+--/-+-+- types=+B-B+B-B+C
+      ratio=2.9146 single=1.9146 Y=+-+-+/-+-+-/--+-- types=+C-A+A-A+C
+      ratio=2.9185 single=1.6422 Y=+-+-+/-+-+-/+++-- types=+A-C+A-A+C
+  last=-A u0=-1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=-+-+-/+-+-+/-+-+- types=-A+A-A+A-A
+      ratio=2.4408 single=1.9204 Y=-+-+-/+-+-+/++-+- types=-C+A-A+A-A
+      ratio=2.9952 single=1.7209 Y=-+-+-/+-+-+/-+++- types=-A+A-C+A-A
+      ratio=2.9990 single=1.5175 Y=-+-+-/+-+-+/-+--- types=-A+A-A+C-A
+  last=-A u0=+1: n=2048 min ratio=1.7175  #no-single-payer=0
+      ratio=1.7175 single=1.7175 Y=++-+-/+-+-+/-+-+- types=+B+A-A+A-A
+      ratio=2.3199 single=1.8403 Y=+--+-/+-+-+/-+-+- types=+B-B-A+A-A
+      ratio=2.6269 single=1.7635 Y=+-++-/+-+-+/-+-+- types=+B-B+B+A-A
+      ratio=2.9856 single=2.9856 Y=++-+-/--+-+/++-+- types=+A+A-A+A-A
+  last=-E u0=-1: n=2048 min ratio=2.6019  #no-single-payer=0
+      ratio=2.6019 single=2.6019 Y=-+-+-/+-+--/-+-+- types=-A+A-A+A-E
+      ratio=4.0369 single=2.1223 Y=-+-+-/+-+--/++-+- types=-C+A-A+A-E
+      ratio=4.5971 single=2.5827 Y=-+-+-/+-+--/-+++- types=-A+A-C+A-E
+      ratio=4.6010 single=2.5789 Y=-+-+-/+-++-/-++-- types=-A+A-C+B-E
+  last=-E u0=+1: n=2048 min ratio=2.4408  #no-single-payer=0
+      ratio=2.4408 single=1.6000 Y=+-+--/-+-+-/+-+-- types=+A-A+A-A-E
+      ratio=3.3079 single=1.7079 Y=++-+-/+-+--/-+-+- types=+B+A-A+A-E
+      ratio=3.3923 single=1.6000 Y=+-++-/-+-+-/+-+-- types=+A-A+A+B-E
+      ratio=3.9103 single=1.6000 Y=+--+-/-+-+-/+-+-- types=+A-A-B+B-E
+=== (2,4) p=7 q=3
+  last=+B u0=-1: n=2048 min ratio=2.8589  #no-single-payer=0
+      ratio=2.8589 single=1.6203 Y=-+-++/+-+-+/-+-+- types=-A+A-A+A+B
+      ratio=3.5550 single=1.7310 Y=-+--+/+-+-+/-+-+- types=-A+A-A-B+B
+      ratio=4.6388 single=1.6440 Y=-+-++/+-+-+/---+- types=-A+C-A+A+B
+      ratio=4.7020 single=1.9143 Y=-+-++/+-+-+/++-+- types=-C+A-A+A+B
+  last=+B u0=+1: n=2048 min ratio=1.9071  #no-single-payer=0
+      ratio=1.9071 single=1.2314 Y=+-+-+/-+-++/+-++- types=+A-A+A-C+B
+      ratio=2.7139 single=1.3184 Y=+-+-+/-+--+/+-++- types=+A-A+A-B+B
+      ratio=2.9459 single=2.2703 Y=+-+-+/-+-++/+-+-- types=+A-A+A-A+B
+      ratio=3.6632 single=1.4792 Y=+-+-+/-+-++/++++- types=+A-C+A-C+B
+  last=+C u0=-1: n=2048 min ratio=3.3731  #no-single-payer=0
+      ratio=3.3731 single=2.0633 Y=-+--+/+-+--/-+-+- types=-A+A-A-B+C
+      ratio=4.3382 single=2.2881 Y=-+--+/+-++-/-+--- types=-A+A-A-A+C
+      ratio=4.3382 single=2.6355 Y=--+-+/++-+-/--+-- types=-A-A+A-A+C
+      ratio=4.3856 single=1.9717 Y=-++-+/++-+-/--+-- types=-A+B+A-A+C
+  last=+C u0=+1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=+-+-+/-+-+-/+-+-- types=+A-A+A-A+C
+      ratio=2.7561 single=1.5346 Y=+-+-+/-+-+-/+++-- types=+A-C+A-A+C
+      ratio=2.8589 single=1.8589 Y=+-+-+/-+-+-/--+-- types=+C-A+A-A+C
+      ratio=2.9512 single=1.9512 Y=+-+-+/-+-+-/+-++- types=+A-A+A-C+C
+  last=-A u0=-1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=-+-+-/+-+-+/-+-+- types=-A+A-A+A-A
+      ratio=2.7798 single=1.4792 Y=-+-+-/+-+-+/---+- types=-A+C-A+A-A
+      ratio=2.8431 single=1.9143 Y=-+-+-/+-+-+/++-+- types=-C+A-A+A-A
+      ratio=2.9539 single=1.2314 Y=-+-+-/+-+-+/-+--- types=-A+A-A+C-A
+  last=-A u0=+1: n=2048 min ratio=1.6539  #no-single-payer=0
+      ratio=1.6539 single=1.6539 Y=++-+-/--+-+/++-+- types=+A+A-A+A-A
+      ratio=1.6539 single=1.6539 Y=+-++-/-+--+/+-++- types=+A-A+A+A-A
+      ratio=1.9071 single=1.9071 Y=++-+-/+-+-+/-+-+- types=+B+A-A+A-A
+      ratio=2.3368 single=1.2314 Y=+-++-/-+--+/+-+-- types=+A-A+A+C-A
+  last=-E u0=-1: n=2048 min ratio=2.9539  #no-single-payer=0
+      ratio=2.9539 single=2.9539 Y=-+-+-/+-+--/-+-+- types=-A+A-A+A-E
+      ratio=4.7337 single=2.9776 Y=-+-+-/+-+--/---+- types=-A+C-A+A-E
+      ratio=4.7416 single=2.8827 Y=-+-+-/+-+--/++-+- types=-C+A-A+A-E
+      ratio=4.9077 single=2.9565 Y=-+-+-/+-+--/-+--- types=-A+A-A+C-E
+  last=-E u0=+1: n=2048 min ratio=2.8431  #no-single-payer=0
+      ratio=2.8431 single=1.9459 Y=+-+--/-+-+-/+-+-- types=+A-A+A-A-E
+      ratio=3.6948 single=1.9459 Y=++-+-/--+--/++-+- types=+A+A-A+A-E
+      ratio=3.7976 single=1.9459 Y=++-+-/+-+--/-+-+- types=+B+A-A+A-E
+      ratio=3.8556 single=1.9459 Y=+-++-/-+-+-/+-+-- types=+A-A+A+B-E
+=== (2,4) p=11 q=3
+  last=+B u0=-1: n=2048 min ratio=2.8904  #no-single-payer=0
+      ratio=2.8904 single=1.7489 Y=-+-++/+-+-+/-+-+- types=-A+A-A+A+B
+      ratio=3.8563 single=1.8551 Y=-+--+/+-+-+/-+-+- types=-A+A-A-B+B
+      ratio=4.6552 single=1.7575 Y=-+-++/+-+-+/---+- types=-A+C-A+A+B
+      ratio=4.8078 single=1.9435 Y=-+-++/+-+-+/++-+- types=-C+A-A+A+B
+  last=+B u0=+1: n=2048 min ratio=2.0625  #no-single-payer=0
+      ratio=2.0625 single=1.2606 Y=+-+-+/-+-++/+-++- types=+A-A+A-C+B
+      ratio=2.9802 single=2.1782 Y=+-+-+/-+-++/+-+-- types=+A-A+A-A+B
+      ratio=3.0575 single=1.5648 Y=+-+-+/-+--+/+-++- types=+A-A+A-B+B
+      ratio=3.6853 single=1.7418 Y=++-++/--+-+/++-+- types=+A+A-A+A+B
+  last=+C u0=-1: n=2048 min ratio=3.4941  #no-single-payer=0
+      ratio=3.4941 single=2.0580 Y=-+--+/+-+--/-+-+- types=-A+A-A-B+C
+      ratio=4.3190 single=2.2697 Y=-+--+/+-++-/-+--- types=-A+A-A-A+C
+      ratio=4.3190 single=2.6346 Y=--+-+/++-+-/--+-- types=-A-A+A-A+C
+      ratio=4.4523 single=2.0302 Y=-++-+/++-+-/--+-- types=-A+B+A-A+C
+  last=+C u0=+1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=+-+-+/-+-+-/+-+-- types=+A-A+A-A+C
+      ratio=2.7561 single=1.5436 Y=+-+-+/-+-+-/+++-- types=+A-C+A-A+C
+      ratio=2.8904 single=1.8904 Y=+-+-+/-+-+-/--+-- types=+C-A+A-A+C
+      ratio=2.9512 single=1.9512 Y=+-+-+/-+-+-/+-++- types=+A-A+A-C+C
+  last=-A u0=-1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=-+-+-/+-+-+/-+-+- types=-A+A-A+A-A
+      ratio=2.7648 single=1.4905 Y=-+-+-/+-+-+/---+- types=-A+C-A+A-A
+      ratio=2.9174 single=1.9435 Y=-+-+-/+-+-+/++-+- types=-C+A-A+A-A
+      ratio=2.9522 single=1.2606 Y=-+-+-/+-+-+/-+--- types=-A+A-A+C-A
+  last=-A u0=+1: n=2048 min ratio=1.6356  #no-single-payer=0
+      ratio=1.6356 single=1.6356 Y=++-+-/--+-+/++-+- types=+A+A-A+A-A
+      ratio=1.6356 single=1.6356 Y=+-++-/-+--+/+-++- types=+A-A+A+A-A
+      ratio=2.0625 single=2.0625 Y=++-+-/+-+-+/-+-+- types=+B+A-A+A-A
+      ratio=2.3185 single=1.2606 Y=+-++-/-+--+/+-+-- types=+A-A+A+C-A
+  last=-E u0=-1: n=2048 min ratio=2.9850  #no-single-payer=0
+      ratio=2.9850 single=2.9850 Y=-+-+-/+-+--/-+-+- types=-A+A-A+A-E
+      ratio=4.7498 single=2.9937 Y=-+-+-/+-+--/---+- types=-A+C-A+A-E
+      ratio=4.8493 single=2.9589 Y=-+-+-/+-+--/++-+- types=-C+A-A+A-E
+      ratio=4.9372 single=2.9860 Y=-+-+-/+-+--/-+--- types=-A+A-A+C-E
+  last=-E u0=+1: n=2048 min ratio=2.9174  #no-single-payer=0
+      ratio=2.9174 single=1.9802 Y=+-+--/-+-+-/+-+-- types=+A-A+A-A-E
+      ratio=3.7124 single=1.9802 Y=++-+-/--+--/++-+- types=+A+A-A+A-E
+      ratio=3.9896 single=2.0094 Y=++-+-/+-+--/-+-+- types=+B+A-A+A-E
+      ratio=4.0379 single=1.9802 Y=+-++-/-+-+-/+-+-- types=+A-A+A+B-E
+=== (2,4) p=5 q=7
+  last=+B u0=-1: n=2048 min ratio=2.9483  #no-single-payer=0
+      ratio=2.9483 single=1.5281 Y=-+-++/+-+-+/-+-+- types=-A+A-A+A+B
+      ratio=3.8953 single=1.5359 Y=-+--+/+-+-+/-+-+- types=-A+A-A-B+B
+      ratio=4.7635 single=1.9496 Y=-+-++/+-+-+/++-+- types=-C+A-A+A+B
+      ratio=4.8132 single=2.9489 Y=-+-++/+-+-+/-+--- types=-A+A-A+C+B
+  last=+B u0=+1: n=2048 min ratio=2.1925  #no-single-payer=0
+      ratio=2.1925 single=1.6631 Y=+-+-+/-+-++/+-++- types=+A-A+A-C+B
+      ratio=2.8824 single=2.3529 Y=+-+-+/-+-++/+-+-- types=+A-A+A-A+B
+      ratio=3.2665 single=1.6788 Y=+-+-+/-+--+/+-++- types=+A-A+A-B+B
+      ratio=3.3515 single=1.7639 Y=+-+-+/-+--+/+--+- types=+A-A+C-B+B
+  last=+C u0=-1: n=2048 min ratio=4.1262  #no-single-payer=0
+      ratio=4.1262 single=2.0068 Y=-+--+/+-+--/-+-+- types=-A+A-A-B+C
+      ratio=4.6965 single=2.6976 Y=-+-++/+-+--/-+-+- types=-A+A-A+A+C
+      ratio=4.8819 single=2.6888 Y=--+-+/-+-+-/+-+-- types=-B-A+A-A+C
+      ratio=5.4733 single=1.9519 Y=-++-+/+-+--/-+-+- types=-A+A+B-B+C
+  last=+C u0=+1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=+-+-+/-+-+-/+-+-- types=+A-A+A-A+C
+      ratio=2.9483 single=1.9483 Y=+-+-+/-+-+-/--+-- types=+C-A+A-A+C
+      ratio=2.9589 single=1.7237 Y=+-+-+/-+-+-/+++-- types=+A-C+A-A+C
+      ratio=2.9989 single=1.9989 Y=+-+-+/-+-+-/+-++- types=+A-A+A-C+C
+  last=-A u0=-1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=-+-+-/+-+-+/-+-+- types=-A+A-A+A-A
+      ratio=2.8152 single=1.9496 Y=-+-+-/+-+-+/++-+- types=-C+A-A+A-A
+      ratio=2.9781 single=1.7172 Y=-+-+-/+-+-+/---+- types=-A+C-A+A-A
+      ratio=2.9993 single=1.6631 Y=-+-+-/+-+-+/-+--- types=-A+A-A+C-A
+  last=-A u0=+1: n=2048 min ratio=2.1925  #no-single-payer=0
+      ratio=2.1925 single=2.1925 Y=++-+-/+-+-+/-+-+- types=+B+A-A+A-A
+      ratio=3.3515 single=2.1416 Y=+--+-/+-+-+/-+-+- types=+B-B-A+A-A
+      ratio=3.7353 single=3.7353 Y=++-+-/--+-+/++-+- types=+A+A-A+A-A
+      ratio=3.7353 single=3.7353 Y=+-++-/-+--+/+-++- types=+A-A+A+A-A
+  last=-E u0=-1: n=2048 min ratio=2.8826  #no-single-payer=0
+      ratio=2.8826 single=2.8826 Y=-+-+-/+-+--/-+-+- types=-A+A-A+A-E
+      ratio=4.6965 single=2.7482 Y=-+-+-/+-+--/++-+- types=-C+A-A+A-E
+      ratio=4.8607 single=2.9018 Y=-+-+-/+-+--/---+- types=-A+C-A+A-E
+      ratio=4.8819 single=2.8830 Y=-+-+-/+-+--/-+--- types=-A+A-A+C-E
+  last=-E u0=+1: n=2048 min ratio=2.8152  #no-single-payer=0
+      ratio=2.8152 single=1.8824 Y=+-+--/-+-+-/+-+-- types=+A-A+A-A-E
+      ratio=4.0725 single=2.1902 Y=++-+-/+-+--/-+-+- types=+B+A-A+A-E
+      ratio=4.2920 single=1.8824 Y=+-++-/-+-+-/+-+-- types=+A-A+A+B-E
+      ratio=4.6797 single=2.7973 Y=+-+--/-+-+-/+-++- types=+A-A+A-C-E
+=== (2,4) p=3 q=7
+  last=+B u0=-1: n=2048 min ratio=2.9416  #no-single-payer=0
+      ratio=2.9416 single=1.7429 Y=-+-++/+-+-+/-+-+- types=-A+A-A+A+B
+      ratio=3.1761 single=1.5697 Y=-+--+/+-+-+/-+-+- types=-A+A-A-B+B
+      ratio=3.5586 single=1.6070 Y=-++-+/+-+-+/-+-+- types=-A+A+B-B+B
+      ratio=4.2489 single=1.5425 Y=--+-+/+-+-+/-+-+- types=-A-B+B-B+B
+  last=+B u0=+1: n=2048 min ratio=1.8498  #no-single-payer=1
+      ratio=1.8498 single=0.4571 Y=+-+-+/+-+-+/-+-+- types=+B-B+B-B+B
+      ratio=1.8564 single=1.6564 Y=+-+-+/-+-++/+-++- types=+A-A+A-C+B
+      ratio=2.3122 single=1.7124 Y=+-+-+/-+--+/+-++- types=+A-A+A-B+B
+      ratio=2.3588 single=1.7590 Y=+-+-+/-+--+/+--+- types=+A-A+C-B+B
+  last=+C u0=-1: n=2048 min ratio=3.7318  #no-single-payer=0
+      ratio=3.7318 single=2.0071 Y=-+--+/+-+--/-+-+- types=-A+A-A-B+C
+      ratio=4.0850 single=2.0858 Y=-+-++/+-+--/-+-+- types=-A+A-A+A+C
+      ratio=4.3941 single=1.9511 Y=-++-+/+-+--/-+-+- types=-A+A+B-B+C
+      ratio=4.6007 single=2.7427 Y=--+-+/-+-+-/+-+-- types=-B-A+A-A+C
+  last=+C u0=+1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=+-+-+/-+-+-/+-+-- types=+A-A+A-A+C
+      ratio=2.6498 single=1.0000 Y=+-+-+/+-+--/-+-+- types=+B-B+B-B+C
+      ratio=2.9416 single=1.9416 Y=+-+-+/-+-+-/--+-- types=+C-A+A-A+C
+      ratio=2.9589 single=1.7190 Y=+-+-+/-+-+-/+++-- types=+A-C+A-A+C
+  last=-A u0=-1: n=2048 min ratio=1.0000  #no-single-payer=0
+      ratio=1.0000 single=1.0000 Y=-+-+-/+-+-+/-+-+- types=-A+A-A+A-A
+      ratio=2.4858 single=1.9429 Y=-+-+-/+-+-+/++-+- types=-C+A-A+A-A
+      ratio=2.9962 single=1.7590 Y=-+-+-/+-+-+/-+++- types=-A+A-C+A-A
+      ratio=3.0002 single=1.6564 Y=-+-+-/+-+-+/-+--- types=-A+A-A+C-A
+  last=-A u0=+1: n=2048 min ratio=1.8564  #no-single-payer=0
+      ratio=1.8564 single=1.8564 Y=++-+-/+-+-+/-+-+- types=+B+A-A+A-A
+      ratio=2.3588 single=1.9017 Y=+--+-/+-+-+/-+-+- types=+B-B-A+A-A
+      ratio=2.7133 single=1.8644 Y=+-++-/+-+-+/-+-+- types=+B-B+B+A-A
+      ratio=3.3356 single=2.0856 Y=+-+--/+-+-+/-+-+- types=+B-B+B-B-A
+  last=-E u0=-1: n=2048 min ratio=2.6004  #no-single-payer=0
+      ratio=2.6004 single=2.6004 Y=-+-+-/+-+--/-+-+- types=-A+A-A+A-E
+      ratio=4.0850 single=2.1434 Y=-+-+-/+-+--/++-+- types=-C+A-A+A-E
+      ratio=4.5967 single=2.5911 Y=-+-+-/+-+--/-+++- types=-A+A-C+A-E
+      ratio=4.6007 single=2.6018 Y=-+-+-/+-+--/-+--- types=-A+A-A+C-E
+  last=-E u0=+1: n=2048 min ratio=2.4858  #no-single-payer=0
+      ratio=2.4858 single=1.6000 Y=+-+--/-+-+-/+-+-- types=+A-A+A-A-E
+      ratio=3.4533 single=1.8533 Y=++-+-/+-+--/-+-+- types=+B+A-A+A-E
+      ratio=3.6265 single=1.6268 Y=+-++-/-+-+-/+-+-- types=+A-A+A+B-E
+      ratio=3.9797 single=1.9226 Y=+--+-/+-+--/-+-+- types=+B-B-A+A-E

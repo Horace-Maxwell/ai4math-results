@@ -1,0 +1,27 @@
+I1 Lean/paper ratio = 1
+    R=4+s,P=2+t nonneg coeffs & const>0: True  const = 4
+    R=2,P=4+t nonneg coeffs & const>0: True  const = 140
+I2 Lean/paper ratio = 1
+    R=4+s,P=2+t nonneg coeffs & const>0: True  const = 18
+    R=2,P=4+t nonneg coeffs & const>0: True  const = 52
+I3 Lean/paper ratio = 2
+    R=4+s,P=2+t nonneg coeffs & const>0: True  const = 26
+    R=2,P=4+t nonneg coeffs & const>0: True  const = 70
+I4 Lean/paper ratio = 2
+    R=4+s,P=2+t nonneg coeffs & const>0: True  const = 9
+    R=2,P=4+t nonneg coeffs & const>0: True  const = 43
+I5 Lean/paper ratio = 2
+    R=4+s,P=2+t nonneg coeffs & const>0: True  const = 83
+    R=2,P=4+t nonneg coeffs & const>0: True  const = 315
+I5b Lean/paper ratio = 2
+    R=4+s,P=2+t nonneg coeffs & const>0: True  const = 89
+    R=2,P=4+t nonneg coeffs & const>0: True  const = 415
+I6 Lean/paper ratio = 1
+    R=4+s,P=2+t nonneg coeffs & const>0: True  const = 106
+    R=2,P=4+t nonneg coeffs & const>0: True  const = 296
+I7 Lean/paper ratio = 2
+    R=4+s,P=2+t nonneg coeffs & const>0: True  const = 83
+    R=2,P=4+t nonneg coeffs & const>0: True  const = 55
+hand identities all zero: True [0, 0, 0, 0, 0, 0, 0, 0]
+ALL OK
+python3 check_polys.py  0.26s user 0.05s system 78% cpu 0.385 total

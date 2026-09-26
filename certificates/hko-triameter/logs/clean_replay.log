@@ -1,0 +1,27 @@
+replay cwd: <scratch>/replay-hko (logical: fresh copy; .lake/packages -> dev project packages (trusted Mathlib cache))
+start: 2026-09-26T07:07:28Z
+Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+mathlib rev: 0df444a360eaa60ab8c11dca51a86af692955474
+--- manifest sha256
+375599ede626ff8dbbd04083d4fdcd49cadf0aac3a23736d42627eebd4234b29  lakefile.toml
+3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71  lean-toolchain
+9cb2278091171314d2816e57efa3c813f64d9da54bd82e5ecbdaf779c2b203e8  lake-manifest.json
+4843d31a6f1bd0f627d8cb8e5f4e3306a7d4bbe93172766c4220b7896605048c  Research/HKOTriameter.lean
+dcb551aacafef337506a15ad4d89d610bd01d641470834193f32b198bd4b161a  Research/HKOTriameterAudit.lean
+36547354496f7a25f2fe6aa47a691fadea7d6245015e25931b8790aea87fc08b  Research/HKOTriameterDH.lean
+--- lake build
+info: Research/HKOTriameterDH.lean:308:0: 'HKOTriameter.G1_not_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:309:0: 'HKOTriameter.G2_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8707 jobs).
+build exit: 0
+--- audit
+audit exit: 0
+AXIOM AUDIT PASS
+--- leanchecker
+lc1 exit: 0
+lc2 exit: 0
+--- artefact sha256
+8df7299a3e821cc160ea94b1f0fcf48565e2479ee474aa9230c295c5a1230b19  .lake/build/lib/lean/Research/HKOTriameter.olean
+b739f2819b79082809020481526977d6c7ac3170356e73dec2f2b3d2b3c4eacc  .lake/build/lib/lean/Research/HKOTriameterDH.olean
+cc29eb063ef9a7a309fc713bd0066d8311af2f47ebbda055faad161d8d1dafd6  audit.out
+end: 2026-09-26T07:08:48Z

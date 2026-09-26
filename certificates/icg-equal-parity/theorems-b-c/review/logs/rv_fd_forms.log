@@ -1,0 +1,9 @@
+(1) referee's per-cell derivation == direct cell definition (eps=+-1): 100200 exact checks (3340 parameter points incl. all switching points +-1e-6, both regions)
+(2) PROOF.md tables (FD1: 7 forms, FD2: 8 forms) == derivation: 50100 exact checks, 0 mismatches
+(3) FD1 Bsame h1: (first min-arg) - (second) = Q*(P*m - 1)  => min picks the case branch of the cell: OK
+(3) FD1 Csame h2: (first min-arg) - (second) = Q*(P**2*m - P**2 + m + 1)  => min picks the case branch of the cell: OK
+(3) chain Asame h2: (first min-arg) - (second) = Q*(P**2*m - P**2 + 2*P*m - m - 1)  => min picks the case branch of the cell: OK
+(3) chain Csame h2: (first min-arg) - (second) = Q*(P**2*m - P**2 + 2*P*m - m + 1)  => min picks the case branch of the cell: OK
+(3) 12 side conditions of the unsplit cells hold on both regions for all m in [0,1] (coefficient check): OK
+(4) completeness: FD1 7 deviations + anti column (-eps s_2) = {+-1}^3; chain table 8 columns = {+-1}^3: OK
+DONE

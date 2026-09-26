@@ -1,0 +1,4 @@
+a=3: regenerated tasks FD1=4056, chains=10140; S direct checks=32 (failures 0); direct failures total 0; cheap={'big': 2, 'p3': 3} [5s]
+a=3: sample of 14196 tasks (families: {('FD1', 'big'): 2028, ('FD1', 'p3'): 2028, ('CH', 'big'): 4056, ('CH', 'p3'): 6084})
+a=3: authors' certificate re-run on the sample: 14196 certified, 0 failed [549s]
+a=3: exact evaluation of sampled task expressions at 4 points each (incl. the region corner): 14196 positive, 0 non-positive; min value 7.733 [613s]

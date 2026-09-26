@@ -1,0 +1,38 @@
+a=2 p=5 q=3: FD1_a min ratio 1.0471 at b=2 J=0 dev=(1, -1, 1)
+a=2 p=7 q=3: FD1_a min ratio 1.0432 at b=2 J=0 dev=(1, -1, 1)
+a=2 p=11 q=3: FD1_a min ratio 1.0317 at b=2 J=0 dev=(1, -1, 1)
+a=2 p=3 q=5: FD1_a min ratio 1.4588 at b=2 J=1 dev=(1, -1, -1)
+a=2 p=3 q=7: FD1_a min ratio 1.6216 at b=2 J=1 dev=(1, -1, -1)
+a=2 p=5 q=7: FD1_a min ratio 1.6280 at b=2 J=1 dev=(1, -1, -1)
+a=2 p=7 q=5: FD1_a min ratio 1.4817 at b=2 J=1 dev=(1, -1, -1)
+a=2 p=101 q=3: FD1_a min ratio 1.0039 at b=2 J=0 dev=(1, -1, 1)
+a=2 p=3 q=101: FD1_a min ratio 1.9760 at b=2 J=1 dev=(1, -1, -1)
+a=2 p=5: last columns with Delta < 2 delta_a (need chain analysis): [((1, 1, -1), '18'), ((-1, 1, -1), '0')]
+a=2 p=3: last columns with Delta < 2 delta_a (need chain analysis): [((1, 1, -1), '2'), ((-1, 1, -1), '0')]
+a=2 p=101: last columns with Delta < 2 delta_a (need chain analysis): [((1, 1, -1), '19602'), ((-1, 1, -1), '0')]
+a=3 p=5 q=3: FD1_a min ratio 1.1968 at b=11 J=10 dev=(-1, 1, -1, -1)
+a=3 p=7 q=3: FD1_a min ratio 1.2374 at b=11 J=10 dev=(-1, 1, -1, -1)
+a=3 p=11 q=3: FD1_a min ratio 1.2726 at b=11 J=10 dev=(-1, 1, -1, -1)
+a=3 p=3 q=5: FD1_a min ratio 1.4462 at b=11 J=10 dev=(-1, 1, -1, -1)
+a=3 p=3 q=7: FD1_a min ratio 1.6044 at b=11 J=10 dev=(-1, 1, -1, -1)
+a=3 p=5 q=7: FD1_a min ratio 1.6558 at b=11 J=10 dev=(-1, 1, -1, -1)
+a=3 p=7 q=5: FD1_a min ratio 1.5424 at b=11 J=10 dev=(-1, 1, -1, -1)
+a=3 p=101 q=3: FD1_a min ratio 1.3267 at b=11 J=10 dev=(-1, 1, -1, -1)
+a=3 p=3 q=101: FD1_a min ratio 1.9726 at b=11 J=10 dev=(-1, 1, -1, -1)
+a=3 p=5: last columns with Delta < 2 delta_a (need chain analysis): [((1, -1, 1, -1), '0'), ((-1, 1, 1, -1), '102'), ((-1, -1, 1, -1), '102')]
+a=3 p=3: last columns with Delta < 2 delta_a (need chain analysis): [((1, 1, 1, -1), '24'), ((1, -1, 1, -1), '0'), ((-1, 1, 1, -1), '10'), ((-1, -1, 1, -1), '10')]
+a=3 p=101: last columns with Delta < 2 delta_a (need chain analysis): [((1, -1, 1, -1), '0'), ((-1, 1, 1, -1), '1980198'), ((-1, -1, 1, -1), '1980198')]
+a=4 p=5 q=3: FD1_a min ratio 1.1204 at b=2 J=1 dev=(1, -1, 1, -1, -1)
+a=4 p=7 q=3: FD1_a min ratio 1.1429 at b=2 J=1 dev=(1, -1, 1, -1, -1)
+a=4 p=11 q=3: FD1_a min ratio 1.1636 at b=2 J=1 dev=(1, -1, 1, -1, -1)
+a=4 p=3 q=5: FD1_a min ratio 1.4175 at b=2 J=1 dev=(1, -1, 1, -1, -1)
+a=4 p=3 q=7: FD1_a min ratio 1.5900 at b=2 J=1 dev=(1, -1, 1, -1, -1)
+a=4 p=5 q=7: FD1_a min ratio 1.6219 at b=2 J=1 dev=(1, -1, 1, -1, -1)
+a=4 p=7 q=5: FD1_a min ratio 1.4790 at b=2 J=1 dev=(1, -1, 1, -1, -1)
+a=4 p=101 q=3: FD1_a min ratio 1.1960 at b=2 J=1 dev=(1, -1, 1, -1, -1)
+a=4 p=3 q=101: FD1_a min ratio 1.9737 at b=2 J=1 dev=(1, -1, 1, -1, -1)
+a=4 p=5: last columns with Delta < 2 delta_a (need chain analysis): [((1, 1, -1, 1, -1), '498'), ((1, -1, 1, 1, -1), '498'), ((1, -1, -1, 1, -1), '578'), ((-1, 1, -1, 1, -1), '0')]
+a=4 p=3: last columns with Delta < 2 delta_a (need chain analysis): [((1, 1, -1, 1, -1), '26'), ((1, -1, 1, 1, -1), '26'), ((1, -1, -1, 1, -1), '50'), ((-1, 1, -1, 1, -1), '0'), ((-1, -1, 1, 1, -1), '48')]
+a=4 p=101: last columns with Delta < 2 delta_a (need chain analysis): [((1, 1, -1, 1, -1), '199999602'), ((1, -1, 1, 1, -1), '199999602'), ((1, -1, -1, 1, -1), '200040002'), ((-1, 1, -1, 1, -1), '0')]
+S_a at q=3, a=3: random states 6400, negative surplus 0
+S_a at q=3, a=4: random states 12800, negative surplus 0

@@ -1,0 +1,1 @@
+a=6 K=4: counts {'S': 256, 'FD1': 259104, 'EQ': 123, 'CH': 2202384, 'CHalone': 34, 'full': 17, 'EQwrong': 256}; cheap last columns {'big': 5, 'p3': 12}; failures 0 (24s)

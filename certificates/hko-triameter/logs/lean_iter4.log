@@ -1,0 +1,10 @@
+'HKOTriameter.not_problem1Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem2Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.G1_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.G2_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_question3_G1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.isPeripheral_iff_isPeripheralPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.dist_eq_of_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.C6_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+lake env lean Research/HKOTriameter.lean  8.15s user 3.44s system 96% cpu 11.988 total

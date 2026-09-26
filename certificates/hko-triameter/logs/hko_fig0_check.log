@@ -1,0 +1,2 @@
+diam=5 tr=12 peripheral=[0, 5] triametral=[(2, 7, 10)] pairs=[(0, 5)]
+Q3=False Q3prime=False Q4=False fourpoint=False  (a,b,c = 7,2,10; x,y = 0,5)

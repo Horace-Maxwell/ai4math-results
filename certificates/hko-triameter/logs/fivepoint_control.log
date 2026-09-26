@@ -1,0 +1,33 @@
+D=2: feasible 5-point counter-models to S: 0
+D=3: feasible 5-point counter-models to S: 0
+D=4 T=9 eab=3 eac=3 ebc=3 | pa=2 qa=2 pb=3 qb=3 pc=3 qc=3
+D=4 T=9 eab=3 eac=3 ebc=3 | pa=2 qa=3 pb=2 qb=3 pc=2 qc=3
+D=4 T=9 eab=3 eac=3 ebc=3 | pa=3 qa=2 pb=3 qb=2 pc=3 qc=2
+D=4 T=9 eab=3 eac=3 ebc=3 | pa=3 qa=3 pb=2 qb=2 pc=3 qc=3
+D=4 T=9 eab=3 eac=3 ebc=3 | pa=3 qa=3 pb=3 qb=3 pc=2 qc=2
+D=4: feasible 5-point counter-models to S: 6
+D=5 T=11 eab=3 eac=4 ebc=4 | pa=3 qa=3 pb=3 qb=3 pc=4 qc=4
+D=5 T=11 eab=3 eac=4 ebc=4 | pa=4 qa=4 pb=4 qb=4 pc=3 qc=3
+D=5 T=11 eab=4 eac=3 ebc=4 | pa=3 qa=3 pb=4 qb=4 pc=3 qc=3
+D=5 T=11 eab=4 eac=3 ebc=4 | pa=4 qa=4 pb=3 qb=3 pc=4 qc=4
+D=5 T=11 eab=4 eac=4 ebc=3 | pa=3 qa=3 pb=4 qb=4 pc=4 qc=4
+D=5: feasible 5-point counter-models to S: 12
+D=6 T=14 eab=4 eac=5 ebc=5 | pa=4 qa=4 pb=4 qb=4 pc=5 qc=5
+D=6 T=14 eab=4 eac=5 ebc=5 | pa=5 qa=5 pb=5 qb=5 pc=4 qc=4
+D=6 T=14 eab=5 eac=4 ebc=5 | pa=4 qa=4 pb=5 qb=5 pc=4 qc=4
+D=6 T=14 eab=5 eac=4 ebc=5 | pa=5 qa=5 pb=4 qb=4 pc=5 qc=5
+D=6 T=14 eab=5 eac=5 ebc=4 | pa=4 qa=4 pb=5 qb=5 pc=5 qc=5
+D=6: feasible 5-point counter-models to S: 12
+D=7 T=15 eab=5 eac=5 ebc=5 | pa=5 qa=5 pb=5 qb=5 pc=5 qc=5
+D=7 T=17 eab=5 eac=6 ebc=6 | pa=5 qa=5 pb=5 qb=5 pc=6 qc=6
+D=7 T=17 eab=5 eac=6 ebc=6 | pa=6 qa=6 pb=6 qb=6 pc=5 qc=5
+D=7 T=17 eab=6 eac=5 ebc=6 | pa=5 qa=5 pb=6 qb=6 pc=5 qc=5
+D=7 T=17 eab=6 eac=5 ebc=6 | pa=6 qa=6 pb=5 qb=5 pc=6 qc=6
+D=7: feasible 5-point counter-models to S: 13
+D=8 T=18 eab=6 eac=6 ebc=6 | pa=6 qa=6 pb=6 qb=6 pc=6 qc=6
+D=8 T=20 eab=6 eac=7 ebc=7 | pa=6 qa=6 pb=6 qb=6 pc=7 qc=7
+D=8 T=20 eab=6 eac=7 ebc=7 | pa=7 qa=7 pb=7 qb=7 pc=6 qc=6
+D=8 T=20 eab=7 eac=6 ebc=7 | pa=6 qa=6 pb=7 qb=7 pc=6 qc=6
+D=8 T=20 eab=7 eac=6 ebc=7 | pa=7 qa=7 pb=6 qb=6 pc=7 qc=7
+D=8: feasible 5-point counter-models to S: 13
+total 56

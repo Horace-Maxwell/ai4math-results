@@ -1,0 +1,6 @@
+{"n": 6, "r": 2, "family": "B", "N": 45, "construction": "C (odd N; searched triangle + max matching)", "triangle": ["('F', 'F', 3, 2, 5, 4)", "('F', 'F', 4, 5, 2, 3)", "(2, 5, 0, 'F', 'F', 1)"], "triangle_sign_bits": [0, 1, 0]}
+wrote ../certificates/alt/cm_B6_rank2.txt (4050 lines) sha256=603ec41c38101b76314a9cc0a42da1ff9a32d4cf8e13a44beefb22e3e2cbe96b time=0.3s
+VERIFIED ../certificates/alt/cm_B6_rank2.txt: family=B n=6 rank=2 entries=4050 sha256=603ec41c38101b76314a9cc0a42da1ff9a32d4cf8e13a44beefb22e3e2cbe96b
+{"n": 7, "r": 3, "family": "B", "N": 105, "construction": "C (odd N; searched triangle + max matching)", "triangle": ["('F', 'F', 'F', 4, 3, 6, 5)", "('F', 'F', 'F', 5, 6, 3, 4)", "('F', 3, 6, 1, 'F', 'F', 2)"], "triangle_sign_bits": [0, 1, 0]}
+wrote ../certificates/alt/cm_B7_rank3.txt (66150 lines) sha256=0f836e59057354d03bd5742d34b73e688e2e2188251c13300bba67d6056df28b time=1.9s
+VERIFIED ../certificates/alt/cm_B7_rank3.txt: family=B n=7 rank=3 entries=66150 sha256=0f836e59057354d03bd5742d34b73e688e2e2188251c13300bba67d6056df28b

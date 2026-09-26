@@ -1,0 +1,125 @@
+closure_replay.c sha256 05114c339d8cdbb5fda02a8d530fd1dfb2556bd7b8d07592f57bdc0264d0f4a8; run started 2026-09-26T14:58:31Z; build: cc -O2
+== RM(7,14) runs (iteration counts from the DONE lines of the logs): run 1 = seeds 11-15, diagnostic = seed 51, run 2 (GEN_FLATS) = seeds 41-45
+closure_replay: m=13 r=6, D=2380 parity-check rows, counting 312 <= wt h <= 340
+run 0  D seed=11 iters=2137344 (first sampled h in range: new)
+  wt h=312: sampled 4274 = new 4274 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=316: sampled 2780 = new 2780 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=320: sampled 6567 = new 6567 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=324: sampled 15 = new 15 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=328: sampled 229 = new 229 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=332: sampled 170 = new 170 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=336: sampled 1158 = new 1158 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=340: sampled 1058 = new 1058 + sampled by an earlier run 0 + repeated within this run 0
+run 1  D seed=12 iters=2140416 (first sampled h in range: already sampled by an earlier run)
+  wt h=312: sampled 4285 = new 11 + sampled by an earlier run 4274 + repeated within this run 0
+  wt h=316: sampled 2782 = new 2 + sampled by an earlier run 2780 + repeated within this run 0
+  wt h=320: sampled 6574 = new 7 + sampled by an earlier run 6567 + repeated within this run 0
+  wt h=324: sampled 15 = new 0 + sampled by an earlier run 15 + repeated within this run 0
+  wt h=328: sampled 229 = new 0 + sampled by an earlier run 229 + repeated within this run 0
+  wt h=332: sampled 170 = new 0 + sampled by an earlier run 170 + repeated within this run 0
+  wt h=336: sampled 1159 = new 1 + sampled by an earlier run 1158 + repeated within this run 0
+  wt h=340: sampled 1059 = new 1 + sampled by an earlier run 1058 + repeated within this run 0
+run 2  D seed=13 iters=2135552 (first sampled h in range: already sampled by an earlier run)
+  wt h=312: sampled 4271 = new 0 + sampled by an earlier run 4271 + repeated within this run 0
+  wt h=316: sampled 2776 = new 0 + sampled by an earlier run 2776 + repeated within this run 0
+  wt h=320: sampled 6555 = new 0 + sampled by an earlier run 6555 + repeated within this run 0
+  wt h=324: sampled 15 = new 0 + sampled by an earlier run 15 + repeated within this run 0
+  wt h=328: sampled 229 = new 0 + sampled by an earlier run 229 + repeated within this run 0
+  wt h=332: sampled 170 = new 0 + sampled by an earlier run 170 + repeated within this run 0
+  wt h=336: sampled 1158 = new 0 + sampled by an earlier run 1158 + repeated within this run 0
+  wt h=340: sampled 1054 = new 0 + sampled by an earlier run 1054 + repeated within this run 0
+run 3  D seed=14 iters=2136064 (first sampled h in range: already sampled by an earlier run)
+  wt h=312: sampled 4274 = new 0 + sampled by an earlier run 4274 + repeated within this run 0
+  wt h=316: sampled 2779 = new 0 + sampled by an earlier run 2779 + repeated within this run 0
+  wt h=320: sampled 6555 = new 0 + sampled by an earlier run 6555 + repeated within this run 0
+  wt h=324: sampled 15 = new 0 + sampled by an earlier run 15 + repeated within this run 0
+  wt h=328: sampled 229 = new 0 + sampled by an earlier run 229 + repeated within this run 0
+  wt h=332: sampled 170 = new 0 + sampled by an earlier run 170 + repeated within this run 0
+  wt h=336: sampled 1158 = new 0 + sampled by an earlier run 1158 + repeated within this run 0
+  wt h=340: sampled 1056 = new 0 + sampled by an earlier run 1056 + repeated within this run 0
+run 4  D seed=15 iters=2140416 (first sampled h in range: already sampled by an earlier run)
+  wt h=312: sampled 4285 = new 0 + sampled by an earlier run 4285 + repeated within this run 0
+  wt h=316: sampled 2782 = new 0 + sampled by an earlier run 2782 + repeated within this run 0
+  wt h=320: sampled 6574 = new 0 + sampled by an earlier run 6574 + repeated within this run 0
+  wt h=324: sampled 15 = new 0 + sampled by an earlier run 15 + repeated within this run 0
+  wt h=328: sampled 229 = new 0 + sampled by an earlier run 229 + repeated within this run 0
+  wt h=332: sampled 170 = new 0 + sampled by an earlier run 170 + repeated within this run 0
+  wt h=336: sampled 1159 = new 0 + sampled by an earlier run 1159 + repeated within this run 0
+  wt h=340: sampled 1059 = new 0 + sampled by an earlier run 1059 + repeated within this run 0
+run 5  D seed=51 iters=437760 (first sampled h in range: already sampled by an earlier run)
+  wt h=312: sampled 889 = new 0 + sampled by an earlier run 889 + repeated within this run 0
+  wt h=316: sampled 561 = new 0 + sampled by an earlier run 561 + repeated within this run 0
+  wt h=320: sampled 1338 = new 0 + sampled by an earlier run 1338 + repeated within this run 0
+  wt h=324: sampled 3 = new 0 + sampled by an earlier run 3 + repeated within this run 0
+  wt h=328: sampled 41 = new 0 + sampled by an earlier run 41 + repeated within this run 0
+  wt h=332: sampled 36 = new 0 + sampled by an earlier run 36 + repeated within this run 0
+  wt h=336: sampled 241 = new 0 + sampled by an earlier run 241 + repeated within this run 0
+  wt h=340: sampled 220 = new 0 + sampled by an earlier run 220 + repeated within this run 0
+run 6  F seed=41 iters=7865856 (first sampled h in range: new)
+  wt h=312: sampled 1005 = new 1005 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=316: sampled 548 = new 548 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=320: sampled 1944 = new 1944 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=324: sampled 89 = new 89 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=328: sampled 727 = new 727 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=332: sampled 585 = new 585 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=336: sampled 3605 = new 3605 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=340: sampled 2132 = new 2131 + sampled by an earlier run 1 + repeated within this run 0
+run 7  F seed=42 iters=7868928 (first sampled h in range: already sampled by an earlier run)
+  wt h=312: sampled 1005 = new 0 + sampled by an earlier run 1005 + repeated within this run 0
+  wt h=316: sampled 548 = new 0 + sampled by an earlier run 548 + repeated within this run 0
+  wt h=320: sampled 1944 = new 0 + sampled by an earlier run 1944 + repeated within this run 0
+  wt h=324: sampled 89 = new 0 + sampled by an earlier run 89 + repeated within this run 0
+  wt h=328: sampled 727 = new 0 + sampled by an earlier run 727 + repeated within this run 0
+  wt h=332: sampled 585 = new 0 + sampled by an earlier run 585 + repeated within this run 0
+  wt h=336: sampled 3607 = new 2 + sampled by an earlier run 3605 + repeated within this run 0
+  wt h=340: sampled 2134 = new 2 + sampled by an earlier run 2132 + repeated within this run 0
+run 8  F seed=43 iters=7900416 (first sampled h in range: already sampled by an earlier run)
+  wt h=312: sampled 1010 = new 5 + sampled by an earlier run 1005 + repeated within this run 0
+  wt h=316: sampled 549 = new 1 + sampled by an earlier run 548 + repeated within this run 0
+  wt h=320: sampled 1958 = new 14 + sampled by an earlier run 1944 + repeated within this run 0
+  wt h=324: sampled 89 = new 0 + sampled by an earlier run 89 + repeated within this run 0
+  wt h=328: sampled 728 = new 1 + sampled by an earlier run 727 + repeated within this run 0
+  wt h=332: sampled 587 = new 2 + sampled by an earlier run 585 + repeated within this run 0
+  wt h=336: sampled 3623 = new 16 + sampled by an earlier run 3607 + repeated within this run 0
+  wt h=340: sampled 2140 = new 6 + sampled by an earlier run 2134 + repeated within this run 0
+run 9  F seed=44 iters=7865856 (first sampled h in range: already sampled by an earlier run)
+  wt h=312: sampled 1005 = new 0 + sampled by an earlier run 1005 + repeated within this run 0
+  wt h=316: sampled 548 = new 0 + sampled by an earlier run 548 + repeated within this run 0
+  wt h=320: sampled 1944 = new 0 + sampled by an earlier run 1944 + repeated within this run 0
+  wt h=324: sampled 89 = new 0 + sampled by an earlier run 89 + repeated within this run 0
+  wt h=328: sampled 727 = new 0 + sampled by an earlier run 727 + repeated within this run 0
+  wt h=332: sampled 585 = new 0 + sampled by an earlier run 585 + repeated within this run 0
+  wt h=336: sampled 3605 = new 0 + sampled by an earlier run 3605 + repeated within this run 0
+  wt h=340: sampled 2132 = new 0 + sampled by an earlier run 2132 + repeated within this run 0
+run 10  F seed=45 iters=7888640 (first sampled h in range: already sampled by an earlier run)
+  wt h=312: sampled 1008 = new 0 + sampled by an earlier run 1008 + repeated within this run 0
+  wt h=316: sampled 548 = new 0 + sampled by an earlier run 548 + repeated within this run 0
+  wt h=320: sampled 1953 = new 0 + sampled by an earlier run 1953 + repeated within this run 0
+  wt h=324: sampled 89 = new 0 + sampled by an earlier run 89 + repeated within this run 0
+  wt h=328: sampled 727 = new 0 + sampled by an earlier run 727 + repeated within this run 0
+  wt h=332: sampled 586 = new 0 + sampled by an earlier run 586 + repeated within this run 0
+  wt h=336: sampled 3617 = new 0 + sampled by an earlier run 3617 + repeated within this run 0
+  wt h=340: sampled 2137 = new 0 + sampled by an earlier run 2137 + repeated within this run 0
+union over all runs (distinct h): 312:5295 316:3331 320:8532 324:104 328:957 332:757 336:4782 340:3198
+== RM(6,12) calibration: seed 21 (120 s) and the diagnostic seed 52
+closure_replay: m=11 r=5, D=562 parity-check rows, counting 150 <= wt h <= 180
+run 0  D seed=21 iters=1927424 (first sampled h in range: new)
+  wt h=152: sampled 4581 = new 4581 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=156: sampled 3420 = new 3420 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=160: sampled 9581 = new 9581 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=164: sampled 1213 = new 1213 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=168: sampled 3996 = new 3996 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=172: sampled 3052 = new 3052 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=176: sampled 32029 = new 32029 + sampled by an earlier run 0 + repeated within this run 0
+  wt h=180: sampled 3849 = new 3849 + sampled by an earlier run 0 + repeated within this run 0
+run 1  D seed=52 iters=993792 (first sampled h in range: already sampled by an earlier run)
+  wt h=152: sampled 2349 = new 0 + sampled by an earlier run 2349 + repeated within this run 0
+  wt h=156: sampled 1784 = new 0 + sampled by an earlier run 1784 + repeated within this run 0
+  wt h=160: sampled 4870 = new 0 + sampled by an earlier run 4870 + repeated within this run 0
+  wt h=164: sampled 600 = new 0 + sampled by an earlier run 600 + repeated within this run 0
+  wt h=168: sampled 2108 = new 0 + sampled by an earlier run 2108 + repeated within this run 0
+  wt h=172: sampled 1567 = new 0 + sampled by an earlier run 1567 + repeated within this run 0
+  wt h=176: sampled 16439 = new 0 + sampled by an earlier run 16439 + repeated within this run 0
+  wt h=180: sampled 1986 = new 0 + sampled by an earlier run 1986 + repeated within this run 0
+union over all runs (distinct h): 152:4581 156:3420 160:9581 164:1213 168:3996 172:3052 176:32029 180:3849
+finished 2026-09-26T15:00:36Z

@@ -1,0 +1,19 @@
+S_6: complete mapping found by DLX in 408.8s -> <project>/work/round6/brauer-complete/code/../certificates/cm_S6.json
+      408.85 real       393.88 user        10.90 sys
+           325795840  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             4243114  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+              286375  involuntary context switches
+       7960852201833  instructions retired
+       1675334867865  cycles elapsed
+           306512616  peak memory footprint

@@ -1,0 +1,14 @@
+flatsearch A seed101 3600s and B seed202 3600s started 2026-09-26T06:56:17Z; logs in logs/flatsearch_*.log; stop condition: time limit
+venn_enum_fast k=5 started 2026-09-26T07:20:03Z pid 79290; log logs/venn_enum_k5.log; stop: completion or kill at 08:40Z
+lightsearch seed303 2400s started 2026-09-26T07:28:13Z pid 88970 (light side = 6-flat family); log logs/lightsearch_303.log
+supportwalk seed404 2100s started 2026-09-26T07:30:03Z pid 91369; log logs/supportwalk_404.log
+cosetsearch seed505 1800s started 2026-09-26T07:43:22Z pid 11921; log logs/cosetsearch_505.log
+venn_enum_indep k=5 (4 procs, round-robin prefixes) started 2026-09-26T13:45:51Z pids 92973 92974 92975 92976 ; outputs scratchpad/venn/k5p*.txt; stop: completion (~5 min expected) or kill at 14:30Z
+lean_clean_replay.sh started 2026-09-26T13:49:38Z (lock B); log logs/lean_clean_replay.log; stop: completion (~6 min)
+venn_enum_indep k=5 finished ~13:54Z; all 4 processes exited; results logs/venn_enum_indep.log
+lean_clean_replay finished 13:54:56Z exit 0, lock B released
+closure_search m=13 r=6 seeds 11-15, 1200 s CPU each, started 2026-09-26T13:59:22Z, pids 2068 2069 2070 2071 2072 ; logs logs/closure_search_rm714_seed*.log; stop: time limit (~14:23Z)
+closure_search calibration m=11 r=5 seed 21, 120 s, started 2026-09-26T13:59:29Z pid 2125; log logs/closure_search_rm612_calibration_seed21.log
+closure_search_flats (GEN_FLATS) m=13 r=6 seeds 41-45, 720 s CPU each, started 2026-09-26T14:20:46Z; logs logs/closure_search_flats_rm714_seed*.log; stop: time limit (~14:33Z)
+closure_search_zhist m=13 seed 51 240 s started 2026-09-26T14:21:10Z pid 13910
+closure_search runs finished 14:33Z; zhist diag finished 14:25Z

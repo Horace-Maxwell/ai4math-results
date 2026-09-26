@@ -1,0 +1,55 @@
+(2,2) p=5 q=3: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 44, total 256)
+(2,2) p=5 q=3: threshold = 5-th largest G value: brute force 9 matrices == B&B 9 (B&B nodes 116, total 256)
+(2,2) p=5 q=3: threshold = 12-th largest G value: brute force 20 matrices == B&B 20 (B&B nodes 172, total 256)
+(2,2) p=5 q=3: max G = Theta, maximisers exactly Y-, Y+  [0.0s]
+(2,2) p=3 q=5: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 52, total 256)
+(2,2) p=3 q=5: threshold = 5-th largest G value: brute force 9 matrices == B&B 9 (B&B nodes 132, total 256)
+(2,2) p=3 q=5: threshold = 12-th largest G value: brute force 20 matrices == B&B 20 (B&B nodes 180, total 256)
+(2,2) p=3 q=5: max G = Theta, maximisers exactly Y-, Y+  [0.0s]
+(2,2) p=7 q=3: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 44, total 256)
+(2,2) p=7 q=3: threshold = 5-th largest G value: brute force 7 matrices == B&B 7 (B&B nodes 108, total 256)
+(2,2) p=7 q=3: threshold = 12-th largest G value: brute force 18 matrices == B&B 18 (B&B nodes 148, total 256)
+(2,2) p=7 q=3: max G = Theta, maximisers exactly Y-, Y+  [0.0s]
+(1,3) p=5 q=3: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 26, total 128)
+(1,3) p=5 q=3: threshold = 5-th largest G value: brute force 9 matrices == B&B 9 (B&B nodes 66, total 128)
+(1,3) p=5 q=3: threshold = 12-th largest G value: brute force 21 matrices == B&B 21 (B&B nodes 94, total 128)
+(1,3) p=5 q=3: max G = Theta, maximisers exactly Y-, Y+  [0.0s]
+(3,1) p=3 q=5: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 88, total 128)
+(3,1) p=3 q=5: threshold = 5-th largest G value: brute force 9 matrices == B&B 9 (B&B nodes 120, total 128)
+(3,1) p=3 q=5: threshold = 12-th largest G value: brute force 21 matrices == B&B 21 (B&B nodes 136, total 128)
+(3,1) p=3 q=5: max G = Theta, maximisers exactly Y-, Y+  [0.0s]
+(1,1) p=5 q=3: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 10, total 8)
+(1,1) p=5 q=3: threshold = 5-th largest G value: brute force 8 matrices == B&B 8 (B&B nodes 10, total 8)
+(1,1) p=5 q=3: max G = Theta, maximisers exactly Y-, Y+  [0.0s]
+(3,3) p=5 q=3: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 136, total 32768)
+(3,3) p=5 q=3: threshold = 5-th largest G value: brute force 9 matrices == B&B 9 (B&B nodes 680, total 32768)
+(3,3) p=5 q=3: threshold = 12-th largest G value: brute force 18 matrices == B&B 18 (B&B nodes 920, total 32768)
+(3,3) p=5 q=3: max G = Theta, maximisers exactly Y-, Y+  [3.7s]
+(3,3) p=3 q=5: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 152, total 32768)
+(3,3) p=3 q=5: threshold = 5-th largest G value: brute force 9 matrices == B&B 9 (B&B nodes 840, total 32768)
+(3,3) p=3 q=5: threshold = 12-th largest G value: brute force 18 matrices == B&B 18 (B&B nodes 1064, total 32768)
+(3,3) p=3 q=5: max G = Theta, maximisers exactly Y-, Y+  [3.9s]
+(2,4) p=5 q=3: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 76, total 16384)
+(2,4) p=5 q=3: threshold = 5-th largest G value: brute force 8 matrices == B&B 8 (B&B nodes 356, total 16384)
+(2,4) p=5 q=3: threshold = 12-th largest G value: brute force 19 matrices == B&B 19 (B&B nodes 484, total 16384)
+(2,4) p=5 q=3: max G = Theta, maximisers exactly Y-, Y+  [1.7s]
+(2,4) p=3 q=5: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 84, total 16384)
+(2,4) p=3 q=5: threshold = 5-th largest G value: brute force 8 matrices == B&B 8 (B&B nodes 388, total 16384)
+(2,4) p=3 q=5: threshold = 12-th largest G value: brute force 20 matrices == B&B 20 (B&B nodes 620, total 16384)
+(2,4) p=3 q=5: max G = Theta, maximisers exactly Y-, Y+  [1.8s]
+(4,2) p=5 q=3: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 240, total 16384)
+(4,2) p=5 q=3: threshold = 5-th largest G value: brute force 8 matrices == B&B 8 (B&B nodes 976, total 16384)
+(4,2) p=5 q=3: threshold = 12-th largest G value: brute force 20 matrices == B&B 20 (B&B nodes 1520, total 16384)
+(4,2) p=5 q=3: max G = Theta, maximisers exactly Y-, Y+  [1.9s]
+(4,2) p=3 q=5: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 336, total 16384)
+(4,2) p=3 q=5: threshold = 5-th largest G value: brute force 8 matrices == B&B 8 (B&B nodes 1104, total 16384)
+(4,2) p=3 q=5: threshold = 12-th largest G value: brute force 19 matrices == B&B 19 (B&B nodes 1520, total 16384)
+(4,2) p=3 q=5: max G = Theta, maximisers exactly Y-, Y+  [1.9s]
+(2,2) p=11/2 q=7/2: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 44, total 256)
+(2,2) p=11/2 q=7/2: threshold = 5-th largest G value: brute force 7 matrices == B&B 7 (B&B nodes 108, total 256)
+(2,2) p=11/2 q=7/2: threshold = 12-th largest G value: brute force 17 matrices == B&B 17 (B&B nodes 156, total 256)
+(2,2) p=11/2 q=7/2: max G = Theta, maximisers exactly Y-, Y+  [0.0s]
+(3,3) p=21/4 q=3: threshold = 1-th largest G value: brute force 2 matrices == B&B 2 (B&B nodes 136, total 32768)
+(3,3) p=21/4 q=3: threshold = 5-th largest G value: brute force 9 matrices == B&B 9 (B&B nodes 680, total 32768)
+(3,3) p=21/4 q=3: threshold = 12-th largest G value: brute force 17 matrices == B&B 17 (B&B nodes 888, total 32768)
+(3,3) p=21/4 q=3: max G = Theta, maximisers exactly Y-, Y+  [4.1s]

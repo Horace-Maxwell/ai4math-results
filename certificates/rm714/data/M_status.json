@@ -1,0 +1,266 @@
+{
+ "source": "arXiv:2606.21425v1 Prop.4 list M and final Remark",
+ "M": {
+  "322": {
+   "status": "undecided"
+  },
+  "326": {
+   "status": "undecided"
+  },
+  "330": {
+   "status": "undecided"
+  },
+  "334": {
+   "status": "undecided"
+  },
+  "354": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    127,
+    1143,
+    6757,
+    6764,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8174": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    64,
+    127,
+    528,
+    1694,
+    12331,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8178": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    64,
+    127,
+    4146,
+    12946,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8182": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    127,
+    128,
+    5167,
+    8193,
+    11970,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8186": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    127,
+    1024,
+    2056,
+    7811,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8188": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    1,
+    5042,
+    8194,
+    11369
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8190": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    2,
+    127,
+    193,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8194": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    0,
+    2,
+    127,
+    193,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8196": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    0,
+    1,
+    5042,
+    8194,
+    11369
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8198": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    0,
+    127,
+    1024,
+    2056,
+    7811,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8202": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    0,
+    127,
+    128,
+    5167,
+    8193,
+    11970,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8206": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    0,
+    64,
+    127,
+    4146,
+    12946,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "8210": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    0,
+    64,
+    127,
+    528,
+    1694,
+    12331,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "16030": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    0,
+    127,
+    1143,
+    6757,
+    6764,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new: listed as missing in 2606.21425v1 Prop. 4; no prior claim found (G1+G2, 2026-09-26)"
+  },
+  "16050": {
+   "status": "undecided"
+  },
+  "16054": {
+   "status": "undecided"
+  },
+  "16058": {
+   "status": "undecided"
+  },
+  "16062": {
+   "status": "undecided"
+  }
+ },
+ "Remark8": {
+  "322": {
+   "status": "undecided"
+  },
+  "326": {
+   "status": "undecided"
+  },
+  "330": {
+   "status": "undecided"
+  },
+  "334": {
+   "status": "undecided"
+  },
+  "354": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    127,
+    1143,
+    6757,
+    6764,
+    16256
+   ],
+   "lean": true,
+   "novelty": "new (also in M)"
+  },
+  "4378": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    44,
+    127,
+    5201,
+    8224,
+    16256
+   ],
+   "lean": true,
+   "novelty": "not new as a weight: not in M, so asserted by 2606.21425v1 Prop. 4 (whose proof uses computer lemmas with unpublished details); the Remark lists it only as a seed of the authors' construction; we give an independent explicit witness"
+  },
+  "4380": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    2402,
+    5020,
+    8320,
+    10005
+   ],
+   "lean": true,
+   "novelty": "not new as a weight: not in M, so asserted by 2606.21425v1 Prop. 4 (whose proof uses computer lemmas with unpublished details); the Remark lists it only as a seed of the authors' construction; we give an independent explicit witness"
+  },
+  "4382": {
+   "status": "occurs",
+   "witness_monomial_masks": [
+    115,
+    127,
+    264,
+    2220,
+    16256
+   ],
+   "lean": true,
+   "novelty": "not new as a weight: not in M, so asserted by 2606.21425v1 Prop. 4 (whose proof uses computer lemmas with unpublished details); the Remark lists it only as a seed of the authors' construction; we give an independent explicit witness"
+  }
+ },
+ "session2_note": "2026-09-26T14:36Z: novelty fields added (session 2); see PROOF.md section 3"
+}

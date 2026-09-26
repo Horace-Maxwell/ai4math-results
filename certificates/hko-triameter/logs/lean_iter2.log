@@ -1,0 +1,7 @@
+'HKOTriameter.not_problem1Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_problem2Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.G1_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.G2_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HKOTriameter.not_question3_G1' depends on axioms: [propext, Classical.choice, Quot.sound]
+lake env lean Research/HKOTriameter.lean  8.18s user 3.63s system 97% cpu 12.176 total

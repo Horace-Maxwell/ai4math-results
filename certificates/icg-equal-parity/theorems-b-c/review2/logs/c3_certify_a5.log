@@ -1,0 +1,5 @@
+a=5 region=big: validated q*s branch-min against direct cell computation at 400 random exact points: OK
+a=5 region=big: cheap last columns [((-1, 1, 1, -1, 1, -1), 1), ((-1, 1, -1, 1, 1, -1), 1), ((-1, 1, -1, -1, 1, -1), 1), ((-1, -1, 1, -1, 1, -1), 1)]; columns with Delta > 2 delta: 26; trunc = (-1, 1, -1, 1, -1, -1)
+a=5 region=p3: validated q*s branch-min against direct cell computation at 400 random exact points: OK
+a=5 region=p3: cheap last columns [((1, 1, -1, 1, 1, -1), 1), ((1, 1, -1, -1, 1, -1), 1), ((1, -1, -1, 1, 1, -1), 1), ((-1, 1, 1, -1, 1, -1), 1), ((-1, 1, -1, 1, 1, -1), 1), ((-1, 1, -1, -1, 1, -1), 1), ((-1, -1, 1, -1, 1, -1), 1)]; columns with Delta > 2 delta: 23; trunc = (-1, 1, -1, 1, -1, -1)
+a=5 K=4: checks {'S': 128, 'FD1': 3227, 'CH': 16680, 'CHalone': 22, 'full': 22, 'EQ': 20, 'validated': 10647}; failures 0; time 12s

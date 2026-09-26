@@ -1,0 +1,3 @@
+a=3 region=nc_P3: validated q*s branch-min against direct cell computation at 50 random exact points: OK
+a=3 region=nc_P3: cheap last columns [((-1, 1, 1, -1), 1), ((-1, -1, 1, -1), 1)]; columns with Delta > 2 delta: 4; trunc = (-1, 1, -1, -1)
+a=3 K=4: checks {'S': 18, 'FD1': 298, 'CH': 579, 'CHalone': 4, 'full': 4, 'EQ': 8}; failures 0; time 0s

@@ -1,0 +1,35 @@
+(a) (2,2) p=5 q=3: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=3 q=5: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=7 q=3: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=3 q=7: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=5 q=7: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=7 q=5: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=13 q=11: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=101 q=3: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=3 q=101: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=11/2 q=7/2: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=3 q=9/2: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=5 q=3: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=3 q=5: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) (2,2) p=51/10 q=31/10: every step holds; equality exactly at Y-, Y+; case counts {'i': 63, 'C': 64, '-E': 64, 'B': 64, 'anti': 1}
+(a) shape (2,2): 3584 sign matrices replayed
+(a) (2,4) p=5 q=3: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=3 q=5: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=7 q=3: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=3 q=7: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=5 q=7: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=7 q=5: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=13 q=11: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=101 q=3: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=3 q=101: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=11/2 q=7/2: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=3 q=9/2: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=5 q=3: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=3 q=5: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) (2,4) p=51/10 q=31/10: every step holds; equality exactly at Y-, Y+; case counts {'i': 4095, 'C': 4096, '-E': 4096, 'B': 4096, 'anti': 1}
+(a) shape (2,4): 229376 sign matrices replayed
+(b) Lemma EQ, b even <= 40, 8 parameter pairs: along Y+ the column with s_j = 0 is unique and equals Y+'s column at every j < b; strict sign patterns as claimed; kappa(Y+) = 0; Y- has all cells 0 and kappa = 2 rho delta_p: OK
+(c) PROOF.md §0 claims: for A != 0, h(A,B) = 0 <=> -Q|A| <= B sgn A <= 0.  Counterexamples (Q=2, h = 0 with B sgnA > 0): mu=1, A=1, B=2: h=0; mu=1/2, A=1, B=4: h=0; mu=3/5, A=1, B=10/3: h=0
+    and for mu = 0: h(1, -5) = 0 although -5 < -Q.  Correct statement (A>0, mu>0): h = 0 iff B in [-QA, 0] or B = QA/mu.
+    in Lemma EQ (type-A columns): max_cube |B_i| < Q|A_i| for i=0,1,2 on the parameter range: True => the extra zeros are unreachable, so the use of the characterisation is harmless.
+DONE

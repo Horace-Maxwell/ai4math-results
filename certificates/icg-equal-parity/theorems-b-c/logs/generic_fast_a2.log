@@ -1,0 +1,2 @@
+a=2: generated tasks FD1=864, chains=864 (S direct checks=16, S failures=0, EQ/other direct failures=0), cheap={'big': 1, 'p3': 1} [3s]
+a=2: certified 1728 tasks, failures 0; direct-check failures 0; total time 35s

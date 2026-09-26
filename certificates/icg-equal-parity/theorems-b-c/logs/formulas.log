@@ -1,0 +1,1 @@
+all closed forms agree with direct cell computation: 112000 checks (P>=4,Q>=2 and P=2,Q>=4; mu,m in [0,1])

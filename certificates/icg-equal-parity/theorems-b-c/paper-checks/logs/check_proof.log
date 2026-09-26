@@ -1,0 +1,30 @@
+p=5 q=3 b=2: 256 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 63, 'FD2a': 64, 'FD2b': 0, 'g3': 63, '-g4': 64}
+p=5 q=3 b=4: 16384 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 4095, 'FD2a': 4096, 'FD2b': 0, 'g3': 4095, '-g4': 4096}
+p=3 q=5 b=2: 256 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 63, 'FD2a': 56, 'FD2b': 8, 'g3': 63, '-g4': 64}
+p=3 q=5 b=4: 16384 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 4095, 'FD2a': 3584, 'FD2b': 512, 'g3': 4095, '-g4': 4096}
+p=7 q=3 b=2: 256 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 63, 'FD2a': 64, 'FD2b': 0, 'g3': 63, '-g4': 64}
+p=7 q=3 b=4: 16384 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 4095, 'FD2a': 4096, 'FD2b': 0, 'g3': 4095, '-g4': 4096}
+p=3 q=7 b=2: 256 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 63, 'FD2a': 56, 'FD2b': 8, 'g3': 63, '-g4': 64}
+p=3 q=7 b=4: 16384 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 4095, 'FD2a': 3584, 'FD2b': 512, 'g3': 4095, '-g4': 4096}
+p=11/2 q=7/2 b=2: 256 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 63, 'FD2a': 64, 'FD2b': 0, 'g3': 63, '-g4': 64}
+p=11/2 q=7/2 b=4: 16384 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 4095, 'FD2a': 4096, 'FD2b': 0, 'g3': 4095, '-g4': 4096}
+p=3 q=11/2 b=2: 256 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 63, 'FD2a': 56, 'FD2b': 8, 'g3': 63, '-g4': 64}
+p=3 q=11/2 b=4: 16384 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 4095, 'FD2a': 3584, 'FD2b': 512, 'g3': 4095, '-g4': 4096}
+p=101 q=3 b=2: 256 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 63, 'FD2a': 64, 'FD2b': 0, 'g3': 63, '-g4': 64}
+p=101 q=3 b=4: 16384 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 4095, 'FD2a': 4096, 'FD2b': 0, 'g3': 4095, '-g4': 4096}
+p=3 q=101 b=2: 256 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 63, 'FD2a': 56, 'FD2b': 8, 'g3': 63, '-g4': 64}
+p=3 q=101 b=4: 16384 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 4095, 'FD2a': 3584, 'FD2b': 512, 'g3': 4095, '-g4': 4096}
+p=5 q=5 b=2: 256 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 63, 'FD2a': 64, 'FD2b': 0, 'g3': 63, '-g4': 64}
+p=5 q=5 b=4: 16384 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 4095, 'FD2a': 4096, 'FD2b': 0, 'g3': 4095, '-g4': 4096}
+p=13 q=11 b=2: 256 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 63, 'FD2a': 64, 'FD2b': 0, 'g3': 63, '-g4': 64}
+p=13 q=11 b=4: 16384 matrices OK {'Ym': 1, 'Yp': 1, 'FD1': 4095, 'FD2a': 4096, 'FD2b': 0, 'g3': 4095, '-g4': 4096}
+p=5 q=3 b=6: 1500 matrices OK {'Ym': 0, 'Yp': 0, 'FD1': 365, 'FD2a': 376, 'FD2b': 0, 'g3': 381, '-g4': 378}
+p=5 q=3 b=8: 1500 matrices OK {'Ym': 0, 'Yp': 0, 'FD1': 327, 'FD2a': 372, 'FD2b': 0, 'g3': 394, '-g4': 407}
+p=3 q=5 b=6: 1500 matrices OK {'Ym': 0, 'Yp': 0, 'FD1': 374, 'FD2a': 311, 'FD2b': 48, 'g3': 357, '-g4': 410}
+p=3 q=5 b=8: 1500 matrices OK {'Ym': 0, 'Yp': 0, 'FD1': 366, 'FD2a': 342, 'FD2b': 58, 'g3': 344, '-g4': 390}
+p=3 q=41/4 b=6: 1500 matrices OK {'Ym': 0, 'Yp': 0, 'FD1': 380, 'FD2a': 324, 'FD2b': 50, 'g3': 383, '-g4': 363}
+p=3 q=41/4 b=8: 1500 matrices OK {'Ym': 0, 'Yp': 0, 'FD1': 362, 'FD2a': 320, 'FD2b': 52, 'g3': 371, '-g4': 395}
+p=51/10 q=31/10 b=6: 1500 matrices OK {'Ym': 0, 'Yp': 0, 'FD1': 402, 'FD2a': 377, 'FD2b': 0, 'g3': 334, '-g4': 387}
+p=51/10 q=31/10 b=8: 1500 matrices OK {'Ym': 0, 'Yp': 0, 'FD1': 358, 'FD2a': 381, 'FD2b': 0, 'g3': 393, '-g4': 368}
+ALL OK
+python3 check_proof.py  62.23s user 0.69s system 97% cpu 1:04.22 total

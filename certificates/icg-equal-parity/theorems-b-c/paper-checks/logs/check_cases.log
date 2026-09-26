@@ -1,0 +1,2 @@
+random box checks OK: 40000
+python3 check_cases.py  48.75s user 0.56s system 97% cpu 50.416 total

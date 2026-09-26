@@ -1,0 +1,38 @@
+C triples w=322: none
+C triples w=326: (64,126,136)
+C triples w=330: (64,112,154)
+C triples w=334: (64,112,158) (64,126,144) (96,112,126)
+C max needed weight: 167
+C' overlap wt=64,126 sum=136: 27
+C' overlap wt=64,126 sum=144: 23
+C' overlap wt=64,112 sum=154: 11
+C' overlap wt=64,112 sum=158: 9
+C' overlap wt=96,126 sum=112: 55
+C' 23 is sum of two of {0,1,2,...,64}: False
+C' 25 is sum of two of {0,1,2,...,64}: False
+C' 27 is sum of two of {0,1,2,...,64}: False
+C' 29 is sum of two of {0,1,2,...,64}: False
+C' 1+2^j-2t=11 solutions (t,2^j): none
+C' 1+2^j-2t=9 solutions (t,2^j): [(0, 8)]
+C' (96,112,126) bound 3+48=51 < 55: True
+D p in F3 solutions (d,w,a,b,a+b<=d): (7, 322, 4, 4, False) (8, 322, 5, 6, False)
+D p notin F3 solutions (d,w,alpha,beta): (7, 334, 8, 16)
+D two flats, weights = 2 mod 4: [254]
+D three pairwise transversal 7-flats: [378, 382]
+F3 w=322 C(w,2)=51681 > 49149: True -> wt h <= 312
+F3 w=326 C(w,2)=52975 > 49149: True -> wt h <= 316
+F3 w=330 C(w,2)=54285 > 49149: True -> wt h <= 320
+F3 w=334 C(w,2)=55611 > 49149: True -> wt h <= 324
+F6 w=322 C(w,2)=51681 < 5*16383=81915: True; directions with n_a in {1,3} >= 7559; wt h in {320, 316}
+F6 w=326 C(w,2)=52975 < 5*16383=81915: True; directions with n_a in {1,3} >= 7235; wt h in {324, 320}
+F6 w=330 C(w,2)=54285 < 5*16383=81915: True; directions with n_a in {1,3} >= 6908; wt h in {328, 324}
+F6 w=334 C(w,2)=55611 < 5*16383=81915: True; directions with n_a in {1,3} >= 6576; wt h in {332, 328}
+F4 w=322 num=5171964 s_min=18 light<=152
+F4 w=326 num=5234908 s_min=18 light<=154
+F4 w=330 num=5297820 s_min=18 light<=156
+F4 w=334 num=5360700 s_min=22 light<=156
+F5 (wt h, t): [(224, 15), (240, 23), (248, 27), (252, 29)]
+F5 two-flat form (KT type II) wt h=224 t=15: (s, |F cap B|) powers of two: [(1, 16)]
+F5 two-flat form (KT type II) wt h=240 t=23: (s, |F cap B|) powers of two: none
+F5 two-flat form (KT type II) wt h=248 t=27: (s, |F cap B|) powers of two: none
+F5 two-flat form (KT type II) wt h=252 t=29: (s, |F cap B|) powers of two: none

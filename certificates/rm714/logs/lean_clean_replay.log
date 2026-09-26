@@ -1,0 +1,59 @@
+cwd: <scratchpad>/replay-rm714 (scratchpad; .lake/packages symlinked to work/research-lean/.lake/packages; no project .olean copied)
+start: 2026-09-26T13:49:36Z
+Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+mathlib rev: 0df444a360eaa60ab8c11dca51a86af692955474
+== input hashes
+375599ede626ff8dbbd04083d4fdcd49cadf0aac3a23736d42627eebd4234b29  lakefile.toml
+3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71  lean-toolchain
+9cb2278091171314d2816e57efa3c813f64d9da54bd82e5ecbdaf779c2b203e8  lake-manifest.json
+58232392f316c13cec81072e96102edd4fe1b77a2364d12a956d1dae1323896f  Research/RM714Weights.lean
+f2b2c62c2160ce6f46341eeab257d3b25d27a14ae07eba51777e23d48a24f09c  Research/RM714WeightsAudit.lean
+ℹ [8706/8707] Built Research.RM714Weights (154s)
+info: Research/RM714Weights.lean:300:0: 'RM714.rm714_new_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/RM714Weights.lean:301:0: 'RM714.weight_map_maskSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8707/8707] Built Research.RM714WeightsAudit (13s)
+info: Research/RM714WeightsAudit.lean:8:0: def RM714.evalPoly : List (Finset (Fin 14)) → (Fin 14 → ZMod 2) → ZMod 2 :=
+fun L x => (List.map (fun S => ∏ i ∈ S, x i) L).sum
+info: Research/RM714WeightsAudit.lean:9:0: def RM714.weight : List (Finset (Fin 14)) → ℕ :=
+fun L => {x | RM714.evalPoly L x = 1}.card
+info: Research/RM714WeightsAudit.lean:10:0: def RM714.IsRM714Weight : ℕ → Prop :=
+fun w => ∃ L, (∀ S ∈ L, S.card ≤ 7) ∧ RM714.weight L = w
+info: Research/RM714WeightsAudit.lean:11:0: RM714.rm714_new_weights : ∀
+  w ∈ [354, 16030, 4378, 4380, 4382, 8174, 8178, 8182, 8186, 8188, 8190, 8194, 8196, 8198, 8202, 8206, 8210],
+  RM714.IsRM714Weight w
+info: Research/RM714WeightsAudit.lean:12:0: RM714.weight_map_maskSet : ∀ (L : List ℕ),
+  (∀ s ∈ L, s < 2 ^ 14) → RM714.weight (List.map RM714.maskSet L) = RM714.weightNat L
+info: Research/RM714WeightsAudit.lean:13:0: RM714.isRM714Weight_of : ∀ (L : List ℕ) (w : ℕ),
+  (∀ s ∈ L, s < 2 ^ 14) →
+    (L.all fun s => decide (RM714.degNat s ≤ 7)) = true → RM714.weightNat L = w → RM714.IsRM714Weight w
+info: Research/RM714WeightsAudit.lean:30:0: 'RM714.rm714_new_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/RM714WeightsAudit.lean:31:0: 'RM714.weight_map_maskSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/RM714WeightsAudit.lean:32:0: 'RM714.isRM714Weight_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8707 jobs).
+      174.24 real       138.38 user        16.83 sys
+          8889253888  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              945547  page reclaims
+              252781  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              135134  voluntary context switches
+              539501  involuntary context switches
+         68514296216  instructions retired
+         37200124593  cycles elapsed
+           364848192  peak memory footprint
+build exit: 0
+== leanchecker
+      137.61 real       115.66 user         6.97 sys
+        8.09 real         1.93 user         6.01 sys
+leanchecker exits: 0 0
+== output hashes
+01a2b52bcd40482e4086f527dcce9a4cbb8506e8bce77ff71d120e8a498169d5  .lake/build/lib/lean/Research/RM714Weights.olean
+4fc5abbd2ddb22ce0b9c00d01fee0a5d10630709b5e636e9a1325516ad5c7f43  .lake/build/lib/lean/Research/RM714WeightsAudit.olean
+end: 2026-09-26T13:54:56Z

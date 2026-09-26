@@ -1,0 +1,13 @@
+A+B: 66 58 8216 8216 True
+A+B: 65 68 8184 8184 True
+A+B: 55 64 8192 8192 True
+A+B: 48 65 8224 8224 True
+A+B: 62 66 8200 8200 True
+A+B: 58 68 8240 8240 True
+x1+x1..x7+beta: 67 8198 8198 True
+x1+x1..x7+beta: 63 8190 8190 True
+x1+x1..x7+beta: 64 8192 8192 True
+x1+x1..x7+beta: 68 8200 8200 True
+x1+x1..x7+beta: 59 8182 8182 True
+x1+x1..x7+beta: 59 8182 8182 True
+ALL OK
