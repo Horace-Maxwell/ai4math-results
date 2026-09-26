@@ -194,8 +194,10 @@ The author chose the research programme and directed the agents. The agents:
 - wrote the programs and the Lean code;
 - drafted the papers and this README.
 
-Each agent audited the other's work. AI systems are not authors. The author
-takes full responsibility for the content.
+Each agent audited the other's work. The author, who is not a professional
+mathematician, has read both papers and, using a side-by-side table, compared
+the statements of the final Lean theorems with the theorems in the papers. AI
+systems are not authors. The author takes full responsibility for the content.
 
 ## License
 
