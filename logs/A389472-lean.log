@@ -1,0 +1,1 @@
+'Oeis389472Mod3.integer_conjecture' depends on axioms: [propext, Classical.choice, Quot.sound]

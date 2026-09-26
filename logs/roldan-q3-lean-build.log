@@ -1,0 +1,11 @@
+Research/CirculantQ3.lean:167:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'CirculantQ3.coefficient_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CirculantQ3.exactEnergy_eq_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CirculantQ3.exactEnergy_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CirculantQ3.exactEnergy_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CirculantQ3.exactEnergy_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+lake env lean Research/CirculantQ3.lean  160.16s user 197.54s system 93% cpu 6:23.84 total
+exit=0
+7656f82dceb6dabd0e4420c8010383fdcae4c521bcc577e7b55de005c5cf319d  Research/CirculantQ3.lean

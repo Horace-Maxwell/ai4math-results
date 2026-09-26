@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Lean 4 proofs of four OEIS congruence conjectures, and a Lean formalization of the case q = 3 of Roldán's energy conjecture"
+type: software
+authors:
+  - family-names: "Dong"
+    given-names: "Horace"
+    affiliation: "Independent researcher"
+    email: "maxwelldhx@gmail.com"
+    orcid: "https://orcid.org/0009-0002-7554-7548"
+version: 1.0.0
+date-released: 2026-09-26
+license: Apache-2.0
+repository-code: "https://github.com/Horace-Maxwell/ai4math-results"
+keywords:
+  - Lean 4
+  - formal verification
+  - integral circulant graphs
+  - graph energy
+  - OEIS
+  - formal power series

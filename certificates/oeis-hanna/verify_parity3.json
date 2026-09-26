@@ -1,0 +1,46 @@
+{
+ "A273958": {
+  "recomputed_terms": 1200,
+  "bfile_terms": 520,
+  "bfile_range": [
+   1,
+   520
+  ],
+  "mismatches_vs_bfile": [],
+  "conj_violations_bfile": [],
+  "conj_violations_recomputed": [],
+  "odd_indices_recomputed": [
+   1,
+   7,
+   31,
+   127,
+   511
+  ],
+  "seconds": 0.85
+ },
+ "A240998": {
+  "recomputed_terms": 1000,
+  "bfile_terms": 311,
+  "bfile_range": [
+   0,
+   310
+  ],
+  "mismatches_vs_bfile": [],
+  "conj_violations_bfile": [],
+  "conj_violations_recomputed": [],
+  "seconds": 3.18,
+  "digits_of_last_term": 3021
+ },
+ "A295762": {
+  "recomputed_terms_exact": 260,
+  "bfile_terms": 1030,
+  "bfile_range": [
+   1,
+   1030
+  ],
+  "mismatches_vs_bfile": [],
+  "conj_violations_bfile": [],
+  "conj_violations_recomputed": [],
+  "seconds": 0.27
+ }
+}

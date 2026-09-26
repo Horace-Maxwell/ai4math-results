@@ -1,0 +1,43 @@
+{
+  "utc": "2026-09-25T23:32:06.676698+00:00",
+  "algorithm": "integer coefficient recursion extracted from A(X^2+X^3)=X^2(1+A)",
+  "range": [
+    0,
+    1000
+  ],
+  "seed": [
+    0,
+    1,
+    1
+  ],
+  "bfile_rows": 1000,
+  "bfile_mismatches": [],
+  "mod3_indices_checked": 332,
+  "mod3_counterexamples": [],
+  "elapsed_seconds": 0.08337954105809331,
+  "script_sha256": "f4cad500bc3c7777ac743ae3b4fb8d9070158f744b4551b9ba93576419778964",
+  "bfile_sha256": "2d458cf18c080e619cd0749ed832a5ff5fa84306566519bd8363d9ef15d3dc68",
+  "first20_terms": [
+    1,
+    1,
+    2,
+    3,
+    6,
+    9,
+    14,
+    24,
+    42,
+    72,
+    114,
+    179,
+    284,
+    453,
+    736,
+    1213,
+    2016,
+    3362,
+    5606,
+    9318
+  ],
+  "meaning": "Exact finite independent sanity check; universal proof is separate Lean theorem."
+}

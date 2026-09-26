@@ -1,0 +1,19 @@
+ℹ [8706/8710] Built Research.Oeis389472Mod3 (2.9s)
+info: Research/Oeis389472Mod3.lean:136:0: 'Oeis389472Mod3.integer_conjecture' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8707/8710] Built Research.SubstSemanticsCheck (1.9s)
+⚠ [8708/8710] Built Research.CirculantQ3 (380s)
+warning: Research/CirculantQ3.lean:167:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: Research/CirculantQ3.lean:186:0: 'CirculantQ3.coefficient_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:187:0: 'CirculantQ3.exactEnergy_eq_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:188:0: 'CirculantQ3.exactEnergy_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:189:0: 'CirculantQ3.exactEnergy_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:190:0: 'CirculantQ3.exactEnergy_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8709/8710] Built Research (7.1s)
+Build completed successfully (8710 jobs).
+lake build  160.65s user 204.32s system 93% cpu 6:31.77 total
+exit=0
+3c80c4ffd19ee61c66e774d42bf3b4fa1a95974506339658b89ff44748e13804  Research/Oeis389472Mod3.lean
+7656f82dceb6dabd0e4420c8010383fdcae4c521bcc577e7b55de005c5cf319d  Research/CirculantQ3.lean
+59877e6c1567ff110e4dfe1deda3ea285ec7dbb6e388c6d0d843550777f3b88b  Research/SubstSemanticsCheck.lean

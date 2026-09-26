@@ -1,0 +1,18 @@
+{
+  "results": [
+    {
+      "p": 5,
+      "n": 675,
+      "masks": 2047,
+      "max_abs_numeric_minus_model": 8.640199666842818e-12,
+      "E_star_model": 4832,
+      "E_star_numeric": 4832.0,
+      "best_competitor_model": 4424,
+      "best_competitor_mask": 1957,
+      "gap": 408,
+      "gap_lower_bound_24(p^2-2p+2)": 408,
+      "seconds": 41.446402072906494
+    }
+  ],
+  "script_sha256": "a76cb809696be33159175e23d031791b332769463b17ea6091490bf4fdc43d78"
+}

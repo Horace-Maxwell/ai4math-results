@@ -1,0 +1,8 @@
+import Research.Oeis389472Mod3
+import Research.SubstSemanticsCheck
+import Research.HannaA240998
+import Research.HannaA295762
+import Research.HannaA273958
+import Research.CirculantQ3
+import Research.ICGBridgeFinal
+import Research.ICGBridgeSharp

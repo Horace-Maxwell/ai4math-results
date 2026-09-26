@@ -1,0 +1,38 @@
+{
+  "utc": "2026-09-25T23:24:30.710236+00:00",
+  "command": "lake env lean Research/CirculantQ3.lean (cwd work/research-lean, PATH=work/toolchains/lean-4.33.1-darwin_aarch64/bin)",
+  "lean": "4.33.1 (commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6)",
+  "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "exit_code": 0,
+  "wall_time": "6:23.84",
+  "source_sha256": "7656f82dceb6dabd0e4420c8010383fdcae4c521bcc577e7b55de005c5cf319d",
+  "axioms": {
+    "CirculantQ3.coefficient_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CirculantQ3.exactEnergy_eq_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CirculantQ3.exactEnergy_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CirculantQ3.exactEnergy_strict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CirculantQ3.exactEnergy_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "not_formalized": "Lemma 2.1 (spectral formula: circulant eigenvalues = sums of Ramanujan sums grouped by gcd class)",
+  "notes": "Certificate checked by `decide +kernel` (no native_decide, no ofReduceBool). Peak RSS about 16 GB."
+}

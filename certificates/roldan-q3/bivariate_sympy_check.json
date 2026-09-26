@@ -1,0 +1,55 @@
+{
+  "bivariate_star_coefficients_x_i_y_j": [
+    1384,
+    1684,
+    678,
+    92,
+    1192,
+    1456,
+    588,
+    80,
+    266,
+    326,
+    132,
+    18
+  ],
+  "bivariate_min_gap": [
+    96,
+    136,
+    56,
+    8,
+    94,
+    128,
+    54,
+    8,
+    24,
+    32,
+    14,
+    2
+  ],
+  "matches_first_implementation_csv": true,
+  "star_poly_equals_JiangYang_and_Roldan_closed_forms": true,
+  "q3_star_coefficients_t": [
+    4832,
+    2256,
+    266
+  ],
+  "q3_min_gap_t": [
+    408,
+    192,
+    24
+  ],
+  "q3_argmin_masks": [
+    [
+      1957
+    ],
+    [
+      1957
+    ],
+    [
+      1957
+    ]
+  ],
+  "lean_basisCoeff_table_matches": true,
+  "script_sha256": "592a7edd50ef9483992099a4437d3c3522c3827e3cbc4f0e7a86785e36bec188"
+}
