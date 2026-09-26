@@ -398,7 +398,8 @@ no theorem. Paper 3 (version 1.3.0) was selected, proved, formalized and
 drafted by Claude Code agents, and independent Claude agents refereed the
 proofs, the Lean statements and the paper; before release OpenAI Codex
 checked the main statements, the Lean statements and the key counts.
-AUTHOR-ROLE-PAPER3: to be completed after the author has read Paper 3.
+The author has also read Paper 3 and, using the same kind of side-by-side
+table, compared its Lean statements with the results in the paper.
 AI
 systems are not authors. The author takes full responsibility for the content.
 
