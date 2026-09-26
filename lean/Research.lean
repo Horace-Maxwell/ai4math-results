@@ -3,6 +3,15 @@ import Research.SubstSemanticsCheck
 import Research.HannaA240998
 import Research.HannaA295762
 import Research.HannaA273958
+import Research.HannaA301933
+import Research.HannaA377100
+import Research.HannaA274479
+import Research.HannaA388734
+import Research.HannaA338633
+import Research.HannaA120566
+import Research.HannaA184894
+import Research.HannaA107099
+import Research.HannaA361047
 import Research.CirculantQ3
 import Research.ICGBridgeFinal
 import Research.ICGBridgeSharp

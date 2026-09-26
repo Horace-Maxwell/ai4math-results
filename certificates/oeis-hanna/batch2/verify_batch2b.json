@@ -1,0 +1,28 @@
+{
+ "A388734": {
+  "terms": 1000,
+  "bfile_terms": 731,
+  "mismatches": [],
+  "even_terms_recomputed": [],
+  "even_terms_bfile": [],
+  "seconds": 0.4
+ },
+ "A338633": {
+  "cf_equation_mismatch_mod_1000000007": [],
+  "cf_equation_mismatch_mod_998244353": [],
+  "independent_first_60_mismatch_mod_2305843009213693951": [],
+  "independent_first_60_mismatch_mod_18446744073709551616": [],
+  "parity_violations_bfile": [],
+  "bfile_terms": 151,
+  "seconds": 0.3
+ },
+ "A338634": {
+  "cf_equation_mismatch_mod_1000000007": [],
+  "cf_equation_mismatch_mod_998244353": [],
+  "independent_first_60_mismatch_mod_2305843009213693951": [],
+  "independent_first_60_mismatch_mod_18446744073709551616": [],
+  "parity_violations_bfile": [],
+  "bfile_terms": 131,
+  "seconds": 0.3
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "A377100": {
+  "terms": 1200,
+  "bfile_terms": 1200,
+  "mismatches": [],
+  "violations": [],
+  "seconds": 0.4
+ },
+ "A274479": {
+  "terms": 300,
+  "bfile_terms": 300,
+  "mismatches": [],
+  "violations": [],
+  "seconds": 0.2
+ },
+ "A301933": {
+  "terms": 400,
+  "bfile_terms": 400,
+  "mismatches": [],
+  "violations": [],
+  "seconds": 0.1
+ },
+ "A091713": {
+  "mismatches_mod_18446744073709551616": [],
+  "violations_recomputed": [],
+  "mismatches_mod_1000000007": [],
+  "violations_bfile": [],
+  "terms": 400,
+  "bfile_terms": 400,
+  "seconds": 1.7
+ },
+ "A196523": {
+  "mismatches_mod_18446744073709551616": [],
+  "violations_recomputed": [],
+  "mismatches_mod_1000000007": [],
+  "violations_recomputed_mod3": [],
+  "violations_bfile": [],
+  "terms": 400,
+  "bfile_terms": 400,
+  "seconds": 3.1
+ },
+ "A184894": {
+  "exact_mismatches": [],
+  "nonzero_mod3_positions_upto_400": [
+   1,
+   2,
+   5,
+   14,
+   41,
+   122
+  ],
+  "residue_mod3_at_365": 0,
+  "residue_mod9_at_365": 0,
+  "values_mod3_at_(3^j+1)/2": {
+   "1": 1,
+   "2": 2,
+   "5": 1,
+   "14": 1,
+   "41": 2,
+   "122": 1,
+   "365": 0
+  },
+  "consistency_mod3_vs_exact": [],
+  "seconds": 0.3
+ },
+ "A107099": {
+  "bfile_range": [
+   0,
+   433
+  ],
+  "coef_x^(3^j)_mod3": {
+   "1": 1,
+   "3": 2,
+   "9": 1,
+   "27": 1,
+   "81": 2,
+   "243": 1,
+   "729": 0
+  },
+  "nonzero_mod3_at_nonpowers": []
+ }
+}

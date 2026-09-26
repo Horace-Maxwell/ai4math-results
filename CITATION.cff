@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "Lean 4 proofs of four OEIS congruence conjectures, and a Lean formalization of the case q = 3 of Roldán's energy conjecture"
+title: "Lean 4 proofs of OEIS congruence conjectures of P. D. Hanna, and a Lean formalization of the case q = 3 of Roldán's energy conjecture"
 type: software
 authors:
   - family-names: "Dong"

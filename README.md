@@ -1,7 +1,10 @@
-# Lean 4 proofs of four OEIS congruence conjectures, and a Lean formalization of the case q = 3 of Roldán's energy conjecture
+# Lean 4 proofs of OEIS congruence conjectures of P. D. Hanna, and a Lean formalization of the case q = 3 of Roldán's energy conjecture
 
 This repository contains Lean 4 formalizations and computational
-certificates. A paper with the written proofs of the OEIS results will be
+certificates for eleven OEIS congruence conjectures (proved), three further
+OEIS conjectures (partly proved and partly refuted, or proved after correcting
+an index), and the case q = 3 of Roldán's energy conjecture (a known result,
+formalized here). A paper with the written proofs of the OEIS results will be
 added in a later version.
 
 **Formalization of a known result: the case q = 3 of Roldán's Conjecture 1.3
@@ -23,8 +26,10 @@ added in a later version.
   - the observation, also formalized, that the bound is attained at
     `D* ∪ {3p²}`, so the second-largest energy is `242p² − 356p + 154`.
 
-**Four congruence conjectures of P. D. Hanna from the OEIS**, proved and
-formally verified:
+**Eleven congruence conjectures of P. D. Hanna from the OEIS**, proved and
+formally verified. Each Lean theorem holds for every integer power series
+satisfying the defining equation, with only the normalizations forced by the
+entry's offset.
 
 | Entry | Defining equation | Theorem |
 | --- | --- | --- |
@@ -32,6 +37,21 @@ formally verified:
 | A240998 | `A(x)² = x + A(x + 2x²)` | for `n ≥ 1`, `a(n)` is odd iff `n` is a power of 2 |
 | A295762 | `A(x − 2A(x²)) = x + A(x²)` | for `n ≥ 1`, `a(n)` is odd iff `n` is a power of 2 (the entry conjectures one direction) |
 | A273958 | `xA + x²A² = C²`, with `C = x + C²` | `a(n)` is odd iff `n = 2·4^k − 1` |
+| A301933 | `A = x(1 + 4AA′)/(1 + AA′)` | `a(n)` is odd iff `n` is a power of 2 |
+| A377100 | `A(x) = A(x³)/A(x²) + A(x)²` | `a(n) ≡ 1 (mod 3)` for `n ≥ 1` |
+| A274479 | `A(x)² = A(x²/(1 − 2x − 4x²))` | `a(n) ≡ 1 (mod 3)` for `n ≥ 1` |
+| A388734 | `A = 1 + xA² + x²(1 − x)A³` | every `a(n)` is odd |
+| A338633 | `1 = A − x/(A − 2³x/(A − 3³x/(A − …)))` | for `n > 0`, `a(n)` is odd iff `n` is a power of 2 |
+| A338634 | `1 = A − x/(A − 2⁴x/(A − 3⁴x/(A − …)))` | for `n > 0`, `a(n)` is odd iff `n` is a power of 2 |
+| A120566 | `A(x) = A(A(x)) − x·A(A(A(x)))` | every `a(n)`, `n ≥ 1`, is odd |
+
+**Three further OEIS conjectures, settled in part:**
+
+| Entry | Conjecture | What is proved |
+| --- | --- | --- |
+| A184894 | `a(m) ≡ 0 (mod 3)` except at `m = (3^n + 1)/2` | the vanishing part holds for all `m`, and `a(m) ≡ C(m, j) (mod 3)` when `2m − 1 = 3^j`; but `3 ∣ a(365)` with `365 = (3⁶ + 1)/2`, so the implied non-vanishing fails at `n = 6` |
+| A107099 | `[x^n]A ≡ 0 (mod 3)` except at `n = 3^k`, where `A(A(x)) = x + 4x³` | the vanishing part holds; `3 ∣ [x^729]A`, so non-vanishing fails at `3⁶` |
+| A361047 | stated with an index slip that the entry's own data contradict | the intended statement, in exponent form: `[x^m]A ≡ 1 (mod 3)` if `m = 3^k`, and `≡ 0` otherwise |
 
 ## What is verified, and how
 
@@ -43,6 +63,8 @@ formally verified:
 | A240998 | `HannaA240998.hanna_a240998` | exact recomputation vs. the b-file (311 terms) |
 | A295762 | `HannaA295762.hanna_a295762` | b-file (1030 terms), modulo 2^64 and two primes; 260 terms exactly |
 | A273958 | `HannaA273958.hanna_a273958` | exact recomputation vs. the b-file (520 terms) |
+| A301933, A377100, A274479, A388734, A338633, A338634, A120566 | `HannaA301933.hanna_a301933`, `HannaA377100.hanna_a377100`, `HannaA274479.hanna_a274479`, `HannaA388734.hanna_a388734`, `HannaA338633.hanna_a338633`, `HannaA338633.hanna_a338634`, `HannaA120566.hanna_a120566` | recomputation vs. the full b-files (`certificates/oeis-hanna/batch2/`) |
+| A184894, A107099, A361047 (partial) | `HannaA184894.zero_part`, `value_at_pow`, `counterexample`; `HannaA107099.hanna_a107099`, `hanna_a107099_counterexample`; `HannaA361047.hanna_a361047_pow`, `hanna_a361047_nonpow` | recomputation vs. the b-files |
 
 Each OEIS theorem is stated for every integer power series satisfying the
 defining equation. The energy is `∑ |eigenvalues|`, using
@@ -80,10 +102,13 @@ python3 bivariate_sympy_check.py      # (iii) SymPy; cross-checks (i), the close
 python3 direct_graph_check.py 5 7     # diagnostic: eigenvalues of the actual graphs (n = 675, 1323)
 cd ../oeis-hanna
 python3 verify_389472.py && python3 verify_parity3.py && python3 verify_a295762_mod.py
+cd batch2 && for s in verify_*.py; do python3 $s; done
 ```
 
 `verify_a295762_mod.py` works modulo 2^64 on purpose, so NumPy's overflow
-warnings are expected.
+warnings are expected. `batch2/verify_batch2.py` also rechecks A091713 and
+A196523. Those two are not claimed here: they were proved earlier by
+A. Perez Fontelles (astrafala/Conjectures, 31 August 2026).
 
 ## Layout
 
@@ -110,6 +135,14 @@ warnings are expected.
 - A389472, modulo 2: proved earlier by A. Perez Fontelles
   (astrafala/Conjectures, paper 1042, 2026-08-31) and in the trureturing
   repository. Both leave the modulo-three conjecture open.
+- For the OEIS results listed above, we found no earlier proof in the
+  following sources (searched 25–26 September 2026):
+  - the OEIS entries and their revision histories;
+  - the-omega-institute/trureturing (files, issues and pull requests);
+  - astrafala/Conjectures and twentyseventhllc-lgtm/OEIS-Settled;
+  - other public repositories of OEIS proofs;
+  - the literature and the web.
+  This reports the coverage of our searches, not a guarantee of priority.
 
 ## Tool and computational resource disclosure
 

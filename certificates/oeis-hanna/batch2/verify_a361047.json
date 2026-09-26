@@ -1,0 +1,23 @@
+{
+ "equation_mismatch_mod_1048573": [],
+ "equation_mismatch_mod_1048571": [],
+ "independent_60_mismatch_mod_1048573": [],
+ "nonzero_mod3_off_powers_of_3": [],
+ "mod3_at_powers_of_3": {
+  "1": 1,
+  "3": 1,
+  "9": 1,
+  "27": 1,
+  "81": 1,
+  "243": 1
+ },
+ "literal_conjecture_counterexample_n2": {
+  "a(2)": 1,
+  "a(2) mod 3": 1
+ },
+ "degrees_checked": [
+  1,
+  601
+ ],
+ "seconds": 0.2
+}
