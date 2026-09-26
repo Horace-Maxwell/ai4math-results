@@ -697,7 +697,7 @@ the second certification program for Theorem 5. In version 1.5.0 the
 extension of Theorem 5 to exponents 5 to 8 was checked by a third independent
 Claude referee agent, which reran both certification programs and certified
 the same inequalities with its own program.
-AUTHOR-ROLE-V150: to be completed after the author has read the changes of version 1.5.
+The author has also read the changes of version 1.5.
 
 The author has also read the new material of version 1.4.0 (Paper 1 in its
 version 1.4, and Papers 4, 5 and 6) and, using the same kind of side-by-side
