@@ -209,7 +209,7 @@ python3 cert_fast.py 4 4 5 3      # the same for (4,4), vectorised (about 4 minu
 python3 cert_sympy_check.py 2 2 5 3
 ```
 
-New OEIS entries (A246056, A376230):
+Formalizations of the known results A246056 and A376230:
 
 ```sh
 python3 certificates/oeis-hanna/round5/a246056/check.py
