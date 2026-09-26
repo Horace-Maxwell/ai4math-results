@@ -4,7 +4,8 @@ This repository contains two papers, their Lean 4 formalizations and
 computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254); version 1.0.0
 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255); version 1.1.0
-[10.5281/zenodo.22970816](https://doi.org/10.5281/zenodo.22970816).
+[10.5281/zenodo.22970816](https://doi.org/10.5281/zenodo.22970816); version 1.2.0
+[10.5281/zenodo.22972115](https://doi.org/10.5281/zenodo.22972115).
 
 ## Index
 
@@ -353,5 +354,6 @@ CC BY-SA 4.0.
 See `CITATION.cff`. To cite all versions, use the concept DOI
 [10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254). Version
 DOIs: v1.0.0 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255),
-v1.1.0 [10.5281/zenodo.22970816](https://doi.org/10.5281/zenodo.22970816); later
+v1.1.0 [10.5281/zenodo.22970816](https://doi.org/10.5281/zenodo.22970816),
+v1.2.0 [10.5281/zenodo.22972115](https://doi.org/10.5281/zenodo.22972115); later
 versions are listed on the Zenodo record.
