@@ -11,7 +11,7 @@ computational certificates. It is archived on Zenodo: all versions
 | | What | Status | Main Lean declarations | Where |
 | --- | --- | --- | --- | --- |
 | Paper 1 | Maximal energy of integral circulant graphs of orders `p^(2r)·3^(2s+1)` and `pq^m` | new theorems; one computer-assisted proposition | `ICGGeneral.jiang_yang_q3`, `ICGGeneral.jiang_yang_thmA`, `ICGEqualParity.corollaryA` | [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) |
-| Paper 2 | Hanna's OEIS congruence conjectures: eleven proved, three more resolved | new proofs, two refutations of stronger readings, one correction | `Oeis389472Mod3.*`, `HannaA*.*` | [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) |
+| Paper 2 | Hanna's OEIS congruence conjectures: eleven proved, three more resolved | proofs; several follow quickly from classical results (see the correction below); revision pending | `Oeis389472Mod3.*`, `HannaA*.*` | [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
@@ -48,17 +48,50 @@ computational certificates. It is archived on Zenodo: all versions
 eleven congruence conjectures of Hanna from the OEIS, and the resolution of
 three more.*
 
+> **Correction (2026-09-26).** A structural prior-work check made after the
+> release of version 1.1.0 found that several of these conjectures are quick
+> consequences of classical results that Paper 2 does not cite. The proofs
+> and the Lean theorems remain correct, but the paper's statement that we
+> found no earlier proof must be read with these connections:
+> - **A240998, A295762, A301933, A338633, A338634:** modulo 2 the series
+>   (minus 1 for A240998, A338633, A338634) equals the Catalan series
+>   `C = x + C²`, so `a(n) ≡ C_{n−1} (mod 2)` and the parity patterns are the
+>   classical fact that `C_n` is odd iff `n = 2^k − 1` (e.g. Deutsch–Sagan
+>   2006, Theorem 2.1).
+> - **A273958:** by formula (1) of the entry, `xA ≡ C(C(x²)) (mod 2)`; that
+>   `C(C(x)) ≡ Σ_k x^(4^k) (mod 2)` is also the key step of the trureturing
+>   proof for A374568 (8 Sep 2026).
+> - **A184894:** the reduction is the classical correspondence for
+>   linearised polynomials over F₃ (Ore 1933; Lidl–Niederreiter, *Finite
+>   Fields*, Lemma 3.59).
+> - **Partly related:**
+>   - A107099: the residues at the exceptional indices are Catalan numbers
+>     modulo 3.
+>   - A361047: `a(n) ≡ A001764(n−1) (mod 3)`, whose residues are recorded in
+>     A113047.
+>   - A274479, A388734, A120566: identities stated in the entries themselves
+>     give short proofs.
+> - **No classical connection found:** A389472 (mod 3) and A377100.
+>
+> Paper 2 will be revised accordingly in the next version.
+
 **Also formalized (known results): OEIS A246056 and A376230.** Both are
 Hanna conjectures listed as open on the OEIS, but their content follows from
 published theorems, so we claim no new mathematics here:
 - A246056: `a(n) ≡ A001850(n) (mod 3)` (central Delannoy numbers), and the
-  conjectured mod-3 pattern is Deutsch–Sagan, J. Number Theory 117 (2006),
-  Theorem 5.8. Lean: `HannaA246056.hanna_a246056_one`, `hanna_a246056_zero`
-  (proved directly from the defining series).
+  conjectured mod-3 pattern is a theorem of E. Deutsch and B. E. Sagan,
+  *Congruences for Catalan and Motzkin numbers and related sequences*,
+  J. Number Theory 117 (2006) 191–215 (Theorem 5.15, p. 212, in the journal
+  version; Theorem 5.8 in arXiv:math/0407326v1). Lean:
+  `HannaA246056.hanna_a246056_one`, `hanna_a246056_zero` (proved directly
+  from the defining series).
 - A376230: the parity comment is false as stated (`a(4) = 8`). Modulo 2 the
-  series is the reversion of `x + x² + x³`, and the corrected pattern
-  (`a(n)` odd iff `⌊n/2⌋ ∈ A000695`) is Gawron–Ulas, Discrete Math. 339
-  (2016), Theorem 3.1; see also OEIS A270803. Lean:
+  series is the reversion of `x + x² + x³`. M. Gawron and M. Ulas, *On formal
+  inverse of the Prouhet–Thue–Morse sequence*, Discrete Math. 339 (2016)
+  1459–1470 (arXiv:1601.04840v1, Theorems 2.1 and 3.1), study the series
+  `S = X(1+G)` with `S + S² + S³ = X`; so `a(n) mod 2` is the coefficient of
+  `x^(n−1)` in `1 + G` for `n ≥ 1`, and their Theorem 3.1 gives the corrected
+  pattern (`a(n)` odd iff `⌊n/2⌋ ∈ A000695`); see also OEIS A270803. Lean:
   `HannaA376230.hanna_a376230`, `hanna_a376230_literal_false`.
 
 **Also included:** a complete Lean formalization of the case q = 3 of
@@ -270,8 +303,9 @@ hypothesis (`P > 0`); Lemma 7 of the paper assumes `P ≥ μ`.
 - A389472, modulo 2: proved earlier by A. Perez Fontelles
   (astrafala/Conjectures, paper 1042, 2026-08-31) and in the trureturing
   repository. Both leave the modulo-three conjecture open.
-- A246056 and A376230 follow from Deutsch–Sagan (2006, Theorem 5.8) and
-  Gawron–Ulas (2016, Theorem 3.1) respectively, as explained above; we found
+- A246056 and A376230 follow from Deutsch–Sagan (2006; Theorem 5.15 in the
+  journal version) and Gawron–Ulas (2016, Theorem 3.1) respectively, as
+  explained above; we found
   this in a structural prior-work check before releasing them as new, and we
   present them only as formalizations.
 - For the OEIS results listed above, we found no earlier proof in the
