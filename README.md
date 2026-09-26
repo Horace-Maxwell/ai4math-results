@@ -1,7 +1,10 @@
 # The maximal energy of integral circulant graphs of order p^(2r)·3^(2s+1), and Hanna's OEIS congruence conjectures (eleven proved, three more resolved), with Lean 4 proofs
 
 This repository contains two papers, their Lean 4 formalizations and
-computational certificates.
+computational certificates. It is archived on Zenodo:
+[10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254) (all
+versions; version 1.0.0 is
+[10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255)).
 
 **Paper 1: [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf).**
 *The maximal energy of integral circulant graphs of order p^(2r)·3^(2s+1).*
@@ -232,4 +235,6 @@ CC BY-SA 4.0.
 
 ## Citation
 
-See `CITATION.cff`.
+See `CITATION.cff`. To cite all versions, use the concept DOI
+[10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254). Each
+release also has its own version DOI, listed on the Zenodo record.
