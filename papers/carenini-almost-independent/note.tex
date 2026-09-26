@@ -43,7 +43,7 @@ independent sets. We show that the answer is no. The smallest counterexample
 (smallest $n$, and smallest $\gamma$ for that $n$) is
 $(n,d,\gamma)=(6,3,1/18)$: the triangular prism has $28$ vertex sets
 spanning at most one edge, and $K_{3,3}$ has $24$. More generally, for every
-pair $(n,d)$ with $2d\mid n$, except the trivial cases $d=1$ and
+pair $(n,d)$ with $n>0$ and $2d\mid n$, except the trivial cases $d=1$ and
 $(n,d)=(4,2)$ in which only one $d$-regular graph exists, the answer is
 negative for some $\gamma<1/2$; for $d\ge3$ the union of copies of $K_{d,d}$
 is then even a minimiser, and every $d$-regular graph containing a triangle
@@ -114,8 +114,8 @@ $i_\gamma(G)\le i_\gamma(mK_{d,d})$?
 
 For $\gamma=0$ this is the theorem of Kahn and Zhao. For $\gamma\ge1/2$ it
 holds trivially, since every set spans at most $dn/2\le\gamma dn$ edges and so
-$i_\gamma(G)=2^n$. We call a pair $(n,d)$ \emph{admissible} if $d\ge1$ and
-$2d\mid n$. Seth's count differs from $i_\gamma$, because its density
+$i_\gamma(G)=2^n$. We call a pair $(n,d)$ \emph{admissible} if $d\ge1$, $n\ge1$ and
+$2d\mid n$, that is, if $n$ is a positive multiple of $2d$. Seth's count differs from $i_\gamma$, because its density
 condition depends on $|J|$; our results concern Question~1.3, and we make no
 claim about Seth's count.
 
@@ -129,7 +129,7 @@ the number of triangles of $G$, $C_k$ for the cycle of length $k$, and
 $G\cart H$ for the Cartesian product.
 
 \begin{thmA}
-Let $d\ge2$, let $n$ be a multiple of $2d$ with $(n,d)\ne(4,2)$, let
+Let $d\ge2$, let $n$ be a positive multiple of $2d$ with $(n,d)\ne(4,2)$, let
 $m=n/(2d)$, and put
 \[
  t^*=\frac{dn}2-3d+1,\qquad
@@ -1052,7 +1052,11 @@ proofs and the correspondence between the Lean statements and the question,
 and recomputed the main numbers with its own programs. A second independent
 Claude Code agent then reviewed the whole paper: it checked the proofs and the
 statements against the Lean file, recomputed the numbers with its own
-programs, and checked the references. The programs, logs and Lean code are
+programs, and checked the references. Before release, OpenAI Codex (desktop
+application) carried out a brief independent check of the question, the main
+statements and their Lean formalisation, and recounted the numbers $28$
+and~$24$; its one finding, that Theorem~A must require $n>0$, has been
+applied. The programs, logs and Lean code are
 available in version~1.3.0 of the repository~\cite{repo} (directories
 \texttt{certificates/carenini/}, \texttt{lean/Research/} and \texttt{logs/}).
 The author is not a professional mathematician.

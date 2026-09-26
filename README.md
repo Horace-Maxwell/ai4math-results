@@ -83,7 +83,7 @@ regular graphs.*
 - **The answer is no.** The smallest counterexample is `(n,d,γ) = (6,3,1/18)`:
   the triangular prism has 28 vertex sets spanning at most one edge, `K_{3,3}`
   has 24.
-- **Theorem A.** For every `(n,d)` with `2d | n`, except the trivial cases
+- **Theorem A.** For every `(n,d)` with `n > 0` and `2d | n`, except the trivial cases
   `d = 1` and `(4,2)`, some `γ < 1/2` gives a counterexample.
 - **Theorems B and B′.** A switched `K_{d,d}` wins on `2d` vertices for every
   `d ≥ 3`; a connected bipartite graph wins on `4d` vertices for every
@@ -93,7 +93,9 @@ regular graphs.*
 - **Proposition C.** At the exponential scale the union of copies of `K_{d,d}`
   is optimal for every `γ` (the upper bound is Carenini's biclique reduction,
   which rests on Sah–Sawhney–Stoner–Zhao).
-- Still open: fixed `γ ∈ (0, 1/8]` as `n → ∞`, and the `(1 + o(1))` form.
+- Still open: the exact question for fixed `γ ∈ (0, 1/8]` as `n → ∞`, and
+  the `(1 + o(1))` form for fixed `d` and `0 < γ < 1/8` (at `γ = 1/8` the
+  `(1 + o(1))` form holds, as shown in the paper).
 - Lean: the counterexample at `(6,3,1/18)`, the switched family for every
   `d ≥ 3`, and three further instances (`lean/Research/Carenini.lean`).
   Theorems A, B′ (general `d`), D and Proposition C are proved in the paper,
@@ -394,7 +396,8 @@ the theorems in the papers. The correction to Paper 2 in version 1.2.1 was
 drafted by Claude Code and checked by an independent Claude agent; it changes
 no theorem. Paper 3 (version 1.3.0) was selected, proved, formalized and
 drafted by Claude Code agents, and independent Claude agents refereed the
-proofs, the Lean statements and the paper.
+proofs, the Lean statements and the paper; before release OpenAI Codex
+checked the main statements, the Lean statements and the key counts.
 AUTHOR-ROLE-PAPER3: to be completed after the author has read Paper 3.
 AI
 systems are not authors. The author takes full responsibility for the content.
