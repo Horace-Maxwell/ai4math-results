@@ -1,0 +1,80 @@
+== (a,b,p,q)=(2,2,5,3)
+  gap=    0.0000 Y=+-+/-+-/+-- Edef=18.8889 Hpos=0.0000 Hneg=0.0000 corner=0.0000 total=18.8889 need=18.8889
+  gap=    0.0000 Y=-+-/+-+/-+- Edef=0.0000 Hpos=0.0000 Hneg=0.0000 corner=18.8889 total=18.8889 need=18.8889
+  gap=    8.0000 Y=++-/--+/++- Edef=0.0000 Hpos=0.0000 Hneg=-19.7778 corner=0.0000 total=19.7778 need=18.8889
+  gap=  112.0000 Y=++-/+-+/-+- Edef=24.0000 Hpos=0.0000 Hneg=-7.3333 corner=0.0000 total=31.3333 need=18.8889
+  gap=  112.0000 Y=+-+/-++/++- Edef=40.2222 Hpos=8.8889 Hneg=0.0000 corner=0.0000 total=31.3333 need=18.8889
+  gap=  144.0000 Y=++-/--+/+-- Edef=30.2222 Hpos=8.8889 Hneg=-13.5556 corner=0.0000 total=34.8889 need=18.8889
+  gap=  144.0000 Y=+-+/--+/++- Edef=26.0000 Hpos=0.0000 Hneg=-8.8889 corner=0.0000 total=34.8889 need=18.8889
+  gap=  248.0000 Y=+-+/-+-/--- Edef=64.2222 Hpos=17.7778 Hneg=0.0000 corner=0.0000 total=46.4444 need=18.8889
+  #Y with Hpos > Edef: 0 of 256
+== (a,b,p,q)=(2,2,11,3)
+  gap=    0.0000 Y=+-+/-+-/+-- Edef=112.2222 Hpos=0.0000 Hneg=0.0000 corner=0.0000 total=112.2222 need=112.2222
+  gap=    0.0000 Y=-+-/+-+/-+- Edef=0.0000 Hpos=0.0000 Hneg=0.0000 corner=112.2222 total=112.2222 need=112.2222
+  gap=   32.0000 Y=++-/--+/++- Edef=0.0000 Hpos=0.0000 Hneg=-115.7778 corner=0.0000 total=115.7778 need=112.2222
+  gap=  840.0000 Y=++-/--+/+-- Edef=179.5556 Hpos=48.8889 Hneg=-74.8889 corner=0.0000 total=205.5556 need=112.2222
+  gap=  976.0000 Y=++-/+-+/-+- Edef=216.0000 Hpos=17.7778 Hneg=-22.4444 corner=0.0000 total=220.6667 need=112.2222
+  gap=  976.0000 Y=+-+/-++/++- Edef=269.5556 Hpos=48.8889 Hneg=0.0000 corner=0.0000 total=220.6667 need=112.2222
+  gap= 1536.0000 Y=+-+/--+/++- Edef=234.0000 Hpos=0.0000 Hneg=-48.8889 corner=0.0000 total=282.8889 need=112.2222
+  gap= 1544.0000 Y=+-+/-+-/--- Edef=381.5556 Hpos=97.7778 Hneg=0.0000 corner=0.0000 total=283.7778 need=112.2222
+  #Y with Hpos > Edef: 0 of 256
+== (a,b,p,q)=(2,2,40,3)
+  gap=    0.0000 Y=+-+/-+-/+-- Edef=1691.1111 Hpos=0.0000 Hneg=0.0000 corner=0.0000 total=1691.1111 need=1691.1111
+  gap=    0.0000 Y=-+-/+-+/-+- Edef=0.0000 Hpos=0.0000 Hneg=0.0000 corner=1691.1111 total=1691.1111 need=1691.1111
+  gap=  148.0000 Y=++-/--+/++- Edef=0.0000 Hpos=0.0000 Hneg=-1707.5556 corner=0.0000 total=1707.5556 need=1691.1111
+  gap=12324.0000 Y=++-/--+/+-- Edef=2705.7778 Hpos=693.3333 Hneg=-1048.0000 corner=0.0000 total=3060.4444 need=1691.1111
+  gap=17332.0000 Y=++-/+-+/-+- Edef=3850.6667 Hpos=572.0000 Hneg=-338.2222 corner=0.0000 total=3616.8889 need=1691.1111
+  gap=17332.0000 Y=+-+/-++/++- Edef=4310.2222 Hpos=693.3333 Hneg=0.0000 corner=0.0000 total=3616.8889 need=1691.1111
+  gap=24048.0000 Y=+-+/-+-/--- Edef=5749.7778 Hpos=1386.6667 Hneg=0.0000 corner=0.0000 total=4363.1111 need=1691.1111
+  gap=24048.0000 Y=-++/+-+/-+- Edef=1604.4444 Hpos=0.0000 Hneg=-1760.8889 corner=997.7778 total=4363.1111 need=1691.1111
+  #Y with Hpos > Edef: 0 of 256
+== (a,b,p,q)=(2,4,5,3)
+  gap=    0.0000 Y=+-+-+/-+-+-/+-+-- Edef=17.2099 Hpos=0.0000 Hneg=0.0000 corner=0.0000 total=17.2099 need=17.2099
+  gap=    0.0000 Y=-+-+-/+-+-+/-+-+- Edef=0.0000 Hpos=0.0000 Hneg=0.0000 corner=17.2099 total=17.2099 need=17.2099
+  gap=  920.0000 Y=++-+-/--+-+/++-+- Edef=0.0000 Hpos=0.0000 Hneg=-28.5679 corner=0.0000 total=28.5679 need=17.2099
+  gap=  920.0000 Y=+-++-/-+--+/+-++- Edef=0.0000 Hpos=0.0000 Hneg=-28.5679 corner=0.0000 total=28.5679 need=17.2099
+  gap= 1024.0000 Y=++-+-/+-+-+/-+-+- Edef=24.0000 Hpos=0.0000 Hneg=-5.8519 corner=0.0000 total=29.8519 need=17.2099
+  gap= 1024.0000 Y=+-+-+/-+-++/+-++- Edef=42.6914 Hpos=12.8395 Hneg=0.0000 corner=0.0000 total=29.8519 need=17.2099
+  gap= 1824.0000 Y=+-+-+/-+--+/+-++- Edef=26.8889 Hpos=0.0000 Hneg=-12.8395 corner=0.0000 total=39.7284 need=17.2099
+  gap= 1872.0000 Y=+-++-/-+--+/+-+-- Edef=33.5802 Hpos=12.8395 Hneg=-19.5802 corner=0.0000 total=40.3210 need=17.2099
+  #Y with Hpos > Edef: 0 of 16384
+== (a,b,p,q)=(4,2,5,3)
+  gap=    0.0000 Y=+-+/-+-/+-+/-+-/+-- Edef=463.3333 Hpos=0.0000 Hneg=0.0000 corner=0.0000 total=463.3333 need=463.3333
+  gap=    0.0000 Y=-+-/+-+/-+-/+-+/-+- Edef=0.0000 Hpos=0.0000 Hneg=0.0000 corner=463.3333 total=463.3333 need=463.3333
+  gap= 2992.0000 Y=++-/+-+/-+-/+-+/-+- Edef=664.0000 Hpos=0.0000 Hneg=-131.7778 corner=0.0000 total=795.7778 need=463.3333
+  gap= 2992.0000 Y=+-+/-+-/+-+/-++/++- Edef=1018.0000 Hpos=222.2222 Hneg=0.0000 corner=0.0000 total=795.7778 need=463.3333
+  gap= 3608.0000 Y=++-/--+/++-/--+/++- Edef=0.0000 Hpos=0.0000 Hneg=-864.2222 corner=0.0000 total=864.2222 need=463.3333
+  gap= 4304.0000 Y=+-+/-+-/+-+/--+/++- Edef=719.3333 Hpos=0.0000 Hneg=-222.2222 corner=0.0000 total=941.5556 need=463.3333
+  gap= 5504.0000 Y=++-/--+/-+-/+-+/-+- Edef=770.6667 Hpos=0.0000 Hneg=-304.2222 corner=0.0000 total=1074.8889 need=463.3333
+  gap= 5504.0000 Y=+-+/-+-/+--/--+/++- Edef=763.7778 Hpos=0.0000 Hneg=-311.1111 corner=0.0000 total=1074.8889 need=463.3333
+  #Y with Hpos > Edef: 0 of 16384
+== (a,b,p,q)=(3,3,5,3)
+  gap=    0.0000 Y=+-+-/-+-+/+-+-/-+-- Edef=79.9259 Hpos=0.0000 Hneg=0.0000 corner=0.0000 total=79.9259 need=79.9259
+  gap=    0.0000 Y=-+-+/+-+-/-+-+/+-+- Edef=0.0000 Hpos=0.0000 Hneg=0.0000 corner=79.9259 total=79.9259 need=79.9259
+  gap= 1816.0000 Y=++-+/+-+-/-+-+/+-+- Edef=136.0000 Hpos=19.5556 Hneg=-30.7407 corner=0.0000 total=147.1852 need=79.9259
+  gap= 1816.0000 Y=+-+-/-+-+/+-++/-++- Edef=221.2593 Hpos=74.0741 Hneg=0.0000 corner=0.0000 total=147.1852 need=79.9259
+  gap= 3864.0000 Y=++-+/--+-/-+-+/+-+- Edef=136.0000 Hpos=5.9259 Hneg=-92.9630 corner=0.0000 total=223.0370 need=79.9259
+  gap= 3864.0000 Y=+-+-/-+--/+--+/-++- Edef=154.8889 Hpos=5.9259 Hneg=-74.0741 corner=0.0000 total=223.0370 need=79.9259
+  gap= 3952.0000 Y=++-+/--+-/++-+/--+- Edef=0.0000 Hpos=0.0000 Hneg=-226.2963 corner=0.0000 total=226.2963 need=79.9259
+  gap= 3952.0000 Y=+--+/-++-/+--+/-++- Edef=0.0000 Hpos=0.0000 Hneg=-226.2963 corner=0.0000 total=226.2963 need=79.9259
+  #Y with Hpos > Edef: 0 of 32768
+== (a,b,p,q)=(2,2,3,5)
+  gap=    0.0000 Y=+-+/-+-/+-- Edef=6.8000 Hpos=0.0000 Hneg=0.0000 corner=0.0000 total=6.8000 need=6.8000
+  gap=    0.0000 Y=-+-/+-+/-+- Edef=0.0000 Hpos=0.0000 Hneg=0.0000 corner=6.8000 total=6.8000 need=6.8000
+  gap=    8.0000 Y=+-+/+-+/-+- Edef=7.1200 Hpos=0.0000 Hneg=0.0000 corner=0.0000 total=7.1200 need=6.8000
+  gap=  112.0000 Y=++-/+-+/-+- Edef=3.2000 Hpos=0.0000 Hneg=-8.0800 corner=0.0000 total=11.2800 need=6.8000
+  gap=  112.0000 Y=+-+/-++/++- Edef=14.1600 Hpos=2.8800 Hneg=0.0000 corner=0.0000 total=11.2800 need=6.8000
+  gap=  144.0000 Y=+-+/+--/-+- Edef=12.5600 Hpos=0.0000 Hneg=0.0000 corner=0.0000 total=12.5600 need=6.8000
+  gap=  144.0000 Y=+-+/--+/++- Edef=3.9200 Hpos=0.0000 Hneg=-8.6400 corner=0.0000 total=12.5600 need=6.8000
+  gap=  248.0000 Y=+--/-+-/+-- Edef=10.8800 Hpos=0.0000 Hneg=-5.8400 corner=0.0000 total=16.7200 need=6.8000
+  #Y with Hpos > Edef: 0 of 256
+== (a,b,p,q)=(3,3,7,3)
+  gap=    0.0000 Y=+-+-/-+-+/+-+-/-+-- Edef=247.4815 Hpos=0.0000 Hneg=0.0000 corner=0.0000 total=247.4815 need=247.4815
+  gap=    0.0000 Y=-+-+/+-+-/-+-+/+-+- Edef=0.0000 Hpos=0.0000 Hneg=0.0000 corner=247.4815 total=247.4815 need=247.4815
+  gap= 6640.0000 Y=++-+/+-+-/-+-+/+-+- Edef=493.3333 Hpos=95.1111 Hneg=-95.1852 corner=0.0000 total=493.4074 need=247.4815
+  gap= 6640.0000 Y=+-+-/-+-+/+-++/-++- Edef=711.1852 Hpos=217.7778 Hneg=0.0000 corner=0.0000 total=493.4074 need=247.4815
+  gap=11968.0000 Y=++-+/--+-/++-+/--+- Edef=0.0000 Hpos=0.0000 Hneg=-690.7407 corner=0.0000 total=690.7407 need=247.4815
+  gap=11968.0000 Y=+--+/-++-/+--+/-++- Edef=0.0000 Hpos=0.0000 Hneg=-690.7407 corner=0.0000 total=690.7407 need=247.4815
+  gap=12312.0000 Y=-+-+/+-+-/-+-+/+++- Edef=456.8889 Hpos=43.5556 Hneg=-43.5556 corner=246.5926 total=703.4815 need=247.4815
+  gap=12336.0000 Y=+-+-/-+-+/+-+-/---- Edef=704.3704 Hpos=87.1111 Hneg=-87.1111 corner=0.0000 total=704.3704 need=247.4815
+  #Y with Hpos > Edef: 0 of 32768

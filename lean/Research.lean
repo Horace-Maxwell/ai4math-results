@@ -17,3 +17,6 @@ import Research.ICGBridgeFinal
 import Research.ICGBridgeSharp
 import Research.ICGGeneralMain
 import Research.ICGGeneralSwap
+import Research.HannaA246056
+import Research.HannaA376230
+import Research.ICGEqualParityUnique

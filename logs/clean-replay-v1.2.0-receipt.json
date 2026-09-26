@@ -1,0 +1,32 @@
+{
+  "purpose": "Clean-directory rebuild of the Lean sources for v1.2.0",
+  "start_utc": "2026-09-26T03:29:31Z",
+  "end_utc": "2026-09-26T03:42:52Z",
+  "exit_code": 0,
+  "toolchain": "leanprover/lean4:v4.33.1 (commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6)",
+  "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "procedure": [
+    "Same procedure as logs/clean-replay-v1.1.0-receipt.json: fresh directory, sources and configuration copied from the release tree, shared Lake package cache for Mathlib at the pinned revision, fresh .lake/build.",
+    "`/usr/bin/time -l lake build` (log: clean-replay-v1.2.0-build.log); audit files ICGGeneralAudit and ICGBridgeAudit (logs: clean-replay-v1.2.0-audit-*.log); `shasum -a 256` of sources and configuration (logs/lean-sources-sha256.txt, 38 files), checked against the release tree with `shasum -c` (38 of 38 OK).",
+    "`lake env leanchecker <Module>` for the six modules new in v1.2.0 (log: clean-replay-v1.2.0-leanchecker-new-modules.log); the other 26 modules are unchanged since v1.1.0 (same hashes) and passed leanchecker then (logs/clean-replay-v1.1.0-leanchecker.log)."
+  ],
+  "source_manifest": "logs/lean-sources-sha256.txt",
+  "source_manifest_sha256": "a0c1844d0a1e61e21637e879d9342601ca9a262387ac800e7a5a6e8d0850b5da",
+  "build": {
+    "jobs": 8739,
+    "real_seconds": 801.17,
+    "max_rss_bytes": 15216918528
+  },
+  "axiom_audit": {
+    "print_axioms_lines": 79,
+    "distinct_declarations": 67,
+    "nonstandard": 0
+  },
+  "leanchecker_new_modules": {
+    "modules_ok": 6,
+    "failures": 0,
+    "start_utc": "2026-09-26T03:43:01Z",
+    "end_utc": "2026-09-26T03:43:45Z"
+  },
+  "notes": "Written from the logs listed above; paths are logical names."
+}

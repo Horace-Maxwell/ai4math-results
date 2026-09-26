@@ -5,7 +5,7 @@
 \usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
- pdftitle={The maximal energy of integral circulant graphs of order p\textasciicircum(2r) 3\textasciicircum(2s+1)},
+ pdftitle={The maximal energy of integral circulant graphs of orders p\textasciicircum(2r) 3\textasciicircum(2s+1) and pq\textasciicircum m},
  pdfauthor={Horace Dong}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -17,7 +17,7 @@
 \newcommand{\ICG}{\operatorname{ICG}}
 \newcommand{\E}{\mathcal E}
 \newcommand{\NA}{\operatorname{NA}}
-\title{The maximal energy of integral circulant graphs\\ of order $p^{2r}3^{2s+1}$}
+\title{The maximal energy of integral circulant graphs\\ of orders $p^{2r}3^{2s+1}$ and $pq^m$}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
@@ -36,11 +36,18 @@ Yang. This settles the maximal-energy problem for opposite-parity exponents
 for all pairs of distinct odd primes. The key step is a sharp inequality for
 sign matrices under weighted Ramanujan transforms. We prove it with a path
 identity and an explicit potential function, and the same argument gives a
-semidefinite-free proof of the theorem of Jiang and Yang. We also state a
-conjecture, supported by exhaustive computation, for exponents of equal
-parity. The main theorem, the sign-matrix inequality and the energy formula
-for these graphs are formally verified in Lean~4; only the closed-form
-evaluation of the maximal energy is not formalised. The proofs were found by
+semidefinite-free proof of the theorem of Jiang and Yang. For exponents of
+equal parity the checkerboard set contains $n$ and is not admissible. We
+conjecture the maximal energy in this case, with two maximisers, and prove
+the conjecture for the orders $pq^m$ and $p^mq$ with $m$ odd and $p,q$ any
+distinct odd primes; for $n=pq$ it also follows from known energy formulas.
+With the opposite-parity case, this determines the maximal energy for every
+order $pq^m$. Exact computer-assisted certificates for eleven further
+exponent pairs show that the conjecture holds for all such orders $p^aq^b$
+with $(a+1)(b+1)\le27$. The main theorem, the sign-matrix inequality, the
+energy formula for these graphs and the theorem for the orders $pq^m$ and
+$p^mq$ are formally verified in Lean~4; the closed-form evaluation of the
+maximal energies and the certificates are not formalised. The proofs were found by
 AI coding agents working under the author's direction; their role is
 described at the end of the paper.
 \end{abstract}
@@ -91,12 +98,49 @@ An arithmetic certificate for $n=27p^2$ was announced in~\cite{tru}. These
 works concern only the exponents $(2,3)$, and we are not aware of any earlier
 treatment of the case $q=3$ for general $r$ and $s$.
 
+If the two exponents have the same parity, the checkerboard set contains $n$
+itself and is not a set of proper divisors, and the maximiser changes. For
+this case we state a conjecture (Conjecture~\ref{conj:equal}), with two
+maximisers and an explicit maximal energy, and we prove it when one of the
+exponents equals~$1$. For $n=p^aq^b$, a set written as $\{p^iq^j:\ \dots\}$
+consists of the divisors $p^iq^j$ of $n$ ($0\le i\le a$, $0\le j\le b$) with
+the stated property, and $\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)$
+(Remark~\ref{rem:closed}).
+
+\begin{theorem}\label{thm:onem}
+Let $p,q$ be distinct odd primes, let $m\ge1$ be odd, and let $n=pq^m$. The
+maximal energy of an integral circulant graph of order $n$ is
+\[
+ \tfrac12\bigl[n+(3p-4)\,d_m(q)\bigr]-(p-2)\,\delta_m(q),
+\]
+and it is attained exactly by the sets $\{p^iq^j:\ i+j\ \text{odd}\}$ and
+$\{p^iq^j:\ i+j\ \text{even}\}\setminus\{n\}$. Exchanging the names of the
+primes, for $n=p^mq$ the maximal energy is
+$\tfrac12\bigl[n+(3q-4)\,d_m(p)\bigr]-(q-2)\,\delta_m(p)$, attained exactly by
+the two sets with the same description.
+\end{theorem}
+
+For $m=1$ the maximal energy is $4(p-1)(q-1)$, attained by $\{p,q\}$ and
+$\{1\}$. This case can also be derived from published energy formulas of
+Ili\'c~\cite{ilic} and of Ili\'c and Ba\v{s}i\'c~\cite{ilicbasic}
+(Remark~\ref{rem:pq}), although we have not found it stated. We are not aware
+of an earlier determination of the maximal energy for other orders with
+exponents of equal parity. If $m$ is even, the exponents of $pq^m$ have
+opposite parity. Theorems~\ref{thm:jy}, \ref{thm:main} and~\ref{thm:onem}
+therefore determine the maximal energy, and all maximisers, for every order
+$pq^m$ ($m\ge1$) with $p,q$ distinct odd primes. Exact computer-assisted
+certificates (Proposition~\ref{prop:cert}) prove the conjecture for every
+exponent pair $(a,b)$ with $a,b\ge2$ and $(a+1)(b+1)\le27$; in general it
+remains open.
+
 Our proof replaces the semidefinite part of~\cite{jy} by
 Theorem~\ref{thm:sign} below, an inequality for sign matrices that holds for
 all exponents and parities and all real $p\ge5$, $q\ge3$. By symmetry it also
 yields Theorem~\ref{thm:jy} without semidefinite certificates
-(Remark~\ref{rem:swap}). In Section~\ref{sec:equal} we record a conjecture,
-supported by exhaustive computation, for exponents of equal parity.
+(Remark~\ref{rem:swap}). Section~\ref{sec:equal} treats exponents of equal
+parity, and Section~\ref{sec:onem} proves Theorem~\ref{thm:onem}; the proof
+applies the path identity and the potential of Sections~\ref{sec:path}
+and~\ref{sec:potential} to the two rows of the sign matrix.
 
 \section{Weighted Ramanujan transforms}
 We use the notation of~\cite{jy}. For real $x>1$, an integer $k\ge1$ and
@@ -123,7 +167,7 @@ $d_k(x)=\|T_k(x)s_k\|_1$, and put $d_0(x)=1$. By Remark~\ref{rem:closed}
 below, $d_k(x)$ agrees with the closed form in Theorem~\ref{thm:jy} for all
 real $x>2$; see also~\cite[(3.6)]{jy}.
 
-\section{A path identity}
+\section{A path identity}\label{sec:path}
 For $w\in\mathbb R^{k+1}$ define $z_{k-1}=w_k$ and, for
 $j=k-1,k-2,\dots,0$,
 \begin{equation}\label{eq:path}
@@ -149,7 +193,7 @@ $(T_k(x)w)_u=x^{k-1}(x-1)(z_j-w_j)$, while
 $z_{j-1}-z_j=\frac{x-1}{x}(w_j-z_j)$.
 \end{proof}
 
-\section{The one-dimensional potential}
+\section{The one-dimensional potential}\label{sec:potential}
 For $x>2$ let $\mu_{-1}=1$, $\mu_j=(x-1-\mu_{j-1})/x$ for $j\ge0$, and
 $c_j=(x-1)(1+\mu_{j-1})/x$. By induction,
 $\mu_j\in\bigl[\frac{x-2}{x},1\bigr]$ for all $j$.
@@ -185,7 +229,11 @@ $(T_k(x)s_k)_k=x^kz_{-1}$ and $\operatorname{sgn}z_{-1}=(s_k)_0=1$.
 
 \begin{remark}\label{rem:closed}
 Put $\delta_k(x)=x^k\mu_{k-1}$. Solving the recursion for $\mu$ gives
-$\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)$. Since the potential does not
+$\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)$. For $y=s_k$, every step in
+the proof of Lemma~\ref{lem:potential} has $y_j=-\operatorname{sgn}z_j$, so
+$|z_{j-1}|=(x-1-|z_j|)/x$; starting from $|z_{k-1}|=1=\mu_{-1}$ this gives
+$|z_j|=\mu_{k-2-j}$, and in particular
+$(T_k(x)s_k)_k=x^kz_{-1}=\delta_k(x)$. Since the potential does not
 depend on $k$, Lemma~\ref{lem:potential} gives
 $d_{k+1}/x^{k+1}-d_k/x^k=c_k+\mu_k-\mu_{k-1}=2\mu_k$, that is,
 $d_{k+1}(x)=x\,d_k(x)+2\delta_{k+1}(x)$, with $d_0=1$. The closed form
@@ -313,14 +361,29 @@ Theorem~\ref{thm:sign}; since $y_{ab}=-1=(s_as_b^{\mathsf T})_{ab}$, we get
 $Y=Y^*$ and $\mathcal D=\mathcal D^*_{r,s}$. \qed
 
 \section{Exponents of equal parity}\label{sec:equal}
-If $a+b$ is even, the sign matrix $s_as_b^{\mathsf T}$ has entry $+1$ at
+Let $p,q$ be distinct odd primes, let $a,b\ge1$ with $a+b$ even, $n=p^aq^b$,
+$M=T_a(p)$ and $N=T_b(q)$. For a set $\mathcal D$ of proper divisors of $n$
+let $X$ and $Y=2X-J$ be as in Section~\ref{sec:proofmain}, so that
+$y_{ab}=-1$, and let $Z=MYN^{\mathsf T}$, with entries $Z_{ij}$. The last rows
+of $M$ and $N$ are nonnegative with sums $p^a$ and $q^b$, so $|Z_{ab}|\le n$.
+Writing $t^-=\max\{-t,0\}$, the computation of Section~\ref{sec:proofmain}
+gives
+\begin{equation}\label{eq:G}
+G(Y):=2\E(\ICG_n(\mathcal D))-n=\sum_{(i,j)\ne(a,b)}|Z_{ij}|+Z_{ab}
+=\|Z\|_1-2(Z_{ab})^-.
+\end{equation}
+
+Since $a+b$ is even, the sign matrix $s_as_b^{\mathsf T}$ has entry $+1$ at
 $(a,b)$ and violates the proper-divisor condition. The matrix
 $-s_as_b^{\mathsf T}$, which corresponds to the set $\{p^iq^j: i+j\text{
-odd}\}$, is admissible, and it attains the bound of Theorem~\ref{thm:sign}.
-However, the $(a,b)$ entry of $MYN^{\mathsf T}$ is then negative and cancels
-against $n$ in the argument of Section~\ref{sec:proofmain}. So the energy
-bound $\tfrac12[n+d_a(p)\,d_b(q)]$ is not attained, and the maximiser changes. Let
-$\delta_k$ be as in Remark~\ref{rem:closed}.
+odd}\}$, is admissible, and it attains the bound $\|Z\|_1\le d_a(p)\,d_b(q)$
+of Theorem~\ref{thm:sign}. However, its entry
+$Z_{ab}=-(Ms_a)_a(Ns_b)_b=-\delta_a(p)\,\delta_b(q)$ is negative by
+Remark~\ref{rem:closed}, and it cancels against $n$ in the argument of
+Section~\ref{sec:proofmain}. So the energy bound
+$\tfrac12[n+d_a(p)\,d_b(q)]$ is not attained, and the maximiser changes.
+By~\eqref{eq:G}, the set $\{p^iq^j: i+j\text{ odd}\}$ has energy
+$\tfrac12[n+d_a(p)\,d_b(q)]-\delta_a(p)\,\delta_b(q)$.
 
 \begin{conjecture}\label{conj:equal}
 Let $p,q$ be distinct odd primes, $a,b\ge1$ with $a+b$ even, and
@@ -332,14 +395,304 @@ attained exactly by the sets $\{p^iq^j: i+j\text{ odd}\}$ and
 $\{p^iq^j: i+j\text{ even}\}\setminus\{n\}$.
 \end{conjecture}
 
-For $a=b=1$ the formula gives $4(p-1)(q-1)$. An exhaustive search over all
-divisor sets confirms the conjecture for ten ordered pairs of odd primes and
-each of the exponent pairs $(1,1)$, $(2,2)$, $(1,3)$, $(3,1)$, $(3,3)$,
-$(2,4)$, $(4,2)$, $(4,4)$, $(1,5)$ and $(3,5)$. We have not checked whether small cases
-are covered by the literature.
+By the computation above, the first of the two sets always attains the
+conjectured value. Since $d_1(x)=3x-4$ and $\delta_1(x)=x-2$,
+Theorem~\ref{thm:onem} is the case $\min\{a,b\}=1$ of the conjecture; it is
+proved in Section~\ref{sec:onem}. The next result is computer-assisted.
+
+\begin{proposition}\label{prop:cert}
+Conjecture~\ref{conj:equal} holds for the exponent pairs $(a,b)=(2,2)$,
+$(2,4)$, $(4,2)$, $(2,6)$, $(6,2)$, $(2,8)$, $(8,2)$, $(3,3)$, $(3,5)$, $(5,3)$
+and $(4,4)$, and all pairs of distinct odd primes $p,q$.
+\end{proposition}
+
+\begin{proof}[Proof (computer-assisted)]
+Exchanging the names of the primes transposes $X$ and does not change the
+energy, and the list of exponent pairs is closed under transposition. As one
+of two distinct odd primes is at least $5$, it therefore suffices to show,
+for each listed $(a,b)$ and all real $p\ge5$, $q\ge3$, that every
+$Y\in\{\pm1\}^{(a+1)\times(b+1)}$ with $y_{ab}=-1$ satisfies
+$G(Y)\le\Theta_{ab}:=d_a(p)\,d_b(q)-2\delta_a(p)\,\delta_b(q)$, with equality
+exactly for $Y=-s_as_b^{\mathsf T}$ and $Y=s_as_b^{\mathsf T}-2e_ae_b^{\mathsf
+T}$, the sign matrices of the two sets in the conjecture; for real $p,q$,
+$G(Y)$ is defined by the middle expression in~\eqref{eq:G}.
+
+Substitute $p=5+s$ and $q=3+t$ with $s,t\ge0$. Then every entry of $Z$ is a
+polynomial in $s$ and $t$ with integer coefficients, and so is $\Theta_{ab}$,
+because $d_k(x)$ and $\delta_k(x)=x^k+2\sum_{i<k}(-1)^{k-i}x^i$ have integer
+coefficients (Remark~\ref{rem:closed}). An entry whose coefficients are all
+$\ge0$, or all $\le0$, has a known sign on the whole region. Choose a sign
+$\varepsilon_{ij}$ for each of the other entries with $(i,j)\ne(a,b)$, and
+let $L$ be the sum of $Z_{ab}$, of the entries of known sign multiplied by
+their signs, and of the $\varepsilon_{ij}Z_{ij}$. At every point of the
+region, $G(Y)$ is the largest of these linear forms $L$. Hence, if for every
+choice of signs $\Theta_{ab}-L$ either vanishes identically or has
+nonnegative coefficients and a positive constant term, then
+$G(Y)\le\Theta_{ab}$ on the region; equality holds identically if some choice
+gives $\Theta_{ab}-L=0$, and $G(Y)<\Theta_{ab}$ everywhere otherwise. For
+each listed $(a,b)$, a computer calculation in exact integer arithmetic over
+all $2^{(a+1)(b+1)-1}$ admissible sign matrices (up to $2^{26}$) shows that
+this condition holds for every $Y$, and that some choice gives
+$\Theta_{ab}-L=0$ exactly when $Y$ is one of the two matrices above. The
+programs are described in Section~\ref{sec:verif}.
+\end{proof}
+
+Together with Theorem~\ref{thm:onem}, Conjecture~\ref{conj:equal} therefore
+holds whenever $\min\{a,b\}=1$ or $(a+1)(b+1)\le27$. It is open for all other
+exponent pairs of equal parity; the smallest are $(3,7)$, $(2,10)$ and their
+transposes.
+
+\begin{remark}\label{rem:pq}
+For $n=pq$, Theorem~\ref{thm:onem} gives the maximal energy $4(p-1)(q-1)$,
+attained exactly by $\{p,q\}$ and $\{1\}$. This can also be read off from
+known formulas. The graph $\ICG_{pq}(\{1\})$ is the unitary Cayley graph,
+whose energy $4\varphi(pq)$ was computed by Ili\'c~\cite{ilic}, and
+$\E(\ICG_{pq}(\{p,q\}))=4\varphi(pq)$ by~\cite[Theorem~4.2]{ilicbasic}. The
+graphs $\ICG_{pq}(\{p\})$ and $\ICG_{pq}(\{1,p\})$ are $p$ disjoint copies of
+$K_q$ and the complete $q$-partite graph with parts of size~$p$
+(see also~\cite[Theorem~4.1]{ilicbasic}); both have energy $2p(q-1)$, and
+symmetrically for $\{q\}$ and $\{1,q\}$. Finally $\ICG_{pq}(\{1,p,q\})$ is the
+complete graph $K_{pq}$, of energy $2(pq-1)$. We have not found the maximal
+energy for $n=pq$ stated explicitly in the literature. Le and
+Sander~\cite[Theorem~2.1 and Corollary~2.1]{lesander} determined the maximum
+$\tilde E_{\max}(n)$ of the energy over \emph{multiplicative} divisor sets and
+showed $E_{\max}(n)\ge\tilde E_{\max}(n)$. For $n=pq$ equality holds, but for
+$n=pq^3$ it fails: by direct computation, $E_{\max}(5\cdot3^3)=584>512=\tilde
+E_{\max}(5\cdot3^3)$ and $E_{\max}(3\cdot5^3)=1632>1472=\tilde
+E_{\max}(3\cdot5^3)$, and in both cases the maximisers are the
+non-multiplicative sets of Theorem~\ref{thm:onem}.
+\end{remark}
+
+\begin{remark}\label{rem:near}
+Other sets come close to the maximum. Let $(a,b)=(2,2)$, $q=3$ and
+$\mathcal D=\{1,3,p^2,3p^2,9p\}$, so that $Y=s_2y^{\mathsf T}$ with
+$y=(1,1,-1)^{\mathsf T}$ and $Z=(Ms_2)(Ny)^{\mathsf T}$. The path of $y$ is
+$z_1=-1$, $z_0=\frac13$, $z_{-1}=\frac79$, and $\NA(y)=\{0\}$, so
+Lemma~\ref{lem:potential} gives $\|Ny\|_1=d_2(3)-2=23$, and
+$Z_{22}=9\,\delta_2(p)\,z_{-1}>0$. By~\eqref{eq:G}, $G(Y)=23\,d_2(p)$, while
+the maximum of $G$ is $25\,d_2(p)-10\,\delta_2(p)=G(Y)+4(p-3)$
+(Proposition~\ref{prop:cert}). So the energy of $\mathcal D$ is smaller than
+the maximal energy $62p^2-90p+40$ only by $2(p-3)$.
+\end{remark}
+
+\section{Proof of Theorem~\ref{thm:onem}}\label{sec:onem}
+Let $p,q,m$ and $n=pq^m$ be as in Theorem~\ref{thm:onem}; the case $n=p^mq$
+follows by exchanging the names of the primes. Put $x=q$, $P=x-1$ and
+$R=p-1$. As $p$ and $q$ are distinct odd primes, either $x\ge5$ and $R\ge2$,
+or $x=3$ and $R\ge4$; only these inequalities are used. In both cases
+\begin{equation}\label{eq:RP}
+R+1<P(R-1).
+\end{equation}
+Let $\mu_j$ and $c_j$ be the potential of Lemma~\ref{lem:potential} for $x$,
+and put $\rho=\mu_{m-1}$, $\hat c_j=c_j$ for $0\le j<m$, $\hat c_m=\rho$ and
+$\hat D=\sum_{j=0}^m\hat c_j$. By Lemma~\ref{lem:potential} and
+Remark~\ref{rem:closed}, $\hat D=d_m(x)/x^m$ and $\rho=\delta_m(x)/x^m$. For
+$w\in\mathbb R^{m+1}$ let $z_j(w)$, $-1\le j\le m-1$, be the
+path~\eqref{eq:path} with $k=m$, and let $\nu(w)=\|T_m(x)w\|_1/x^m$. For a
+sign vector $y$ put $\sigma(y)=\sum_{j\in\NA(y)}\mu_j|z_j(y)|$, so that
+$\nu(y)=\hat D-2\sigma(y)$ by Lemma~\ref{lem:potential}. For a statement $S$,
+$[S]$ is $1$ if $S$ holds and $0$ otherwise.
+
+For $0\le\mu\le1$ let $h_\mu$ be the function $h$ of Lemma~\ref{lem:cell}
+with $P=x-1$. Besides Lemma~\ref{lem:cell} we use three values, which follow
+from the definition and from the case analysis in the proof of
+Lemma~\ref{lem:cell}: $h_\mu(0,B)=2\mu|B|$; $h_\mu(A,B)=-2(P-\mu)|B|$ if
+$AB>0$ and $|B|\le|A|$; and $h_\mu(A,B)=0$ if $AB\le0$ and $|B|\le P|A|$.
+
+Let $\mu_\infty=P/(x+1)$. As $x\mu_\infty=P-\mu_\infty$, the recursion for
+$\mu$ gives $\mu_j-\mu_\infty=(-1/x)^{j+1}(1-\mu_\infty)$, where
+$1-\mu_\infty>0$. Hence, for $j\ge0$,
+\begin{equation}\label{eq:muinf}
+\mu_j>\mu_\infty\ \text{if $j$ is odd},\qquad
+\mu_j<\mu_\infty\ \text{if $j$ is even},\qquad
+\mu_0\le\mu_j\le\mu_1.
+\end{equation}
+In particular $\rho<\mu_\infty$, because $m-1$ is even.
+
+\begin{lemma}\label{lem:realpot}
+For every $w\in\mathbb R^{m+1}$,
+\[
+\nu(w)=\sum_{j=0}^m\hat c_j|w_j|
++\frac1x\sum_{j=0}^{m-1}h_{\mu_{j-1}}\bigl(w_j,z_j(w)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+Write $z_j=z_j(w)$. By~\eqref{eq:path}, $z_{j-1}-z_j=\frac Px(w_j-z_j)$ and
+$xz_{j-1}=z_j+Pw_j$. Together with $x\mu_j=P-\mu_{j-1}$ this gives, for
+$0\le j<m$,
+\[
+|z_{j-1}-z_j|+\mu_{j-1}|z_{j-1}|-\mu_j|z_j|
+=\tfrac1x\bigl[h_{\mu_{j-1}}(w_j,z_j)+P(1+\mu_{j-1})|w_j|\bigr].
+\]
+Summing over $j$, the potential terms telescope to
+$\mu_{-1}|z_{-1}|-\mu_{m-1}|z_{m-1}|=|z_{-1}|-\rho|w_m|$, and
+Lemma~\ref{lem:path} gives the claim.
+\end{proof}
+
+\begin{lemma}\label{lem:noncorner}
+For $y\in\{\pm1\}^{m+1}$ we have $\nu(y)-|z_{-1}(y)|\le\hat D-\rho$, with
+equality exactly when $y=\pm s_m$.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:path}, the left side is $\sum_{j<m}|z_{j-1}-z_j|$, where
+$z_j=z_j(y)$. Let $\mu'_{-1}=0$ and $\mu'_j=(P-\mu'_{j-1})/x$ for $j\ge0$, so
+that $\mu'_j\in(0,P/x]$ for $j\ge0$. The computation in the proof of
+Lemma~\ref{lem:potential} uses only this recursion of the potential, so it
+gives
+\[
+|z_{j-1}-z_j|+\mu'_{j-1}|z_{j-1}|-\mu'_j|z_j|
+=c'_j-2\mu'_j|z_j|\,[j\in\NA(y)],\qquad c'_j=P(1+\mu'_{j-1})/x.
+\]
+Summing over $j<m$ and using $\mu'_{-1}=0$ and $|z_{m-1}|=1$,
+\[
+\sum_{j<m}|z_{j-1}-z_j|=\sum_{j<m}c'_j+\mu'_{m-1}
+-2\sum_{j\in\NA(y)}\mu'_j|z_j|.
+\]
+All terms of the last sum are positive, so the left side is maximal exactly
+when $\NA(y)=\emptyset$, that is, when $y=\pm s_m$. For $y=s_m$ it equals
+$\nu(s_m)-|z_{-1}(s_m)|=\hat D-\rho$, by Lemma~\ref{lem:potential} and
+Remark~\ref{rem:closed}.
+\end{proof}
+
+\begin{lemma}\label{lem:paritydefect}
+Let $y\in\{\pm1\}^{m+1}$ with $y_0=y_m$. Then $(3R-1)\,\sigma(y)>(R-1)\rho$.
+\end{lemma}
+\begin{proof}
+As $m$ is odd and $y_0=y_m$, $y\ne\pm s_m$, so $\NA(y)$ is nonempty; let
+$J=\max\NA(y)$. Since $y$ alternates on $J+1,\dots,m$, the recursion
+$|z_{j-1}|=(P-|z_j|)/x$ from the proof of Lemma~\ref{lem:potential} holds for
+$J<j\le m-1$, and starting from $|z_{m-1}|=1=\mu_{-1}$ it gives
+$|z_J(y)|=\mu_{m-2-J}$. Hence $\sigma(y)\ge\mu_J\mu_{m-2-J}$. If $J=m-1$,
+this is $\rho$, and $(3R-1)\rho>(R-1)\rho$. Otherwise $J$ and $m-2-J$ are
+nonnegative and have opposite parity, since their sum is odd, so
+$\sigma(y)>\mu_0\mu_\infty$ by~\eqref{eq:muinf}. As
+$(3R-1)(x-2)-(R-1)x=2R(x-3)+2>0$, we have $(3R-1)\mu_0>R-1$, and therefore
+$(3R-1)\sigma(y)>(3R-1)\mu_0\mu_\infty\ge(R-1)\mu_\infty\ge(R-1)\rho$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:onem}]
+Let $\mathcal D$ be a set of proper divisors of $n$, and let $u$ and $v$ be
+the two rows of its sign matrix $Y$, so that $v_m=-1$. Since
+$T_1(p)=\bigl(\begin{smallmatrix}-R&R\\R&1\end{smallmatrix}\bigr)$, the rows
+of $Z=T_1(p)YT_m(x)^{\mathsf T}$ are $-R\,T_m(x)w^1$ and $T_m(x)w^2$, where
+$w^1=u-v$ and $w^2=Ru+v$. By the proof of Lemma~\ref{lem:path},
+$Z_{1m}=x^mz_{-1}(w^2)$, so~\eqref{eq:G} gives $G(Y)=x^m\Phi$ with
+\[
+\Phi=R\,\nu(w^1)+\nu(w^2)-2\bigl(z_{-1}(w^2)\bigr)^-.
+\]
+As $d_1(p)=3R-1$ and $\delta_1(p)=R-1$, the claimed maximal energy is
+$\frac12(n+x^m\Theta)$ with $\Theta=(3R-1)\hat D-2(R-1)\rho$. We show that
+$\Phi\le\Theta$, with equality exactly for $Y=s_1s_m^{\mathsf
+T}-2e_1e_m^{\mathsf T}$ and $Y=-s_1s_m^{\mathsf T}$. These are the sign
+matrices of the two sets in the theorem, which are nonempty sets of proper
+divisors of $n$ because $1+m$ is even; so the theorem follows.
+
+Let $\mathcal A=\{j:\ u_j=v_j\}$. For $j\in\mathcal A$ we have $w^1_j=0$ and
+$|w^2_j|=R+1$; for $j\notin\mathcal A$ we have $|w^1_j|=2$ and
+$|w^2_j|=R-1$. So $R|w^1_j|+|w^2_j|$ is $R+1$ on $\mathcal A$ and $3R-1$ off
+$\mathcal A$, and Lemma~\ref{lem:realpot}, applied to $w^1$ and $w^2$, gives
+\begin{equation}\label{eq:Phi}
+\Theta-\Phi=2(R-1)\Bigl(\sum_{j\in\mathcal A}\hat c_j-\rho\Bigr)-H
++2\bigl(z_{-1}(w^2)\bigr)^-,
+\end{equation}
+where $H$ is the sum of the $2m$ \emph{cells}
+$\frac Rx\,h_{\mu_{j-1}}\bigl(w^1_j,z_j(w^1)\bigr)$ and
+$\frac1x\,h_{\mu_{j-1}}\bigl(w^2_j,z_j(w^2)\bigr)$, $0\le j<m$. Recall that
+$z_j(w)$ is a convex combination of $w_{j+1},\dots,w_m$.
+\begin{itemize}
+\item[(a)] For the $w^2$-cells, $|z_j(w^2)|\le R+1<P(R-1)\le P|w^2_j|$
+ by~\eqref{eq:RP}, so they are $\le0$ by Lemma~\ref{lem:cell}.
+\item[(b)] For the $w^1$-cells with $j\notin\mathcal A$,
+ $|z_j(w^1)|\le2\le P|w^1_j|$, so they are $\le0$.
+\item[(c)] A $w^1$-cell with $j\in\mathcal A$ equals
+ $\frac Rx h_{\mu_{j-1}}(0,z_j(w^1))=\frac{2R}x\mu_{j-1}|z_j(w^1)|$.
+\end{itemize}
+For $j\in\mathcal A$ with $j<m$ let
+\[
+s_j=2(R-1)c_j-\tfrac{2R}x\,\mu_{j-1}|z_j(w^1)|
+\ \ge\ \tfrac2x\bigl[(R-1)P(1+\mu)-2R\mu\bigr],\qquad \mu=\mu_{j-1},
+\]
+where we used $|z_j(w^1)|\le2$. The bracket is affine in $\mu$, and it equals
+$(R-1)P>0$ at $\mu=0$ and $2[R(P-1)-P]>0$ at $\mu=1$; hence $s_j>0$. Let
+$S=\sum_{j\in\mathcal A,\,j<m}s_j$, let $C\ge0$ be minus the sum of the cells
+in (a) and~(b), and let $K=2(z_{-1}(w^2))^-\ge0$. Then~\eqref{eq:Phi} reads
+\begin{equation}\label{eq:budget}
+\Theta-\Phi=S+C+K-2(R-1)\rho\,[m\notin\mathcal A].
+\end{equation}
+Moreover $|z_0(w^2)|\le R+1<P|w^2_0|$, so $z_{-1}(w^2)=(z_0(w^2)+Pw^2_0)/x$
+has the sign of $w^2_0=Ru_0+v_0$, which is the sign of $u_0$. Thus $K=0$ if
+and only if $u_0=1$.
+
+\emph{Case 1: $m\in\mathcal A$.} Then $\Theta-\Phi=S+C+K\ge0$. Suppose that
+equality holds. Then $S=0$, so $\mathcal A=\{m\}$; $K=0$, so $u_0=1$; and
+$C=0$. Now $w^1_j=2u_j$ for $j<m$ and $w^1_m=0$. For $j\le m-2$ we have
+$|Pw^1_{j+1}|=2P>2\ge|z_{j+1}(w^1)|$, so
+$z_j(w^1)=(z_{j+1}(w^1)+Pw^1_{j+1})/x$ has the sign of $u_{j+1}$, and
+$|z_j(w^1)|\le2=|w^1_j|$. If $u_j=u_{j+1}$ for some $j\le m-2$, the
+$w^1$-cell at $j$ is therefore $-\frac{2R}x(P-\mu_{j-1})|z_j(w^1)|<0$,
+contradicting $C=0$. So $u$ alternates on $0,\dots,m-1$ and $u_0=1$; together
+with $u_m=v_m=-1$ and $v_j=-u_j$ for $j<m$, this means
+$Y=s_1s_m^{\mathsf T}-2e_1e_m^{\mathsf T}$, as $m$ is odd. Conversely, for
+this $Y$ we have $\mathcal A=\{m\}$, $u=s_m$ and $S=K=0$. The $w^1$-cells
+vanish: for $j\le m-2$, $w^1_j=2u_j$ and $z_j(w^1)$ have opposite signs and
+$|z_j(w^1)|\le P|w^1_j|$, and $z_{m-1}(w^1)=w^1_m=0$. The $w^2$-cells vanish
+too: $w^2_i$ has the sign of $u_i$ for every $i$; by~\eqref{eq:RP},
+$z_j(w^2)=(z_{j+1}(w^2)+Pw^2_{j+1})/x$ has the sign of $w^2_{j+1}$ for
+$j\le m-2$, and $z_{m-1}(w^2)=w^2_m$; since $u$ alternates, $w^2_j$ and
+$z_j(w^2)$ have opposite signs, and $|z_j(w^2)|\le P|w^2_j|$ by~(a). Hence
+$\Phi=\Theta$.
+
+\emph{Case 2: $m\notin\mathcal A\ne\emptyset$.} Then $u_m=1$ and
+$\mathcal A\subseteq\{0,\dots,m-1\}$. By~\eqref{eq:budget} it suffices to
+find $k\in\mathcal A$ with $s_k>2(R-1)\rho$. Since
+$\rho<\mu_\infty=P/(P+2)$, the lower bound for $s_k$ shows that this holds
+if
+\begin{equation}\label{eq:case2}
+(R-1)P+\mu(P+2)\bigl[R(P-2)-P\bigr]\ge0,\qquad \mu=\mu_{k-1}.
+\end{equation}
+If $x\ge5$, then $P\ge4$ and $R(P-2)-P\ge P-4\ge0$, so~\eqref{eq:case2}
+holds for every $k\in\mathcal A$. If $x=3$, then~\eqref{eq:case2} reads
+$2(R-1)\ge8\mu$. If some $k\in\mathcal A$ has $k\ge1$, then
+$\mu_{k-1}\le\mu_1=\frac59$ by~\eqref{eq:muinf}, and
+$2(R-1)\ge6>\frac{40}9$. It remains to treat $x=3$ and $\mathcal A=\{0\}$.
+Here $\mu_\infty=\frac12$ and $c_0=\frac43$, and since $z_0(w)$ depends only
+on $w_1,\dots,w_m$, we have $z_0(w^1)=2z_0(u)$ and
+$s_0=\frac23\bigl[4(R-1)-2R|z_0(u)|\bigr]$. If $m=1$, then $|z_0(u)|=1$,
+$\rho=\mu_0=\frac13$ and $s_0=\frac23(2R-4)>\frac23(R-1)=2(R-1)\rho$. Let
+$m\ge3$. If $|z_0(u)|\le\frac{5(R-1)}{4R}$, then $s_0\ge R-1>2(R-1)\rho$.
+Otherwise $|z_0(u)|>\frac{15}{16}$. If $u_1\ne u_2$, then
+$u_1=-\operatorname{sgn}z_1(u)$ by Lemma~\ref{lem:potential}, and
+$|z_0(u)|=(2-|z_1(u)|)/3\le\frac59$; hence $u_1=u_2$. Then
+$1\notin\mathcal A$, and the arguments $w^1_1=2u_1$ and $z_1(w^1)=2z_1(u)$ of
+the $w^1$-cell at $j=1$ have the same sign, with $|z_1(w^1)|\le|w^1_1|$. This
+cell equals
+$-\frac{2R}3(P-\mu_0)|z_1(w^1)|=-\frac{20R}9|z_1(u)|\le-\frac{20R}{27}$, so
+$C\ge\frac{20R}{27}$. With $s_0\ge\frac23(2R-4)$ and $2(R-1)\rho<R-1$,
+\[
+\Theta-\Phi\ge\tfrac23(2R-4)+\tfrac{20R}{27}-2(R-1)\rho
+>\tfrac{56R-72}{27}-(R-1)=\tfrac{29R-45}{27}>0.
+\]
+
+\emph{Case 3: $\mathcal A=\emptyset$}, that is, $v=-u$. Then $u_m=1$,
+$w^1=2u$, $w^2=(R-1)u$ and $\Phi=(3R-1)\nu(u)-2(R-1)(z_{-1}(u))^-$. If
+$u_0=1$, then $z_{-1}(u)>0$ by Lemma~\ref{lem:potential}, and
+$\Phi=(3R-1)(\hat D-2\sigma(u))<\Theta$ by Lemma~\ref{lem:paritydefect},
+since $u_0=u_m$. If $u_0=-1$, then $(z_{-1}(u))^-=|z_{-1}(u)|$ and
+\[
+\Phi=(R+1)\,\nu(u)+2(R-1)\bigl(\nu(u)-|z_{-1}(u)|\bigr)
+\le(R+1)\hat D+2(R-1)(\hat D-\rho)=\Theta
+\]
+by Lemmas~\ref{lem:potential} and~\ref{lem:noncorner}, with equality exactly
+when $u=\pm s_m$, that is, $u=-s_m$. This is $Y=-s_1s_m^{\mathsf T}$.
+
+The three cases cover all $Y$, which proves the theorem. For $m=1$ the value
+is $4(p-1)(q-1)$, since $d_1(q)=3q-4$ and $\delta_1(q)=q-2$.
+\end{proof}
 
 \section{Verification}\label{sec:verif}
-The proofs above are complete; the following computations are independent
+The proofs above are complete, except that the proof of
+Proposition~\ref{prop:cert} rests on the computer calculation described in the
+paragraph on certificates below. The following computations are independent
 cross-checks.
 \begin{itemize}
 \item An exhaustive search over all divisor sets, in exact integer
@@ -364,11 +717,49 @@ cross-checks.
  $675$, $1323$, $1875$ and $6075$. Dense diagonalisation was used for all
  divisor sets when $n\le675$ and for samples of them when $n=1323$, $1875$ and
  $6075$.
+\item Theorem~\ref{thm:onem} was confirmed by exhaustive searches over all
+ divisor sets: in exact arithmetic, with the eigenvalues computed from
+ Ramanujan sums and independently of Proposition~\ref{prop:model}, for $35$
+ orders $pq^m$ with $m\in\{1,3,5,7\}$ up to $n=234375$; and with
+ floating-point spectra from the fast Fourier transform for ten orders up to
+ $n=9375$.
+\item The inequality $\Phi\le\Theta$ of Section~\ref{sec:onem}, with its
+ equality cases, was checked in exact arithmetic over all pairs of sign
+ vectors for $m\le11$ at several parameter pairs $(x,R)$. Each intermediate
+ claim of its proof was checked separately for $m\le7$, including
+ non-integer parameters.
+\item An exhaustive search over all divisor sets confirms
+ Conjecture~\ref{conj:equal} for ten ordered pairs of odd primes and each of
+ the exponent pairs $(1,1)$, $(2,2)$, $(1,3)$, $(3,1)$, $(3,3)$, $(2,4)$,
+ $(4,2)$, $(4,4)$, $(1,5)$ and $(3,5)$. These cases are now covered by
+ Theorem~\ref{thm:onem} and Proposition~\ref{prop:cert}.
 \end{itemize}
 
+\paragraph{Certificates for Proposition~\ref{prop:cert}.}
+The certificate is implemented in Python, in exact integer arithmetic, in two
+versions that share the routines building the polynomial matrices. A
+vectorised version uses $64$-bit integers, with an asserted bound that
+excludes overflow; it first applies the cheaper sufficient test in which the
+absolute value of each entry of undetermined sign is bounded by the
+polynomial with the absolute values of its coefficients, and branches over
+signs only when this test fails. A pure-Python version branches over the
+signs of the undetermined entries for every sign matrix. The vectorised
+version certified all eleven exponent pairs; the pure-Python version gave the
+same result for $(2,2)$, $(2,4)$, $(4,2)$ and $(3,3)$. An independent
+re-implementation in SymPy, which builds $T_k(x)$ from the Ramanujan-sum
+formula and recomputes the target as $G(-s_as_b^{\mathsf T})$, checking it
+against the closed form, confirmed $(2,2)$, $(2,4)$, $(4,2)$ and $(3,3)$.
+The seven larger exponent pairs were run only with the vectorised version.
+The polynomial matrices were compared with the exact matrices $T_k(x)$,
+$k\le8$, at sample points. As negative controls, the certificate is rejected
+when the target is lowered by~$1$, and, for $(a,b)=(1,1)$ and $(2,2)$, when
+the region is enlarged to $p,q\ge3$: at $p=q=3$ further sign matrices attain
+the target. Proposition~\ref{prop:cert} is not formalised.
+
 \paragraph{Formal verification.}
-Theorem~\ref{thm:sign}, and Theorem~\ref{thm:main} with $d_k(x)$ taken as
-$\|T_k(x)s_k\|_1$, are verified in Lean~4 (version
+Theorem~\ref{thm:sign}, and Theorems~\ref{thm:main} and~\ref{thm:onem} with
+$d_k(x)$ taken as $\|T_k(x)s_k\|_1$ and $\delta_k(x)$ as $(T_k(x)s_k)_k$, are
+verified in Lean~4 (version
 4.33.1, Mathlib commit \texttt{0df444a3}). The development starts from the
 definition of the graph and of its energy:
 \begin{itemize}
@@ -388,11 +779,28 @@ It proves:
 \item the conclusion of Theorem~\ref{thm:main} and the value of the maximal
  energy, with $d_k(x)$ defined as $\|T_k(x)s_k\|_1$;
 \item the conclusion of Theorem~\ref{thm:jy} for all pairs of distinct odd
- primes, which includes Theorem~\ref{thm:main} and the case $q\ge5$.
+ primes, which includes Theorem~\ref{thm:main} and the case $q\ge5$;
+\item Theorem~\ref{thm:onem}, as the theorem
+ \texttt{ICGEqualParity.corollaryA}. For distinct primes $p,q\ge3$ and odd
+ $m$, with $n=pq^m$, $\mathcal D^-=\{p^iq^j: i+j\text{ odd}\}$ and
+ $\mathcal D^+=\{p^iq^j: i+j\text{ even}\}$, it states that $\mathcal D^-$ and
+ $\mathcal D^+\setminus\{n\}$ are sets of proper divisors of $n$; that
+ $2\E(\ICG_n(\mathcal D^-))=n+(3p-4)\|T_m(q)s_m\|_1-2(p-2)(T_m(q)s_m)_m$;
+ that $\E(\ICG_n(\mathcal D^+\setminus\{n\}))=\E(\ICG_n(\mathcal D^-))$; and
+ that every set $\mathcal D$ of proper divisors of $n$ satisfies
+ $\E(\ICG_n(\mathcal D))\le\E(\ICG_n(\mathcal D^-))$, with equality only if
+ $\mathcal D=\mathcal D^-$ or $\mathcal D=\mathcal D^+\setminus\{n\}$. The case
+ $n=p^mq$ is the same statement with the primes exchanged. The inequality
+ $\Phi\le\Theta$ of Section~\ref{sec:onem}, strict except for the two
+ extremal sign matrices, is proved for all real $x,R$ with $x\ge5$, $R\ge2$
+ or $x=3$, $R\ge4$.
 \end{itemize}
-The closed form of $d_k(x)$ in Remark~\ref{rem:closed} is proved above but
-not formalised.
-The whole development was rebuilt from a clean directory. The recorded axiom
+The closed forms of $d_k(x)$ and $\delta_k(x)$ in Remark~\ref{rem:closed} are
+proved above but not formalised; in the Lean statements, $d_m(q)$ and
+$\delta_m(q)$ appear as $\|T_m(q)s_m\|_1$ and $(T_m(q)s_m)_m$.
+The whole development was rebuilt from a clean directory; the files for
+Theorem~\ref{thm:onem} were rebuilt in the same way, together with all files
+they import. The recorded axiom
 audits of the main results (the command \texttt{\#print axioms}) report only
 \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}; no native
 evaluation is used. The code and logs are available at~\cite{repo}.
@@ -410,15 +818,24 @@ programme and directed the agents.
 \item Another Claude Code agent wrote the Lean formalisation.
 \item The proof was checked line by line by a second Claude Code agent and by
  Codex, and the agents searched the literature.
+\item The results on exponents of equal parity, Theorem~\ref{thm:onem} and
+ Proposition~\ref{prop:cert}, were found by a Claude Code research agent,
+ and Theorem~\ref{thm:onem} was checked by an independent Claude referee
+ agent.
 \end{itemize} Claude Code drafted this text. The programs and logs are
 available at~\cite{repo}.
 The author is not a professional mathematician. The author has read the
 paper and, using a side-by-side table, compared the statements of the Lean
-theorems with the theorems stated here. The correctness of the results rests on the written proofs and on the Lean
-formalisation described in Section~\ref{sec:verif}; the independent checks
-listed there are additional cross-checks. In addition, the arguments were checked by AI agents of two different
-model families, and the formal statements were reviewed by an agent that did
-not write them. AI systems are not authors of this paper; the author takes
+theorems with the theorems stated here. The correctness of
+Theorems~\ref{thm:main}, \ref{thm:sign} and~\ref{thm:onem} rests on the
+written proofs and on the Lean formalisation described in
+Section~\ref{sec:verif}; Proposition~\ref{prop:cert} rests on the computer
+calculation described there; the other independent checks are additional
+cross-checks. In addition, the arguments for Theorems~\ref{thm:main}
+and~\ref{thm:sign} were checked by AI agents of two different model families,
+the argument for Theorem~\ref{thm:onem} was checked by an independent Claude
+agent, and the formal statements were reviewed by an agent that did not write
+them. AI systems are not authors of this paper; the author takes
 full responsibility for its content.
 
 \begin{thebibliography}{99}
@@ -429,6 +846,16 @@ H.~Dong, \emph{ai4math-results}, repository,
 \bibitem{gutman}
 I.~Gutman, The energy of a graph, \emph{Ber.\ Math.-Statist.\ Sekt.\
 Forsch.\ Graz} \textbf{103} (1978), 1--22.
+\bibitem{ilic}
+A.~Ili\'c, The energy of unitary Cayley graphs, \emph{Linear Algebra Appl.}
+\textbf{431} (2009), 1881--1889.
+\bibitem{ilicbasic}
+A.~Ili\'c and M.~Ba\v{s}i\'c, New results on the energy of integral circulant
+graphs, \emph{Appl.\ Math.\ Comput.} \textbf{218} (2011), 3470--3482.
+\bibitem{lesander}
+T.~A. Le and J.~W. Sander, Extremal energies of integral circulant graphs via
+multiplicativity, \emph{Linear Algebra Appl.} \textbf{437} (2012), 1408--1421,
+\url{https://doi.org/10.1016/j.laa.2012.04.012}.
 \bibitem{jy}
 J.~Jiang and C.~Yang, Energy maximisation for integral circulant graphs with
 opposite-parity exponents, arXiv:2608.29523v1, 30 August 2026.

@@ -1,0 +1,9 @@
+shape (2,4) region p>=5, q>=3: #Y=16384 #branches=39956 #not-certified=0 #identically-tight=2
+tight Y: True [(-1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1), (1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, -1)]
+python3 cert22.py 2 4 5 3  5.16s user 0.16s system 93% cpu 5.669 total
+shape (4,2) region p>=5, q>=3: #Y=16384 #branches=39956 #not-certified=0 #identically-tight=2
+tight Y: True [(-1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1), (1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, -1)]
+python3 cert22.py 4 2 5 3  4.79s user 0.10s system 96% cpu 5.092 total
+shape (3,3) region p>=5, q>=3: #Y=32768 #branches=93390 #not-certified=0 #identically-tight=2
+tight Y: True [(-1, 1, -1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, -1), (1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, 1, -1, -1)]
+python3 cert22.py 3 3 5 3  12.06s user 0.33s system 94% cpu 13.134 total

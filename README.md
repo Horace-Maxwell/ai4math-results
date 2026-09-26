@@ -1,31 +1,65 @@
-# The maximal energy of integral circulant graphs of order p^(2r)·3^(2s+1), and Hanna's OEIS congruence conjectures (eleven proved, three more resolved), with Lean 4 proofs
+# The maximal energy of integral circulant graphs of orders p^(2r)·3^(2s+1) and pq^m, and Hanna's OEIS congruence conjectures (eleven proved, three more resolved), with Lean 4 proofs
 
 This repository contains two papers, their Lean 4 formalizations and
-computational certificates. It is archived on Zenodo:
-[10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254) (all
-versions; version 1.0.0 is
-[10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255)).
+computational certificates. It is archived on Zenodo: all versions
+[10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254); version 1.0.0
+[10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255); version 1.1.0
+[10.5281/zenodo.22970816](https://doi.org/10.5281/zenodo.22970816).
+
+## Index
+
+| | What | Status | Main Lean declarations | Where |
+| --- | --- | --- | --- | --- |
+| Paper 1 | Maximal energy of integral circulant graphs of orders `p^(2r)·3^(2s+1)` and `pq^m` | new theorems; one computer-assisted proposition | `ICGGeneral.jiang_yang_q3`, `ICGGeneral.jiang_yang_thmA`, `ICGEqualParity.corollaryA` | [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) |
+| Paper 2 | Hanna's OEIS congruence conjectures: eleven proved, three more resolved | new proofs, two refutations of stronger readings, one correction | `Oeis389472Mod3.*`, `HannaA*.*` | [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) |
+| Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
+| Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
 **Paper 1: [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf).**
-*The maximal energy of integral circulant graphs of order p^(2r)·3^(2s+1).*
+*The maximal energy of integral circulant graphs of orders p^(2r)·3^(2s+1) and pq^m.*
 
 - Jiang and Yang (arXiv:2608.29523, Theorem A) determined the maximal energy
   of integral circulant graphs of order `p^(2r) q^(2s+1)` for distinct odd
   primes with `q ≥ 5`. They noted that `q = 3` is not covered by their method.
-- We prove the remaining case `q = 3`: for every prime `p ≥ 5` and all
-  `r ≥ 1`, `s ≥ 0`, the checkerboard set `{p^i 3^j : i + j even}` is the
-  unique energy maximiser, and the maximal energy is given by their formula.
+- **Theorem 2.** We prove the remaining case `q = 3`: for every prime `p ≥ 5`
+  and all `r ≥ 1`, `s ≥ 0`, the checkerboard set `{p^i 3^j : i + j even}` is
+  the unique energy maximiser, and the maximal energy is given by their
+  formula.
 - The key step is a sign-matrix inequality for weighted Ramanujan transforms,
   proved by a path identity and an explicit potential. It also gives a proof
   of Jiang–Yang's theorem without semidefinite certificates.
-- **Lean:** `ICGGeneral.jiang_yang_q3`, starting from the adjacency matrix of
-  the graph and its eigenvalues, and `ICGGeneral.jiang_yang_thmA`, which
-  covers all pairs of distinct odd primes. The paper also states a conjecture
-  for exponents of equal parity; it is not proved.
+- **Theorem 3 (exponents of equal parity, one exponent equal to 1).** For
+  distinct odd primes `p, q` and odd `m`, the maximal energy for order
+  `n = pq^m` is `½[n + (3p−4)d_m(q)] − (p−2)δ_m(q)`, attained exactly by
+  `{p^i q^j : i + j odd}` and by `{p^i q^j : i + j even} \ {n}`; the same
+  holds for `p^m q`. Together with Theorem 2 and Jiang–Yang, this settles
+  every order `pq^m`. The case `n = pq` follows from earlier formulas of
+  Ilić and Ilić–Bašić.
+- **Proposition 13 (computer-assisted, not formalized).** Exact certificates
+  verify the equal-parity conjecture for every shape with `(a+1)(b+1) ≤ 27`.
+  The general equal-parity case remains open.
+- **Lean:** `ICGGeneral.jiang_yang_q3` and `ICGEqualParity.corollaryA`, both
+  starting from the adjacency matrix of the graph and its eigenvalues, and
+  `ICGGeneral.jiang_yang_thmA`, which covers all pairs of distinct odd primes.
+  The closed forms of `d_k` and `δ_k` are proved in the paper but not
+  formalized.
 
 **Paper 2: [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf).** *Proofs of
 eleven congruence conjectures of Hanna from the OEIS, and the resolution of
 three more.*
+
+**Also formalized (known results): OEIS A246056 and A376230.** Both are
+Hanna conjectures listed as open on the OEIS, but their content follows from
+published theorems, so we claim no new mathematics here:
+- A246056: `a(n) ≡ A001850(n) (mod 3)` (central Delannoy numbers), and the
+  conjectured mod-3 pattern is Deutsch–Sagan, J. Number Theory 117 (2006),
+  Theorem 5.8. Lean: `HannaA246056.hanna_a246056_one`, `hanna_a246056_zero`
+  (proved directly from the defining series).
+- A376230: the parity comment is false as stated (`a(4) = 8`). Modulo 2 the
+  series is the reversion of `x + x² + x³`, and the corrected pattern
+  (`a(n)` odd iff `⌊n/2⌋ ∈ A000695`) is Gawron–Ulas, Discrete Math. 339
+  (2016), Theorem 3.1; see also OEIS A270803. Lean:
+  `HannaA376230.hanna_a376230`, `hanna_a376230_literal_false`.
 
 **Also included:** a complete Lean formalization of the case q = 3 of
 Roldán's Conjecture 1.3 (order `27p²`). This is a known result, proved earlier
@@ -54,7 +88,8 @@ by others; see below.
 
 **Eleven congruence conjectures of P. D. Hanna from the OEIS**, proved and
 formally verified. Each Lean theorem holds for every integer power series
-satisfying the defining equation, with the normalizations fixed by the entry's indexing and initial coefficients.
+satisfying the defining equation, with the normalizations fixed by the
+entry's indexing and initial coefficients.
 
 | Entry | Defining equation | Theorem |
 | --- | --- | --- |
@@ -83,6 +118,8 @@ satisfying the defining equation, with the normalizations fixed by the entry's i
 | Claim | Lean 4 declarations | Independent computation |
 | --- | --- | --- |
 | Paper 1: unique maximiser for `p^(2r)·3^(2s+1)`, `p ≥ 5`; value of the maximum, expressed through the norms `d_k(x) = ‖T_k(x) s_k‖₁` (their closed form is proved in the paper but not formalized); the sign-matrix inequality (all real `p ≥ 5`, `q ≥ 3`, all exponents); energy formula for all `p^a q^b`; Jiang–Yang Theorem A for all distinct odd primes | `ICGGeneral.jiang_yang_q3`, `jiang_yang_q3_value`, `energy_DstarPQ`, `thm5_le`, `thm5_eq`, `energy_icgAdj_pq`, `jiang_yang_thmA`, `checkerboard_unique_max_odd` | exhaustive exact searches over all divisor sets (shapes and primes listed in the paper); sign-matrix enumeration for `(a+1)(b+1) ≤ 25`; floating-point spectra of the actual graphs (`certificates/icg-q3-general/`) |
+| Paper 1, Theorem 3: maximal energy for `pq^m` and `p^m q`, `m` odd; both maximisers; uniqueness | `ICGEqualParity.corollaryA` | exact arithmetic for every step (`verify_1m.py`); graph spectra by FFT and dense eigenvalues (`certificates/icg-equal-parity/`) |
+| Paper 1, Proposition 13: equal-parity conjecture for all shapes with `(a+1)(b+1) ≤ 27` | not formalized (computer-assisted) | polynomial non-negativity certificates in exact integer arithmetic (`cert22.py`, `cert_fast.py`, which share polynomial routines), a SymPy rebuild for five shapes, and a negative control (`certificates/icg-equal-parity/negative-control/`) |
 | Roldán q=3 for the genuine graph energy: unique maximizer, gap, value of `E(D*)`, sharpness | `ICGBridge.roldan_q3`, `roldan_q3_gap`, `energy_Dstar`, `roldan_q3_sharp`, `roldan_q3_gap_attained`, plus `*_graph` versions for mathlib's `SimpleGraph.circulantGraph` | three independent programs for the certificate; direct numerical diagonalization of the adjacency matrices for p = 5, 7 (all 2047 sets) |
 | Roldán, whole conjecture (two-variable certificate, all real p, q ≥ 3) | not formalized | two independent programs |
 | A389472 | `Oeis389472Mod3.integer_conjecture` | 1000 terms vs. the OEIS b-file |
@@ -91,6 +128,8 @@ satisfying the defining equation, with the normalizations fixed by the entry's i
 | A273958 | `HannaA273958.hanna_a273958` | exact recomputation vs. the b-file (520 terms) |
 | A301933, A377100, A274479, A388734 | `HannaA301933.hanna_a301933`, `HannaA377100.hanna_a377100`, `HannaA274479.hanna_a274479`, `HannaA388734.hanna_a388734` | exact recomputation of the full b-files (`certificates/oeis-hanna/batch2/`) |
 | A338633, A338634, A120566 | `HannaA338633.hanna_a338633`, `HannaA338633.hanna_a338634`, `HannaA120566.hanna_a120566` | b-files substituted into the defining equation modulo two primes, and the first 60 (A338633, A338634) or 150 (A120566) terms recomputed independently (`batch2/`) |
+| A246056 (formalization of a known result) | `HannaA246056.hanna_a246056_one`, `hanna_a246056_zero`; data check `a_initial` | 320 terms recomputed from the definition vs. the b-file (301 terms) (`certificates/oeis-hanna/round5/a246056/`) |
+| A376230 (formalization of a known result; the comment is refuted) | `HannaA376230.hanna_a376230`, `hanna_a376230_literal_false` | 48 terms computed exactly from the equation; the parity pattern checked on all 1030 b-file terms (`certificates/oeis-hanna/round5/a376230/`) |
 | A184894, A107099, A361047 (resolved) | `HannaA184894.zero_part`, `value_at_pow`, `counterexample`; `HannaA107099.hanna_a107099`, `hanna_a107099_counterexample`; `HannaA361047.hanna_a361047_pow`, `hanna_a361047_nonpow` | A184894: exact recomputation vs. the b-file; A107099: b-file substituted into the defining equation modulo two primes; A361047: the same, plus the first 60 terms recomputed independently (`batch2/`) |
 
 Each OEIS theorem is stated for every integer power series satisfying the
@@ -100,12 +139,14 @@ defining equation. The energy is `∑ |eigenvalues|`, using
 All final theorems depend only on the axioms `propext`, `Classical.choice`
 and `Quot.sound`. There is no `sorry`, no custom axiom and no
 `native_decide`. The whole project was rebuilt from a clean directory for
-this version; see `logs/clean-replay-v1.1.0-*.log` and
-`logs/lean-sources-sha256.txt`; the procedure and its parameters are recorded
-in `logs/clean-replay-v1.1.0-receipt.json`. All 26 proof and semantic-check
-modules (every module except the root import file and the two audit files)
-were also replayed through the Lean kernel with `lake env leanchecker <Module>`,
-and all passed (`logs/clean-replay-v1.1.0-leanchecker.log`).
+this version; see `logs/clean-replay-v1.2.0-*.log` and
+`logs/lean-sources-sha256.txt` (38 files); the procedure and its parameters
+are recorded in `logs/clean-replay-v1.2.0-receipt.json`. The 67 audited
+declarations depend only on the three standard axioms. All proof and
+semantic-check modules were also replayed through the Lean kernel with
+`lake env leanchecker <Module>`, and all passed: the six modules new in this
+version in `logs/clean-replay-v1.2.0-leanchecker-new-modules.log`, the other
+26, unchanged since version 1.1.0, in `logs/clean-replay-v1.1.0-leanchecker.log`.
 
 ### Reproduce the Lean checks
 
@@ -158,7 +199,25 @@ cc -O2 -DSIGNMODE=1 -o icg_sign icg_search.c   # enumeration of sign matrices
 python3 run_search.py 4 1 3 5,7,11             # example: n = p^4·3 for p = 5, 7, 11 (compare logs/search_small.log)
 ```
 
-The logs of all runs cited in the paper are in `certificates/icg-q3-general/logs/`.
+Equal-parity results (Theorem 3 and Proposition 13):
+
+```sh
+cd certificates/icg-equal-parity
+python3 verify_1m.py              # every step of Theorem 3 in exact arithmetic
+python3 cert22.py 2 2 5 3         # certificate for the shape (2,2), region p >= 5, q >= 3
+python3 cert_fast.py 4 4 5 3      # the same for (4,4), vectorised (about 4 minutes)
+python3 cert_sympy_check.py 2 2 5 3
+```
+
+New OEIS entries (A246056, A376230):
+
+```sh
+python3 certificates/oeis-hanna/round5/a246056/check.py
+python3 certificates/oeis-hanna/round5/a376230/check.py
+```
+
+The logs of all runs cited in the paper are in `certificates/icg-q3-general/logs/`
+and `certificates/icg-equal-parity/logs/`.
 The Lean comments and the scripts in `certificates/icg-q3-general/review/`
 use the numbering of the first draft. Draft Lemmas 1–4 and Theorem 5 are
 Lemmas 4, 5, 7, 8 and Theorem 9 of Paper 1. The "Lemma 3 as stated"
@@ -168,6 +227,8 @@ hypothesis (`P > 0`); Lemma 7 of the paper assumes `P ≥ μ`.
 ## Layout
 
 - `papers/`: LaTeX sources and PDFs of the two papers.
+- `certificates/icg-equal-parity/`: programs, logs and a negative control for Theorem 3 and Proposition 13 of Paper 1; `PROOF-working-note.md` is the working note.
+- `certificates/oeis-hanna/round5/`: checks for A246056 and A376230.
 - `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
@@ -185,7 +246,14 @@ hypothesis (`P > 0`); Lemma 7 of the paper assumes `P ≥ μ`.
   - for the fixed exponents (2,3), i.e. order `p²q³`, Roldán's conjecture
     was treated earlier by Park and by Schreib (see below);
   - we are not aware of any earlier treatment of `q = 3` for general
-    `r, s`.
+    `r, s`;
+  - equal parity: the case `n = pq` follows from formulas of Ilić (Linear
+    Algebra Appl. 431, 2009) and Ilić–Bašić (Appl. Math. Comput. 218, 2011);
+    Le and Sander (Linear Algebra Appl. 437, 2012) determined the maximum over
+    multiplicative divisor sets, which is attained for `pq` but not for `pq³`
+    (e.g. 584 > 512 for `5·3³`; `certificates/icg-equal-parity/check_lesander.py`);
+    we found no earlier treatment of `pq^m` with `m ≥ 3`, or of any other
+    equal-parity shape (deep search, 2026-09-26).
   This reports the coverage of our searches, not a guarantee of priority.
 - Roldán's conjecture, case q = 3 (the formalization here is of a known
   result):
@@ -202,6 +270,10 @@ hypothesis (`P > 0`); Lemma 7 of the paper assumes `P ≥ μ`.
 - A389472, modulo 2: proved earlier by A. Perez Fontelles
   (astrafala/Conjectures, paper 1042, 2026-08-31) and in the trureturing
   repository. Both leave the modulo-three conjecture open.
+- A246056 and A376230 follow from Deutsch–Sagan (2006, Theorem 5.8) and
+  Gawron–Ulas (2016, Theorem 3.1) respectively, as explained above; we found
+  this in a structural prior-work check before releasing them as new, and we
+  present them only as formalizations.
 - For the OEIS results listed above, we found no earlier proof in the
   following sources (searched 25–26 September 2026):
   - the OEIS entries and their revision histories;
@@ -226,7 +298,11 @@ The author chose the research programme and directed the agents. The agents:
 - wrote the programs and the Lean code;
 - drafted the papers and this README.
 
-Each agent audited the other's work. The author, who is not a professional
+For the results up to version 1.1, each agent audited the other's work. For
+the material new in version 1.2, Claude Code agents found the equal-parity
+results and wrote the Lean code, and independent Claude agents checked the
+proofs; for A246056 and A376230, Codex selected the entries and outlined the
+key steps, and Claude Code completed the proofs and the Lean code. The author, who is not a professional
 mathematician, has read both papers and, using a side-by-side table, compared
 the statements of the final Lean theorems with the theorems in the papers. AI
 systems are not authors. The author takes full responsibility for the content.
@@ -242,5 +318,7 @@ CC BY-SA 4.0.
 ## Citation
 
 See `CITATION.cff`. To cite all versions, use the concept DOI
-[10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254). Each
-release also has its own version DOI, listed on the Zenodo record.
+[10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254). Version
+DOIs: v1.0.0 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255),
+v1.1.0 [10.5281/zenodo.22970816](https://doi.org/10.5281/zenodo.22970816); later
+versions are listed on the Zenodo record.

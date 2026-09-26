@@ -1,0 +1,7 @@
+shape (2,6) region p>=5, q>=3: #Y=1048576 fallback=2 #not-certified=0 #tight=2 tight_set_ok=True time=8.8s
+shape (6,2) region p>=5, q>=3: #Y=1048576 fallback=2 #not-certified=0 #tight=2 tight_set_ok=True time=8.0s
+shape (4,4) region p>=5, q>=3: #Y=16777216 fallback=2 #not-certified=0 #tight=2 tight_set_ok=True time=187.4s
+shape (3,5) region p>=5, q>=3: #Y=8388608 fallback=2 #not-certified=0 #tight=2 tight_set_ok=True time=76.6s
+shape (5,3) region p>=5, q>=3: #Y=8388608 fallback=2 #not-certified=0 #tight=2 tight_set_ok=True time=76.9s
+shape (2,8) region p>=5, q>=3: #Y=67108864 fallback=2 #not-certified=0 #tight=2 tight_set_ok=True time=832.9s
+shape (8,2) region p>=5, q>=3: #Y=67108864 fallback=2 #not-certified=0 #tight=2 tight_set_ok=True time=807.4s

@@ -1,0 +1,5 @@
+n=5*3^1=15: E_max(brute)=32  LeSander multiplicative max=32  sharp=True  maximisers=[(1,), (3, 5)]
+n=5*3^3=135: E_max(brute)=584  LeSander multiplicative max=512  sharp=False  maximisers=[(1, 9, 15), (3, 5, 27, 45)]
+n=3*5^3=375: E_max(brute)=1632  LeSander multiplicative max=1472  sharp=False  maximisers=[(1, 15, 25), (3, 5, 75, 125)]
+n=7*3^3=189: E_max(brute)=888  LeSander multiplicative max=768  sharp=False  maximisers=[(1, 9, 21), (3, 7, 27, 63)]
+n=3*7^3=1029: E_max(brute)=4920  LeSander multiplicative max=4416  sharp=False  maximisers=[(1, 21, 49), (3, 7, 147, 343)]

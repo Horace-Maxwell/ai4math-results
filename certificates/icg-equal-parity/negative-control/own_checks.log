@@ -1,0 +1,29 @@
+(a) n = pq: energies of the seven nonempty sets
+  (p,q)=(3,5) {(1,): 32, (3,): 24, (5,): 20, (1, 3): 24, (1, 5): 20, (3, 5): 32, (1, 3, 5): 28} ok=True
+  (p,q)=(5,3) {(1,): 32, (5,): 20, (3,): 24, (1, 5): 20, (1, 3): 24, (5, 3): 32, (1, 5, 3): 28} ok=True
+  (p,q)=(3,7) {(1,): 48, (3,): 36, (7,): 28, (1, 3): 36, (1, 7): 28, (3, 7): 48, (1, 3, 7): 40} ok=True
+  (p,q)=(5,7) {(1,): 96, (5,): 60, (7,): 56, (1, 5): 60, (1, 7): 56, (5, 7): 96, (1, 5, 7): 68} ok=True
+  (p,q)=(7,11) {(1,): 240, (7,): 140, (11,): 132, (1, 7): 140, (1, 11): 132, (7, 11): 240, (1, 7, 11): 152} ok=True
+(b) (a,b)=(2,2), q=3: set {1,3,p^2,3p^2,9p} vs maximum 62p^2-90p+40
+  p=5: E_max=1140 (formula 1140) #maximisers=2 E(near)=1136 gap=4 (2(p-3)=4)
+  p=7: E_max=2448 (formula 2448) #maximisers=2 E(near)=2440 gap=8 (2(p-3)=8)
+  p=11: E_max=6552 (formula 6552) #maximisers=2 E(near)=6536 gap=16 (2(p-3)=16)
+(c) Theorem onem value for n = p q^m, m odd; and n = p^m q
+  n=15=(5)(3^1): E_max=32 value=32 maximisers ok=True
+  n=135=(5)(3^3): E_max=584 value=584 maximisers ok=True
+  n=375=(3)(5^3): E_max=1632 value=1632 maximisers ok=True
+  n=189=(7)(3^3): E_max=888 value=888 maximisers ok=True
+  n=21=(3)(7^1): E_max=48 value=48 maximisers ok=True
+  n=135=(3^3)(5): E_max=584 value=584
+  n=375=(5^3)(3): E_max=1632 value=1632
+(d) anti-checkerboard energy = (n + d_a d_b)/2 - delta_a delta_b (equal parity)
+  (a,b)=(2,2) (p,q)=(3,5) n=225: E(anti)=1140 value=1140 ok=True
+  (a,b)=(2,2) (p,q)=(5,3) n=225: E(anti)=1140 value=1140 ok=True
+  (a,b)=(2,2) (p,q)=(5,7) n=1225: E(anti)=8572 value=8572 ok=True
+  (a,b)=(1,3) (p,q)=(3,5) n=375: E(anti)=1632 value=1632 ok=True
+  (a,b)=(1,3) (p,q)=(5,3) n=135: E(anti)=584 value=584 ok=True
+  (a,b)=(1,3) (p,q)=(5,7) n=1715: E(anti)=10344 value=10344 ok=True
+  (a,b)=(3,3) (p,q)=(3,5) n=3375: E(anti)=31464 value=31464 ok=True
+  (a,b)=(3,3) (p,q)=(5,3) n=3375: E(anti)=31464 value=31464 ok=True
+  (a,b)=(2,4) (p,q)=(3,5) n=5625: E(anti)=49340 value=49340 ok=True
+  (a,b)=(2,4) (p,q)=(5,3) n=2025: E(anti)=17448 value=17448 ok=True
