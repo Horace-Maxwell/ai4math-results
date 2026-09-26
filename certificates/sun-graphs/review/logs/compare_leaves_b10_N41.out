@@ -1,0 +1,8 @@
+A leaves (with multiplicity): 52652 distinct: 52652 max dup: 1
+B2 leaves (with multiplicity): 52652 distinct: 52652 max dup: 1
+A == B2 as sets: True | only A: 0 | only B2: 0
+union size 52652 | containing a P2: 50712 | referee exact test: integral = 0
+leaves violating the v0-max-key rotation filter: 0
+python3 compare_leaves.py  1.81s user 0.06s system 99% cpu 1.883 total
+P1-only moment-feasible leaves: 1940 | inside C pattern set (r_LB<=9): 703 | excluded by rank bound: 1237
+P2-containing leaves: 50712 | excluded by rank bound (r_LB>9): 50712

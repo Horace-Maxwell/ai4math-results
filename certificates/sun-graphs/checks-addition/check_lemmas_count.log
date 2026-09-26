@@ -1,0 +1,4 @@
+Sat Sep 26 21:37:55 UTC 2026
+check_lemmas.py 3000 7 draws 3000 samples; samples with n > 60 are skipped before testing.
+Replaying the same random stream (seed 7): kept 2968 skipped 32
+2e3895e81c980db16f9a72ef19705b87e0c9eb62fc94f383dcb2d433b348bc4e  check_lemmas.py

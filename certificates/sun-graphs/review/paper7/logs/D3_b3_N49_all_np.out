@@ -1,0 +1,5 @@
+start 22:32:23
+sunD2 b=3 N=49 part=0/1 mode=all spectra=29 maxT=2352
+DONE sunD2 b=3 N=49 part=0/1 mode=all np spectra=29 nodes=3094447 leaves=3031469 tested=3031469 cands=0
+        8.76 real         7.95 user         0.06 sys
+end 22:32:32

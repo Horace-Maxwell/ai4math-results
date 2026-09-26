@@ -1,0 +1,38 @@
+# Check of the reference Veras 2021 and of the arXiv version of Braga-Moraes-Santos (review REVIEW-paper7.md, S1)
+# Done on 2026-09-26 (UTC) by the agent that finalised the paper for release v1.6.0. Times from `date -u`.
+# No e-mail address was sent in any request. The two downloaded files stay in the session scratchpad; they are
+# other people's work and are not part of this repository.
+
+## 1. arXiv:2609.28754 (Braga, Moraes, Santos)
+22:48:29Z  curl -sL https://arxiv.org/e-print/2609.28754 -> HTTP 200, 20870 bytes, gzip of a tar with 00README.json and ArXiv__1_.tex
+           SHA-256(ArXiv__1_.tex) = 21a822ee180c630b18ad6eb867da3e3f27cb7c60b7ff6719eb14a36ba09c64f8
+           = the version-1 source recorded in CONTRACT.md (21a822ee...c64f8): no changed source.
+22:56:38Z  https://export.arxiv.org/api/query?id_list=2609.28754 -> HTTP 200, one entry:
+           id http://arxiv.org/abs/2609.28754v1, published = updated = 2026-09-23T19:56:31Z. Still version 1 only.
+
+## 2. The entry \bibitem{veras} of ArXiv__1_.tex (lines 953-954), used for the bibliography of the paper
+M.~S.~T. Veras, \textit{Buscando grafos unicíclicos integrais} [Searching for integral unicyclic graphs], in: XXXIII
+Salão de Iniciação Científica, Porto Alegre, Brazil, 2021 (in Portuguese) Available at:
+\url{https://lume.ufrgs.br/bitstream/handle/10183/243963/Resumo_72921.pdf}.
+BMS cite it at lines 109-111, 304, 584 and 745: Veras found the 68-vertex graph C_{4,1}(0,16,32,16) by computer
+search and reported the family C_{4,1}(0,a,2a,a).
+
+## 3. The cited PDF
+22:48:42Z  curl -sS -L https://lume.ufrgs.br/bitstream/handle/10183/243963/Resumo_72921.pdf (TLS verification on)
+           -> HTTP 200, 111271 bytes, PDF 1.4, 2 pages, SHA-256 465cf2e30063b5528fc0f3af3db968f3beb251473866ae7664ae6ac841b6016d
+Page 1: record of the event (Salão UFRGS 2021: SIC - XXXIII Salão de Iniciação Científica da UFRGS; 2021; held online;
+        author Manuel Speranza Torres Veras; advisor Rodrigo Orsini Braga).
+Page 2: the abstract itself, one page in Portuguese. Its content, summarised:
+  - a computer search for integral unicyclic graphs with SageMath, starting from results of R. O. Braga et al. (2020);
+  - it reports that C_{4,1}(16,32,16,0), with 68 vertices, is integral (= C_{4,1}(0,16,32,16) in the notation of BMS);
+  - it reports the eigenvalues 0, +-sqrt(p), +-sqrt(2p+4) for the family C_{4,1}(p,2p,p,0), so that its members are
+    integral when p and 2p+4 are both perfect squares;
+  - it does NOT state the range of the search (no bound on the order, the cycle length or the parameters), and it
+    names no other graph.
+
+## 4. Overlap with Theorem 2 of the paper (no other integral generalized sun graph up to 41 vertices)
+The integral members of C_{4,1}(0,a,2a,a), a >= 1, need a and 2a+4 to be squares (BMS prove "if and only if").
+python3: [(a, 4a+4) for a < 100000 with a and 2a+4 squares] = [(16, 68), (576, 2308), (19600, 78404)].
+So every graph named in the abstract has at least 68 vertices: nothing it reports overlaps Theorem 2 (or Theorem 1).
+Because the range of the search is not stated, it may have covered part of the range of Theorem 2 without
+reporting anything there. The paper says exactly this and cites the abstract next to Braga-Rodrigues-Trevisan.

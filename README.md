@@ -1,6 +1,6 @@
-# Research papers with Lean 4 proofs: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids and Reed–Muller weights
+# Research papers with Lean 4 proofs: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights and integral sun graphs
 
-This repository contains six papers, their Lean 4 formalizations and
+This repository contains seven papers, their Lean 4 formalizations and
 computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254); version 1.0.0
 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255); version 1.1.0
@@ -8,7 +8,8 @@ computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.22972115](https://doi.org/10.5281/zenodo.22972115); version 1.2.1
 [10.5281/zenodo.22979318](https://doi.org/10.5281/zenodo.22979318); version 1.3.0
 [10.5281/zenodo.22979323](https://doi.org/10.5281/zenodo.22979323); version 1.4.0
-[10.5281/zenodo.22981669](https://doi.org/10.5281/zenodo.22981669).
+[10.5281/zenodo.22981669](https://doi.org/10.5281/zenodo.22981669); version 1.5.0
+[10.5281/zenodo.22982516](https://doi.org/10.5281/zenodo.22982516).
 
 ## Index
 
@@ -20,6 +21,7 @@ computational certificates. It is archived on Zenodo: all versions
 | Paper 4 | Answers to three problems of Hak, Kozerenko and Oliynyk on the triameter of graphs | Problems 1 and 3 answered (new); Problem 2 was first answered on MathOverflow, and we add its smallest counterexample | `HKOTriameter.not_problem1Claim`, `HKOTriameter.not_problem2Claim`, `HKOTriameter.problem3ClaimFP` | [`papers/hko-triameter`](papers/hko-triameter/note.pdf) |
 | Paper 5 | Complete mappings of the Brauer and partial Brauer monoids | Problem 15.11 of arXiv:2608.25092 settled in its existence reading; Lean covers only two constructions | `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC` | [`papers/brauer-complete-mappings`](papers/brauer-complete-mappings/note.pdf) |
 | Paper 6 | The weight spectrum of the Reed–Muller code RM(7,14) up to four weights | 14 new weights; spectrum determined except for four weights and their complements; Conjecture 2 of Lou and Wang fails for m = 6 (with a caveat, see below) | `RM714.rm714_new_weights` (all 17 weights of Theorem A) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
+| Paper 7 | The minimum order of a counterexample to a conjecture on integral generalized sun graphs | new result (computer-assisted; not formalized) | none | [`papers/sun-graphs`](papers/sun-graphs/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
@@ -240,6 +242,31 @@ graphs.*
   name is historical: only 14 of the 17 weights are new. Theorems B and C,
   Propositions C′–F and the searches are not formalized.
 
+**Paper 7: [`papers/sun-graphs`](papers/sun-graphs/note.pdf).**
+*The minimum order of a counterexample to a conjecture on integral generalized
+sun graphs.*
+
+- A graph is integral if its adjacency eigenvalues are integers; a
+  generalized sun graph is a cycle with pendant paths attached. Braga,
+  Del-Vecchio and Rodrigues conjectured that the cycle of an integral
+  generalized sun graph that is not a cycle has length divisible by 4.
+  Braga, Moraes and Santos (arXiv:2609.28754) disproved this with the graph
+  `C_{6,1}(0,6,6,12,6,6)` on 42 vertices and remarked that their search does
+  not show that no smaller counterexample exists.
+- **Theorem 1.** Up to isomorphism, `C_{6,1}(0,6,6,12,6,6)` is the only
+  counterexample with at most 42 vertices, also when pendant paths of both
+  admissible lengths share a vertex. So 42 is the minimum order.
+- **Theorem 2.** Every integral generalized sun graph with at most 41
+  vertices that is not a cycle has a 4-cycle and is one of the three graphs
+  found by Braga, Rodrigues and Trevisan (2017).
+- **Proposition 3.** If an integral unicyclic graph has a cycle of odd length
+  `b`, then every prime `q` with `(q − 1) | (b − 1)` divides `2b`; hence
+  `3 | b`, and `b = 3` or `b ≥ 15`.
+- Method: spectral lemmas exclude every cycle length `b ≢ 0 (mod 4)` except
+  3, 6 and 10 up to 42 vertices, and exhaustive searches settle those, each
+  with separately written programs, two of them written by independent
+  referee agents. Nothing in Paper 7 is formally verified in Lean.
+
 **Also formalized (known results): OEIS A246056 and A376230.** Both are
 Hanna conjectures listed as open on the OEIS, but their content follows from
 published theorems, so we claim no new mathematics here:
@@ -337,6 +364,7 @@ entry's indexing and initial coefficients.
 | Paper 5: Theorem 1.1 (every proper principal factor of `B_n` and `PB_n` has a complete mapping, except the rank-2 factor of `PB_3`; `B_n` and `PB_n` have one iff `n ∉ {2, 3}`) | only the two constructions of Lemmas 4.3 and 4.4, over `Z_2` for any finite index set: `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC`; the rest rests on the written proofs | certificates for the rank-2 factor of `B_6`, the rank-3 factor of `B_7`, the whole monoids `B_1`, `B_4`, `B_5`, `B_6`, `PB_1`, `PB_4`, `PB_5`, `PB_6`, and second versions of the first two, each built by one implementation and checked by a second that shares no code with it; an exhaustive search showing that the rank-2 factor of `PB_3` has no complete mapping (`certificates/brauer-complete/`) |
 | Paper 6: the 17 weights of Theorem A (14 of them new) | `RM714.rm714_new_weights` (the name is historical: it covers all 17) | two programs (`verify_witnesses.c`, `verify_bitset.py`) |
 | Paper 6: Theorems B and C, Propositions C′, D, E and F | not formalized | two programs for every computation used in a proof: `verify_witnesses.c` and `verify_all_py.py` for the 7901 codewords of Theorem B; `cert_arith.py` and `cert_arith.c` for Lemma 4.1 and Propositions C′, D and F; `venn_enum_fast.c` and `venn_enum_indep.c` for Proposition E (`certificates/rm714/`) |
+| Paper 7: Theorems 1 and 2 (minimum order 42, uniqueness; classification up to 41 vertices) and Proposition 3 | not formalized | spectral lemmas proved in the paper; exhaustive searches by separately written programs (`sunsearch*`, `sunB*`, and the referee agents' `sunC`, `sunD2`), with audited versions identified by SHA-256 in the paper (`certificates/sun-graphs/`) |
 
 Each OEIS theorem is stated for every integer power series satisfying the
 defining equation. The energy is `∑ |eigenvalues|`, using
@@ -483,6 +511,18 @@ python3 code/cert_arith.py > arith_py.txt && cc -O2 -o cert_arith code/cert_arit
 cc -O2 -o venn_enum_fast code/venn_enum_fast.c && ./venn_enum_fast 4   # Proposition E for up to four monomials (five monomials took 23 minutes)
 ```
 
+Paper 7 (requires a C compiler; `sunB2` needs LAPACK, e.g. `-framework Accelerate` on macOS):
+
+```sh
+cd certificates/sun-graphs
+cc -O2 -o sunsearch_v4 code/sunsearch_v4_f5a38c28.c -lm && ./sunsearch_v4 4 41   # b = 4 up to 41 vertices: the 3 graphs of Theorem 2 (compare logs/A_b4_N41.out)
+cc -O2 -o sunB_v1 code/sunB_v1_4d92eb48.c && ./sunB_v1 4 41                    # the same with the second program
+cc -O2 -o sunB2 code/sunB2.c -framework Accelerate && ./sunB2 6 42              # b = 6 at 42 vertices: the counterexample is unique (about 3 minutes)
+cc -O2 -o sunC review/code/sunC.c && ./sunC 4 41 noprune 1 0 1                 # the referee agent's program, without pruning
+```
+
+`PACKAGING-NOTES.md` lists every run and its log.
+
 Formalizations of the known results A246056 and A376230:
 
 ```sh
@@ -510,6 +550,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 - `certificates/hko-triameter/`: programs (`code/`) and logs (`logs/`) for Paper 4.
 - `certificates/brauer-complete/`: programs, certificates and logs for Paper 5; `review/REVIEW.md` is the referee agent's report.
 - `certificates/rm714/`: programs, data and logs for Paper 6.
+- `certificates/sun-graphs/`: programs, logs and the referee agents' code and reports for Paper 7.
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
 - `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
@@ -624,6 +665,16 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
     Google Scholar, and Scopus was not accessible. A final check of the arXiv,
     GitHub, MathDB and MathOverflow at 15:49–15:52 UTC found nothing new.
   This reports the coverage of our searches, not a guarantee of priority.
+- Paper 7: the question is from Braga, Moraes and Santos (arXiv:2609.28754v1,
+  23 September 2026, still the only version on 26 September 2026). Theorem 2
+  is not new: its three graphs were found by Braga, Rodrigues and Trevisan
+  (2017). We found no earlier answer to the minimum-order question, and no
+  earlier statement of Proposition 3, in our searches of 26 September 2026
+  (the arXiv, GitHub including trureturing, MathDB, MathOverflow and web
+  search), the last between 23:15 and 23:17 UTC; the searches for works
+  citing the source paper in OpenAlex failed (HTTP 429), and some papers on
+  integral unicyclic graphs were not accessible to us. This reports the
+  coverage of our searches, not a guarantee of priority.
 - Roldán's conjecture, case q = 3 (the formalization here is of a known
   result):
   - S. Park, *Exact Energy Maximisation for Integral Circulant Graphs of
@@ -699,6 +750,11 @@ Claude referee agent, which reran both certification programs and certified
 the same inequalities with its own program.
 The author has also read the changes of version 1.5.
 
+Paper 7 (version 1.6.0) was selected, proved and drafted by Claude Code
+agents (model Claude Opus 5.5); two independent Claude referee agents checked
+the proofs and reran the searches with programs they wrote themselves.
+AUTHOR-ROLE-V160: to be completed after the author has read Paper 7.
+
 The author has also read the new material of version 1.4.0 (Paper 1 in its
 version 1.4, and Papers 4, 5 and 6) and, using the same kind of side-by-side
 table, compared its Lean statements with the results in the papers.
@@ -722,5 +778,6 @@ v1.1.0 [10.5281/zenodo.22970816](https://doi.org/10.5281/zenodo.22970816),
 v1.2.0 [10.5281/zenodo.22972115](https://doi.org/10.5281/zenodo.22972115),
 v1.2.1 [10.5281/zenodo.22979318](https://doi.org/10.5281/zenodo.22979318),
 v1.3.0 [10.5281/zenodo.22979323](https://doi.org/10.5281/zenodo.22979323),
-v1.4.0 [10.5281/zenodo.22981669](https://doi.org/10.5281/zenodo.22981669); later
+v1.4.0 [10.5281/zenodo.22981669](https://doi.org/10.5281/zenodo.22981669),
+v1.5.0 [10.5281/zenodo.22982516](https://doi.org/10.5281/zenodo.22982516); later
 versions are listed on the Zenodo record.

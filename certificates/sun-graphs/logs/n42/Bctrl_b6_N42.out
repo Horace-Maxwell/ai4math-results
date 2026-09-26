@@ -1,0 +1,2 @@
+CANDIDATE b=6 n=42 : (12,0) (6,0) (6,0) (0,0) (6,0) (6,0)
+B-DONE b=6 NMAX=42 part=0/1 spectra=21 moment_ok=1046629 canonical=520217 tested=520217 candidates=1

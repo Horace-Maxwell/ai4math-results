@@ -1,0 +1,870 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={The minimum order of a counterexample to a conjecture on integral generalized sun graphs},
+ pdfauthor={Horace Dong}}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[lemma]{Corollary}
+\newtheorem*{thmone}{Theorem 1}
+\newtheorem*{thmtwo}{Theorem 2}
+\newtheorem*{propthree}{Proposition 3}
+\newtheorem*{conjtwo}{Conjecture 2}
+\theoremstyle{remark}
+\newtheorem{remark}[lemma]{Remark}
+\DeclareMathOperator{\mult}{mult}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\DeclareUrlCommand\code{\urlstyle{tt}\def\UrlBreaks{\do\_\do\/\do\.}\def\UrlBigBreaks{}}
+\setlength{\emergencystretch}{1.5em}
+\title{The minimum order of a counterexample to a conjecture\\ on integral generalized sun graphs}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A graph is integral if its adjacency eigenvalues are integers, and a
+generalized sun graph is a cycle with pendant paths attached to its vertices.
+Braga, Del-Vecchio and Rodrigues conjectured that the
+cycle of an integral generalized sun graph that is not a cycle has length
+divisible by $4$. Braga, Moraes and Santos disproved this with the graph
+$C_{6,1}(0,6,6,12,6,6)$ on $42$ vertices, and remarked that their computer
+search does not show that no smaller counterexample exists. We show that
+none exists: up to isomorphism, $C_{6,1}(0,6,6,12,6,6)$ is the only
+counterexample with at most $42$ vertices, also when pendant paths of both
+admissible lengths share a vertex. Every integral generalized sun graph with
+at most $41$ vertices that is not a cycle has a cycle of length $4$ and is one
+of the three graphs found by Braga, Rodrigues and Trevisan in 2017. Up to $42$
+vertices, spectral lemmas exclude every cycle length $b\not\equiv0\pmod 4$ except $3$, $6$ and
+$10$, which are settled by exhaustive searches with separately written programs,
+two of them by independent referee agents. We
+also note that if an integral unicyclic graph has a cycle of
+odd length $b$, then every prime $q$ with $(q-1)\mid(b-1)$ divides $2b$;
+hence $3\mid b$, and $b=3$ or $b\ge15$. Nothing in this paper is formally
+verified. The results were found by AI coding agents working under the
+author's direction; their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+A graph is \emph{integral} if all eigenvalues of its adjacency matrix are
+integers, a notion that goes back to Harary and Schwenk~\cite{hs}. A search of
+Braga, Rodrigues and Trevisan~\cite{brt} showed that, besides the cycles $C_3$,
+$C_4$ and $C_6$, exactly three unicyclic graphs with at most $21$ vertices are
+integral. Braga, Del-Vecchio and Rodrigues~\cite{bdr} constructed infinite
+families of integral unicyclic graphs by attaching pendant paths to the
+vertices of a cycle; such graphs are called \emph{generalized sun graphs}.
+Following~\cite{bms}, $C_b(n_1P_{t_1},\dots,n_bP_{t_b})$ is obtained from the
+cycle $v_1\cdots v_bv_1$ by attaching $n_k$ copies of the path $P_{t_k}$ on
+$t_k$ vertices to $v_k$ (joining $v_k$ to an end of each copy), and
+$C_{b,t}(n_1,\dots,n_b)$ is the case $t_1=\dots=t_b=t$. We state the second
+conjecture of~\cite{bdr} in our words.
+
+\begin{conjtwo}[{\cite{bdr}; see~\cite[Conjecture~2]{bms}}]
+Let $G$ be an integral generalized sun graph that is not a cycle. Then the
+cycle of $G$ has length divisible by $4$.
+\end{conjtwo}
+
+Braga, Moraes and Santos~\cite{bms} proved the first conjecture of~\cite{bdr}
+in a strong form: a graph with a pendant path of at least three edges has an
+eigenvalue in $(1,2\cos(\pi/9)]$, so it is not integral~\cite[Theorem~2.1]{bms}.
+They disproved Conjecture~2: $C_{6,1}(0,6,6,12,6,6)$ has $42$ vertices and
+spectrum $\{0^{[32]},\pm2^{[2]},\pm3^{[2]},\pm4\}$~\cite[Proposition~3.2]{bms},
+and it is the smallest member of an infinite
+family~\cite[Corollary~3.6 and the remark after it]{bms}.
+Their search over boxes of parameter vectors, for graphs with pendant vertices
+only, found no other integral graph whose cycle length is not divisible by
+$4$. As they point out~\cite[Section~4]{bms}, it ``does not prove that the
+graph on 42 vertices has minimum order'' among all counterexamples, since
+vectors outside the boxes may give smaller graphs, and graphs with copies of
+$P_2$ were not searched. This note answers that question.
+
+A \emph{counterexample} is a generalized sun graph that is integral, is not a
+cycle, and has cycle length $b\not\equiv0\pmod4$. We allow any finite number of
+pendant paths at each cycle vertex, possibly of different lengths at the same
+vertex. By~\cite[Theorem~2.1]{bms}, an integral generalized sun graph
+then carries only copies of $P_1$ and $P_2$. The graphs
+$C_b(n_1P_{t_1},\dots,n_bP_{t_b})$ form a subclass containing every graph
+named below, so our results hold in either reading.
+
+\begin{thmone}
+Up to isomorphism, $C_{6,1}(0,6,6,12,6,6)$ is the only counterexample to
+Conjecture~2 with at most $42$ vertices. In particular, the minimum order of a
+counterexample is $42$.
+\end{thmone}
+
+\begin{thmtwo}
+Every integral generalized sun graph with at most $41$ vertices that is not a
+cycle has a cycle of length $4$, and is isomorphic to $C_{4,1}(6,0,3,0)$, with
+$13$ vertices, or to $C_4(5P_2,P_1,2P_2,P_1)$ or $C_{4,2}(4,4,0,0)$, with $20$
+vertices each.
+\end{thmtwo}
+
+These three graphs are the three integral unicyclic graphs found by Braga,
+Rodrigues and Trevisan~\cite[Section~5, p.~296, and Table~1, p.~297]{brt}, with
+spectra $\{0^{[9]},\pm2,\pm3\}$ and, for the two cospectral graphs,
+$\{0^{[2]},\pm1^{[7]},\pm2,\pm3\}$. Theorem~2 adds that there is no other
+integral generalized sun graph up to $41$ vertices. The one-page abstract of
+Veras~\cite{ver} reports a computer search for integral unicyclic graphs. It
+names $C_{4,1}(0,16,32,16)$, on $68$ vertices, and the family
+$C_{4,1}(0,a,2a,a)$, whose integral members have at least $68$
+vertices~\cite{bms}. It does not state the range of the search and names no
+graph with at most $41$ vertices, so nothing it reports overlaps Theorem~2,
+although the search may have covered part of that range. Write $\mult(\lambda)$ for
+the multiplicity of an eigenvalue $\lambda$. The proofs use the following
+observation on integral graphs.
+
+\begin{propthree}
+Let $G$ be an integral graph with $e$ edges that contains an odd cycle, let $g$
+be the length of its shortest odd cycles and $c_g$ their number. Then every
+prime $q$ with $(q-1)\mid(g-1)$ divides $2g\,c_g$; in particular $3\mid g\,c_g$.
+Moreover, at least $(g-1)/2$ integers $v\ge2$ satisfy $\mult(v)\ne\mult(-v)$,
+so $2e\ge\sum_{v=2}^{(g+1)/2}v^2$.
+\end{propthree}
+
+For an integral unicyclic graph with a cycle of odd length $b$ this gives
+$3\mid b$, and $b=3$ or $b\ge15$, with at least $102$ vertices in the latter
+case (Corollary~\ref{cor:odd}).
+
+\paragraph{Method.}
+Up to $42$ vertices, hand proofs exclude odd $b\ge5$ (Proposition~3),
+$b\in\{14,18\}$ (Corollary~\ref{cor:1418}) and even $b\ge22$
+(Lemma~\ref{lem:cycle}), and a bound due to the first referee agent (see the
+disclosure; Lemma~\ref{lem:rank}) excludes every $b\ge14$ again; exhaustive
+searches settle $b=3,6,10$ (Section~\ref{sec:comp}). Every case is confirmed at
+least twice, by hand proofs or by separately written programs
+(Table~\ref{tab:cases}); two of the programs, C and D, were written from
+scratch by referee agents that had not produced the results. Nothing here is
+formally verified, in Lean or otherwise; the results rest on the written proofs
+and the computations.
+
+\paragraph{Prior work.}
+The question was raised in version~1 of~\cite{bms}, submitted to the arXiv on
+23 September 2026. We found no earlier answer to it and no discussion of it.
+Our searches on 26 September 2026, 18:58--19:43 UTC, covered the arXiv listing
+of~\cite{bms} (version~1 only); Crossref; MathDB
+(\url{https://mathdb.com}); GitHub issues, pull requests, commits, code and
+repositories, including the \texttt{trureturing} repository~\cite{tru} of
+AI-assisted work on open problems (as a positive control, the same search for
+the versioned identifier of another recent arXiv paper found the expected
+issue); MathOverflow and Mathematics Stack Exchange; and web search. The
+OpenAlex search and citation queries failed with HTTP error 429 (rate limit), and several GitHub
+searches were rate-limited and repeated later. From 19:59 to 20:32 UTC the
+first referee agent repeated part of these searches and added arXiv API queries and
+full-text searches (Remark~\ref{rem:novelty}). We did not search Google
+Scholar, zbMATH or MathSciNet. The earlier computer searches for integral
+unicyclic graphs of~\cite{brt} and~\cite{ver} are discussed after Theorem~2;
+we read the abstract~\cite{ver}, which~\cite{bms} cite, on 26 September 2026 at
+22:48 UTC, and at 22:56 UTC the arXiv still listed only version~1
+of~\cite{bms}. A final check on 26 September 2026 between 23:15 and 23:17 UTC
+(the arXiv, GitHub, MathDB and MathOverflow) found nothing new. This reports
+the coverage of our searches, not a guarantee of priority.
+
+\section{Notation and spectral lemmas}\label{sec:lemmas}
+
+Throughout, $G$ is a generalized sun graph with cycle $v_0v_1\cdots v_{b-1}v_0$
+($b\ge3$, indices modulo $b$) carrying only copies of $P_1$ and $P_2$: at $v_k$
+hang $p_k$ pendant vertices and $q_k$ pendant paths $v_kww'$. Put
+$P=\sum p_k$, $Q=\sum q_k$, $K_p=\{k:p_k>0\}$, $K_q=\{k:q_k>0\}$,
+$Z=\Z_b\setminus K_q$ and $A=A(G)$. Then $G$ has $n=b+P+2Q$ vertices and $n$
+edges. Let $\Theta(G)=\sum_vd_v(d_v-1)$ over all vertices, with degrees $d_v$;
+then $\Theta(G)=\sum_k\bigl((2+p_k+q_k)(1+p_k+q_k)+2q_k\bigr)$. An isomorphism
+maps the unique cycle onto the unique cycle, and $(p_k,q_k)$ is determined by
+the tree attached at $v_k$, so isomorphism classes correspond to dihedral
+orbits of the sequences $((p_k,q_k))_{k\in\Z_b}$.
+
+For a real symmetric matrix $M$, $n_+(M)$, $n_-(M)$ and $n_0(M)$ count its
+positive, negative and zero eigenvalues. For a graph $H$, $N_{>t}(H)$,
+$N_{\ge t}(H)$, $N_{<t}(H)$ and $N_{\le t}(H)$ count the eigenvalues of $A(H)$
+in the indicated ranges, with multiplicity. If $G$ is integral, $B^+$ is the
+multiset of its eigenvalues $\lambda\ge2$ and $S_2=\sum_{\lambda\in
+B^+}\lambda^2$. For nonempty $K=\{k_1<\dots<k_t\}\subseteq\{0,\dots,b-1\}$ put
+$k_{t+1}=k_1+b$; the \emph{gaps} of $K$ are the pairs $(k_i,k_{i+1})$, of
+\emph{length} $k_{i+1}-k_i$. If $|K|=1$, the only gap has length $b$.
+
+\begin{lemma}\label{lem:schur}
+For $\lambda\in\R\setminus\{-1,0,1\}$ let
+$f_k(\lambda)=p_k/\lambda+q_k\lambda/(\lambda^2-1)$ and
+$S(\lambda)=A(C_b)-\lambda I+\diag(f_k(\lambda))_k$.
+\begin{itemize}
+\item[(a)] If $\lambda>1$, then $N_{>\lambda}(G)=n_+(S(\lambda))$ and
+ $N_{\ge\lambda}(G)=n_+(S(\lambda))+n_0(S(\lambda))$.
+\item[(b)] If $\lambda<-1$, then $N_{<\lambda}(G)=n_-(S(\lambda))$ and
+ $N_{\le\lambda}(G)=n_-(S(\lambda))+n_0(S(\lambda))$.
+\item[(c)] $N_{>1}(G)\ge|K_q|+n_+(R)$ and $N_{<-1}(G)\ge|K_q|+n_-(R')$, where
+ $R$ and $R'$ are the principal submatrices of $A(C_b)-I+\diag(p_k)$ and
+ $A(C_b)+I-\diag(p_k)$ on $Z$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+With the cycle first,
+$A-\lambda I=\bigl(\begin{smallmatrix}A(C_b)-\lambda I&W\\W^{\mathsf
+T}&H\end{smallmatrix}\bigr)$, where $H=H(\lambda)$ is the direct sum of a block
+$(-\lambda)$ for each pendant vertex and a block
+$\bigl(\begin{smallmatrix}-\lambda&1\\1&-\lambda\end{smallmatrix}\bigr)$ for
+each pendant path (rows $w,w'$), and $W$ has one entry $1$ in the column of
+each pendant vertex and each $w$, in the row of its neighbour on the cycle. $H$ has
+eigenvalues $-\lambda$, $-\lambda\pm1$, so it is negative (positive) definite for
+$\lambda>1$ ($\lambda<-1$). The $2\times2$ block has inverse with $(1,1)$ entry
+$-\lambda/(\lambda^2-1)$, so $WH^{-1}W^{\mathsf T}=-\diag(f_k(\lambda))$ and
+$A-\lambda I$ is congruent to $S(\lambda)\oplus H$; now use Sylvester's law of
+inertia.
+
+(c) As $\lambda\downarrow1$, the entries $f_k(\lambda)$, $k\in K_q$, tend to
+$+\infty$ while the other entries of $S(\lambda)$ stay bounded; so the block
+$S_{KK}$, $K=K_q$, is positive definite for $\lambda$ near $1$ and its inverse
+tends to $0$. By Haynsworth's inertia additivity~\cite{hay},
+$n_+(S(\lambda))=|K|+n_+(S_{ZZ}-S_{ZK}S_{KK}^{-1}S_{KZ})$, and the Schur
+complement tends to $R$, so its positive inertia is eventually at least
+$n_+(R)$. Finally $N_{>1}(G)=N_{>\lambda}(G)$ for $\lambda>1$ close to $1$. The
+case $\lambda\uparrow-1$ is the same, with $f_k(\lambda)\to-\infty$ on $K_q$.
+\end{proof}
+
+\begin{lemma}\label{lem:mult}
+\begin{itemize}
+\item[(a)] Let $m\in\R\setminus\{-1,0,1\}$, $c_k=m-f_k(m)$,
+ $T_k=\bigl(\begin{smallmatrix}c_k&-1\\1&0\end{smallmatrix}\bigr)$ and
+ $M=T_{b-1}\cdots T_0$. Then $\mult(m)=\dim\ker(M-I)\le2$; it equals $2$ if
+ and only if $M=I$, and $1$ if and only if $M\ne I$ and $\tr M=2$.
+\item[(b)] $\mult(0)=P-|K_p|+\delta_0$, where, if $K_p=\emptyset$, $\delta_0=2$
+ when $4\mid b$ and $\delta_0=0$ otherwise, and, if $K_p\ne\emptyset$,
+ $\delta_0$ is the number of gaps of $K_p$ of even length.
+\item[(c)] For $\varepsilon=\pm1$, $\mult(\varepsilon)=Q-|K_q|+\delta_\varepsilon$,
+ where $\delta_\varepsilon$ is the dimension of the space of $y\in\R^{\Z_b}$
+ with $y_k=0$ for $k\in K_q$ and $y_{k-1}+y_{k+1}=\varepsilon(1-p_k)y_k$ for
+ $k\notin K_q$. Each gap of $K_q$ contributes $0$ or $1$ to
+ $\delta_\varepsilon$, and $\delta_\varepsilon\le2$ if $K_q=\emptyset$.
+\item[(d)] $\mult(0)\le\max(P,2)$ and $\mult(\pm1)\le\max(Q,2)$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+(a) If $Ax=mx$, then $x_a=x_{v_k}/m$ at a pendant vertex $a$ of $v_k$, and
+$x_{w'}=x_w/m$, $x_w=mx_{v_k}/(m^2-1)$ on a pendant path $v_kww'$. So $x$ is
+determined by its restriction $y$ to the cycle, which satisfies
+$y_{k-1}+y_{k+1}=c_ky_k$, and every solution $y$ extends to an eigenvector.
+Writing $(y_{k+1},y_k)^{\mathsf T}=T_k(y_k,y_{k-1})^{\mathsf T}$, the solutions
+correspond to the vectors fixed by $M$; as $\det M=1$, $M-I$ is singular if and
+only if $\tr M=2$.
+
+(b) If $Ax=0$, a pendant vertex at $v_k$ forces $x_{v_k}=0$, and a pendant
+path gives $x_w=0$, $x_{w'}=-x_{v_k}$. For $k\in K_p$ the equation at $v_k$
+only fixes the sum of the $p_k$ pendant values ($p_k-1$ free values), and for
+$k\notin K_p$ it reads $y_{k-1}+y_{k+1}=0$. So $\delta_0$ is the dimension of
+the space of $y$ with $y_k=0$ on $K_p$ and $y_{k-1}+y_{k+1}=0$ off $K_p$. If
+$K_p=\emptyset$, then $y_{k+2}=-y_k$ for all $k$, with a $2$-dimensional space
+of $b$-periodic solutions if $4\mid b$ and none otherwise. If
+$K_p\ne\emptyset$, the equations split along the gaps. On a gap of length $d$
+put $z_j=y_{k_i+j}$; then $z_0=z_d=0$ and $z_{j-1}+z_{j+1}=0$ for $0<j<d$,
+which forces $z_j=0$ for even $j$ and $z_{j+2}=-z_j$ for odd $j$. For even $d$
+this leaves $z_1$ free; for odd $d$ it gives $z_1=\pm z_d=0$.
+
+(c) If $Ax=\varepsilon x$, a pendant path gives $x_{w'}=\varepsilon x_w$ and
+$\varepsilon x_w=x_{v_k}+x_{w'}$, so $x_{v_k}=0$ for $k\in K_q$, and the equation
+at $v_k$ only fixes the sum of the $q_k$ values $x_w$ ($q_k-1$ free values). A pendant vertex gives
+$x_a=\varepsilon x_{v_k}$, so for $k\notin K_q$ the equation at $v_k$ reads
+$y_{k-1}+y_{k+1}+\varepsilon p_ky_k=\varepsilon y_k$. On a gap of $K_q$ the
+recurrence determines all values from the first one after the left end, so
+the gap contributes at most $1$; if $K_q=\emptyset$ the periodic solutions of a
+recurrence of order two form a space of dimension at most $2$.
+
+(d) If $K_p\ne\emptyset$, then $\delta_0\le|K_p|$, the number of gaps, so
+$\mult(0)\le P$; otherwise $\mult(0)=\delta_0\le2$. Likewise for $\pm1$.
+\end{proof}
+
+\begin{lemma}\label{lem:trace}
+Let $H$ be a graph with $e$ edges, degrees $d_v$, $c_4$ cycles of length $4$,
+and adjacency matrix $A$.
+\begin{itemize}
+\item[(a)] $\tr A^2=2e$ and $\tr A^4=2e+2\sum_vd_v(d_v-1)+8c_4$.
+\item[(b)] If the shortest odd cycles of $H$ have length $g$ and there are
+ $c_g$ of them, then $\tr A^L=0$ for odd $L<g$ and $\tr A^g=2g\,c_g$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+We count closed walks. (a) A closed walk of length $4$ traverses one edge four
+times ($2$ walks per edge), or two edges with a common vertex twice each ($4$
+walks for each of the $\sum_v\binom{d_v}2$ such pairs), or a $4$-cycle ($8$ walks
+per cycle). (b) A closed walk of odd length $L$ that repeats a vertex splits
+there into two shorter closed walks, one of odd length. By induction it
+contains an odd cycle of length at most $L$, with equality only if it
+traverses a cycle once. So no closed walk of odd length $L<g$ exists, and each
+$g$-cycle gives $2g$ closed walks of length $g$.
+\end{proof}
+
+For our graphs $e=n$, $c_4=[b=4]$, $\sum_vd_v(d_v-1)=\Theta(G)$, and $g=b$,
+$c_g=1$ if $b$ is odd. If $G$ is integral, the eigenvalues in $\{0,\pm1\}$
+satisfy $\lambda^4=\lambda^2$ and $\lambda^L=\lambda$ for odd $L$, and
+$\tr A=0$, so
+\begin{gather}
+ \textstyle\sum_\lambda\lambda^2=2n,\qquad
+ \sum_{|\lambda|\ge2}\lambda^2(\lambda^2-1)=2\,\Theta(G)+8\,[b=4],\label{eq:m4}\\
+ \textstyle\sum_{|\lambda|\ge2}(\lambda^L-\lambda)=0\ \ (L\text{ odd},\ 3\le L<b),
+ \qquad\sum_{|\lambda|\ge2}(\lambda^b-\lambda)=2b\ \ \text{if $b$ is odd}.\label{eq:odd}
+\end{gather}
+
+\begin{lemma}\label{lem:adm}
+Let $G$ be integral and not a cycle.
+\begin{itemize}
+\item[(a)] The largest eigenvalue $\rho$ is simple and $\rho\ge3$; every
+ eigenvalue satisfies $|\lambda|\le\rho$ and $|\lambda|\le\sqrt{2n}$, and
+ $\lambda>-\rho$ if $b$ is odd.
+\item[(b)] $\mult(\lambda)\le2$ whenever $|\lambda|\ge2$.
+\item[(c)] If $b$ is even, the spectrum is symmetric, $S_2=n-\mult(1)$ and
+ $P+Q\le S_2-b+2$. If $b$ is odd, $P+Q\le\frac12\sum_{|\lambda|\ge2}\lambda^2-b+2$.
+\item[(d)] If $b$ is even, then $|B^+|\le4$ if $n\le41$, and $|B^+|\le5$ if
+ $n\le42$, with equality only if $B^+=\{4,3,3,2,2\}$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+(a) By Perron--Frobenius theory~\cite{bh}, $\rho$ is simple, $|\lambda|\le\rho$,
+and $-\rho$ is an eigenvalue only if $G$ is bipartite. As $G$ properly contains
+$C_b$, $\rho>2$. Also $\lambda^2\le\tr A^2=2n$. (b) is
+Lemma~\ref{lem:mult}(a). (c) For even $b$, $G$ is bipartite and~\eqref{eq:m4}
+gives $2n=2S_2+2\mult(1)$; by Lemma~\ref{lem:mult}(d),
+$S_2\ge b+P+2Q-\max(Q,2)\ge b+P+Q-2$. For odd $b$,
+$\sum_{|\lambda|\ge2}\lambda^2=2n-\mult(1)-\mult(-1)$, and the same estimate
+applies. (d) By (a) and (b), $B^+$ has a simple largest element and contains
+every other value at most twice. Five elements need $\rho\ge4$ and
+$S_2\ge4^2+2\cdot3^2+2\cdot2^2=42$, with equality only for $\{4,3,3,2,2\}$, and
+six need $S_2\ge5^2+4^2+2\cdot3^2+2\cdot2^2=67$; and $S_2\le n$ by (c).
+\end{proof}
+
+\section{Odd cycles}\label{sec:odd}
+
+\begin{proof}[Proof of Proposition~3]
+For $v\ge2$ let $\eta_v=\mult(v)-\mult(-v)$. For odd $L$ the eigenvalues in
+$\{0,\pm1\}$ satisfy $\lambda^L=\lambda$, and $(-v)^L-(-v)=-(v^L-v)$, so by
+Lemma~\ref{lem:trace}(b) and $\tr A=0$,
+\begin{equation}\label{eq:eta}
+ \sum_{v\ge2}\eta_v\,(v^L-v)=\tr A^L=0\ \ (L\text{ odd},\ L<g),\qquad
+ \sum_{v\ge2}\eta_v\,(v^g-v)=2g\,c_g.
+\end{equation}
+Let $q$ be prime with $(q-1)\mid(g-1)$. For every integer $\lambda$,
+$\lambda^g\equiv\lambda\pmod q$: this is clear if $q\mid\lambda$, and otherwise
+$\lambda^{q-1}\equiv1$ by Fermat's little theorem, so
+$\lambda^g=\lambda(\lambda^{q-1})^{(g-1)/(q-1)}\equiv\lambda$. Hence $q$ divides
+$\sum_\lambda(\lambda^g-\lambda)=2g\,c_g$. The prime $q=3$ qualifies as $g$ is
+odd.
+
+Let $V=\{v\ge2:\eta_v\ne0\}$, $s=|V|$, and suppose $s\le(g-3)/2$. The
+exponents $L=2j+1$, $1\le j\le s$, are odd and less than $g$, so
+$\sum_{v\in V}\eta_vv(w_v^j-1)=0$ for $1\le j\le s$, with $w_v=v^2$. Subtracting
+the row of the value $1$ from the other rows of the Vandermonde matrix of the
+distinct numbers $1$ and $w_v$ ($v\in V$) shows that $\det(w_v^j-1)$ equals
+that Vandermonde determinant, which is nonzero. Hence all $\eta_v=0$, which
+contradicts the definition of $V$ if $s>0$ and~\eqref{eq:eta} if $s=0$. So
+$s\ge(g-1)/2$, and $2e=\sum_\lambda\lambda^2\ge\sum_{v\in V}v^2\ge
+\sum_{v=2}^{(g+1)/2}v^2$.
+\end{proof}
+
+\begin{corollary}\label{cor:odd}
+Let $G$ be an integral unicyclic graph with $n$ vertices whose cycle has odd
+length $b$, and let $\kappa_b$ be the product of the primes $q$ with
+$(q-1)\mid(b-1)$. Then $\kappa_b\mid2b$; in particular $3\mid b$. The odd
+$b<200$ with $\kappa_b\mid2b$ are $3$, $15$, $27$, $39$, $63$, $75$, $87$,
+$99$, $123$, $135$, $147$, $159$, $183$ and $195$. If $b\ne3$, then $b\ge15$ and
+$n\ge102$.
+\end{corollary}
+
+\begin{proof}
+Here $g=b$, $c_g=1$ and $e=n$, so $\kappa_b\mid2b$ by Proposition~3. For
+$b=5,7,9,11,13$, $\kappa_b=30,42,30,66,2730$ does not divide $2b$; the list is a
+direct computation. If $b\ge15$, then $2n\ge\sum_{v=2}^8v^2=203$.
+\end{proof}
+
+\begin{remark}\label{rem:novelty}
+By the theorem of von Staudt and Clausen, $\kappa_b$ is the denominator of the
+Bernoulli number $B_{b-1}$. The first part of Proposition~3 uses integrality;
+for an arbitrary integer matrix one only has the classical congruence
+$\tr A^q\equiv\tr A\pmod q$ for primes $q$. The second part is a variant of the
+odd-polynomial argument of van Dam and Haemers~\cite[Section~2]{vdh}. We found
+no earlier statement of Proposition~3, even for unicyclic graphs ($20$ web
+searches, $9$ arXiv API queries and full-text searches of related papers), but
+the paper of Omidi~\cite{om} on necessary conditions for integral unicyclic
+graphs and~\cite{bdr} could not be read in full (paywalled). As the argument is
+elementary, its novelty is uncertain; we present it as an observation.
+\end{remark}
+
+\section{Restricting the cycle length}\label{sec:cycle}
+
+\begin{lemma}\label{lem:cycle}
+$N_{>1}(G)\ge N_{>1}(C_b)=2\lceil b/6\rceil-1$ and
+$N_{<-1}(G)\ge N_{<-1}(C_b)$. So if $G$ is integral and not a cycle, then
+$|B^+|\ge2\lceil b/6\rceil-1$; if moreover $b$ is even, then $b\le12$ when
+$n\le41$, and $b\le18$ when $n\le42$, with $B^+=\{4,3,3,2,2\}$ for
+$b\in\{14,16,18\}$. In particular, if $n\le42$ and $b\equiv2\pmod 4$, then
+$b\in\{6,10,14,18\}$.
+\end{lemma}
+
+\begin{proof}
+$C_b$ is an induced subgraph of $G$, so by Cauchy interlacing~\cite{bh} the
+$i$-th largest (smallest) eigenvalue of $G$ is at least (at most) that of $C_b$
+for $i\le b$. The eigenvalues of $C_b$ are $2\cos(2\pi j/b)$, $j\in\Z_b$, and
+$2\cos(2\pi j/b)>1$ if and only if $6|j|<b$ for $j\in(-b/2,b/2]$, which holds
+for $2\lceil b/6\rceil-1$ values of $j$. If $G$ is integral, its eigenvalues
+greater than $1$ form $B^+$. Now apply Lemma~\ref{lem:adm}(d);
+$2\lceil b/6\rceil-1=5$ for $13\le b\le18$.
+\end{proof}
+
+\begin{lemma}\label{lem:count}
+Let $G$ be integral with $b$ even, and $s=|B^+|$. Then
+$\mult(\pm1)=n-S_2$ and $\mult(0)=2S_2-n-2s$. Hence $S_2\le n\le2S_2-2s$ and
+$2S_2-n-2s\le\max(P,2)$.
+\end{lemma}
+
+\begin{proof}
+By symmetry $n=\mult(0)+2\mult(1)+2s$, and~\eqref{eq:m4} gives
+$2n=2S_2+2\mult(1)$. The last inequality is Lemma~\ref{lem:mult}(d).
+\end{proof}
+
+\begin{corollary}\label{cor:1418}
+No integral generalized sun graph with cycle length $14$ or $18$ has at most
+$42$ vertices.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:cycle}, $s=5$ and $S_2=42$. By Lemma~\ref{lem:count},
+$42\le n\le42$, so $\mult(1)=0$ and $\mult(0)=84-42-10=32\le\max(P,2)$. Then
+$n\ge b+P\ge46$, a contradiction.
+\end{proof}
+
+The next bound is due to the first referee agent (see the disclosure) and is the
+pruning rule of implementation~C in Section~\ref{sec:comp}. For $t\ge1$ let
+$\sigma(t)$ be the sum of the first $t$ terms of $4,4,4,4,9,9,9,9,16,\dots$, in
+which each $v^2$, $v\ge2$, appears four times, and let $\sigma(t)=0$ for
+$t\le0$. Thus $\sigma(9)=68$, $\sigma(10)=84$, $\sigma(11)=100$, $\sigma(14)=166$.
+
+\begin{lemma}\label{lem:rank}
+Let $G$ be integral and not a cycle, $r$ the number of eigenvalues with
+$|\lambda|\ge2$, and $r_0=b+|K_p|-\delta_0$, with $\delta_0,\delta_{\pm1}$ as in
+Lemma~\ref{lem:mult}. Then
+\begin{itemize}
+\item[(a)] $r=r_0+2|K_q|-\delta_1-\delta_{-1}\ge b-4$;
+\item[(b)] $\sigma(r)\le2n$;
+\item[(c)] $\sigma(r_0)\le2n-2|K_q|$ if $K_q\ne\emptyset$, and
+ $\sigma(r_0-4)\le2n-4$ if $K_q=\emptyset$.
+\end{itemize}
+Consequently, $b\le13$ if $n\le42$.
+\end{lemma}
+
+\begin{proof}
+(a) Since $r=n-\mult(0)-\mult(1)-\mult(-1)$, the formula follows from
+Lemma~\ref{lem:mult}(b),(c). If $K_p\ne\emptyset$, then $\delta_0\le|K_p|$ and
+$r_0\ge b$; otherwise $K_q\ne\emptyset$ and $r_0\ge b-2$. With
+$\delta_{\pm1}\le|K_q|$ if $K_q\ne\emptyset$ and $\delta_{\pm1}\le2$ otherwise,
+$r\ge b-4$. (b) Each value $\pm v$, $v\ge2$, occurs at most twice
+(Lemma~\ref{lem:adm}(b)), so the squares of these $r$ eigenvalues sum to at
+least $\sigma(r)$ and at most $2n$. (c) If $K_q\ne\emptyset$, put
+$x=2|K_q|-\delta_1-\delta_{-1}\ge0$; then $r=r_0+x$ and
+$\mult(1)+\mult(-1)=2Q-x$, so
+$\sigma(r_0)+4x\le\sigma(r)\le2n-2Q+x$, whence $\sigma(r_0)\le2n-2|K_q|$. If
+$K_q=\emptyset$, put $y=\delta_1+\delta_{-1}\le4$; then $r=r_0-y$ and
+$\sigma(r_0-4)+4(4-y)\le\sigma(r_0-y)\le2n-y$ (trivially if $r_0<4$), whence
+$\sigma(r_0-4)\le2n-4$.
+
+Let $n\le42$. If $b\ge15$, (a) and (b) give $100=\sigma(11)\le84$. If $b=14$,
+then $r_0\ge14$ (as $4\nmid14$), and (c) gives $166\le82$ or $84\le80$.
+\end{proof}
+
+\section{Computations}\label{sec:comp}
+
+\subsection{The programs}
+Each program takes $b$ and $N$, runs through the sequences $((p_k,q_k))_k$, not
+all zero, with $n\le N$, allowing $p_k,q_k>0$ at the same vertex, and decides
+exactly which graphs are integral. Graphs reported as integral were confirmed
+by factoring the characteristic polynomial with SymPy~\cite{sympy}.
+
+\emph{Implementation A} (\code{sunsearch.c}) lists the admissible spectra
+(Lemma~\ref{lem:adm} and, for odd $b$, \eqref{eq:odd}; version~5 adds
+Lemma~\ref{lem:cycle}, version~6 optionally Lemma~\ref{lem:count}) and assigns
+$(p_k,q_k)$ to $v_0,v_1,\dots$ by depth-first search, with a lexicographically
+largest pair at $v_0$. A node is discarded if no admissible spectrum is
+compatible with the bounds of Lemma~\ref{lem:prune}, \eqref{eq:m4} and
+Lemma~\ref{lem:adm}(c); as these bounds are monotone, the loops over $p_k$ and
+$q_k$ stop at the first discarded value. With Lemma~\ref{lem:count} switched on,
+version~6 also uses its inequalities in this test, with $n\ge b+P+2Q$ for the
+partial sums $P$ and $Q$; they are monotone as well. The window of Lemma~\ref{lem:window}
+only skips a node, and the last pair is solved from~\eqref{eq:m4}. At a leaf,
+A computes $\mult(m)$ for all $|m|\le9$ by Lemma~\ref{lem:mult}, for $|m|\ge2$
+with the integer matrices $hT_k$, $h=m(m^2-1)$, modulo four primes near
+$2^{62}$ and with an a priori bound below $2^{240}$ that makes the tests exact;
+$G$ is integral if and only if these multiplicities add up to $n$, as
+$|\lambda|\le\sqrt{2n}<10$.
+
+\emph{Implementation B} (\code{sunB.c}) was written separately, by the same
+agent. Version~1 prunes
+only by the largest admissible value of $\Theta(G)$, tests~\eqref{eq:m4} at the
+leaves (using $\mult(\pm1)\le\max(Q,2)$), and then tests the dihedrally
+canonical sequences (least image) exactly, via
+\[
+ F(x)=\det\bigl(x(x^2-1)(xI-A(C_b))-\diag(p_k(x^2-1)+q_kx^2)\bigr)
+ =x^{b-P}(x^2-1)^{b-Q}\det(xI-A),
+\]
+the equality following from the proof of Lemma~\ref{lem:schur}. $F$ is monic of
+degree $4b$, and if $G$ is integral its roots are integers in $[-9,9]$. B
+computes $F$ modulo three primes by interpolation; if the multiplicities of
+the roots $m\in[-9,9]$ modulo some prime add up to less than $4b$, then $G$ is
+not integral. Version~2 adds Lemma~\ref{lem:cycle} and the window of
+Lemma~\ref{lem:window}; version~3 adds Lemma~\ref{lem:count}, the rotation rule
+of A and the greatest image as canonical form. \emph{B2} (\code{sunB2.c}) is B
+(version~1) with the rotation rule of A, the greatest image as canonical form
+and a floating-point interlacing test (LAPACK's \texttt{dsyev}, margin
+$10^{-6}$) on an induced subgraph of every completion; version~2 adds
+Lemma~\ref{lem:cycle} and takes a larger induced subgraph. B2 serves only as a
+cross-check. (The header comments of \code{sunB.c}, version~3, and of both
+versions of B2 still describe the least image.)
+
+\emph{Implementation C} (\code{sunC.c}, \code{sunC2.c}) was written from scratch
+by the first referee agent. It enumerates support patterns (whether $p_k>0$, whether
+$q_k>0$) up to dihedral symmetry and then all values on each pattern. It
+discards patterns by Lemma~\ref{lem:rank}(a),(b) (C), also by
+Lemma~\ref{lem:rank}(c) (C2), or not at all. Its exact test computes
+$\phi(G)=\det(xI-A)$ modulo two primes by Schwenk's formula~\cite{sch} for the
+edge $e=v_{b-1}v_0$, $\phi(G)=\phi(G-e)-\phi(G-v_{b-1}-v_0)-2\phi(G-V(C_b))$,
+and, as B does, adds up the root multiplicities of the integers in $[-10,10]$
+modulo each prime, which must give $n$ if $G$ is integral.
+
+\emph{Implementation D} (\code{sunD_v1.c}, \code{sunD2.c}, \code{sunD3.c}) was
+written from scratch by a second referee agent (see the disclosure). It runs through all sequences,
+with no rotation rule, or only through those that are canonical for the
+greatest image under the key $64(p_k+2q_k)+p_k$. Its only pruning, for even
+$b$, is exact reachability, computed by dynamic programming: some completion
+and some multiset $B^+$ with a simple largest element $\rho\ge3$ and other
+elements in $[2,\rho-1]$, each at most twice, must satisfy the second identity
+of~\eqref{eq:m4} and $S_2\le n\le\min(N,S_2+\max(Q,2))$ (version~1 omits the
+bound $S_2+\max(Q,2)$). Version~3 can switch the pruning off, and then also
+accepts odd $b$. For each integer $k\in[-9,9]$, D bounds $\mult(k)$
+from above by the nullity modulo $2^{31}-1$ of a $b\times b$ integer matrix:
+$k(k^2-1)S(k)$ for $|k|\ge2$ (Lemma~\ref{lem:schur}), and the systems of
+Lemma~\ref{lem:mult}(b),(c) for $k\in\{0,\pm1\}$. If these bounds add up to
+less than $n$, then $G$ is not integral. The runs of D used no inertia bound and none of
+Lemmas~\ref{lem:cycle}--\ref{lem:rank} or~\ref{lem:window}.
+
+\subsection{Soundness of the pruning}
+Let $X=\{0,\dots,b-2\}$. Below, a tridiagonal matrix indexed by $Y\subseteq X$
+has off-diagonal entry $1$ in the positions $(k,k+1)$ and $(k+1,k)$ for which
+both $k$ and $k+1$ lie in $Y$, and $0$ elsewhere.
+
+\begin{lemma}\label{lem:prune}
+Let $m\ge2$ and let $T$ be tridiagonal on $X$ with diagonal entries
+$t_k\le f_k(m)-m$. Then $N_{>m}(G),N_{<-m}(G)\ge n_+(T)$ and
+$N_{\ge m}(G),N_{\le-m}(G)\ge n_+(T)+n_0(T)$. If $Y\subseteq K_q\cap X$ and $T'$
+is tridiagonal on $X\setminus Y$ with diagonal entries $t'_k\le p_k-1$, then
+$N_{>1}(G),N_{<-1}(G)\ge|Y|+n_+(T')$.
+\end{lemma}
+
+\begin{proof}
+The principal submatrix $S(m)_X$ is tridiagonal, as $b-1\notin X$, and
+$S(m)_X-T$ is diagonal and nonnegative. By Weyl's inequalities and Cauchy
+interlacing~\cite{bh}, $n_+(S(m))\ge n_+(S(m)_X)\ge n_+(T)$, and likewise for
+$n_++n_0$; apply Lemma~\ref{lem:schur}(a). As $f_k$ is odd, $\Delta
+S(-m)_X\Delta=-S(m)_X$ for $\Delta=\diag((-1)^k)$, and Lemma~\ref{lem:schur}(b)
+gives the negative side. For $T'$, let $U=(K_q\cap X)\setminus Y$. By
+Lemma~\ref{lem:schur}(c) and interlacing, $N_{>1}(G)\ge|K_q|+n_+(R_{Z\cap X})$;
+and $R_{Z\cap X}$ arises from the tridiagonal matrix on $X\setminus Y$ with
+diagonal $p_k-1$ by deleting the indices in $U$, so
+$n_+(R_{Z\cap X})\ge n_+(T')-|U|$, while $|K_q|\ge|Y|+|U|$. The negative side
+is the same with $R'$ and $\Delta$.
+\end{proof}
+
+At a node of A with $v_0,\dots,v_{d-1}$ assigned ($d\le b-1$), $T$ and $T'$ use
+the assigned values and, elsewhere, those of a bare vertex ($t_k=-m$,
+$t'_k=-1$), with $Y=K_q\cap\{0,\dots,d-1\}$. Raising $p_k$ or $q_k$ raises
+$t_k,t'_k$ or moves $k$ into $Y$, which does not decrease $|Y|+n_+(T')$; so the
+bounds are monotone. Inertias are computed by the pivot recurrence $d_1=t_1$,
+$d_k=t_k-1/d_{k-1}$, restarted after each index missing from the index set, in
+exact rational arithmetic (no overflow occurred).
+
+\begin{lemma}\label{lem:pivot}
+Let $T$ be symmetric tridiagonal with nonzero off-diagonal entries. If an exact
+zero pivot $d_k=0$ is counted as negative, $d_{k+1}$ as positive, and the
+recurrence is restarted with $d_{k+2}=t_{k+2}$, then the number of positive
+pivots is $n_+(T)$; with the signs exchanged one obtains $n_-(T)$.
+\end{lemma}
+
+\begin{proof}
+For small $\varepsilon>0$, $n_+(T)=n_+(T-\varepsilon I)$, whose pivots are
+$\Delta_k(\varepsilon)/\Delta_{k-1}(\varepsilon)$ with leading minors $\Delta_k$.
+The leading blocks are Jacobi matrices, with simple and strictly interlacing
+eigenvalues; if $\Delta_k(0)=0$, counting their negative eigenvalues shows
+that $\Delta_k(\varepsilon)$ and $\Delta_{k-1}(0)$ have opposite signs. The
+recurrence $\Delta_{j+1}=t_{j+1}\Delta_j-a_j^2\Delta_{j-1}$ ($a_j\ne0$ the
+off-diagonal entries) gives $\Delta_{k+1}(0)=-a_k^2\Delta_{k-1}(0)$ and
+$\Delta_{k+2}(0)=t_{k+2}\Delta_{k+1}(0)$. So $d_k(\varepsilon)\to0^-$,
+$d_{k+1}(\varepsilon)\to+\infty$, $d_{k+2}(\varepsilon)\to t_{k+2}$. For $n_-$
+use $T+\varepsilon I$.
+\end{proof}
+
+\begin{lemma}\label{lem:window}
+If $v_0,\dots,v_{d-1}$ are assigned, contributing $\Theta_d$ to $\Theta(G)$ and
+$W$ to $n-b$, and $r=b-d$, then every completion with $n\le N$ has
+$\Theta_d+2r\le\Theta(G)\le\Theta_d+g(N-b-W)+2(r-1)$, where $g(w)=(2+w)(1+w)$.
+\end{lemma}
+
+\begin{proof}
+A vertex of weight $w=p+2q$ contributes $g(w-q)+2q\le g(w)$, as
+$g(t)-g(t-1)=2t+2$, and at least $g(0)=2$. As $g$ is convex,
+$g(a)+g(c)\le g(a+c)+g(0)$, and $g$ is increasing.
+\end{proof}
+
+A node is skipped if no admissible value of $\Theta(G)$ from~\eqref{eq:m4} lies
+in this window. The window is not monotone in $p_k$, so it never ends a loop.
+
+\subsection{Results, controls and versions}
+Table~\ref{tab:runs} lists the searches; runs split into parts are summed.
+Besides these, A (version~4, $15{,}678$ nodes), C (no pruning, $1{,}601{,}329$
+sequences) and D (no pruning, all $3{,}031{,}469$ sequences) found no integral
+generalized sun graph with cycle length $3$ and at most $49$ vertices.
+
+\begin{table}[ht]\centering\footnotesize
+\begin{tabular}{@{}cc>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.3\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}@{}}\toprule
+$N$ & $b$ & A & B, B2 & C; D\\\midrule
+41 & 3 & v4: 5{,}033 / 1{,}357 & v1: 10{,}269 / 1{,}754 & 521{,}056 (np)\\
+ & 4 & v4: 398{,}136 / 85{,}505 & v1: 410{,}544 / 52{,}641 & 5{,}683{,}267 (np);\newline D: 410{,}544 (all)\\
+ & 5, 7, 9 & v4: no spectrum & v1: no spectrum & 20{,}292{,}905; 82{,}161{,}850;\newline 4{,}716{,}966\\
+ & 8 & v4: 70{,}518{,}560 / 576{,}976 & & 57{,}561{,}471;\newline D: 2{,}156{,}331\\
+ & 10 & v4: 50{,}716{,}095 / 52{,}652 & B2 v1: 52{,}652 / 14{,}662 & 3{,}814{,}116;\newline D: 2{,}124{,}182\\
+ & 11, 13, 15 & & v1: no spectrum & $b=11$: 1{,}239{,}693; $b=13$: 0\\
+ & 12 & v4: 5{,}860{,}901 / 902 & & 677{,}237;\newline D: 618{,}755\\\midrule
+42 & 3 & v4: 5{,}334 / 1{,}381 & v1: 11{,}895 / 2{,}030;\newline v3: 3{,}991 / 2{,}030 & 606{,}367 (np);\newline D: 1{,}246{,}783 (np)\\
+ & 6 & v4: 35{,}443{,}626 / 1{,}128{,}560;\newline v6: 11{,}623{,}493 / 572{,}032 & v1: 14{,}215{,}675 / 1{,}187{,}991;\newline v3: 1{,}046{,}629 / 520{,}217;\newline B2 v2: 1{,}128{,}560 / 449{,}500 & 201{,}673{,}369;\newline D: 153{,}225{,}129 (all)\\
+ & 10 & v5: 465{,}028{,}393 / 461{,}049;\newline v6: 19{,}679{,}948 / 71{,}680 & v3: 401{,}175 / 200{,}579 & C2: 4{,}601{,}920;\newline D: 119{,}245{,}995 (all)\\
+ & 14 & v5: 904{,}115 / 850 & v3: 0 & 1{,}951{,}786;\newline D: 1{,}128{,}742\\
+ & 18 & v5: 18 / 0 & v2: 2{,}048{,}976 / 56{,}952;\newline v3 and B2 v2: 0 & D: 67{,}817\\
+ & 5--15 odd & v4 ($b\le9$): no spectrum & v1, v3: no spectrum & \\
+ & 22, 26 & v6: no spectrum & & D: 0\\\bottomrule
+\end{tabular}
+\caption{The searches with $n\le N$. For A: search-tree nodes / exact leaf
+tests; for B and B2: sequences passing the moment tests / canonical sequences
+tested exactly; for C and D: sequences tested exactly, (np) meaning without
+pruning and (all) without symmetry reduction. The runs of D marked (np) have no
+symmetry reduction either, and its other runs test canonical sequences only.
+``No spectrum'': no admissible spectrum exists; for D, ``0'': no sequence passes
+its pruning. Every run found nothing, except at $b=4$
+(A, B, C and D: the three graphs of Theorem~2) and at $b=6$, $N=42$ (every run:
+$C_{6,1}(0,6,6,12,6,6)$ only). Version~6 of A used Lemma~\ref{lem:count}.}
+\label{tab:runs}
+\end{table}
+
+\paragraph{Controls and cross-checks.}
+A and B also agree at $b=4$, $N=36$. Version~2 of B2 ran to completion at
+$b=6$, $N=42$ and found only $C_{6,1}(0,6,6,12,6,6)$; the $1{,}128{,}560$
+sequences passing its moment tests are as many as the exact leaf tests of A
+(version~4). A note appended to its log says that this run was stopped, but
+the log also has the final line, which B2 prints only on completion, and a
+rerun gave the same final line. A run of B2 at $b=10$, $N=42$ was stopped
+unfinished and is not used. Version~6 of A at $b=4$, $N=49$ gives the same list
+with and without Lemma~\ref{lem:count}, including $C_{4,2}(10,10,0,0)$ with $44$
+vertices and $\mult(\pm1)=19$, and so does D. The first referee reran
+version~4 of A and version~1 of B2 at $b=10$, $N=41$: the sequences passing
+their moment tests form the same set of $52{,}652$, none of them integral under
+the exact test of C. Without symmetry reduction, D found at $b=6$, $N=42$
+exactly the six sequences of the dihedral orbit of $C_{6,1}(0,6,6,12,6,6)$, and
+nothing at $b=10$, $N=42$. The numbers of sequences passing its pruning and of
+canonical sequences equal those of B (version~1) at $b=4$, $N=41$
+($410{,}544$ and $52{,}641$) and at $b=6$, $N=42$ ($14{,}215{,}675$ and
+$1{,}187{,}991$). Against exact characteristic polynomials (SymPy),
+Lemma~\ref{lem:mult}, Lemma~\ref{lem:trace}(a) and the bound of
+Lemma~\ref{lem:rank}(a) hold on $2{,}968$ random graphs ($b\le14$, $n\le60$;
+$1{,}551$ with $\delta_0>0$, $953$ with $\delta_1+\delta_{-1}>0$), and the
+polynomials of C agree modulo $2^{61}-1$ on $400$ graphs; the multiplicities of
+A agree with floating-point eigenvalues on $3{,}877$ graphs, and the bounds of
+D equal the exact multiplicities (nullities over $\mathbb Q$) on $3{,}250$
+random graphs ($b\le12$, $n\le60$). The second referee also rebuilt versions~5
+and~6 of A and version~3 of B from their hashed sources and reproduced the
+logged counters of five of their runs. Two errors in earlier versions of A were found
+by these controls and by self-review, and corrected before the runs of
+Table~\ref{tab:runs}: the first version used the path on all $b$ cycle
+vertices, not a principal submatrix, and missed $C_{6,1}(0,6,6,12,6,6)$;
+version~3 ended loops when the window of Lemma~\ref{lem:window} failed. The
+superseded logs are kept.
+
+\paragraph{Versions.}
+The programs, logs, test scripts and both referee reports are in
+version~1.6.0 of~\cite{repo}, directory \code{certificates/sun-graphs/}, with
+A and B in \code{code/}, C in \code{review/code/} and D in
+\code{review/paper7/code/}; Table~\ref{tab:versions} lists the versions. The
+first referee agent audited versions~4 of A and~1 of B and B2, which produced
+all their runs with $N\le41$ and the runs of A and B with $N=42$ for
+$b=3,5,6,7,9$ (A) and $b\le15$ (B). The later versions,
+Lemma~\ref{lem:count} and Corollary~\ref{cor:1418} were written after its
+report. The second referee agent then checked the two proofs line by line, read
+the sources of versions~5 and~6 of A, versions~2 and~3 of B and version~2 of
+B2, reproduced counters of the later versions as described above, and
+recomputed the cases of Table~\ref{tab:cases} marked D with implementation~D.
+
+\begin{table}[ht]\centering\footnotesize
+\begin{tabular}{@{}ll>{\raggedright\arraybackslash}p{0.46\textwidth}@{}}\toprule
+file & SHA-256, first 16 digits & runs\\\midrule
+\code{sunsearch_v4_f5a38c28.c} & \texttt{f5a38c28cf395886} & A v4: $N\le41$; $N=42$, $b=3,5,6,7,9$; $N=49$, $b=3$\\
+\code{sunsearch_v5_bfcca593.c} & \texttt{bfcca593dc3ea0b2} & A v5: $N=42$, $b=10,14,18$\\
+\code{sunsearch_v6_39a87195.c} & \texttt{39a871959d2b3d92} & A v6: $N=42$, $b=6,10,22,26$; $N=49$, $b=4$\\
+\code{sunB_v1_4d92eb48.c} & \texttt{4d92eb484cefea14} & B v1: $N\le42$, $b\le15$\\
+\code{sunB_v2_8311d32e.c} & \texttt{8311d32e74f0cfbd} & B v2: $N=42$, $b=18$\\
+\code{sunB.c} (version 3) & \texttt{f0eb3d9ca506a3f7} & B v3: $N=42$\\
+\code{sunB2_v1_54531ad0.c} & \texttt{54531ad075d1015f} & B2 v1: $N=41$, $b=10$\\
+\code{sunB2.c} (version 2) & \texttt{c80538f9d4359954} & B2 v2: $N=42$, $b=6,18$\\
+\code{sunC.c} & \texttt{9401061cc17eff93} & C\\
+\code{sunC2.c} & \texttt{b3e35c7bc97529ac} & C2: $N=42$, $b=10$\\
+\code{sunD_v1.c} & \texttt{167d5a43514c4ef9} & D v1: $N=41$, $b=4$; $N=42$, $b=6$\\
+\code{sunD2.c} & \texttt{5d913b626f9dc685} & D v2: $N=41$, $b=4,8$; $N=42$, $b=6,10$; $N=49$, $b=4$\\
+\code{sunD3.c} & \texttt{e1a42832a46bd85d} & D v3: $N=41$, $b=10,12$; $N=42$, $b=14,18,22,26,30$\\
+\code{sunD3_maxb16.c} & \texttt{18a172d9cb9e42da} & D v3, smaller arrays: $N=42,49$, $b=3$\\\bottomrule
+\end{tabular}
+\caption{Program versions. The full SHA-256 values are recorded with the logs.}
+\label{tab:versions}
+\end{table}
+
+\section{Proofs of Theorems 1 and 2}\label{sec:proofs}
+
+\begin{proof}[Proof of Theorem~1]
+Let $G$ be a counterexample with $n\le42$; by~\cite[Theorem~2.1]{bms} it carries
+only copies of $P_1$ and $P_2$. Odd $b\ge5$ is excluded by
+Corollary~\ref{cor:odd}. If $b\equiv2\pmod4$, then $b\in\{6,10,14,18\}$ by
+Lemma~\ref{lem:cycle}, and $b\notin\{14,18\}$ by Corollary~\ref{cor:1418}. So
+$b\in\{3,6,10\}$, and the searches with $N=42$ give
+$G\cong C_{6,1}(0,6,6,12,6,6)$, a counterexample by~\cite{bms}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~2]
+Let $G$ be integral, not a cycle, with $n\le41$; by~\cite[Theorem~2.1]{bms} it
+carries only copies of $P_1$ and $P_2$. By Corollary~\ref{cor:odd} and
+Lemma~\ref{lem:cycle}, $b\in\{3,4,6,8,10,12\}$. The searches find nothing for
+$b\in\{3,8,10,12\}$, only the graph on $42$ vertices for $b=6$, and exactly the
+three graphs for $b=4$.
+\end{proof}
+
+\begin{table}[ht]\centering\footnotesize
+\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.4\textwidth}@{}}\toprule
+case & by hand & by computation\\\midrule
+\multicolumn{3}{@{}l}{\emph{Theorem~1: $n\le42$, $b\not\equiv0\pmod4$}}\\
+$b=3$ & & A v4; B v1, v3; C and D (no pruning)\\
+$b=6$ & & A v4, v6; B v1, v3; B2 v2; C; D\\
+$b=10$ & & A v5 (without Lemma~\ref{lem:count}), v6; B v3; C2; D\\
+$b=14$ & Corollary~\ref{cor:1418}; Lemma~\ref{lem:rank}(c) & A v5; C; D\\
+$b=18$ & Corollary~\ref{cor:1418}; Lemma~\ref{lem:rank}(a),(b) & A v5; B v2; D\\
+odd $b\ge5$ & Corollary~\ref{cor:odd}; for $b\ge15$ also Lemma~\ref{lem:rank}(a),(b) & A v4 ($b\le9$), B ($b\le15$): no spectrum\\
+even $b\ge22$ & Lemma~\ref{lem:cycle}; Lemma~\ref{lem:rank}(a),(b) & A v6 ($b=22,26$): no spectrum; D ($b=22,26,30$): none\\\midrule
+\multicolumn{3}{@{}l}{\emph{Theorem~2: $n\le41$}}\\
+$b=4$ & & A v4; B v1; C (no pruning); D\\
+$b=8,12$ & & A v4; C; D\\
+$b=10$ & & also A v4; B2 v1; C and D at $N=41$\\
+even $b\ge14$ & Lemma~\ref{lem:cycle}; Lemma~\ref{lem:rank}(a),(b) & \\
+odd $b\ge5$ & Corollary~\ref{cor:odd}; for $b\ge15$ also Lemma~\ref{lem:rank}(a),(b) & C for $b\le13$, without Corollary~\ref{cor:odd}\\\bottomrule
+\end{tabular}
+\caption{Confirmations of each case. A and B, with B2, were written separately
+by the agent that found the results; C, with C2, and D were written from
+scratch by two referee agents. The cases $b=3,6,10$ of Theorem~2 are covered
+by those of Theorem~1.}
+\label{tab:cases}
+\end{table}
+
+\section{Open questions}\label{sec:open}
+The questions of~\cite[Section~5]{bms}, whether the cycle length $b$ of an
+integral generalized sun graph other than a cycle must be even, and whether $4$
+and $6$ are the only possible values, remain open. By Corollary~\ref{cor:odd},
+an odd $b$ is $3$, or at least $15$ with $n\ge102$; and $b=3$ needs $n\ge50$
+(by the searches of Section~\ref{sec:comp}).
+Lemma~\ref{lem:rank} bounds $b$ for either parity: if $r_{\max}(n)$ is the
+largest $t$ with $\sigma(t)\le2n$, then $b\le r_{\max}(n)+4$; writing
+$r_{\max}(n)=4k+j$ with $0\le j\le3$, we have
+$2n\ge\sigma(4k)\ge4\sum_{v=1}^kv^2\ge\frac43k^3$, so $b\le(96n)^{1/3}+7$.
+
+Thanks are due to Rodrigo O.\ Braga, Jean Carlo Moraes and Matheus C.\ Santos
+for the question answered here.
+
+\section*{Tool and computational resource disclosure}
+This work was carried out on 26 September 2026 (UTC) in a workflow directed by
+the author, using AI coding agents: Anthropic Claude Code, with the model
+Claude Opus~5.5. Claude Code agents selected the problem, found the results and
+their proofs, wrote the programs, carried out the literature searches
+described in the introduction, and drafted this text. An independent Claude
+Code agent, which had not produced the results, refereed the proofs line by
+line, checked the lemmas of Section~\ref{sec:lemmas} against exact
+computations, compared the leaf sets of two programs, and reran the searches
+with its own program (implementation~C), written from scratch; its corrections
+have been applied. A second referee agent, which had produced neither the
+results nor implementation~C, later checked Lemma~\ref{lem:count},
+Corollary~\ref{cor:1418} and the later program versions, and recomputed the
+cases $b=3,4,6,8,10,12,14,18$ with a program of its own (implementation~D),
+written from scratch (Section~\ref{sec:comp}); its corrections have been
+applied as well. Throughout, ``we'' refers to this workflow; the
+reading and searching described in the paper were done by the agents. The
+searches ran on one computer (macOS, arm64), one core per run; no completed run
+took more than an hour. The author is not a professional mathematician.
+%% AUTHOR-ROLE-SENTENCE: to be completed after the author has read the paper
+Nothing in this paper is formally verified: the results rest on the written
+proofs and on the computations of Section~\ref{sec:comp}. AI systems are not
+authors of this paper; the author takes full responsibility for its content.
+
+{\footnotesize
+\begin{thebibliography}{99}\setlength{\itemsep}{1pt}
+\bibitem{bdr}
+R.~O. Braga, R.~R. Del-Vecchio and V.~M. Rodrigues, Integral unicyclic graphs,
+\emph{Linear Algebra Appl.} \textbf{614} (2021), 281--300,
+\url{https://doi.org/10.1016/j.laa.2020.05.002}.
+\bibitem{bms}
+R.~O. Braga, J.~C. Moraes and M.~C. Santos, Pendant paths and integral
+generalized sun graphs, arXiv:2609.28754v1, 23 September 2026.
+\bibitem{brt}
+R.~O. Braga, V.~M. Rodrigues and V.~Trevisan, Locating eigenvalues of
+unicyclic graphs, \emph{Appl.\ Anal.\ Discrete Math.} \textbf{11} (2017),
+273--298, \url{https://doi.org/10.2298/AADM1702273B}.
+\bibitem{bh}
+A.~E. Brouwer and W.~H. Haemers, \emph{Spectra of Graphs}, Universitext,
+Springer, New York, 2012, \url{https://doi.org/10.1007/978-1-4614-1939-6}.
+\bibitem{repo}
+H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~1.6.0
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{hs}
+F.~Harary and A.~J. Schwenk, Which graphs have integral spectra?, in
+\emph{Graphs and Combinatorics}, Lecture Notes in Math.~406, Springer, Berlin,
+1974, 45--51, \url{https://doi.org/10.1007/BFb0066434}.
+\bibitem{hay}
+E.~V. Haynsworth, Determination of the inertia of a partitioned Hermitian
+matrix, \emph{Linear Algebra Appl.} \textbf{1} (1968), 73--81,
+\url{https://doi.org/10.1016/0024-3795(68)90050-5}.
+\bibitem{sympy}
+A.~Meurer et al., SymPy: symbolic computing in Python, \emph{PeerJ Comput.\
+Sci.} \textbf{3} (2017), e103, \url{https://doi.org/10.7717/peerj-cs.103}.
+\bibitem{om}
+G.~R. Omidi, On integral graphs with few cycles, \emph{Graphs Combin.}
+\textbf{25} (2009), 841--849,
+\url{https://doi.org/10.1007/s00373-010-0913-1}.
+\bibitem{sch}
+A.~J. Schwenk, Computing the characteristic polynomial of a graph, in
+\emph{Graphs and Combinatorics}, Lecture Notes in Math.~406, Springer, Berlin,
+1974, 153--172, \url{https://doi.org/10.1007/BFb0066438}.
+\bibitem{tru}
+The Omega Institute, \texttt{trureturing} repository,
+\url{https://github.com/the-omega-institute/trureturing}, accessed 26
+September 2026.
+\bibitem{vdh}
+E.~R. van Dam and W.~H. Haemers, An odd characterization of the generalized
+odd graphs, \emph{J. Combin.\ Theory Ser.~B} \textbf{101} (2011), 486--489,
+\url{https://doi.org/10.1016/j.jctb.2011.03.001}; also arXiv:1202.2300.
+\bibitem{ver}
+M.~S.~T. Veras, Buscando grafos unic\'{\i}clicos integrais [Searching for
+integral unicyclic graphs], in \emph{XXXIII Sal\~ao de Inicia\c{c}\~ao
+Cient\'{\i}fica}, Porto Alegre, Brazil, 2021 (in Portuguese),
+\url{https://lume.ufrgs.br/bitstream/handle/10183/243963/Resumo_72921.pdf},
+accessed 26 September 2026.
+\end{thebibliography}}
+\end{document}

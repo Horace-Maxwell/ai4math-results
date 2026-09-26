@@ -1,0 +1,44 @@
+b=10  N>1(C_b)=3
+  one attachment kind P1: N>1 = 3
+  one attachment kind P2: N>1 = 4
+  two attachments at distance 1 kinds (P1,P1): N>1 = 3
+  two attachments at distance 1 kinds (P1,P2): N>1 = 4
+  two attachments at distance 1 kinds (P2,P2): N>1 = 4
+  two attachments at distance 2 kinds (P1,P1): N>1 = 3
+  two attachments at distance 2 kinds (P1,P2): N>1 = 4
+  two attachments at distance 2 kinds (P2,P2): N>1 = 4
+  two attachments at distance 3 kinds (P1,P1): N>1 = 3
+  two attachments at distance 3 kinds (P1,P2): N>1 = 4
+  two attachments at distance 3 kinds (P2,P2): N>1 = 4
+  two attachments at distance 4 kinds (P1,P1): N>1 = 3
+  two attachments at distance 4 kinds (P1,P2): N>1 = 4
+  two attachments at distance 4 kinds (P2,P2): N>1 = 4
+  two attachments at distance 5 kinds (P1,P1): N>1 = 3
+  two attachments at distance 5 kinds (P1,P2): N>1 = 4
+  two attachments at distance 5 kinds (P2,P2): N>1 = 4
+  min over two distinct-vertex attachments: 3
+b=14  N>1(C_b)=5
+  one attachment kind P1: N>1 = 5
+  one attachment kind P2: N>1 = 5
+  two attachments at distance 1 kinds (P1,P1): N>1 = 5
+  two attachments at distance 1 kinds (P1,P2): N>1 = 5
+  two attachments at distance 1 kinds (P2,P2): N>1 = 6
+  two attachments at distance 2 kinds (P1,P1): N>1 = 5
+  two attachments at distance 2 kinds (P1,P2): N>1 = 5
+  two attachments at distance 2 kinds (P2,P2): N>1 = 5
+  two attachments at distance 3 kinds (P1,P1): N>1 = 5
+  two attachments at distance 3 kinds (P1,P2): N>1 = 5
+  two attachments at distance 3 kinds (P2,P2): N>1 = 5
+  two attachments at distance 4 kinds (P1,P1): N>1 = 5
+  two attachments at distance 4 kinds (P1,P2): N>1 = 5
+  two attachments at distance 4 kinds (P2,P2): N>1 = 6
+  two attachments at distance 5 kinds (P1,P1): N>1 = 5
+  two attachments at distance 5 kinds (P1,P2): N>1 = 5
+  two attachments at distance 5 kinds (P2,P2): N>1 = 5
+  two attachments at distance 6 kinds (P1,P1): N>1 = 5
+  two attachments at distance 6 kinds (P1,P2): N>1 = 5
+  two attachments at distance 6 kinds (P2,P2): N>1 = 5
+  two attachments at distance 7 kinds (P1,P1): N>1 = 5
+  two attachments at distance 7 kinds (P1,P2): N>1 = 5
+  two attachments at distance 7 kinds (P2,P2): N>1 = 6
+  min over two distinct-vertex attachments: 5

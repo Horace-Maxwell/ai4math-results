@@ -1,0 +1,8 @@
+Sat Sep 26 21:36:41 UTC 2026
+A v4 source: f5a38c28cf3958862a5a30ebfeb4d166d23225e5801412a722697cb25421eb67  sunsearch_v4_f5a38c28.c
+binary: cc -O2 -o sunsearch sunsearch_v4_f5a38c28.c -lm (test mode = exact multiplicities of -9..9)
+python3 validate_leaf.py 1
+cases 1929 mismatches 0 integral among them 6
+python3 validate_leaf.py 2
+cases 1948 mismatches 0 integral among them 6
+Sat Sep 26 21:36:41 UTC 2026

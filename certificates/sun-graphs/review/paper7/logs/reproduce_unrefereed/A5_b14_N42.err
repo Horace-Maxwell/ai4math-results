@@ -1,0 +1,7 @@
+start 22:38:04
+b=14: N_{>1}(C_b)=5 N_{<-1}(C_b)=5
+b=14 NMAX=42 admissible spectra=1 pareto=1
+b=4: N_{>1}(C_b)=1 N_{<-1}(C_b)=1
+b=4 NMAX=49 admissible spectra=29 (no pareto, Lemma N on)
+B: b=3 NMAX=42 spectra=7 maxT=1236
+end 22:39:00

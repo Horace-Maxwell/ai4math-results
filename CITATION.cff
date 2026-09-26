@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "Research papers with Lean 4 proofs: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids and Reed–Muller weights"
+title: "Research papers with Lean 4 proofs: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights and integral sun graphs"
 type: software
 authors:
   - family-names: "Dong"
@@ -8,7 +8,7 @@ authors:
     affiliation: "Independent researcher"
     email: "maxwelldhx@gmail.com"
     orcid: "https://orcid.org/0009-0002-7554-7548"
-version: 1.5.0
+version: 1.6.0
 date-released: 2026-09-26
 license: Apache-2.0
 repository-code: "https://github.com/Horace-Maxwell/ai4math-results"
@@ -25,3 +25,4 @@ keywords:
   - median graphs
   - complete mappings
   - semigroups
+  - integral graphs

@@ -1,0 +1,4 @@
+start 22:27:13
+graphs=3000 unsound=0 mismatches=0 integral=69 eigs|k|>=2 with mult 2: 35  graphs with mult(0)>0: 2578
+       36.49 real        35.57 user         1.61 sys
+end 22:27:50

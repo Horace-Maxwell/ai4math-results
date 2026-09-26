@@ -1,0 +1,4 @@
+start 22:20:50
+sunD b=6 N=42 part=0/3 mode=all spectra=21 maxT=1272
+      290.07 real       282.31 user         3.16 sys
+end 22:25:40

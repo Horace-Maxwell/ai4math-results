@@ -1,0 +1,2 @@
+CAND b=6 n=42 : (0,0) (6,0) (6,0) (12,0) (6,0) (6,0)  modp-spec: -4^1 -3^2 -2^2 0^32 2^2 3^2 4^1
+C-DONE b=6 N=42 prune=1 allow3=1 part=2/3 rmax=10 patterns=142 kept=138 leaves=66511416 candidates=1

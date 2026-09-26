@@ -1,0 +1,5 @@
+start 22:33:46
+sunD2 b=14 N=42 part=0/1 mode=canon wmax spectra=21 maxT=1272
+DONE sunD2 b=14 N=42 part=0/1 mode=canon wmax spectra=21 nodes=8367007 leaves=2257090 tested=1128742 cands=0
+       20.43 real        18.45 user         0.18 sys
+end 22:34:06

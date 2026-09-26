@@ -1,0 +1,31 @@
+Follow-up runs for uniqueness at order 42 (2026-09-26, 20:00-21:30 UTC). Every run has NMAX = 42 (covers n <= 42).
+Binaries / sources (SHA-256 in code_hashes_n42.txt):
+  A v5  = code/sunsearch_v5_bfcca593.c   (binary code/sunsearch)      exact; L6' cycle filter
+  A v6  = code/sunsearch_v6_39a87195.c   (binary code/sunsearch_v6)   exact; v5 + optional Lemma N (5th arg = 1)
+  B v2  = code/sunB_v2_8311d32e.c                                     exact; moments + L6' + reachability window
+  B v3  = code/sunB.c (f0eb3d9c...)      (binary code/sunB)           exact; B v2 + Lemma N + max-key rotation, greatest-image canonical form
+  B2 v2 = code/sunB2.c (c80538f9...)     (binary code/sunB2)          exact leaves; LAPACK interlacing prune (margin 1e-6) + L6'
+Files:
+  A_b14_N42.*       A v5, b=14: 0 integral
+  A_b18_N42.*       A v5, b=18: 0 integral
+  A_b10_N42_p{0,1}  A v5, b=10, 2 parts, no Lemma N: 0 integral (465.0M nodes, 461,049 exact leaf tests)
+  A6_b10_N42.*      A v6 with Lemma N, b=10: 0 integral
+  A6ctrl_b6_N42.*   A v6 with Lemma N, b=6 positive control: exactly 1 (the 42-vertex graph)
+  B_b18_N42.*       B v2, b=18: 0 candidates
+  B_b14_N42.*       B v2, b=14: STOPPED (superseded)
+  B_b14_N42_v3.*, B_b18_N42_v3.*  B v3: pruned at the root (Lemma N), 0
+  B_b10_N42.*       B v3, b=10: 0 candidates
+  Bctrl_b6_N42.*    B v3, b=6 positive control: exactly 1 candidate (the 42-vertex graph), run to completion
+  B2_b18_N42.*      B2 v2, b=18: 0
+  B2_b14_N42.*      B2 v2, b=14: STOPPED (superseded)
+  B2ctrl_b6_N42.*   B2 v2, b=6 positive control: exactly 1 candidate (the 42-vertex graph); ran to completion (see the correction at the end)
+  B2_b10_N42_p{0,1} B2 v2, b=10, 2 parts: STOPPED unfinished at 21:19 (optional third check)
+  A6ctrl_b4_N49_lemN{0,1}.*  A v6, b=4, N=49, Lemma N off/on: identical 7 entries (graphs of 13, 20, 20, 44 vertices)
+  B_b{3..15}_N42_v3.*        B v3 on odd b: b=3 0 candidates (2,030 canonical tested); others no admissible spectrum
+  A6_b{22,26}_N42.*          A v6: no admissible spectrum (Lemma 6)
+Correction (2026-09-26, 23:05 UTC, added by the agent that packaged release v1.6.0; review REVIEW-paper7.md, N9):
+  B2ctrl_b6_N42 was listed above as "stopped after the hit". It ran to completion. Its .out file has the line
+  "B2-DONE ... moment_ok=1128560 canonical=449500 tested=449500 candidates=1", which sunB2.c prints only after the
+  search has finished (no signal handler, no time limit); the "STOPPED by agent at 20:08:29Z" line was appended
+  after that. A rerun of the same source (SHA-256 c80538f9...) at 22:52-22:56 UTC reproduced the CANDIDATE and
+  B2-DONE lines exactly: checks-addition/B2v2_b6_N42_rerun.log (next to the paper). The .out file is left as it was.

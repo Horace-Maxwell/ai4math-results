@@ -1,0 +1,5 @@
+b=3 NMAX=41 admissible spectra=7 pareto=1
+DONE b=3 NMAX=41 part=0/1 nodes=101476 pruned=110488 leaves=96352 integral=0 overflow_skips=0
+real 0.84
+user 0.82
+sys 0.00
