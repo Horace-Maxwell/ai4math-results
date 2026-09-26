@@ -688,7 +688,9 @@ referee agents checked each paper; for Paper 1, two referee agents checked
 earlier write-ups of the proofs of Theorems 4 and 5, and one of them wrote
 the second certification program for Theorem 5.
 
-AUTHOR-ROLE-V140: to be completed after the author has chosen A or B for the new material.
+The author has also read the new material of version 1.4.0 (Paper 1 in its
+version 1.4, and Papers 4, 5 and 6) and, using the same kind of side-by-side
+table, compared its Lean statements with the results in the papers.
 
 AI systems are not authors. The author takes full responsibility for the content.
 
