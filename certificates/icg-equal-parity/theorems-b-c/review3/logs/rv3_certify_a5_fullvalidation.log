@@ -1,0 +1,14 @@
+# rv3_a5_fullval  started 2026-09-26T18:42:50Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: python3 rv3_certify.py 5 --val 1.0 --seed 7
+rv3_certify a=5 K=4 need=1 bpar=1 regions=R1,R2 sample=1.0 seed=7 val=1.0  started 2026-09-26T18:42:50Z
+  T_5(p): symbolic Ramanujan-sum construction agrees with genuine Ramanujan sums at p = 3, 5, 7
+  region R1 (p = 5+s, q = 3+t): cheap last columns (4): [(-1, 1, 1, -1, 1, -1), (-1, 1, -1, 1, 1, -1), (-1, 1, -1, -1, 1, -1), (-1, -1, 1, -1, 1, -1)]
+  region R1: last columns with Delta > 2 delta certified: 26; sign of Delta - 2 delta undetermined for: []; g_+ = (-1, 1, -1, 1, -1, -1); anti = (1, -1, 1, -1, 1, -1)
+  region R1: done at 9s; failures so far 0
+  region R2 (p = 3, q = 5+t): cheap last columns (7): [(1, 1, -1, 1, 1, -1), (1, 1, -1, -1, 1, -1), (1, -1, -1, 1, 1, -1), (-1, 1, 1, -1, 1, -1), (-1, 1, -1, 1, 1, -1), (-1, 1, -1, -1, 1, -1), (-1, -1, 1, -1, 1, -1)]
+  region R2: last columns with Delta > 2 delta certified: 23; sign of Delta - 2 delta undetermined for: []; g_+ = (-1, 1, -1, 1, -1, -1); anti = (1, -1, 1, -1, 1, -1)
+  region R2: done at 20s; failures so far 0
+a=5 K=4 need=1 bpar=1 regions=R1,R2: {'branches_C1': 16680, 'branches_C2': 22, 'branches_C3': 22, 'branches_F': 3227, 'branches_S': 124, 'cmp_certified': 8237, 'cmp_split': 4685, 'eq_identity_checked': 2, 'items_C1': 9009, 'items_C2': 22, 'items_C3': 22, 'items_F': 1638, 'items_S': 124, 'validated_C1': 9009, 'validated_F': 1638, 'validated_S': 124}
+FAILURES: 0
+total time 20.1s
+# exit code 0; cpu 19.7s; wall 20.1s; finished 2026-09-26T18:43:10Z

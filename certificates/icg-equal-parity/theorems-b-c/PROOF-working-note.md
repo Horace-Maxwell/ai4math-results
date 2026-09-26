@@ -1,3 +1,5 @@
+> **Note added for release v1.5.0.** Paper 1 version 1.5 now claims Theorem 5 for all min{a, b} ≤ 8. The cases a = 5–8, described below as certified but not reviewed, were reviewed by a third referee agent (`review3/REVIEW_A5_8.md`).
+
 > **Note added for release v1.4.0.** This working note was written before Paper 1 version 1.4, and its status entries (for example on G3 and on the reviews) are as of writing. Its references to Paper 1 use older numbering: Conjecture 12 and Proposition 13 are Conjecture 14 and Proposition 15 of version 1.4, and Lemmas 4, 5, 6 and 7 are the path identity, the potential, the cell function and the local lemma (Lemmas 7, 8, 10 and 11 of version 1.4). Theorems B, B′ and C are Theorems 4, 25 and 5 of version 1.4. The runs for a = 5–8 (min(a, b) ≤ 8) have not been reviewed, and these cases are not claimed.
 
 # Theorem B: maximal energy of ICG(p²q^b) for even b (equal parity, a = 2)

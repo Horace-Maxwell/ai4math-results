@@ -1,0 +1,14 @@
+# rv3_a6  started 2026-09-26T18:25:25Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: python3 <project>/work/round6/equal-parity-a2/review3/rv3_certify.py 6 --val 0.05
+rv3_certify a=6 K=4 need=1 bpar=0 regions=R1,R2 sample=1.0 seed=20260926 val=0.05  started 2026-09-26T18:25:25Z
+  T_6(p): symbolic Ramanujan-sum construction agrees with genuine Ramanujan sums at p = 3, 5, 7
+  region R1 (p = 5+s, q = 3+t): cheap last columns (5): [(1, 1, -1, 1, -1, 1, -1), (1, -1, 1, 1, -1, 1, -1), (1, -1, 1, -1, 1, 1, -1), (1, -1, 1, -1, -1, 1, -1), (1, -1, -1, 1, -1, 1, -1)]
+  region R1: last columns with Delta > 2 delta certified: 57; sign of Delta - 2 delta undetermined for: []; g_+ = (1, -1, 1, -1, 1, -1, -1); anti = (-1, 1, -1, 1, -1, 1, -1)
+  region R1: done at 3s; failures so far 0
+  region R2 (p = 3, q = 5+t): cheap last columns (12): [(1, 1, -1, 1, -1, 1, -1), (1, 1, -1, -1, 1, 1, -1), (1, -1, 1, 1, -1, 1, -1), (1, -1, 1, -1, 1, 1, -1), (1, -1, 1, -1, -1, 1, -1), (1, -1, -1, 1, -1, 1, -1), (-1, 1, 1, -1, 1, 1, -1), (-1, 1, 1, -1, -1, 1, -1), (-1, 1, -1, -1, 1, 1, -1), (-1, -1, 1, 1, -1, 1, -1), (-1, -1, 1, -1, 1, 1, -1), (-1, -1, 1, -1, -1, 1, -1)]
+  region R2: last columns with Delta > 2 delta certified: 50; sign of Delta - 2 delta undetermined for: []; g_+ = (1, -1, 1, -1, 1, -1, -1); anti = (-1, 1, -1, 1, -1, 1, -1)
+  region R2: done at 8s; failures so far 0
+a=6 K=4 need=1 bpar=0 regions=R1,R2: {'branches_C1': 57655, 'branches_C2': 34, 'branches_C3': 17, 'branches_F': 7505, 'branches_S': 252, 'cmp_certified': 24732, 'cmp_split': 14123, 'eq_identity_checked': 2, 'items_C1': 25908, 'items_C2': 34, 'items_C3': 17, 'items_F': 3048, 'items_S': 252, 'validated_C1': 1389, 'validated_F': 147, 'validated_S': 13}
+FAILURES: 0
+total time 8.4s
+# exit code 0; cpu 8.4s; wall 8.5s; finished 2026-09-26T18:25:33Z

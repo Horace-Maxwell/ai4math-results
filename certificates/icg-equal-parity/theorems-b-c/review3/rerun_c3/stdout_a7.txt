@@ -1,0 +1,8 @@
+# c3_a7  started 2026-09-26T18:25:02Z  cwd=<project>/work/round6/equal-parity-a2/review3/rerun_c3
+# cmd: python3 <project>/work/round6/equal-parity-a2/review3/../review2/c3_certify.py 7 4 100
+a=7 region=big: validated q*s branch-min against direct cell computation at 100 random exact points: OK
+a=7 region=big: cheap last columns [((-1, 1, 1, -1, 1, -1, 1, -1), 1), ((-1, 1, -1, 1, 1, -1, 1, -1), 1), ((-1, 1, -1, 1, -1, 1, 1, -1), 1), ((-1, 1, -1, 1, -1, -1, 1, -1), 1), ((-1, 1, -1, -1, 1, -1, 1, -1), 1), ((-1, -1, 1, -1, 1, -1, 1, -1), 1)]; columns with Delta > 2 delta: 120; trunc = (-1, 1, -1, 1, -1, 1, -1, -1)
+a=7 region=p3: validated q*s branch-min against direct cell computation at 100 random exact points: OK
+a=7 region=p3: cheap last columns [((1, 1, -1, 1, 1, -1, 1, -1), 1), ((1, 1, -1, 1, -1, 1, 1, -1), 1), ((1, 1, -1, 1, -1, -1, 1, -1), 1), ((1, 1, -1, -1, 1, -1, 1, -1), 1), ((1, -1, 1, 1, -1, 1, 1, -1), 1), ((1, -1, 1, 1, -1, -1, 1, -1), 1), ((1, -1, 1, -1, -1, 1, 1, -1), 1), ((1, -1, -1, 1, 1, -1, 1, -1), 1), ((1, -1, -1, 1, -1, 1, 1, -1), 1), ((-1, 1, 1, -1, 1, -1, 1, -1), 1), ((-1, 1, -1, 1, 1, -1, 1, -1), 1), ((-1, 1, -1, 1, -1, 1, 1, -1), 1), ((-1, 1, -1, 1, -1, -1, 1, -1), 1), ((-1, 1, -1, -1, 1, -1, 1, -1), 1), ((-1, -1, 1, -1, 1, -1, 1, -1), 1)]; columns with Delta > 2 delta: 111; trunc = (-1, 1, -1, 1, -1, 1, -1, -1)
+a=7 K=4: checks {'S': 512, 'FD1': 19556, 'CH': 182508, 'CHalone': 42, 'full': 42, 'EQ': 24, 'validated': 76245}; failures 0; time 69s
+# exit code 0; cpu 67.9s; wall 68.7s; finished 2026-09-26T18:26:10Z

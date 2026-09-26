@@ -1,0 +1,9 @@
+# bnb_test_big  started 2026-09-26T18:34:45Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: python3 rv3_bnb.py 8,8@5,3 8,8@3,5 5,25@5,3 8,16@3,5 7,15@7,3
+(8,8) p=5 q=3: Theta=257428997247; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=12032; 2.1s
+(8,8) p=3 q=5: Theta=257428997247; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=19200; 3.1s
+(5,25) p=5 q=3: Theta=513372380283662241; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=3488; 0.3s
+(8,16) p=3 q=5: Theta=193997328016497247; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=27392; 4.4s
+(7,15) p=7 q=3: Theta=2119848583894563; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=9344; 1.2s
+runs 5, failures 0
+# exit code 0; cpu 10.8s; wall 11.2s; finished 2026-09-26T18:34:56Z

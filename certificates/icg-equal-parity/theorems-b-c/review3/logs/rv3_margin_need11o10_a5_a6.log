@@ -1,0 +1,9 @@
+# margin_1110_a5_a6  started 2026-09-26T18:39:45Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: zsh -c for a in 5 6; do python3 <project>/work/round6/equal-parity-a2/review3/rv3_certify.py $a --need 11/10 --skip-gplus --val 0 | grep -E '^a=|FAIL'; done
+a=5 K=4 need=11/10 bpar=1 regions=R1,R2: {'branches_C1': 19175, 'branches_C2': 26, 'branches_C3': 26, 'branches_F': 3227, 'branches_S': 124, 'cmp_certified': 9526, 'cmp_split': 5163, 'eq_identity_checked': 2, 'items_C1': 10647, 'items_C2': 26, 'items_C3': 26, 'items_F': 1638, 'items_S': 124}
+FAILURES: 2
+  FAIL ('C3', 'C3(b=1) g=(-1, 1, -1, 1, 1, -1)', 'R2')
+  FAIL ('C3', 'C3(b=1) g=(-1, -1, 1, -1, 1, -1)', 'R2')
+a=6 K=4 need=11/10 bpar=0 regions=R1,R2: {'branches_C1': 57655, 'branches_C2': 34, 'branches_C3': 17, 'branches_F': 7505, 'branches_S': 252, 'cmp_certified': 24732, 'cmp_split': 14123, 'eq_identity_checked': 2, 'items_C1': 25908, 'items_C2': 34, 'items_C3': 17, 'items_F': 3048, 'items_S': 252}
+FAILURES: 0
+# exit code 0; cpu 1.3s; wall 1.3s; finished 2026-09-26T18:39:47Z

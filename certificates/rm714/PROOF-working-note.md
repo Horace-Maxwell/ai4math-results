@@ -484,7 +484,7 @@ G1: 06:41–07:15Z. G2: 13:43–14:03Z (sub-agent; 113 query rows in `querylog.t
   - rigorous partial obstructions (C′, D, E, F6), with a clear mechanism (dimension counting).
 - **The race risk is real.**
   - The witnesses are easy to find by computer: our sampler found them in minutes.
-  - A revision of 2606.21425 with a computational section has been announced (pith.science review).
+  - ~~A revision of 2606.21425 with a computational section has been announced (pith.science review).~~ **Correction (2026-09-26):** this was wrong. The "author response" on the pith.science page is marked there as simulated; the authors themselves have not announced anything, as far as we know.
   - MathDB lists both questions as open, and AI conjecture-mining groups are active.
 - **Settling U₀ is uncertain.** It needs the KTA normal forms (the paper is not reachable for bots) and a sizeable case analysis. The evidence points to non-existence, which needs a proof, not a search. A v2 can add it later.
 

@@ -1,0 +1,14 @@
+# rv3_a7  started 2026-09-26T18:25:23Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: python3 <project>/work/round6/equal-parity-a2/review3/rv3_certify.py 7 --val 0.02
+rv3_certify a=7 K=4 need=1 bpar=1 regions=R1,R2 sample=1.0 seed=20260926 val=0.02  started 2026-09-26T18:25:23Z
+  T_7(p): symbolic Ramanujan-sum construction agrees with genuine Ramanujan sums at p = 3, 5, 7
+  region R1 (p = 5+s, q = 3+t): cheap last columns (6): [(-1, 1, 1, -1, 1, -1, 1, -1), (-1, 1, -1, 1, 1, -1, 1, -1), (-1, 1, -1, 1, -1, 1, 1, -1), (-1, 1, -1, 1, -1, -1, 1, -1), (-1, 1, -1, -1, 1, -1, 1, -1), (-1, -1, 1, -1, 1, -1, 1, -1)]
+  region R1: last columns with Delta > 2 delta certified: 120; sign of Delta - 2 delta undetermined for: []; g_+ = (-1, 1, -1, 1, -1, 1, -1, -1); anti = (1, -1, 1, -1, 1, -1, 1, -1)
+  region R1: done at 8s; failures so far 0
+  region R2 (p = 3, q = 5+t): cheap last columns (15): [(1, 1, -1, 1, 1, -1, 1, -1), (1, 1, -1, 1, -1, 1, 1, -1), (1, 1, -1, 1, -1, -1, 1, -1), (1, 1, -1, -1, 1, -1, 1, -1), (1, -1, 1, 1, -1, 1, 1, -1), (1, -1, 1, 1, -1, -1, 1, -1), (1, -1, 1, -1, -1, 1, 1, -1), (1, -1, -1, 1, 1, -1, 1, -1), (1, -1, -1, 1, -1, 1, 1, -1), (-1, 1, 1, -1, 1, -1, 1, -1), (-1, 1, -1, 1, 1, -1, 1, -1), (-1, 1, -1, 1, -1, 1, 1, -1), (-1, 1, -1, 1, -1, -1, 1, -1), (-1, 1, -1, -1, 1, -1, 1, -1), (-1, -1, 1, -1, 1, -1, 1, -1)]
+  region R2: last columns with Delta > 2 delta certified: 111; sign of Delta - 2 delta undetermined for: []; g_+ = (-1, 1, -1, 1, -1, 1, -1, -1); anti = (1, -1, 1, -1, 1, -1, 1, -1)
+  region R2: done at 21s; failures so far 0
+a=7 K=4 need=1 bpar=1 regions=R1,R2: {'branches_C1': 182508, 'branches_C2': 42, 'branches_C3': 42, 'branches_F': 19556, 'branches_S': 508, 'cmp_certified': 61765, 'cmp_split': 37947, 'eq_identity_checked': 2, 'items_C1': 69615, 'items_C2': 42, 'items_C3': 42, 'items_F': 6630, 'items_S': 508, 'validated_C1': 1431, 'validated_F': 108, 'validated_S': 9}
+FAILURES: 0
+total time 21.3s
+# exit code 0; cpu 21.1s; wall 21.4s; finished 2026-09-26T18:25:45Z

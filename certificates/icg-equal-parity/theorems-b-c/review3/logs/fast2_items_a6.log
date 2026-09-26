@@ -1,0 +1,9 @@
+# fast2_items_a6  started 2026-09-26T18:29:14Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: python3 rv3_fast2_items.py 6
+a=6 K=4: counts {'S': 256, 'FD1': 259104, 'EQ': 123, 'CH': 2202384, 'CHalone': 34, 'full': 17, 'EQwrong': 256}; cheap last columns {'big': 5, 'p3': 12}; failures 0 (22s)
+[instrumented run finished in 22s; generic_fast2 result ok=True]
+a=6: recorded items: F 3048, C1 25908; other certify() categories: ['EQwrong']
+  region big: last columns with chain items (5): [(1, -1, -1, 1, -1, 1, -1), (1, -1, 1, -1, -1, 1, -1), (1, -1, 1, -1, 1, 1, -1), (1, -1, 1, 1, -1, 1, -1), (1, 1, -1, 1, -1, 1, -1)]
+  region p3: last columns with chain items (12): [(-1, -1, 1, -1, -1, 1, -1), (-1, -1, 1, -1, 1, 1, -1), (-1, -1, 1, 1, -1, 1, -1), (-1, 1, -1, -1, 1, 1, -1), (-1, 1, 1, -1, -1, 1, -1), (-1, 1, 1, -1, 1, 1, -1), (1, -1, -1, 1, -1, 1, -1), (1, -1, 1, -1, -1, 1, -1), (1, -1, 1, -1, 1, 1, -1), (1, -1, 1, 1, -1, 1, -1), (1, 1, -1, -1, 1, 1, -1), (1, 1, -1, 1, -1, 1, -1)]
+  item-list problems vs Proposition 31 structure: 0
+# exit code 0; cpu 21.9s; wall 22.2s; finished 2026-09-26T18:29:36Z

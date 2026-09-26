@@ -1,0 +1,9 @@
+a=5 region big: rv3 4, c3 4, fast2 4 -> identical sets: True
+a=5 region p3: rv3 7, c3 7, fast2 7 -> identical sets: True
+a=6 region big: rv3 5, c3 5, fast2 5 -> identical sets: True
+a=6 region p3: rv3 12, c3 12, fast2 12 -> identical sets: True
+a=7 region big: rv3 6, c3 6, fast2 6 -> identical sets: True
+a=7 region p3: rv3 15, c3 15, fast2 15 -> identical sets: True
+a=8 region big: rv3 7, c3 7, fast2 7 -> identical sets: True
+a=8 region p3: rv3 19, c3 19, fast2 19 -> identical sets: True
+ALL IDENTICAL

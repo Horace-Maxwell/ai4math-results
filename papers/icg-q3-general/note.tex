@@ -18,14 +18,16 @@
 \newcommand{\E}{\mathcal E}
 \newcommand{\NA}{\operatorname{NA}}
 \title{The maximal energy of integral circulant graphs\\ of orders
-$p^{2r}3^{2s+1}$, $pq^m$ and $p^2q^b$\thanks{Version~1.4, released as
-version~1.4.0 of~\cite{repo}; the previous version of this paper is
-version~1.2 (release~1.2.0). This version adds Theorems~\ref{thm:ptwo}
+$p^{2r}3^{2s+1}$, $pq^m$ and $p^2q^b$\thanks{Version~1.5 extends
+Theorem~\ref{thm:minfour} to $\min\{a,b\}\le8$; the other results and the
+numbering of version~1.4 are unchanged. Version~1.4, released as
+version~1.4.0 of~\cite{repo}, added Theorems~\ref{thm:ptwo}
 and~\ref{thm:minfour} (exponents of equal parity, one of them at most~$4$)
-and Sections~\ref{sec:column}--\ref{sec:minfour}. The statements after
-Theorem~\ref{thm:onem} are renumbered, and the section on verification is
-now Section~\ref{sec:verif}; Theorem~10, Conjecture~12 and Proposition~13 of
-version~1.2 are now Theorem~\ref{thm:sign}, Conjecture~\ref{conj:equal} and
+and Sections~\ref{sec:column}--\ref{sec:minfour} to version~1.2
+(release~1.2.0). It renumbered the statements after Theorem~\ref{thm:onem}
+and moved the section on verification to Section~\ref{sec:verif};
+Theorem~10, Conjecture~12 and Proposition~13 of version~1.2 are now
+Theorem~\ref{thm:sign}, Conjecture~\ref{conj:equal} and
 Proposition~\ref{prop:cert}. The results of version~1.2 are unchanged.}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
@@ -56,8 +58,9 @@ $\delta_b$ are explicit polynomials, and it is attained exactly by
 $\{p^iq^j: i+j\text{ odd}\}$ and $\{p^iq^j: i+j\text{ even}\}\setminus\{n\}$.
 With the opposite-parity case, this determines the maximal energy for every
 order $p^aq^b$ with $\min\{a,b\}\le2$. A computer-assisted extension of the
-argument, whose certificates were checked by two independent programs, proves
-the conjecture also when one of the exponents is $3$ or $4$. The main
+argument, whose certificates were checked by three independently written
+programs, proves the conjecture also when one of the exponents is at
+most~$8$. The main
 theorem, the two sign-matrix inequalities, the energy formula for these
 graphs and the theorems for exponents $1$ and $2$ are formally verified in
 Lean~4; the closed-form evaluation of the maximal energies and the
@@ -117,7 +120,7 @@ itself and is not a set of proper divisors, and the maximiser changes. For
 this case we state a conjecture (Conjecture~\ref{conj:equal}), with two
 maximisers and an explicit maximal energy. We prove it when one of the
 exponents equals~$1$ or~$2$, and, with computer assistance, when one of them
-equals $3$ or~$4$. For $n=p^aq^b$, a set written as $\{p^iq^j:\ \dots\}$
+is between $3$ and~$8$. For $n=p^aq^b$, a set written as $\{p^iq^j:\ \dots\}$
 consists of the divisors $p^iq^j$ of $n$ ($0\le i\le a$, $0\le j\le b$) with
 the stated property, and $\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)$
 (Remark~\ref{rem:closed}).
@@ -166,30 +169,30 @@ gives the following.
 
 \begin{theorem}\label{thm:minfour}
 Let $p,q$ be distinct odd primes, let $a,b\ge1$ with $a+b$ even and
-$\min\{a,b\}\le4$, and let $n=p^aq^b$. The maximal energy of an integral
+$\min\{a,b\}\le8$, and let $n=p^aq^b$. The maximal energy of an integral
 circulant graph of order $n$ is
 $\tfrac12\bigl[n+d_a(p)\,d_b(q)\bigr]-\delta_a(p)\,\delta_b(q)$, and it is
 attained exactly by the sets $\{p^iq^j:\ i+j\ \text{odd}\}$ and
-$\{p^iq^j:\ i+j\ \text{even}\}\setminus\{n\}$. For $\min\{a,b\}\in\{3,4\}$
+$\{p^iq^j:\ i+j\ \text{even}\}\setminus\{n\}$. For $3\le\min\{a,b\}\le8$
 the proof is computer-assisted, and it is not formalised in Lean.
 \end{theorem}
 
 For $\min\{a,b\}\le2$ this is Theorem~\ref{thm:onem} or
-Theorem~\ref{thm:ptwo}. For $\min\{a,b\}\in\{3,4\}$, the method of
-Theorem~\ref{thm:ptwo} reduces the claim, separately for the exponents $3$
-and $4$ and for all values of the other exponent at once, to a finite list of
-inequalities between explicit rational functions of $p$ and $q$. We verified
-this list by exact computer calculation with two independent programs, one of
-them written by a referee agent (Section~\ref{sec:minfour}).
-Proposition~\ref{prop:cert} gives an independent check of eleven of the
-exponent pairs.
+Theorem~\ref{thm:ptwo}. For $3\le\min\{a,b\}\le8$, the method of
+Theorem~\ref{thm:ptwo} reduces the claim, separately for each of these
+exponents and for all values of the other exponent at once, to a finite list
+of inequalities between explicit rational functions of $p$ and $q$. We
+verified these lists by exact computer calculation with three independently
+written programs, two of them written by referee agents
+(Section~\ref{sec:minfour}). Proposition~\ref{prop:cert} gives an
+independent check of eleven of the exponent pairs.
 
 Theorems~\ref{thm:jy} and~\ref{thm:main} cover every order whose exponents
 have opposite parity. So Theorems~\ref{thm:jy}--\ref{thm:minfour} determine
 the maximal energy, and all maximisers, for every order $p^aq^b$ with
-$\min\{a,b\}\le4$, where $p,q$ are distinct odd primes; for
+$\min\{a,b\}\le8$, where $p,q$ are distinct odd primes; for
 $\min\{a,b\}\le2$ the proof does not depend on a computer. The conjecture
-remains open when $\min\{a,b\}\ge5$. Our searches for earlier work on
+remains open when $\min\{a,b\}\ge9$. Our searches for earlier work on
 exponents of equal parity were made on 26 September 2026, between 03:37 and
 04:32 UTC, in arXiv, OpenAlex, Semantic Scholar, Google Scholar, web search
 engines, and GitHub code, issues, pull requests and commits, including the
@@ -197,7 +200,8 @@ repositories of~\cite{park,schreib,tru}; an incremental search of arXiv,
 OpenAlex and GitHub followed between 05:53 and 05:58 UTC. They found no
 earlier determination of the maximal energy for such orders; for $n=pq$ it
 can be derived from known energy formulas (Remark~\ref{rem:pq}). A final
-check on 26 September 2026 between 15:49 and 15:52 UTC (the arXiv, including
+check on 26 September 2026 between 15:49 and 15:52 UTC, repeated for
+version~1.5 between 19:04 and 19:06 UTC (the arXiv, including
 the versions of~\cite{jy}; GitHub, including the issues of~\cite{tru}; MathDB;
 and MathOverflow, through the Stack Exchange API) found nothing new. This
 reports the coverage of our searches, not a guarantee of priority.
@@ -472,7 +476,7 @@ By the computation above, the first of the two sets always attains the
 conjectured value. Since $d_1(x)=3x-4$, $\delta_1(x)=x-2$,
 $d_2(x)=5x^2-8x+4$ and $\delta_2(x)=x^2-2x+2$, Theorems~\ref{thm:onem}
 and~\ref{thm:ptwo} are the cases $\min\{a,b\}=1$ and $\min\{a,b\}=2$ of the
-conjecture, and Theorem~\ref{thm:minfour} is the case $\min\{a,b\}\le4$; they
+conjecture, and Theorem~\ref{thm:minfour} is the case $\min\{a,b\}\le8$; they
 are proved in Sections~\ref{sec:onem}, \ref{sec:ptwo}
 and~\ref{sec:minfour}. The next result is computer-assisted.
 
@@ -518,8 +522,8 @@ the proposition is contained in Theorem~\ref{thm:minfour}, and for the pairs
 $(2,b)$ and $(b,2)$ in Theorem~\ref{thm:ptwo}. Its proof treats each sign
 matrix separately and does not use Sections~\ref{sec:column}
 to~\ref{sec:minfour}, so it is an independent check of these cases.
-Conjecture~\ref{conj:equal} remains open when $\min\{a,b\}\ge5$; the
-smallest open exponent pairs are $(5,5)$, $(5,7)$, $(7,5)$ and $(6,6)$.
+Conjecture~\ref{conj:equal} remains open when $\min\{a,b\}\ge9$; the
+smallest open exponent pairs are $(9,9)$, $(9,11)$, $(11,9)$ and $(10,10)$.
 
 \begin{remark}\label{rem:pq}
 For $n=pq$, Theorem~\ref{thm:onem} gives the maximal energy $4(p-1)(q-1)$,
@@ -1264,8 +1268,9 @@ is large.
 \section{Proof of Theorem~\ref{thm:minfour}}\label{sec:minfour}
 For $\min\{a,b\}\le2$, Theorem~\ref{thm:minfour} is Theorem~\ref{thm:onem}
 or Theorem~\ref{thm:ptwo}, after exchanging the names of the primes if
-necessary. Let $\min\{a,b\}\in\{3,4\}$; exchanging the names of the primes if
-necessary, we may assume that $a\in\{3,4\}$ is the exponent of~$p$. As in the
+necessary. Let $3\le\min\{a,b\}\le8$; exchanging the names of the primes if
+necessary, we may assume that the exponent $a$ of~$p$ satisfies
+$3\le a\le8$. As in the
 proof of Theorem~\ref{thm:ptwo}, it suffices to show, for all real $p,q$
 satisfying~\eqref{eq:regions} and all $b\ge1$ with $b\equiv a\pmod2$, that
 every $Y\in\{\pm1\}^{(a+1)\times(b+1)}$ with $y_{ab}=-1$ satisfies
@@ -1274,7 +1279,7 @@ notation of Section~\ref{sec:column}. The proof of Theorem~\ref{thm:signB}
 used $a=2$ only in Lemmas~\ref{lem:colS}, \ref{lem:fd1} and~\ref{lem:fd2}
 and in the list~\eqref{eq:Deltas} of the possible last columns.
 Proposition~\ref{prop:reduction} below replaces them by finitely many
-inequalities that do not depend on~$b$; for $a=3$ and $a=4$ these were
+inequalities that do not depend on~$b$; for $3\le a\le8$ these were
 verified by computer.
 
 Let $\mathcal R_1$ and $\mathcal R_2$ be the two sets of pairs $(p,q)$
@@ -1393,7 +1398,7 @@ $1\le i\le k$.
 \end{itemize}
 \end{proof}
 
-\paragraph{The certificates.} For $a=3$ and $a=4$ we verified (S$_a$),
+\paragraph{The certificates.} For $3\le a\le8$ we verified (S$_a$),
 (F$_a$) and (C$_a$) on both regions by exact computer calculation. The
 entries of $M$, $Mc$, $\alpha$ and $Mg$ are polynomials in $p$, while
 $\mu_0$, $\mu_\infty$, $\mu_1$ and the maps $\eta_n$ are rational in $q$.
@@ -1444,11 +1449,41 @@ region into its two branches, and it evaluates every certified expression at
 a random rational point as a check. It certifies the complete conditions for
 $a=3$ and $a=4$ without failures. As negative controls, it rejects them when
 the right-hand side of (F$_a$) is multiplied by $\frac54$, and on regions
-enlarged to contain $p=q=3$. These programs and their logs are in the
-directory \texttt{certificates/\allowbreak icg-equal-parity/\allowbreak theorems-b-c}
-of~\cite{repo}, the referee's programs in its subdirectory
-\texttt{review2}. The proof of Theorem~\ref{thm:minfour} for
-$\min\{a,b\}\in\{3,4\}$ rests on these computations; it is not formalised.
+enlarged to contain $p=q=3$.
+
+The SymPy program \texttt{generic\_prover.py} was run only for $a\le4$. For
+$a=5$, $6$, $7$ and~$8$ the lists were generated and certified by
+\texttt{generic\_fast2.py}, with $69\,368$, $259\,104$, $1\,129\,336$ and
+$4\,182\,048$ branches for (F$_a$) and $381\,524$, $2\,202\,384$,
+$11\,858\,028$ and $54\,366\,624$ for (C1), and independently by
+\texttt{c3\_certify.py}, all without failures.
+The last columns that need (C$_a$) number $4$, $5$, $6$ and~$7$ on
+$\mathcal R_1$ and $7$, $12$, $15$ and~$19$ on $\mathcal R_2$; they are
+listed in the logs of \texttt{c3\_certify.py} and \texttt{rv3\_certify.py}
+(directories \texttt{review2/logs} and \texttt{review3/logs} of~\cite{repo}), and every other last column $g$ with $g_a=-1$, other
+than $-(-1)^as_a$ and $g_+$, satisfies $\Delta(g)>2\delta_a(p)$ on the
+region. A third program, \texttt{rv3\_certify.py}, was written by another
+referee agent. It builds $T_a(p)$ from the Ramanujan-sum definition,
+enumerates the conditions of Proposition~\ref{prop:reduction} from its
+statement, evaluates each cell by the case analysis in the proof of
+Lemma~\ref{lem:cell}, and checks a sample of the certified expressions
+against a direct evaluation from the definitions at random exact points. It
+certifies (S$_a$), (F$_a$) and (C$_a$) for $2\le a\le8$ on both regions
+without failures. For $5\le a\le8$ this referee also checked, item by item,
+that \texttt{generic\_fast2.py} certifies every instance of (F$_a$) and (C1)
+that Proposition~\ref{prop:reduction} requires, and that the three programs
+select the same last columns. As negative controls for $5\le a\le8$, the
+certificates of \texttt{rv3\_certify.py} fail when $2\delta_a(p)$ is
+replaced by $2.002\,\delta_a(p)$, exactly at the conditions that correspond
+to~$Y^+$; they also fail for $b$ of the other parity, and on regions
+containing $p=q=3$ or, for $a\le7$, $q=2$.
+
+These programs and their logs are in the directory
+\texttt{certificates/\allowbreak icg-equal-parity/\allowbreak theorems-b-c}
+of~\cite{repo}, the referee agents' programs in its subdirectories
+\texttt{review2} and \texttt{review3}. The proof of
+Theorem~\ref{thm:minfour} for $3\le\min\{a,b\}\le8$ rests on these
+computations; it is not formalised.
 
 \paragraph{Checks.} For $a=3$ and $a=4$ the conclusion of
 Proposition~\ref{prop:reduction} was also checked directly from
@@ -1464,16 +1499,30 @@ model. It agreed with complete enumeration in all $41$ comparisons made
 of both regions (\texttt{t6\_bnb\_runs.py}, \texttt{t9\_bnb\_random.py}), for
 the shapes $(3,b)$ with odd $b\le21$ or $b\in\{25,31,41\}$ and $(4,b)$ with
 even $b\le16$ or $b\in\{20,30,40\}$, it found the maximum $\Theta$, attained
-exactly at $Y^-$ and $Y^+$. Runs of the same certification for $a=5$, $6$,
-$7$ and~$8$ have not been reviewed, and we do not claim these cases.
+exactly at $Y^-$ and $Y^+$.
+
+For $5\le a\le8$ the conclusion of Proposition~\ref{prop:reduction} was
+checked by an exact branch-and-bound search (\texttt{rv3\_bnb.py}, written
+independently of \texttt{bnb.py}) in $208$ runs on the shapes $(5,5)$,
+$(5,7)$, $(7,5)$, $(5,9)$, $(5,11)$, $(6,6)$, $(6,8)$, $(8,6)$, $(6,10)$,
+$(7,7)$, $(7,9)$, $(8,8)$, $(8,10)$, $(5,25)$, $(6,20)$, $(7,15)$
+and~$(8,16)$, at prime and rational points of both regions. In every run the
+maximum is $\Theta$, attained exactly at $Y^-$ and $Y^+$. The search was
+validated against complete enumeration (\texttt{rv3\_brute.py}) for the
+shapes $(5,1)$, $(5,3)$, $(6,2)$, $(7,1)$, $(7,3)$ and $(8,2)$, with up
+to~$2^{31}$ matrices. The case analysis in the proof of
+Proposition~\ref{prop:reduction} was also replayed in exact arithmetic
+(\texttt{rv3\_replay.py}) on $1\,600$ random sign matrices with
+$5\le a\le8$ and $b\le13$, at rational points of both regions, and every
+step held.
 
 \section{Verification}\label{sec:verif}
 The proofs above are complete, except that the proofs of
-Proposition~\ref{prop:cert} and of the case $\min\{a,b\}\in\{3,4\}$ of
+Proposition~\ref{prop:cert} and of the case $3\le\min\{a,b\}\le8$ of
 Theorem~\ref{thm:minfour} rest on computer calculations, described in the
 paragraph on certificates below and in Section~\ref{sec:minfour}. The
 programs and logs for Theorems~\ref{thm:ptwo} and~\ref{thm:minfour},
-including those of the two referee agents, are in the directory
+including those of the three referee agents, are in the directory
 \texttt{certificates/\allowbreak icg-equal-parity/\allowbreak theorems-b-c} of~\cite{repo}. The
 following computations are independent cross-checks.
 \begin{itemize}
@@ -1642,7 +1691,7 @@ $\delta_m(q)$ appear as \texttt{L1 q m sgnv} and \texttt{Tv q m sgnv m},
 that is, as $\|T_m(q)s_m\|_1$ and $(T_m(q)s_m)_m$; in the theorems for
 $n=p^2q^b$, $d_b(q)$ and $\delta_b(q)$ appear in the same way, as
 \texttt{L1 q b sgnv} and \texttt{Tv q b sgnv b}. Theorem~\ref{thm:minfour}
-for $\min\{a,b\}\in\{3,4\}$ and Proposition~\ref{prop:cert} are not
+for $3\le\min\{a,b\}\le8$ and Proposition~\ref{prop:cert} are not
 formalised. The whole development, including the files for
 Theorems~\ref{thm:onem} and~\ref{thm:ptwo}, was rebuilt from a clean
 directory. The recorded axiom audits of
@@ -1674,24 +1723,34 @@ programme and directed the agents.
  (Theorems~\ref{thm:ptwo} and~\ref{thm:signB}) and drafted by Claude Code
  agents (model Claude Opus~5.5). Theorems~\ref{thm:ptwo}
  and~\ref{thm:signB} were checked by the Lean formalisation, which does not
- cover the case $\min\{a,b\}\in\{3,4\}$ of Theorem~\ref{thm:minfour}.
+ cover the case $3\le\min\{a,b\}\le8$ of Theorem~\ref{thm:minfour}.
  Earlier write-ups of the new proofs were checked by two independent Claude
  Code referee agents. One of them checked an earlier write-up of the proof
  of Theorem~\ref{thm:ptwo}, which used the $325$ certified inequalities
  mentioned in Section~\ref{sec:verif}; the written proof given here follows
  the Lean formalisation instead. The other referee agent checked the
- certificates and an earlier write-up of the computer-assisted proof of
- Theorem~\ref{thm:minfour}, and wrote the second certification program.
+ certificates for the exponents $3$ and~$4$ and an earlier write-up of the
+ computer-assisted proof of Theorem~\ref{thm:minfour}, and wrote the second
+ certification program.
+\item Version~1.5 extends Theorem~\ref{thm:minfour} to
+ $\min\{a,b\}\le8$. The certification runs for the exponents $5$ to~$8$
+ were made, and the new text was drafted, by Claude Code agents. A third
+ Claude Code referee agent checked the extension to exponents $5$ to~$8$
+ and wrote a third certification program.
 \end{itemize} Claude Code drafted this text. The programs and logs are
 available at~\cite{repo}.
-The author is not a professional mathematician. The author has read the
-paper, including the new Theorems~\ref{thm:ptwo} and~\ref{thm:minfour} and
-Sections~\ref{sec:column}--\ref{sec:minfour}, and, using a side-by-side table,
-compared the statements of the Lean theorems with the theorems stated here.
+The author is not a professional mathematician. The author has read
+version~1.4 of the paper, including Theorems~\ref{thm:ptwo}
+and~\ref{thm:minfour} (the latter then stated for $\min\{a,b\}\le4$) and
+Sections~\ref{sec:column}--\ref{sec:minfour}, and, using a side-by-side
+table, compared the statements of the Lean theorems with the theorems stated
+there; the Lean theorems and the statements they formalise are unchanged in
+version~1.5.
+%% AUTHOR-ROLE-V15: to be completed after the author has read the changes of version 1.5
 The correctness of Theorems~\ref{thm:main}, \ref{thm:onem}, \ref{thm:ptwo},
 \ref{thm:sign} and~\ref{thm:signB} rests on the written proofs and on the
 Lean formalisation described in Section~\ref{sec:verif};
-Proposition~\ref{prop:cert} and the case $\min\{a,b\}\in\{3,4\}$ of
+Proposition~\ref{prop:cert} and the case $3\le\min\{a,b\}\le8$ of
 Theorem~\ref{thm:minfour} rest on the computer calculations described in
 Sections~\ref{sec:minfour} and~\ref{sec:verif}; the other independent checks
 are additional cross-checks. In addition, the arguments for
@@ -1699,7 +1758,8 @@ Theorems~\ref{thm:main} and~\ref{thm:sign} were checked by AI agents of two
 different model families, the argument for Theorem~\ref{thm:onem} was checked
 by an independent Claude agent, the earlier write-ups of the proofs of
 Theorems~\ref{thm:ptwo} and~\ref{thm:minfour} were checked by two further
-independent Claude agents, and the formal statements of version~1.2 were
+independent Claude agents and the extension of Theorem~\ref{thm:minfour} to
+$\min\{a,b\}\le8$ by a third, and the formal statements of version~1.2 were
 reviewed by an agent that did not write them. AI systems are not authors
 of this paper; the author takes full responsibility for its content.
 

@@ -1,10 +1,10 @@
-# Theorems 4 and 5 of Paper 1 (version 1.4): programs and logs
+# Theorems 4 and 5 of Paper 1 (versions 1.4 and 1.5): programs and logs
 
-Paper: `papers/icg-q3-general/note.pdf`, version 1.4.
+Paper: `papers/icg-q3-general/note.pdf`, version 1.5 (Theorem 5 was extended from min{a, b} ≤ 4 to min{a, b} ≤ 8).
 
 - **Theorem 4** (n = p²q^b with b even) has a written proof in Sections 10–11 and is formalised in Lean
   (namespace `ICGEqualParityB`). The programs here are cross-checks.
-- **Theorem 5** for min{a, b} ∈ {3, 4} rests on the certificates below (Section 12). It is not formalised.
+- **Theorem 5** for 3 ≤ min{a, b} ≤ 8 rests on the certificates below (Section 12). It is not formalised.
 
 Requirements: Python 3. `generic_prover.py` and `generic_prover_fast.py` also need SymPy; `generic_fast2.py` and
 `review2/c3_certify.py` use only the standard library.
@@ -51,8 +51,13 @@ Run the commands from this directory. Each run ends with the summary line shown;
 - `PROOF-working-note.md`: the working note. It predates version 1.4; its first line explains the numbering.
 - The remaining top-level scripts (further checks, and the first proof) are described in the working note.
 
-## Not claimed
+## a = 5, 6, 7 and 8 (Paper 1, version 1.5)
 
-The runs for a = 5, 6, 7 and 8 (`logs/generic_fast2_a5.log` to `logs/generic_fast2_a8.log`,
-`review2/logs/c3_certify_a5.log` to `review2/logs/c3_certify_a8.log`, `crosscheck/logs/`) have not been reviewed. The paper
-does not claim these cases.
+Version 1.5 of Paper 1 extends Theorem 5 to min(a, b) ≤ 8. For a = 5, 6, 7 and 8 the lists of Proposition 31 were certified
+with `generic_fast2.py` (`logs/generic_fast2_a5.log` to `logs/generic_fast2_a8.log`) and with the certifier of the second
+referee agent (`review2/logs/c3_certify_a5.log` to `review2/logs/c3_certify_a8.log`); the SymPy prover `generic_prover.py`
+was run only for a ≤ 4. A third referee agent (`review3/`, report `review3/REVIEW_A5_8.md`) reran both programs in full,
+certified the same lists with its own implementation `review3/rv3_certify.py`, ran negative controls
+(`review3/logs/rv3_negctl_*.log`) and 208 exact branch-and-bound checks of the theorem on 17 further shapes
+(`review3/logs/rv3_bnb_*.log`). Paths of the form `<project>/…` or `<scratchpad>/…` in the logs of `review3/` are logical
+names for the directories of the original runs.

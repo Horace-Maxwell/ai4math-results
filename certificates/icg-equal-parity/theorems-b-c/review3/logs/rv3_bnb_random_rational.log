@@ -1,0 +1,40 @@
+# bnb_random_rational  started 2026-09-26T18:42:50Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: python3 rv3_bnb.py 5,5@6,11 5,5@3,45 5,5@18,54/5 5,5@3,18 5,5@19/3,5 5,5@3,17/3 6,6@7,8 6,6@3,10 6,6@19/2,3 6,6@3,5 6,6@39,9 6,6@3,17 7,7@27,16/5 7,7@3,6 7,7@14,6 7,7@3,12 7,7@20,48/5 7,7@3,43/2 8,8@25/3,24 8,8@3,12 8,8@28,8 8,8@3,15 8,8@25/2,22 8,8@3,29/2 5,7@19/2,41/4 5,7@3,59/6 5,7@21,12 5,7@3,37/2 5,7@67/7,15/2 5,7@3,62/7 7,5@47/3,23/2 7,5@3,49/3 7,5@37/3,16/5 7,5@3,16/3 7,5@44,19 7,5@3,37
+(5,5) p=6 q=11: Theta=92451774024; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=928; 0.1s
+(5,5) p=3 q=45: Theta=2680361361161; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=1120; 0.1s
+(5,5) p=18 q=54/5: Theta=15736328635722728/625; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=928; 0.1s
+(5,5) p=3 q=18: Theta=25819941752; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=1120; 0.1s
+(5,5) p=19/3 q=5: Theta=157266369611/81; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=928; 0.1s
+(5,5) p=3 q=17/3: Theta=15449266525/243; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=1120; 0.1s
+(6,6) p=7 q=8: Theta=3115867095152; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=2240; 0.2s
+(6,6) p=3 q=10: Theta=52476322344; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=3392; 0.3s
+(6,6) p=19/2 q=3: Theta=2444292646203/64; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=2240; 0.2s
+(6,6) p=3 q=5: Theta=675868359; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=3392; 0.3s
+(6,6) p=39 q=9: Theta=241974120976300871; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=2240; 0.2s
+(6,6) p=3 q=17: Theta=1368649033407; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=3392; 0.3s
+(7,7) p=27 q=16/5: Theta=315828203433799435136/78125; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=5248; 0.6s
+(7,7) p=3 q=6: Theta=51366569912; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=7552; 0.9s
+(7,7) p=14 q=6: Theta=4189172089538632; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=5248; 0.6s
+(7,7) p=3 q=12: Theta=7720988162480; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=7552; 0.8s
+(7,7) p=20 q=48/5: Theta=125366209453381293569288/78125; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=5248; 0.7s
+(7,7) p=3 q=43/2: Theta=62794802768663891/128; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=7552; 0.9s
+(8,8) p=25/3 q=24: Theta=3545480299463769059664736/6561; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=12032; 1.9s
+(8,8) p=3 q=12: Theta=355907581410320; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=19200; 2.7s
+(8,8) p=28 q=8: Theta=1340099377414683362344; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=12032; 1.9s
+(8,8) p=3 q=15: Theta=2189980388177567; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=19200; 3.1s
+(8,8) p=25/2 q=22: Theta=236905131455798583455471/32; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=12032; 1.9s
+(8,8) p=3 q=29/2: Theta=425589679414002615/256; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=19200; 2.9s
+(5,7) p=19/2 q=41/4: Theta=53874875402456231041/524288; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=1184; 0.1s
+(5,7) p=3 q=59/6: Theta=42554336461063691/279936; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=1376; 0.1s
+(5,7) p=21 q=12: Theta=18694456629444656; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=1184; 0.1s
+(5,7) p=3 q=37/2: Theta=1776856671283925/128; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=1376; 0.1s
+(5,7) p=67/7 q=15/2: Theta=24096328419367187175/2151296; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=1184; 0.1s
+(5,7) p=3 q=62/7: Theta=8419828434961240/117649; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=1376; 0.1s
+(7,5) p=47/3 q=23/2: Theta=401905413756869982383/69984; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=4224; 0.5s
+(7,5) p=3 q=49/3: Theta=46530181729781/243; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=6528; 0.7s
+(7,5) p=37/3 q=16/5: Theta=7616478759341328896/6834375; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=4224; 0.6s
+(7,5) p=3 q=16/3: Theta=136031472128/243; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=6528; 0.8s
+(7,5) p=44 q=19: Theta=112176423167561835712; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=4224; 0.5s
+(7,5) p=3 q=37: Theta=12162970012281; matrices with G >= Theta: 2 = exactly Y-, Y+ with G = Theta: OK; nodes=6528; 0.7s
+runs 36, failures 0
+# exit code 0; cpu 25.1s; wall 25.5s; finished 2026-09-26T18:43:15Z

@@ -1,0 +1,8 @@
+# brute_small_test  started 2026-09-26T18:28:05Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: python3 rv3_brute.py 2,2@5,3 3,3@5,3 3,1@3,5 5,1@5,3 --cmp
+brute (2,2) p=5 q=3: 256 sign matrices; max G = 2055, Theta = 2055; #max = 2; OK: exactly Y-, Y+; top values (value:count) [(2055, 2), (2047, 1), (1943, 2), (1911, 2), (1807, 2), (1799, 2)] | B&B at the 1-th value: 2 matrices vs brute 2: agree (44 nodes) | B&B at the 6-th value: 11 matrices vs brute 11: agree (116 nodes)  [0.0s]
+brute (3,3) p=5 q=3: 32768 sign matrices; max G = 59553, Theta = 59553; #max = 2; OK: exactly Y-, Y+; top values (value:count) [(59553, 2), (57737, 2), (55689, 2), (55601, 2), (55593, 1), (55569, 1)] | B&B at the 1-th value: 2 matrices vs brute 2: agree (136 nodes) | B&B at the 6-th value: 10 matrices vs brute 10: agree (680 nodes)  [0.0s]
+brute (3,1) p=3 q=5: 128 sign matrices; max G = 1033, Theta = 1033; #max = 2; OK: exactly Y-, Y+; top values (value:count) [(1033, 2), (1001, 2), (953, 2), (945, 2), (929, 1), (913, 1)] | B&B at the 1-th value: 2 matrices vs brute 2: agree (88 nodes) | B&B at the 6-th value: 10 matrices vs brute 10: agree (120 nodes)  [0.0s]
+brute (5,1) p=5 q=3: 2048 sign matrices; max G = 113889, Theta = 113889; #max = 2; OK: exactly Y-, Y+; top values (value:count) [(113889, 2), (109881, 2), (109225, 2), (109145, 1), (108889, 2), (108665, 2)] | B&B at the 1-th value: 2 matrices vs brute 2: agree (416 nodes) | B&B at the 6-th value: 11 matrices vs brute 11: agree (1248 nodes)  [0.1s]
+runs 4, failures 0
+# exit code 0; cpu 4.3s; wall 0.4s; finished 2026-09-26T18:28:05Z

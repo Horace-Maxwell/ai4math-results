@@ -1,0 +1,68 @@
+# negctl_a5_a6_rerun  started 2026-09-26T18:30:33Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: python3 rv3_negctl.py 5 6
+a=5 NC1 need=1001/1000: failures 6 (as required); by category (first 400 listed): {'C1': 6}
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((2, 1), 0, 1) c=(1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((5, 4, 1), 2, 0) c=(1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((1,), 0, 0) c=(1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((4, 1), 0, 1) c=(1, -1, 1, -1, 1, -1)', 'R2')
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((17, 8, 1), 2, 0) c=(1, -1, 1, -1, 1, -1)', 'R2')
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((1,), 0, 0) c=(1, -1, 1, -1, 1, -1)', 'R2')
+      NC1: all listed failures concern g_+ = (-1, 1, -1, 1, -1, -1) (or the identity Delta(g_+) = 2 delta): True
+a=5 NC2 need=5/4: failures 10 (as required); by category (first 400 listed): {'F': 2, 'C1': 6, 'C3': 2}
+       FAIL ('F', 'F F2 c=(-1, 1, -1, 1, -1, -1) mu=((2, 1), 0, 1) m=((1,), 0, 0)', 'R1')
+       FAIL ('F', 'F F2 c=(-1, 1, -1, 1, -1, -1) mu=((5, 4, 1), 2, 0) m=((1,), 0, 0)', 'R1')
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((2, 1), 0, 1) c=(1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((5, 4, 1), 2, 0) c=(1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((1,), 0, 0) c=(1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C3', 'C3(b=1) g=(-1, 1, -1, 1, 1, -1)', 'R2')
+a=5 NC3 wrong parity of b: failures 10 (as required); by category (first 400 listed): {'C2': 4, 'C3': 2, 'C1': 4}
+       FAIL ('C2', 'C2 g=(1, -1, 1, -1, 1, -1) y=((1, 1), 1, 0)', 'R1')
+       FAIL ('C2', 'C2 g=(1, -1, 1, -1, 1, -1) y=((2, 1), 0, 1)', 'R1')
+       FAIL ('C3', 'C3 g=(1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((1, 1), 1, 0) c=(1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(-1, 1, -1, 1, -1, -1) k=0 y=((2, 1), 0, 1) c=(1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C2', 'C2 g=(1, -1, 1, -1, 1, -1) y=((3, 1), 1, 0)', 'R2')
+      NC3: the full-chain condition (C3) fails for g = (-1)^b s_a = (1, -1, 1, -1, 1, -1): True
+a=5 NC4 region p=q=3: failures 2 (as required); by category (first 400 listed): {'S': 2}
+       FAIL ('S', 'S c=(1, 1, -1, 1, -1, 1)', 'E33')
+       FAIL ('S', 'S c=(-1, -1, 1, -1, 1, -1)', 'E33')
+a=5 NC5 region q>=2: failures 266 (as required); by category (first 400 listed): {'S': 62, 'F': 73, 'C1': 131}
+       FAIL ('S', 'S c=(1, 1, 1, 1, 1, 1)', 'EQ2')
+       FAIL ('S', 'S c=(1, 1, 1, 1, 1, -1)', 'EQ2')
+       FAIL ('S', 'S c=(1, 1, 1, 1, -1, 1)', 'EQ2')
+       FAIL ('S', 'S c=(1, 1, 1, 1, -1, -1)', 'EQ2')
+       FAIL ('S', 'S c=(1, 1, 1, -1, 1, 1)', 'EQ2')
+       FAIL ('S', 'S c=(1, 1, 1, -1, 1, -1)', 'EQ2')
+a=6 NC1 need=1001/1000: failures 4 (as required); by category (first 400 listed): {'C1': 4}
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((1, 1), 1, 0) c=(-1, 1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((2, 1), 0, 1) c=(-1, 1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((3, 1), 1, 0) c=(-1, 1, -1, 1, -1, 1, -1)', 'R2')
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((4, 1), 0, 1) c=(-1, 1, -1, 1, -1, 1, -1)', 'R2')
+      NC1: all listed failures concern g_+ = (1, -1, 1, -1, 1, -1, -1) (or the identity Delta(g_+) = 2 delta): True
+a=6 NC2 need=5/4: failures 6 (as required); by category (first 400 listed): {'F': 2, 'C1': 4}
+       FAIL ('F', 'F F2 c=(-1, 1, -1, 1, -1, 1, 1) mu=((1, 1), 1, 0) m=((1,), 0, 0)', 'R1')
+       FAIL ('F', 'F F2 c=(-1, 1, -1, 1, -1, 1, 1) mu=((2, 1), 0, 1) m=((1,), 0, 0)', 'R1')
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((1, 1), 1, 0) c=(-1, 1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((2, 1), 0, 1) c=(-1, 1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((3, 1), 1, 0) c=(-1, 1, -1, 1, -1, 1, -1)', 'R2')
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((4, 1), 0, 1) c=(-1, 1, -1, 1, -1, 1, -1)', 'R2')
+a=6 NC3 wrong parity of b: failures 16 (as required); by category (first 400 listed): {'C1': 6, 'C2': 4, 'C3': 6}
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((2, 1), 0, 1) c=(-1, 1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((5, 4, 1), 2, 0) c=(-1, 1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C1', 'C1 g=(1, -1, 1, -1, 1, -1, -1) k=0 y=((1,), 0, 0) c=(-1, 1, -1, 1, -1, 1, -1)', 'R1')
+       FAIL ('C2', 'C2 g=(-1, 1, -1, 1, -1, 1, -1) y=((2, 1), 0, 1)', 'R1')
+       FAIL ('C2', 'C2 g=(-1, 1, -1, 1, -1, 1, -1) y=((5, 4, 1), 2, 0)', 'R1')
+       FAIL ('C3', 'C3(b=1) g=(-1, 1, -1, 1, -1, 1, -1)', 'R1')
+      NC3: the full-chain condition (C3) fails for g = (-1)^b s_a = (-1, 1, -1, 1, -1, 1, -1): True
+a=6 NC4 region p=q=3: failures 2 (as required); by category (first 400 listed): {'S': 2}
+       FAIL ('S', 'S c=(1, 1, -1, 1, -1, 1, -1)', 'E33')
+       FAIL ('S', 'S c=(-1, -1, 1, -1, 1, -1, 1)', 'E33')
+a=6 NC5 region q>=2: failures 140 (as required); by category (first 400 listed): {'S': 126, 'F': 14}
+       FAIL ('S', 'S c=(1, 1, 1, 1, 1, 1, 1)', 'EQ2')
+       FAIL ('S', 'S c=(1, 1, 1, 1, 1, 1, -1)', 'EQ2')
+       FAIL ('S', 'S c=(1, 1, 1, 1, 1, -1, 1)', 'EQ2')
+       FAIL ('S', 'S c=(1, 1, 1, 1, 1, -1, -1)', 'EQ2')
+       FAIL ('S', 'S c=(1, 1, 1, 1, -1, 1, 1)', 'EQ2')
+       FAIL ('S', 'S c=(1, 1, 1, 1, -1, 1, -1)', 'EQ2')
+ALL NEGATIVE CONTROLS FIRED
+# exit code 0; cpu 20.7s; wall 21.0s; finished 2026-09-26T18:30:54Z

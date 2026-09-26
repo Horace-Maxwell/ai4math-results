@@ -1,0 +1,4 @@
+# fast2_a5  started 2026-09-26T18:16:32Z  cwd=<project>/work/round6/equal-parity-a2/review3/rerun_fast2
+# cmd: python3 <project>/work/round6/equal-parity-a2/review3/../generic_fast2.py 5
+a=5 K=4: counts {'S': 128, 'FD1': 69368, 'EQ': 63, 'CH': 381524, 'CHalone': 22, 'full': 22, 'EQwrong': 192}; cheap last columns {'big': 4, 'p3': 7}; failures 0 (4s)
+# exit code 0; cpu 4.1s; wall 4.2s; finished 2026-09-26T18:16:36Z

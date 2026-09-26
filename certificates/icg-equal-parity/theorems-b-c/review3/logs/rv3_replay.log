@@ -1,0 +1,6 @@
+# replay_a5_8  started 2026-09-26T18:34:19Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: python3 rv3_replay.py 400 20260926
+rv3_replay: {'lemma21': 1600, 'case expensive': 472, 'checked': 1479, 'case g_+': 279, 'case full chain': 126, 'case chain k=0': 86, 'case J<b': 371, 'fam F4': 102, 'extremal': 121, 'case chain k=1': 31, 'fam F2': 72, 'case chain k=3': 22, 'case chain k=2': 25, 'fam F3': 128, 'case chain k>=5': 40, 'fam F0': 8, 'fam F1': 61, 'case chain k=4': 27}
+problems: 0  []
+time 24s
+# exit code 0; cpu 23.5s; wall 24.1s; finished 2026-09-26T18:34:43Z

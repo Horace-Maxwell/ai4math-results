@@ -7,13 +7,14 @@ computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.22970816](https://doi.org/10.5281/zenodo.22970816); version 1.2.0
 [10.5281/zenodo.22972115](https://doi.org/10.5281/zenodo.22972115); version 1.2.1
 [10.5281/zenodo.22979318](https://doi.org/10.5281/zenodo.22979318); version 1.3.0
-[10.5281/zenodo.22979323](https://doi.org/10.5281/zenodo.22979323).
+[10.5281/zenodo.22979323](https://doi.org/10.5281/zenodo.22979323); version 1.4.0
+[10.5281/zenodo.22981669](https://doi.org/10.5281/zenodo.22981669).
 
 ## Index
 
 | | What | Status | Main Lean declarations | Where |
 | --- | --- | --- | --- | --- |
-| Paper 1 (version 1.4) | Maximal energy of integral circulant graphs of orders `p^(2r)·3^(2s+1)`, `pq^m` and `p²q^b`; for exponents of equal parity, every order `p^a q^b` with `min(a,b) ≤ 4` | new theorems; Theorem 5 (for `min(a,b) = 3, 4`) and Proposition 15 are computer-assisted | `ICGGeneral.jiang_yang_q3`, `ICGGeneral.jiang_yang_thmA`, `ICGEqualParity.corollaryA`, `ICGEqualParityB.theoremB` | [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) |
+| Paper 1 (version 1.5) | Maximal energy of integral circulant graphs of orders `p^(2r)·3^(2s+1)`, `pq^m` and `p²q^b`; for exponents of equal parity, every order `p^a q^b` with `min(a,b) ≤ 8` | new theorems; Theorem 5 (for `3 ≤ min(a,b) ≤ 8`) and Proposition 15 are computer-assisted | `ICGGeneral.jiang_yang_q3`, `ICGGeneral.jiang_yang_thmA`, `ICGEqualParity.corollaryA`, `ICGEqualParityB.theoremB` | [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) |
 | Paper 2 | Hanna's OEIS congruence conjectures: eleven proved, three more resolved | proofs; several follow quickly from classical results (stated in the corrected version 1.2.1) | `Oeis389472Mod3.*`, `HannaA*.*` | [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) |
 | Paper 3 | A negative answer to a question of Carenini on almost independent sets in regular graphs | new theorems (counterexamples and an asymptotic result) | `Carenini.not_careniniQuestion_six`, `Carenini.not_careniniQuestion_two_d` | [`papers/carenini-almost-independent`](papers/carenini-almost-independent/note.pdf) |
 | Paper 4 | Answers to three problems of Hak, Kozerenko and Oliynyk on the triameter of graphs | Problems 1 and 3 answered (new); Problem 2 was first answered on MathOverflow, and we add its smallest counterexample | `HKOTriameter.not_problem1Claim`, `HKOTriameter.not_problem2Claim`, `HKOTriameter.problem3ClaimFP` | [`papers/hko-triameter`](papers/hko-triameter/note.pdf) |
@@ -22,7 +23,7 @@ computational certificates. It is archived on Zenodo: all versions
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
-**Paper 1: [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) (version 1.4).**
+**Paper 1: [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) (version 1.5).**
 *The maximal energy of integral circulant graphs of orders p^(2r)·3^(2s+1), pq^m and p²q^b.*
 
 - Jiang and Yang (arXiv:2608.29523, Theorem A) determined the maximal energy
@@ -49,20 +50,23 @@ computational certificates. It is archived on Zenodo: all versions
   `{p^i q^j : i + j even} \ {n}`; the same holds for `p^b q²` with the roles
   of the primes exchanged. The proof gives a sign-matrix inequality for the
   exponent 2 (Theorem 25).
-- **Theorem 5 (new in version 1.4; computer-assisted for exponents 3 and 4).**
-  For distinct odd primes `p, q` and `a, b ≥ 1` with `a + b` even and
-  `min(a, b) ≤ 4`, the maximal energy for order `n = p^a q^b` is
-  `½[n + d_a(p) d_b(q)] − δ_a(p) δ_b(q)`, attained exactly by the same two
-  sets. For `min(a, b) ≤ 2` this is Theorem 3 or 4. For `min(a, b) ∈ {3, 4}`
-  the method of Theorem 4 reduces the claim to a finite list of inequalities
-  between explicit rational functions of `p` and `q`, which were verified by
-  exact computation with two independent programs, one of them written by a
-  referee agent. This case is not formalized.
+- **Theorem 5 (new in version 1.4 for exponents 3 and 4, extended in version
+  1.5 to exponents up to 8; computer-assisted).** For distinct odd primes
+  `p, q` and `a, b ≥ 1` with `a + b` even and `min(a, b) ≤ 8`, the maximal
+  energy for order `n = p^a q^b` is `½[n + d_a(p) d_b(q)] − δ_a(p) δ_b(q)`,
+  attained exactly by the same two sets. For `min(a, b) ≤ 2` this is
+  Theorem 3 or 4. For `3 ≤ min(a, b) ≤ 8` the method of Theorem 4 reduces the
+  claim to a finite list of inequalities between explicit rational functions
+  of `p` and `q`, which were verified by exact computation with independent
+  programs: for exponents 3 and 4 by two programs, one of them written by a
+  referee agent; for exponents 5 to 8 by three programs, two of them written
+  by referee agents. This case is not formalized.
 - So the equal-parity conjecture (Conjecture 14) holds whenever
-  `min(a, b) ≤ 4`, and with Theorems 1 and 2 the maximal energy and all
-  maximisers are known for every order `p^a q^b` with `min(a, b) ≤ 4`; for
+  `min(a, b) ≤ 8`, and with Theorems 1 and 2 the maximal energy and all
+  maximisers are known for every order `p^a q^b` with `min(a, b) ≤ 8`; for
   `min(a, b) ≤ 2` the proof does not depend on a computer. The conjecture
-  remains open when `min(a, b) ≥ 5`.
+  remains open when `min(a, b) ≥ 9`; the smallest open shapes are (9, 9),
+  (9, 11), (11, 9) and (10, 10).
 - **Proposition 15 (Proposition 13 in version 1.2; computer-assisted, not
   formalized).** Exact certificates verify the equal-parity conjecture for
   every shape with `(a+1)(b+1) ≤ 27`. These shapes are now covered by
@@ -74,7 +78,7 @@ computational certificates. It is archived on Zenodo: all versions
   `p^b q²` and `corollaryB`), from the same starting point, and Theorem 25 is
   `ICGEqualParityB.thmB'`. The closed forms of `d_k` and `δ_k` are proved in
   the paper but not formalized; neither are Theorem 5 for
-  `min(a, b) ∈ {3, 4}` and Proposition 15.
+  `3 ≤ min(a, b) ≤ 8` and Proposition 15.
 
 **Paper 2: [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf).** *Proofs of
 eleven congruence conjectures of Hanna from the OEIS, and the resolution of
@@ -314,7 +318,7 @@ entry's indexing and initial coefficients.
 | Paper 1: unique maximiser for `p^(2r)·3^(2s+1)`, `p ≥ 5`; value of the maximum, expressed through the norms `d_k(x) = ‖T_k(x) s_k‖₁` (their closed form is proved in the paper but not formalized); the sign-matrix inequality (all real `p ≥ 5`, `q ≥ 3`, all exponents); energy formula for all `p^a q^b`; Jiang–Yang Theorem A for all distinct odd primes | `ICGGeneral.jiang_yang_q3`, `jiang_yang_q3_value`, `energy_DstarPQ`, `thm5_le`, `thm5_eq`, `energy_icgAdj_pq`, `jiang_yang_thmA`, `checkerboard_unique_max_odd` | exhaustive exact searches over all divisor sets (shapes and primes listed in the paper); sign-matrix enumeration for `(a+1)(b+1) ≤ 25`; floating-point spectra of the actual graphs (`certificates/icg-q3-general/`) |
 | Paper 1, Theorem 3: maximal energy for `pq^m` and `p^m q`, `m` odd; both maximisers; uniqueness | `ICGEqualParity.corollaryA` | exact arithmetic for every step (`verify_1m.py`); graph spectra by FFT and dense eigenvalues (`certificates/icg-equal-parity/`) |
 | Paper 1, Theorem 4: maximal energy for `p²q^b` and `p^b q²`, `b` even; both maximisers; uniqueness; the sign-matrix inequality for the exponent 2 (Theorem 25) | `ICGEqualParityB.theoremB`, `theoremB_swap`, `corollaryB`, `thmB'`; the 325 inequalities of a first proof, not needed for the paper's proof, in `ICGEqualParityBCert1`–`6` | exhaustive searches over all divisor sets of 21 orders `p²q^b`, `b ∈ {2, 4, 6}`, up to `n = 1 058 841`, with exact eigenvalues from Ramanujan sums (`review/rv_graph.py`); exact replays of the steps of the proof (`paper-checks/`); both in `certificates/icg-equal-parity/theorems-b-c/` |
-| Paper 1, Theorem 5 for `min(a,b) ∈ {3, 4}` | not formalized (computer-assisted) | exact certification of the reduced inequalities with SymPy (`generic_prover.py`) and with separate integer arithmetic (`generic_fast2.py`); an independent certifier written by a referee agent (`review2/c3_certify.py`), with negative controls; complete enumeration and branch-and-bound checks at sample shapes and parameters (`review2/`) |
+| Paper 1, Theorem 5 for `3 ≤ min(a,b) ≤ 8` | not formalized (computer-assisted) | exact certification of the reduced inequalities: for exponents 3 and 4 with SymPy (`generic_prover.py`) and with separate integer arithmetic (`generic_fast2.py`); for exponents 3 to 8 with `generic_fast2.py` and the independent certifier of a referee agent (`review2/c3_certify.py`); for exponents 5 to 8 also with the certifier of a third referee agent (`review3/rv3_certify.py`); negative controls; complete enumeration and branch-and-bound checks at sample shapes and parameters (`review2/`, `review3/`) |
 | Paper 1, Proposition 15 (Proposition 13 in version 1.2): equal-parity conjecture for all shapes with `(a+1)(b+1) ≤ 27` | not formalized (computer-assisted) | polynomial non-negativity certificates in exact integer arithmetic (`cert22.py`, `cert_fast.py`, which share polynomial routines), a SymPy rebuild for five shapes, and a negative control (`certificates/icg-equal-parity/negative-control/`) |
 | Roldán q=3 for the genuine graph energy: unique maximizer, gap, value of `E(D*)`, sharpness | `ICGBridge.roldan_q3`, `roldan_q3_gap`, `energy_Dstar`, `roldan_q3_sharp`, `roldan_q3_gap_attained`, plus `*_graph` versions for mathlib's `SimpleGraph.circulantGraph` | three independent programs for the certificate; direct numerical diagonalization of the adjacency matrices for p = 5, 7 (all 2047 sets) |
 | Roldán, whole conjecture (two-variable certificate, all real p, q ≥ 3) | not formalized | two independent programs |
@@ -423,7 +427,7 @@ python3 cert_fast.py 4 4 5 3      # the same for (4,4), vectorised (about 4 minu
 python3 cert_sympy_check.py 2 2 5 3
 ```
 
-Theorems 4 and 5 (version 1.4). `theorems-b-c/README.md` lists the expected
+Theorems 4 and 5 (versions 1.4 and 1.5). `theorems-b-c/README.md` lists the expected
 summary line of each run and the negative controls, which must fail.
 
 ```sh
@@ -432,6 +436,9 @@ python3 generic_prover_fast.py 3     # Theorem 5, min(a,b) = 3: 14 196 branches 
 python3 generic_prover_fast.py 4     # min(a,b) = 4: 70 416 branches (the recorded run took 49 minutes)
 python3 generic_fast2.py 3 && python3 generic_fast2.py 4                    # the same lists, with separate integer arithmetic (seconds)
 cd review2 && python3 c3_certify.py 3 && python3 c3_certify.py 4 && cd ..   # the referee agent's independent certifier (seconds)
+for a in 5 6 7 8; do python3 generic_fast2.py $a; done                   # version 1.5: exponents 5 to 8, integer arithmetic
+cd review2 && for a in 5 6 7 8; do python3 c3_certify.py $a; done && cd ..  # the second referee agent's certifier
+cd review3 && for a in 5 6 7 8; do python3 rv3_certify.py $a; done && cd ..  # the third referee agent's certifier (seconds for a = 5; longer for a = 8)
 python3 paper-checks/check_proof.py  # Theorem 4: exact replay of the proof of Theorem 25 (about 1 minute)
 python3 review/rv_graph.py           # Theorem 4: all divisor sets of 21 orders p²q^b, exact energies
 ```
@@ -489,7 +496,7 @@ The logs of all runs cited in the paper are in `certificates/icg-q3-general/logs
 folders of its subdirectories).
 The Lean comments and the scripts in `certificates/icg-q3-general/review/`
 use the numbering of the first draft. Draft Lemmas 1–4 and Theorem 5 are
-Lemmas 7, 8, 10, 11 and Theorem 12 of Paper 1 (version 1.4). The "Lemma 3 as
+Lemmas 7, 8, 10, 11 and Theorem 12 of Paper 1 (versions 1.4 and 1.5). The "Lemma 3 as
 stated" counterexample printed by `review/test_e_misc.py` concerns a
 superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
@@ -686,7 +693,11 @@ extent stated above) and drafted by Claude Code agents (model Claude Opus
 out the literature searches described in the papers. Independent Claude
 referee agents checked each paper; for Paper 1, two referee agents checked
 earlier write-ups of the proofs of Theorems 4 and 5, and one of them wrote
-the second certification program for Theorem 5.
+the second certification program for Theorem 5. In version 1.5.0 the
+extension of Theorem 5 to exponents 5 to 8 was checked by a third independent
+Claude referee agent, which reran both certification programs and certified
+the same inequalities with its own program.
+AUTHOR-ROLE-V150: to be completed after the author has read the changes of version 1.5.
 
 The author has also read the new material of version 1.4.0 (Paper 1 in its
 version 1.4, and Papers 4, 5 and 6) and, using the same kind of side-by-side
@@ -710,5 +721,6 @@ DOIs: v1.0.0 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255),
 v1.1.0 [10.5281/zenodo.22970816](https://doi.org/10.5281/zenodo.22970816),
 v1.2.0 [10.5281/zenodo.22972115](https://doi.org/10.5281/zenodo.22972115),
 v1.2.1 [10.5281/zenodo.22979318](https://doi.org/10.5281/zenodo.22979318),
-v1.3.0 [10.5281/zenodo.22979323](https://doi.org/10.5281/zenodo.22979323); later
+v1.3.0 [10.5281/zenodo.22979323](https://doi.org/10.5281/zenodo.22979323),
+v1.4.0 [10.5281/zenodo.22981669](https://doi.org/10.5281/zenodo.22981669); later
 versions are listed on the Zenodo record.

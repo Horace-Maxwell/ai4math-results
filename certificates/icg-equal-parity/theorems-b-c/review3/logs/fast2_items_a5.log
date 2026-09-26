@@ -1,0 +1,9 @@
+# fast2_items_a5  started 2026-09-26T18:29:01Z  cwd=<project>/work/round6/equal-parity-a2/review3
+# cmd: python3 rv3_fast2_items.py 5
+a=5 K=4: counts {'S': 128, 'FD1': 69368, 'EQ': 63, 'CH': 381524, 'CHalone': 22, 'full': 22, 'EQwrong': 192}; cheap last columns {'big': 4, 'p3': 7}; failures 0 (4s)
+[instrumented run finished in 4s; generic_fast2 result ok=True]
+a=5: recorded items: F 1638, C1 9009; other certify() categories: ['EQwrong']
+  region big: last columns with chain items (4): [(-1, -1, 1, -1, 1, -1), (-1, 1, -1, -1, 1, -1), (-1, 1, -1, 1, 1, -1), (-1, 1, 1, -1, 1, -1)]
+  region p3: last columns with chain items (7): [(-1, -1, 1, -1, 1, -1), (-1, 1, -1, -1, 1, -1), (-1, 1, -1, 1, 1, -1), (-1, 1, 1, -1, 1, -1), (1, -1, -1, 1, 1, -1), (1, 1, -1, -1, 1, -1), (1, 1, -1, 1, 1, -1)]
+  item-list problems vs Proposition 31 structure: 0
+# exit code 0; cpu 3.9s; wall 3.9s; finished 2026-09-26T18:29:05Z
