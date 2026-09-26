@@ -1,0 +1,38 @@
+{
+  "purpose": "Clean-directory rebuild of the Lean sources released in v1.1.0",
+  "start_utc": "2026-09-26T01:45:22Z",
+  "end_utc": "2026-09-26T01:53:44Z",
+  "exit_code": 0,
+  "toolchain": "leanprover/lean4:v4.33.1 (commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6)",
+  "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "procedure": [
+    "Create an empty directory <replay>/lean.",
+    "Copy lean/Research.lean, lean/Research/*.lean, lean/lakefile.toml, lean/lake-manifest.json and lean/lean-toolchain from the release tree into it.",
+    "Link <replay>/lean/.lake/packages to an existing Lake package cache built for the same lake-manifest.json (Mathlib and its dependencies at the pinned revisions). No build output of this project was copied; <replay>/lean/.lake/build was created fresh by the build.",
+    "Run `/usr/bin/time -l lake build` in <replay>/lean. Log: logs/clean-replay-v1.1.0-build.log.",
+    "Run `lake env lean Research/ICGGeneralAudit.lean` and `lake env lean Research/ICGBridgeAudit.lean`. Logs: logs/clean-replay-v1.1.0-audit-general.log and logs/clean-replay-v1.1.0-audit-bridge.log.",
+    "Run `shasum -a 256` over the copied sources and configuration files. Output: logs/lean-sources-sha256.txt. The release tree was then checked against it with `shasum -c` (32 of 32 files OK)."
+  ],
+  "source_manifest": "logs/lean-sources-sha256.txt",
+  "source_manifest_sha256": "a2d98a299a73d3b2d1544402bde88295cd93045debc950b75f2eff22ac56e837",
+  "trusted_cache": "Shared Lake package cache for Mathlib and its dependencies at the pinned revisions (not rebuilt)",
+  "build": {
+    "jobs": 8733,
+    "real_seconds": 494.09,
+    "max_rss_bytes": 17619320832
+  },
+  "axiom_audit": {
+    "print_axioms_lines": 64,
+    "distinct_declarations": 52,
+    "nonstandard": 0
+  },
+  "leanchecker": {
+    "command": "lake env leanchecker <Module>, for each module under Research/ except the two *Audit files",
+    "start_utc": "2026-09-26T02:23:42Z",
+    "end_utc": "2026-09-26T02:38:06Z",
+    "modules_ok": 26,
+    "failures": 0,
+    "log": "logs/clean-replay-v1.1.0-leanchecker.log"
+  },
+  "notes": "This receipt was written after the run, from the logs listed above and the replay directory, which still exists on the author's machine. Paths are given as logical names."
+}

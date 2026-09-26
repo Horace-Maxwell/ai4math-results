@@ -54,8 +54,7 @@ by others; see below.
 
 **Eleven congruence conjectures of P. D. Hanna from the OEIS**, proved and
 formally verified. Each Lean theorem holds for every integer power series
-satisfying the defining equation, with only the normalizations forced by the
-entry's offset.
+satisfying the defining equation, with the normalizations fixed by the entry's indexing and initial coefficients.
 
 | Entry | Defining equation | Theorem |
 | --- | --- | --- |
@@ -102,11 +101,16 @@ All final theorems depend only on the axioms `propext`, `Classical.choice`
 and `Quot.sound`. There is no `sorry`, no custom axiom and no
 `native_decide`. The whole project was rebuilt from a clean directory for
 this version; see `logs/clean-replay-v1.1.0-*.log` and
-`logs/lean-sources-sha256.txt`. Every module was also replayed through the
-Lean kernel with `lake env leanchecker <Module>`, and all 26 modules passed
-(`logs/clean-replay-v1.1.0-leanchecker.log`).
+`logs/lean-sources-sha256.txt`; the procedure and its parameters are recorded
+in `logs/clean-replay-v1.1.0-receipt.json`. All 26 proof and semantic-check
+modules (every module except the root import file and the two audit files)
+were also replayed through the Lean kernel with `lake env leanchecker <Module>`,
+and all passed (`logs/clean-replay-v1.1.0-leanchecker.log`).
 
 ### Reproduce the Lean checks
+
+Each code block in this and the following sections starts from the repository
+root.
 
 Requirements: [elan](https://github.com/leanprover/elan), about 20 GB of free
 RAM for `CirculantQ3.lean` (its kernel-checked certificate peaks near 18 GB),

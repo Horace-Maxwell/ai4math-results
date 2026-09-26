@@ -334,10 +334,10 @@ theorem hanna_a273958 (C A : PowerSeries Int) (hC : C = X + C ^ 2)
     (hA : X * A + X ^ 2 * A ^ 2 = C ^ 2) (n : Nat) :
     Odd (coeff n A) <-> exists k, n + 1 = 2 * 4 ^ k
 \end{verbatim}
-The project was rebuilt from a clean directory. For every theorem,
-\texttt{\#print axioms} reports only the standard axioms \texttt{propext},
-\texttt{Classical.choice} and \texttt{Quot.sound}; no native evaluation is
-used. The code and logs are available at~\cite{repo}.
+The project was rebuilt from a clean directory. The recorded axiom audits of
+the main results (\texttt{\#print axioms}) report only the standard axioms
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}; no native
+evaluation is used. The code and logs are available at~\cite{repo}.
 
 \section*{Tool and computational resource disclosure}
 This work was carried out between 25 and 26 September 2026 in a workflow
@@ -351,8 +351,9 @@ Each proof was checked by a second agent, and the agents searched the
 literature for previous proofs.
 The author is not a professional mathematician. The author has read the
 paper and, using a side-by-side table, compared the statements of the Lean
-theorems with the theorems stated here. The correctness of the results rests on the Lean formalisation
-and on the numerical checks described in the previous section. In addition,
+theorems with the theorems stated here. The correctness of the results rests on the written proofs and on the Lean
+formalisation; the numerical checks described in the previous section are
+additional cross-checks. In addition,
 each proof was checked by an AI agent other than the one that found it, and
 the formal statements were compared with the OEIS entries by a second
 agent. AI systems are not authors of this paper; the author takes full
@@ -381,7 +382,7 @@ H.~Dong, \emph{ai4math-results}, repository,
 \url{https://github.com/Horace-Maxwell/ai4math-results}; archived at Zenodo,
 \url{https://doi.org/10.5281/zenodo.22970254}.
 \bibitem{tru389472}
-The Omega Institute, \emph{Odd-index parity of the A389472 coefficients},
+The Omega Institute, \emph{Hanna's Odd-Index Parity Conjecture},
 \texttt{trureturing} repository, 2026,
 \url{https://github.com/the-omega-institute/trureturing/blob/b5e234ba04d648411140fe79d6ec71b249bc30bb/Blueprint/D5/S1/Recurrence/Parity/SquareCubeSubstitutionOddIndexParity.md}.
 \bibitem{trurepo}
