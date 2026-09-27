@@ -753,7 +753,7 @@ The author has also read the changes of version 1.5.
 Paper 7 (version 1.6.0) was selected, proved and drafted by Claude Code
 agents (model Claude Opus 5.5); two independent Claude referee agents checked
 the proofs and reran the searches with programs they wrote themselves.
-AUTHOR-ROLE-V160: to be completed after the author has read Paper 7.
+The author has also read Paper 7.
 
 The author has also read the new material of version 1.4.0 (Paper 1 in its
 version 1.4, and Papers 4, 5 and 6) and, using the same kind of side-by-side
