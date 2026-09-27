@@ -1,0 +1,31 @@
+2026-09-27T20:56:04Z
+⚠ [8924/8924] Built Research.CirculantQ3 (520s)
+warning: Research/CirculantQ3.lean:167:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: Research/CirculantQ3.lean:186:0: 'CirculantQ3.coefficient_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:187:0: 'CirculantQ3.exactEnergy_eq_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:188:0: 'CirculantQ3.exactEnergy_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:189:0: 'CirculantQ3.exactEnergy_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:190:0: 'CirculantQ3.exactEnergy_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8924 jobs).
+      527.36 real       162.54 user       245.27 sys
+         21674999808  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+            66435414  page reclaims
+              101305  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              594801  voluntary context switches
+             3396310  involuntary context switches
+         63230287525  instructions retired
+         27317181128  cycles elapsed
+           336569744  peak memory footprint
+exit=0
+2026-09-27T21:04:52Z

@@ -26,7 +26,7 @@ namespace HannaA301933
 open PowerSeries
 
 local notation "K" => ZMod 2
-local notation "D" => PowerSeries.derivative K
+local notation "D" => PowerSeries.derivative (R := K)
 
 /-- Frobenius in `(ZMod 2)[[X]]`: squaring is the substitution `X ↦ X^2`. -/
 lemma sq_eq_expand (F : PowerSeries K) : F ^ 2 = expand 2 two_ne_zero F := by
@@ -116,7 +116,7 @@ theorem residue (F : PowerSeries K)
 
 /-- Formal differentiation commutes with reduction of coefficients. -/
 lemma map_derivative (f : ℤ →+* K) (A : PowerSeries ℤ) :
-    PowerSeries.map f (derivative ℤ A) = D (PowerSeries.map f A) := by
+    PowerSeries.map f (derivative (R := ℤ) A) = D (PowerSeries.map f A) := by
   ext n
   simp only [coeff_map, coeff_derivative, map_mul, map_add, map_natCast, map_one]
 
@@ -124,7 +124,7 @@ lemma map_derivative (f : ℤ →+* K) (A : PowerSeries ℤ) :
 `A * (1 + A*A') = x * (1 + 4*A*A')` (the OEIS equation with the unit denominator cleared),
 `a(n)` is odd iff `n` is a power of two. -/
 theorem hanna_a301933 (A : PowerSeries ℤ) (h0 : constantCoeff A = 0)
-    (hA : A * (1 + A * derivative ℤ A) = X * (1 + 4 * A * derivative ℤ A)) (n : ℕ) :
+    (hA : A * (1 + A * derivative (R := ℤ) A) = X * (1 + 4 * A * derivative (R := ℤ) A)) (n : ℕ) :
     Odd (coeff n A) ↔ ∃ k, n = 2 ^ k := by
   let f : ℤ →+* K := Int.castRingHom K
   have hm : A.map f * (1 + A.map f * D (A.map f)) = X * (1 + 4 * A.map f * D (A.map f)) := by

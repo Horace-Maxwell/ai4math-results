@@ -34,7 +34,7 @@ namespace HannaA361047
 open PowerSeries
 
 local notation "K" => ZMod 3
-local notation "Dr" => PowerSeries.derivative K
+local notation "Dr" => PowerSeries.derivative (R := K)
 
 lemma cube_eq_expand (F : PowerSeries K) : F ^ 3 = expand 3 three_ne_zero F := by
   have h := MvPowerSeries.map_frobenius_expand (R := K) (σ := Unit) 3 three_ne_zero (f := F)
@@ -210,26 +210,26 @@ theorem residue (F : PowerSeries K) (h0 : constantCoeff F = 0)
   exact sub_eq_zero.mp hz
 
 lemma map_derivative (f : ℤ →+* K) (A : PowerSeries ℤ) :
-    PowerSeries.map f (derivative ℤ A) = Dr (PowerSeries.map f A) := by
+    PowerSeries.map f (derivative (R := ℤ) A) = Dr (PowerSeries.map f A) := by
   ext n
   simp only [coeff_map, coeff_derivative, map_mul, map_add, map_natCast, map_one]
 
 lemma reduce (A : PowerSeries ℤ) (h0 : constantCoeff A = 0)
-    (hA : A.subst (X - X ^ 3 * (derivative ℤ A) ^ 2 : PowerSeries ℤ) = X) :
+    (hA : A.subst (X - X ^ 3 * (derivative (R := ℤ) A) ^ 2 : PowerSeries ℤ) = X) :
     A.map (Int.castRingHom K) = S := by
   let f : ℤ →+* K := Int.castRingHom K
-  have hs : HasSubst (X - X ^ 3 * (derivative ℤ A) ^ 2 : PowerSeries ℤ) :=
+  have hs : HasSubst (X - X ^ 3 * (derivative (R := ℤ) A) ^ 2 : PowerSeries ℤ) :=
     HasSubst.of_constantCoeff_zero' (by simp)
   have hm : (A.map f).subst (X - X ^ 3 * (Dr (A.map f)) ^ 2 : PowerSeries K) = X := by
     have e := map_subst hs (h := f) A
     have h := congrArg (PowerSeries.map f) hA
-    have hg : PowerSeries.map f (X - X ^ 3 * (derivative ℤ A) ^ 2 : PowerSeries ℤ) =
+    have hg : PowerSeries.map f (X - X ^ 3 * (derivative (R := ℤ) A) ^ 2 : PowerSeries ℤ) =
         (X - X ^ 3 * (Dr (A.map f)) ^ 2 : PowerSeries K) := by
       simp only [map_sub, map_mul, map_pow, map_X, map_derivative]
     calc (A.map f).subst (X - X ^ 3 * (Dr (A.map f)) ^ 2 : PowerSeries K)
-        = (A.map f).subst (PowerSeries.map f (X - X ^ 3 * (derivative ℤ A) ^ 2 : PowerSeries ℤ)) := by
+        = (A.map f).subst (PowerSeries.map f (X - X ^ 3 * (derivative (R := ℤ) A) ^ 2 : PowerSeries ℤ)) := by
           rw [hg]
-      _ = PowerSeries.map f (A.subst (X - X ^ 3 * (derivative ℤ A) ^ 2 : PowerSeries ℤ)) := e.symm
+      _ = PowerSeries.map f (A.subst (X - X ^ 3 * (derivative (R := ℤ) A) ^ 2 : PowerSeries ℤ)) := e.symm
       _ = X := by rw [h, map_X]
   have hc0 : constantCoeff (A.map f) = 0 := by
     rw [← coeff_zero_eq_constantCoeff_apply, coeff_map, coeff_zero_eq_constantCoeff_apply, h0,
@@ -238,7 +238,7 @@ lemma reduce (A : PowerSeries ℤ) (h0 : constantCoeff A = 0)
 
 /-- **A361047 (exponent form), part 1.**  `[x^(3^k)] A ≡ 1 (mod 3)`. -/
 theorem hanna_a361047_pow (A : PowerSeries ℤ) (h0 : constantCoeff A = 0)
-    (hA : A.subst (X - X ^ 3 * (derivative ℤ A) ^ 2 : PowerSeries ℤ) = X) (k : ℕ) :
+    (hA : A.subst (X - X ^ 3 * (derivative (R := ℤ) A) ^ 2 : PowerSeries ℤ) = X) (k : ℕ) :
     coeff (3 ^ k) A ≡ 1 [ZMOD 3] := by
   have hcoef := congrArg (coeff (3 ^ k)) (reduce A h0 hA)
   rw [coeff_map, coeff_S_pow] at hcoef
@@ -249,7 +249,7 @@ theorem hanna_a361047_pow (A : PowerSeries ℤ) (h0 : constantCoeff A = 0)
 
 /-- **A361047 (exponent form), part 2.**  `[x^m] A ≡ 0 (mod 3)` if `m` is not a power of 3. -/
 theorem hanna_a361047_nonpow (A : PowerSeries ℤ) (h0 : constantCoeff A = 0)
-    (hA : A.subst (X - X ^ 3 * (derivative ℤ A) ^ 2 : PowerSeries ℤ) = X) (m : ℕ)
+    (hA : A.subst (X - X ^ 3 * (derivative (R := ℤ) A) ^ 2 : PowerSeries ℤ) = X) (m : ℕ)
     (hm : ∀ k, m ≠ 3 ^ k) : (3 : ℤ) ∣ coeff m A := by
   have hcoef := congrArg (coeff m) (reduce A h0 hA)
   rw [coeff_map, coeff_S_nonpow m hm] at hcoef

@@ -1,0 +1,134 @@
+leanchecker: `lake env leanchecker <Module>`, one module per run, Lean 4.34.1 (commit 5045d0056413266e57c625dcd7c365b10e377c52)
+replay directory: <replay>/lean (fresh directory; see clean-replay-v1.7.1-receipt.json)
+2026-09-27T21:04:52Z phase 1 (both lock slots): Research.CirculantQ3
+== Research.CirculantQ3
+exit=0 (589.64 s, max RSS 20825964544 bytes)
+2026-09-27T21:14:41Z end of phase 1
+2026-09-27T21:23:07Z phase 2 (one lock slot, 2 runs at a time): 61 modules
+== Research.BrauerCMCore
+exit=0 (11 s)
+== Research.Carenini
+exit=0 (117 s)
+== Research.CareniniAudit
+exit=0 (8 s)
+== Research.HKOTriameter
+exit=0 (9 s)
+== Research.HKOTriameterAudit
+exit=0 (7 s)
+== Research.HKOTriameterDH
+exit=0 (9 s)
+== Research.HannaA107099
+exit=0 (6 s)
+== Research.HannaA120566
+exit=0 (6 s)
+== Research.HannaA184894
+exit=0 (7 s)
+== Research.HannaA240998
+exit=0 (6 s)
+== Research.HannaA246056
+exit=0 (6 s)
+== Research.HannaA273958
+exit=0 (6 s)
+== Research.HannaA274479
+exit=0 (7 s)
+== Research.HannaA295762
+exit=0 (7 s)
+== Research.HannaA301933
+exit=0 (6 s)
+== Research.HannaA338633
+exit=0 (6 s)
+== Research.HannaA361047
+exit=0 (7 s)
+== Research.HannaA376230
+exit=0 (6 s)
+== Research.HannaA377100
+exit=0 (7 s)
+== Research.HannaA388734
+exit=0 (7 s)
+== Research.ICGBridgeAudit
+exit=0 (9 s)
+== Research.ICGBridgeEnergy
+exit=0 (9 s)
+== Research.ICGBridgeFinal
+exit=0 (8 s)
+== Research.ICGBridgeMain
+exit=0 (8 s)
+== Research.ICGBridgeRamanujan
+exit=0 (8 s)
+== Research.ICGBridgeSharp
+exit=0 (9 s)
+== Research.ICGBridgeSpectral
+exit=0 (9 s)
+== Research.ICGEqualParityA
+exit=0 (9 s)
+== Research.ICGEqualParityBAudit
+exit=0 (8 s)
+== Research.ICGEqualParityBCert1
+exit=0 (10 s)
+== Research.ICGEqualParityBCert2
+exit=0 (9 s)
+== Research.ICGEqualParityBCert3
+exit=0 (9 s)
+== Research.ICGEqualParityBCert4
+exit=0 (9 s)
+== Research.ICGEqualParityBCert5
+exit=0 (10 s)
+== Research.ICGEqualParityBCert6
+exit=0 (10 s)
+== Research.ICGEqualParityBCertAudit
+exit=0 (8 s)
+== Research.ICGEqualParityBCol
+exit=0 (8 s)
+== Research.ICGEqualParityBFD
+exit=0 (9 s)
+== Research.ICGEqualParityBGraph
+exit=0 (10 s)
+== Research.ICGEqualParityBMain
+exit=0 (10 s)
+== Research.ICGEqualParityGraph
+exit=0 (10 s)
+== Research.ICGEqualParityLemmas
+exit=0 (9 s)
+== Research.ICGEqualParityUnique
+exit=0 (9 s)
+== Research.ICGGeneralAudit
+exit=0 (9 s)
+== Research.ICGGeneralBridge
+exit=0 (9 s)
+== Research.ICGGeneralMain
+exit=0 (9 s)
+== Research.ICGGeneralPath
+exit=0 (9 s)
+== Research.ICGGeneralSwap
+exit=0 (8 s)
+== Research.ICGGeneralThm5
+exit=0 (8 s)
+== Research.Oeis389472Mod3
+exit=0 (7 s)
+== Research.RM714Weights
+exit=0 (110 s)
+== Research.RM714WeightsAudit
+exit=0 (8 s)
+== Research.SubstSemanticsCheck
+exit=0 (7 s)
+== Research.SwitchingDiam4Cubic
+exit=0 (9 s)
+== Research.SwitchingDiam4CubicAudit
+exit=0 (8 s)
+== Research.SwitchingRowCount
+exit=0 (7 s)
+== Research.SwitchingRowCountAudit
+exit=0 (8 s)
+== Research.SwitchingThmH
+exit=0 (7 s)
+== Research.SwitchingThmHAudit
+exit=0 (8 s)
+== Research.SwitchingWalkProfile
+exit=0 (8 s)
+== Research.SwitchingWalkProfileAudit
+exit=0 (7 s)
+2026-09-27T21:29:14Z end of phase 2
+modules checked: 62; exit 0: 62; failed: 0
+root module `Research`: not run. leanchecker reads its argument as a module-name prefix, so `leanchecker Research` would check every module at once; the root file only imports the others and defines 0 constants (count below).
+   constants defined in module Research: 0
+   exit=0

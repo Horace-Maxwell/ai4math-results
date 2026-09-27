@@ -1,0 +1,163 @@
+{
+  "purpose": "Clean-directory rebuild of the Lean sources for v1.7.1 (the v1.7.0 sources moved to Lean v4.34.1 / Mathlib v4.34.1)",
+  "start_utc": "2026-09-27T20:56:04Z",
+  "end_utc": "2026-09-27T21:29:56Z",
+  "exit_code": 0,
+  "toolchain": "leanprover/lean4:v4.34.1 (commit 5045d0056413266e57c625dcd7c365b10e377c52)",
+  "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "previous": "v1.7.0: leanprover/lean4:v4.33.1 (commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6), Mathlib 0df444a360eaa60ab8c11dca51a86af692955474",
+  "toolchain_archive": {
+    "name": "lean-4.34.1-darwin_aarch64.tar.zst",
+    "size_bytes": 562038070,
+    "sha256": "65f22a4f047738ec742667b3247e836a86ebf06eabc12655c3dee00637e37866",
+    "matches_official_release_asset_digest": true
+  },
+  "procedure": [
+    "Same procedure as logs/clean-replay-v1.7.0-receipt.json: fresh directory, sources copied from the release tree (here the v1.7.1 candidate of lean/: git 9c00fe8 plus the changes in CHANGES-v1.7.1.md), shared Lake package cache for Mathlib and its dependencies at the pinned revisions (every package HEAD equal to lake-manifest.json, no tracked changes), fresh .lake/build.",
+    "Because Research.CirculantQ3 needs 21-28 GB on Lean 4.34.1 (21.7 GB here), it was built alone first, holding both Lean lock slots: `/usr/bin/time -l lake build Research.CirculantQ3` (log: clean-replay-v1.7.1-build-circulantq3.log); its leanchecker run also held both slots.",
+    "`/usr/bin/time -l lake build` (log: clean-replay-v1.7.1-build.log): 8976 jobs, exit 0; CirculantQ3 is replayed from the first step.",
+    "Eleven audit files run with `lake env lean` (logs: clean-replay-v1.7.1-audit-*.log), all exit 0; their output is textually identical to the v1.7.0 audit logs.",
+    "`lake build` of the eleven audit modules (log: clean-replay-v1.7.1-build-audit-modules.log), then `lake env leanchecker <Module>` for every module: the 51 proof modules and the 11 audit modules, one module per run (log: clean-replay-v1.7.1-leanchecker.log). The root module Research is not passed to leanchecker, which would read it as a prefix and check everything at once; it defines no constants.",
+    "Forbidden-token scan of the 63 .lean files (log: clean-replay-v1.7.1-forbidden-tokens.log).",
+    "`shasum -a 256` of sources and configuration (logs/lean-sources-sha256.txt, 66 files), checked in the replay directory and against the candidate lean/ folder (66 of 66 OK each).",
+    "LEAN_NUM_THREADS=2 for every run: Lake ran at most two build jobs at a time and leanchecker at most two worker threads per run (two runs at a time). The `lean` compiler processes do not read LEAN_NUM_THREADS (their thread pool defaults to the hardware thread count unless `-j` is given), so the `lake build` step averaged 3.6 cores but peaked at about 15 in ps samples; see \"cpu\"."
+  ],
+  "source_manifest": "logs/lean-sources-sha256.txt",
+  "source_manifest_sha256": "b83172583e6017a804ca01f351a0a1673033d861bee09c8969d606ee5db3512f",
+  "trusted_cache": "Shared Lake package cache for Mathlib and its dependencies at the pinned revisions (Mathlib .olean files from `lake exe cache get`, not rebuilt). No build output of this project was copied.",
+  "build": {
+    "jobs": 8976,
+    "real_seconds": 337.8,
+    "max_rss_bytes": 12607340544
+  },
+  "build_circulantq3_alone": {
+    "real_seconds": 527.36,
+    "max_rss_bytes": 21674999808,
+    "exit_code": 0
+  },
+  "build_audit_modules": {
+    "jobs": 8967,
+    "real_seconds": 36.22,
+    "max_rss_bytes": 6672728064,
+    "exit_code": 0
+  },
+  "axiom_audit": {
+    "build_log_axiom_lines": 119,
+    "build_log_no_axiom_lines": 1,
+    "audit_files_axiom_lines": 392,
+    "nonstandard": 0,
+    "print_axioms_commands_matched": 512,
+    "distinct_declarations": 461,
+    "missing": 0,
+    "duplicates": 0,
+    "unexpected": 0,
+    "axiom_sets": {
+      "{Classical.choice, Quot.sound, propext}": 508,
+      "{Quot.sound, propext}": 3,
+      "{}": 1
+    },
+    "note": "Every printed axiom list is a subset of {propext, Classical.choice, Quot.sound}; Carenini.H3_bipartite depends on no axioms. Same counts as v1.7.0 (119 + 1 lines in the build log, 392 in the audit logs)."
+  },
+  "leanchecker": {
+    "command": "lake env leanchecker <Module>",
+    "modules_ok": 62,
+    "failures": 0,
+    "modules": "51 proof modules (CirculantQ3 under both lock slots) and 11 audit modules",
+    "root_module_constants": 0,
+    "circulantq3": {
+      "real_seconds": 589.64,
+      "max_rss_bytes": 20825964544
+    },
+    "log": "logs/clean-replay-v1.7.1-leanchecker.log"
+  },
+  "audit_files": {
+    "count": 11,
+    "exit_0": 11,
+    "output_identical_to_v1.7.0": 11
+  },
+  "forbidden_tokens": {
+    "files": 63,
+    "code_hits": 0,
+    "comment_hits": 3,
+    "note": "comment hits: \"no `native_decide`\" in Carenini.lean:29 and HKOTriameter.lean:29, \"axiom audit\" in ICGEqualParityBAudit.lean:5; the plain grep also matches \"external\" in comments of CirculantQ3.lean:6 and Oeis389472Mod3.lean:8"
+  },
+  "source_check": {
+    "replay_directory_ok": 66,
+    "candidate_lean_folder_ok": 66,
+    "of": 66
+  },
+  "statement_comparison": {
+    "method": "Every constant of the 51 released modules printed with pp.all (all implicit arguments, universes, no notation), on Lean 4.33.1 / Mathlib 0df444a3 from the v1.7.0 sources and on Lean 4.34.1 / Mathlib d13f23b7 from these sources (built in this replay), then compared; once more with type-class instance arguments hidden (pp.instances false).",
+    "modules": 51,
+    "declarations_in_both": 2368,
+    "only_in_old": 0,
+    "only_in_new": 0,
+    "identical_pp_all": 2172,
+    "identical_instances_hidden": 2354,
+    "differing_instances_hidden": [
+      "HannaA184894.a",
+      "HannaA184894.a_cast",
+      "HannaA184894.coeff_nonpow",
+      "HannaA184894.coeff_pow",
+      "HannaA184894.coeff_rec",
+      "HannaA184894.coeff_zero_iter",
+      "SwitchingDiam4.no_eigenvalue_root_cubic"
+    ],
+    "differing_instances_hidden_auxiliary": [
+      "HannaA184894.a.eq_1",
+      "_private.Research.HannaA301933.0.HannaA301933._aux_Research_HannaA301933___macroRules__private_Research_HannaA301933_0_HannaA301933_termD_1",
+      "_private.Research.HannaA301933.0.HannaA301933._aux_Research_HannaA301933___unexpand_PowerSeries_derivative_1",
+      "_private.Research.HannaA361047.0.HannaA361047._aux_Research_HannaA361047___macroRules__private_Research_HannaA361047_0_HannaA361047_termDr_1",
+      "_private.Research.HannaA361047.0.HannaA361047._aux_Research_HannaA361047___unexpand_PowerSeries_derivative_1",
+      "_private.Research.Oeis389472Mod3.0.Oeis389472Mod3._aux_Research_Oeis389472Mod3___macroRules__private_Research_Oeis389472Mod3_0_Oeis389472Mod3_termD_1",
+      "_private.Research.Oeis389472Mod3.0.Oeis389472Mod3._aux_Research_Oeis389472Mod3___unexpand_PowerSeries_derivative_1"
+    ],
+    "explanation": [
+      "Differences that disappear when instance arguments are hidden: the same type-class instances reached through different paths in Mathlib d13f23b7 (for example Semiring (ZMod 3) via Semifield.toCommSemiring instead of Semifield.toDivisionSemiring); definitionally equal.",
+      "HannaA184894.a and five lemmas of HannaA184894: Polynomial.coeff now returns the coefficient finsupp (R[X] → ℕ →₀ R) and is applied through the finsupp coercion; p.coeff n is the same value.",
+      "SwitchingDiam4.no_eigenvalue_root_cubic: the Semiring ℝ instance inside algebraMap ℚ ℝ is now Ring.toSemiring (was DivisionSemiring.toSemiring); definitionally equal.",
+      "Auxiliary constants: HannaA184894.a.eq_1 (follows from the coeff change) and the notation helpers of the three edited local notation lines.",
+      "The PowerSeries.derivative edits leave every theorem and definition of HannaA301933, HannaA361047 and Oeis389472Mod3 identical."
+    ],
+    "anchors": "<project>/work/lean-upgrade-v434/stmt-compare/Anchors.lean (12 examples, compiled unchanged on both toolchains) pins down: the coefficient formula of PowerSeries.derivative; p.coeff n = p.toFinsupp.coeff n for polynomials; the MvPolynomial analogue; rfl between the old and new instance terms.",
+    "new_side_equals_dev_build": true,
+    "details": "<project>/work/lean-upgrade-v434/logs/stmt-compare/ (dumps and comparisons) and UPGRADE-CHANGES.md"
+  },
+  "changes": {
+    "summary": "lean-toolchain, lakefile.toml (Mathlib rev), lake-manifest.json; 13 lines in Research/HannaA301933.lean, Research/HannaA361047.lean, Research/Oeis389472Mod3.lean (PowerSeries.derivative: ring argument now passed by name). The other 60 .lean files are byte-identical to v1.7.0.",
+    "file": "CHANGES-v1.7.1.md",
+    "full_record": "<project>/work/lean-upgrade-v434/UPGRADE-CHANGES.md"
+  },
+  "cpu": {
+    "build_circulantq3": {
+      "average_cores": 0.77
+    },
+    "leanchecker_circulantq3": {
+      "average_cores": 0.74
+    },
+    "phase1_samples": {
+      "max_sampled_percent": 197,
+      "mean_sampled_percent": 75,
+      "samples": 220
+    },
+    "lake_build": {
+      "average_cores": 3.57,
+      "max_sampled_percent": 1549,
+      "mean_sampled_percent": 342,
+      "samples": 68
+    },
+    "audit_modules_and_audit_files": {
+      "max_sampled_percent": 640,
+      "mean_sampled_percent": 90,
+      "samples": 32
+    },
+    "leanchecker_61_modules": {
+      "max_sampled_percent": 200,
+      "mean_sampled_percent": 182,
+      "samples": 72
+    },
+    "note": "ps %CPU is a decaying average; 100 = one core. Limit asked for: 6 threads. Kept on average in every step, but not at the peaks of `lake build` and of the audit files, where `lean` used its default thread pool."
+  },
+  "locks": "Taken and released only with <project>/work/tools/leanlock.sh: slots A and B together for the CirculantQ3 build and leanchecker (2026-09-27T20:56:04Z to 2026-09-27T21:14:41Z), one slot for the rest (2026-09-27T21:14:52Z to 2026-09-27T21:29:56Z).",
+  "notes": "Written from the logs listed above; paths are logical names. Max RSS values are those of the largest single process."
+}

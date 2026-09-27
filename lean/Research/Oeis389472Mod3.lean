@@ -11,7 +11,7 @@ noncomputable section
 namespace Oeis389472Mod3
 open PowerSeries
 local notation "K" => ZMod 3
-local notation "D" => PowerSeries.derivative K
+local notation "D" => PowerSeries.derivative (R := K)
 
 private def h : PowerSeries K := X ^ 2 + X ^ 3
 private lemma h_subst : HasSubst h := by

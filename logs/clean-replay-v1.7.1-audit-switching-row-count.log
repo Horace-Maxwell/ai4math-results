@@ -1,0 +1,10 @@
+2026-09-27T21:21:25Z
+@SwitchingRow.card_bad_le_two : ∀ {K : Type u_1} [inst : Field K] [CharZero K] (u w θ : K),
+  w ≠ 0 → {Λ | u + ↑Λ * w = θ ∨ u + ↑Λ * w = -θ}.ncard ≤ 2
+@SwitchingRow.card_bad_le_one_of_ne : ∀ {K : Type u_1} [inst : Field K] [CharZero K] (u w θ : K),
+  w ≠ 0 → (∀ (j : ℤ), ↑j * w ≠ 2 * θ) → {Λ | u + ↑Λ * w = θ ∨ u + ↑Λ * w = -θ}.ncard ≤ 1
+@SwitchingRow.affine_injective : ∀ {K : Type u_1} [inst : Field K] [CharZero K] (u w : K),
+  w ≠ 0 → Function.Injective fun Λ => u + ↑Λ * w
+'SwitchingRow.card_bad_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SwitchingRow.card_bad_le_one_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0

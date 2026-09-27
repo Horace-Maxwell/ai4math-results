@@ -1,0 +1,9 @@
+2026-09-27T21:22:59Z
+@SwitchingDiam4.no_eigenvalue_root_cubic : ∀ {n : Type u_1} [inst : Fintype n] [inst_1 : DecidableEq n]
+  (A : Matrix n n ℚ), Aᵀ = A → ∀ (θ : ℝ), eval θ (A.map ⇑(algebraMap ℚ ℝ)).charpoly = 0 → θ ^ 3 - θ + 2 ≠ 0
+SwitchingDiam4.no_rat_root : ∀ (r : ℚ), r ^ 3 - r + 2 ≠ 0
+SwitchingDiam4.real_root_unique : ∀ (x y : ℝ), x ^ 3 - x + 2 = 0 → y ^ 3 - y + 2 = 0 → x = y
+'SwitchingDiam4.no_eigenvalue_root_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SwitchingDiam4.no_rat_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SwitchingDiam4.real_root_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0

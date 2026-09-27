@@ -1,4 +1,4 @@
-# Research papers with Lean 4 proofs: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs and main eigenvalues
+# Research papers with partial Lean 4 formalizations: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs and main eigenvalues
 
 This repository contains eight papers, Lean 4 formalizations of some of
 their results and computational certificates. It is archived on Zenodo: all versions
@@ -9,7 +9,24 @@ their results and computational certificates. It is archived on Zenodo: all vers
 [10.5281/zenodo.22979318](https://doi.org/10.5281/zenodo.22979318); version 1.3.0
 [10.5281/zenodo.22979323](https://doi.org/10.5281/zenodo.22979323); version 1.4.0
 [10.5281/zenodo.22981669](https://doi.org/10.5281/zenodo.22981669); version 1.5.0
-[10.5281/zenodo.22982516](https://doi.org/10.5281/zenodo.22982516).
+[10.5281/zenodo.22982516](https://doi.org/10.5281/zenodo.22982516); version 1.6.0
+[10.5281/zenodo.23000177](https://doi.org/10.5281/zenodo.23000177); version 1.7.0
+[10.5281/zenodo.23000178](https://doi.org/10.5281/zenodo.23000178).
+
+> **Verification status (version 1.7.1, 27 September 2026).** No human
+> mathematician has reviewed these papers. Only some of their results are
+> formally verified in Lean 4, and the table "What is verified, and how"
+> lists exactly which. Paper 7 has no Lean proof; Papers 1, 3, 4, 5, 6 and 8
+> are partly formalized; the theorems of Paper 2 are formalized for every
+> power series satisfying the defining equations, while the existence and
+> uniqueness of these series, and their agreement with the OEIS entries,
+> are checked numerically but not yet in Lean. We are formalizing every
+> paper completely: statements are frozen and reviewed independently before
+> the proofs, computations are checked by the Lean kernel, and only the
+> three standard axioms are allowed. Claims that cannot be formalized
+> completely will be removed in later versions. Problems found so far are
+> listed under [Known issues](#known-issues); every problem we worked on,
+> including the ones we dropped, is listed in [ATTEMPTS.md](ATTEMPTS.md).
 
 ## Index
 
@@ -20,7 +37,7 @@ their results and computational certificates. It is archived on Zenodo: all vers
 | Paper 3 | A negative answer to a question of Carenini on almost independent sets in regular graphs | new theorems (counterexamples and an asymptotic result) | `Carenini.not_careniniQuestion_six`, `Carenini.not_careniniQuestion_two_d` | [`papers/carenini-almost-independent`](papers/carenini-almost-independent/note.pdf) |
 | Paper 4 | Answers to three problems of Hak, Kozerenko and Oliynyk on the triameter of graphs | Problems 1 and 3 answered (new); Problem 2 was first answered on MathOverflow, and we add its smallest counterexample | `HKOTriameter.not_problem1Claim`, `HKOTriameter.not_problem2Claim`, `HKOTriameter.problem3ClaimFP` | [`papers/hko-triameter`](papers/hko-triameter/note.pdf) |
 | Paper 5 | Complete mappings of the Brauer and partial Brauer monoids | Problem 15.11 of arXiv:2608.25092 settled in its existence reading; Lean covers only two constructions | `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC` | [`papers/brauer-complete-mappings`](papers/brauer-complete-mappings/note.pdf) |
-| Paper 6 | The weight spectrum of the Reed–Muller code RM(7,14) up to four weights | 14 new weights; spectrum determined except for four weights and their complements; Conjecture 2 of Lou and Wang fails for m = 6 (with a caveat, see below) | `RM714.rm714_new_weights` (all 17 weights of Theorem A) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
+| Paper 6 | The weight spectrum of the Reed–Muller code RM(7,14) up to four weights | 14 new weights; spectrum determined except for four weights and their complements; Conjecture 2 of Lou and Wang fails for m = 6, which Lou and Wang had already shown (see Known issues) | `RM714.rm714_new_weights` (all 17 weights of Theorem A) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
 | Paper 7 | The minimum order of a counterexample to a conjecture on integral generalized sun graphs | new result (computer-assisted; not formalized) | none | [`papers/sun-graphs`](papers/sun-graphs/note.pdf) |
 | Paper 8 | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem (partly computer-assisted); some steps formalized in Lean | `SwitchingThmH.*`, `SwitchingRow.card_bad_le_two`, `SwitchingDiam4.no_eigenvalue_root_cubic`; `SwitchingWalkProfile.main_after_switching` (a remark not used for Theorem 1) | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
@@ -72,7 +89,9 @@ their results and computational certificates. It is archived on Zenodo: all vers
   (9, 11), (11, 9) and (10, 10).
 - **Proposition 15 (Proposition 13 in version 1.2; computer-assisted, not
   formalized).** Exact certificates verify the equal-parity conjecture for
-  every shape with `(a+1)(b+1) ≤ 27`. These shapes are now covered by
+  the eleven exponent pairs listed in the paper, which are the equal-parity
+  pairs with `min(a, b) ≥ 2` and `(a+1)(b+1) ≤ 27` (the pairs with an
+  exponent 1 are covered by Theorem 3). These pairs are now covered by
   Theorem 5, and the proposition is an independent check of them.
 - **Lean:** `ICGGeneral.jiang_yang_q3` and `ICGEqualParity.corollaryA`, both
   starting from the adjacency matrix of the graph and its eigenvalues, and
@@ -229,10 +248,11 @@ graphs.*
   (c, m) = (7, 14), a positive answer if and only if these four numbers are
   weights.
 - **Theorem C.** Conjecture 2 of Lou and Wang is false for m = 6: no
-  codeword of their Construction 2 has weight 322. Caveat: a note of Lou and
-  Wang (Discrete Appl. Math. 388 (2026) 142–145) on two conjectures about
-  these weight spectra could not be read, and it may anticipate Theorem C or
-  other results of the paper.
+  codeword of their construction (Construction 2 of arXiv:2406.03803v1,
+  Construction 1 of their later note) has weight 322. **This is not new:**
+  Lou and Wang proved it in Discrete Appl. Math. 388 (2026) 142–145
+  (Proposition 2; online 4 April 2026), a note we could not read before
+  publishing Paper 6. Paper 6 gives a second proof.
 - Propositions C′, D and E show that no open weight occurs in several
   natural families of codewords (E by an exhaustive computation with two
   programs), and Proposition F reduces each of 322, 326, 330 and 334 to a
@@ -290,7 +310,7 @@ most 4.*
   the double stars and the harmonic trees, for which the conjecture was known.
 - The proof uses the explicit spectrum of these trees, a counting argument
   for the switchings that can fail, a hand proof when the largest branch has
-  at least 13 leaves, a finite search over 13,376 trees (two programs, and a
+  at least 13 leaves, a finite search over 13,376 branch multisets (two programs, and a
   third by a referee agent) that leaves three small trees, and explicit
   switchings for those three trees and for the trees whose branches have at
   most one leaf.
@@ -376,6 +396,36 @@ entry's indexing and initial coefficients.
 | A107099 | `[x^n]A ≡ 0 (mod 3)` except at `n = 3^k`, where `A(A(x)) = x + 4x³` | the statement as written holds; the stronger reading fails at `x^729` (OEIS index 364), since `3 ∣ [x^729]A` |
 | A361047 | stated with an index slip that the entry's own data contradict | the intended statement, in exponent form: `[x^m]A ≡ 1 (mod 3)` if `m = 3^k`, and `≡ 0` otherwise |
 
+## Known issues
+
+Problems found after publication by our own re-checks, including an
+independent check of the papers by a second AI system (OpenAI Codex) that
+is still in progress. The papers will be corrected in later versions; until
+then, read them with these corrections.
+
+- **Paper 6, Theorem C is not new.** Lou and Wang proved it earlier, in
+  Discrete Appl. Math. 388 (2026) 142–145, Proposition 2 (see Prior work).
+  Moreover, the determination of the spectrum in Theorem B and
+  Proposition C′ rest on cited theorems of Kasami and Tokura (1970) and of
+  Kasami, Tokura and Azumi (1976) that we could not consult and have not
+  formalized; unless they can be formalized, these parts will be removed.
+- **Paper 5, a definition.** In Section 3, `top(x)` and `bot(x)` must use
+  only the 2-element blocks contained in the top (bottom) row. As written
+  they include the singleton blocks of partial Brauer diagrams, which
+  contradicts the definition of a half-diagram, so Proposition 3.1(a) is
+  not well defined as literally stated (PB₁ is the smallest example). The
+  proofs use the intended reading, and no counterexample to any result is
+  known.
+- **Paper 8, two points.** The number 13,376 counts branch multisets, not
+  pairwise non-isomorphic trees (for example `(2,0,0,0)` and `(3,0,0)` both
+  give the double star D(2,3)); the search covers all of them. The bound
+  `t_r ≤ b* + k` on the largest root, which fixes the search range, is used
+  but not proved in the paper; it holds because `F(b* + k) ≤ 1` and `F` is
+  decreasing on `(b*, ∞)`.
+- **Paper 1, Proposition 15** covers exactly the eleven exponent pairs
+  listed in the paper; earlier versions of this README said "every shape
+  with `(a+1)(b+1) ≤ 27`". Corrected in this version.
+
 ## What is verified, and how
 
 | Claim | Lean 4 declarations | Independent computation |
@@ -384,7 +434,7 @@ entry's indexing and initial coefficients.
 | Paper 1, Theorem 3: maximal energy for `pq^m` and `p^m q`, `m` odd; both maximisers; uniqueness | `ICGEqualParity.corollaryA` | exact arithmetic for every step (`verify_1m.py`); graph spectra by FFT and dense eigenvalues (`certificates/icg-equal-parity/`) |
 | Paper 1, Theorem 4: maximal energy for `p²q^b` and `p^b q²`, `b` even; both maximisers; uniqueness; the sign-matrix inequality for the exponent 2 (Theorem 25) | `ICGEqualParityB.theoremB`, `theoremB_swap`, `corollaryB`, `thmB'`; the 325 inequalities of a first proof, not needed for the paper's proof, in `ICGEqualParityBCert1`–`6` | exhaustive searches over all divisor sets of 21 orders `p²q^b`, `b ∈ {2, 4, 6}`, up to `n = 1 058 841`, with exact eigenvalues from Ramanujan sums (`review/rv_graph.py`); exact replays of the steps of the proof (`paper-checks/`); both in `certificates/icg-equal-parity/theorems-b-c/` |
 | Paper 1, Theorem 5 for `3 ≤ min(a,b) ≤ 8` | not formalized (computer-assisted) | exact certification of the reduced inequalities: for exponents 3 and 4 with SymPy (`generic_prover.py`) and with separate integer arithmetic (`generic_fast2.py`); for exponents 3 to 8 with `generic_fast2.py` and the independent certifier of a referee agent (`review2/c3_certify.py`); for exponents 5 to 8 also with the certifier of a third referee agent (`review3/rv3_certify.py`); negative controls; complete enumeration and branch-and-bound checks at sample shapes and parameters (`review2/`, `review3/`) |
-| Paper 1, Proposition 15 (Proposition 13 in version 1.2): equal-parity conjecture for all shapes with `(a+1)(b+1) ≤ 27` | not formalized (computer-assisted) | polynomial non-negativity certificates in exact integer arithmetic (`cert22.py`, `cert_fast.py`, which share polynomial routines), a SymPy rebuild for five shapes, and a negative control (`certificates/icg-equal-parity/negative-control/`) |
+| Paper 1, Proposition 15 (Proposition 13 in version 1.2): equal-parity conjecture for the eleven exponent pairs with `min(a, b) ≥ 2` and `(a+1)(b+1) ≤ 27` | not formalized (computer-assisted) | polynomial non-negativity certificates in exact integer arithmetic (`cert22.py`, `cert_fast.py`, which share polynomial routines), a SymPy rebuild for five shapes, and a negative control (`certificates/icg-equal-parity/negative-control/`) |
 | Roldán q=3 for the genuine graph energy: unique maximizer, gap, value of `E(D*)`, sharpness | `ICGBridge.roldan_q3`, `roldan_q3_gap`, `energy_Dstar`, `roldan_q3_sharp`, `roldan_q3_gap_attained`, plus `*_graph` versions for mathlib's `SimpleGraph.circulantGraph` | three independent programs for the certificate; direct numerical diagonalization of the adjacency matrices for p = 5, 7 (all 2047 sets) |
 | Roldán, whole conjecture (two-variable certificate, all real p, q ≥ 3) | not formalized | two independent programs |
 | A389472 | `Oeis389472Mod3.integer_conjecture` | 1000 terms vs. the OEIS b-file |
@@ -411,37 +461,32 @@ defining equation. The energy is `∑ |eigenvalues|`, using
 
 All final theorems depend only on the axioms `propext`, `Classical.choice`
 and `Quot.sound`. There is no `sorry`, no custom axiom and no
-`native_decide`. For version 1.7.0 the whole project was rebuilt from a clean
-directory (`lake build`, exit code 0; `logs/clean-replay-v1.7.0-build.log`),
-and the eleven audit files were run (`logs/clean-replay-v1.7.0-audit-*.log`).
-Every axiom list printed in these logs, 119 in the build log and 392 in the
-audit logs, is a subset of these three axioms. The four modules new in
-version 1.7.0 (`SwitchingThmH`, `SwitchingRowCount`, `SwitchingDiam4Cubic`
-and `SwitchingWalkProfile`) were replayed through the Lean kernel with
-`lake env leanchecker <Module>`, and all passed
-(`logs/clean-replay-v1.7.0-leanchecker-new-modules.log`). The other proof and
-semantic-check modules are unchanged since version 1.4.0 and passed the same
-check earlier: the 14 modules new in version 1.4.0 (`ICGEqualParityBCol`,
-`ICGEqualParityBFD`, `ICGEqualParityBMain`,
-`ICGEqualParityBGraph`, `ICGEqualParityBCert1` to `ICGEqualParityBCert6`,
-`HKOTriameter`, `HKOTriameterDH`, `BrauerCMCore` and `RM714Weights`;
-`logs/clean-replay-v1.4.0-leanchecker-new-modules.log`), `Carenini` in
-version 1.3.0
-(`logs/clean-replay-v1.3.0-leanchecker-carenini.log`), six modules in version
-1.2.0 (`logs/clean-replay-v1.2.0-leanchecker-new-modules.log`) and the other 26
-in version 1.1.0 (`logs/clean-replay-v1.1.0-leanchecker.log`). The source
-manifest `logs/lean-sources-sha256.txt` lists 66 files, and the procedure and
-its parameters are recorded in `logs/clean-replay-v1.7.0-receipt.json` (for
-the version 1.4.0 rebuild, `logs/clean-replay-v1.4.0-receipt.json`).
+`native_decide`. Version 1.7.1 moved the project from Lean 4.33.1 to Lean
+4.34.1, which fixes three issues in the Lean runtime that could in principle
+be used to derive `False` (see its release notes). Three files changed, in
+13 lines, because `PowerSeries.derivative` now takes its ring implicitly
+(`logs/lean-upgrade-v1.7.1.md`); comparing the elaborated statements on
+both versions showed no change of meaning. For version 1.7.1 the whole
+project was rebuilt from a clean directory (`lake build`, exit code 0;
+`logs/clean-replay-v1.7.1-build.log`), and the eleven audit files were run
+(`logs/clean-replay-v1.7.1-audit-*.log`). Every axiom list printed in these
+logs, 119 in the build log and 392 in the audit logs, is a subset of these
+three axioms. All 51 proof modules and the 11 audit modules were replayed
+through the Lean kernel with `lake env leanchecker <Module>`, and all passed
+(`logs/clean-replay-v1.7.1-leanchecker.log`). The source manifest
+`logs/lean-sources-sha256.txt` lists 66 files, and the procedure and its
+parameters are recorded in `logs/clean-replay-v1.7.1-receipt.json`
+(earlier rebuilds: `logs/clean-replay-v1.4.0-receipt.json`,
+`logs/clean-replay-v1.7.0-receipt.json`).
 
 ### Reproduce the Lean checks
 
 Each code block in this and the following sections starts from the repository
 root.
 
-Requirements: [elan](https://github.com/leanprover/elan), about 20 GB of free
-RAM for `CirculantQ3.lean` (its kernel-checked certificate peaks near 18 GB),
-and about 20 minutes (the clean rebuild for version 1.7.0 took about 13
+Requirements: [elan](https://github.com/leanprover/elan), about 24 GB of free
+RAM for `CirculantQ3.lean` (with Lean 4.34.1 its build peaked at 21.7 GB),
+and about 20 minutes (the clean rebuild for version 1.7.1 took about 15
 minutes).
 
 ```sh
@@ -461,7 +506,7 @@ lake env lean Research/SwitchingDiam4CubicAudit.lean  # Paper 8: the same, with 
 lake env lean Research/SwitchingWalkProfileAudit.lean # Paper 8, Remark 8.3 (not used for Theorem 1): the same
 ```
 
-Toolchain: Lean 4.33.1, mathlib commit `0df444a360eaa60ab8c11dca51a86af692955474`.
+Toolchain: Lean 4.34.1, mathlib v4.34.1 (commit `d13f23b723b8a846827a245b89c10fc7d3f11612`).
 
 ### Reproduce the certificates and numerical checks
 
@@ -578,7 +623,7 @@ Paper 8 (requires Python 3 with SymPy):
 
 ```sh
 cd certificates/switching
-python3 diam4/code/final_region.py      # the finite set: 13,376 trees; 3 fail both criteria, the trees of Proposition 5.6 (under a second)
+python3 diam4/code/final_region.py      # the finite set: 13,376 branch multisets; 3 fail both criteria, the trees of Proposition 5.6 (under a second)
 ```
 
 `certificates/switching/PACKAGING-NOTES.md` lists the other programs and logs.
@@ -603,6 +648,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 ## Layout
 
 - `papers/`: LaTeX sources and PDFs of the eight papers.
+- `ATTEMPTS.md`: every problem we worked on, and what became of it.
 - `certificates/icg-equal-parity/`: programs, logs and a negative control for Theorem 3 and Proposition 15 of Paper 1; `PROOF-working-note.md` is the working note.
 - `certificates/icg-equal-parity/theorems-b-c/`: programs and logs for Theorems 4 and 5 of Paper 1, including those of the three referee agents (`review/`, `review2/`, `review3/`); its `README.md` lists the commands.
 - `certificates/oeis-hanna/round5/`: checks for A246056 and A376230.
@@ -710,14 +756,14 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
     that the listed values are weights); the part below 256 also follows from
     the theorem of Kasami and Tokura (1970). The equivalence with Carlet's
     question does not depend on the 1976 theorem.
-  - Caveat: the note of Lou and Wang, *A note on two conjectures about the
-    weight spectra of the Reed–Muller codes*, Discrete Appl. Math. 388
-    (2026) 142–145, could not be read, and no abstract was available. It may
-    concern the conjectures of their earlier paper, and so may anticipate
-    Theorem C or other results of Paper 6.
-  - Apart from this, we found no earlier claim that one of the 14 new values
-    is a weight, no determination of the spectrum and no disproof of
-    Conjecture 2. We searched on 26 September 2026, 06:41–07:15 and
+  - Correction (version 1.7.1): we have since read the note of Lou and Wang,
+    *A note on two conjectures about the weight spectra of the Reed–Muller
+    codes*, Discrete Appl. Math. 388 (2026) 142–145 (online 4 April 2026).
+    Its Proposition 2 is Theorem C of Paper 6 (the same construction and the
+    same weight 322), so Theorem C is not new. Its Open problem 1 asks whether
+    322 is a weight of RM(7,14), one of the four values left open by Paper 6.
+  - Apart from this note, we found no earlier claim that one of the 14 new
+    values is a weight and no determination of the spectrum. We searched on 26 September 2026, 06:41–07:15 and
     13:43–14:03 UTC: the arXiv, citing works in Semantic Scholar, Crossref,
     zbMATH Open, the MathSciNet reference lookup, MathDB, MathOverflow and
     Mathematics Stack Exchange, the IACR ePrint archive, HAL, GitHub
