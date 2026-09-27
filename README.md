@@ -22,7 +22,7 @@ computational certificates. It is archived on Zenodo: all versions
 | Paper 5 | Complete mappings of the Brauer and partial Brauer monoids | Problem 15.11 of arXiv:2608.25092 settled in its existence reading; Lean covers only two constructions | `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC` | [`papers/brauer-complete-mappings`](papers/brauer-complete-mappings/note.pdf) |
 | Paper 6 | The weight spectrum of the Reed–Muller code RM(7,14) up to four weights | 14 new weights; spectrum determined except for four weights and their complements; Conjecture 2 of Lou and Wang fails for m = 6 (with a caveat, see below) | `RM714.rm714_new_weights` (all 17 weights of Theorem A) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
 | Paper 7 | The minimum order of a counterexample to a conjecture on integral generalized sun graphs | new result (computer-assisted; not formalized) | none | [`papers/sun-graphs`](papers/sun-graphs/note.pdf) |
-| Paper 8 | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem (partly computer-assisted); four supporting Lean files | `SwitchingThmH.*`, `SwitchingDiam4Cubic.*`, `SwitchingWalkProfile.*`, `SwitchingRowCount.*` | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
+| Paper 8 | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem (partly computer-assisted); some steps formalized in Lean | `SwitchingThmH.*`, `SwitchingDiam4.no_eigenvalue_root_cubic`, `SwitchingWalkProfile.main_after_switching`, `SwitchingRow.card_bad_le_two` | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
@@ -281,19 +281,22 @@ most 4.*
   (arXiv:2609.27046) asked for a proof for trees and for connected regular
   graphs.
 - **Main theorem.** Every tree of diameter at most 4 other than K₂ has a
-  switching in which all eigenvalues are main. This extends the known cases
-  of stars, double stars, paths and harmonic trees.
+  switching in which all eigenvalues are main. This class contains the stars,
+  the double stars and the harmonic trees, for which the conjecture was known.
 - The proof uses the explicit spectrum of these trees, a counting argument
   for the switchings that can fail, a hand proof when the largest branch has
   at least 13 leaves, a finite search over 13,376 trees (two programs, and a
-  third by a referee agent), and explicit switchings for three small trees.
-- Supporting computations: every tree with at most 24 vertices (63,242,254
-  trees) and every tree of diameter at most 4 with at most 44 vertices has
-  such a switching.
-- Lean: four files formalize supporting steps (a linear-independence step of
-  the counting argument, the inequality for at least 13 leaves, a lemma on a
-  cubic, and a walk-profile criterion); the spectrum lemma and the searches
-  are not formalized. The problem for all trees, and for regular graphs,
+  third by a referee agent) that leaves three small trees, and explicit
+  switchings for those three trees and for the trees whose branches have at
+  most one leaf.
+- Supporting computations: every tree with 3 to 24 vertices (63,242,254
+  trees; two programs up to 22 vertices, one for 23 and 24) and every tree of
+  diameter at most 4 with 3 to 44 vertices has such a switching.
+- Lean: three files formalize abstract steps of the proof (the arithmetic for
+  at least 13 leaves, two steps of the counting argument, and a lemma on a
+  cubic); a fourth formalizes a walk-profile criterion that the main theorem
+  does not use. The spectrum lemma, the rest of the counting argument and the
+  searches are not formalized. The problem for all trees, and for regular graphs,
   remains open.
 
 **Also formalized (known results): OEIS A246056 and A376230.** Both are
@@ -394,7 +397,7 @@ entry's indexing and initial coefficients.
 | Paper 6: the 17 weights of Theorem A (14 of them new) | `RM714.rm714_new_weights` (the name is historical: it covers all 17) | two programs (`verify_witnesses.c`, `verify_bitset.py`) |
 | Paper 6: Theorems B and C, Propositions C′, D, E and F | not formalized | two programs for every computation used in a proof: `verify_witnesses.c` and `verify_all_py.py` for the 7901 codewords of Theorem B; `cert_arith.py` and `cert_arith.c` for Lemma 4.1 and Propositions C′, D and F; `venn_enum_fast.c` and `venn_enum_indep.c` for Proposition E (`certificates/rm714/`) |
 | Paper 7: Theorems 1 and 2 (minimum order 42, uniqueness; classification up to 41 vertices) and Proposition 3 | not formalized | spectral lemmas proved in the paper; exhaustive searches by separately written programs (`sunsearch*`, `sunB*`, and the referee agents' `sunC`, `sunD2`), with audited versions identified by SHA-256 in the paper (`certificates/sun-graphs/`) |
-| Paper 8: main theorem (trees of diameter at most 4) | supporting steps only: `SwitchingThmH`, `SwitchingDiam4Cubic`, `SwitchingWalkProfile`, `SwitchingRowCount` | exact computations by two programs and a referee agent's program (`certificates/switching/`) |
+| Paper 8: main theorem (trees of diameter at most 4) | some abstract steps only, in the files `SwitchingThmH`, `SwitchingRowCount` and `SwitchingDiam4Cubic` (`SwitchingWalkProfile` formalizes a remark that the main theorem does not use) | exact computations by two programs and a referee agent's program (`certificates/switching/`) |
 
 Each OEIS theorem is stated for every integer power series satisfying the
 defining equation. The energy is `∑ |eigenvalues|`, using
