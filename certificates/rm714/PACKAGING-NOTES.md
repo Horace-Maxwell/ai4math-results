@@ -240,3 +240,5 @@ The paper (`papers/rm714-weights/`):
   628603  2ffcdb59572de8829c8b373e0a962ade4cdc218220e8928f9efc29e39f0bcbbb  papers/rm714-weights/note.pdf
    42009  44b95cb4e745ad62702f1e583751ee11ecf090852fe1ef8cd5a46e7d12d47648  papers/rm714-weights/note.tex
 ```
+
+Final paper files of version 1.4.0: `papers/rm714-weights/note.tex` SHA-256 507bed354e1a387e00e759f6512cc49554ac59e18595e7a19c7b8a58b6326705, `note.pdf` SHA-256 4a9588b87d2e2102dbe173ebcf2ba85bb8a70190d4eae676e9d75ff815a079d6 (11 pages). The two paper hashes in the table above are those of an earlier draft, recorded when this folder was staged; the paper was edited after that, last by adding the author's sentence to the disclosure. This paragraph was added in version 1.7.0.

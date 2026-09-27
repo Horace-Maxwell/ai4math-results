@@ -520,3 +520,5 @@ The paper (`papers/sun-graphs/`):
    524593  beb237c7add868991fb033b2a225480b2d511fd3d40a0f5f1ef35bb823d77d23  papers/sun-graphs/note.pdf
     48957  ff83e00f475556446a7d484794850b13057e2e1235b44d81aff830ac36711686  papers/sun-graphs/note.tex
 ```
+
+Final paper files of version 1.6.0: `papers/sun-graphs/note.tex` SHA-256 61117e451ceb4b2e45f32a39a1f4ee65ea77da9a49a7bb3854ac04a9a04ce89d, `note.pdf` SHA-256 38a1c9a790e21e3e6bcca9a1f0fd58a44a54f25144edc49f81a9b01dbe4e2b64 (12 pages). The two paper hashes in the table above are those of an earlier draft, recorded when this folder was staged; the paper was edited after that, last by adding the author's sentence to the disclosure. This paragraph was added in version 1.7.0.

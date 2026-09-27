@@ -1,7 +1,7 @@
 # Research papers with Lean 4 proofs: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs and main eigenvalues
 
-This repository contains eight papers, their Lean 4 formalizations and
-computational certificates. It is archived on Zenodo: all versions
+This repository contains eight papers, Lean 4 formalizations of some of
+their results and computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254); version 1.0.0
 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255); version 1.1.0
 [10.5281/zenodo.22970816](https://doi.org/10.5281/zenodo.22970816); version 1.2.0
@@ -22,7 +22,7 @@ computational certificates. It is archived on Zenodo: all versions
 | Paper 5 | Complete mappings of the Brauer and partial Brauer monoids | Problem 15.11 of arXiv:2608.25092 settled in its existence reading; Lean covers only two constructions | `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC` | [`papers/brauer-complete-mappings`](papers/brauer-complete-mappings/note.pdf) |
 | Paper 6 | The weight spectrum of the Reed–Muller code RM(7,14) up to four weights | 14 new weights; spectrum determined except for four weights and their complements; Conjecture 2 of Lou and Wang fails for m = 6 (with a caveat, see below) | `RM714.rm714_new_weights` (all 17 weights of Theorem A) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
 | Paper 7 | The minimum order of a counterexample to a conjecture on integral generalized sun graphs | new result (computer-assisted; not formalized) | none | [`papers/sun-graphs`](papers/sun-graphs/note.pdf) |
-| Paper 8 | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem (partly computer-assisted); some steps formalized in Lean | `SwitchingThmH.*`, `SwitchingDiam4.no_eigenvalue_root_cubic`, `SwitchingWalkProfile.main_after_switching`, `SwitchingRow.card_bad_le_two` | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
+| Paper 8 | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem (partly computer-assisted); some steps formalized in Lean | `SwitchingThmH.*`, `SwitchingRow.card_bad_le_two`, `SwitchingDiam4.no_eigenvalue_root_cubic`; `SwitchingWalkProfile.main_after_switching` (a remark not used for Theorem 1) | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
@@ -258,15 +258,20 @@ sun graphs.*
   counterexample with at most 42 vertices, also when pendant paths of both
   admissible lengths share a vertex. So 42 is the minimum order.
 - **Theorem 2.** Every integral generalized sun graph with at most 41
-  vertices that is not a cycle has a 4-cycle and is one of the three graphs
-  found by Braga, Rodrigues and Trevisan (2017).
-- **Proposition 3.** If an integral unicyclic graph has a cycle of odd length
-  `b`, then every prime `q` with `(q − 1) | (b − 1)` divides `2b`; hence
-  `3 | b`, and `b = 3` or `b ≥ 15`.
+  vertices that is not a cycle has a 4-cycle and is one of the three integral
+  unicyclic graphs that Braga, Rodrigues and Trevisan (2017) found in a
+  search up to 21 vertices. Theorem 2 adds that there are no others up to 41
+  vertices.
+- **Proposition 3** (presented in the paper as an observation). In an
+  integral graph whose shortest odd cycles have length `g` and number `c_g`,
+  every prime `q` with `(q − 1) | (g − 1)` divides `2g·c_g`. Hence
+  (Corollary 3.1), if an integral unicyclic graph has a cycle of odd length
+  `b`, then `3 | b`, and `b = 3` or `b ≥ 15`.
 - Method: spectral lemmas exclude every cycle length `b ≢ 0 (mod 4)` except
   3, 6 and 10 up to 42 vertices, and exhaustive searches settle those, each
   with separately written programs, two of them written by independent
-  referee agents. Nothing in Paper 7 is formally verified in Lean.
+  referee agents. Nothing in Paper 7 is formally verified, in Lean or
+  otherwise.
 
 **Paper 8: [`papers/switching-diam4`](papers/switching-diam4/note.pdf).**
 *The switching conjecture for main eigenvalues holds for trees of diameter at
@@ -275,12 +280,12 @@ most 4.*
 - A switching of a graph changes the signs of the edges between a vertex set
   and its complement; an eigenvalue is main if its eigenspace is not
   orthogonal to the all-ones vector. The switching conjecture (Akbari, França,
-  Ghasemian, Javarsineh and de Lima, Linear Algebra Appl. 614 (2021)) says
-  that every connected graph other than K₂ and K₄ − e has a switching in
-  which all eigenvalues are main. Akbari, Kumar, Mohar and Pragada
-  (arXiv:2609.27046) asked for a proof for trees and for connected regular
-  graphs.
-- **Main theorem.** Every tree of diameter at most 4 other than K₂ has a
+  Ghasemian, Javarsineh and de Lima, Linear Algebra Appl. 614 (2021)), in the
+  form for connected graphs given by Akbari, Kumar, Mohar and Pragada
+  (arXiv:2609.27046), says that every connected graph other than K₂ and
+  K₄ − e has a switching in which all eigenvalues are main. In their Problem
+  1.6 they asked for a proof for trees and for connected regular graphs.
+- **Theorem 1.** Every tree of diameter at most 4 other than K₂ has a
   switching in which all eigenvalues are main. This class contains the stars,
   the double stars and the harmonic trees, for which the conjecture was known.
 - The proof uses the explicit spectrum of these trees, a counting argument
@@ -294,10 +299,11 @@ most 4.*
   diameter at most 4 with 3 to 44 vertices has such a switching.
 - Lean: three files formalize abstract steps of the proof (the arithmetic for
   at least 13 leaves, two steps of the counting argument, and a lemma on a
-  cubic); a fourth formalizes a walk-profile criterion that the main theorem
-  does not use. The spectrum lemma, the rest of the counting argument and the
-  searches are not formalized. The problem for all trees, and for regular graphs,
-  remains open.
+  cubic); a fourth formalizes a walk-profile criterion (Remark 8.3) that
+  Theorem 1 does not use. Everything else is proved on paper or by computer
+  only, including the spectrum lemma, the criterion for main eigenvalues, the
+  rest of the counting argument, the explicit switchings and the searches.
+  The problem for all trees, and for regular graphs, remains open.
 
 **Also formalized (known results): OEIS A246056 and A376230.** Both are
 Hanna conjectures listed as open on the OEIS, but their content follows from
@@ -396,8 +402,8 @@ entry's indexing and initial coefficients.
 | Paper 5: Theorem 1.1 (every proper principal factor of `B_n` and `PB_n` has a complete mapping, except the rank-2 factor of `PB_3`; `B_n` and `PB_n` have one iff `n ∉ {2, 3}`) | only the two constructions of Lemmas 4.3 and 4.4, over `Z_2` for any finite index set: `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC`; the rest rests on the written proofs | certificates for the rank-2 factor of `B_6`, the rank-3 factor of `B_7`, the whole monoids `B_1`, `B_4`, `B_5`, `B_6`, `PB_1`, `PB_4`, `PB_5`, `PB_6`, and second versions of the first two, each built by one implementation and checked by a second that shares no code with it; an exhaustive search showing that the rank-2 factor of `PB_3` has no complete mapping (`certificates/brauer-complete/`) |
 | Paper 6: the 17 weights of Theorem A (14 of them new) | `RM714.rm714_new_weights` (the name is historical: it covers all 17) | two programs (`verify_witnesses.c`, `verify_bitset.py`) |
 | Paper 6: Theorems B and C, Propositions C′, D, E and F | not formalized | two programs for every computation used in a proof: `verify_witnesses.c` and `verify_all_py.py` for the 7901 codewords of Theorem B; `cert_arith.py` and `cert_arith.c` for Lemma 4.1 and Propositions C′, D and F; `venn_enum_fast.c` and `venn_enum_indep.c` for Proposition E (`certificates/rm714/`) |
-| Paper 7: Theorems 1 and 2 (minimum order 42, uniqueness; classification up to 41 vertices) and Proposition 3 | not formalized | spectral lemmas proved in the paper; exhaustive searches by separately written programs (`sunsearch*`, `sunB*`, and the referee agents' `sunC`, `sunD2`), with audited versions identified by SHA-256 in the paper (`certificates/sun-graphs/`) |
-| Paper 8: main theorem (trees of diameter at most 4) | some abstract steps only, in the files `SwitchingThmH`, `SwitchingRowCount` and `SwitchingDiam4Cubic` (`SwitchingWalkProfile` formalizes a remark that the main theorem does not use) | exact computations by two programs and a referee agent's program (`certificates/switching/`) |
+| Paper 7: Theorems 1 and 2 (minimum order 42, uniqueness; classification up to 41 vertices) and Proposition 3 | not formalized | spectral lemmas proved in the paper; exhaustive searches by separately written programs (`sunsearch*`, `sunB*`, and the referee agents' `sunC*` and `sunD*`), with audited versions identified by SHA-256 in the paper (`certificates/sun-graphs/`) |
+| Paper 8: Theorem 1 (trees of diameter at most 4) | abstract steps only: `SwitchingThmH.two_sqrt_add_seven_le`, `row_budget`, `sol_subsingleton`, `indep_of_irrational`; `SwitchingRow.card_bad_le_two`; `SwitchingDiam4.no_eigenvalue_root_cubic` (`SwitchingWalkProfile.main_after_switching` formalizes Remark 8.3, which Theorem 1 does not use) | exact computations by two programs and a referee agent's program (`certificates/switching/`) |
 
 Each OEIS theorem is stated for every integer power series satisfying the
 defining equation. The energy is `∑ |eigenvalues|`, using
@@ -405,23 +411,28 @@ defining equation. The energy is `∑ |eigenvalues|`, using
 
 All final theorems depend only on the axioms `propext`, `Classical.choice`
 and `Quot.sound`. There is no `sorry`, no custom axiom and no
-`native_decide`. For version 1.4.0 the whole project was rebuilt from a clean
-directory (`lake build`, exit code 0; `logs/clean-replay-v1.4.0-build.log`),
-and the seven audit files were run (`logs/clean-replay-v1.4.0-audit-*.log`).
-Every axiom list printed in these logs, 106 in the build log and 381 in the
-audit logs, is a subset of these three axioms. The 14 modules new in version
-1.4.0 (`ICGEqualParityBCol`, `ICGEqualParityBFD`, `ICGEqualParityBMain`,
+`native_decide`. For version 1.7.0 the whole project was rebuilt from a clean
+directory (`lake build`, exit code 0; `logs/clean-replay-v1.7.0-build.log`),
+and the eleven audit files were run (`logs/clean-replay-v1.7.0-audit-*.log`).
+Every axiom list printed in these logs, 119 in the build log and 392 in the
+audit logs, is a subset of these three axioms. The four modules new in
+version 1.7.0 (`SwitchingThmH`, `SwitchingRowCount`, `SwitchingDiam4Cubic`
+and `SwitchingWalkProfile`) were replayed through the Lean kernel with
+`lake env leanchecker <Module>`, and all passed
+(`logs/clean-replay-v1.7.0-leanchecker-new-modules.log`). The other proof and
+semantic-check modules are unchanged since version 1.4.0 and passed the same
+check earlier: the 14 modules new in version 1.4.0 (`ICGEqualParityBCol`,
+`ICGEqualParityBFD`, `ICGEqualParityBMain`,
 `ICGEqualParityBGraph`, `ICGEqualParityBCert1` to `ICGEqualParityBCert6`,
-`HKOTriameter`, `HKOTriameterDH`, `BrauerCMCore` and `RM714Weights`) were
-replayed through the Lean kernel with `lake env leanchecker <Module>`, and all
-passed (`logs/clean-replay-v1.4.0-leanchecker-new-modules.log`). The other
-proof and semantic-check modules are unchanged and passed the same check
-earlier: `Carenini` in version 1.3.0
+`HKOTriameter`, `HKOTriameterDH`, `BrauerCMCore` and `RM714Weights`;
+`logs/clean-replay-v1.4.0-leanchecker-new-modules.log`), `Carenini` in
+version 1.3.0
 (`logs/clean-replay-v1.3.0-leanchecker-carenini.log`), six modules in version
 1.2.0 (`logs/clean-replay-v1.2.0-leanchecker-new-modules.log`) and the other 26
 in version 1.1.0 (`logs/clean-replay-v1.1.0-leanchecker.log`). The source
-manifest `logs/lean-sources-sha256.txt` lists 58 files, and the procedure and
-its parameters are recorded in `logs/clean-replay-v1.4.0-receipt.json`.
+manifest `logs/lean-sources-sha256.txt` lists 66 files, and the procedure and
+its parameters are recorded in `logs/clean-replay-v1.7.0-receipt.json` (for
+the version 1.4.0 rebuild, `logs/clean-replay-v1.4.0-receipt.json`).
 
 ### Reproduce the Lean checks
 
@@ -430,7 +441,8 @@ root.
 
 Requirements: [elan](https://github.com/leanprover/elan), about 20 GB of free
 RAM for `CirculantQ3.lean` (its kernel-checked certificate peaks near 18 GB),
-and about 20 minutes (the clean rebuild for version 1.4.0 took 18 minutes).
+and about 20 minutes (the clean rebuild for version 1.7.0 took about 13
+minutes).
 
 ```sh
 cd lean
@@ -438,10 +450,15 @@ lake exe cache get                               # prebuilt mathlib, pinned in l
 lake build                                       # builds everything imported by Research.lean; BrauerCMCore (Paper 5) prints its own axiom audit
 lake env lean Research/ICGGeneralAudit.lean      # Paper 1: prints the final statements, definitions and axioms
 lake env lean Research/ICGEqualParityBAudit.lean # Paper 1, Theorem 4: the same
+lake env lean Research/ICGEqualParityBCertAudit.lean # Paper 1, Theorem 4: axioms of the 325 certificate lemmas
 lake env lean Research/ICGBridgeAudit.lean       # Roldán q = 3: the same
 lake env lean Research/CareniniAudit.lean        # Paper 3: the same
 lake env lean Research/HKOTriameterAudit.lean    # Paper 4: the same
 lake env lean Research/RM714WeightsAudit.lean    # Paper 6: the same
+lake env lean Research/SwitchingThmHAudit.lean        # Paper 8: restates the main statements, prints their axioms
+lake env lean Research/SwitchingRowCountAudit.lean    # Paper 8: prints the statements and axioms, checks a small instance
+lake env lean Research/SwitchingDiam4CubicAudit.lean  # Paper 8: the same, with small instances
+lake env lean Research/SwitchingWalkProfileAudit.lean # Paper 8, Remark 8.3 (not used for Theorem 1): the same
 ```
 
 Toolchain: Lean 4.33.1, mathlib commit `0df444a360eaa60ab8c11dca51a86af692955474`.
@@ -551,16 +568,17 @@ cd certificates/sun-graphs
 cc -O2 -o sunsearch_v4 code/sunsearch_v4_f5a38c28.c -lm && ./sunsearch_v4 4 41   # b = 4 up to 41 vertices: the 3 graphs of Theorem 2 (compare logs/A_b4_N41.out)
 cc -O2 -o sunB_v1 code/sunB_v1_4d92eb48.c && ./sunB_v1 4 41                    # the same with the second program
 cc -O2 -o sunB2 code/sunB2.c -framework Accelerate && ./sunB2 6 42              # b = 6 at 42 vertices: the counterexample is unique (about 3 minutes)
-cc -O2 -o sunC review/code/sunC.c && ./sunC 4 41 noprune 1 0 1                 # the referee agent's program, without pruning
+cc -O2 -o sunC review/code/sunC.c && ./sunC 4 41 noprune 1 0 1                 # the first referee agent's program (implementation C), without pruning (about a minute)
 ```
 
-`PACKAGING-NOTES.md` lists every run and its log.
+`certificates/sun-graphs/PACKAGING-NOTES.md` maps each claim of the paper to its
+programs and logs.
 
 Paper 8 (requires Python 3 with SymPy):
 
 ```sh
 cd certificates/switching
-python3 diam4/code/final_region.py      # the finite set: 13,376 trees, 3 survivors (under a second)
+python3 diam4/code/final_region.py      # the finite set: 13,376 trees; 3 fail both criteria, the trees of Proposition 5.6 (under a second)
 ```
 
 `certificates/switching/PACKAGING-NOTES.md` lists the other programs and logs.
@@ -584,16 +602,16 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Layout
 
-- `papers/`: LaTeX sources and PDFs of the six papers.
+- `papers/`: LaTeX sources and PDFs of the eight papers.
 - `certificates/icg-equal-parity/`: programs, logs and a negative control for Theorem 3 and Proposition 15 of Paper 1; `PROOF-working-note.md` is the working note.
-- `certificates/icg-equal-parity/theorems-b-c/`: programs and logs for Theorems 4 and 5 of Paper 1, including those of the two referee agents (`review/`, `review2/`); its `README.md` lists the commands.
+- `certificates/icg-equal-parity/theorems-b-c/`: programs and logs for Theorems 4 and 5 of Paper 1, including those of the three referee agents (`review/`, `review2/`, `review3/`); its `README.md` lists the commands.
 - `certificates/oeis-hanna/round5/`: checks for A246056 and A376230.
 - `certificates/carenini/`: programs and logs for Paper 3.
 - `certificates/hko-triameter/`: programs (`code/`) and logs (`logs/`) for Paper 4.
 - `certificates/brauer-complete/`: programs, certificates and logs for Paper 5; `review/REVIEW.md` is the referee agent's report.
 - `certificates/rm714/`: programs, data and logs for Paper 6.
 - `certificates/sun-graphs/`: programs, logs and the referee agents' code and reports for Paper 7.
-- `certificates/switching/`: programs, logs and the referee agents' material for Paper 8.
+- `certificates/switching/`: programs and logs for Paper 8, and the referee agent's report and programs (`review/`).
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
 - `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
@@ -709,23 +727,32 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
     GitHub, MathDB and MathOverflow at 15:49–15:52 UTC found nothing new.
   This reports the coverage of our searches, not a guarantee of priority.
 - Paper 7: the question is from Braga, Moraes and Santos (arXiv:2609.28754v1,
-  23 September 2026, still the only version on 26 September 2026). Theorem 2
-  is not new: its three graphs were found by Braga, Rodrigues and Trevisan
-  (2017). We found no earlier answer to the minimum-order question, and no
-  earlier statement of Proposition 3, in our searches of 26 September 2026
-  (the arXiv, GitHub including trureturing, MathDB, MathOverflow and web
+  23 September 2026, still the only version on 27 September 2026). The three
+  graphs of Theorem 2 are not new: Braga, Rodrigues and Trevisan (2017) found
+  them in a search of the unicyclic graphs with at most 21 vertices; Theorem 2
+  adds that there are no others up to 41 vertices (a search by Veras does not
+  state its range). We found no earlier answer to the minimum-order question,
+  and no earlier statement of Proposition 3 (which the paper presents as an
+  observation whose novelty is uncertain), in our searches of 26 September
+  2026 (the arXiv, GitHub including trureturing, MathDB, MathOverflow and web
   search), the last between 23:15 and 23:17 UTC; the searches for works
-  citing the source paper in OpenAlex failed (HTTP 429), and some papers on
-  integral unicyclic graphs were not accessible to us. This reports the
-  coverage of our searches, not a guarantee of priority.
-- Paper 8: the Problem is from Akbari, Kumar, Mohar and Pragada
+  citing the source paper in OpenAlex failed (HTTP 429), some papers on
+  integral unicyclic graphs were not accessible to us, and we did not search
+  Google Scholar, zbMATH or MathSciNet. The arXiv, GitHub,
+  MathDB and MathOverflow searches were repeated on 27 September 2026,
+  06:01–06:04 UTC, with the same result. This reports the coverage of our
+  searches, not a guarantee of priority.
+- Paper 8: the problem is Problem 1.6 of Akbari, Kumar, Mohar and Pragada
   (arXiv:2609.27046v1, still the only version on 27 September 2026); the
   conjecture is from Linear Algebra Appl. 614 (2021), whose full text was not
-  accessible to us. Stars, double stars, paths and harmonic trees were known
-  before. We found no earlier proof for trees of diameter at most 4 (arXiv,
-  MathDB, GitHub including trureturing, MathOverflow; last check
-  27 September 2026, 02:04–02:06 UTC). This reports the coverage of our
-  searches, not a guarantee of priority.
+  accessible to us. Stars, double stars, paths, harmonic trees and all
+  connected graphs with at most nine vertices were known before. We found no
+  proof or claim of the conjecture for all trees of diameter at most 4, or
+  for a class of trees containing them (arXiv, MathDB, GitHub including
+  trureturing, MathOverflow and the other sources listed in the paper; we did
+  not search Google Scholar or MathSciNet, and dblp could not be queried;
+  last check 27 September 2026, 06:01–06:04 UTC). This reports the coverage
+  of our searches, not a guarantee of priority.
 - Roldán's conjecture, case q = 3 (the formalization here is of a known
   result):
   - S. Park, *Exact Energy Maximisation for Integral Circulant Graphs of
@@ -759,7 +786,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Tool and computational resource disclosure
 
-This work was carried out on 25–26 September 2026 in a workflow directed by
+This work was carried out on 25–27 September 2026 (UTC) in a workflow directed by
 the author, using two AI coding agents:
 
 - OpenAI Codex (desktop app; models `gpt-6-astra`, `gpt-6-sol`);
@@ -795,26 +822,29 @@ extent stated above) and drafted by Claude Code agents (model Claude Opus
 out the literature searches described in the papers. Independent Claude
 referee agents checked each paper; for Paper 1, two referee agents checked
 earlier write-ups of the proofs of Theorems 4 and 5, and one of them wrote
-the second certification program for Theorem 5. In version 1.5.0 the
+the second certification program for Theorem 5. The author has also read the
+new material of version 1.4.0 and, using the same kind of side-by-side
+table, compared its Lean statements with the results in the papers. In
+version 1.5.0 the
 extension of Theorem 5 to exponents 5 to 8 was checked by a third independent
 Claude referee agent, which reran both certification programs and certified
 the same inequalities with its own program.
 The author has also read the changes of version 1.5.
 
 Paper 7 (version 1.6.0) was selected, proved and drafted by Claude Code
-agents (model Claude Opus 5.5); two independent Claude referee agents checked
-the proofs and reran the searches with programs they wrote themselves.
-The author has also read Paper 7.
+agents (model Claude Opus 5.5). An independent Claude referee agent refereed
+the proofs line by line, contributed the bound of Lemma 4.4 and reran the
+searches with a program it wrote from scratch (implementation C); a second
+one later checked Lemma 4.2, Corollary 4.3 and the later program versions
+and recomputed the cases with its own program (implementation D). The author
+has also read Paper 7.
 
 Paper 8 (version 1.7.0) was selected, proved, partly formalized in Lean and
 drafted by Claude Code agents (model Claude Opus 5.5); an adversarial
 checking agent and two independent Claude referee agents checked the proof,
 and the referees recomputed the finite part with programs they wrote
-themselves. The author has also read Paper 8.
-
-The author has also read the new material of version 1.4.0 (Paper 1 in its
-version 1.4, and Papers 4, 5 and 6) and, using the same kind of side-by-side
-table, compared its Lean statements with the results in the papers.
+themselves. The first referee agent also checked the correspondence between
+the Lean statements and the paper. The author has also read Paper 8.
 
 AI systems are not authors. The author takes full responsibility for the content.
 
