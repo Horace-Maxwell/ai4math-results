@@ -1,0 +1,4 @@
+n<=25 shard 3/4: {'trees': 390, 'N_I>0': 7, 'N_II>0': 3, 'leaf-rows': 1113, 'leaf-members': 10284, 'leaf-bad': 25, 'bare-rows': 317, 'bare-members': 3444, 'bare-bad': 12} violations=0 []
+n<=26 shard 3/4: {'trees': 877, 'N_I>0': 20, 'N_II>0': 9, 'leaf-rows': 2548, 'leaf-members': 23716, 'leaf-bad': 71, 'bare-rows': 700, 'bare-members': 7824, 'bare-bad': 24} violations=0 []
+n<=27 shard 3/4: {'trees': 1482, 'N_I>0': 27, 'N_II>0': 10, 'leaf-rows': 4379, 'leaf-members': 41332, 'leaf-bad': 95, 'bare-rows': 1189, 'bare-members': 13390, 'bare-bad': 26} violations=0 []
+DONE shard 3 4 violations 0

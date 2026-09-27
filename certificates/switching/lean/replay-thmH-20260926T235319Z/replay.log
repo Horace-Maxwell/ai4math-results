@@ -1,0 +1,23 @@
+start 2026-09-26T23:53:19Z
+cwd <project>/work/round6/switching/lean/replay-thmH-20260926T235319Z
+lean Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+mathlib rev 
+375599ede626ff8dbbd04083d4fdcd49cadf0aac3a23736d42627eebd4234b29  lakefile.toml
+9cb2278091171314d2816e57efa3c813f64d9da54bd82e5ecbdaf779c2b203e8  lake-manifest.json
+3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71  lean-toolchain
+ccd6dd09af0d9b13e832b57275dc95795db39473c6ae76a87ba87c019ca5eb96  Research.lean
+e3d403c5f99cf62839546b249565266df76ac4fbe2cc643ce2ff34e5aac7470d  Research/SwitchingThmH.lean
+33c337662dc5a587fb4f2142b3b9167ee548326f3af4d7d7c41840cb9a7c6c52  Research/SwitchingThmHAudit.lean
+exit 0
+end 2026-09-26T23:53:31Z
+6
+axioms: all within {propext, Classical.choice, Quot.sound}
+<project>/work/round6/switching/lean/SwitchingWalkProfile.lean: OK
+<project>/work/round6/switching/lean/SwitchingWalkProfileAudit.lean: OK
+SwitchingDiam4Cubic.lean: OK
+SwitchingDiam4CubicAudit.lean: OK
+SwitchingRowCount.lean: OK
+SwitchingRowCountAudit.lean: OK
+SwitchingThmH.lean: OK
+SwitchingThmHAudit.lean: OK
+fad18a1b7357a797354f8d3fe5cf21131289938c372acddd1c4f3bccd0ef3aa3  build.log

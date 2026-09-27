@@ -1,0 +1,14 @@
+trees T(a) enumerated (n<=3): 2
+non-even secular factors: 0
+n=3 trees=2 classE=2 classD=2 union=2 (100.00%) uncovered=0 E-switch failures=[] uncovered_examples=[]
+n=4 trees=3 classE=2 classD=2 union=2 (66.67%) uncovered=1 E-switch failures=[] uncovered_examples=[(1, 0)]
+n=5 trees=5 classE=3 classD=3 union=4 (80.00%) uncovered=1 E-switch failures=[] uncovered_examples=[(0, 0, 0, 0)]
+n=6 trees=7 classE=6 classD=5 union=6 (85.71%) uncovered=1 E-switch failures=[] uncovered_examples=[(2, 0, 0)]
+n=7 trees=11 classE=9 classD=9 union=11 (100.00%) uncovered=0 E-switch failures=[] uncovered_examples=[]
+n=8 trees=15 classE=13 classD=12 union=15 (100.00%) uncovered=0 E-switch failures=[] uncovered_examples=[]
+n=9 trees=22 classE=22 classD=17 union=22 (100.00%) uncovered=0 E-switch failures=[] uncovered_examples=[]
+n=10 trees=30 classE=24 classD=23 union=29 (96.67%) uncovered=1 E-switch failures=[] uncovered_examples=[(2, 1, 1, 1)]
+n=11 trees=42 classE=38 classD=30 union=41 (97.62%) uncovered=1 E-switch failures=[] uncovered_examples=[(1, 1, 1, 0, 0, 0, 0)]
+n=12 trees=56 classE=52 classD=38 union=55 (98.21%) uncovered=1 E-switch failures=[] uncovered_examples=[(1, 1, 1, 1, 1, 0)]
+n=13 trees=77 classE=74 classD=50 union=76 (98.70%) uncovered=1 E-switch failures=[] uncovered_examples=[(4, 3, 0, 0, 0)]
+n=14 trees=101 classE=94 classD=64 union=97 (96.04%) uncovered=4 E-switch failures=[] uncovered_examples=[(6, 3, 0, 0), (6, 1, 1, 1), (3, 2, 1, 1, 0, 0), (2, 2, 2, 0, 0, 0, 0)]

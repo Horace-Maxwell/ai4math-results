@@ -1,0 +1,16 @@
+REGION trees enumerated: 13376
+SURVIVORS of the cheap test (N_II bounded by (r - N_rat)//2): 10
+SURVIVOR (2, 2) n=7 N_I=1 N_II=0 N_ei=0 int_roots=[4] FAILS
+SURVIVOR (2, 0, 0) n=6 N_I=2 N_II=0 N_ei=0 int_roots=[1, 4] FAILS
+SURVIVOR (2, 1, 1) n=8 N_I=0 N_II=0 N_ei=0 int_roots=[] covered_by_exact
+SURVIVOR (3,) n=5 N_I=1 N_II=0 N_ei=0 int_roots=[4] FAILS
+SURVIVOR (3, 2, 1, 0) n=11 N_I=0 N_II=0 N_ei=0 int_roots=[] covered_by_exact
+SURVIVOR (3, 2, 2, 1, 0) n=14 N_I=0 N_II=0 N_ei=0 int_roots=[] covered_by_exact
+SURVIVOR (3, 2, 1, 1, 0) n=13 N_I=0 N_II=0 N_ei=0 int_roots=[] covered_by_exact
+SURVIVOR (3, 2, 2, 1, 1, 0) n=16 N_I=0 N_II=0 N_ei=0 int_roots=[] covered_by_exact
+SURVIVOR (3, 2, 1, 1, 1, 0) n=15 N_I=0 N_II=0 N_ei=0 int_roots=[] covered_by_exact
+SURVIVOR (3, 2, 2, 1, 1, 1, 0) n=18 N_I=0 N_II=0 N_ei=0 int_roots=[] covered_by_exact
+FINAL trees failing (a') and (b') with exact counts: 3
+FINAL ((2, 2), 7, 1, 0, 0)
+FINAL ((2, 0, 0), 6, 2, 0, 0)
+FINAL ((3,), 5, 1, 0, 0)

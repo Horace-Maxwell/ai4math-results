@@ -1,0 +1,4 @@
+HARD trees printed by swtrees_print (n=24): 39 distinct: 39
+entries in logs/verify_hard24_*.log: 39 distinct trees: 32 checked twice: 7
+HARD trees without an entry in logs/verify_hard24_*.log: 7 shards: ['s2']
+with checks-addition/verify_hard24_missing7.log: covered 39 of 39 ; every entry has the printed s good, no good U with |U|<=3 and a good 4-set: True

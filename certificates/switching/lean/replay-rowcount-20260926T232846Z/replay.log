@@ -1,0 +1,11 @@
+start 2026-09-26T23:28:46Z
+375599ede626ff8dbbd04083d4fdcd49cadf0aac3a23736d42627eebd4234b29  lakefile.toml
+9cb2278091171314d2816e57efa3c813f64d9da54bd82e5ecbdaf779c2b203e8  lake-manifest.json
+3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71  lean-toolchain
+d22f4e1fdd4d8a26eb006a735ffd7e2e6fcce36750876dd1906101c68d17fb8a  Research.lean
+69b57ccfe5e79d16489046fc075d9adb781d38be13a0c851edb7a708cd9e36c4  Research/SwitchingRowCount.lean
+ae7abeb309a6b9d8b54dee4722c80b6a77d8b7d5fee044c1185c4a4fa56db550  Research/SwitchingRowCountAudit.lean
+exit 0
+end 2026-09-26T23:29:01Z
+axioms: all within {propext, Classical.choice, Quot.sound}
+51333acbc91b8f3e5976dce48ec12bee2d007466b3022f7244e101012f750e0a  build.log

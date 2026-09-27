@@ -1,0 +1,1 @@
+NT5 stopped at 2026-09-26T23:27:31Z after ~28 CPU-min per shard (of an estimated ~120); no exceptional tree was printed before stopping

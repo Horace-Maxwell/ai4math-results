@@ -1,0 +1,1134 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={The switching conjecture for main eigenvalues holds for trees of diameter at most 4},
+ pdfauthor={Horace Dong}}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem{corollary}[lemma]{Corollary}
+\newtheorem*{thmone}{Theorem 1}
+\newtheorem*{conj}{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[lemma]{Remark}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+\newcommand{\s}{\mathbf s}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\bfa}{\mathbf a}
+\newcommand{\NI}{N_{\mathrm I}}
+\newcommand{\NII}{N_{\mathrm{II}}}
+\newcommand{\Nei}{N_{\mathrm{ei}}}
+\newcommand{\sq}{\mathrm{sq}}
+\DeclareMathOperator{\rank}{rank}
+\DeclareUrlCommand\code{\urlstyle{tt}\def\UrlBreaks{\do\_\do\/\do\.}\def\UrlBigBreaks{}}
+\setlength{\emergencystretch}{1.5em}
+\title{The switching conjecture for main eigenvalues\\ holds for trees of diameter at most~4}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+An eigenvalue of a signed graph is main if its eigenspace is not orthogonal
+to the all-ones vector. Akbari, Fran\c{c}a, Ghasemian, Javarsineh and de~Lima
+conjectured that every connected graph other than $K_2$ and $K_4-e$ has a
+switching, a choice of a sign $\pm1$ at each vertex, for which all eigenvalues
+of the resulting signed graph are main, and Akbari, Kumar, Mohar and Pragada
+asked for a proof for trees and for connected regular graphs. We prove the
+conjecture for every tree of diameter at most~$4$ other than~$K_2$; this class
+contains the stars, the double stars and the harmonic trees, for which it was
+known. Apart from a few explicit ones, the eigenvalues of such a tree are the
+square roots of the roots of a secular equation. If all neighbours of the
+centre receive the same sign, each of these whose minimal polynomial is even is
+main; along two explicit families of switchings, each
+remaining pair of Galois orbits $\pm O$ spoils at most four members, and at
+most two when its eigenvalues are irrational. This settles every tree in which a neighbour of the centre has
+at least $13$ leaves; the other cases reduce to explicit switchings and to a
+finite set of $13{,}376$ trees, which three independently written programs
+check. Some abstract steps of the proof are formally verified in Lean~4. The
+results were found by AI coding agents working under the author's direction;
+their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+\paragraph{Background.}
+Let $G$ be a finite simple graph with adjacency matrix $A=A(G)$. A
+\emph{switching} of $G$ is a vector $\s\in\{\pm1\}^{V(G)}$. The signed graph
+$G^{\s}$ has the edges of $G$, the edge $uv$ carrying the sign $s_us_v$, so
+that $A(G^{\s})=D_{\s}AD_{\s}$, where $D_{\s}$ is the diagonal matrix with
+diagonal~$\s$~\cite{akmp}. An eigenvalue of a signed graph is \emph{main} if
+its eigenspace is not orthogonal to the all-ones vector~$\one$
+\cite{cve78,row07}. A regular graph has only one main eigenvalue, whereas almost
+all graphs have only main eigenvalues~\cite{ort}. Akbari, Fran\c{c}a,
+Ghasemian, Javarsineh and de~Lima~\cite{afgjl} asked whether a suitable
+switching always makes all eigenvalues main, and conjectured that it does. We
+state the conjecture in the form of~\cite[Conjecture~1.1]{akmp}.
+
+\begin{conj}[{\cite{afgjl}}]
+Let $G$ be a connected graph other than $K_2$ and $K_4-e$. Then some switching
+$\s$ of $G$ makes every eigenvalue of $G^{\s}$ main.
+\end{conj}
+
+Only distinct eigenvalues matter~\cite[Proposition~1.3]{akmp}. The abstract
+of~\cite{afgjl} states the conjecture for every graph other than $K_2$ and
+$K_4-e$; Akbari, Kumar, Mohar and Pragada~\cite{akmp} state it for connected
+graphs and show that connectedness is needed (no switching of $K_2\cup K_1$
+works). For trees the two
+versions agree.
+
+According to its abstract, \cite{afgjl} proves the conjecture for Cayley,
+distance-regular, vertex- and edge-transitive graphs, double stars and paths.
+It also covers complete bipartite graphs, hence stars
+(\cite[Theorem~4.1]{afgjl}, as cited in~\cite[Section~4]{sy}), and, by a
+computer search, all connected graphs on at most nine vertices other than
+$K_2$ and $K_4-e$ (as reported in~\cite[Section~1.2]{akmp}
+and~\cite[Section~5]{sy}). Shao and
+Yuan~\cite{sy} proved it for harmonic trees \cite[Proposition~2.1]{sy},
+complete multipartite graphs and the graphs $S_{n,r}$, and
+Stani\'c~\cite{sta} gave sufficient conditions for net-regular signed graphs.
+The authors of~\cite{akmp} proved two asymptotic versions, with
+$n-O(n/(\log n)^{1/4})$ main eigenvalues counted with multiplicity and with
+$d-O(d/(\log d)^{1/4})$ distinct main eigenvalues, where $n$ is the order and
+$d$ the number of distinct eigenvalues. They single out regular graphs and
+trees as unresolved cases and, in~\cite[Problem~1.6]{akmp}, ask to show that
+the conjecture ``holds for trees and connected regular graphs of order
+$n\ge 3$''.
+
+\paragraph{Result.}
+\begin{thmone}
+Let $T$ be a tree of diameter at most $4$ other than $K_2$. Then some switching
+$\s$ of $T$ makes every eigenvalue of $T^{\s}$ main.
+\end{thmone}
+
+The trees of diameter at most $4$ are the trees of radius at most~$2$. They
+include the stars, the double stars (all trees of diameter~$3$), the paths
+$P_3$, $P_4$, $P_5$, and the harmonic trees of~\cite{sy}, in which a vertex of
+degree $a^2-a+1$ has only neighbours of degree $a$ and all other vertices are
+leaves. So Theorem~1 contains the known cases above of diameter at most~$4$ and
+adds all other trees of diameter~$4$. Since every signature of a tree is a
+switching of the all-positive one, Theorem~1 also gives the signature version
+of the conjecture~\cite[Conjecture~1.7]{akmp} for these trees.
+
+\paragraph{Method.}
+A tree of diameter at most $4$ with at least three vertices is a rooted tree
+$T(\bfa)$ of height at most~$2$: a centre $c$ with neighbours $v_1,\dots,v_k$,
+where $v_i$ has $a_i$ further neighbours, all of them leaves. Apart from $0$
+and the numbers $\pm\sqrt b$ for branch sizes $b\ge1$ that occur more than
+once, its eigenvalues are the numbers $\pm\sqrt t$ for the roots $t$ of a
+\emph{secular polynomial} $R$ (Lemma~\ref{lem:spec}). Whether an eigenvalue
+becomes main after a switching is a simple condition (Lemma~\ref{lem:main}),
+which for the secular eigenvalues depends only on the Galois orbit. If all
+neighbours of the centre receive the same sign, every such orbit whose minimal
+polynomial is even is main (Lemma~\ref{lem:equal}); the other orbits form
+\emph{non-even pairs} $\pm O$, with $\theta\in\Q(\theta^2)$ for $\theta\in O$,
+which are \emph{integer} pairs if $O\subseteq\Z$ and \emph{irrational} pairs
+otherwise. Along two explicit families of switchings, the \emph{rows} of
+Section~\ref{sec:rows}, an integer pair spoils at most four members and an
+irrational pair at most two, by a linear-independence argument; so a row that
+is long compared with the number of non-even pairs contains a good switching
+(Corollary~\ref{cor:criteria}). Integer pairs are rare, because they come from
+perfect squares that are roots of $R$, and all roots of $R$ but one are smaller
+than the largest branch size $b^*=\max_ia_i$ (Lemma~\ref{lem:count}). For
+$b^*\ge13$ this makes the row of the largest branches long enough
+(Proposition~\ref{prop:large}). For $2\le b^*\le12$ the trees not covered by
+the rows lie in an explicit finite set of $13{,}376$ trees, and a computer
+search leaves three trees with at most seven vertices, for which we give
+switchings (Propositions~\ref{prop:search} and~\ref{prop:three}). Trees with
+$b^*\le1$ are treated by explicit switchings (Proposition~\ref{prop:small}).
+
+\paragraph{Scope.}
+One step of the proof, Proposition~\ref{prop:search}, is a finite computation,
+carried out by three independently written programs (Section~\ref{sec:comp});
+all other steps are proved by hand, and some abstract steps are also formally
+verified (Section~\ref{sec:lean}). The problem remains open for trees in
+general and for regular graphs; our argument relies on the explicit spectrum
+of Lemma~\ref{lem:spec}. As supporting evidence, the conclusion of Theorem~1
+holds for all $63{,}242{,}254$ trees with $3$ to $24$ vertices, and direct
+certificates confirm it for every tree of diameter at most $4$ with at most
+$44$ vertices (Section~\ref{sec:comp}).
+
+\paragraph{Prior work.}
+The full text of~\cite{afgjl} was not accessible to us: the publisher's page
+refused automated access, and we found no other copy. Our account of its
+results rests on its abstract, as shown by zbMATH Open, and on the summaries
+in~\cite{sy} and~\cite{akmp}. The problem
+appeared in version~1 of~\cite{akmp}, submitted to the arXiv on 22 September
+2026. We searched for earlier or concurrent work on the conjecture for trees,
+in particular for trees of diameter at most~$4$, on 26 September 2026 between
+18:48 and 19:49 UTC and between 21:38 and 22:01 UTC, briefly again at 23:00
+UTC, and on 27 September 2026 between 00:37 and 00:42 UTC; the last search was
+made by the referee agent described in the disclosure. The sources were: the
+arXiv (the listing of~\cite{akmp}, which had only version~1, the arXiv API, and
+the new submissions in math.CO); zbMATH Open, Semantic Scholar, OpenAlex and
+Crossref, including the works citing~\cite{afgjl} and~\cite{sy}; the problem
+database MathDB (\url{https://mathdb.com}), whose entry for the conjecture was
+still open, with no solutions; MathOverflow and Mathematics Stack Exchange;
+GitHub code, commits, issues, pull requests and repositories; public
+repositories of AI-assisted work on open problems, among them
+\texttt{trureturing}~\cite{tru}; the publication lists of two authors
+of~\cite{afgjl}; and web search. We did not search Google Scholar or
+MathSciNet, and dblp and some repository search engines could not be queried,
+because they returned checks for automated access, which we did not bypass. We
+found no proof or claim of the conjecture for all trees of diameter at
+most~$4$, or for a class of trees containing them; the tree classes treated in
+the work we found are those listed above. According to its abstract, \cite{fbj}
+determines the unsigned trees of diameter~$4$ with exactly three main
+eigenvalues; it does not concern switchings. A final check on 27 September
+2026 between 02:04 and 02:06 UTC (the arXiv, where~\cite{akmp} still had only
+version~1; GitHub; MathDB; and MathOverflow) found nothing new. This reports
+the coverage of our searches, not a guarantee of priority.
+
+\section{Switchings and main eigenvalues}\label{sec:prelim}
+Let $A$ be a real symmetric $n\times n$ matrix. For an eigenvalue $\theta$ of
+$A$ let $E_\theta$ be its eigenspace and $P_\theta$ the orthogonal projection
+onto~$E_\theta$. For $\s\in\{\pm1\}^n$ the matrix $D_{\s}AD_{\s}$ has the same
+eigenvalues, with eigenspaces $D_{\s}E_\theta$ and projections
+$D_{\s}P_\theta D_{\s}$.
+
+\begin{lemma}\label{lem:good}
+An eigenvalue $\theta$ of $A$ is a main eigenvalue of $D_{\s}AD_{\s}$ if and
+only if $P_\theta\s\ne0$.
+\end{lemma}
+\begin{proof}
+The eigenspace $D_{\s}E_\theta$ is orthogonal to $\one$ if and only if the
+projection $D_{\s}P_\theta D_{\s}\one=D_{\s}P_\theta\s$ of $\one$ onto it
+vanishes.
+\end{proof}
+
+We call $\s$ \emph{good} for $A$, or for a graph $G$ with $A=A(G)$, if
+$P_\theta\s\ne0$ for every eigenvalue $\theta$ of~$A$. By
+Lemma~\ref{lem:good}, Theorem~1 says that every tree of diameter at most $4$
+other than $K_2$ has a good switching. If $\s$ is good, so is~$-\s$.
+
+\begin{lemma}[Krylov certificate]\label{lem:krylov}
+Let $A$ be a symmetric integer matrix with $d$ distinct eigenvalues, let
+$\s\in\Z^n$, and let $K$ be the integer matrix with columns
+$\s,A\s,\dots,A^{d-1}\s$. Then $\rank_\Q K$ is the number of eigenvalues
+$\theta$ with $P_\theta\s\ne0$. In particular, $\s$ is good if $K$ has rank $d$
+over $\F_p$ for some prime~$p$.
+\end{lemma}
+\begin{proof}
+We have $A^j\s=\sum_\theta\theta^jP_\theta\s$, the nonzero vectors
+$P_\theta\s$ are orthogonal, and the Vandermonde matrix
+$(\theta^j)_{\theta,\,0\le j<d}$ is invertible. So the column space of $K$ is
+spanned by the vectors $P_\theta\s$, and its dimension is the number of nonzero
+ones. Reduction modulo $p$ does not increase the rank.
+\end{proof}
+
+\section{The spectrum of a tree of diameter at most 4}\label{sec:spec}
+
+\paragraph{Notation.}
+Let $\bfa=(a_1,\dots,a_k)$, with $k\ge1$, be a multiset of nonnegative
+integers. The tree $T(\bfa)$ has a vertex $c$, the \emph{centre}, adjacent to
+$v_1,\dots,v_k$, and $v_i$ is adjacent to $a_i$ further vertices, the leaves in
+the set~$L_i$. So $T(\bfa)$ has $n=1+k+\sum_ia_i$ vertices. We call $v_i$
+together with $L_i$ the $i$th \emph{branch}; it is \emph{bare} if $a_i=0$. Let
+$B$ be the set of distinct values of the $a_i$, let $r=|B|$ and
+$b^*=\max B$, and for $b\in B$ let $I_b=\{i:a_i=b\}$ and $k_b=|I_b|$; we put
+$k_0=0$ if $0\notin B$. We write $B=\{b_1<\dots<b_r\}$.
+
+A tree with $n\ge3$ vertices and diameter at most $4$ has a vertex of
+eccentricity at most~$2$; rooting the tree at such a vertex shows that it is
+some $T(\bfa)$. Conversely, every $T(\bfa)$ has diameter at most~$4$. The
+results of this section and the next hold for every multiset $\bfa$, so the
+choice of representation does not matter; a double star, for instance, has
+two.
+
+Let
+\[
+ F(t)=\sum_{b\in B}\frac{k_b}{t-b},\qquad
+ R(t)=\prod_{b\in B}(t-b)-\sum_{b\in B}k_b\prod_{b'\in B\setminus\{b\}}(t-b')
+ =\prod_{b\in B}(t-b)\,\bigl(1-F(t)\bigr).
+\]
+Then $R\in\Z[t]$ is monic of degree~$r$; we call it the \emph{secular
+polynomial} of~$T(\bfa)$.
+
+\begin{lemma}[spectrum]\label{lem:spec}
+Let $T=T(\bfa)$ and $A=A(T)$.
+\begin{itemize}
+\item[(i)] $R$ has $r$ simple roots $t_1<\dots<t_r$, with $b_j<t_j<b_{j+1}$ for
+ $1\le j<r$ and $t_r>b_r$; in particular $t_j>0$ and $t_j\notin B$. For each
+ $j$, both $\theta=\sqrt{t_j}$ and $\theta=-\sqrt{t_j}$ are simple eigenvalues
+ of~$A$, with eigenvector $x^\theta$ given by $x^\theta_c=1$,
+ $x^\theta_{v_i}=\theta/(t_j-a_i)$ and $x^\theta_\ell=1/(t_j-a_i)$ for
+ $\ell\in L_i$. We call these $2r$ eigenvalues \emph{secular}.
+\item[(ii)] For $b\in B$ with $b\ge1$ and $k_b\ge2$, both $\theta=\pm\sqrt b$ are
+ eigenvalues of multiplicity $k_b-1$, and $E_\theta$ consists of the vectors
+ with $x_{v_i}=\alpha_i$ and $x_\ell=\alpha_i/\theta$ for $\ell\in L_i$ and
+ $i\in I_b$, where $\sum_{i\in I_b}\alpha_i=0$, and with all other
+ coordinates~$0$.
+\item[(iii)] If $k_0\ge1$, then $\ker A$ consists of the vectors with $x_c=0$,
+ with $x_{v_i}=0$ and $\sum_{\ell\in L_i}x_\ell=0$ whenever $a_i\ge1$, and with
+ $\sum_{i\in I_0}x_{v_i}=0$. If $k_0=0$, then $\ker A$ consists of the vectors
+ with $x_{v_i}=0$ and $\sum_{\ell\in L_i}x_\ell=-x_c$ for every~$i$.
+\item[(iv)] $A$ has no other eigenvalues. Hence $A$ has
+ $d=2r+2\,|\{b\in B:b\ge1,\ k_b\ge2\}|+[\ker A\ne0]$ distinct eigenvalues.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+The equation $Ax=\theta x$ reads
+\begin{equation}\label{eq:eigen}
+ \theta x_\ell=x_{v_i}\ (\ell\in L_i),\qquad
+ \theta x_{v_i}=x_c+\sum_{\ell\in L_i}x_\ell,\qquad
+ \theta x_c=\sum_{i=1}^kx_{v_i}.
+\end{equation}
+Let $\theta\ne0$ and $x\ne0$ be a solution. The first two equations give
+$x_\ell=x_{v_i}/\theta$ and $(\theta^2-a_i)x_{v_i}=\theta x_c$. If $x_c\ne0$ we
+may take $x_c=1$; then $\theta^2\ne a_i$ for all $i$,
+$x_{v_i}=\theta/(\theta^2-a_i)$, and the third equation becomes
+$F(\theta^2)=1$, that is, $R(\theta^2)=0$. Conversely, these formulas solve
+\eqref{eq:eigen} whenever $R(\theta^2)=0$ and $\theta^2\notin B$. If $x_c=0$,
+then $x_{v_i}=0$ unless $a_i=\theta^2$, so $\theta^2=b\in B$ with $b\ge1$, and
+the third equation gives $\sum_{i\in I_b}x_{v_i}=0$; this is~(ii), and it
+needs $k_b\ge2$. For $\theta=0$ the equations say $x_{v_i}=0$ when $a_i\ge1$,
+$x_c+\sum_{\ell\in L_i}x_\ell=0$ for every $i$, and $\sum_ix_{v_i}=0$; a bare
+branch forces $x_c=0$, and (iii) follows.
+
+The value $R(b_j)=-k_{b_j}\prod_{i\ne j}(b_j-b_i)$ has sign $(-1)^{r-j+1}$, and
+$R(t)\to+\infty$ as $t\to\infty$. So $R$ changes sign on each interval
+$(b_j,b_{j+1})$ and on $(b_r,\infty)$, which gives $r$ roots as stated; there
+are no others, since $\deg R=r$. As no $t_j$ lies in $B$, the eigenvalues in
+(i), (ii) and (iii) are distinct, and those in (i) are simple. Finally the
+dimensions add up to~$n$: they are $2r$ in~(i), $2\sum_{b\ge1}(k_b-1)$ in~(ii),
+and $\sum_{a_i\ge1}(a_i-1)+k_0-1$ if $k_0\ge1$, or $1+\sum_i(a_i-1)$ if
+$k_0=0$, in~(iii); in both cases the total is $1+k+\sum_ia_i$.
+\end{proof}
+
+\paragraph{The effect of a switching.}
+For a switching $\s$ of $T(\bfa)$ we write $s_c=s(c)$, $\sigma_i=s(v_i)$ and
+$\lambda_i=\sum_{\ell\in L_i}s(\ell)$, the \emph{leaf sum} of branch~$i$
+($\lambda_i=0$ for a bare branch), and for $b\in B$
+\[
+ S_b=\sum_{i\in I_b}\sigma_i,\qquad \Lambda_b=\sum_{i\in I_b}\lambda_i,\qquad
+ A_b=s_ck_b+\Lambda_b .
+\]
+
+\begin{lemma}[main eigenvalues after switching]\label{lem:main}
+A switching $\s$ of $T=T(\bfa)$ is good if and only if the following three
+conditions hold.
+\begin{itemize}
+\item[(S)] For every secular eigenvalue $\theta$, with $t=\theta^2$,
+ \[
+ G_{\s}(\theta):=\sum_{b\in B}\frac{A_b+S_b\theta}{t-b}\ne0 .
+ \]
+\item[(L)] For every $b\in B$ with $b\ge1$ and $k_b\ge2$ and each
+ $\theta\in\{\sqrt b,-\sqrt b\}$, the numbers $\sigma_i+\lambda_i/\theta$
+ with $i\in I_b$ are not all equal.
+\item[(Z)] If $0$ is an eigenvalue: when $k_0\ge1$, some branch with
+ $a_i\ge2$ has leaves of both signs, or the $\sigma_i$ with $i\in I_0$ are not
+ all equal; when $k_0=0$, some branch has leaves of both signs, or
+ $s_c\ne\sum_i\varepsilon_i$, where $\varepsilon_i$ is the common sign of the
+ leaves in~$L_i$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:spec}, $\s$ is good if and only if $\s$ is not orthogonal to
+$x^\theta$ for each secular $\theta$, nor to $E_{\pm\sqrt b}$, nor to
+$\ker A$. First,
+$\s\cdot x^\theta=s_c+\sum_i(\sigma_i\theta+\lambda_i)/(t-a_i)$; writing
+$s_c=s_cF(t)$ and grouping the branches by size gives $G_{\s}(\theta)$.
+Second, for $x\in E_\theta$ as in Lemma~\ref{lem:spec}(ii) we have
+$\s\cdot x=\sum_{i\in I_b}\alpha_i(\sigma_i+\lambda_i/\theta)$, which vanishes
+for all $\alpha$ with $\sum\alpha_i=0$ exactly when the coefficients are all
+equal. Third, let $k_0\ge1$. By Lemma~\ref{lem:spec}(iii), $\s\perp\ker A$ if
+and only if $\s$ is constant on each $L_i$ with $a_i\ge2$ and on
+$\{v_i:i\in I_0\}$. Let $k_0=0$. If two leaves $\ell,\ell'$ of one branch have
+opposite signs, then $e_\ell-e_{\ell'}\in\ker A$ and
+$\s\cdot(e_\ell-e_{\ell'})\ne0$. Otherwise $\s\cdot x=x_c(s_c-\sum_i\varepsilon_i)$
+for $x\in\ker A$, and $\ker A$ contains a vector with $x_c=1$.
+\end{proof}
+
+\paragraph{Orbits.}
+The polynomial $R(x^2)\in\Z[x]$ is monic and even, and by
+Lemma~\ref{lem:spec}(i) its roots are the $2r$ secular eigenvalues, which are
+distinct. Let $f$ be a monic irreducible factor of $R(x^2)$ in $\Q[x]$; we call
+the set of its roots an \emph{orbit}. We say that $\s$ \emph{fails at} an orbit
+$O$ if $G_{\s}(\theta)=0$ for some $\theta\in O$. A rational number that is a
+root of $R$ is an integer, since $R$ is monic with integer coefficients.
+
+\begin{lemma}[orbits]\label{lem:orbits}
+Let $f$ be as above, $\theta$ a root of $f$, and $t=\theta^2$.
+\begin{itemize}
+\item[(a)] If $f(-x)=f(x)$, then $\theta\notin\Q(t)$. We call the orbit of
+ $f$ \emph{even}. (As $0$ is not a root of $R(x^2)$, the case $f(-x)=-f(x)$
+ does not occur.)
+\item[(b)] If $f(-x)\ne f(x)$, then $\theta\in\Q(t)$, and $\pm f(-x)$ is another
+ irreducible factor of $R(x^2)$, whose orbit is the negative of the orbit of~$f$. We call
+ these two orbits a \emph{non-even pair}. If $\deg f=1$, then $\theta\in\Z$ and
+ $t$ is a perfect square that is a root of $R$ (an \emph{integer pair});
+ otherwise $t\notin\Q$ (an \emph{irrational pair}).
+\item[(c)] If an integer root $t$ of $R$ is not a perfect square, then
+ $\{\sqrt t,-\sqrt t\}$ is an even orbit.
+\item[(d)] Let $\NI$ and $\NII$ be the numbers of integer and of irrational
+ pairs, and $\Nei$ the number of roots of $R$ that are even integers but not
+ perfect squares. Then $\NI+2\NII+\Nei\le r$.
+\item[(e)] For every switching $\s$, if $\s$ fails at an orbit $O$, then
+ $G_{\s}$ vanishes on all of~$O$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+Let $h\in\Q[t]$ be the minimal polynomial of $t$. Then $h\mid R$ and
+$f\mid h(x^2)$. If $\theta\notin\Q(t)$, then
+$\deg f=[\Q(\theta):\Q]=2\deg h$, so $f=h(x^2)$ is even. If $\theta\in\Q(t)$,
+then $\deg f=\deg h$; if $f$ were even, say $f=f_1(x^2)$, then $f_1(t)=0$ would
+give $\deg f=2\deg f_1\ge2\deg h$, which is impossible. So $f$ is not even, and
+$\pm f(-x)$, which divides $R(x^2)$ because $R(x^2)$ is even, is a different
+irreducible factor. If $\deg f=1$, then $\theta$ is a rational root of the
+monic integer polynomial $R(x^2)$, hence an integer. If $\deg f\ge2$, then
+$\deg h=\deg f\ge2$ and $t\notin\Q$. This proves (a) and~(b), and (c) holds
+because $x^2-t$ is irreducible. For~(d), the minimal polynomials of the roots
+of $R$ are distinct irreducible factors of~$R$: each integer pair uses a factor
+$t-q^2$, each irrational pair a factor of degree at least~$2$, and each root
+counted by $\Nei$ a factor $t-m$ with $m$ not a square; their degrees add up to
+at most $\deg R=r$. For~(e), write $G_{\s}(x)=g(x)/\prod_{b\in B}(x^2-b)$ with
+$g\in\Q[x]$; the denominator does not vanish at secular eigenvalues, and if
+$g(\theta)=0$ for one root $\theta$ of $f$, then $f\mid g$.
+\end{proof}
+
+The following reduction is the starting point of the proof.
+
+\begin{lemma}[equal signs next to the centre]\label{lem:equal}
+Suppose that $\sigma_1=\dots=\sigma_k=\sigma$. Then
+$G_{\s}(\theta)=\sigma\theta+P_{\s}(t)$ with
+$P_{\s}(t)=\sum_{b\in B}A_b/(t-b)\in\Q(t)$ for every secular $\theta$. Hence
+$\s$ fails at no even orbit, and $\s$ fails at a non-even pair, that is, at one
+of its two orbits, if and only if $P_{\s}(t)\in\{\theta,-\theta\}$, where
+$\theta$ is any root of the pair and $t=\theta^2$.
+\end{lemma}
+\begin{proof}
+Here $S_b=\sigma k_b$, so $\sum_bS_b\theta/(t-b)=\sigma\theta F(t)=\sigma\theta$.
+In an even orbit $\theta\notin\Q(t)$, so $\sigma\theta+P_{\s}(t)\ne0$. The last
+statement holds because $G_{\s}(\theta)=0$ means $P_{\s}(t)=-\sigma\theta$ and
+$G_{\s}(-\theta)=0$ means $P_{\s}(t)=\sigma\theta$.
+\end{proof}
+
+\section{Two rows of switchings}\label{sec:rows}
+
+In this section we assume $b^*\ge2$, that is, some branch has at least two
+leaves.
+
+\paragraph{Standard leaf sums.}
+For every branch $i$ with $a_i\ge1$ we fix a number $\lambda^\circ_i$ with
+$|\lambda^\circ_i|\le a_i$ and $\lambda^\circ_i\equiv a_i\pmod 2$, group by
+group, after ordering each $I_b$:
+\begin{itemize}
+\item if $b=1$: $\lambda^\circ_i=-1$, except $\lambda^\circ_i=1$ for the
+ smallest $i\in I_1$ when $k_1\ge2$;
+\item if $b\ge3$ is odd: $\lambda^\circ_i=-1$, except that the two smallest
+ $i\in I_b$ get $1$ and $-3$ when $k_b\ge2$;
+\item if $b\ge2$ is even: $\lambda^\circ_i=0,-2,0,-2,\dots$ along~$I_b$.
+\end{itemize}
+Then (P1) for $b\ge1$ with $k_b\ge2$ the $\lambda^\circ_i$ with $i\in I_b$ are
+not all equal, and (P2) for $b\ge2$ the smallest $i\in I_b$ has
+$|\lambda^\circ_i|<b$, so the leaves of that branch receive both signs whenever
+their sum is~$\lambda^\circ_i$. Put $\Lambda^\circ_b=\sum_{i\in
+I_b}\lambda^\circ_i$ for $b\ge1$ and
+\[
+ U(t)=\sum_{b\in B,\,b\ge1}\frac{\Lambda^\circ_b}{t-b},\qquad
+ U_\beta(t)=U(t)-\frac{\Lambda^\circ_\beta}{t-\beta}.
+\]
+
+\begin{lemma}[realizable leaf sums]\label{lem:real}
+Let $\beta\ge1$ and $k\ge1$, and let $\cL_\beta(k)$ be the set of integers
+$\Lambda$ for which there are $\lambda_1,\dots,\lambda_k\in\{-\beta,-\beta+2,
+\dots,\beta\}$ with $\sum_i\lambda_i=\Lambda$, not all equal if $k\ge2$, and,
+if $\beta\ge2$, with $|\lambda_i|<\beta$ for some~$i$. Then for $\beta\ge2$,
+$\cL_\beta(k)$ consists of the $\Lambda\equiv k\beta\pmod2$ with
+$|\Lambda|\le k\beta-2$, except $\Lambda=0$ when $\beta=k=2$; so
+$|\cL_\beta(k)|=k\beta-1-[\beta=k=2]$. For $\beta=1$, $\cL_1(k)$ consists of the
+$\Lambda\equiv k\pmod 2$ with $|\Lambda|\le k-2$ if $k\ge2$, and
+$\cL_1(1)=\{\pm1\}$; so $|\cL_1(k)|=k-1$ for $k\ge2$ and $|\cL_1(1)|=2$.
+\end{lemma}
+\begin{proof}
+Every realizable $\Lambda$ satisfies the stated parity and $|\Lambda|\le
+k\beta$, and $|\Lambda|=k\beta$ would force all $\lambda_i$ to equal $\pm\beta$.
+For $(\beta,k,\Lambda)=(2,2,0)$ the only candidates are $(0,0)$ and
+$(2,-2)$, which are excluded. The case $\beta=1$ is clear. Conversely, let
+$\beta\ge2$ and let $\Lambda$ be as stated. Put $M=(k\beta-\Lambda)/2$, the
+number of leaves of sign $-1$; then $1\le M\le k\beta-1$. For $k=1$ take
+$\lambda_1=\Lambda$. For $k\ge2$ distribute $M$ as evenly as possible, $m_i\in
+\{\lfloor M/k\rfloor,\lceil M/k\rceil\}$, and put $\lambda_i=\beta-2m_i$. If
+$k\nmid M$, the $m_i$ are not all equal and some $m_i$ lies in $[1,\beta-1]$.
+If $M=kq$, then $1\le q\le\beta-1$, and we use $(q+1,q-1,q,\dots,q)$ instead;
+some $m_i$ lies in $[1,\beta-1]$ unless $k=2$, $q=1$ and $\beta=2$, which is
+the excluded case.
+\end{proof}
+
+We write $\cL_\beta=\cL_\beta(k_\beta)$ for $\beta\in B$ with $\beta\ge1$.
+
+\begin{lemma}[leaf row]\label{lem:leafrow}
+Let $\beta\in B$ with $\beta\ge1$. For $\varepsilon\in\{\pm1\}$ and
+$\Lambda\in\cL_\beta$ let $\s_{\varepsilon,\Lambda}$ be a switching with
+$s_c=\varepsilon$, with $\sigma_i=1$ for every branch (bare branches included),
+with leaf sums $\lambda_i=\lambda^\circ_i$ for $a_i\ge1$, $i\notin I_\beta$,
+and with leaf sums on $I_\beta$ as in Lemma~\ref{lem:real} with total
+$\Lambda$ (branch $i$ gets $(a_i-\lambda_i)/2$ leaves of sign $-1$). These
+$2|\cL_\beta|$ switchings form the \emph{leaf row} of~$\beta$. Every member
+satisfies (L) and~(Z), and for every secular $\theta$, with $t=\theta^2$,
+\begin{equation}\label{eq:leafG}
+ G_{\s_{\varepsilon,\Lambda}}(\theta)=\theta+\varepsilon+U_\beta(t)
+ +\frac{\Lambda}{t-\beta}.
+\end{equation}
+No member fails at an even orbit. An integer pair makes at most four members
+fail, at most two for each~$\varepsilon$, and an irrational pair makes at most
+two members fail.
+\end{lemma}
+\begin{proof}
+(L) holds by (P1) for $b\ne\beta$ and by Lemma~\ref{lem:real} for $b=\beta$,
+since all $\sigma_i=1$. For (Z): if $\beta\ge2$, Lemma~\ref{lem:real} gives a
+branch of size $\beta$ with $|\lambda_i|<\beta$, whose leaves have both signs;
+if $\beta=1$, the group $b^*\ge2$ keeps its standard leaf sums, and (P2) gives
+such a branch. Since $A_b=\varepsilon k_b+\Lambda_b$ with $\Lambda_0=0$,
+Lemma~\ref{lem:equal} gives $G=\theta+\varepsilon F(t)+\sum_{b\ge1}\Lambda_b/
+(t-b)$, which is~\eqref{eq:leafG}, and no member fails at an even orbit. By
+Lemma~\ref{lem:equal}, $\s_{\varepsilon,\Lambda}$ fails at a non-even pair if
+and only if $\varepsilon+U_\beta(t)+\Lambda w\in\{\theta,-\theta\}$, where
+$w=1/(t-\beta)\ne0$; for fixed $\varepsilon$ the left-hand side is injective in
+$\Lambda$, so at most two $\Lambda$ fail. If the pair is irrational, then
+$t\notin\Q$, so $w\notin\Q$ and $1,w$ are linearly independent over~$\Q$. The
+member fails at the orbit of $\theta$ exactly when
+$\varepsilon+\Lambda w=-\theta-U_\beta(t)$, and at the orbit of $-\theta$
+exactly when $\varepsilon+\Lambda w=\theta-U_\beta(t)$; each of these equations
+has at most one solution $(\varepsilon,\Lambda)\in\Z^2$.
+\end{proof}
+
+\begin{lemma}[bare row]\label{lem:barerow}
+Suppose $k_0\ge1$. For $\varepsilon\in\{\pm1\}$ and $0\le m\le k_0$ let
+$\s_{\varepsilon,m}$ be a switching with $s_c=\varepsilon$, with leaf sums
+$\lambda^\circ_i$ on every branch with $a_i\ge1$, with $\sigma_i=1$ on these
+branches, and with $\sigma_i=-1$ on exactly $m$ of the bare branches and
+$\sigma_i=1$ on the others. These $2(k_0+1)$ switchings form the \emph{bare
+row}. Every member satisfies (L) and~(Z), and for every secular $\theta$
+\begin{equation}\label{eq:bareG}
+ G_{\s_{\varepsilon,m}}(\theta)=\varepsilon+U(t)+\theta-\frac{2m}{\theta}.
+\end{equation}
+An even orbit makes at most one member fail, and only if its $t=\theta^2$ is
+an even integer. An integer pair makes at most four members fail, and an
+irrational pair at most two.
+\end{lemma}
+\begin{proof}
+(L) holds by (P1), and (Z) by (P2) applied to the group~$b^*$. Now $S_0=k_0-2m$
+and $S_b=k_b$ for $b\ge1$, so $\sum_bS_b/(t-b)=F(t)-2m/t=1-2m/t$, and
+\eqref{eq:bareG} follows as before. In an even orbit, $1$ and $\theta$ are
+linearly independent over $\Q(t)$, so $G=(\varepsilon+U(t))+\theta(1-2m/t)$
+vanishes only if $t=2m$ and $\varepsilon=-U(t)$; this determines the member.
+Let $(\theta,-\theta)$ be a non-even pair. The member fails at the orbit of
+$\theta$ if and only if $\varepsilon-2m/\theta=-\theta-U(t)$, and at the orbit of
+$-\theta$ if and only if $\varepsilon+2m/\theta=\theta-U(t)$. For fixed
+$\varepsilon$ each equation has at most one solution~$m$, so at most four
+members fail. If the pair is irrational, then $1/\theta\notin\Q$, so each
+equation has at most one solution $(\varepsilon,m)\in\Z^2$.
+\end{proof}
+
+\begin{corollary}\label{cor:criteria}
+Let $b^*\ge2$. Then $T(\bfa)$ has a good switching if
+\begin{itemize}
+\item[(a$'$)] $|\cL_\beta|\ge2\NI+\NII+1$ for some $\beta\in B$ with
+ $\beta\ge1$, or
+\item[(b$'$)] $k_0\ge1$ and $2(k_0+1)>4\NI+2\NII+\Nei$.
+\end{itemize}
+In case (a$'$) some member of the leaf row of $\beta$ is good; in case (b$'$)
+some member of the bare row.
+\end{corollary}
+\begin{proof}
+By Lemma~\ref{lem:leafrow}, at most $4\NI+2\NII$ of the $2|\cL_\beta|$ members
+of the leaf row fail at some orbit, so under (a$'$) some member fails at none.
+It satisfies (S) because every secular eigenvalue lies in an orbit, and (L) and
+(Z) by Lemma~\ref{lem:leafrow}; so it is good by Lemma~\ref{lem:main}. Under
+(b$'$) the same argument applies to the bare row, with at most
+$4\NI+2\NII+\Nei$ failing members by Lemma~\ref{lem:barerow} and
+Lemma~\ref{lem:orbits}(c).
+\end{proof}
+
+The primes match the labels printed by our programs, where (a) and (b)
+denote an earlier count with four failing members for every non-even pair.
+
+\section{Proof of Theorem 1}\label{sec:proof}
+
+\subsection{No branch with two leaves}
+
+\begin{proposition}\label{prop:small}
+Let $T=T(\bfa)$ have $n\ge3$ vertices and $b^*\le1$, so that
+$T=T(1^{k_1},0^{k_0})$: the centre has $k_0$ leaf neighbours and $k_1$
+neighbours with one further leaf each. Then $T$ has a good switching, namely:
+\begin{itemize}
+\item[(a)] if $k_1=0$ (the star $K_{1,k_0}$, $k_0\ge2$): $s_c=1$, and $-1$ on one
+ leaf (on two leaves if $k_0=4$) and $+1$ on the other leaves;
+\item[(b)] if $k_1=1$ and $k_0\ge2$: $s_c=1$; $-1$ on one leaf neighbour of $c$
+ and $+1$ on the others; $+1$ on the other neighbour $v$ of $c$ and $-1$ on the
+ leaf of~$v$;
+\item[(c)] if $k_1\ge2$ and $k_0\ge2$: $s_c=1$; $-1$ on one leaf neighbour of
+ $c$ and $+1$ on the others; $+1$ on the $k_1$ other neighbours of $c$; $-1$ on
+ one of their leaves and $+1$ on the others;
+\item[(d)] if $k_0=1$: one of the two switchings $\s^{\pm}$ with $s_c=\pm1$,
+ all $\sigma_i=1$ and leaf sums $\lambda^\circ_i$ (defined as in
+Section~\ref{sec:rows});
+\item[(e)] if $k_0=0$ (a spider with legs of length~$2$): the switching~$\s^+$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+In all cases we use Lemma~\ref{lem:main}.
+
+(a) Here $R(t)=t-k_0$, so $t=k_0$, and $G=(k_0+E\theta)/t=1+E/\theta$, where
+$E\in\{k_0-2,0\}$ is the sum of the signs of the leaves. $G=0$ would need
+$E^2=k_0$, and $(k_0-2)^2=k_0$ only for $k_0\in\{1,4\}$, while $E=0$ for
+$k_0=4$. (L) is void, and (Z)
+holds because the leaf signs are not all equal.
+
+(b) Here $R(t)=t^2-(k_0+2)t+k_0$ and
+$G=1+(k_0-2)/\theta+(\theta-1)/(t-1)$. Substituting $k_0=t(t-2)/(t-1)$, which
+is $R(t)=0$, gives
+$G=(\theta^2-2)(\theta^2+\theta-1)/(\theta(\theta^2-1))$. Now $t=2$ is not a
+root, as $R(2)=-k_0$. If $\theta^2+\theta-1=0$, then $t=\theta^2=1-\theta$
+satisfies $t^2-3t+1=0$, and subtracting this from $R(t)=0$ gives
+$(k_0-1)(1-t)=0$, which is impossible because $k_0\ge2$ and $t\ne1$. (L) is void, and (Z) holds as in~(a).
+
+(c) Here $R(t)=h(t):=t^2-(1+k_0+k_1)t+k_0$. With $A_0=k_0$, $S_0=k_0-2$,
+$A_1=2k_1-2$ and $S_1=k_1$, and using $F(t)=1$, we get $G=P+\theta Q$ with
+$P=(t+k_1-3)/(t-1)$ and $Q=(t-2)/t$. If $G$ vanishes at $\theta$ or at
+$-\theta$, then $P^2=tQ^2$, that is,
+$f(t):=t(t+k_1-3)^2-(t-2)^2(t-1)^2=0$. Since $h(0)=k_0>0$, $h(1)=-k_1<0$,
+$h(k_0+k_1)=-k_1<0$ and $h(k_0+k_1+1)=k_0>0$, the roots of $h$ lie in $(0,1)$
+and in $(k_0+k_1,k_0+k_1+1)$; so $h$ has no integer root and is irreducible
+over~$\Q$. Hence $h\mid f$, that is, the remainder $c_1t+c_0$ of $f$ modulo
+$h$ vanishes, where
+\begin{align*}
+ c_1&=-k_0^3-3k_0^2k_1+6k_0^2-3k_0k_1^2+12k_0k_1-13k_0-k_1^3+7k_1^2-12k_1+8,\\
+ c_0&=k_0^3+2k_0^2k_1-6k_0^2+k_0k_1^2-7k_0k_1+13k_0-4 .
+\end{align*}
+As polynomials in $k_0$, both have constant leading coefficients $\mp1$, so a
+common root forces their resultant to vanish:
+\[
+ \operatorname{Res}_{k_0}(c_1,c_0)=(k_1-1)\bigl(k_1^6-11k_1^5+60k_1^4-148k_1^3
+ +224k_1^2-192k_1+64\bigr)=0 .
+\]
+For $k_1\ge2$ the first factor is nonzero, and the sextic has no integer root
+(an integer root would divide $64$, and none of $\pm1,\pm2,\dots,\pm64$ is a
+root). So (S) holds. (L) holds because the leaves of the $k_1$ branches do not
+all have the same sign, and (Z) holds as in~(a).
+
+(d) Here $R(t)=t^2-(k_1+2)t+1$ has discriminant $k_1(k_1+4)$, strictly between
+$(k_1+1)^2$ and $(k_1+2)^2$, so $R$ is irreducible, $\NI=0$, and there is at most
+one non-even pair. By Lemma~\ref{lem:equal}, $\s^{\pm}$ fails at no even orbit,
+and $P_{\s^+}(t)=1/t+2[k_1\ge2]/(t-1)$ and $P_{\s^-}(t)=P_{\s^+}(t)-2F(t)=
+P_{\s^+}(t)-2$. If both failed at the pair, then $P_{\s^+}(t)$ and
+$P_{\s^+}(t)-2$ would both lie in $\{\theta,-\theta\}$, so $2\in\{\pm2\theta\}$
+and $t=1$, which is not a root. (L) holds by (P1). The eigenvalue $0$ does not
+occur, by Lemma~\ref{lem:spec}(iii), since $k_0=1$ and all $a_i\le1$.
+
+(e) Here $R(t)=t-k_1-1$ and $P_{\s^+}(t)=2[k_1\ge2]/(t-1)$. For $k_1=1$,
+$G=\theta\ne0$. For $k_1\ge2$, $G(\mu)=\mu+2/(\mu^2-1)$ for each secular
+eigenvalue $\mu$, and $G(\mu)=0$ means $\mu^3-\mu+2=0$. This covers both
+$\mu=\theta$ and $\mu=-\theta$, and both are eigenvalues. The polynomial
+$x^3-x+2$ has no rational root, so it is irreducible, and its discriminant is
+$-104<0$, so it has only one real root. But every conjugate of an eigenvalue of
+a symmetric rational matrix is again an eigenvalue, hence real; so no
+eigenvalue satisfies $\mu^3-\mu+2=0$. (This step is formalised; see
+Section~\ref{sec:lean}. Directly: $\mu^2=k_1+1$ would give $\mu k_1=-2$, so
+$\mu^2=4/k_1^2<k_1+1$.) (L) holds by (P1). For (Z), each leaf group is a
+single leaf, and $\sum_i\varepsilon_i=\Lambda^\circ_1\in\{-1,2-k_1\}$ differs
+from $s_c=1$.
+\end{proof}
+
+\subsection{Counting non-even pairs}
+
+\begin{lemma}\label{lem:count}
+Let $b^*\ge1$, let $g=|\{0,1,\dots,b^*\}\setminus B|$, so that $r=b^*+1-g$, and
+let $\sq$ be the number of integers $q\ge1$ with $q^2\le b^*-1$ and
+$q^2\notin B$. Then $\sq\le\lfloor\sqrt{b^*-1}\rfloor$, $\sq\le g$,
+$\NI\le\sq+1$ and $\NI+2\NII+\Nei\le r$.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:spec}(i), the roots $t_1,\dots,t_{r-1}$ lie in
+$(b_1,b^*)\subseteq[0,b^*)$, and no root of $R$ lies in~$B$. An integer pair has
+$t=q^2$ with $q\ge1$ (Lemma~\ref{lem:orbits}(b)); if $t\ne t_r$, then
+$q^2\le b^*-1$ and $q^2\notin B$. Hence $\NI\le\sq+1$. The squares counted by
+$\sq$ are distinct elements of $\{1,\dots,b^*-1\}\setminus B$, so $\sq\le g$;
+the bound $\sq\le\lfloor\sqrt{b^*-1}\rfloor$ is clear, and the last inequality
+is Lemma~\ref{lem:orbits}(d).
+\end{proof}
+
+\subsection{Large branches}
+
+\begin{proposition}\label{prop:large}
+If $b^*\ge13$, then (a$'$) holds with $\beta=b^*$. Hence some member of the
+leaf row of $b^*$ is good.
+\end{proposition}
+\begin{proof}
+With the notation of Lemma~\ref{lem:count},
+\[
+ 2(2\NI+\NII)=3\NI+(\NI+2\NII)\le3(\sq+1)+(b^*+1-g)\le2\sq+b^*+4
+ \le2\lfloor\sqrt{b^*-1}\rfloor+b^*+4 .
+\]
+For $b^*\ge13$ we have $2\lfloor\sqrt{b^*-1}\rfloor+7\le b^*$: if $b^*\le16$,
+then $\lfloor\sqrt{b^*-1}\rfloor=3$; if $b^*\ge17$, then
+$q=\lfloor\sqrt{b^*-1}\rfloor\ge4$ satisfies $q^2+1\le b^*$ and
+$q^2+1-(2q+7)=(q-1)^2-7>0$. So $2(2\NI+\NII)\le2b^*-3$, and since the
+left-hand side is even, $2\NI+\NII\le b^*-2$. By Lemma~\ref{lem:real},
+$|\cL_{b^*}|=k_{b^*}b^*-1\ge b^*-1\ge2\NI+\NII+1$, which is (a$'$). The good
+member of the leaf row is given by Corollary~\ref{cor:criteria}, that is, by
+the counts of Lemma~\ref{lem:leafrow}.
+\end{proof}
+
+For $b^*=12$ the same estimate gives only $2\NI+\NII\le11=b^*-1$; for this
+reason the smaller values of $b^*$ need a search.
+
+\subsection{Branches with two to twelve leaves}
+
+For a set $B\subseteq\{0,1,\dots,b^*\}$ containing $b^*$, with $r=|B|$ and
+$\sq=\sq(B)$ as in Lemma~\ref{lem:count}, put
+\[
+ \nu(B)=\min(\sq+1,\,r),\qquad
+ M(B)=2\nu(B)+\bigl\lfloor(r-\nu(B))/2\bigr\rfloor .
+\]
+
+\begin{lemma}\label{lem:region}
+Let $2\le b^*\le12$, and suppose that $T(\bfa)$ satisfies neither (a$'$), for
+any $\beta$, nor (b$'$). Then $|\cL_\beta|\le M(B)$ for every $\beta\in B$ with
+$\beta\ge1$, and $2(k_0+1)\le3\nu(B)+r$ if $k_0\ge1$. Let $\cR$ be the set of
+multisets $\bfa$ with $2\le b^*\le12$ that satisfy these two conditions. Then
+$\cR$ is finite; it has $13{,}376$ elements, and each of them has $n\le124$.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:count}, $\NI\le\nu(B)$ and $\NII\le\lfloor(r-\NI)/2\rfloor$.
+The function $x\mapsto2x+\lfloor(r-x)/2\rfloor$ is increasing, so
+$2\NI+\NII\le M(B)$, and failing (a$'$) gives $|\cL_\beta|\le2\NI+\NII\le M(B)$.
+Failing (b$'$) gives $2(k_0+1)\le4\NI+2\NII+\Nei=3\NI+(\NI+2\NII+\Nei)\le
+3\nu(B)+r$. There are finitely many sets $B$, and for each of them the first
+condition bounds every multiplicity $k_b$ with $b\ge1$, because
+$|\cL_b(k)|\ge k-1$ by Lemma~\ref{lem:real}, and the second bounds~$k_0$.
+The count of $\cR$ and the bound on $n$ were obtained by enumeration
+(Section~\ref{sec:comp}).
+\end{proof}
+
+\begin{proposition}\label{prop:search}
+Every multiset in $\cR$ except $(2,2)$, $(2,0,0)$ and $(3)$ satisfies (a$'$)
+or~(b$'$).
+\end{proposition}
+
+This is the computer-assisted step of the proof. It was carried out by three
+independently written programs, which evaluate $\NI$, $\NII$ and $\Nei$
+exactly; see Section~\ref{sec:comp}.
+
+\begin{proposition}\label{prop:three}
+The following switchings are good; the three trees have $7$, $6$ and $5$
+vertices.
+\begin{itemize}
+\item[(a)] $T(2,2)$: $s_c=\sigma_1=\sigma_2=1$; the leaves of $v_1$ get $+1,+1$
+ and those of $v_2$ get $-1,-1$.
+\item[(b)] $T(2,0,0)=D(2,2)$, the double star with two leaves at each of its
+ two central vertices: $s_c=1$; $+1$ on the two leaf neighbours of $c$; $-1$ on the
+ third neighbour $v$ of $c$, and $+1,-1$ on the two leaves of~$v$.
+\item[(c)] $T(3)=K_{1,4}$, rooted at a leaf $c$: $s_c=1$; $+1$ on the centre $v$
+ of the star; $+1,-1,-1$ on the other three leaves.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+(a) $R(t)=t-4$, so the secular eigenvalues are $\pm2$, and
+$G=(2+2\theta)/2=1+\theta\in\{3,-1\}$. For (L), at $\theta=\pm\sqrt2$ the
+numbers $1+2/\theta$ and $1-2/\theta$ differ. For (Z), $k_0=0$ and the leaf
+signs are constant on each branch, with $\sum_i\varepsilon_i=0\ne1=s_c$.
+(b) $R(t)=(t-1)(t-4)$, and
+$G=(2+2\theta)/t+(1-\theta)/(t-2)$ takes the values $4$, $-2$, $1$, $1$ at
+$\theta=1,-1,2,-2$. (L) is void, and (Z) holds because the leaves of $v$ have
+both signs. (c) $R(t)=t-4$ and $G=\theta/(t-3)=\theta\ne0$; (L) is void, and (Z)
+holds because the three leaves adjacent to $v$ have both signs.
+\end{proof}
+
+These three trees are also covered by known results: $K_{1,4}$ is a star,
+$T(2,0,0)$ a double star, and $T(2,2)$ has seven vertices.
+
+\subsection{End of the proof}
+
+\begin{proof}[Proof of Theorem~1]
+The tree $K_1$ is trivial, since the switching $(1)$ is good, and $K_2$ is
+excluded. Let $T$ have $n\ge3$ vertices; then $T=T(\bfa)$ for some $\bfa$
+(Section~\ref{sec:spec}). If $b^*\le1$, Proposition~\ref{prop:small} applies. If $b^*\ge13$,
+Proposition~\ref{prop:large} applies. If $2\le b^*\le12$ and (a$'$) or (b$'$)
+holds, Corollary~\ref{cor:criteria} applies. Otherwise $\bfa\in\cR$ by
+Lemma~\ref{lem:region}, so $\bfa$ is $(2,2)$, $(2,0,0)$ or $(3)$ by
+Proposition~\ref{prop:search}, and Proposition~\ref{prop:three} applies.
+\end{proof}
+
+
+
+\section{Computations}\label{sec:comp}
+The programs and logs are in version~1.7.0 of~\cite{repo}, directory
+\code{certificates/switching/}; those of the referee agent (see the
+disclosure) begin with \code{rv_}. They are written in Python with
+SymPy~\cite{sympy}, except \code{swtrees.c} and \code{swtrees_print.c} (in C),
+and all ran on one computer (macOS, arm64).
+
+\paragraph{The finite search.}
+Proposition~\ref{prop:search} was checked by three separately written
+programs.
+\begin{itemize}
+\item[(1)] \code{final_region.py} enumerates $\cR$ set by set, as in
+ Lemma~\ref{lem:region}. For each tree it finds the integer roots of $R$
+ exactly, by evaluating $R$ at every integer in the intervals of
+ Lemma~\ref{lem:spec}(i), the last one being $(b^*,b^*+k]$; this gives $\NI$,
+ $\Nei$ and the number $N_{\mathrm{rat}}$ of rational roots. It then uses
+ $\NII\le\lfloor(r-N_{\mathrm{rat}})/2\rfloor$, which is valid because an
+ irrational pair uses two irrational roots and because (a$'$) and (b$'$) only
+ become harder as $\NII$ grows. All but ten trees pass (a$'$) or (b$'$) this
+ way; for these ten, $R(x^2)$ is factored over~$\Q$, which gives the exact
+ $\NII$, and the three trees of Proposition~\ref{prop:three} remain. The run
+ takes half a second.
+\item[(2)] \code{final_region_indep.py} enumerates a cruder superset of
+ $7{,}892{,}382$ multisets, with only the bounds
+ $2\NI+\NII\le\lfloor(2\lfloor\sqrt{b^*-1}\rfloor+b^*+4)/2\rfloor$ and
+ $2(k_0+1)\le3\lfloor\sqrt{b^*-1}\rfloor+b^*+4$, which follow from
+ Lemma~\ref{lem:count} as in the proofs of Proposition~\ref{prop:large} and
+ Lemma~\ref{lem:region}, and no pruning by~$B$. It finds the integer
+ roots of $R$ by a floating-point screen of $F(t)-1$ at every integer $t$,
+ confirming each hit in exact rational arithmetic; a true root gives
+ $|F(t)-1|$ far below the threshold. For the trees that fail this cheap test it
+ bounds $\NII$ from above: it factors $R(t)$ over $\Q$ and counts an orbit as
+ even only if its own Rabin test shows that $h(x^2)$ is irreducible modulo a
+ prime not dividing the leading coefficient. It finds the same ten trees and
+ the same three survivors.
+\item[(3)] The referee's \code{rv_region.py} shares no code with (1) and (2).
+ It enumerates $\cR$ in another way, over all multiplicity vectors under global
+ caps, with the bounds of Lemma~\ref{lem:region} computed by brute force over
+ the feasible $(\NI,\NII,\Nei)$, and writes the set to
+ \code{rv_region_list.txt}; a comparison made separately from the program,
+ and repeated when the certificates were packaged, shows that this set equals
+ that of~(1). It computes $\NI$,
+ $\NII$ and $\Nei$ exactly for every tree and certifies each orbit by its own
+ tests: irreducibility by a Rabin test, evenness by a simple root of $h$ modulo
+ a prime that is a quadratic non-residue, and non-evenness by an explicit
+ factorisation $h(x^2)=\pm g(x)g(-x)$. Over $\cR$, $13{,}199$ trees have no
+ non-even pair, $176$ have one and one tree has two. It finds the same three
+ survivors.
+\end{itemize}
+Independently of Sections~\ref{sec:spec}--\ref{sec:proof}, the referee's
+\code{rv_certify.py} found for each of the $13{,}376$ trees of $\cR$ a switching
+that is good by Lemma~\ref{lem:krylov}, with ranks modulo $2^{31}-1$ and
+$2147483629$ and with $d$ computed exactly, in agreement with
+Lemma~\ref{lem:spec}(iv); for the $3{,}029$ trees with $n\le40$ it also computed
+the rank over~$\Q$. Our \code{final_region_witness.py} checked that for each of
+the other $13{,}373$ trees of $\cR$ the row given by (a$'$) or (b$'$) contains
+a certified good member and has no more failing members than
+Lemmas~\ref{lem:leafrow} and~\ref{lem:barerow} allow.
+
+\paragraph{Explicit switchings.}
+\code{five_refined.py} checked the switchings of Proposition~\ref{prop:three}
+by the rank over~$\Q$ and, independently, by testing $(\mu/p)(A)\s\ne0$ for
+every irreducible factor $p$ of the minimal polynomial $\mu$ of~$A$, which for
+rational $\s$ is equivalent to goodness. The referee's
+\code{rv_exceptional.py} tested all $2^n$ switchings of the three trees: $72$ of
+$128$, $16$ of $64$ and $12$ of $32$ are good, including ours. Its
+\code{rv_families.py} redid the computation in
+Proposition~\ref{prop:small}(c) and certified the switchings of
+Proposition~\ref{prop:small} for $2\le k_0\le40$ and $k_1\le40$, for stars with
+$k_0\le80$, and for $k_0\in\{0,1\}$ with $k_1\le80$.
+
+\paragraph{Checks of the lemmas.}
+These exact checks are not needed for the proof. \code{test_refined_rows.py}
+tested all $41{,}039$ leaf and bare rows ($380{,}520$ switchings) of the
+$11{,}535$ multisets with $5\le n\le27$ and $b^*\ge2$ against
+Lemmas~\ref{lem:leafrow} and~\ref{lem:barerow}; \code{test_bounds.py} confirmed
+Lemma~\ref{lem:count}, (a$'$) at $\beta=b^*$ when $b^*\ge13$, and that only the
+trees of Proposition~\ref{prop:three} fail (a$'$) and (b$'$), for the
+$375{,}820$ multisets with $4\le n\le44$ and $b^*\ge2$. The referee checked
+Lemmas~\ref{lem:spec} and~\ref{lem:main} on $400$ trees against exact ranks
+(\code{rv_spectrum.py}), and the rows of $69$ trees with non-even pairs and of
+the $9{,}114$ multisets with $b^*\ge2$ and $n\le26$ (\code{rv_rows.py},
+\code{rv_endtoend.py}). The bounds of Lemma~\ref{lem:leafrow} are attained, for
+instance by $T(15)$ (four failing members) and by $T(18,0,0)$ (two, from one
+irrational pair).
+
+\paragraph{Supporting evidence.}
+Two programs checked the trees with $3\le n\le24$: both of them for
+$n\le22$, and implementation~B alone for $n=23$ and~$24$. Each of these
+$63{,}242{,}254$ trees has a good switching, certified by
+Lemma~\ref{lem:krylov} with $d$ computed exactly, and the counts for each $n$
+agree with sequence A000055 of~\cite{oeis}. Implementation~B,
+\code{swtrees.c}, generates the trees with the algorithm of Wright, Richmond,
+Odlyzko and McKay~\cite{wrom} (a port of the NetworkX~\cite{nx} generator),
+computes $d$ exactly from $\gcd(\varphi,\varphi')$ (found modulo a $61$-bit
+prime and confirmed by exact division over~$\Z$) and computes ranks modulo
+$2^{31}-1$. Implementation~A, \code{swtrees_A.py}, is independent in every
+component (canonical augmentation, SymPy for $d$, exact rank over $\Q$ by
+fraction-free elimination); it covers $n\le21$, and $n=22$ with trees from the
+NetworkX generator (\code{swtrees_A_nx.py}). Separately,
+\code{verify_diam4.py} certified a good switching for each of the $376{,}324$
+multisets with $3\le n\le44$, which include every tree of diameter at most $4$
+with at most $44$ vertices, with $p=2^{61}-1$ and $d$ from
+Lemma~\ref{lem:spec}; for $n\le30$ it also computed $d$ from
+$\gcd(\varphi,\varphi')$, with no mismatch. The referee's \code{rv_certify.py}
+confirmed the $23{,}023$ multisets with $n\le30$ by the rank over~$\Q$.
+Non-even pairs are rare: of the $376{,}324$ multisets, $373{,}837$ have none,
+$2{,}442$ have one, $44$ have two and one has three
+(\code{noneven_census.py}).
+
+\section{Formal verification}\label{sec:lean}
+Some abstract steps of the proof are formalised in Lean~4 (version 4.33.1)
+with Mathlib~\cite{mathlib} (commit \texttt{0df444a3}), in the files
+\code{SwitchingThmH.lean}, \code{SwitchingRowCount.lean},
+\code{SwitchingDiam4Cubic.lean} and \code{SwitchingWalkProfile.lean} of
+directory \code{lean/Research/} in version~1.7.0 of~\cite{repo}. Each has an
+audit file (\code{...Audit.lean}) that restates or prints the main statements;
+those of the last three files also check small instances. Table~\ref{tab:lean} lists the main
+declarations. There $K$ is any field of characteristic~$0$, and ``$1$ and $w$
+are linearly independent over~$\Q$'' is stated as: $a+cw=0$ with $a,c\in\Q$
+implies $a=c=0$.
+
+\begin{table}[ht]\centering\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.3\textwidth}
+ >{\raggedright\arraybackslash}p{0.42\textwidth}
+ >{\raggedright\arraybackslash}p{0.2\textwidth}@{}}\toprule
+Declaration & Statement & Used in\\\midrule
+\code{SwitchingThmH.two_sqrt_add_seven_le} & for $b\in\mathbb N$: $b\ge13
+ \Rightarrow2\lfloor\sqrt{b-1}\rfloor+7\le b$ &
+ Proposition~\ref{prop:large}\\\addlinespace
+\code{SwitchingThmH.row_budget} & for $b,\sq,g,N_1,N_2\in\mathbb N$: if
+ $b\ge13$, $\sq\le\lfloor\sqrt{b-1}\rfloor$, $\sq\le g$, $N_1\le\sq+1$ and
+ $N_1+2N_2+g\le b+1$, then $2N_1+N_2+1\le b-1$ &
+ Proposition~\ref{prop:large}\\\addlinespace
+\code{SwitchingThmH.sol_subsingleton} & $w,u\in K$, $1$ and $w$ linearly
+ independent over $\Q$ $\Rightarrow$ at most one $(\varepsilon,\Lambda)\in\Z^2$
+ has $\varepsilon+\Lambda w=u$ & Lemmas~\ref{lem:leafrow},
+ \ref{lem:barerow}, irrational pairs\\\addlinespace
+\code{SwitchingThmH.indep_of_irrational} & $w\in K$ and $w\ne q$ for all
+ $q\in\Q$ $\Rightarrow$ $1$ and $w$ linearly independent over $\Q$ & the
+ same\\\addlinespace
+\code{SwitchingRow.card_bad_le_two} & $u,w,\theta\in K$, $w\ne0$ $\Rightarrow$
+ at most two $\Lambda\in\Z$ have $u+\Lambda w\in\{\theta,-\theta\}$ (a
+ bound on \code{Set.ncard}; the set is finite) &
+ Lemmas~\ref{lem:leafrow}, \ref{lem:barerow}, integer pairs\\\addlinespace
+\code{SwitchingDiam4.no_eigenvalue_root_cubic} & $A\in\Q^{n\times n}$,
+ $A^{\mathsf T}=A$, $\theta\in\R$ a root of the characteristic polynomial of~$A$
+ $\Rightarrow\theta^3-\theta+2\ne0$ & Proposition~\ref{prop:small}(e), for
+ $\theta$ and~$-\theta$\\\addlinespace
+\code{SwitchingWalkProfile.main_after_switching} & Remark~\ref{rem:regular};
+ also \code{annihilator}, \code{eigen_nonorth},
+ \code{walkRegular_main_after_switching} & not used for Theorem~1\\\bottomrule
+\end{tabular}
+\caption{The main Lean declarations.}\label{tab:lean}
+\end{table}
+
+The formal statements are abstract. \code{row_budget} is the arithmetic of
+Proposition~\ref{prop:large}; its hypotheses come from Lemma~\ref{lem:count}
+and are proved on paper. Of the counts in Lemmas~\ref{lem:leafrow}
+and~\ref{lem:barerow}, only two abstract steps are formalised:
+\code{card_bad_le_two}, used for a fixed $\varepsilon$ after renaming $u$, $w$
+and the target pair, and the linear-independence step
+\code{sol_subsingleton} with \code{indep_of_irrational}. That a member fails
+at a pair exactly when one of the displayed equations holds, and that the
+relevant $w$, namely $1/(t-\beta)$ or $\mp2/\theta$, is irrational for an
+irrational pair, is proved on paper only. In particular the refined count
+itself, that an irrational pair spoils at most two members of a row, is not
+formalised as a statement about trees. \code{no_eigenvalue_root_cubic} is
+exactly the algebraic step of Proposition~\ref{prop:small}(e), applied to
+$\theta$ and to~$-\theta$. (\code{SwitchingRowCount.lean} also proves
+\code{card_bad_le_one_of_ne}, which we do not use.) Everything else is proved
+on paper only, or by computer (Section~\ref{sec:comp}); in particular
+Lemmas~\ref{lem:good}, \ref{lem:krylov}, \ref{lem:spec}--\ref{lem:equal},
+\ref{lem:real}, \ref{lem:count} and~\ref{lem:region},
+Corollary~\ref{cor:criteria}, the rest of Propositions~\ref{prop:small}
+and~\ref{prop:large}, the finite search of Proposition~\ref{prop:search} and
+the checks of Proposition~\ref{prop:three} are not formalised.
+
+The recorded axiom audits (\texttt{\#print axioms}) report only
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} for every
+declaration in Table~\ref{tab:lean}; the files contain no \texttt{sorry},
+\texttt{admit} or \texttt{native\_decide} and declare no axioms. Each file and its
+audit file were first rebuilt by \texttt{lake build}, with exit code~$0$, in a
+fresh directory that contained only the project configuration, a root file and
+these two sources, the prebuilt Mathlib packages being linked in; this was done
+on 26 September 2026 at 20:12, 22:31, 23:28 and 23:53 UTC for
+\code{SwitchingWalkProfile}, \code{SwitchingDiam4Cubic},
+\code{SwitchingRowCount} and \code{SwitchingThmH}, and these logs are in
+\code{certificates/switching/}. After the last of these rebuilds, one line of
+the module docstring of \code{SwitchingThmH.lean} was reworded; no Lean code
+changed. The files as released are covered by the clean replay of the whole
+repository at version~1.7.0, made on 27 September 2026 between 01:32 and 01:47
+UTC in a fresh directory, with the sources and the configuration copied from
+the release tree and the Mathlib packages of the pinned commit taken from a
+shared cache (logs \code{logs/clean-replay-v1.7.0-*} of~\cite{repo}):
+\texttt{lake build} of all modules completed its $8758$ jobs with exit
+code~$0$; the eleven audit files of the repository report no axioms other than
+the three above; \texttt{leanchecker} checked the four switching modules, with
+exit code~$0$; and the SHA-256 checksums of all $66$ source and configuration
+files, listed in \code{logs/lean-sources-sha256.txt} and including that of the
+released \code{SwitchingThmH.lean}, were confirmed in the replay directory.
+
+\section{Further remarks and questions}\label{sec:rem}
+
+\begin{remark}[how many vertices must be switched?]\label{rem:an}
+For a tree $T$ with $n\ge3$ vertices let $\tau(T)$ be the least value of
+$\min(|U|,n-|U|)$ over the sets $U$ of vertices for which the switching that
+is $-1$ exactly on $U$ is good, and let $a(n)$ be the maximum of $\tau(T)$ over
+the trees with $n$ vertices. The computations of Section~\ref{sec:comp} give,
+for $n=3,4,\dots,24$,
+\[
+ a(n)=1,1,2,2,2,2,2,2,2,2,3,2,3,3,3,3,3,3,3,3,3,4 .
+\]
+The lower bounds come from explicit trees, checked exactly by the rank over
+$\Q$ and by the test $(\mu/p)(A)\s\ne0$ (\code{lower_bounds.py},
+\code{crosscheck_galois.py}). The upper bounds rest on implementation~B,
+confirmed by implementation~A for $n\le20$ (\code{swtrees_A_tiers.py}). At
+$n=24$, B found $39$ trees without a certified switching of at most three
+vertices; exact checks (\code{swtrees_print.c}, \code{verify_hard24.py}) show
+that none has one and that each has a good switching with $|U|=4$; the checks
+of seven of these trees were completed when the certificates were packaged
+(\code{certificates/switching/checks-addition/}). For
+instance, the tree on the vertices $0,\dots,12$ with edges $0$--$1$, $1$--$2$,
+$2$--$3$, $3$--$4$, $0$--$5$, $5$--$6$, $6$--$7$, $5$--$8$, $0$--$9$,
+$9$--$10$, $9$--$11$ and $0$--$12$ needs three switched vertices. So a proof
+for all trees cannot switch at most three vertices. We do not know whether
+$a(n)$ is bounded.
+\end{remark}
+
+\begin{remark}[pairing in bipartite graphs]\label{rem:G}
+Lemma~\ref{lem:equal} reflects a general fact. Let $G$ be bipartite, with
+$A=\begin{pmatrix}0&C\\C^{\mathsf T}&0\end{pmatrix}$, let $\theta\ne0$ be an
+eigenvalue whose minimal polynomial is even, and let $\s$ be rational. Then
+$P_\theta\s=0$ if and only if $P_{-\theta}\s=0$. Indeed, $E_{\pm\theta}$
+consists of the vectors $(u,\pm C^{\mathsf T}u/\theta)$ with
+$u\in\ker(CC^{\mathsf T}-\theta^2)$, a space with a basis over $\Q(\theta^2)$,
+and $\s\cdot(u,\pm C^{\mathsf T}u/\theta)=a\pm\theta b$ with
+$a,b\in\Q(\theta^2)$, while $\theta\notin\Q(\theta^2)$. So in a tree only the
+eigenvalues with $\theta\in\Q(\theta^2)$, such as the roots of the factors
+$x\pm1$ and $x^2\pm x-1$ of the characteristic polynomial of the tree in
+Remark~\ref{rem:an}, impose separate conditions for $\theta$ and~$-\theta$.
+\end{remark}
+
+\begin{remark}[regular graphs]\label{rem:regular}
+We do not treat regular graphs, but record a sufficient condition that is
+formalised in \code{SwitchingWalkProfile.lean}. Let $A$ be real symmetric of
+order $n\ne2$ with constant row sums~$k$, and suppose that
+$(A^j)_{vv}=\sum_uw_u(A^j)_{uu}$ for all $j\ge0$, for an index $v$ and weights
+$w_u>0$. Then $\s=\one-2e_v$ is good for~$A$: if $f(A)\s=0$ for a polynomial $f$,
+then $f(k)\one=2Me_v$ for $M=f(A)$, summing coordinates gives $(n-2)f(k)=0$, so
+$Me_v=0$, and $0=(M^2)_{vv}=\sum_uw_u\|Me_u\|^2$ forces $M=0$; now take
+$f=\mu_A/(x-\theta)$. For walk-regular graphs ($w_u=1/n$) this already follows
+from Stani\'c's criterion \cite[Corollary~4.6]{sta}, since then
+$(P_\theta)_{vv}=m_\theta/n>0$, where $m_\theta$ is the multiplicity. We do not
+claim this case as new.
+\end{remark}
+
+\paragraph{Questions.}
+The problem of~\cite{akmp} remains open for trees in general, beginning with
+the trees of diameter $5$ and~$6$, and so does the question whether the number
+$a(n)$ of Remark~\ref{rem:an} is bounded.
+
+\medskip
+\noindent Thanks are due to Saieed Akbari, Hitesh Kumar, Bojan Mohar and
+Shivaramakrishna Pragada for the problem studied here, and to the authors
+of~\cite{afgjl} for the conjecture.
+
+\section*{Tool and computational resource disclosure}
+This work was carried out on 26 and 27 September 2026 (UTC) in a workflow
+directed by the author, using AI coding agents: Anthropic Claude Code, with the
+model Claude Opus~5.5. Claude Code agents selected the problem, found the
+theorem and its proof, wrote the programs and the Lean code, carried out the
+literature searches described in the introduction, and drafted this text.
+Throughout, ``we'' refers to this workflow; the reading, searching and
+computing described in the paper were done by the agents. An adversarial
+checking agent (Claude Code, the same model), launched by the agent that found
+the proof, re-derived Lemmas~\ref{lem:leafrow}, \ref{lem:barerow}
+and~\ref{lem:region} and Proposition~\ref{prop:large} and repeated the finite
+search; it found one sign error in a displayed equation, which did not affect
+the count and has been corrected. Its programs were not kept. An independent
+referee agent (Claude Code, the same model), which had not produced the work,
+then refereed all proofs and the correspondence between the Lean statements and
+the text, recomputed the finite search, the exceptional trees and further
+checks with its own programs (Section~\ref{sec:comp}), and repeated the
+literature search. Its five minor corrections, concerning a cross-reference in
+the case $b^*\ge13$, the description of the Lean coverage, a shorter proof of
+Proposition~\ref{prop:small}(c), the sign $-\theta$ in
+Proposition~\ref{prop:small}(e) and the description of the independent
+computations, have been applied. A second independent agent (Claude Code, the
+same model), which had produced neither the work nor the referee's report,
+then reviewed this paper, re-derived its proofs and recomputed the
+computations of the proof with its own programs; its minor corrections,
+concerning the description of the Lean verification and some wordings, have
+been applied. The programs, logs and Lean code cited in this paper are in
+version~1.7.0 of the repository~\cite{repo} (directories
+\code{certificates/switching/}, \code{lean/Research/} and \code{logs/}). The
+author is not a
+professional mathematician.
+The author has read the paper.
+The correctness of Theorem~1 rests on the written proofs and on the finite
+computation of Proposition~\ref{prop:search}, on which three independently
+written programs agree; the Lean formalisation covers only the steps listed in
+Section~\ref{sec:lean}. AI systems are not authors of this paper; the author
+takes full responsibility for its content.
+
+{\footnotesize
+\begin{thebibliography}{99}\setlength{\itemsep}{0pt}
+\bibitem{afgjl}
+S.~Akbari, F.~A.~M. Fran\c{c}a, E.~Ghasemian, M.~Javarsineh and L.~S. de~Lima,
+The main eigenvalues of signed graphs, \emph{Linear Algebra Appl.}
+\textbf{614} (2021), 270--280, \url{https://doi.org/10.1016/j.laa.2020.04.029}.
+\bibitem{akmp}
+S.~Akbari, H.~Kumar, B.~Mohar and S.~Pragada, The switching conjecture for
+main eigenvalues is asymptotically true, arXiv:2609.27046v1, 22 September
+2026.
+\bibitem{cve78}
+D.~M. Cvetkovi\'c, The main part of the spectrum, divisors and switching of
+graphs, \emph{Publ.\ Inst.\ Math.\ (Beograd) (N.S.)} \textbf{23(37)} (1978),
+31--38.
+\bibitem{repo}
+H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~1.7.0
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{fbj}
+F.~A.~M. Fran\c{c}a, A.~E. Brondani and D.~A. Jaume, Graphs with exactly three
+main eigenvalues, \emph{Discrete Appl.\ Math.} \textbf{378} (2026), 49--64,
+\url{https://doi.org/10.1016/j.dam.2025.07.003}.
+\bibitem{nx}
+A.~A. Hagberg, D.~A. Schult and P.~J. Swart, Exploring network structure,
+dynamics, and function using NetworkX, in \emph{Proceedings of the 7th Python in
+Science Conference} (SciPy 2008), 2008, 11--15.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{sympy}
+A.~Meurer et al., SymPy: symbolic computing in Python, \emph{PeerJ Comput.\
+Sci.} \textbf{3} (2017), e103, \url{https://doi.org/10.7717/peerj-cs.103}.
+\bibitem{oeis}
+OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences},
+\url{https://oeis.org}, sequence A000055, accessed 26 September 2026.
+\bibitem{ort}
+S.~O'Rourke and B.~Touri, On a conjecture of Godsil concerning controllable
+random graphs, \emph{SIAM J.\ Control Optim.} \textbf{54} (2016), 3347--3378.
+\bibitem{row07}
+P.~Rowlinson, The main eigenvalues of a graph: a survey, \emph{Appl.\ Anal.\
+Discrete Math.} \textbf{1} (2007), 445--471.
+\bibitem{sy}
+Z.~Shao and X.~Yuan, Some signed graphs whose eigenvalues are main, \emph{Appl.\
+Math.\ Comput.} \textbf{423} (2022), Paper No.~127014,
+\url{https://doi.org/10.1016/j.amc.2022.127014}; also arXiv:2106.07878v3,
+whose numbering we use.
+\bibitem{sta}
+Z.~Stani\'c, Main eigenvalues of real symmetric matrices with application to
+signed graphs, \emph{Czechoslovak Math.\ J.} \textbf{70(145)} (2020),
+1091--1102, \url{https://doi.org/10.21136/CMJ.2020.0147-19}.
+\bibitem{tru}
+The Omega Institute, \texttt{trureturing} repository,
+\url{https://github.com/the-omega-institute/trureturing}, accessed 26 and 27
+September 2026.
+\bibitem{wrom}
+R.~A. Wright, B.~Richmond, A.~Odlyzko and B.~D. McKay, Constant time generation
+of free trees, \emph{SIAM J.\ Comput.} \textbf{15} (1986), 540--548.
+\end{thebibliography}}
+\end{document}

@@ -1,0 +1,5 @@
+Sun Sep 27 00:31:19 UTC 2026
+trees 13376
+SUMMARY trees=13376 uncertified=0 d-mismatch(LemmaS)=0 exactQ-checked=3029 exactQ-disagree=0 max-random-tries=11
+python3 rv_certify.py region $R/logs/rv_region_list.txt 2  20.03s user 7.74s system 273% cpu 10.164 total
+Sun Sep 27 00:31:29 UTC 2026

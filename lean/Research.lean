@@ -31,3 +31,7 @@ import Research.ICGEqualParityBCert6
 import Research.HKOTriameterDH
 import Research.BrauerCMCore
 import Research.RM714Weights
+import Research.SwitchingThmH
+import Research.SwitchingDiam4Cubic
+import Research.SwitchingWalkProfile
+import Research.SwitchingRowCount

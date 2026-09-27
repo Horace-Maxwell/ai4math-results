@@ -1,0 +1,6 @@
+n=39 shard=2/3 trees=8671 certified=8671 by_rule={'RA1': 8668, 'RA2': 3} fail=0 d_mismatch=n/a []
+n=40 shard=2/3 trees=10395 certified=10395 by_rule={'RA1': 10393, 'RA2': 2} fail=0 d_mismatch=n/a []
+n=41 shard=2/3 trees=12446 certified=12446 by_rule={'RA1': 12444, 'RA2': 2} fail=0 d_mismatch=n/a []
+n=42 shard=2/3 trees=14861 certified=14861 by_rule={'RA1': 14859, 'RA2': 2} fail=0 d_mismatch=n/a []
+n=43 shard=2/3 trees=17724 certified=17724 by_rule={'RA1': 17718, 'RA2': 6} fail=0 d_mismatch=n/a []
+n=44 shard=2/3 trees=21087 certified=21087 by_rule={'RA1': 21079, 'RA2': 8} fail=0 d_mismatch=n/a []

@@ -1,0 +1,8 @@
+n=31 shard=1/3 trees=1868 certified=1868 by_rule={'RA1': 1868} fail=0 d_mismatch=n/a []
+n=32 shard=1/3 trees=2281 certified=2281 by_rule={'RA1': 2281} fail=0 d_mismatch=n/a []
+n=33 shard=1/3 trees=2783 certified=2783 by_rule={'RA1': 2781, 'RA2': 2} fail=0 d_mismatch=n/a []
+n=34 shard=1/3 trees=3381 certified=3381 by_rule={'RA1': 3379, 'RA2': 2} fail=0 d_mismatch=n/a []
+n=35 shard=1/3 trees=4103 certified=4103 by_rule={'RA1': 4099, 'RA2': 4} fail=0 d_mismatch=n/a []
+n=36 shard=1/3 trees=4961 certified=4961 by_rule={'RA1': 4957, 'RA2': 4} fail=0 d_mismatch=n/a []
+n=37 shard=1/3 trees=5992 certified=5992 by_rule={'RA1': 5989, 'RA2': 3} fail=0 d_mismatch=n/a []
+n=38 shard=1/3 trees=7212 certified=7212 by_rule={'RA1': 7210, 'RA2': 2} fail=0 d_mismatch=n/a []

@@ -1,0 +1,8 @@
+n=24 hard tree verify_hard24_missing7.log#0: good U with |U|<=3: 0 -> CONFIRMED
+n=24 hard tree verify_hard24_missing7.log#1: good U with |U|<=3: 0 -> CONFIRMED
+n=24 hard tree verify_hard24_missing7.log#2: good U with |U|<=3: 0 -> CONFIRMED
+n=24 hard tree verify_hard24_missing7.log#3: good U with |U|<=3: 0 -> CONFIRMED
+n=24 hard tree verify_hard24_missing7.log#4: good U with |U|<=3: 0 -> CONFIRMED
+n=24 hard tree verify_hard24_missing7.log#5: good U with |U|<=3: 0 -> CONFIRMED
+n=24 hard tree verify_hard24_missing7.log#6: good U with |U|<=3: 0 -> CONFIRMED
+hard trees cross-checked: 7 mismatches: 0

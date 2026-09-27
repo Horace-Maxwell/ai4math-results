@@ -1,0 +1,3 @@
+T(2,2) n=7 d=5 charpoly=x**3*(x - 2)*(x + 2)*(x**2 - 2) #good=72/128 stated s=+++++-- good(Krylov)=True good(eigenspaces)=True [(-2, 1, True), (0, 3, True), (2, 1, True), (-sqrt(2), 1, True), (sqrt(2), 1, True)]
+D(2,2)=T(0,0,2) n=6 d=5 charpoly=x**2*(x - 2)*(x - 1)*(x + 1)*(x + 2) #good=16/64 stated s=+++-+- good(Krylov)=True good(eigenspaces)=True [(-2, 1, True), (-1, 1, True), (0, 2, True), (1, 1, True), (2, 1, True)]
+K14=T(3) n=5 d=3 charpoly=x**3*(x - 2)*(x + 2) #good=12/32 stated s=+++-- good(Krylov)=True good(eigenspaces)=True [(-2, 1, True), (0, 3, True), (2, 1, True)]

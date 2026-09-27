@@ -1,0 +1,16 @@
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 6 6 5 6 5 6 1 2 3 4 5 2 3 4 5 1 2 2 | good s:+--+-++--+++++++--++-++-
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 6 6 5 6 5 6 1 2 3 4 5 2 3 4 3 1 2 2 | good s:--+-+++-++-++-+--+-+--++
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 6 6 1 2 3 4 5 2 3 4 5 2 3 2 3 1 2 2 | good s:-+----+----+-++-+--+-+++
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 5 4 5 4 5 4 1 2 3 4 5 2 3 4 3 2 3 3 | good s:+++++-+-+--+--+-+++++-++
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 5 4 5 4 5 4 1 2 3 4 3 2 3 4 3 2 3 3 | good s:+---++-+----+-++-++-+-+-
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 5 4 1 2 3 4 5 2 3 4 5 2 3 3 2 3 2 3 | good s:--+++++--+-+++--+++--+++
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 5 4 1 2 3 4 5 2 3 4 3 2 3 3 2 3 2 3 | good s:++++--+---++++-+-+++---+
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 5 4 1 2 3 4 3 2 3 4 3 2 3 3 2 3 2 3 | good s:+--+-+--++-++---+-+++++-
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 5 1 2 3 4 5 4 3 4 5 4 3 4 3 4 2 3 3 | good s:++--+-+----++--+-+-+++++
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 2 3 4 5 1 2 3 4 4 3 4 3 4 2 3 1 2 2 | good s:++++------+---+-+++-+--+
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 4 3 4 3 4 2 3 1 2 3 4 3 2 3 4 3 1 2 2 | good s:++-+-+-+--+-+++-++++++--
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 4 3 4 3 4 2 3 1 2 3 4 1 2 3 4 1 2 2 1 | good s:+---+--+++-++++--+-+----
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 4 3 2 3 1 2 3 2 1 2 3 2 1 2 2 1 2 1 2 | good s:+--+-+-+-+-+---++---+---
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 4 2 3 1 2 3 2 1 2 3 2 1 2 2 1 2 1 2 1 | good s:--+-+-+-++--++-+-+-++-+-
+n=24 shard=1/3 trees=13099966 certified=13099966 fail=0 | s=1:5571175 single:6283272 double:1231361 triple:14144 random/exh:14 gcdfail:0 | total_enumerated=39299897
+d-histogram: 5:6 7:167 9:2462 10:6 11:26969 12:110 13:197640 14:329 15:955298 16:1643 17:2796611 18:4871 19:4556028 20:12287 21:3519748 22:21648 23:963067 24:41076

@@ -1,0 +1,3 @@
+NOT CLEARED (3, 1, 1, 1, 1, 0, 0, 0) N_up= 2 uncertified even-candidates: ['t**2 - 3*t + 1']
+NOT CLEARED (2, 0, 0) N_up= 2 uncertified even-candidates: []
+INDEP NT=2 shard=0/1 trees=799 not_cleared=2

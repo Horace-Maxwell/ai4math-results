@@ -1,0 +1,6 @@
+Sun Sep 27 00:44:20 UTC 2026
+trees 3374
+N_I,N_II distribution: {(0, 0): 3246, (0, 1): 59, (1, 0): 63, (1, 1): 1, (2, 0): 5}
+SUMMARY tested=3374 trees-with-issues=0
+python3 rv_endtoend.py 3 22 2  25.26s user 7.56s system 259% cpu 12.671 total
+Sun Sep 27 00:44:33 UTC 2026

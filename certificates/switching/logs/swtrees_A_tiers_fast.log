@@ -1,0 +1,19 @@
+mode fast
+n=3 trees=1 min-tier histogram={1: 1} time=0s
+n=4 trees=2 min-tier histogram={1: 2} time=0s
+n=5 trees=3 min-tier histogram={1: 2, 2: 1} time=0s
+n=6 trees=6 min-tier histogram={0: 1, 1: 4, 2: 1} time=0s
+n=7 trees=11 min-tier histogram={0: 2, 1: 8, 2: 1} time=0s
+n=8 trees=23 min-tier histogram={0: 6, 1: 14, 2: 3} time=0s
+n=9 trees=47 min-tier histogram={0: 10, 1: 31, 2: 6} time=0s
+n=10 trees=106 min-tier histogram={0: 32, 1: 64, 2: 10} time=0s
+n=11 trees=235 min-tier histogram={0: 71, 1: 135, 2: 29} time=0s
+n=12 trees=551 min-tier histogram={0: 183, 1: 319, 2: 49} time=0s
+n=13 trees=1301 min-tier histogram={0: 429, 1: 712, 2: 159, 3: 1} time=1s
+n=14 trees=3159 min-tier histogram={0: 1171, 1: 1700, 2: 288} time=2s
+n=15 trees=7741 min-tier histogram={0: 2828, 1: 3993, 2: 917, 3: 3} time=4s
+n=16 trees=19320 min-tier histogram={0: 7466, 1: 9998, 2: 1847, 3: 9} time=12s
+n=17 trees=48629 min-tier histogram={0: 18989, 1: 24026, 2: 5573, 3: 41} time=33s
+n=18 trees=123867 min-tier histogram={0: 50164, 1: 61675, 2: 11946, 3: 82} time=90s
+n=19 trees=317955 min-tier histogram={0: 128839, 1: 154242, 2: 34561, 3: 313} time=251s
+n=20 trees=823065 min-tier histogram={0: 340045, 1: 403396, 2: 78929, 3: 695} time=717s

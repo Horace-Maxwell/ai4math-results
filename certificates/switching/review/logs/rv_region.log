@@ -1,0 +1,11 @@
+Sun Sep 27 00:30:34 UTC 2026
+REGION size 13376 max n 124
+uncertified orbit classifications: 0
+a-priori bound violations: 0
+N distribution over the region: {0: 13199, 1: 176, 2: 1}
+SURVIVORS failing (a') and (b') with exact N_I, N_II, N_ei: 3
+SURVIVOR (2, 2) n=7 N_I=1 N_II=0 N_ei=0
+SURVIVOR (2, 0, 0) n=6 N_I=2 N_II=0 N_ei=0
+SURVIVOR (3,) n=5 N_I=1 N_II=0 N_ei=0
+python3 rv_region.py $R/logs  77.69s user 0.24s system 99% cpu 1:18.47 total
+Sun Sep 27 00:31:52 UTC 2026

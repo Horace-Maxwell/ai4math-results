@@ -1,0 +1,24 @@
+b* = 2: trees enumerated 48
+b* = 3: trees enumerated 90
+b* = 4: trees enumerated 420
+b* = 5: trees enumerated 1344
+b* = 6: trees enumerated 6480
+b* = 7: trees enumerated 12960
+b* = 8: trees enumerated 43200
+b* = 9: trees enumerated 86400
+b* = 10: trees enumerated 456192
+b* = 11: trees enumerated 995328
+b* = 12: trees enumerated 6289920
+INDEP crude region: trees enumerated 7892382
+INDEP survivors of the cheap test: 10
+INDEP SURVIVOR (2, 2) N_I=1 N_II<=0 N_ei=0 uncertified=[] FAILS
+INDEP SURVIVOR (2, 0, 0) N_I=2 N_II<=0 N_ei=0 uncertified=[] FAILS
+INDEP SURVIVOR (2, 1, 1) N_I=0 N_II<=0 N_ei=0 uncertified=[] covered
+INDEP SURVIVOR (3,) N_I=1 N_II<=0 N_ei=0 uncertified=[] FAILS
+INDEP SURVIVOR (3, 2, 1, 0) N_I=0 N_II<=0 N_ei=0 uncertified=[] covered
+INDEP SURVIVOR (3, 2, 2, 1, 0) N_I=0 N_II<=0 N_ei=0 uncertified=[] covered
+INDEP SURVIVOR (3, 2, 1, 1, 0) N_I=0 N_II<=0 N_ei=0 uncertified=[] covered
+INDEP SURVIVOR (3, 2, 2, 1, 1, 0) N_I=0 N_II<=0 N_ei=0 uncertified=[] covered
+INDEP SURVIVOR (3, 2, 1, 1, 1, 0) N_I=0 N_II<=0 N_ei=0 uncertified=[] covered
+INDEP SURVIVOR (3, 2, 2, 1, 1, 1, 0) N_I=0 N_II<=0 N_ei=0 uncertified=[] covered
+INDEP FINAL 3 [(2, 2), (2, 0, 0), (3,)]

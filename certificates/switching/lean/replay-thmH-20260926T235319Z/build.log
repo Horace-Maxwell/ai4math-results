@@ -1,0 +1,9 @@
+ℹ [8706/8707] Built Research.SwitchingThmH (5.1s)
+info: Research/SwitchingThmH.lean:70:0: 'SwitchingThmH.two_sqrt_add_seven_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:71:0: 'SwitchingThmH.row_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:72:0: 'SwitchingThmH.sol_subsingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:73:0: 'SwitchingThmH.indep_of_irrational' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8707/8707] Built Research.SwitchingThmHAudit (3.0s)
+info: Research/SwitchingThmHAudit.lean:13:0: 'SwitchingThmH.row_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmHAudit.lean:14:0: 'SwitchingThmH.sol_subsingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8707 jobs).

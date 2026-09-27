@@ -1,0 +1,10 @@
+f mod h = (c1) t + (c0) with
+  c1 = -k0**3 - 3*k0**2*k1 + 6*k0**2 - 3*k0*k1**2 + 12*k0*k1 - 13*k0 - k1**3 + 7*k1**2 - 12*k1 + 8
+  c0 = k0**3 + 2*k0**2*k1 - 6*k0**2 + k0*k1**2 - 7*k0*k1 + 13*k0 - 4
+  Res_k0(c1, c0) = (k1 - 1)*(k1**6 - 11*k1**5 + 60*k1**4 - 148*k1**3 + 224*k1**2 - 192*k1 + 64)
+  integer solutions (k0, k1) >= 2 of c1 = c0 = 0: []
+  gcd(c1, c0) = 1
+T(1,0^k0): R(2) = -k0 ; R == t^2-3t+1 iff k0+2 = 3 and k0 = 1 -> k0 = 1 only
+  G numerator: (th**2 - 2)*(th**2 + th - 1)/(th*(th - 1)*(th + 1))
+direct certificates: family A / T(1,0^k0) for k1<=40, 2<=k0<=40; stars k0<=80; spiders and T(1^k1,0) k1<=80; failures: []
+sextic integer roots among divisors of 64: []

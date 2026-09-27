@@ -1,0 +1,14 @@
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 6 6 1 2 3 4 5 2 3 4 5 1 2 2 1 2 1 2 | good s:-++--+++---+-++-++-+---+
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 5 4 5 4 5 1 2 3 4 5 4 3 4 5 4 2 3 3 | good s:-+--+-+-++++-+--+-+---++
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 5 4 5 4 5 1 2 3 4 5 2 3 4 5 2 3 3 2 | good s:+++++-+-+--+--+-+++++-++
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 5 1 2 3 4 3 4 2 3 4 3 2 3 4 3 2 3 3 | good s:+---++-+----+-++-++-+-+-
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 5 1 2 3 4 3 2 3 4 3 2 3 3 2 3 2 3 2 | good s:++++--+---++++-+-+++---+
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 5 2 3 4 5 1 2 3 4 4 2 3 1 2 2 1 2 1 2 | good s:+++++--+-+-++--++-+--+--
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 4 3 4 3 4 3 2 3 1 2 3 4 1 2 3 2 1 2 2 | good s:++--+-+----++--+-+-+++++
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 4 3 4 3 4 2 3 1 2 3 2 1 2 3 2 1 2 2 1 | good s:++--+-++-+--++-+-++--+--
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 4 3 2 3 1 2 3 4 1 2 3 4 1 2 2 1 2 1 2 | good s:-+--++-+-+---++++--++-++
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 4 2 3 1 2 3 4 3 2 3 4 3 2 3 2 3 1 2 2 | good s:++++-++---+-++------+---
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 4 2 3 1 2 3 2 3 1 2 3 2 1 2 3 2 1 2 2 | good s:--++-+---++-++++--+-+--+
+HARD (no certified s with <=3 flips) level seq: 0 1 2 3 4 3 2 3 4 3 2 3 3 1 2 3 3 2 3 2 3 2 1 2 | good s:++-+---+-++--+++-+-++-++
+n=24 shard=2/3 trees=13099966 certified=13099966 fail=0 | s=1:5568005 single:6285063 double:1232699 triple:14187 random/exh:12 gcdfail:0 | total_enumerated=39299897
+d-histogram: 3:1 5:10 7:173 8:4 9:2434 10:11 11:27083 12:112 13:197394 14:337 15:955379 16:1670 17:2797197 18:4809 19:4554279 20:12549 21:3521340 22:21944 23:962240 24:41000

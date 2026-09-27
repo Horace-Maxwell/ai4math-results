@@ -1,0 +1,8 @@
+n<=17: checked {'a': 221, 'b': 165}; violations [] (total 0)
+n<=18: checked {'a': 508, 'b': 387}; violations [] (total 0)
+n<=19: checked {'a': 883, 'b': 674}; violations [] (total 0)
+n<=20: checked {'a': 1363, 'b': 1048}; violations [] (total 0)
+n<=21: checked {'a': 1979, 'b': 1528}; violations [] (total 0)
+n<=22: checked {'a': 2759, 'b': 2142}; violations [] (total 0)
+n<=23: checked {'a': 3749, 'b': 2922}; violations [] (total 0)
+n<=24: checked {'a': 4992, 'b': 3910}; violations [] (total 0)

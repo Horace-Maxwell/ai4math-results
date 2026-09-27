@@ -1,0 +1,19 @@
+2026-09-27T01:46:25Z
+def RM714.evalPoly : List (Finset (Fin 14)) → (Fin 14 → ZMod 2) → ZMod 2 :=
+fun L x => (List.map (fun S => ∏ i ∈ S, x i) L).sum
+def RM714.weight : List (Finset (Fin 14)) → ℕ :=
+fun L => {x | RM714.evalPoly L x = 1}.card
+def RM714.IsRM714Weight : ℕ → Prop :=
+fun w => ∃ L, (∀ S ∈ L, S.card ≤ 7) ∧ RM714.weight L = w
+RM714.rm714_new_weights : ∀
+  w ∈ [354, 16030, 4378, 4380, 4382, 8174, 8178, 8182, 8186, 8188, 8190, 8194, 8196, 8198, 8202, 8206, 8210],
+  RM714.IsRM714Weight w
+RM714.weight_map_maskSet : ∀ (L : List ℕ),
+  (∀ s ∈ L, s < 2 ^ 14) → RM714.weight (List.map RM714.maskSet L) = RM714.weightNat L
+RM714.isRM714Weight_of : ∀ (L : List ℕ) (w : ℕ),
+  (∀ s ∈ L, s < 2 ^ 14) →
+    (L.all fun s => decide (RM714.degNat s ≤ 7)) = true → RM714.weightNat L = w → RM714.IsRM714Weight w
+'RM714.rm714_new_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RM714.weight_map_maskSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RM714.isRM714Weight_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0

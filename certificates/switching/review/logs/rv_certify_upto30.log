@@ -1,0 +1,5 @@
+Sun Sep 27 00:31:56 UTC 2026
+trees 23023
+SUMMARY trees=23023 uncertified=0 d-mismatch(LemmaS)=0 exactQ-checked=23023 exactQ-disagree=0 max-random-tries=17
+python3 rv_certify.py upto 30 2  15.62s user 7.27s system 302% cpu 7.574 total
+Sun Sep 27 00:32:04 UTC 2026

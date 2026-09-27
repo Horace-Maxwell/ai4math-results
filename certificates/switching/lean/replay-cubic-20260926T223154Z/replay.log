@@ -1,0 +1,11 @@
+start 2026-09-26T22:31:54Z
+375599ede626ff8dbbd04083d4fdcd49cadf0aac3a23736d42627eebd4234b29  lakefile.toml
+9cb2278091171314d2816e57efa3c813f64d9da54bd82e5ecbdaf779c2b203e8  lake-manifest.json
+3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71  lean-toolchain
+b60b7cfc8332503dc8a6f68385cc496ad342832cc0c7519fe453c48919747a4a  Research.lean
+f336b25c88dbd6ac02fff0334e688cf481313d2a62eabb622307ffea5c64c8bb  Research/SwitchingDiam4Cubic.lean
+0502a23736327c66bbb35cb003b0dbdae8c24c9337a872391c4bfb99debbb80d  Research/SwitchingDiam4CubicAudit.lean
+exit 0
+end 2026-09-26T22:32:09Z
+axioms: all within {propext, Classical.choice, Quot.sound}
+b89d5ba5de2db3753be9843d16e5f64ea4ea2ce791febb75051325ed8bd3e8dc  build.log

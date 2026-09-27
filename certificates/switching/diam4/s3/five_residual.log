@@ -1,0 +1,14 @@
+T (3, 1, 1, 1, 1, 0, 0, 0) n = 16 N = 2 N_ei = 0 criterion (a): None (b): None
+   EXCEPTIONAL: explicit good switching s = ++++++++++++--++  (vertex order: centre, branches in nondecreasing size, then leaves branch by branch); Galois check: True
+T (6, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0) n = 24 N = 2 N_ei = 0 criterion (a): (6, 5) (b): (9, 0)
+   family size 10  bad 1  (bound 4N = 8 )
+   first good: leaf-row beta=6 Lambda=-4 eps=1  s = +++++++++++++-+--+-----+  Galois-criterion check: True
+T (8, 8, 1, 1, 1, 0, 0) n = 27 N = 2 N_ei = 0 criterion (a): (8, 15) (b): None
+   family size 30  bad 0  (bound 4N = 8 )
+   first good: leaf-row beta=8 Lambda=-14 eps=1  s = +++++++++-----------------+  Galois-criterion check: True
+T (8, 5, 2, 2, 0, 0, 0, 0, 0) n = 27 N = 2 N_ei = 0 criterion (a): (8, 7) (b): (5, 0)
+   family size 14  bad 2  (bound 4N = 8 )
+   first good: leaf-row beta=8 Lambda=-6 eps=1  s = ++++++++++-+-----++-------+  Galois-criterion check: True
+T (6, 4, 3, 2, 1, 1, 1, 1) n = 28 N = 2 N_ei = 0 criterion (a): (6, 5) (b): None
+   family size 10  bad 0  (bound 4N = 8 )
+   first good: leaf-row beta=6 Lambda=-4 eps=1  s = ++++++++++----+--+--++-----+  Galois-criterion check: True

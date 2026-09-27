@@ -1,0 +1,13 @@
+n<=5 shard 0/1: {'trees': 2, 'N_I>0': 1, 'N_II>0': 0, 'leaf-rows': 2, 'leaf-members': 6, 'leaf-bad': 2, 'bare-rows': 1, 'bare-members': 4, 'bare-bad': 0} violations=0 []
+n<=6 shard 0/1: {'trees': 6, 'N_I>0': 2, 'N_II>0': 0, 'leaf-rows': 7, 'leaf-members': 24, 'leaf-bad': 4, 'bare-rows': 3, 'bare-members': 14, 'bare-bad': 4} violations=0 []
+n<=7 shard 0/1: {'trees': 13, 'N_I>0': 3, 'N_II>0': 0, 'leaf-rows': 16, 'leaf-members': 62, 'leaf-bad': 6, 'bare-rows': 7, 'bare-members': 36, 'bare-bad': 4} violations=0 []
+n<=8 shard 0/1: {'trees': 24, 'N_I>0': 3, 'N_II>0': 2, 'leaf-rows': 32, 'leaf-members': 130, 'leaf-bad': 7, 'bare-rows': 14, 'bare-members': 78, 'bare-bad': 6} violations=0 []
+n<=9 shard 0/1: {'trees': 41, 'N_I>0': 3, 'N_II>0': 2, 'leaf-rows': 58, 'leaf-members': 254, 'leaf-bad': 7, 'bare-rows': 25, 'bare-members': 150, 'bare-bad': 8} violations=0 []
+n<=10 shard 0/1: {'trees': 66, 'N_I>0': 5, 'N_II>0': 4, 'leaf-rows': 99, 'leaf-members': 460, 'leaf-bad': 13, 'bare-rows': 42, 'bare-members': 268, 'bare-bad': 13} violations=0 []
+n<=11 shard 0/1: {'trees': 102, 'N_I>0': 6, 'N_II>0': 6, 'leaf-rows': 161, 'leaf-members': 794, 'leaf-bad': 17, 'bare-rows': 67, 'bare-members': 452, 'bare-bad': 14} violations=0 []
+n<=12 shard 0/1: {'trees': 152, 'N_I>0': 6, 'N_II>0': 9, 'leaf-rows': 253, 'leaf-members': 1308, 'leaf-bad': 19, 'bare-rows': 103, 'bare-members': 730, 'bare-bad': 18} violations=0 []
+n<=13 shard 0/1: {'trees': 222, 'N_I>0': 6, 'N_II>0': 12, 'leaf-rows': 386, 'leaf-members': 2110, 'leaf-bad': 19, 'bare-rows': 153, 'bare-members': 1136, 'bare-bad': 18} violations=0 []
+n<=14 shard 0/1: {'trees': 316, 'N_I>0': 9, 'N_II>0': 16, 'leaf-rows': 575, 'leaf-members': 3284, 'leaf-bad': 36, 'bare-rows': 223, 'bare-members': 1722, 'bare-bad': 30} violations=0 []
+n<=15 shard 0/1: {'trees': 443, 'N_I>0': 20, 'N_II>0': 20, 'leaf-rows': 840, 'leaf-members': 5024, 'leaf-bad': 70, 'bare-rows': 317, 'bare-members': 2544, 'bare-bad': 55} violations=0 []
+n<=16 shard 0/1: {'trees': 611, 'N_I>0': 28, 'N_II>0': 27, 'leaf-rows': 1206, 'leaf-members': 7518, 'leaf-bad': 86, 'bare-rows': 444, 'bare-members': 3686, 'bare-bad': 72} violations=0 []
+DONE shard 0 1 violations 0

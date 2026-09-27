@@ -1,0 +1,2 @@
+n=21 shard=0/3 trees=714835 certified=714835 fail=0 | s=1:296790 single:342893 double:74301 triple:851 random/exh:0 gcdfail:0 | total_enumerated=2144505
+d-histogram: 3:1 5:8 7:123 9:1378 11:11591 13:58353 15:174995 17:266699 19:172217 21:29470

@@ -1,0 +1,55 @@
+Sun Sep 27 00:35:57 UTC 2026
+candidates with N>=1: 51
+ok (12, 12, 8, 0, 0, 0, 0, 0, 0) n=42 N_I=3 N_II=0 N_ei=0 leaf8:bad0/14(<=12)* leaf12:bad8/46(<=12)* bare0:bad3/14(<=12)*
+ok (3, 1, 1, 1, 1, 0, 0, 0) n=16 N_I=1 N_II=1 N_ei=0 leaf1:bad1/6(<=6) leaf3:bad0/4(<=6) bare0:bad1/8(<=6)*
+ok (6, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0) n=24 N_I=0 N_II=2 N_ei=0 leaf2:bad0/2(<=4) leaf3:bad0/4(<=4) leaf6:bad1/10(<=4)* bare0:bad3/20(<=4)*
+ok (8, 8, 1, 1, 1, 0, 0) n=27 N_I=1 N_II=1 N_ei=0 leaf1:bad0/4(<=6) leaf8:bad0/30(<=6)* bare0:bad0/6(<=6)
+ok (8, 5, 2, 2, 0, 0, 0, 0, 0) n=27 N_I=1 N_II=1 N_ei=0 leaf2:bad0/4(<=6) leaf5:bad0/8(<=6)* leaf8:bad2/14(<=6)* bare0:bad4/12(<=6)*
+ok (6, 4, 3, 2, 1, 1, 1, 1) n=28 N_I=0 N_II=2 N_ei=0 leaf1:bad0/6(<=4)* leaf2:bad0/2(<=4) leaf3:bad0/4(<=4) leaf4:bad0/6(<=4)* leaf6:bad0/10(<=4)*
+ok (2, 2) n=7 N_I=1 N_II=0 N_ei=0 leaf2:bad2/4(<=4)
+ok (2, 0, 0) n=6 N_I=2 N_II=0 N_ei=0 leaf2:bad2/2(<=8) bare0:bad4/6(<=8)
+ok (3,) n=5 N_I=1 N_II=0 N_ei=0 leaf3:bad2/4(<=4)
+ok (10, 5, 2, 2, 1, 1, 0, 0) n=30 N_I=1 N_II=0 N_ei=0 leaf1:bad0/2(<=4) leaf2:bad0/4(<=4) leaf5:bad0/8(<=4)* leaf10:bad2/18(<=4)* bare0:bad2/6(<=4)*
+ok (10, 4, 4) n=22 N_I=0 N_II=1 N_ei=0 leaf4:bad0/14(<=2)* leaf10:bad0/18(<=2)*
+ok (3,) n=5 N_I=1 N_II=0 N_ei=0 leaf3:bad2/4(<=4)
+ok (6, 2, 0) n=12 N_I=0 N_II=1 N_ei=0 leaf2:bad0/2(<=2) leaf6:bad0/10(<=2)* bare0:bad0/4(<=2)*
+ok (8,) n=10 N_I=1 N_II=0 N_ei=0 leaf8:bad4/14(<=4)*
+ok (5, 1, 1) n=11 N_I=0 N_II=1 N_ei=0 leaf1:bad0/2(<=2) leaf5:bad0/8(<=2)*
+ok (8, 3, 0) n=15 N_I=1 N_II=0 N_ei=0 leaf3:bad2/4(<=4) leaf8:bad1/14(<=4)* bare0:bad1/4(<=4)
+ok (2, 0, 0) n=6 N_I=2 N_II=0 N_ei=0 leaf2:bad2/2(<=8) bare0:bad4/6(<=8)
+ok (10, 1, 1, 0, 0) n=18 N_I=1 N_II=0 N_ei=0 leaf1:bad0/2(<=4) leaf10:bad2/18(<=4)* bare0:bad2/6(<=4)*
+ok (2, 2) n=7 N_I=1 N_II=0 N_ei=0 leaf2:bad2/4(<=4)
+ok (6, 4, 2, 1, 0) n=19 N_I=0 N_II=1 N_ei=0 leaf1:bad0/4(<=2)* leaf2:bad0/2(<=2) leaf4:bad0/6(<=2)* leaf6:bad0/10(<=2)* bare0:bad0/4(<=2)*
+ok (4, 4, 4, 3) n=20 N_I=0 N_II=1 N_ei=0 leaf3:bad0/4(<=2)* leaf4:bad1/22(<=2)*
+ok (4, 1) n=8 N_I=0 N_II=1 N_ei=0 leaf1:bad0/4(<=2)* leaf4:bad1/6(<=2)*
+ok (12, 1) n=16 N_I=0 N_II=1 N_ei=0 leaf1:bad0/4(<=2)* leaf12:bad0/22(<=2)*
+ok (6, 5, 2, 1, 1, 0) n=22 N_I=0 N_II=1 N_ei=0 leaf1:bad0/2(<=2) leaf2:bad0/2(<=2) leaf5:bad0/8(<=2)* leaf6:bad0/10(<=2)* bare0:bad0/4(<=2)*
+ok (6, 3, 2) n=15 N_I=1 N_II=0 N_ei=0 leaf2:bad1/2(<=4) leaf3:bad2/4(<=4) leaf6:bad3/10(<=4)*
+ok (6, 6, 5, 3, 3, 1, 1, 1) n=35 N_I=1 N_II=0 N_ei=0 leaf1:bad0/4(<=4) leaf3:bad0/10(<=4)* leaf5:bad0/8(<=4)* leaf6:bad0/22(<=4)*
+ok (9, 4) n=16 N_I=0 N_II=1 N_ei=0 leaf4:bad0/6(<=2)* leaf9:bad2/16(<=2)*
+ok (7, 6, 2, 2, 2, 1) n=27 N_I=1 N_II=0 N_ei=0 leaf1:bad1/4(<=4) leaf2:bad2/10(<=4)* leaf6:bad3/10(<=4)* leaf7:bad2/12(<=4)*
+ok (3, 3, 2, 1, 1) n=16 N_I=0 N_II=1 N_ei=0 leaf1:bad0/2(<=2) leaf2:bad0/2(<=2) leaf3:bad0/10(<=2)*
+ok (11, 4, 4, 4) n=28 N_I=0 N_II=1 N_ei=0 leaf4:bad0/22(<=2)* leaf11:bad0/20(<=2)*
+ok (6, 3, 0, 0) n=14 N_I=1 N_II=0 N_ei=0 leaf3:bad2/4(<=4) leaf6:bad3/10(<=4)* bare0:bad2/6(<=4)*
+ok (2, 2, 1, 0, 0) n=11 N_I=0 N_II=1 N_ei=0 leaf1:bad0/4(<=2)* leaf2:bad0/4(<=2)* bare0:bad1/6(<=2)*
+ok (4, 4, 4, 0, 0) n=18 N_I=1 N_II=0 N_ei=1 leaf4:bad4/22(<=4)* bare0:bad0/6(<=5)*
+ok (8, 7, 3, 1, 0) n=25 N_I=1 N_II=0 N_ei=0 leaf1:bad1/4(<=4) leaf3:bad2/4(<=4) leaf7:bad2/12(<=4)* leaf8:bad1/14(<=4)* bare0:bad1/4(<=4)
+ok (8, 4, 0, 0) n=17 N_I=0 N_II=1 N_ei=0 leaf4:bad0/6(<=2)* leaf8:bad0/14(<=2)* bare0:bad0/6(<=2)*
+ok (2, 1, 1, 1, 1, 0, 0) n=14 N_I=0 N_II=1 N_ei=0 leaf1:bad0/6(<=2)* leaf2:bad0/2(<=2) bare0:bad0/6(<=2)*
+ok (7, 3, 1) n=15 N_I=1 N_II=0 N_ei=0 leaf1:bad1/4(<=4) leaf3:bad2/4(<=4) leaf7:bad2/12(<=4)*
+ok (4, 4, 2) n=14 N_I=0 N_II=1 N_ei=0 leaf2:bad0/2(<=2) leaf4:bad2/14(<=2)*
+ok (3, 2, 1, 1, 0, 0) n=14 N_I=0 N_II=1 N_ei=0 leaf1:bad1/2(<=2) leaf2:bad1/2(<=2) leaf3:bad2/4(<=2)* bare0:bad1/6(<=2)*
+ok (8, 4, 4, 0, 0, 0) n=23 N_I=0 N_II=1 N_ei=1 leaf4:bad0/14(<=2)* leaf8:bad0/14(<=2)* bare0:bad1/8(<=3)*
+ok (8, 2, 2, 0) n=17 N_I=1 N_II=0 N_ei=0 leaf2:bad2/4(<=4) leaf8:bad1/14(<=4)* bare0:bad1/4(<=4)
+ok (4, 4, 4, 0) n=17 N_I=0 N_II=1 N_ei=0 leaf4:bad2/22(<=2)* bare0:bad0/4(<=2)*
+ok (2, 1, 1, 1) n=10 N_I=0 N_II=1 N_ei=0 leaf1:bad0/4(<=2)* leaf2:bad0/2(<=2)
+ok (7, 7, 2, 1, 1, 0, 0) n=26 N_I=1 N_II=0 N_ei=0 leaf1:bad0/2(<=4) leaf2:bad0/2(<=4) leaf7:bad0/26(<=4)* bare0:bad0/6(<=4)*
+ok (8, 4, 1, 1, 1, 0, 0) n=23 N_I=0 N_II=1 N_ei=0 leaf1:bad0/4(<=2)* leaf4:bad0/6(<=2)* leaf8:bad0/14(<=2)* bare0:bad0/6(<=2)*
+ok (9, 2, 2, 1, 1, 1, 0) n=24 N_I=0 N_II=1 N_ei=0 leaf1:bad0/4(<=2)* leaf2:bad0/4(<=2)* leaf9:bad0/16(<=2)* bare0:bad0/4(<=2)*
+ok (3, 2, 2, 0) n=12 N_I=0 N_II=1 N_ei=1 leaf2:bad1/4(<=2)* leaf3:bad1/4(<=2)* bare0:bad2/4(<=3)*
+ok (7, 2, 1, 0, 0) n=16 N_I=1 N_II=0 N_ei=0 leaf1:bad0/4(<=4) leaf2:bad0/2(<=4) leaf7:bad0/12(<=4)* bare0:bad2/6(<=4)*
+ok (6, 4, 3, 2) n=20 N_I=0 N_II=1 N_ei=0 leaf2:bad0/2(<=2) leaf3:bad0/4(<=2)* leaf4:bad0/6(<=2)* leaf6:bad1/10(<=2)*
+ok (8, 4, 3, 1, 1, 1, 1, 0, 0) n=29 N_I=0 N_II=1 N_ei=0 leaf1:bad0/6(<=2)* leaf3:bad0/4(<=2)* leaf4:bad0/6(<=2)* leaf8:bad0/14(<=2)* bare0:bad0/6(<=2)*
+ok (9, 9, 9, 4, 3, 1, 0, 0) n=44 N_I=0 N_II=1 N_ei=0 leaf1:bad0/4(<=2)* leaf3:bad0/4(<=2)* leaf4:bad0/6(<=2)* leaf9:bad0/52(<=2)* bare0:bad0/6(<=2)*
+SUMMARY tested=51 violations=0
+Sun Sep 27 00:36:08 UTC 2026

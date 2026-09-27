@@ -1,0 +1,28 @@
+{
+  "purpose": "Clean-directory rebuild of the Lean sources for v1.7.0",
+  "start_utc": "2026-09-27T01:32:40Z",
+  "end_utc": "2026-09-27T01:46:01Z",
+  "exit_code": 0,
+  "toolchain": "leanprover/lean4:v4.33.1 (commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6)",
+  "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "procedure": [
+    "Same procedure as logs/clean-replay-v1.4.0-receipt.json: fresh directory, sources copied from the release tree, shared Mathlib package cache at the pinned revision, fresh .lake/build.",
+    "`/usr/bin/time -l lake build` (log: clean-replay-v1.7.0-build.log): 8758 jobs, exit 0.",
+    "Eleven audit files run with `lake env lean` (logs: clean-replay-v1.7.0-audit-*.log), all exit 0.",
+    "`lake env leanchecker <Module>` for the four modules new in v1.7.0 (SwitchingThmH, SwitchingDiam4Cubic, SwitchingWalkProfile, SwitchingRowCount), all exit 0 (log: clean-replay-v1.7.0-leanchecker-new-modules.log); the other modules are unchanged since v1.4.0 and were checked then.",
+    "`shasum -a 256` of sources and configuration (logs/lean-sources-sha256.txt, 66 files), checked in the replay directory (66 of 66 OK)."
+  ],
+  "source_manifest": "logs/lean-sources-sha256.txt",
+  "source_manifest_sha256": "1a889cf738272dc133e2ba0dfc7a4252c184cadd0c4b3758bc7eb2ea3c887ce9",
+  "build": {
+    "jobs": 8758,
+    "real_seconds": 801.26,
+    "max_rss_bytes": 18522193920
+  },
+  "axiom_audit": {
+    "build_log_axiom_lines": 119,
+    "audit_files_axiom_lines": 392,
+    "nonstandard": 0
+  },
+  "notes": "Written from the logs listed above; paths are logical names."
+}

@@ -1,0 +1,233 @@
+2026-09-27T01:32:40Z
+✔ [8706/8758] Built Research.SubstSemanticsCheck (11s)
+ℹ [8707/8758] Built Research.HannaA184894 (12s)
+info: Research/HannaA184894.lean:127:0: 'HannaA184894.zero_part' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA184894.lean:128:0: 'HannaA184894.value_at_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA184894.lean:129:0: 'HannaA184894.counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8708/8758] Built Research.HannaA301933 (12s)
+info: Research/HannaA301933.lean:145:0: 'HannaA301933.hanna_a301933' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8709/8758] Built Research.HannaA240998 (12s)
+info: Research/HannaA240998.lean:119:0: 'HannaA240998.hanna_a240998' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8710/8758] Built Research.HannaA295762 (12s)
+info: Research/HannaA295762.lean:124:0: 'HannaA295762.hanna_a295762' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8711/8758] Built Research.HannaA388734 (12s)
+info: Research/HannaA388734.lean:88:0: 'HannaA388734.hanna_a388734' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8712/8758] Built Research.HannaA338633 (12s)
+info: Research/HannaA338633.lean:160:0: 'HannaA338633.hanna_a338633' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA338633.lean:161:0: 'HannaA338633.hanna_a338634' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8713/8758] Built Research.Oeis389472Mod3 (12s)
+info: Research/Oeis389472Mod3.lean:136:0: 'Oeis389472Mod3.integer_conjecture' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8714/8758] Built Research.HannaA107099 (13s)
+info: Research/HannaA107099.lean:397:0: 'HannaA107099.hanna_a107099' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA107099.lean:398:0: 'HannaA107099.hanna_a107099_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8715/8758] Built Research.HannaA377100 (13s)
+info: Research/HannaA377100.lean:189:0: 'HannaA377100.hanna_a377100' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8716/8758] Built Research.HannaA120566 (13s)
+info: Research/HannaA120566.lean:220:0: 'HannaA120566.hanna_a120566' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8717/8758] Built Research.HannaA376230 (8.8s)
+info: Research/HannaA376230.lean:264:0: 'HannaA376230.hanna_a376230' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA376230.lean:265:0: 'HannaA376230.hanna_a376230_literal_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8718/8758] Built Research.HannaA361047 (13s)
+info: Research/HannaA361047.lean:260:0: 'HannaA361047.hanna_a361047_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA361047.lean:261:0: 'HannaA361047.hanna_a361047_nonpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8719/8758] Built Research.HannaA273958 (14s)
+info: Research/HannaA273958.lean:196:0: 'HannaA273958.hanna_a273958' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8720/8758] Built Research.HannaA274479 (14s)
+info: Research/HannaA274479.lean:169:0: 'HannaA274479.hanna_a274479' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8721/8758] Built Research.HannaA246056 (10s)
+info: Research/HannaA246056.lean:424:0: 'HannaA246056.inv12_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA246056.lean:425:0: 'HannaA246056.T_coeff_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA246056.lean:426:0: 'HannaA246056.a_eq_coeff_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA246056.lean:427:0: 'HannaA246056.hanna_a246056_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA246056.lean:428:0: 'HannaA246056.hanna_a246056_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8722/8758] Built Research.ICGBridgeSpectral (14s)
+info: Research/ICGBridgeSpectral.lean:123:0: 'ICGBridge.sum_abs_eigenvalues_eq_sum_norm_dft' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8723/8758] Built Research.SwitchingThmH (15s)
+info: Research/SwitchingThmH.lean:70:0: 'SwitchingThmH.two_sqrt_add_seven_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:71:0: 'SwitchingThmH.row_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:72:0: 'SwitchingThmH.sol_subsingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:73:0: 'SwitchingThmH.indep_of_irrational' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8724/8758] Built Research.SwitchingRowCount (21s)
+info: Research/SwitchingRowCount.lean:71:0: 'SwitchingRow.card_bad_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingRowCount.lean:72:0: 'SwitchingRow.card_bad_le_one_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8725/8758] Built Research.BrauerCMCore (15s)
+info: Research/BrauerCMCore.lean:315:0: 'BrauerCMCore.lemmaC' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/BrauerCMCore.lean:316:0: 'BrauerCMCore.lemmaB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/BrauerCMCore.lean:319:0: @BrauerCMCore.lemmaC : ∀ {H : Type u_1} (P : H → H → Option (ZMod 2)) (L : H → H → H) (ρ : H ≃ H) (c s : H → ZMod 2)
+  [Finite H],
+  (∀ (l : H), P l l = some 0) →
+    (∀ (l : H), P l (ρ l) = some (s l)) →
+      (∀ (l : H), c (ρ l) = c l + 1 + s l) →
+        (∀ (i : H), Function.Injective (L i)) →
+          (∀ (l : H), Function.Injective fun i => L i l) →
+            BrauerCMCore.IsCompleteMapping (BrauerCMCore.mul P) (BrauerCMCore.fC L ρ c)
+info: Research/BrauerCMCore.lean:320:0: @BrauerCMCore.lemmaB : ∀ {H : Type u_1} (P : H → H → Option (ZMod 2)) (L : H → H → H) (δ : H ≃ H) (t : H → ZMod 2)
+  [Finite H],
+  (∀ (l : H), P l l = some 0) →
+    (∀ (μ : H), t (δ μ) = t μ + 1) →
+      (∀ (i : H), Function.Injective (L i)) →
+        (∀ (l : H), Function.Injective fun i => L i l) →
+          BrauerCMCore.IsCompleteMapping (BrauerCMCore.mul P) (BrauerCMCore.fB L δ t)
+info: Research/BrauerCMCore.lean:321:0: def BrauerCMCore.mul.{u_1} : {H : Type u_1} →
+  (H → H → Option (ZMod 2)) → BrauerCMCore.Elt H → BrauerCMCore.Elt H → BrauerCMCore.Elt H :=
+fun {H} P x x_1 =>
+  match x, x_1 with
+  | none, x => none
+  | some val, none => none
+  | some (i, a, l), some (j, b, m) => Option.map (fun p => (i, a + p + b, m)) (P l j)
+info: Research/BrauerCMCore.lean:322:0: def BrauerCMCore.fC.{u_1} : {H : Type u_1} →
+  (H → H → H) → H ≃ H → (H → ZMod 2) → BrauerCMCore.Elt H → BrauerCMCore.Elt H :=
+fun {H} L ρ c x =>
+  match x with
+  | none => none
+  | some (i, a, l) => if a = c l then some (l, 1 + c l, L i l) else some (ρ l, c (ρ l), L i (ρ l))
+info: Research/BrauerCMCore.lean:323:0: def BrauerCMCore.fB.{u_1} : {H : Type u_1} →
+  (H → H → H) → H ≃ H → (H → ZMod 2) → BrauerCMCore.Elt H → BrauerCMCore.Elt H :=
+fun {H} L δ t x =>
+  match x with
+  | none => none
+  | some (i, a, l) => if a = 1 + t (L i l) then some (l, 1, L i l) else some (l, 0, δ (L i l))
+info: Research/BrauerCMCore.lean:324:0: def BrauerCMCore.IsCompleteMapping.{u_2} : {S : Type u_2} → (S → S → S) → (S → S) → Prop :=
+fun {S} op α => Function.Bijective α ∧ Function.Bijective fun x => op x (α x)
+ℹ [8726/8758] Built Research.SwitchingDiam4Cubic (15s)
+info: Research/SwitchingDiam4Cubic.lean:112:0: 'SwitchingDiam4.no_rat_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingDiam4Cubic.lean:113:0: 'SwitchingDiam4.real_root_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingDiam4Cubic.lean:114:0: 'SwitchingDiam4.no_eigenvalue_root_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8727/8758] Built Research.SwitchingWalkProfile (22s)
+info: Research/SwitchingWalkProfile.lean:274:0: 'SwitchingWalkProfile.annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:275:0: 'SwitchingWalkProfile.eigen_nonorth' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:276:0: 'SwitchingWalkProfile.main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:277:0: 'SwitchingWalkProfile.walkRegular_main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8728/8758] Built Research.ICGGeneralPath (15s)
+ℹ [8729/8758] Built Research.HKOTriameter (18s)
+info: Research/HKOTriameter.lean:503:0: 'HKOTriameter.not_problem1Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:504:0: 'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:505:0: 'HKOTriameter.not_problem2Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:506:0: 'HKOTriameter.not_problem2ClaimWeak' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:507:0: 'HKOTriameter.G1_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:508:0: 'HKOTriameter.G2_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:509:0: 'HKOTriameter.not_question3_G1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:510:0: 'HKOTriameter.isPeripheral_iff_isPeripheralPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:511:0: 'HKOTriameter.dist_eq_of_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:512:0: 'HKOTriameter.C6_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8730/8758] Built Research.ICGBridgeRamanujan (4.9s)
+info: Research/ICGBridgeRamanujan.lean:252:0: 'ICGBridge.dft_gcd_class' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeRamanujan.lean:253:0: 'ICGBridge.sum_dvd_stdAddChar' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8731/8758] Built Research.ICGGeneralThm5 (7.3s)
+info: Research/ICGGeneralThm5.lean:602:0: 'ICGGeneral.thm5_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralThm5.lean:603:0: 'ICGGeneral.thm5_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralThm5.lean:604:0: 'ICGGeneral.L1mat_sgnv' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8732/8758] Built Research.ICGBridgeEnergy (4.2s)
+info: Research/ICGBridgeEnergy.lean:171:0: 'ICGBridge.sum_norm_dft_connFun' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8733/8758] Built Research.HKOTriameterDH (6.0s)
+info: Research/HKOTriameterDH.lean:309:0: 'HKOTriameter.core' depends on axioms: [propext, Quot.sound]
+info: Research/HKOTriameterDH.lean:310:0: 'HKOTriameter.extends_of_no_diametral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:311:0: 'HKOTriameter.question3_or_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:312:0: 'HKOTriameter.problem3_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:313:0: 'HKOTriameter.problem3ClaimFP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:314:0: 'HKOTriameter.F1G_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:315:0: 'HKOTriameter.F1G_not_question3'' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:316:0: 'HKOTriameter.F1H_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:317:0: 'HKOTriameter.F1H_not_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:318:0: 'HKOTriameter.G1_not_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:319:0: 'HKOTriameter.G2_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:320:0: 'HKOTriameter.F1G_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8734/8758] Built Research.ICGBridgeMain (11s)
+info: Research/ICGBridgeMain.lean:449:0: 'ICGBridge.energy_icgAdj_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeMain.lean:450:0: 'ICGBridge.energy_icgGraph_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeMain.lean:451:0: 'ICGBridge.roldan_q3_graph_of_arith' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeMain.lean:452:0: 'ICGBridge.roldan_q3_of_arith' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8735/8758] Built Research.ICGGeneralBridge (10s)
+info: Research/ICGGeneralBridge.lean:394:0: 'ICGGeneral.energy_icgAdj_pq' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8736/8758] Built Research.ICGGeneralMain (36s)
+info: Research/ICGGeneralMain.lean:316:0: 'ICGGeneral.checkerboard_unique_max' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralMain.lean:317:0: 'ICGGeneral.jiang_yang_q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralMain.lean:318:0: 'ICGGeneral.jiang_yang_q3_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralMain.lean:319:0: 'ICGGeneral.energy_DstarPQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8737/8758] Built Research.ICGGeneralSwap (85s)
+info: Research/ICGGeneralSwap.lean:190:0: 'ICGGeneral.checkerboard_unique_max_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralSwap.lean:191:0: 'ICGGeneral.jiang_yang_thmA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralSwap.lean:192:0: 'ICGGeneral.thm5_le_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralSwap.lean:193:0: 'ICGGeneral.DstarPQ_roldan' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8738/8758] Built Research.ICGEqualParityLemmas (85s)
+ℹ [8739/8758] Built Research.RM714Weights (182s)
+info: Research/RM714Weights.lean:300:0: 'RM714.rm714_new_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/RM714Weights.lean:301:0: 'RM714.weight_map_maskSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8740/8758] Built Research.ICGEqualParityA (33s)
+ℹ [8741/8758] Built Research.ICGEqualParityGraph (20s)
+info: Research/ICGEqualParityGraph.lean:290:0: 'ICGEqualParity.energy_le_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityGraph.lean:291:0: 'ICGEqualParity.energy_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityGraph.lean:292:0: 'ICGEqualParity.thmA_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8742/8758] Built Research.ICGEqualParityUnique (55s)
+info: Research/ICGEqualParityUnique.lean:972:0: 'ICGEqualParity.trunc_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:973:0: 'ICGEqualParity.energy_trunc' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:976:0: 'ICGEqualParity.thmA_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:977:0: 'ICGEqualParity.energy_lt_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:978:0: 'ICGEqualParity.corollaryA' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8743/8758] Built Research.ICGEqualParityBCol (57s)
+ℹ [8744/8758] Built Research.Carenini (383s)
+info: Research/Carenini.lean:650:0: 'Carenini.not_careniniQuestion_six' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:651:0: 'Carenini.prism_beats_K33' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:652:0: 'Carenini.K33Iso' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:653:0: 'Carenini.prismIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:654:0: 'Carenini.K33IsoKddUnion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:655:0: 'Carenini.not_careniniQuestion_two_d' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:656:0: 'Carenini.iCount_one_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:657:0: 'Carenini.switchedKdd_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:658:0: 'Carenini.not_careniniQuestion_eight_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:659:0: 'Carenini.not_careniniQuestion_twelve_bip' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:660:0: 'Carenini.not_careniniQuestion_twelve_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:661:0: 'Carenini.H3_bipartite' does not depend on any axioms
+info: Research/Carenini.lean:662:0: 'Carenini.H3_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:663:0: 'Carenini.KddUnion_two_three_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8745/8758] Built Research.ICGEqualParityBFD (96s)
+✔ [8746/8758] Built Research.ICGEqualParityBCert4 (97s)
+✔ [8747/8758] Built Research.ICGEqualParityBCert6 (97s)
+✔ [8748/8758] Built Research.ICGEqualParityBCert1 (97s)
+✔ [8749/8758] Built Research.ICGEqualParityBCert2 (97s)
+✔ [8750/8758] Built Research.ICGEqualParityBCert5 (97s)
+✔ [8751/8758] Built Research.ICGEqualParityBCert3 (98s)
+✔ [8752/8758] Built Research.ICGEqualParityBMain (20s)
+✔ [8753/8758] Built Research.ICGEqualParityBGraph (10s)
+⚠ [8754/8758] Built Research.CirculantQ3 (764s)
+warning: Research/CirculantQ3.lean:167:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: Research/CirculantQ3.lean:186:0: 'CirculantQ3.coefficient_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:187:0: 'CirculantQ3.exactEnergy_eq_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:188:0: 'CirculantQ3.exactEnergy_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:189:0: 'CirculantQ3.exactEnergy_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:190:0: 'CirculantQ3.exactEnergy_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8755/8758] Built Research.ICGBridgeFinal (11s)
+info: Research/ICGBridgeFinal.lean:78:0: 'ICGBridge.roldan_q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeFinal.lean:79:0: 'ICGBridge.roldan_q3_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeFinal.lean:80:0: 'ICGBridge.energy_Dstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeFinal.lean:81:0: 'ICGBridge.energy_icgAdj_eq_exactEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8756/8758] Built Research.ICGBridgeSharp (3.8s)
+info: Research/ICGBridgeSharp.lean:174:0: 'ICGBridge.roldan_q3_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeSharp.lean:175:0: 'ICGBridge.roldan_q3_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeSharp.lean:176:0: 'ICGBridge.roldan_q3_gap_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeSharp.lean:177:0: 'ICGBridge.roldan_q3_gap_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeSharp.lean:178:0: 'ICGBridge.roldan_q3_sharp_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8757/8758] Built Research (3.3s)
+Build completed successfully (8758 jobs).
+      801.26 real      1199.06 user       941.57 sys
+         18522193920  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+           148936476  page reclaims
+             3000973  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              837029  voluntary context switches
+            28905189  involuntary context switches
+        130574496517  instructions retired
+         95680790474  cycles elapsed
+          1093265288  peak memory footprint
+exit=0
+2026-09-27T01:46:01Z

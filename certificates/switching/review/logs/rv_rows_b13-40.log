@@ -1,0 +1,22 @@
+Sun Sep 27 00:35:57 UTC 2026
+candidates with N>=1: 18
+ok (12, 12, 8, 0, 0, 0, 0, 0, 0) n=42 N_I=3 N_II=0 N_ei=0 leaf8:bad0/14(<=12)* leaf12:bad8/46(<=12)* bare0:bad3/14(<=12)*
+ok (3, 1, 1, 1, 1, 0, 0, 0) n=16 N_I=1 N_II=1 N_ei=0 leaf1:bad1/6(<=6) leaf3:bad0/4(<=6) bare0:bad1/8(<=6)*
+ok (6, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0) n=24 N_I=0 N_II=2 N_ei=0 leaf2:bad0/2(<=4) leaf3:bad0/4(<=4) leaf6:bad1/10(<=4)* bare0:bad3/20(<=4)*
+ok (8, 8, 1, 1, 1, 0, 0) n=27 N_I=1 N_II=1 N_ei=0 leaf1:bad0/4(<=6) leaf8:bad0/30(<=6)* bare0:bad0/6(<=6)
+ok (8, 5, 2, 2, 0, 0, 0, 0, 0) n=27 N_I=1 N_II=1 N_ei=0 leaf2:bad0/4(<=6) leaf5:bad0/8(<=6)* leaf8:bad2/14(<=6)* bare0:bad4/12(<=6)*
+ok (6, 4, 3, 2, 1, 1, 1, 1) n=28 N_I=0 N_II=2 N_ei=0 leaf1:bad0/6(<=4)* leaf2:bad0/2(<=4) leaf3:bad0/4(<=4) leaf4:bad0/6(<=4)* leaf6:bad0/10(<=4)*
+ok (2, 2) n=7 N_I=1 N_II=0 N_ei=0 leaf2:bad2/4(<=4)
+ok (2, 0, 0) n=6 N_I=2 N_II=0 N_ei=0 leaf2:bad2/2(<=8) bare0:bad4/6(<=8)
+ok (3,) n=5 N_I=1 N_II=0 N_ei=0 leaf3:bad2/4(<=4)
+ok (15,) n=17 N_I=1 N_II=0 N_ei=0 leaf15:bad4/28(<=4)*
+ok (19, 19, 9, 1, 1, 1, 1) n=59 N_I=1 N_II=0 N_ei=0 leaf1:bad1/6(<=4)* leaf9:bad0/16(<=4)* leaf19:bad2/74(<=4)*
+ok (35,) n=37 N_I=1 N_II=0 N_ei=0 leaf35:bad4/68(<=4)*
+ok (24,) n=26 N_I=1 N_II=0 N_ei=0 leaf24:bad4/46(<=4)*
+ok (40, 1) n=44 N_I=0 N_II=1 N_ei=0 leaf1:bad0/4(<=2)* leaf40:bad0/78(<=2)*
+ok (26, 3, 3, 1, 1) n=40 N_I=0 N_II=1 N_ei=0 leaf1:bad0/2(<=2) leaf3:bad0/10(<=2)* leaf26:bad0/50(<=2)*
+ok (18, 0, 0) n=22 N_I=0 N_II=1 N_ei=0 leaf18:bad2/34(<=2)* bare0:bad0/6(<=2)*
+ok (22, 22, 21, 1, 1) n=73 N_I=1 N_II=0 N_ei=0 leaf1:bad0/2(<=4) leaf21:bad0/40(<=4)* leaf22:bad0/86(<=4)*
+ok (13, 4, 1, 1, 1) n=26 N_I=0 N_II=1 N_ei=0 leaf1:bad0/4(<=2)* leaf4:bad0/6(<=2)* leaf13:bad0/24(<=2)*
+SUMMARY tested=18 violations=0
+Sun Sep 27 00:36:07 UTC 2026

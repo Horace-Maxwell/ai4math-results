@@ -1,0 +1,9 @@
+failure numerator: -k0**2*t**2 + 2*k0**2*t - k0**2 - 2*k0*k1*t**2 + 2*k0*k1*t + 4*k0*t**2 - 8*k0*t + 4*k0 - k1**2*t**2 + k1**2*t + 6*k1*t**2 - 10*k1*t + t**3 - 10*t**2 + 17*t - 4
+Res_t(failure numerator, secular): -k0**4*k1**2 + 4*k0**4*k1 - 4*k0**4 - 3*k0**3*k1**3 + 21*k0**3*k1**2 - 44*k0**3*k1 + 28*k0**3 - 3*k0**2*k1**4 + 29*k0**2*k1**3 - 103*k0**2*k1**2 + 152*k0**2*k1 - 76*k0**2 - k0*k1**5 + 13*k0*k1**4 - 59*k0*k1**3 + 155*k0*k1**2 - 192*k0*k1 + 84*k0 + 4*k1**4 - 24*k1**3 + 20*k1**2 + 16*k1 - 16
+Res(P-numerator, secular): k0*k1 - 2*k0 + 2*k1**2 - 8*k1 + 6
+Res(Q-numerator, secular): k1*(k0 + 2*k1 - 2)
+integer zeros (k0,k1) in [2,400)^2: [] 0
+number of monomials: 20
+positive coefficients: [((3, 1), 4), ((2, 1), 16), ((1, 2), 33), ((1, 1), 72), ((1, 0), 24), ((0, 3), 14), ((0, 2), 42), ((0, 1), 48), ((0, 0), 16)]
+constant term: 16
+max coefficient: 72  min: -13

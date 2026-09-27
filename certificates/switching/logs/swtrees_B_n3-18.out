@@ -1,0 +1,32 @@
+n=3 shard=0/1 trees=1 certified=1 fail=0 | s=1:0 single:1 double:0 triple:0 random/exh:0 gcdfail:0 | total_enumerated=1
+d-histogram: 3:1
+n=4 shard=0/1 trees=2 certified=2 fail=0 | s=1:0 single:2 double:0 triple:0 random/exh:0 gcdfail:0 | total_enumerated=2
+d-histogram: 3:1 4:1
+n=5 shard=0/1 trees=3 certified=3 fail=0 | s=1:0 single:2 double:1 triple:0 random/exh:0 gcdfail:0 | total_enumerated=3
+d-histogram: 3:1 5:2
+n=6 shard=0/1 trees=6 certified=6 fail=0 | s=1:1 single:4 double:1 triple:0 random/exh:0 gcdfail:0 | total_enumerated=6
+d-histogram: 3:1 5:3 6:2
+n=7 shard=0/1 trees=11 certified=11 fail=0 | s=1:2 single:8 double:1 triple:0 random/exh:0 gcdfail:0 | total_enumerated=11
+d-histogram: 3:1 5:5 7:5
+n=8 shard=0/1 trees=23 certified=23 fail=0 | s=1:6 single:14 double:3 triple:0 random/exh:0 gcdfail:0 | total_enumerated=23
+d-histogram: 3:1 5:5 6:1 7:12 8:4
+n=9 shard=0/1 trees=47 certified=47 fail=0 | s=1:10 single:31 double:6 triple:0 random/exh:0 gcdfail:0 | total_enumerated=47
+d-histogram: 3:1 5:7 7:21 9:18
+n=10 shard=0/1 trees=106 certified=106 fail=0 | s=1:32 single:64 double:10 triple:0 random/exh:0 gcdfail:0 | total_enumerated=106
+d-histogram: 3:1 5:8 6:1 7:36 8:3 9:46 10:11
+n=11 shard=0/1 trees=235 certified=235 fail=0 | s=1:71 single:135 double:29 triple:0 random/exh:0 gcdfail:0 | total_enumerated=235
+d-histogram: 3:1 5:9 7:51 9:112 11:62
+n=12 shard=0/1 trees=551 certified=551 fail=0 | s=1:183 single:319 double:49 triple:0 random/exh:0 gcdfail:0 | total_enumerated=551
+d-histogram: 3:1 5:9 6:1 7:69 8:4 9:203 10:7 11:220 12:37
+n=13 shard=0/1 trees=1301 certified=1301 fail=0 | s=1:429 single:712 double:159 triple:1 random/exh:0 gcdfail:0 | total_enumerated=1301
+d-histogram: 3:1 5:13 7:91 9:352 11:594 13:250
+n=14 shard=0/1 trees=3159 certified=3159 fail=0 | s=1:1171 single:1700 double:288 triple:0 random/exh:0 gcdfail:0 | total_enumerated=3159
+d-histogram: 3:1 5:11 6:1 7:119 8:5 9:549 10:14 11:1311 12:44 13:988 14:116
+n=15 shard=0/1 trees=7741 certified=7741 fail=0 | s=1:2828 single:3993 double:917 triple:3 random/exh:0 gcdfail:0 | total_enumerated=7741
+d-histogram: 3:1 5:13 7:140 9:822 11:2566 13:3158 15:1041
+n=16 shard=0/1 trees=19320 certified=19320 fail=0 | s=1:7470 single:9995 double:1846 triple:9 random/exh:0 gcdfail:0 | total_enumerated=19320
+d-histogram: 3:1 5:15 6:1 7:175 8:6 9:1153 10:12 11:4569 12:84 13:7858 14:133 15:4848 16:465
+n=17 shard=0/1 trees=48629 certified=48629 fail=0 | s=1:18996 single:24022 double:5570 triple:41 random/exh:0 gcdfail:0 | total_enumerated=48629
+d-histogram: 3:1 5:16 7:207 9:1569 11:7444 13:17493 15:17447 17:4452
+n=18 shard=0/1 trees=123867 certified=123867 fail=0 | s=1:50191 single:61651 double:11943 triple:82 random/exh:0 gcdfail:0 | total_enumerated=123867
+d-histogram: 3:1 5:15 6:1 7:241 8:7 9:2062 10:20 11:11593 12:121 13:34547 14:291 15:49154 16:723 17:23363 18:1728

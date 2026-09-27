@@ -1,0 +1,403 @@
+Sun Sep 27 00:27:51 UTC 2026
+OK [2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 1, 1, 1, 1, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [12, 12, 8, 0, 0, 0, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [0, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 2, 2, 0, 0, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 5, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 3, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 3, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 6, 4, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 4, 4, 3, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 4, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 3, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 2, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 6, 2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 3, 2, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 3, 3, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 3, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 3, 3, 3, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 6, 2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 3, 3, 3, 3, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 3, 2, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 2, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 5, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 3, 1, 1, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 4, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 4, 3, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 3, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 6, 4, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 1, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 1, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 3, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 5, 3] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 5, 5, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 1, 1, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 5] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 4, 4, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 6, 5] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 4, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 5, 4, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 3, 3, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 2, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 3, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 3] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 4] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 3, 2, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 0, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 5, 4, 3, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [6] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 2, 1, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 3, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 4, 2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 5, 4, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 3, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 4, 3, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 2, 1, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 2, 1, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 3, 3, 1, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 3, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 4, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 5, 5, 3, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [3] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 5, 5, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 3, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 2, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 6, 4, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 4, 4, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 5, 2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 3, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 3, 2, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 2, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 2, 2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 3, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 2, 2, 2, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 3, 2, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 4, 3, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 4, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 3, 1, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 3, 3, 3, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 5, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 3, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 3, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 4, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 4, 1, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5] charpoly=True d=True eigvec=True lemmaM=True
+OK [8] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 1, 1, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 3] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 2, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 4, 1, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [3] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 3, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 3, 2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 2, 1, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 4, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 3, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 3, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 2, 1, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 3, 2, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 4, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 3, 3, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 2, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 4, 1, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 3, 3, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 2, 2, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 3, 1, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 3, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 3, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 3, 1, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 5, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 2, 2, 2, 2, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 1, 1, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 1, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 2, 1, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 6] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 4, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 6, 2, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 4, 3, 3, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 5, 5, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 3, 3, 2, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 3, 3, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 3, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 3, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 2, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 4, 3, 2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 6, 3, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 3, 1, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 5, 4] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 3, 3, 2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 4, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 4, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 3, 1, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 5, 3, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 2, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 6, 4, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 2, 2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5] charpoly=True d=True eigvec=True lemmaM=True
+OK [8] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 5, 4, 2, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 3, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 3, 3, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 3, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 2, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 1, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 1, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 3, 2, 2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 1, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5] charpoly=True d=True eigvec=True lemmaM=True
+OK [3] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 1, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 3, 3, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 4, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 5, 2, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 2, 1, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 3, 2, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 5, 4] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 3, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 6, 3, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 1, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 1, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 1, 1, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8] charpoly=True d=True eigvec=True lemmaM=True
+OK [8] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 4, 2, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 3, 3, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 4, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 3, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 1, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 4, 2, 2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 5, 3, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 6, 5, 4, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 2, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 4, 2, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 2, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 2, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [2] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 3] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 3, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 3, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 6, 3, 3, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 2, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 3, 3, 1, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 4, 3] charpoly=True d=True eigvec=True lemmaM=True
+OK [6] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4, 3, 2, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [6, 5, 4, 2, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 4] charpoly=True d=True eigvec=True lemmaM=True
+OK [8] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 5, 4, 3, 2, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [5, 3] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 6, 2, 2, 2, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 0, 0, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 3, 2] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 2, 1, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [4, 3, 1, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 0] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 4] charpoly=True d=True eigvec=True lemmaM=True
+OK [8, 8, 2, 1, 1] charpoly=True d=True eigvec=True lemmaM=True
+OK [3, 2, 1] charpoly=True d=True eigvec=True lemmaM=True
+SUMMARY trees=400 failures=0
+Sun Sep 27 00:28:04 UTC 2026

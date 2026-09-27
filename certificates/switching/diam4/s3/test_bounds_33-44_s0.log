@@ -1,0 +1,13 @@
+n<=33 shard 0/4: {'trees': 2083, 'N>=2': 1, 'N>=3': 0, 'b*>=13': 397} violations=0 []
+n<=34 shard 0/4: {'trees': 4614, 'N>=2': 3, 'N>=3': 0, 'b*>=13': 912} violations=0 []
+n<=35 shard 0/4: {'trees': 7687, 'N>=2': 3, 'N>=3': 0, 'b*>=13': 1583} violations=0 []
+n<=36 shard 0/4: {'trees': 11403, 'N>=2': 3, 'N>=3': 0, 'b*>=13': 2449} violations=0 []
+n<=37 shard 0/4: {'trees': 15893, 'N>=2': 3, 'N>=3': 0, 'b*>=13': 3561} violations=0 []
+n<=38 shard 0/4: {'trees': 21297, 'N>=2': 3, 'N>=3': 0, 'b*>=13': 4974} violations=0 []
+n<=39 shard 0/4: {'trees': 27796, 'N>=2': 3, 'N>=3': 0, 'b*>=13': 6765} violations=0 []
+n<=40 shard 0/4: {'trees': 35587, 'N>=2': 3, 'N>=3': 0, 'b*>=13': 9027} violations=0 []
+n<=41 shard 0/4: {'trees': 44917, 'N>=2': 3, 'N>=3': 0, 'b*>=13': 11871} violations=0 []
+n<=42 shard 0/4: {'trees': 56057, 'N>=2': 5, 'N>=3': 1, 'b*>=13': 15423} violations=0 []
+n<=43 shard 0/4: {'trees': 69345, 'N>=2': 5, 'N>=3': 1, 'b*>=13': 19853} violations=0 []
+n<=44 shard 0/4: {'trees': 85155, 'N>=2': 5, 'N>=3': 1, 'b*>=13': 25352} violations=0 []
+DONE 0 4 violations 0

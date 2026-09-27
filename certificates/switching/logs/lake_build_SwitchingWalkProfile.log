@@ -1,0 +1,84 @@
+ℹ [8706/8707] Built Research.SwitchingWalkProfile (8.7s)
+info: Research/SwitchingWalkProfile.lean:274:0: 'SwitchingWalkProfile.annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:275:0: 'SwitchingWalkProfile.eigen_nonorth' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:276:0: 'SwitchingWalkProfile.main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:277:0: 'SwitchingWalkProfile.walkRegular_main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8707/8707] Built Research.SwitchingWalkProfileAudit (3.6s)
+info: Research/SwitchingWalkProfileAudit.lean:10:0: def SwitchingWalkProfile.switchVec.{u_1} : {ι : Type u_1} → [DecidableEq ι] → ι → ι → ℝ :=
+fun {ι} [DecidableEq ι] v i => if i = v then -1 else 1
+info: Research/SwitchingWalkProfileAudit.lean:11:0: @SwitchingWalkProfile.annihilator : ∀ {ι : Type u_1} [inst : Fintype ι] [inst_1 : DecidableEq ι] (A : Matrix ι ι ℝ),
+  Aᵀ = A →
+    ∀ (k : ℝ),
+      ((A *ᵥ fun x => 1) = k • fun x => 1) →
+        Fintype.card ι ≠ 2 →
+          ∀ (v : ι) (w : ι → ℝ),
+            (∀ (u : ι), 0 < w u) →
+              (∀ (j : ℕ), (A ^ j) v v = ∑ u, w u * (A ^ j) u u) →
+                ∀ (f : Polynomial ℝ),
+                  (Polynomial.aeval A) f *ᵥ SwitchingWalkProfile.switchVec v = 0 → (Polynomial.aeval A) f = 0
+info: Research/SwitchingWalkProfileAudit.lean:12:0: @SwitchingWalkProfile.eigen_nonorth : ∀ {ι : Type u_1} [inst : Fintype ι] [inst_1 : DecidableEq ι] (A : Matrix ι ι ℝ),
+  Aᵀ = A →
+    ∀ (k : ℝ),
+      ((A *ᵥ fun x => 1) = k • fun x => 1) →
+        Fintype.card ι ≠ 2 →
+          ∀ (v : ι) (w : ι → ℝ),
+            (∀ (u : ι), 0 < w u) →
+              (∀ (j : ℕ), (A ^ j) v v = ∑ u, w u * (A ^ j) u u) →
+                ∀ (θ : ℝ) (x : ι → ℝ),
+                  x ≠ 0 → A *ᵥ x = θ • x → ∃ y, A *ᵥ y = θ • y ∧ SwitchingWalkProfile.switchVec v ⬝ᵥ y ≠ 0
+info: Research/SwitchingWalkProfileAudit.lean:13:0: @SwitchingWalkProfile.main_after_switching : ∀ {ι : Type u_1} [inst : Fintype ι] [inst_1 : DecidableEq ι]
+  (A : Matrix ι ι ℝ),
+  Aᵀ = A →
+    ∀ (k : ℝ),
+      ((A *ᵥ fun x => 1) = k • fun x => 1) →
+        Fintype.card ι ≠ 2 →
+          ∀ (v : ι) (w : ι → ℝ),
+            (∀ (u : ι), 0 < w u) →
+              (∀ (j : ℕ), (A ^ j) v v = ∑ u, w u * (A ^ j) u u) →
+                ∀ (θ : ℝ) (x : ι → ℝ),
+                  x ≠ 0 →
+                    (diagonal (SwitchingWalkProfile.switchVec v) * A * diagonal (SwitchingWalkProfile.switchVec v)) *ᵥ
+                          x =
+                        θ • x →
+                      ∃ z,
+                        (diagonal (SwitchingWalkProfile.switchVec v) * A *
+                                diagonal (SwitchingWalkProfile.switchVec v)) *ᵥ
+                              z =
+                            θ • z ∧
+                          (fun x => 1) ⬝ᵥ z ≠ 0
+info: Research/SwitchingWalkProfileAudit.lean:14:0: @SwitchingWalkProfile.walkRegular_main_after_switching : ∀ {ι : Type u_1} [inst : Fintype ι] [inst_1 : DecidableEq ι]
+  (A : Matrix ι ι ℝ),
+  Aᵀ = A →
+    ∀ (k : ℝ),
+      ((A *ᵥ fun x => 1) = k • fun x => 1) →
+        Fintype.card ι ≠ 2 →
+          (∀ (j : ℕ) (u u' : ι), (A ^ j) u u = (A ^ j) u' u') →
+            ∀ (v : ι) (θ : ℝ) (x : ι → ℝ),
+              x ≠ 0 →
+                (diagonal (SwitchingWalkProfile.switchVec v) * A * diagonal (SwitchingWalkProfile.switchVec v)) *ᵥ x =
+                    θ • x →
+                  ∃ z,
+                    (diagonal (SwitchingWalkProfile.switchVec v) * A * diagonal (SwitchingWalkProfile.switchVec v)) *ᵥ
+                          z =
+                        θ • z ∧
+                      (fun x => 1) ⬝ᵥ z ≠ 0
+warning: Research/SwitchingWalkProfileAudit.lean:26:58: This simp argument is unused:
+  Fin.sum_univ_three
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SwitchingWalkProfile.switchVec, Matrix.mul_apply, diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Research/SwitchingWalkProfileAudit.lean:30:58: This simp argument is unused:
+  Fin.sum_univ_three
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SwitchingWalkProfile.switchVec, Matrix.mul_apply, diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: Research/SwitchingWalkProfileAudit.lean:32:0: 'SwitchingWalkProfile.annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfileAudit.lean:33:0: 'SwitchingWalkProfile.eigen_nonorth' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfileAudit.lean:34:0: 'SwitchingWalkProfile.main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfileAudit.lean:35:0: 'SwitchingWalkProfile.walkRegular_main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8707 jobs).
+lake build Research.SwitchingWalkProfile Research.SwitchingWalkProfileAudit  8.27s user 9.70s system 110% cpu 16.294 total
