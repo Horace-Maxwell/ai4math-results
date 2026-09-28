@@ -1,0 +1,275 @@
+leanchecker: `lake env leanchecker <Module>`, one module per run, Lean 4.34.1 (commit 5045d0056413266e57c625dcd7c365b10e377c52)
+replay directory: <replay>/lean (fresh directory; see clean-replay-v1.8.0-receipt.json); LEAN_NUM_THREADS=2
+2026-09-28T00:40:37Z phase 1 (both lock slots): Research.CirculantQ3
+== Research.CirculantQ3
+exit=0 (452.72 s, max RSS 21372043264 bytes)
+2026-09-28T00:48:10Z end of phase 1
+2026-09-28T00:56:45Z phase 2 (one lock slot, 2 runs at a time): 86 modules
+== Research.AxialMSZ.Audit
+exit=0 (11 s, max RSS 5106237440 bytes)
+== Research.AxialMSZ.Challenge
+exit=0 (11 s, max RSS 5101797376 bytes)
+== Research.AxialMSZ.ChallengeTests
+exit=0 (10 s, max RSS 5103321088 bytes)
+== Research.AxialMSZ.Check
+exit=0 (10 s, max RSS 5106221056 bytes)
+== Research.AxialMSZ.Proof.Corollary
+exit=0 (10 s, max RSS 5106548736 bytes)
+== Research.AxialMSZ.Proof.ExD
+exit=0 (10 s, max RSS 5104271360 bytes)
+== Research.AxialMSZ.Proof.ExDBase
+exit=0 (11 s, max RSS 5118754816 bytes)
+== Research.AxialMSZ.Proof.ExDBlock
+exit=0 (10 s, max RSS 5106106368 bytes)
+== Research.AxialMSZ.Proof.ExDFrobenius
+exit=0 (10 s, max RSS 5108465664 bytes)
+== Research.AxialMSZ.Proof.ExDSupplement
+exit=0 (9 s, max RSS 5104517120 bytes)
+== Research.AxialMSZ.Proof.ExE
+exit=0 (9 s, max RSS 5104173056 bytes)
+== Research.AxialMSZ.Proof.ExEBase
+exit=0 (10 s, max RSS 5114363904 bytes)
+== Research.AxialMSZ.Proof.ExEBlocks
+exit=0 (10 s, max RSS 5108350976 bytes)
+== Research.AxialMSZ.Proof.ExEGraph
+exit=0 (9 s, max RSS 5104992256 bytes)
+== Research.AxialMSZ.Proof.ExP
+exit=0 (10 s, max RSS 5104943104 bytes)
+== Research.AxialMSZ.Proof.ExS
+exit=0 (10 s, max RSS 5103452160 bytes)
+== Research.AxialMSZ.Proof.ExSBase
+exit=0 (10 s, max RSS 5115789312 bytes)
+== Research.AxialMSZ.Proof.ExSDecomp
+exit=0 (9 s, max RSS 5103468544 bytes)
+== Research.AxialMSZ.Proof.ExSGraph
+exit=0 (10 s, max RSS 5104500736 bytes)
+== Research.AxialMSZ.Proof.ExSSimple
+exit=0 (9 s, max RSS 5107777536 bytes)
+== Research.AxialMSZ.Proof.Laws
+exit=0 (10 s, max RSS 5102649344 bytes)
+== Research.AxialMSZ.Proof.PConsequence
+exit=0 (10 s, max RSS 5102452736 bytes)
+== Research.AxialMSZ.Proof.SFourNegations
+exit=0 (10 s, max RSS 5103861760 bytes)
+== Research.AxialMSZ.Proof.SimpleIndecomposable
+exit=0 (10 s, max RSS 5101928448 bytes)
+== Research.AxialMSZ.SupplementDChallenge
+exit=0 (10 s, max RSS 5102256128 bytes)
+== Research.BrauerCMCore
+exit=0 (10 s, max RSS 5101617152 bytes)
+== Research.Carenini
+exit=0 (121 s, max RSS 11820335104 bytes)
+== Research.CareniniAudit
+exit=0 (11 s, max RSS 5101715456 bytes)
+== Research.HKOTriameter
+exit=0 (9 s, max RSS 5316591616 bytes)
+== Research.HKOTriameterAudit
+exit=0 (8 s, max RSS 5101993984 bytes)
+== Research.HKOTriameterDH
+exit=0 (10 s, max RSS 5272731648 bytes)
+== Research.HannaA107099
+exit=0 (6 s, max RSS 2494136320 bytes)
+== Research.HannaA120566
+exit=0 (7 s, max RSS 2487828480 bytes)
+== Research.HannaA184894
+exit=0 (6 s, max RSS 2468626432 bytes)
+== Research.HannaA240998
+exit=0 (6 s, max RSS 2490843136 bytes)
+== Research.HannaA246056
+exit=0 (6 s, max RSS 2499608576 bytes)
+== Research.HannaA273958
+exit=0 (6 s, max RSS 2491531264 bytes)
+== Research.HannaA274479
+exit=0 (6 s, max RSS 2489008128 bytes)
+== Research.HannaA295762
+exit=0 (6 s, max RSS 2479685632 bytes)
+== Research.HannaA301933
+exit=0 (6 s, max RSS 2495365120 bytes)
+== Research.HannaA338633
+exit=0 (6 s, max RSS 2494365696 bytes)
+== Research.HannaA361047
+exit=0 (6 s, max RSS 2499100672 bytes)
+== Research.HannaA376230
+exit=0 (7 s, max RSS 2494808064 bytes)
+== Research.HannaA377100
+exit=0 (6 s, max RSS 2489384960 bytes)
+== Research.HannaA388734
+exit=0 (6 s, max RSS 2478342144 bytes)
+== Research.ICGBridgeAudit
+exit=0 (9 s, max RSS 5103271936 bytes)
+== Research.ICGBridgeEnergy
+exit=0 (8 s, max RSS 5102600192 bytes)
+== Research.ICGBridgeFinal
+exit=0 (8 s, max RSS 5103943680 bytes)
+== Research.ICGBridgeMain
+exit=0 (8 s, max RSS 5151064064 bytes)
+== Research.ICGBridgeRamanujan
+exit=0 (8 s, max RSS 5104435200 bytes)
+== Research.ICGBridgeSharp
+exit=0 (9 s, max RSS 5164957696 bytes)
+== Research.ICGBridgeSpectral
+exit=0 (9 s, max RSS 5103206400 bytes)
+== Research.ICGEqualParityA
+exit=0 (8 s, max RSS 5122932736 bytes)
+== Research.ICGEqualParityBAudit
+exit=0 (8 s, max RSS 5109334016 bytes)
+== Research.ICGEqualParityBCert1
+exit=0 (10 s, max RSS 5170102272 bytes)
+== Research.ICGEqualParityBCert2
+exit=0 (9 s, max RSS 5163122688 bytes)
+== Research.ICGEqualParityBCert3
+exit=0 (10 s, max RSS 5176311808 bytes)
+== Research.ICGEqualParityBCert4
+exit=0 (10 s, max RSS 5169217536 bytes)
+== Research.ICGEqualParityBCert5
+exit=0 (11 s, max RSS 5176393728 bytes)
+== Research.ICGEqualParityBCert6
+exit=0 (9 s, max RSS 5168267264 bytes)
+== Research.ICGEqualParityBCertAudit
+exit=0 (8 s, max RSS 5113217024 bytes)
+== Research.ICGEqualParityBCol
+exit=0 (9 s, max RSS 5116166144 bytes)
+== Research.ICGEqualParityBFD
+exit=0 (8 s, max RSS 5127700480 bytes)
+== Research.ICGEqualParityBGraph
+exit=0 (8 s, max RSS 5121327104 bytes)
+== Research.ICGEqualParityBMain
+exit=0 (9 s, max RSS 5119983616 bytes)
+== Research.ICGEqualParityGraph
+exit=0 (9 s, max RSS 5109137408 bytes)
+== Research.ICGEqualParityLemmas
+exit=0 (9 s, max RSS 5113348096 bytes)
+== Research.ICGEqualParityUnique
+exit=0 (9 s, max RSS 5124440064 bytes)
+== Research.ICGGeneralAudit
+exit=0 (8 s, max RSS 5105401856 bytes)
+== Research.ICGGeneralBridge
+exit=0 (8 s, max RSS 5108695040 bytes)
+== Research.ICGGeneralMain
+exit=0 (9 s, max RSS 5107335168 bytes)
+== Research.ICGGeneralPath
+exit=0 (8 s, max RSS 5106860032 bytes)
+== Research.ICGGeneralSwap
+exit=0 (8 s, max RSS 5107154944 bytes)
+== Research.ICGGeneralThm5
+exit=0 (8 s, max RSS 5110628352 bytes)
+== Research.Oeis389472Mod3
+exit=0 (7 s, max RSS 2486255616 bytes)
+== Research.RM714Weights
+exit=0 (108 s, max RSS 7089930240 bytes)
+== Research.RM714WeightsAudit
+exit=0 (8 s, max RSS 5100978176 bytes)
+== Research.SubstSemanticsCheck
+exit=0 (6 s, max RSS 2477703168 bytes)
+== Research.SwitchingDiam4Cubic
+exit=0 (7 s, max RSS 5106925568 bytes)
+== Research.SwitchingDiam4CubicAudit
+exit=0 (7 s, max RSS 5101010944 bytes)
+== Research.SwitchingRowCount
+exit=0 (8 s, max RSS 5101338624 bytes)
+== Research.SwitchingRowCountAudit
+exit=0 (7 s, max RSS 5101109248 bytes)
+== Research.SwitchingThmH
+exit=0 (7 s, max RSS 5101748224 bytes)
+== Research.SwitchingThmHAudit
+exit=0 (7 s, max RSS 5100732416 bytes)
+== Research.SwitchingWalkProfile
+exit=0 (7 s, max RSS 5104353280 bytes)
+== Research.SwitchingWalkProfileAudit
+exit=0 (8 s, max RSS 5100863488 bytes)
+2026-09-28T01:04:54Z end of phase 2
+modules checked: 87; exit 0: 87; failed: 0
+root module `Research`: not run. leanchecker reads its argument as a module-name prefix, so `leanchecker Research` would check every module at once; the root file only imports the others and defines 0 constants (count below).
+   constants defined in module Research: 0
+   exit=0
+constants stored in each module (<scratchpad>/release-v180/ModuleConstants.lean, which imports Research and the 13 modules it does not import):
+   Research 0
+   Research.AxialMSZ.Audit 0
+   Research.AxialMSZ.Challenge 82
+   Research.AxialMSZ.ChallengeTests 23
+   Research.AxialMSZ.Check 17
+   Research.AxialMSZ.Proof.Corollary 1
+   Research.AxialMSZ.Proof.ExD 2
+   Research.AxialMSZ.Proof.ExDBase 70
+   Research.AxialMSZ.Proof.ExDBlock 32
+   Research.AxialMSZ.Proof.ExDFrobenius 10
+   Research.AxialMSZ.Proof.ExDSupplement 5
+   Research.AxialMSZ.Proof.ExE 2
+   Research.AxialMSZ.Proof.ExEBase 45
+   Research.AxialMSZ.Proof.ExEBlocks 27
+   Research.AxialMSZ.Proof.ExEGraph 20
+   Research.AxialMSZ.Proof.ExP 58
+   Research.AxialMSZ.Proof.ExS 3
+   Research.AxialMSZ.Proof.ExSBase 52
+   Research.AxialMSZ.Proof.ExSDecomp 2
+   Research.AxialMSZ.Proof.ExSGraph 20
+   Research.AxialMSZ.Proof.ExSSimple 12
+   Research.AxialMSZ.Proof.Laws 13
+   Research.AxialMSZ.Proof.PConsequence 1
+   Research.AxialMSZ.Proof.SFourNegations 4
+   Research.AxialMSZ.Proof.SimpleIndecomposable 1
+   Research.AxialMSZ.SupplementDChallenge 3
+   Research.BrauerCMCore 40
+   Research.Carenini 164
+   Research.CareniniAudit 0
+   Research.CirculantQ3 99
+   Research.HKOTriameter 98
+   Research.HKOTriameterAudit 0
+   Research.HKOTriameterDH 84
+   Research.HannaA107099 48
+   Research.HannaA120566 23
+   Research.HannaA184894 20
+   Research.HannaA240998 17
+   Research.HannaA246056 102
+   Research.HannaA273958 27
+   Research.HannaA274479 21
+   Research.HannaA295762 16
+   Research.HannaA301933 23
+   Research.HannaA338633 19
+   Research.HannaA361047 33
+   Research.HannaA376230 48
+   Research.HannaA377100 22
+   Research.HannaA388734 11
+   Research.ICGBridgeAudit 0
+   Research.ICGBridgeEnergy 25
+   Research.ICGBridgeFinal 9
+   Research.ICGBridgeMain 159
+   Research.ICGBridgeRamanujan 53
+   Research.ICGBridgeSharp 26
+   Research.ICGBridgeSpectral 14
+   Research.ICGEqualParityA 45
+   Research.ICGEqualParityBAudit 0
+   Research.ICGEqualParityBCert1 55
+   Research.ICGEqualParityBCert2 54
+   Research.ICGEqualParityBCert3 54
+   Research.ICGEqualParityBCert4 54
+   Research.ICGEqualParityBCert5 54
+   Research.ICGEqualParityBCert6 54
+   Research.ICGEqualParityBCertAudit 0
+   Research.ICGEqualParityBCol 52
+   Research.ICGEqualParityBFD 22
+   Research.ICGEqualParityBGraph 44
+   Research.ICGEqualParityBMain 113
+   Research.ICGEqualParityGraph 27
+   Research.ICGEqualParityLemmas 34
+   Research.ICGEqualParityUnique 62
+   Research.ICGGeneralAudit 0
+   Research.ICGGeneralBridge 70
+   Research.ICGGeneralMain 38
+   Research.ICGGeneralPath 96
+   Research.ICGGeneralSwap 21
+   Research.ICGGeneralThm5 61
+   Research.Oeis389472Mod3 22
+   Research.RM714Weights 95
+   Research.RM714WeightsAudit 0
+   Research.SubstSemanticsCheck 0
+   Research.SwitchingDiam4Cubic 6
+   Research.SwitchingDiam4CubicAudit 0
+   Research.SwitchingRowCount 7
+   Research.SwitchingRowCountAudit 0
+   Research.SwitchingThmH 10
+   Research.SwitchingThmHAudit 0
+   Research.SwitchingWalkProfile 17
+   Research.SwitchingWalkProfileAudit 0
+   modules listed: 88; exit=0
+   modules with 0 constants (leanchecker was run on them too and exits 0; there is nothing to replay): Research.AxialMSZ.Audit, Research.CareniniAudit, Research.HKOTriameterAudit, Research.ICGBridgeAudit, Research.ICGEqualParityBAudit, Research.ICGEqualParityBCertAudit, Research.ICGGeneralAudit, Research.RM714WeightsAudit, Research.SubstSemanticsCheck, Research.SwitchingDiam4CubicAudit, Research.SwitchingRowCountAudit, Research.SwitchingThmHAudit, Research.SwitchingWalkProfileAudit

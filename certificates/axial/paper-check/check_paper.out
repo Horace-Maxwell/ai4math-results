@@ -1,0 +1,247 @@
+input: Challenge.lean, SHA-256 0d88e7321e0f0931f953ea250f2c5dc1d6d5773cd8f78e3080e0d6eeceb13ee1
+ok   Challenge.lean is the frozen version 2 (SHA-256 0d88e732...3ee1)
+== fusion laws: printed tables vs. Lean if-cascades; symmetry; Seress
+ok   J+(1/2): printed table = Lean if-cascade on carrier x carrier
+ok   J+(1/2): symmetric, values in the carrier (on carrier x carrier)
+ok   J+(1/3): printed table = Lean if-cascade on carrier x carrier
+ok   J+(1/3): symmetric, values in the carrier (on carrier x carrier)
+ok   Jo(1/2): printed table = Lean if-cascade on carrier x carrier
+ok   Jo(1/2): symmetric, values in the carrier (on carrier x carrier)
+ok   FD3: printed table = Lean if-cascade on carrier x carrier
+ok   FD3: symmetric, values in the carrier (on carrier x carrier)
+ok   J+(1/2): not Seress
+ok   J+(1/3): not Seress
+ok   Jo(1/2): not Seress
+ok   J+(1/2): 1 in 0*0
+ok   Jo(1/2): 1/2 in 0*0
+ok   J+(1/2) differs from J(1/2) exactly at 0*0, 0*1/2, 1/2*0
+ok   Jo(1/2) differs from J(1/2) exactly at 0*0, 0*1/2, 1/2*0
+== Example S (Theorem A)
+ok   S: table from the paper = ExS.T in Challenge.lean
+ok   S: commutative
+ok   S: ab = (a+b-x)/4
+ok   S: ax = (a-b+x)/4
+ok   S: bx = (-a+b+x)/4
+ok   S: cx = (-a-b+x)/2 - c/4
+ok   S: ac = bc = 0
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: non-zero idempotent
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: (1,0,0,0) in A_1
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: (-1/2,1,1,0) in A_0
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: (0,0,0,1) in A_0
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: (0,-1,1,0) in A_1/2
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: the listed eigenvectors form a basis
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: dim A_1 = 1 (as listed)
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: dim A_0 = 2 (as listed)
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: dim A_1/2 = 1 (as listed)
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: A_1 = <axis> (primitive)
+ok   S axis a: A_0 = <b+x-a/2, c>, A_1/2 = <x-b>: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: non-zero idempotent
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: (0,1,0,0) in A_1
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: (1,-1/2,1,0) in A_0
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: (0,0,0,1) in A_0
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: (-1,0,1,0) in A_1/2
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: the listed eigenvectors form a basis
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: dim A_1 = 1 (as listed)
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: dim A_0 = 2 (as listed)
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: dim A_1/2 = 1 (as listed)
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: A_1 = <axis> (primitive)
+ok   S axis b: A_0 = <a+x-b/2, c>, A_1/2 = <x-a>: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: non-zero idempotent
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: (0,0,0,1) in A_1
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: (1,0,0,0) in A_0
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: (0,1,0,0) in A_0
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: (-2,-2,2,1) in A_1/2
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: the listed eigenvectors form a basis
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: dim A_1 = 1 (as listed)
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: dim A_0 = 2 (as listed)
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: dim A_1/2 = 1 (as listed)
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: A_1 = <axis> (primitive)
+ok   S axis c: A_0 = <a, b>, A_1/2 = <w>, w = 2(x-a-b)+c: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   S: a(b+x-a/2) = (a+b-x)/4 + (a-b+x)/4 - a/2 = 0
+ok   S: a(x-b) = (x-b)/2
+ok   S: cw = 2cx + c = (x-a-b) + c/2 = w/2
+ok   S: (x-b)^2 = 3a/4 + (b+x-a/2)/2
+ok   S: (x-a)^2 = 3b/4 + (a+x-b/2)/2
+ok   S: w^2 = 4a + 4b
+ok   S: x = a + b - 4ab
+ok   S: <<a,b,c>> = S
+ok   S: <<a,b>> = <a,b,x> and <<c>> = <c>
+ok   S: Delta(X) has the single edge a-b
+ok   S: xc != 0, so <<a,b>> and <<c>> do not annihilate each other
+ok   S: u = (alpha+xi)a + (beta+xi)b + (xi/2)w + (gamma-xi/2)c
+ok   S: P_c = 2 ad_c^2 - ad_c satisfies P_c(u) = phi(u) c with phi(u) = gamma - xi/2
+ok   S: coefficient vectors of phi(u), phi(au), phi(bu), phi(xu) as printed
+ok   S: phi(au) = (beta - xi)/8, so phi(au) = 0 gives beta = xi
+ok   S: phi(bu) = (alpha - xi)/8, so phi(bu) = 0 gives alpha = xi
+ok   S: phi(u) = gamma - xi/2, so phi(u) = 0 gives gamma = xi/2
+ok   S: phi(u) = phi(au) = phi(bu) = 0 iff (alpha,beta,xi,gamma) = xi(1,1,1,1/2)
+ok   S: at such u, phi(xu) = -xi; so all four vanish only at u = 0
+ok   S: determinant of the four vectors = -1/64 (cross-check, not stated in the paper)
+ok   S: xc = -a/2 - b/2 + x/2 - c/4
+ok   S: a(xc) = -a/2 - b/4 + x/4
+ok   S: b(xc) = -a/4 - b/2 + x/4
+ok   S: a = c/2 + 2xc - 4a(xc)
+ok   S: b = c/2 + 2xc - 4b(xc)
+ok   S: c^2 = c != 0, so S^2 != 0
+ok   S: exchanging a and b (fixing x, c) is an automorphism (cross-check, not stated in the paper)
+ok   S: the multiplication algebra has dimension 16 (cross-check, not stated in the paper)
+ok   S: the ideal generated by (1,0,0,0) is S (cross-check, not stated in the paper)
+ok   S: the ideal generated by (0,1,0,0) is S (cross-check, not stated in the paper)
+ok   S: the ideal generated by (0,0,1,0) is S (cross-check, not stated in the paper)
+ok   S: the ideal generated by (0,0,0,1) is S (cross-check, not stated in the paper)
+ok   S: the ideal generated by (1,-1,0,0) is S (cross-check, not stated in the paper)
+ok   S: the ideal generated by (0,0,1,2) is S (cross-check, not stated in the paper)
+ok   S: the ideal generated by (2,2,-1,1) is S (cross-check, not stated in the paper)
+== Example P (Proposition on Peng's algebra)
+ok   P: table from the paper = ExP.T in Challenge.lean
+ok   P: commutative
+ok   P axis a: A_1 = <a>, A_2 = <b>: non-zero idempotent
+ok   P axis a: A_1 = <a>, A_2 = <b>: (1,0) in A_1
+ok   P axis a: A_1 = <a>, A_2 = <b>: (0,1) in A_2
+ok   P axis a: A_1 = <a>, A_2 = <b>: the listed eigenvectors form a basis
+ok   P axis a: A_1 = <a>, A_2 = <b>: dim A_0 = 0 (as listed)
+ok   P axis a: A_1 = <a>, A_2 = <b>: dim A_1 = 1 (as listed)
+ok   P axis a: A_1 = <a>, A_2 = <b>: dim A_2 = 1 (as listed)
+ok   P axis a: A_1 = <a>, A_2 = <b>: A_1 = <axis> (primitive)
+ok   P axis a: A_1 = <a>, A_2 = <b>: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   P axis b: A_1 = <b>, A_0 = <a-2b>: non-zero idempotent
+ok   P axis b: A_1 = <b>, A_0 = <a-2b>: (0,1) in A_1
+ok   P axis b: A_1 = <b>, A_0 = <a-2b>: (1,-2) in A_0
+ok   P axis b: A_1 = <b>, A_0 = <a-2b>: the listed eigenvectors form a basis
+ok   P axis b: A_1 = <b>, A_0 = <a-2b>: dim A_0 = 1 (as listed)
+ok   P axis b: A_1 = <b>, A_0 = <a-2b>: dim A_1 = 1 (as listed)
+ok   P axis b: A_1 = <b>, A_0 = <a-2b>: dim A_2 = 0 (as listed)
+ok   P axis b: A_1 = <b>, A_0 = <a-2b>: A_1 = <axis> (primitive)
+ok   P axis b: A_1 = <b>, A_0 = <a-2b>: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   P: b^2 = b, in A_2(a)
+ok   P: (a-2b)^2 = a - 4b = (a-2b) - 2b
+ok   P: b(a-2b) = 0
+ok   P: a and b span P
+ok   P: <b> is an ideal
+ok   P: ab = 2b
+ok   P: I_b = <b> and I_a = P
+== Example D (Theorem C)
+ok   D: table from the paper = ExD.T in Challenge.lean
+ok   D: commutative
+ok   D: ad = bd = xd = d^2 = 0
+ok   D: c^2 = c, ac = bc = 0, cx = d, cd = d/2
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: non-zero idempotent
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: (1,0,0,0,0) in A_1
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: (-1/2,1,1,0,0) in A_0
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: (0,0,0,1,0) in A_0
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: (0,0,0,0,1) in A_0
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: (0,-1,1,0,0) in A_1/2
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: the listed eigenvectors form a basis
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: dim A_1 = 1 (as listed)
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: dim A_0 = 3 (as listed)
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: dim A_1/2 = 1 (as listed)
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: A_1 = <axis> (primitive)
+ok   D axis a: A_0 = <b+x-a/2, c, d>, A_1/2 = <x-b>: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: non-zero idempotent
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: (0,1,0,0,0) in A_1
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: (1,-1/2,1,0,0) in A_0
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: (0,0,0,1,0) in A_0
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: (0,0,0,0,1) in A_0
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: (-1,0,1,0,0) in A_1/2
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: the listed eigenvectors form a basis
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: dim A_1 = 1 (as listed)
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: dim A_0 = 3 (as listed)
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: dim A_1/2 = 1 (as listed)
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: A_1 = <axis> (primitive)
+ok   D axis b: A_0 = <a+x-b/2, c, d>, A_1/2 = <x-a>: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: non-zero idempotent
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: (0,0,0,1,0) in A_1
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: (1,0,0,0,0) in A_0
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: (0,1,0,0,0) in A_0
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: (0,0,1,0,-2) in A_0
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: (0,0,0,0,1) in A_1/2
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: the listed eigenvectors form a basis
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: dim A_1 = 1 (as listed)
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: dim A_0 = 3 (as listed)
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: dim A_1/2 = 1 (as listed)
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: A_1 = <axis> (primitive)
+ok   D axis c: A_0 = <a, b, x-2d>, A_1/2 = <d>: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   D: (b+x-a/2)c = (x-b)c = d, and d is in A_0(a)
+ok   D: (a+x-b/2)c = (x-a)c = d, and d is in A_0(b)
+ok   D: in 3C(1/2), (b+x-a/2)^2 = (3/2)(b+x-a/2) and (b+x-a/2)(x-b) = (3/4)(x-b) (cross-check, not stated in the paper)
+ok   D: ab = (a+b-(x-2d))/4 - d/2
+ok   D: a(x-2d) = (a-b+(x-2d))/4 + d/2
+ok   D: b(x-2d) = (-a+b+(x-2d))/4 + d/2
+ok   D: (x-2d)^2 = (x-2d) + 2d
+ok   D: a, b, x-2d and d annihilate d
+ok   D: x = a+b-4ab and d = cx
+ok   D: <<a,b,c>> = D
+ok   D: <a,b,x,d> is an ideal of D
+ok   D: ab - ax = (b-x)/2
+ok   D: b(b-x) - a/4 - (b-x)/4 = b/2
+ok   D: I_a = <a,b,x,d>
+ok   D: <a,b,x> is an ideal of the algebra I_a
+ok   D: <d> is an ideal of the algebra I_a
+ok   D: both are proper in I_a, and <a,b,x> + <d> = I_a
+ok   D: <a,b,x> is not an ideal of D (cx = d)
+ok   D: X meets I_a in {a, b} (c-coordinate of I_a is 0)
+ok   D: <<a,b>> = <a,b,x>, a proper subspace of I_a
+ok   D: beta(uv,w) = beta(u,vw) for all 125 triples of basis vectors
+ok   D: beta(a,a) = beta(b,b) = beta(c,c) = 1
+ok   D: on <a,b,x>, beta is the Matsuo form ((y,y) = 1, (y,z) = 1/4)
+ok   D: d is orthogonal to D, so beta is degenerate (cross-check, not stated in the paper)
+ok   D: I_b = <a,b,x,d> (cross-check, not stated in the paper)
+ok   D: exchanging a and b is an automorphism (cross-check, not stated in the paper)
+== Example E (Theorem B)
+ok   E: table from the paper = ExE.T in Challenge.lean
+ok   E: commutative
+ok   E: ab, ax, bx as printed (3C(1/3))
+ok   E: c^2 = c, ac = bc = 0, cx = (x-a-b)/3
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: non-zero idempotent
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: (1,0,0,0) in A_1
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: (-1/3,1,1,0) in A_0
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: (0,0,0,1) in A_0
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: (0,-1,1,0) in A_1/3
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: the listed eigenvectors form a basis
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: dim A_1 = 1 (as listed)
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: dim A_0 = 2 (as listed)
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: dim A_1/3 = 1 (as listed)
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: A_1 = <axis> (primitive)
+ok   E axis a: A_0 = <b+x-a/3, c>, A_1/3 = <x-b>: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: non-zero idempotent
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: (0,1,0,0) in A_1
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: (1,-1/3,1,0) in A_0
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: (0,0,0,1) in A_0
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: (-1,0,1,0) in A_1/3
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: the listed eigenvectors form a basis
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: dim A_1 = 1 (as listed)
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: dim A_0 = 2 (as listed)
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: dim A_1/3 = 1 (as listed)
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: A_1 = <axis> (primitive)
+ok   E axis b: A_0 = <a+x-b/3, c>, A_1/3 = <x-a>: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: non-zero idempotent
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: (0,0,0,1) in A_1
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: (1,0,0,0) in A_0
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: (0,1,0,0) in A_0
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: (-1,-1,1,0) in A_1/3
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: the listed eigenvectors form a basis
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: dim A_1 = 1 (as listed)
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: dim A_0 = 2 (as listed)
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: dim A_1/3 = 1 (as listed)
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: A_1 = <axis> (primitive)
+ok   E axis c: A_0 = <a, b>, A_1/3 = <v>, v = x-a-b: A_l A_m in A_(l*m) for all l, m in F (all eigenbasis pairs)
+ok   E: (x-b)^2 = (2/3)(b+x-a/3) + (5/9)a
+ok   E: (x-a)^2 = (2/3)(a+x-b/3) + (5/9)b
+ok   E: cv = v/3
+ok   E: v^2 = (4/3)(a+b)
+ok   E: x = a + b - 6ab
+ok   E: <<a,b,c>> = E
+ok   E: W = <a,b,x> is an ideal, since cW is in <v>
+ok   E: b = 9b(ab) - 3ab
+ok   E: a = 9a(ab) - 3ab
+ok   E: v = 3cx
+ok   E: xv = (2/3)x
+ok   E: a + b = x - v
+ok   E: a - b = 6ax - x
+ok   E: I_c = E
+ok   E: I_a = I_b = <a,b,x>, strictly inside I_c = E
+ok   E: (3 ad_c^2 - ad_c)/2 sends u = alpha a + beta b + xi x + gamma c to gamma c
+ok   E: Delta(X) has the single edge a-b
+ok   E: xc = (x-a-b)/3 != 0
+ok   E: exchanging a and b is an automorphism (cross-check, not stated in the paper)
+== 240 checks, 0 failed

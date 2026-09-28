@@ -1,0 +1,19 @@
+# 1. Lean-aware scan (<project>/work/lean-upgrade-v434/scripts/forbidden_grep.py): classifies each hit as CODE, COMMENT or STRING
+# forbidden-token scan over 88 files
+# summary (token, class): count
+#   axiom	COMMENT	1
+#   native_decide	COMMENT	2
+# hits
+COMMENT	native_decide	Research/Carenini.lean:29	All finite counts are checked by `decide` / `decide +kernel` (kernel reduction); no `native_decide`.
+COMMENT	native_decide	Research/HKOTriameter.lean:29	done by `decide` / `decide +kernel` (kernel reduction, no `native_decide`).
+COMMENT	axiom	Research/ICGEqualParityBAudit.lean:5	/-! Statement and axiom audit for Theorem B (round 6, `work/round6/equal-parity-a2/PROOF.md`). -/
+
+# 2. plain grep -n -E "sorry|admit|native_decide|bv_decide|implemented_by|extern|unsafe|skipKernelTC" over the same 88 files
+Research/AxialMSZ/Challenge.lean:419:which admits a Frobenius form with `β a a ≠ 0` for every generating axis `a` (the non-singularity
+Research/Carenini.lean:29:All finite counts are checked by `decide` / `decide +kernel` (kernel reduction); no `native_decide`.
+Research/CirculantQ3.lean:6:No external certificate is trusted: finite inequalities use kernel decide,
+Research/HKOTriameter.lean:29:done by `decide` / `decide +kernel` (kernel reduction, no `native_decide`).
+Research/Oeis389472Mod3.lean:8:from the external statement corpus is imported.
+
+# 3. plain grep for an `axiom` declaration at the start of a line (grep -n -E "^\s*((private|protected|noncomputable|unsafe|partial)\s+)*axiom\b") over the same 88 files
+(no match)

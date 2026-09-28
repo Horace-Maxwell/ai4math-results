@@ -1,0 +1,39 @@
+# Axiom audit, v1.8.0 clean replay (<project>/work/release-v180; script <scratchpad>/release-v180/axiom_audit_v180.py,
+# the v1.7.1 script <project>/work/lean-upgrade-v434/scripts/axiom_audit.py plus a per-module filter for build logs)
+# inputs: build-circulantq3.log, build.log (sections of modules Lake replays are skipped), the section of
+#   Research.AxialMSZ.ChallengeTests in build-audit-modules.log, and `lake env lean --json` of the 12 audit files
+# rule: every `#print axioms` command outside comments in the 88 .lean files has exactly one output at its line,
+#   and every printed axiom list is a subset of {propext, Classical.choice, Quot.sound}
+summary: {"expected_commands": 567, "axiom_output_lines": 567, "distinct_declarations": 516, "files_with_print_axioms": 70, "violations": 0, "missing": 0, "duplicates": 0, "unexpected": 0, "name_mismatch": 0, "unparsed": 0}
+axiom sets (all outputs): {"{Classical.choice, Quot.sound, propext}": 563, "{}": 1, "{Quot.sound, propext}": 3}
+axiom sets, axial: {"{Classical.choice, Quot.sound, propext}": 55}
+axiom sets, v1.7.1 modules: {"{Classical.choice, Quot.sound, propext}": 118, "{}": 1, "{Quot.sound, propext}": 1}
+axiom sets, v1.7.1 modules (audit files): {"{Classical.choice, Quot.sound, propext}": 390, "{Quot.sound, propext}": 2}
+outputs per input: {"build-circulantq3.log": 5, "build.log": 169, "build-audit-modules.log::Research.AxialMSZ.ChallengeTests": 1, "audit-general.jsonl": 8, "audit-bridge.jsonl": 4, "audit-carenini.jsonl": 10, "audit-equal-parity-b.jsonl": 10, "audit-equal-parity-b-certificates.jsonl": 325, "audit-hko-triameter.jsonl": 21, "audit-rm714.jsonl": 3, "audit-switching-diam4-cubic.jsonl": 3, "audit-switching-row-count.jsonl": 2, "audit-switching-thmh.jsonl": 2, "audit-switching-walk-profile.jsonl": 4}
+text counts as in v1.7.1: build log 173 axiom lines + 1 "does not depend on any axioms"; audit logs 392; build-audit-modules log, section Research.AxialMSZ.ChallengeTests: 1
+
+the 17 declarations of Research/AxialMSZ/Check.lean (list: package-manifest.json, expected_axiom_declarations):
+  OK  AxialMSZ.Check.check_Laws_facts  Research/AxialMSZ/Check.lean:61  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_ExS_Statement  Research/AxialMSZ/Check.lean:62  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_ExE_Statement  Research/AxialMSZ/Check.lean:63  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_ExD_Statement  Research/AxialMSZ/Check.lean:64  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_ExP_Statement  Research/AxialMSZ/Check.lean:65  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_TheoremA  Research/AxialMSZ/Check.lean:66  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_TheoremB  Research/AxialMSZ/Check.lean:67  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_TheoremC  Research/AxialMSZ/Check.lean:68  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_RemarkP  Research/AxialMSZ/Check.lean:69  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_Corollary  Research/AxialMSZ/Check.lean:70  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_not_MS_Conjecture_3_16  Research/AxialMSZ/Check.lean:71  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_not_FinestSumDecomposition_connected  Research/AxialMSZ/Check.lean:72  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_not_Indecomposable_connected  Research/AxialMSZ/Check.lean:73  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_not_Simple_connected  Research/AxialMSZ/Check.lean:74  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_Dominance_nonsymmetric  Research/AxialMSZ/Check.lean:75  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_ExD_axes_in_block  Research/AxialMSZ/Check.lean:76  [propext, Classical.choice, Quot.sound]  occurrences=1
+  OK  AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes  Research/AxialMSZ/Check.lean:77  [propext, Classical.choice, Quot.sound]  occurrences=1
+all 17 present exactly once with standard axioms: True
+
+outputs with an axiom set other than {Classical.choice, Quot.sound, propext}:
+  Research/Carenini.lean:661  Carenini.H3_bipartite  []  (build.log)
+  Research/HKOTriameterDH.lean:309  HKOTriameter.core  [propext, Quot.sound]  (build.log)
+  Research/CareniniAudit.lean:89  Carenini.KddUnion  [propext, Quot.sound]  (audit-carenini.jsonl)
+  Research/HKOTriameterAudit.lean:86  HKOTriameter.core  [propext, Quot.sound]  (audit-hko-triameter.jsonl)

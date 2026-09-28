@@ -1,0 +1,22 @@
+===== eta = 1/3
+axis a: idempotent True, semisimple/spectrum in F True, primitive True, {'1': ['1*a'], '0': ['-1/3*a + 1*b + 1*x', '1*c', '1*d'], '1/3': ['-1*b + 1*x']}
+axis b: idempotent True, semisimple/spectrum in F True, primitive True, {'1': ['1*b'], '0': ['1*a + -1/3*b + 1*x', '1*c', '1*d'], '1/3': ['-1*a + 1*x']}
+axis c: idempotent True, semisimple/spectrum in F True, primitive True, {'1': ['1*c'], '0': ['1*a', '1*b', '-1/3*x + 1*d'], '1/3': ['1*d']}
+realised law: {'0*0': ['0', '1/3'], '0*1/3': ['0', '1/3'], '0*1': [], '1/3*1/3': ['0', '1'], '1/3*1': ['1/3'], '1*1': ['1']}
+dim <<a,b,c>> = 5 of 5
+I_a: ['1*a', '1*b', '1*x', '1*d'] ; I_b == I_a: True ; I_c: ['1*c', '1*d']
+I_a == span(a,b,x,d): True
+J1=span(a,b,x) ideal of I_a: True ; J2=span(d) ideal of I_a: True ; J1 proper: True ; J2 proper: True ; J1+J2 = I_a: True
+J1 is NOT an ideal of A (c*x = d): True
+Delta edges: [('a', 'b')]
+===== eta = 1/2
+axis a: idempotent True, semisimple/spectrum in F True, primitive True, {'1': ['1*a'], '0': ['-1/2*a + 1*b + 1*x', '1*c', '1*d'], '1/2': ['-1*b + 1*x']}
+axis b: idempotent True, semisimple/spectrum in F True, primitive True, {'1': ['1*b'], '0': ['1*a + -1/2*b + 1*x', '1*c', '1*d'], '1/2': ['-1*a + 1*x']}
+axis c: idempotent True, semisimple/spectrum in F True, primitive True, {'1': ['1*c'], '0': ['1*a', '1*b', '-1/2*x + 1*d'], '1/2': ['1*d']}
+realised law: {'0*0': ['0', '1/2'], '0*1/2': ['0', '1/2'], '0*1': [], '1/2*1/2': ['0', '1'], '1/2*1': ['1/2'], '1*1': ['1']}
+dim <<a,b,c>> = 5 of 5
+I_a: ['1*a', '1*b', '1*x', '1*d'] ; I_b == I_a: True ; I_c: ['1*c', '1*d']
+I_a == span(a,b,x,d): True
+J1=span(a,b,x) ideal of I_a: True ; J2=span(d) ideal of I_a: True ; J1 proper: True ; J2 proper: True ; J1+J2 = I_a: True
+J1 is NOT an ideal of A (c*x = d): True
+Delta edges: [('a', 'b')]

@@ -1,0 +1,569 @@
+2026-09-28T00:48:28Z
+✔ [3124/3148] Built Research.SubstSemanticsCheck (2.0s)
+⚠ [3134/3158] Built Research.Oeis389472Mod3 (3.5s)
+warning: Research/Oeis389472Mod3.lean:99:22: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/Oeis389472Mod3.lean:136:0: 'Oeis389472Mod3.integer_conjecture' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3140/3159] Built Research.HannaA295762 (1.9s)
+warning: Research/HannaA295762.lean:40:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA295762.lean:40:61: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA295762.lean:52:29: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA295762.lean:56:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/HannaA295762.lean:124:0: 'HannaA295762.hanna_a295762' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3142/3159] Built Research.HannaA184894 (1.9s)
+warning: Research/HannaA184894.lean:61:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA184894.lean:91:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA184894.lean:92:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+info: Research/HannaA184894.lean:127:0: 'HannaA184894.zero_part' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA184894.lean:128:0: 'HannaA184894.value_at_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA184894.lean:129:0: 'HannaA184894.counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3143/3159] Built Research.HannaA120566 (2.4s)
+info: Research/HannaA120566.lean:220:0: 'HannaA120566.hanna_a120566' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3144/3159] Built Research.HannaA388734 (2.0s)
+info: Research/HannaA388734.lean:88:0: 'HannaA388734.hanna_a388734' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3150/3165] Built Research.HannaA274479 (2.3s)
+info: Research/HannaA274479.lean:169:0: 'HannaA274479.hanna_a274479' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3157/3166] Built Research.HannaA377100 (2.4s)
+info: Research/HannaA377100.lean:189:0: 'HannaA377100.hanna_a377100' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3158/3166] Built Research.HannaA338633 (2.2s)
+warning: Research/HannaA338633.lean:67:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA338633.lean:67:54: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA338633.lean:79:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA338633.lean:83:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA338633.lean:135:35: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/HannaA338633.lean:160:0: 'HannaA338633.hanna_a338633' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA338633.lean:161:0: 'HannaA338633.hanna_a338634' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3159/3166] Built Research.HannaA361047 (2.4s)
+warning: Research/HannaA361047.lean:60:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA361047.lean:65:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA361047.lean:79:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA361047.lean:101:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA361047.lean:102:31: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA361047.lean:108:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/HannaA361047.lean:260:0: 'HannaA361047.hanna_a361047_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA361047.lean:261:0: 'HannaA361047.hanna_a361047_nonpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3160/3166] Built Research.HannaA107099 (2.4s)
+warning: Research/HannaA107099.lean:157:50: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA107099.lean:159:42: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA107099.lean:160:42: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA107099.lean:164:22: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA107099.lean:185:52: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA107099.lean:188:40: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA107099.lean:211:57: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA107099.lean:222:45: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA107099.lean:223:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA107099.lean:241:61: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA107099.lean:280:55: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA107099.lean:304:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA107099.lean:304:23: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA107099.lean:304:34: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA107099.lean:309:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA107099.lean:316:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA107099.lean:316:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/HannaA107099.lean:397:0: 'HannaA107099.hanna_a107099' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA107099.lean:398:0: 'HannaA107099.hanna_a107099_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3161/3166] Built Research.HannaA301933 (2.1s)
+warning: Research/HannaA301933.lean:74:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA301933.lean:74:54: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA301933.lean:86:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA301933.lean:90:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/HannaA301933.lean:145:0: 'HannaA301933.hanna_a301933' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3162/3169] Built Research.HannaA240998 (2.0s)
+warning: Research/HannaA240998.lean:49:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA240998.lean:49:61: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA240998.lean:61:29: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA240998.lean:65:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/HannaA240998.lean:119:0: 'HannaA240998.hanna_a240998' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3805/3978] Built Research.HannaA273958 (2.0s)
+warning: Research/HannaA273958.lean:86:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA273958.lean:86:54: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA273958.lean:98:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA273958.lean:102:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA273958.lean:137:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA273958.lean:137:40: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA273958.lean:150:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA273958.lean:150:50: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/HannaA273958.lean:196:0: 'HannaA273958.hanna_a273958' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8938/8999] Built Research.HannaA376230 (2.6s)
+warning: Research/HannaA376230.lean:78:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA376230.lean:97:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA376230.lean:99:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA376230.lean:115:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA376230.lean:117:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA376230.lean:124:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA376230.lean:191:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA376230.lean:191:40: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA376230.lean:191:74: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA376230.lean:193:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA376230.lean:205:35: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA376230.lean:214:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA376230.lean:214:23: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA376230.lean:215:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA376230.lean:215:23: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA376230.lean:243:26: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/HannaA376230.lean:264:0: 'HannaA376230.hanna_a376230' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA376230.lean:265:0: 'HannaA376230.hanna_a376230_literal_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8939/8999] Built Research.HannaA246056 (3.9s)
+warning: Research/HannaA246056.lean:54:27: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:66:49: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:153:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:188:24: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:289:38: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:320:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA246056.lean:320:19: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA246056.lean:321:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:321:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:327:22: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA246056.lean:329:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA246056.lean:329:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:330:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:333:26: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:335:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA246056.lean:335:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:336:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:339:26: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/HannaA246056.lean:340:4: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/HannaA246056.lean:340:42: `if_pos` has been deprecated: Use `ite_eq_left` instead
+info: Research/HannaA246056.lean:424:0: 'HannaA246056.inv12_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA246056.lean:425:0: 'HannaA246056.T_coeff_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA246056.lean:426:0: 'HannaA246056.a_eq_coeff_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA246056.lean:427:0: 'HannaA246056.hanna_a246056_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HannaA246056.lean:428:0: 'HannaA246056.hanna_a246056_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8940/8999] Built Research.SwitchingRowCount (3.8s)
+info: Research/SwitchingRowCount.lean:71:0: 'SwitchingRow.card_bad_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingRowCount.lean:72:0: 'SwitchingRow.card_bad_le_one_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8941/8999] Built Research.AxialMSZ.Challenge (5.2s)
+ℹ [8942/8999] Built Research.SwitchingDiam4Cubic (4.3s)
+info: Research/SwitchingDiam4Cubic.lean:112:0: 'SwitchingDiam4.no_rat_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingDiam4Cubic.lean:113:0: 'SwitchingDiam4.real_root_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingDiam4Cubic.lean:114:0: 'SwitchingDiam4.no_eigenvalue_root_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8943/8999] Built Research.SwitchingWalkProfile (4.5s)
+info: Research/SwitchingWalkProfile.lean:274:0: 'SwitchingWalkProfile.annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:275:0: 'SwitchingWalkProfile.eigen_nonorth' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:276:0: 'SwitchingWalkProfile.main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:277:0: 'SwitchingWalkProfile.walkRegular_main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8944/8999] Built Research.SwitchingThmH (4.4s)
+info: Research/SwitchingThmH.lean:70:0: 'SwitchingThmH.two_sqrt_add_seven_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:71:0: 'SwitchingThmH.row_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:72:0: 'SwitchingThmH.sol_subsingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:73:0: 'SwitchingThmH.indep_of_irrational' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8945/8999] Built Research.BrauerCMCore (3.7s)
+warning: Research/BrauerCMCore.lean:92:60: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/BrauerCMCore.lean:95:66: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/BrauerCMCore.lean:208:54: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/BrauerCMCore.lean:211:58: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/BrauerCMCore.lean:315:0: 'BrauerCMCore.lemmaC' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/BrauerCMCore.lean:316:0: 'BrauerCMCore.lemmaB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/BrauerCMCore.lean:319:0: @BrauerCMCore.lemmaC : ∀ {H : Type u_1} (P : H → H → Option (ZMod 2)) (L : H → H → H) (ρ : H ≃ H) (c s : H → ZMod 2)
+  [Finite H],
+  (∀ (l : H), P l l = some 0) →
+    (∀ (l : H), P l (ρ l) = some (s l)) →
+      (∀ (l : H), c (ρ l) = c l + 1 + s l) →
+        (∀ (i : H), Function.Injective (L i)) →
+          (∀ (l : H), Function.Injective fun i => L i l) →
+            BrauerCMCore.IsCompleteMapping (BrauerCMCore.mul P) (BrauerCMCore.fC L ρ c)
+info: Research/BrauerCMCore.lean:320:0: @BrauerCMCore.lemmaB : ∀ {H : Type u_1} (P : H → H → Option (ZMod 2)) (L : H → H → H) (δ : H ≃ H) (t : H → ZMod 2)
+  [Finite H],
+  (∀ (l : H), P l l = some 0) →
+    (∀ (μ : H), t (δ μ) = t μ + 1) →
+      (∀ (i : H), Function.Injective (L i)) →
+        (∀ (l : H), Function.Injective fun i => L i l) →
+          BrauerCMCore.IsCompleteMapping (BrauerCMCore.mul P) (BrauerCMCore.fB L δ t)
+info: Research/BrauerCMCore.lean:321:0: def BrauerCMCore.mul.{u_1} : {H : Type u_1} →
+  (H → H → Option (ZMod 2)) → BrauerCMCore.Elt H → BrauerCMCore.Elt H → BrauerCMCore.Elt H :=
+fun {H} P x x_1 =>
+  match x, x_1 with
+  | none, x => none
+  | some val, none => none
+  | some (i, a, l), some (j, b, m) => Option.map (fun p => (i, a + p + b, m)) (P l j)
+info: Research/BrauerCMCore.lean:322:0: def BrauerCMCore.fC.{u_1} : {H : Type u_1} →
+  (H → H → H) → H ≃ H → (H → ZMod 2) → BrauerCMCore.Elt H → BrauerCMCore.Elt H :=
+fun {H} L ρ c x =>
+  match x with
+  | none => none
+  | some (i, a, l) => if a = c l then some (l, 1 + c l, L i l) else some (ρ l, c (ρ l), L i (ρ l))
+info: Research/BrauerCMCore.lean:323:0: def BrauerCMCore.fB.{u_1} : {H : Type u_1} →
+  (H → H → H) → H ≃ H → (H → ZMod 2) → BrauerCMCore.Elt H → BrauerCMCore.Elt H :=
+fun {H} L δ t x =>
+  match x with
+  | none => none
+  | some (i, a, l) => if a = 1 + t (L i l) then some (l, 1, L i l) else some (l, 0, δ (L i l))
+info: Research/BrauerCMCore.lean:324:0: def BrauerCMCore.IsCompleteMapping.{u_2} : {S : Type u_2} → (S → S → S) → (S → S) → Prop :=
+fun {S} op α => Function.Bijective α ∧ Function.Bijective fun x => op x (α x)
+ℹ [8946/8999] Built Research.HKOTriameter (6.6s)
+info: Research/HKOTriameter.lean:503:0: 'HKOTriameter.not_problem1Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:504:0: 'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:505:0: 'HKOTriameter.not_problem2Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:506:0: 'HKOTriameter.not_problem2ClaimWeak' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:507:0: 'HKOTriameter.G1_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:508:0: 'HKOTriameter.G2_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:509:0: 'HKOTriameter.not_question3_G1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:510:0: 'HKOTriameter.isPeripheral_iff_isPeripheralPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:511:0: 'HKOTriameter.dist_eq_of_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:512:0: 'HKOTriameter.C6_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8947/8999] Built Research.RM714Weights (105s)
+warning: Research/RM714Weights.lean:93:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/RM714Weights.lean:100:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/RM714Weights.lean:300:0: 'RM714.rm714_new_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/RM714Weights.lean:301:0: 'RM714.weight_map_maskSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8948/8999] Built Research.ICGGeneralPath (4.5s)
+warning: Research/ICGGeneralPath.lean:120:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:120:29: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:120:48: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:125:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:125:27: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:125:46: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:136:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:137:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:137:22: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:158:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:159:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:159:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:262:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:263:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:384:39: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:395:39: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:406:39: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:417:39: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:456:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:486:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [8949/8999] Replayed Research.CirculantQ3
+warning: Research/CirculantQ3.lean:167:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: Research/CirculantQ3.lean:186:0: 'CirculantQ3.coefficient_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:187:0: 'CirculantQ3.exactEnergy_eq_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:188:0: 'CirculantQ3.exactEnergy_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:189:0: 'CirculantQ3.exactEnergy_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:190:0: 'CirculantQ3.exactEnergy_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8950/8999] Built Research.ICGBridgeSpectral (3.7s)
+info: Research/ICGBridgeSpectral.lean:123:0: 'ICGBridge.sum_abs_eigenvalues_eq_sum_norm_dft' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8951/8999] Built Research.AxialMSZ.SupplementDChallenge (3.4s)
+info: Research/AxialMSZ/SupplementDChallenge.lean:18:0: 'CodexAxial.SupplementChallenge.ExD_axes_in_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/SupplementDChallenge.lean:19:0: 'CodexAxial.SupplementChallenge.ExD_block_not_axial_on_contained_axes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8952/8999] Built Research.AxialMSZ.Proof.SimpleIndecomposable (3.5s)
+info: Research/AxialMSZ/Proof/SimpleIndecomposable.lean:31:0: 'CodexAxial.simple_not_decomposable' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8953/8999] Built Research.AxialMSZ.Proof.Laws (4.1s)
+info: Research/AxialMSZ/Proof/Laws.lean:54:0: 'CodexAxial.check_Laws_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8954/8999] Built Research.Carenini (114s)
+info: Research/Carenini.lean:650:0: 'Carenini.not_careniniQuestion_six' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:651:0: 'Carenini.prism_beats_K33' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:652:0: 'Carenini.K33Iso' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:653:0: 'Carenini.prismIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:654:0: 'Carenini.K33IsoKddUnion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:655:0: 'Carenini.not_careniniQuestion_two_d' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:656:0: 'Carenini.iCount_one_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:657:0: 'Carenini.switchedKdd_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:658:0: 'Carenini.not_careniniQuestion_eight_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:659:0: 'Carenini.not_careniniQuestion_twelve_bip' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:660:0: 'Carenini.not_careniniQuestion_twelve_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:661:0: 'Carenini.H3_bipartite' does not depend on any axioms
+info: Research/Carenini.lean:662:0: 'Carenini.H3_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:663:0: 'Carenini.KddUnion_two_three_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8955/8999] Built Research.AxialMSZ.Proof.ExP (4.7s)
+info: Research/AxialMSZ/Proof/ExP.lean:306:0: 'CodexAxial.check_RemarkP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExP.lean:307:0: 'CodexAxial.check_ExP_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8956/8999] Built Research.HKOTriameterDH (5.6s)
+info: Research/HKOTriameterDH.lean:309:0: 'HKOTriameter.core' depends on axioms: [propext, Quot.sound]
+info: Research/HKOTriameterDH.lean:310:0: 'HKOTriameter.extends_of_no_diametral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:311:0: 'HKOTriameter.question3_or_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:312:0: 'HKOTriameter.problem3_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:313:0: 'HKOTriameter.problem3ClaimFP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:314:0: 'HKOTriameter.F1G_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:315:0: 'HKOTriameter.F1G_not_question3'' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:316:0: 'HKOTriameter.F1H_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:317:0: 'HKOTriameter.F1H_not_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:318:0: 'HKOTriameter.G1_not_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:319:0: 'HKOTriameter.G2_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:320:0: 'HKOTriameter.F1G_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8957/8999] Built Research.ICGGeneralThm5 (6.3s)
+warning: Research/ICGGeneralThm5.lean:295:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralThm5.lean:297:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralThm5.lean:319:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralThm5.lean:321:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralThm5.lean:325:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+info: Research/ICGGeneralThm5.lean:602:0: 'ICGGeneral.thm5_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralThm5.lean:603:0: 'ICGGeneral.thm5_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralThm5.lean:604:0: 'ICGGeneral.L1mat_sgnv' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8958/8999] Built Research.ICGBridgeRamanujan (3.9s)
+warning: Research/ICGBridgeRamanujan.lean:216:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGBridgeRamanujan.lean:216:32: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGBridgeRamanujan.lean:219:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGBridgeRamanujan.lean:219:44: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGBridgeRamanujan.lean:224:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGBridgeRamanujan.lean:227:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGBridgeRamanujan.lean:252:0: 'ICGBridge.dft_gcd_class' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeRamanujan.lean:253:0: 'ICGBridge.sum_dvd_stdAddChar' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8959/8999] Built Research.AxialMSZ.Proof.PConsequence (3.5s)
+info: Research/AxialMSZ/Proof/PConsequence.lean:16:0: 'CodexAxial.FromP.check_Dominance_nonsymmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8960/8999] Built Research.ICGBridgeEnergy (4.1s)
+warning: Research/ICGBridgeEnergy.lean:79:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGBridgeEnergy.lean:110:20: `if_true` has been deprecated: Use `ite_true` instead
+warning: Research/ICGBridgeEnergy.lean:151:32: `if_true` has been deprecated: Use `ite_true` instead
+info: Research/ICGBridgeEnergy.lean:171:0: 'ICGBridge.sum_norm_dft_connFun' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8961/8999] Built Research.AxialMSZ.Proof.ExSBase (5.6s)
+info: Research/AxialMSZ/Proof/ExSBase.lean:354:0: 'CodexAxial.SimpleExample.axial' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8962/8999] Built Research.AxialMSZ.Proof.ExDBase (6.0s)
+info: Research/AxialMSZ/Proof/ExDBase.lean:518:0: 'CodexAxial.DecomposableExample.axial' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8963/8999] Built Research.ICGBridgeMain (9.9s)
+info: Research/ICGBridgeMain.lean:449:0: 'ICGBridge.energy_icgAdj_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeMain.lean:450:0: 'ICGBridge.energy_icgGraph_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeMain.lean:451:0: 'ICGBridge.roldan_q3_graph_of_arith' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeMain.lean:452:0: 'ICGBridge.roldan_q3_of_arith' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8964/8999] Built Research.AxialMSZ.Proof.ExEBase (5.8s)
+info: Research/AxialMSZ/Proof/ExEBase.lean:310:0: 'CodexAxial.DominanceExample.axial' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8965/8999] Built Research.AxialMSZ.Proof.ExSDecomp (3.9s)
+ℹ [8966/8999] Built Research.AxialMSZ.Proof.ExSSimple (4.4s)
+info: Research/AxialMSZ/Proof/ExSSimple.lean:100:0: 'CodexAxial.SimpleExample.simple' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8967/8999] Built Research.AxialMSZ.Proof.ExDFrobenius (3.0s)
+info: Research/AxialMSZ/Proof/ExDFrobenius.lean:34:0: 'CodexAxial.DecomposableExample.frobenius_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8968/8999] Built Research.ICGBridgeFinal (3.8s)
+info: Research/ICGBridgeFinal.lean:78:0: 'ICGBridge.roldan_q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeFinal.lean:79:0: 'ICGBridge.roldan_q3_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeFinal.lean:80:0: 'ICGBridge.energy_Dstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeFinal.lean:81:0: 'ICGBridge.energy_icgAdj_eq_exactEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8969/8999] Built Research.AxialMSZ.Proof.ExDBlock (4.3s)
+info: Research/AxialMSZ/Proof/ExDBlock.lean:194:0: 'CodexAxial.DecomposableExample.block_a_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:195:0: 'CodexAxial.DecomposableExample.decomposable_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:196:0: 'CodexAxial.DecomposableExample.first_internal_ideal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:197:0: 'CodexAxial.DecomposableExample.second_internal_ideal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:198:0: 'CodexAxial.DecomposableExample.notWholeIdeal' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8970/8999] Built Research.AxialMSZ.Proof.ExEBlocks (4.3s)
+info: Research/AxialMSZ/Proof/ExEBlocks.lean:168:0: 'CodexAxial.DominanceExample.blocks_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExEBlocks.lean:169:0: 'CodexAxial.DominanceExample.indecomposable' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8971/8999] Built Research.ICGGeneralBridge (4.6s)
+warning: Research/ICGGeneralBridge.lean:131:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:131:32: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:131:54: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:134:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:136:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:138:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:143:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:148:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:150:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:180:27: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:184:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:201:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:201:20: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:236:19: `if_true` has been deprecated: Use `ite_true` instead
+warning: Research/ICGGeneralBridge.lean:324:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:326:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:326:21: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:327:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:332:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:332:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:334:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:334:23: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:338:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:338:23: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGGeneralBridge.lean:394:0: 'ICGGeneral.energy_icgAdj_pq' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8972/8999] Built Research.AxialMSZ.Proof.ExSGraph (4.3s)
+info: Research/AxialMSZ/Proof/ExSGraph.lean:100:0: 'CodexAxial.SimpleExample.disconnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExSGraph.lean:101:0: 'CodexAxial.SimpleExample.components_do_not_annihilate' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8973/8999] Built Research.ICGBridgeSharp (4.4s)
+info: Research/ICGBridgeSharp.lean:174:0: 'ICGBridge.roldan_q3_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeSharp.lean:175:0: 'ICGBridge.roldan_q3_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeSharp.lean:176:0: 'ICGBridge.roldan_q3_gap_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeSharp.lean:177:0: 'ICGBridge.roldan_q3_gap_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeSharp.lean:178:0: 'ICGBridge.roldan_q3_sharp_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8974/8999] Built Research.AxialMSZ.Proof.ExD (3.7s)
+info: Research/AxialMSZ/Proof/ExD.lean:24:0: 'CodexAxial.check_ExD_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExD.lean:25:0: 'CodexAxial.check_TheoremC' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8975/8999] Built Research.AxialMSZ.Proof.ExDSupplement (3.9s)
+info: Research/AxialMSZ/Proof/ExDSupplement.lean:56:0: 'CodexAxial.check_ExD_axes_in_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDSupplement.lean:57:0: 'CodexAxial.check_ExD_block_not_axial_on_contained_axes' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8976/8999] Built Research.AxialMSZ.Proof.ExEGraph (4.2s)
+info: Research/AxialMSZ/Proof/ExEGraph.lean:100:0: 'CodexAxial.DominanceExample.disconnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExEGraph.lean:101:0: 'CodexAxial.DominanceExample.components_do_not_annihilate' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8977/8999] Built Research.ICGGeneralMain (4.2s)
+warning: Research/ICGGeneralMain.lean:75:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:76:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:97:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:97:21: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:97:32: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:98:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:98:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:98:32: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:100:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:100:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:160:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:160:57: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:162:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:162:71: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:247:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:250:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:260:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:262:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:265:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:267:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGGeneralMain.lean:316:0: 'ICGGeneral.checkerboard_unique_max' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralMain.lean:317:0: 'ICGGeneral.jiang_yang_q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralMain.lean:318:0: 'ICGGeneral.jiang_yang_q3_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralMain.lean:319:0: 'ICGGeneral.energy_DstarPQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8978/8999] Built Research.AxialMSZ.Proof.ExS (3.8s)
+info: Research/AxialMSZ/Proof/ExS.lean:23:0: 'CodexAxial.check_TheoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExS.lean:24:0: 'CodexAxial.check_ExS_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExS.lean:25:0: 'CodexAxial.check_not_MS_Conjecture_3_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8979/8999] Built Research.AxialMSZ.Proof.ExE (3.7s)
+info: Research/AxialMSZ/Proof/ExE.lean:13:0: 'CodexAxial.check_TheoremB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExE.lean:14:0: 'CodexAxial.check_ExE_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8980/8999] Built Research.ICGGeneralSwap (4.6s)
+warning: Research/ICGGeneralSwap.lean:98:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralSwap.lean:101:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralSwap.lean:111:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralSwap.lean:113:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralSwap.lean:116:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralSwap.lean:118:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGGeneralSwap.lean:190:0: 'ICGGeneral.checkerboard_unique_max_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralSwap.lean:191:0: 'ICGGeneral.jiang_yang_thmA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralSwap.lean:192:0: 'ICGGeneral.thm5_le_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralSwap.lean:193:0: 'ICGGeneral.DstarPQ_roldan' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8981/8999] Built Research.ICGEqualParityLemmas (5.7s)
+warning: Research/ICGEqualParityLemmas.lean:215:39: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityLemmas.lean:225:39: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityLemmas.lean:235:39: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityLemmas.lean:245:39: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityLemmas.lean:285:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityLemmas.lean:355:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+ℹ [8982/8999] Built Research.AxialMSZ.Proof.SFourNegations (3.4s)
+info: Research/AxialMSZ/Proof/SFourNegations.lean:39:0: 'CodexAxial.FromS.check_not_MS_Conjecture_3_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/SFourNegations.lean:40:0: 'CodexAxial.FromS.check_not_FinestSumDecomposition_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/SFourNegations.lean:41:0: 'CodexAxial.FromS.check_not_Indecomposable_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/SFourNegations.lean:42:0: 'CodexAxial.FromS.check_not_Simple_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8983/8999] Built Research.AxialMSZ.Proof.Corollary (3.5s)
+info: Research/AxialMSZ/Proof/Corollary.lean:39:0: 'CodexAxial.check_Corollary' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8984/8999] Built Research.AxialMSZ.Check (3.7s)
+info: Research/AxialMSZ/Check.lean:61:0: 'AxialMSZ.Check.check_Laws_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:62:0: 'AxialMSZ.Check.check_ExS_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:63:0: 'AxialMSZ.Check.check_ExE_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:64:0: 'AxialMSZ.Check.check_ExD_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:65:0: 'AxialMSZ.Check.check_ExP_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:66:0: 'AxialMSZ.Check.check_TheoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:67:0: 'AxialMSZ.Check.check_TheoremB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:68:0: 'AxialMSZ.Check.check_TheoremC' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:69:0: 'AxialMSZ.Check.check_RemarkP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:70:0: 'AxialMSZ.Check.check_Corollary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:71:0: 'AxialMSZ.Check.check_not_MS_Conjecture_3_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:72:0: 'AxialMSZ.Check.check_not_FinestSumDecomposition_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:73:0: 'AxialMSZ.Check.check_not_Indecomposable_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:74:0: 'AxialMSZ.Check.check_not_Simple_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:75:0: 'AxialMSZ.Check.check_Dominance_nonsymmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:76:0: 'AxialMSZ.Check.check_ExD_axes_in_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:77:0: 'AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8985/8999] Built Research.ICGEqualParityA (9.9s)
+warning: Research/ICGEqualParityA.lean:89:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityA.lean:91:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityA.lean:95:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityA.lean:99:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityA.lean:179:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityA.lean:211:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityA.lean:469:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityA.lean:474:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [8986/8999] Built Research.ICGEqualParityGraph (3.0s)
+warning: Research/ICGEqualParityGraph.lean:122:66: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityGraph.lean:143:61: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityGraph.lean:145:62: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityGraph.lean:195:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityGraph.lean:198:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityGraph.lean:204:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityGraph.lean:207:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityGraph.lean:280:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGEqualParityGraph.lean:290:0: 'ICGEqualParity.energy_le_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityGraph.lean:291:0: 'ICGEqualParity.energy_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityGraph.lean:292:0: 'ICGEqualParity.thmA_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8987/8999] Built Research.ICGEqualParityUnique (8.8s)
+warning: Research/ICGEqualParityUnique.lean:393:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:440:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:549:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:559:19: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:562:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:714:53: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:719:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:733:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:759:53: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:764:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:781:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:824:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:833:55: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:836:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:844:49: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:881:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:883:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:891:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:894:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:897:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:900:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:902:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGEqualParityUnique.lean:972:0: 'ICGEqualParity.trunc_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:973:0: 'ICGEqualParity.energy_trunc' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:976:0: 'ICGEqualParity.thmA_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:977:0: 'ICGEqualParity.energy_lt_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:978:0: 'ICGEqualParity.corollaryA' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8988/8999] Built Research.ICGEqualParityBCol (7.8s)
+✔ [8989/8999] Built Research.ICGEqualParityBFD (14s)
+✔ [8990/8999] Built Research.ICGEqualParityBCert1 (16s)
+✔ [8991/8999] Built Research.ICGEqualParityBCert2 (18s)
+✔ [8992/8999] Built Research.ICGEqualParityBCert3 (21s)
+✔ [8993/8999] Built Research.ICGEqualParityBCert4 (18s)
+✔ [8994/8999] Built Research.ICGEqualParityBCert5 (21s)
+✔ [8995/8999] Built Research.ICGEqualParityBCert6 (16s)
+⚠ [8996/8999] Built Research.ICGEqualParityBMain (12s)
+warning: Research/ICGEqualParityBMain.lean:766:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBMain.lean:775:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBMain.lean:776:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBMain.lean:777:16: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [8997/8999] Built Research.ICGEqualParityBGraph (8.8s)
+warning: Research/ICGEqualParityBGraph.lean:114:53: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:115:54: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:116:53: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:123:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:125:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:126:49: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:298:63: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:313:61: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:315:62: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:365:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:365:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:366:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:366:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:373:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:373:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:374:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:376:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:376:20: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:377:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:377:20: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:385:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:385:57: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:386:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:386:71: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:402:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:402:29: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:403:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:403:43: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:473:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:487:19: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:490:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+✔ [8998/8999] Built Research (3.2s)
+Build completed successfully (8999 jobs).
+      344.09 real      1138.94 user       266.26 sys
+         12749635584  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+            31617565  page reclaims
+               41733  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               87988  voluntary context switches
+            11498949  involuntary context switches
+        150368284850  instructions retired
+         57613008828  cycles elapsed
+           362948272  peak memory footprint
+exit=0
+2026-09-28T00:54:12Z

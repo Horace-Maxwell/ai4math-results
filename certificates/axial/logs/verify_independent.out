@@ -1,0 +1,593 @@
+Independent exact-arithmetic verification of the round-7 axial examples S, E, D, P
+run at (date -u): Sun Sep 27 18:34:51 UTC 2026;  Python 3.12.4;  sympy 1.13.1
+arithmetic: fractions.Fraction (exact); sympy used only for charpoly/factor cross-checks
+
+FUSION LAWS
+  J+(1/2) on F = {1, 0, 1/2}:
+    1 * 1 = {1}
+    1 * 0 = {} (empty)
+    1 * 1/2 = {1/2}
+    0 * 0 = {1, 0, 1/2}
+    0 * 1/2 = {1, 0, 1/2}
+    1/2 * 1/2 = {1, 0}
+    Seress? NO   (0*0 = {1, 0, 1/2} is not inside {0}; 0*1/2 = {1, 0, 1/2} is not inside {1/2})
+  J+(1/3) on F = {1, 0, 1/3}:
+    1 * 1 = {1}
+    1 * 0 = {} (empty)
+    1 * 1/3 = {1/3}
+    0 * 0 = {1, 0, 1/3}
+    0 * 1/3 = {1, 0, 1/3}
+    1/3 * 1/3 = {1, 0}
+    Seress? NO   (0*0 = {1, 0, 1/3} is not inside {0}; 0*1/3 = {1, 0, 1/3} is not inside {1/3})
+  J°(1/2) on F = {1, 0, 1/2}:
+    1 * 1 = {1}
+    1 * 0 = {} (empty)
+    1 * 1/2 = {1/2}
+    0 * 0 = {0, 1/2}
+    0 * 1/2 = {0, 1/2}
+    1/2 * 1/2 = {1, 0}
+    Seress? NO   (0*0 = {0, 1/2} is not inside {0}; 0*1/2 = {0, 1/2} is not inside {1/2})
+  F_D3 on F = {0, 1, 2}:
+    0 * 0 = {0, 1}
+    0 * 1 = {} (empty)
+    0 * 2 = {} (empty)
+    1 * 1 = {1}
+    1 * 2 = {2}
+    2 * 2 = {2}
+    Seress? NO   (0*0 = {0, 1} is not inside {0})
+
+======================================================================================
+EXAMPLE S: dim 4, basis a, b, x, c, X = {a, b, c}, stated law J+(1/2)
+======================================================================================
+  multiplication table (basis a, b, x, c; products not listed are 0):
+    a*a = a
+    a*b = 1/4*a + 1/4*b - 1/4*x
+    a*x = 1/4*a - 1/4*b + 1/4*x
+    b*b = b
+    b*x = -1/4*a + 1/4*b + 1/4*x
+    x*x = x
+    x*c = -1/2*a - 1/2*b + 1/2*x - 1/4*c
+    c*c = c
+  commutativity of the table: True
+  --- axis a = a   (law J+(1/2))
+    nonzero: True;  a*a = a  -> idempotent: True
+    det(xI - ad_a) = x^4 - 3/2*x^3 + 1/2*x^2   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: x**2*(x - 1)*(2*x - 1)/2   -> all factors linear with roots in F: True
+    root multiplicities in F: 1:1, 0:2, 1/2:1  (sum = 4 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 1:1, 0:2, 1/2:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_1(a) = span(a)
+    A_0(a) = span(a - 2*b - 2*x, c)
+    A_1/2(a) = span(b - x)
+    primitive (A_1 = Q a): True
+    realised fusion rules for a (nu with nonzero nu-component in A_l*A_m):
+      1*1 -> {1}              law {1}              ok
+      1*0 -> {} (empty)       law {} (empty)       ok
+      1*1/2 -> {1/2}            law {1/2}            ok
+      0*0 -> {1, 0, 1/2}      law {1, 0, 1/2}      ok
+      0*1/2 -> {1, 0, 1/2}      law {1, 0, 1/2}      ok
+      1/2*1/2 -> {1, 0}           law {1, 0}           ok
+    fusion law holds: projection test True, subspace-containment test True
+    => a is an J+(1/2)-axis: True;  primitive: True
+  --- axis b = b   (law J+(1/2))
+    nonzero: True;  b*b = b  -> idempotent: True
+    det(xI - ad_b) = x^4 - 3/2*x^3 + 1/2*x^2   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: x**2*(x - 1)*(2*x - 1)/2   -> all factors linear with roots in F: True
+    root multiplicities in F: 1:1, 0:2, 1/2:1  (sum = 4 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 1:1, 0:2, 1/2:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_1(b) = span(b)
+    A_0(b) = span(a - 1/2*b + x, c)
+    A_1/2(b) = span(a - x)
+    primitive (A_1 = Q b): True
+    realised fusion rules for b (nu with nonzero nu-component in A_l*A_m):
+      1*1 -> {1}              law {1}              ok
+      1*0 -> {} (empty)       law {} (empty)       ok
+      1*1/2 -> {1/2}            law {1/2}            ok
+      0*0 -> {1, 0, 1/2}      law {1, 0, 1/2}      ok
+      0*1/2 -> {1, 0, 1/2}      law {1, 0, 1/2}      ok
+      1/2*1/2 -> {1, 0}           law {1, 0}           ok
+    fusion law holds: projection test True, subspace-containment test True
+    => b is an J+(1/2)-axis: True;  primitive: True
+  --- axis c = c   (law J+(1/2))
+    nonzero: True;  c*c = c  -> idempotent: True
+    det(xI - ad_c) = x^4 - 3/2*x^3 + 1/2*x^2   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: x**2*(x - 1)*(2*x - 1)/2   -> all factors linear with roots in F: True
+    root multiplicities in F: 1:1, 0:2, 1/2:1  (sum = 4 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 1:1, 0:2, 1/2:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_1(c) = span(c)
+    A_0(c) = span(a, b)
+    A_1/2(c) = span(a + b - x - 1/2*c)
+    primitive (A_1 = Q c): True
+    realised fusion rules for c (nu with nonzero nu-component in A_l*A_m):
+      1*1 -> {1}              law {1}              ok
+      1*0 -> {} (empty)       law {} (empty)       ok
+      1*1/2 -> {1/2}            law {1/2}            ok
+      0*0 -> {1, 0, 1/2}      law {1, 0, 1/2}      ok
+      0*1/2 -> {1, 0, 1/2}      law {1, 0, 1/2}      ok
+      1/2*1/2 -> {0}              law {1, 0}           ok
+    fusion law holds: projection test True, subspace-containment test True
+    => c is an J+(1/2)-axis: True;  primitive: True
+  <<X>> (subalgebra generated by X) has dim 4 -> X generates S: True
+  realised fusion law, union over the axes in X:
+    1*1 : realised {1}              law {1}              contained (equal)
+    1*0 : realised {} (empty)       law {} (empty)       contained (equal)
+    1*1/2 : realised {1/2}            law {1/2}            contained (equal)
+    0*0 : realised {1, 0, 1/2}      law {1, 0, 1/2}      contained (equal)
+    0*1/2 : realised {1, 0, 1/2}      law {1, 0, 1/2}      contained (equal)
+    1/2*1/2 : realised {1, 0}           law {1, 0}           contained (equal)
+  union contained in J+(1/2): True
+  A*A = span(a, b, x, c) (dim 4)
+  unital multiplication algebra M(S): dim 16 (n^2 = 16)
+  I_a = span(a, b, x, c)  (dim 4; iterative closure = M(A)-orbit: True)
+  I_b = span(a, b, x, c)  (dim 4; iterative closure = M(A)-orbit: True)
+  I_c = span(a, b, x, c)  (dim 4; iterative closure = M(A)-orbit: True)
+    dominance: I_b inside I_a  (equal)
+    dominance: I_c inside I_a  (equal)
+    dominance: I_a inside I_b  (equal)
+    dominance: I_c inside I_b  (equal)
+    dominance: I_a inside I_c  (equal)
+    dominance: I_b inside I_c  (equal)
+  H_a = ker P_1(a) = span(a - 4*x, b - x, c) (dim 3); core(H_a) = 0
+  H_b = ker P_1(b) = span(a - x, b - 4*x, c) (dim 3); core(H_b) = 0
+  H_c = ker P_1(c) = span(a, b, x + 1/2*c) (dim 3); core(H_c) = 0
+  complete ideal lattice over Q via axes (Y = J cap X):
+    Y={}       L=0  U=0  (gap 0) -> ideals: 0
+    Y={a}      L=span(a, b, x, c) not inside U=0 -> no ideal
+    Y={b}      L=span(a, b, x, c) not inside U=0 -> no ideal
+    Y={c}      L=span(a, b, x, c) not inside U=0 -> no ideal
+    Y={a,b}    L=span(a, b, x, c) not inside U=0 -> no ideal
+    Y={a,c}    L=span(a, b, x, c) not inside U=0 -> no ideal
+    Y={b,c}    L=span(a, b, x, c) not inside U=0 -> no ideal
+    Y={a,b,c}  L=span(a, b, x, c)  U=span(a, b, x, c)  (gap 0) -> ideals: span(a, b, x, c)
+  all ideals of S over Q (complete): 0 | span(a, b, x, c)
+  sum of all proper ideals = 0 (= sum_a core(H_a): True) -> S decomposable: False
+  Delta(X) (non-annihilation graph):
+    a*b = 1/4*a + 1/4*b - 1/4*x
+    a*c = 0
+    b*c = 0
+  Delta(X): edges ['a-b']; connected components [['a', 'b'], ['c']]
+  bilinear forms with (uv,w) = (u,vw): dim 0 (all), dim 0 (symmetric)
+
+  (S4) <<a,b>> = span(a, b, x);  <<c>> = span(c)
+       (x)*(c) = -1/2*a - 1/2*b + 1/2*x - 1/4*c  (nonzero)
+       in particular x*c = -1/2*a - 1/2*b + 1/2*x - 1/4*c
+
+  (S6) proper ideals of S (complete over Q): ['0']; their sum = 0 != S  => S not decomposable.
+       Sum decompositions: if {A_i} are pairwise annihilating subalgebras generating S, then
+       T = sum A_i is closed under the product ((sum u_i)(sum v_j) = sum u_i v_i), so T = S;
+       hence S*A_i = sum_j A_j*A_i = A_i*A_i inside A_i, i.e. every A_i is an ideal, so A_i is
+       0 or S (only ideals, computed above); two copies of S would force S*S = 0, but
+       S*S = span(a, b, x, c) has dim 4. So exactly one A_i = S and the rest are 0: trivial only.
+
+  control: associating forms on 3C(1/2) and 3C(1/3) alone (expected nonzero):
+    3C(1/2): dim 1 (all), 1 (symmetric); e.g. (a,a)=1, (a,b)=1/4, (a,x)=1/4, (b,a)=1/4, (b,b)=1, (b,x)=1/4, (x,a)=1/4, (x,b)=1/4, (x,x)=1
+    3C(1/3): dim 1 (all), 1 (symmetric); e.g. (a,a)=1, (a,b)=1/6, (a,x)=1/6, (b,a)=1/6, (b,b)=1, (b,x)=1/6, (x,a)=1/6, (x,b)=1/6, (x,x)=1
+
+======================================================================================
+EXAMPLE E: dim 4, basis a, b, x, c, X = {a, b, c}, stated law J+(1/3)
+======================================================================================
+  multiplication table (basis a, b, x, c; products not listed are 0):
+    a*a = a
+    a*b = 1/6*a + 1/6*b - 1/6*x
+    a*x = 1/6*a - 1/6*b + 1/6*x
+    b*b = b
+    b*x = -1/6*a + 1/6*b + 1/6*x
+    x*x = x
+    x*c = -1/3*a - 1/3*b + 1/3*x
+    c*c = c
+  commutativity of the table: True
+  --- axis a = a   (law J+(1/3))
+    nonzero: True;  a*a = a  -> idempotent: True
+    det(xI - ad_a) = x^4 - 4/3*x^3 + 1/3*x^2   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: x**2*(x - 1)*(3*x - 1)/3   -> all factors linear with roots in F: True
+    root multiplicities in F: 1:1, 0:2, 1/3:1  (sum = 4 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 1:1, 0:2, 1/3:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_1(a) = span(a)
+    A_0(a) = span(a - 3*b - 3*x, c)
+    A_1/3(a) = span(b - x)
+    primitive (A_1 = Q a): True
+    realised fusion rules for a (nu with nonzero nu-component in A_l*A_m):
+      1*1 -> {1}              law {1}              ok
+      1*0 -> {} (empty)       law {} (empty)       ok
+      1*1/3 -> {1/3}            law {1/3}            ok
+      0*0 -> {1, 0, 1/3}      law {1, 0, 1/3}      ok
+      0*1/3 -> {1, 1/3}         law {1, 0, 1/3}      ok
+      1/3*1/3 -> {1, 0}           law {1, 0}           ok
+    fusion law holds: projection test True, subspace-containment test True
+    => a is an J+(1/3)-axis: True;  primitive: True
+  --- axis b = b   (law J+(1/3))
+    nonzero: True;  b*b = b  -> idempotent: True
+    det(xI - ad_b) = x^4 - 4/3*x^3 + 1/3*x^2   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: x**2*(x - 1)*(3*x - 1)/3   -> all factors linear with roots in F: True
+    root multiplicities in F: 1:1, 0:2, 1/3:1  (sum = 4 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 1:1, 0:2, 1/3:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_1(b) = span(b)
+    A_0(b) = span(a - 1/3*b + x, c)
+    A_1/3(b) = span(a - x)
+    primitive (A_1 = Q b): True
+    realised fusion rules for b (nu with nonzero nu-component in A_l*A_m):
+      1*1 -> {1}              law {1}              ok
+      1*0 -> {} (empty)       law {} (empty)       ok
+      1*1/3 -> {1/3}            law {1/3}            ok
+      0*0 -> {1, 0, 1/3}      law {1, 0, 1/3}      ok
+      0*1/3 -> {1, 1/3}         law {1, 0, 1/3}      ok
+      1/3*1/3 -> {1, 0}           law {1, 0}           ok
+    fusion law holds: projection test True, subspace-containment test True
+    => b is an J+(1/3)-axis: True;  primitive: True
+  --- axis c = c   (law J+(1/3))
+    nonzero: True;  c*c = c  -> idempotent: True
+    det(xI - ad_c) = x^4 - 4/3*x^3 + 1/3*x^2   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: x**2*(x - 1)*(3*x - 1)/3   -> all factors linear with roots in F: True
+    root multiplicities in F: 1:1, 0:2, 1/3:1  (sum = 4 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 1:1, 0:2, 1/3:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_1(c) = span(c)
+    A_0(c) = span(a, b)
+    A_1/3(c) = span(a + b - x)
+    primitive (A_1 = Q c): True
+    realised fusion rules for c (nu with nonzero nu-component in A_l*A_m):
+      1*1 -> {1}              law {1}              ok
+      1*0 -> {} (empty)       law {} (empty)       ok
+      1*1/3 -> {1/3}            law {1/3}            ok
+      0*0 -> {0, 1/3}         law {1, 0, 1/3}      ok
+      0*1/3 -> {0, 1/3}         law {1, 0, 1/3}      ok
+      1/3*1/3 -> {0}              law {1, 0}           ok
+    fusion law holds: projection test True, subspace-containment test True
+    => c is an J+(1/3)-axis: True;  primitive: True
+  <<X>> (subalgebra generated by X) has dim 4 -> X generates E: True
+  realised fusion law, union over the axes in X:
+    1*1 : realised {1}              law {1}              contained (equal)
+    1*0 : realised {} (empty)       law {} (empty)       contained (equal)
+    1*1/3 : realised {1/3}            law {1/3}            contained (equal)
+    0*0 : realised {1, 0, 1/3}      law {1, 0, 1/3}      contained (equal)
+    0*1/3 : realised {1, 0, 1/3}      law {1, 0, 1/3}      contained (equal)
+    1/3*1/3 : realised {1, 0}           law {1, 0}           contained (equal)
+  union contained in J+(1/3): True
+  A*A = span(a, b, x, c) (dim 4)
+  unital multiplication algebra M(E): dim 13 (n^2 = 16)
+  I_a = span(a, b, x)  (dim 3; iterative closure = M(A)-orbit: True)
+  I_b = span(a, b, x)  (dim 3; iterative closure = M(A)-orbit: True)
+  I_c = span(a, b, x, c)  (dim 4; iterative closure = M(A)-orbit: True)
+    dominance: I_b inside I_a  (equal)
+    dominance: I_a inside I_b  (equal)
+    dominance: I_a inside I_c  (strict)
+    dominance: I_b inside I_c  (strict)
+  H_a = ker P_1(a) = span(a - 6*x, b - x, c) (dim 3); core(H_a) = 0
+  H_b = ker P_1(b) = span(a - x, b - 6*x, c) (dim 3); core(H_b) = 0
+  H_c = ker P_1(c) = span(a, b, x) (dim 3); core(H_c) = span(a, b, x)
+  complete ideal lattice over Q via axes (Y = J cap X):
+    Y={}       L=0  U=0  (gap 0) -> ideals: 0
+    Y={a}      L=span(a, b, x) not inside U=0 -> no ideal
+    Y={b}      L=span(a, b, x) not inside U=0 -> no ideal
+    Y={c}      L=span(a, b, x, c) not inside U=0 -> no ideal
+    Y={a,b}    L=span(a, b, x)  U=span(a, b, x)  (gap 0) -> ideals: span(a, b, x)
+    Y={a,c}    L=span(a, b, x, c) not inside U=0 -> no ideal
+    Y={b,c}    L=span(a, b, x, c) not inside U=0 -> no ideal
+    Y={a,b,c}  L=span(a, b, x, c)  U=span(a, b, x, c)  (gap 0) -> ideals: span(a, b, x, c)
+  all ideals of E over Q (complete): 0 | span(a, b, x) | span(a, b, x, c)
+  sum of all proper ideals = span(a, b, x) (= sum_a core(H_a): True) -> E decomposable: False
+  Delta(X) (non-annihilation graph):
+    a*b = 1/6*a + 1/6*b - 1/6*x
+    a*c = 0
+    b*c = 0
+  Delta(X): edges ['a-b']; connected components [['a', 'b'], ['c']]
+  bilinear forms with (uv,w) = (u,vw): dim 1 (all), dim 1 (symmetric)
+    basis form: (c,c)=1
+
+  (E3) fixed hyperplane H_c = ker P_1(c) = span(a, b, x); since I_c = E every proper ideal J has
+       P_1(c)J inside J cap Qc = 0, i.e. J inside H_c. Complete list of proper ideals: ['0', 'span(a, b, x)'];
+       all inside H_c: True; sum of proper ideals = span(a, b, x) (dim 3) != E
+  (E5) <<a,b>> = span(a, b, x); <<c>> = span(c); <<a,b>>*<<c>> spans span(a + b - x); x*c = -1/3*a - 1/3*b + 1/3*x
+
+======================================================================================
+EXAMPLE D: dim 5, basis a, b, x, c, d, X = {a, b, c}, stated law J°(1/2)
+======================================================================================
+  multiplication table (basis a, b, x, c, d; products not listed are 0):
+    a*a = a
+    a*b = 1/4*a + 1/4*b - 1/4*x
+    a*x = 1/4*a - 1/4*b + 1/4*x
+    b*b = b
+    b*x = -1/4*a + 1/4*b + 1/4*x
+    x*x = x
+    x*c = d
+    c*c = c
+    c*d = 1/2*d
+  commutativity of the table: True
+  --- axis a = a   (law J°(1/2))
+    nonzero: True;  a*a = a  -> idempotent: True
+    det(xI - ad_a) = x^5 - 3/2*x^4 + 1/2*x^3   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: x**3*(x - 1)*(2*x - 1)/2   -> all factors linear with roots in F: True
+    root multiplicities in F: 1:1, 0:3, 1/2:1  (sum = 5 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 1:1, 0:3, 1/2:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_1(a) = span(a)
+    A_0(a) = span(a - 2*b - 2*x, c, d)
+    A_1/2(a) = span(b - x)
+    primitive (A_1 = Q a): True
+    realised fusion rules for a (nu with nonzero nu-component in A_l*A_m):
+      1*1 -> {1}              law {1}              ok
+      1*0 -> {} (empty)       law {} (empty)       ok
+      1*1/2 -> {1/2}            law {1/2}            ok
+      0*0 -> {0}              law {0, 1/2}         ok
+      0*1/2 -> {0, 1/2}         law {0, 1/2}         ok
+      1/2*1/2 -> {1, 0}           law {1, 0}           ok
+    fusion law holds: projection test True, subspace-containment test True
+    => a is an J°(1/2)-axis: True;  primitive: True
+  --- axis b = b   (law J°(1/2))
+    nonzero: True;  b*b = b  -> idempotent: True
+    det(xI - ad_b) = x^5 - 3/2*x^4 + 1/2*x^3   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: x**3*(x - 1)*(2*x - 1)/2   -> all factors linear with roots in F: True
+    root multiplicities in F: 1:1, 0:3, 1/2:1  (sum = 5 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 1:1, 0:3, 1/2:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_1(b) = span(b)
+    A_0(b) = span(a - 1/2*b + x, c, d)
+    A_1/2(b) = span(a - x)
+    primitive (A_1 = Q b): True
+    realised fusion rules for b (nu with nonzero nu-component in A_l*A_m):
+      1*1 -> {1}              law {1}              ok
+      1*0 -> {} (empty)       law {} (empty)       ok
+      1*1/2 -> {1/2}            law {1/2}            ok
+      0*0 -> {0}              law {0, 1/2}         ok
+      0*1/2 -> {0, 1/2}         law {0, 1/2}         ok
+      1/2*1/2 -> {1, 0}           law {1, 0}           ok
+    fusion law holds: projection test True, subspace-containment test True
+    => b is an J°(1/2)-axis: True;  primitive: True
+  --- axis c = c   (law J°(1/2))
+    nonzero: True;  c*c = c  -> idempotent: True
+    det(xI - ad_c) = x^5 - 3/2*x^4 + 1/2*x^3   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: x**3*(x - 1)*(2*x - 1)/2   -> all factors linear with roots in F: True
+    root multiplicities in F: 1:1, 0:3, 1/2:1  (sum = 5 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 1:1, 0:3, 1/2:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_1(c) = span(c)
+    A_0(c) = span(a, b, x - 2*d)
+    A_1/2(c) = span(d)
+    primitive (A_1 = Q c): True
+    realised fusion rules for c (nu with nonzero nu-component in A_l*A_m):
+      1*1 -> {1}              law {1}              ok
+      1*0 -> {} (empty)       law {} (empty)       ok
+      1*1/2 -> {1/2}            law {1/2}            ok
+      0*0 -> {0, 1/2}         law {0, 1/2}         ok
+      0*1/2 -> {} (empty)       law {0, 1/2}         ok
+      1/2*1/2 -> {} (empty)       law {1, 0}           ok
+    fusion law holds: projection test True, subspace-containment test True
+    => c is an J°(1/2)-axis: True;  primitive: True
+  <<X>> (subalgebra generated by X) has dim 5 -> X generates D: True
+  realised fusion law, union over the axes in X:
+    1*1 : realised {1}              law {1}              contained (equal)
+    1*0 : realised {} (empty)       law {} (empty)       contained (equal)
+    1*1/2 : realised {1/2}            law {1/2}            contained (equal)
+    0*0 : realised {0, 1/2}         law {0, 1/2}         contained (equal)
+    0*1/2 : realised {0, 1/2}         law {0, 1/2}         contained (equal)
+    1/2*1/2 : realised {1, 0}           law {1, 0}           contained (equal)
+  union contained in J°(1/2): True
+  A*A = span(a, b, x, c, d) (dim 5)
+  unital multiplication algebra M(D): dim 15 (n^2 = 25)
+  I_a = span(a, b, x, d)  (dim 4; iterative closure = M(A)-orbit: True)
+  I_b = span(a, b, x, d)  (dim 4; iterative closure = M(A)-orbit: True)
+  I_c = span(c, d)  (dim 2; iterative closure = M(A)-orbit: True)
+    dominance: I_b inside I_a  (equal)
+    dominance: I_a inside I_b  (equal)
+  H_a = ker P_1(a) = span(a - 4*x, b - x, c, d) (dim 4); core(H_a) = span(c, d)
+  H_b = ker P_1(b) = span(a - x, b - 4*x, c, d) (dim 4); core(H_b) = span(c, d)
+  H_c = ker P_1(c) = span(a, b, x, d) (dim 4); core(H_c) = span(a, b, x, d)
+  complete ideal lattice over Q via axes (Y = J cap X):
+    Y={}       L=0  U=span(d)  (gap 1) -> ideals: 0; span(d)
+    Y={a}      L=span(a, b, x, d) not inside U=span(d) -> no ideal
+    Y={b}      L=span(a, b, x, d) not inside U=span(d) -> no ideal
+    Y={c}      L=span(c, d)  U=span(c, d)  (gap 0) -> ideals: span(c, d)
+    Y={a,b}    L=span(a, b, x, d)  U=span(a, b, x, d)  (gap 0) -> ideals: span(a, b, x, d)
+    Y={a,c}    L=span(a, b, x, c, d) not inside U=span(c, d) -> no ideal
+    Y={b,c}    L=span(a, b, x, c, d) not inside U=span(c, d) -> no ideal
+    Y={a,b,c}  L=span(a, b, x, c, d)  U=span(a, b, x, c, d)  (gap 0) -> ideals: span(a, b, x, c, d)
+  all ideals of D over Q (complete): 0 | span(d) | span(c, d) | span(a, b, x, d) | span(a, b, x, c, d)
+  sum of all proper ideals = span(a, b, x, c, d) (= sum_a core(H_a): True) -> D decomposable: True
+  Delta(X) (non-annihilation graph):
+    a*b = 1/4*a + 1/4*b - 1/4*x
+    a*c = 0
+    b*c = 0
+  Delta(X): edges ['a-b']; connected components [['a', 'b'], ['c']]
+  bilinear forms with (uv,w) = (u,vw): dim 2 (all), dim 2 (symmetric)
+    basis form: (a,a)=1, (a,b)=1/4, (a,x)=1/4, (b,a)=1/4, (b,b)=1, (b,x)=1/4, (x,a)=1/4, (x,b)=1/4, (x,x)=1
+    basis form: (c,c)=1
+
+  (D3) block I_a = span(a, b, x, d) is a subalgebra: True; J1 = span(a, b, x) ideal of I_a: True; J2 = span(d) ideal of I_a: True;
+       both nonzero and proper: True; J1 + J2 = I_a: True (direct: True)
+  (D4) J1 is an ideal of D: False; witnesses: c*(x) = d not in J1
+
+======================================================================================
+EXAMPLE P: dim 2, basis a, b, X = {a, b}, stated law F_D3
+======================================================================================
+  multiplication table (basis a, b; products not listed are 0):
+    a*a = a
+    a*b = 2*b
+    b*b = b
+  commutativity of the table: True
+  --- axis a = a   (law F_D3)
+    nonzero: True;  a*a = a  -> idempotent: True
+    det(xI - ad_a) = x^2 - 3*x + 2   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: (x - 2)*(x - 1)   -> all factors linear with roots in F: True
+    root multiplicities in F: 0:0, 1:1, 2:1  (sum = 2 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 1:1, 2:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_1(a) = span(a)
+    A_2(a) = span(b)
+    primitive (A_1 = Q a): True
+    realised fusion rules for a (nu with nonzero nu-component in A_l*A_m):
+      1*1 -> {1}              law {1}              ok
+      1*2 -> {2}              law {2}              ok
+      2*2 -> {2}              law {2}              ok
+    fusion law holds: projection test True, subspace-containment test True
+    => a is an F_D3-axis: True;  primitive: True
+  --- axis b = b   (law F_D3)
+    nonzero: True;  b*b = b  -> idempotent: True
+    det(xI - ad_b) = x^2 - x   [Faddeev-LeVerrier; sympy charpoly agrees: True]
+    sympy factorisation over Q: x*(x - 1)   -> all factors linear with roots in F: True
+    root multiplicities in F: 0:1, 1:1, 2:0  (sum = 2 = dim: True; sympy agrees: True)
+    prod_{l in F}(ad - l) = 0: True;  prod_{l in spec}(ad - l) = 0: True;  geometric mults (n - rank(ad - l)): 0:1, 1:1
+    Lagrange projections: sum=I True, P^2=P True, P_l P_m=0 True, ad P_l = l P_l True, rank P_l = alg = geo mult True
+    A_0(b) = span(a - 2*b)
+    A_1(b) = span(b)
+    primitive (A_1 = Q b): True
+    realised fusion rules for b (nu with nonzero nu-component in A_l*A_m):
+      0*0 -> {0, 1}           law {0, 1}           ok
+      0*1 -> {} (empty)       law {} (empty)       ok
+      1*1 -> {1}              law {1}              ok
+    fusion law holds: projection test True, subspace-containment test True
+    => b is an F_D3-axis: True;  primitive: True
+  <<X>> (subalgebra generated by X) has dim 2 -> X generates P: True
+  realised fusion law, union over the axes in X:
+    0*0 : realised {0, 1}           law {0, 1}           contained (equal)
+    0*1 : realised {} (empty)       law {} (empty)       contained (equal)
+    0*2 : not realised (no axis has both eigenvalues)   law {} (empty)
+    1*1 : realised {1}              law {1}              contained (equal)
+    1*2 : realised {2}              law {2}              contained (equal)
+    2*2 : realised {2}              law {2}              contained (equal)
+  union contained in F_D3: True
+  A*A = span(a, b) (dim 2)
+  unital multiplication algebra M(P): dim 3 (n^2 = 4)
+  I_a = span(a, b)  (dim 2; iterative closure = M(A)-orbit: True)
+  I_b = span(b)  (dim 1; iterative closure = M(A)-orbit: True)
+    dominance: I_b inside I_a  (strict)
+  H_a = ker P_1(a) = span(b) (dim 1); core(H_a) = span(b)
+  H_b = ker P_1(b) = span(a - 2*b) (dim 1); core(H_b) = 0
+  complete ideal lattice over Q via axes (Y = J cap X):
+    Y={}       L=0  U=0  (gap 0) -> ideals: 0
+    Y={a}      L=span(a, b) not inside U=0 -> no ideal
+    Y={b}      L=span(b)  U=span(b)  (gap 0) -> ideals: span(b)
+    Y={a,b}    L=span(a, b)  U=span(a, b)  (gap 0) -> ideals: span(a, b)
+  all ideals of P over Q (complete): 0 | span(b) | span(a, b)
+  sum of all proper ideals = span(b) (= sum_a core(H_a): True) -> P decomposable: False
+  Delta(X) (non-annihilation graph):
+    a*b = 2*b
+  Delta(X): edges ['a-b']; connected components [['a', 'b']]
+  bilinear forms with (uv,w) = (u,vw): dim 1 (all), dim 1 (symmetric)
+    basis form: (a,a)=1
+
+======================================================================================
+MOD-p SANITY CHECKS (enumeration over GF(p); NOT a proof over Q)
+======================================================================================
+  S, p = 7:
+  [mod-7 sanity check, NOT a proof over Q] ideals of S over GF(7): 2 in total (400 projective points = (p^4-1)/(p-1) enumerated, 1 distinct principal ideals)
+      dim 0: 0   contains axes {}
+      dim 4: span(a, b, x, c)   contains axes {a,b,c}
+      sum of proper ideals has dim 0 (algebra dim 4) -> decomposable mod 7: False
+      Q-ideals reduced mod 7 all found: True; extra ideals mod 7 only: 0
+  S, p = 11:
+  [mod-11 sanity check, NOT a proof over Q] ideals of S over GF(11): 2 in total (1464 projective points = (p^4-1)/(p-1) enumerated, 1 distinct principal ideals)
+      dim 0: 0   contains axes {}
+      dim 4: span(a, b, x, c)   contains axes {a,b,c}
+      sum of proper ideals has dim 0 (algebra dim 4) -> decomposable mod 11: False
+      Q-ideals reduced mod 11 all found: True; extra ideals mod 11 only: 0
+  E, p = 7:
+  [mod-7 sanity check, NOT a proof over Q] ideals of E over GF(7): 3 in total (400 projective points = (p^4-1)/(p-1) enumerated, 2 distinct principal ideals)
+      dim 0: 0   contains axes {}
+      dim 3: span(a, b, x)   contains axes {a,b}
+      dim 4: span(a, b, x, c)   contains axes {a,b,c}
+      sum of proper ideals has dim 3 (algebra dim 4) -> decomposable mod 7: False
+      Q-ideals reduced mod 7 all found: True; extra ideals mod 7 only: 0
+  E, p = 11:
+  [mod-11 sanity check, NOT a proof over Q] ideals of E over GF(11): 3 in total (1464 projective points = (p^4-1)/(p-1) enumerated, 2 distinct principal ideals)
+      dim 0: 0   contains axes {}
+      dim 3: span(a, b, x)   contains axes {a,b}
+      dim 4: span(a, b, x, c)   contains axes {a,b,c}
+      sum of proper ideals has dim 3 (algebra dim 4) -> decomposable mod 11: False
+      Q-ideals reduced mod 11 all found: True; extra ideals mod 11 only: 0
+  D, p = 7:
+  [mod-7 sanity check, NOT a proof over Q] ideals of D over GF(7): 5 in total (2801 projective points = (p^5-1)/(p-1) enumerated, 4 distinct principal ideals)
+      dim 0: 0   contains axes {}
+      dim 1: span(d)   contains axes {}
+      dim 2: span(c, d)   contains axes {c}
+      dim 4: span(a, b, x, d)   contains axes {a,b}
+      dim 5: span(a, b, x, c, d)   contains axes {a,b,c}
+      sum of proper ideals has dim 5 (algebra dim 5) -> decomposable mod 7: True
+      Q-ideals reduced mod 7 all found: True; extra ideals mod 7 only: 0
+  D, p = 11:
+  [mod-11 sanity check, NOT a proof over Q] ideals of D over GF(11): 5 in total (16105 projective points = (p^5-1)/(p-1) enumerated, 4 distinct principal ideals)
+      dim 0: 0   contains axes {}
+      dim 1: span(d)   contains axes {}
+      dim 2: span(c, d)   contains axes {c}
+      dim 4: span(a, b, x, d)   contains axes {a,b}
+      dim 5: span(a, b, x, c, d)   contains axes {a,b,c}
+      sum of proper ideals has dim 5 (algebra dim 5) -> decomposable mod 11: True
+      Q-ideals reduced mod 11 all found: True; extra ideals mod 11 only: 0
+  P, p = 7:
+  [mod-7 sanity check, NOT a proof over Q] ideals of P over GF(7): 3 in total (8 projective points = (p^2-1)/(p-1) enumerated, 2 distinct principal ideals)
+      dim 0: 0   contains axes {}
+      dim 1: span(b)   contains axes {b}
+      dim 2: span(a, b)   contains axes {a,b}
+      sum of proper ideals has dim 1 (algebra dim 2) -> decomposable mod 7: False
+      Q-ideals reduced mod 7 all found: True; extra ideals mod 7 only: 0
+  P, p = 11:
+  [mod-11 sanity check, NOT a proof over Q] ideals of P over GF(11): 3 in total (12 projective points = (p^2-1)/(p-1) enumerated, 2 distinct principal ideals)
+      dim 0: 0   contains axes {}
+      dim 1: span(b)   contains axes {b}
+      dim 2: span(a, b)   contains axes {a,b}
+      sum of proper ideals has dim 1 (algebra dim 2) -> decomposable mod 11: False
+      Q-ideals reduced mod 11 all found: True; extra ideals mod 11 only: 0
+  block I_a of D as an algebra, p = 7:
+  [mod-7 sanity check, NOT a proof over Q] ideals of I_a (in D) over GF(7): 4 in total (400 projective points = (p^4-1)/(p-1) enumerated, 3 distinct principal ideals)
+      dim 0: 0
+      dim 1: span(d)
+      dim 3: span(a, b, x)
+      dim 4: span(a, b, x, d)
+      sum of proper ideals has dim 4 (algebra dim 4) -> decomposable mod 7: True
+  block I_a of D as an algebra, p = 11:
+  [mod-11 sanity check, NOT a proof over Q] ideals of I_a (in D) over GF(11): 4 in total (1464 projective points = (p^4-1)/(p-1) enumerated, 3 distinct principal ideals)
+      dim 0: 0
+      dim 1: span(d)
+      dim 3: span(a, b, x)
+      dim 4: span(a, b, x, d)
+      sum of proper ideals has dim 4 (algebra dim 4) -> decomposable mod 11: True
+  block I_c of D as an algebra (extra information), p = 7:
+  [mod-7 sanity check, NOT a proof over Q] ideals of I_c (in D) over GF(7): 3 in total (8 projective points = (p^2-1)/(p-1) enumerated, 2 distinct principal ideals)
+      dim 0: 0
+      dim 1: span(d)
+      dim 2: span(c, d)
+      sum of proper ideals has dim 1 (algebra dim 2) -> decomposable mod 7: False
+  block I_c of D as an algebra (extra information), p = 11:
+  [mod-11 sanity check, NOT a proof over Q] ideals of I_c (in D) over GF(11): 3 in total (12 projective points = (p^2-1)/(p-1) enumerated, 2 distinct principal ideals)
+      dim 0: 0
+      dim 1: span(d)
+      dim 2: span(c, d)
+      sum of proper ideals has dim 1 (algebra dim 2) -> decomposable mod 11: False
+
+======================================================================================
+NEGATIVE CONTROLS (the same checker must reject wrong data)
+======================================================================================
+  S axes a,b,c against J°(1/2) (expect all False): got [False, False, False] -> as expected
+  E axes a,b,c against J+(1/2) (expect all False): got [False, False, False] -> as expected
+  perturbed S (c*x coefficient of c = -1/3): c a J+(1/2)-axis? (expect False; realised 1/2*1/2 = {1, 0, 1/2}): got False -> as expected
+  perturbed P (a*b = 3b): a an F_D3-axis? (expect False): got False -> as expected
+  idempotent with a Jordan block (a*w = u): a a J+(1/2)-axis? (expect False): got False -> as expected
+  dim M(E) = 16? (expect False, E has the ideal span(a,b,x)): got False -> as expected
+  all negative controls behave as expected: True
+
+======================================================================================
+Seress check of the laws: J+(1/2): not Seress, J+(1/3): not Seress, J°(1/2): not Seress, F_D3: not Seress
+CLAIM SUMMARY
+  S1 CONFIRMED a,b,c primitive J+(1/2)-axes: [True, True, True]; <<X>> dim 4
+  S2 CONFIRMED S*S dim 4; dim M(S)=16 (=16 => no invariant subspaces but 0,S); axis lattice ideals: [0, 4]
+  S3 CONFIRMED edges [('a', 'b')], components [['a', 'b'], ['c']]
+  S4 CONFIRMED <<a,b>>=span(a, b, x), <<c>>=span(c), x*c = -1/2*a - 1/2*b + 1/2*x - 1/4*c
+  S5 CONFIRMED dim of associating forms: all 0, symmetric 0
+  S6 CONFIRMED only ideals 0,S (dim M(S)=16 and axis lattice); sum of proper ideals = 0; S*S = S
+  E1 CONFIRMED a,b,c primitive J+(1/3)-axes: [True, True, True]; <<X>> dim 4
+  E2 CONFIRMED I_a=span(a, b, x), I_b=span(a, b, x), I_c=span(a, b, x, c)
+  E3 CONFIRMED proper ideals ['0', 'span(a, b, x)'], all in H_c=span(a, b, x); sum dim 3
+  E4 CONFIRMED edges [('a', 'b')], components [['a', 'b'], ['c']]
+  E5 CONFIRMED <<a,b>>*<<c>> = span(a + b - x) (x*c = -1/3*a - 1/3*b + 1/3*x)
+  D1 CONFIRMED a,b,c primitive J°(1/2)-axes: [True, True, True]; <<X>> dim 5
+  D2 CONFIRMED I_a = span(a, b, x, d)
+  D3 CONFIRMED J1, J2 ideals of I_a: True, True; proper True; sum = I_a True
+  D4 CONFIRMED c*x = d not in J1
+  D5 CONFIRMED I_b = span(a, b, x, d), I_c = span(c, d), Delta edges [('a', 'b')], components [['a', 'b'], ['c']]
+  P1 CONFIRMED a,b primitive F_D3-axes: [True, True]; <<X>> dim 2
+  P2 CONFIRMED I_b = span(b), I_a = span(a, b)
+negative controls as expected: True
+ALL CLAIMS CONFIRMED: True

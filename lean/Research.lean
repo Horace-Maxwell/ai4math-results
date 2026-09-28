@@ -35,3 +35,4 @@ import Research.SwitchingThmH
 import Research.SwitchingDiam4Cubic
 import Research.SwitchingWalkProfile
 import Research.SwitchingRowCount
+import Research.AxialMSZ.Check

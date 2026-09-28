@@ -1,0 +1,59 @@
+2026-09-28T00:55:55Z
+ICGBridge.roldan_q3 : ∀ (p : ℕ),
+  Nat.Prime p →
+    5 ≤ p →
+      ∀ D ⊆ (27 * p ^ 2).properDivisors,
+        D ≠ ICGBridge.Dstar p →
+          ICGBridge.energy (ICGBridge.icgAdj (27 * p ^ 2) D) ⋯ <
+            ICGBridge.energy (ICGBridge.icgAdj (27 * p ^ 2) (ICGBridge.Dstar p)) ⋯
+ICGBridge.roldan_q3_graph : ∀ (p : ℕ),
+  Nat.Prime p →
+    5 ≤ p →
+      ∀ [inst : NeZero (27 * p ^ 2)],
+        ∀ D ⊆ (27 * p ^ 2).properDivisors,
+          D ≠ ICGBridge.Dstar p →
+            ICGBridge.energy (SimpleGraph.adjMatrix ℝ (ICGBridge.icgGraph (27 * p ^ 2) D)) ⋯ <
+              ICGBridge.energy (SimpleGraph.adjMatrix ℝ (ICGBridge.icgGraph (27 * p ^ 2) (ICGBridge.Dstar p))) ⋯
+ICGBridge.energy_Dstar : ∀ (p : ℕ),
+  Nat.Prime p →
+    5 ≤ p → ICGBridge.energy (ICGBridge.icgAdj (27 * p ^ 2) (ICGBridge.Dstar p)) ⋯ = 266 * ↑p ^ 2 - 404 * ↑p + 202
+ICGBridge.energy_icgAdj_eq_exactEnergy : ∀ (p : ℕ),
+  Nat.Prime p →
+    p ≠ 3 →
+      ∀ (D : Finset ℕ),
+        27 * p ^ 2 ∉ D →
+          ICGBridge.energy (ICGBridge.icgAdj (27 * p ^ 2) D) ⋯ = ↑(CirculantQ3.exactEnergy (↑p) (ICGBridge.maskOf p D))
+@ICGBridge.sum_abs_eigenvalues_eq_sum_norm_dft : ∀ {N : ℕ} [inst : NeZero N] {ι : Type u_1} [inst_1 : Fintype ι]
+  [inst_2 : DecidableEq ι] (A : Matrix ι ι ℝ) (hA : A.IsHermitian) (e : ι ≃ ZMod N) (f : ZMod N → ℝ),
+  (∀ (i j : ι), A i j = f (e i - e j)) → ∑ i, |hA.eigenvalues i| = ∑ k, ‖ZMod.dft (fun s => ↑(f s)) k‖
+@ICGBridge.eigenvalues_multiset_eq_dft : ∀ {N : ℕ} [inst : NeZero N] {ι : Type u_1} [inst_1 : Fintype ι]
+  [inst_2 : DecidableEq ι] (A : Matrix ι ι ℝ) (hA : A.IsHermitian) (e : ι ≃ ZMod N) (f : ZMod N → ℝ),
+  (∀ (i j : ι), A i j = f (e i - e j)) →
+    Multiset.map (fun i => ↑(hA.eigenvalues i)) Finset.univ.val =
+      Multiset.map (ZMod.dft fun s => ↑(f s)) Finset.univ.val
+@ICGBridge.dft_connFun : ∀ {p : ℕ},
+  Nat.Prime p →
+    p ≠ 3 →
+      ∀ {N : ℕ} [inst : NeZero N],
+        N = p ^ 2 * 3 ^ 3 →
+          ∀ (D : Finset ℕ),
+            N ∉ D →
+              ∀ (k : ZMod N) {a b : ℕ},
+                k.val.gcd N = p ^ a * 3 ^ b →
+                  ZMod.dft (fun s => ↑(ICGBridge.connFun N D s)) k = ↑(ICGBridge.lamD (↑p) (ICGBridge.bitsOf p D) a b)
+def ICGBridge.icgAdj : (n : ℕ) → Finset ℕ → Matrix (Fin n) (Fin n) ℝ :=
+fun n D => Matrix.of fun i j => if (↑(j - i)).gcd n ∈ D then 1 else 0
+def ICGBridge.energy.{u_1} : {ι : Type u_1} → [Fintype ι] → [DecidableEq ι] → (A : Matrix ι ι ℝ) → A.IsHermitian → ℝ :=
+fun {ι} [Fintype ι] [DecidableEq ι] A hA => ∑ i, |hA.eigenvalues i|
+def ICGBridge.Dstar : ℕ → Finset ℕ :=
+fun p => {1, p ^ 2, 3 * p, 9, 9 * p ^ 2, 27 * p}
+def ICGBridge.icgGraph : (n : ℕ) → Finset ℕ → SimpleGraph (ZMod n) :=
+fun n D => SimpleGraph.circulantGraph {s | s.val.gcd n ∈ D}
+def SimpleGraph.circulantGraph.{u_1} : {G : Type u_1} → [AddGroup G] → Set G → SimpleGraph G :=
+fun {G} [AddGroup G] s => SimpleGraph.fromRel fun x1 x2 => x1 - x2 ∈ s
+ICGBridge.fin_sub_val_eq_emod : ∀ (n : ℕ) (i j : Fin n), ↑↑(j - i) = (↑↑j - ↑↑i) % ↑n
+'ICGBridge.roldan_q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGBridge.roldan_q3_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGBridge.energy_Dstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGBridge.energy_icgAdj_eq_exactEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0

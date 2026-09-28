@@ -1,0 +1,433 @@
+{
+  "schema_version": 1,
+  "prepared_utc": "2026-09-27T23:59:32Z",
+  "scope": "full frozen v2: A, B, C, P and Corollary",
+  "challenge_sha256": "0d88e7321e0f0931f953ea250f2c5dc1d6d5773cd8f78e3080e0d6eeceb13ee1",
+  "challenge_tests_sha256": "b8d816e3a3683edec8bab3a497728bc1063ad68fe89c0864fe12c4b7cc9154bf",
+  "supplement_challenge_sha256": "afd751c0df8ba036995314a0efd7a5b60d6b333ab9958111a879724d81fc9175",
+  "modules": [
+    "Research.AxialMSZ.Challenge",
+    "Research.AxialMSZ.ChallengeTests",
+    "Research.AxialMSZ.SupplementDChallenge",
+    "Research.AxialMSZ.Proof.Laws",
+    "Research.AxialMSZ.Proof.ExP",
+    "Research.AxialMSZ.Proof.PConsequence",
+    "Research.AxialMSZ.Proof.SimpleIndecomposable",
+    "Research.AxialMSZ.Proof.ExSBase",
+    "Research.AxialMSZ.Proof.ExSSimple",
+    "Research.AxialMSZ.Proof.ExSGraph",
+    "Research.AxialMSZ.Proof.ExSDecomp",
+    "Research.AxialMSZ.Proof.ExS",
+    "Research.AxialMSZ.Proof.ExEBase",
+    "Research.AxialMSZ.Proof.ExEBlocks",
+    "Research.AxialMSZ.Proof.ExEGraph",
+    "Research.AxialMSZ.Proof.ExE",
+    "Research.AxialMSZ.Proof.ExDBase",
+    "Research.AxialMSZ.Proof.ExDBlock",
+    "Research.AxialMSZ.Proof.ExDFrobenius",
+    "Research.AxialMSZ.Proof.ExD",
+    "Research.AxialMSZ.Proof.ExDSupplement",
+    "Research.AxialMSZ.Proof.Corollary",
+    "Research.AxialMSZ.Proof.SFourNegations",
+    "Research.AxialMSZ.Check",
+    "Research.AxialMSZ.Audit"
+  ],
+  "source_sha256": {
+    "Research/AxialMSZ/Audit.lean": "3cc1e3e0411a69b3b9617df56cbc4939b3f266fffef4239fe2d579b1e759f996",
+    "Research/AxialMSZ/Challenge.lean": "0d88e7321e0f0931f953ea250f2c5dc1d6d5773cd8f78e3080e0d6eeceb13ee1",
+    "Research/AxialMSZ/ChallengeTests.lean": "b8d816e3a3683edec8bab3a497728bc1063ad68fe89c0864fe12c4b7cc9154bf",
+    "Research/AxialMSZ/Check.lean": "eb065e52290601c8e2ab84216f66a3637c4b979207c59af26569326c17053ddb",
+    "Research/AxialMSZ/Proof/Corollary.lean": "9c2c21b517c37354c562af013f855a17492dbd27947383f04652a9a1d658c8dd",
+    "Research/AxialMSZ/Proof/ExD.lean": "7db1f3c0f70ee9cd2e2d00cac1deaceebd2fe26585db14b42fd8f589a0267600",
+    "Research/AxialMSZ/Proof/ExDBase.lean": "8395e75327c2c069bb9c73a3f9b93c569e19657b5bfd8fdcf3554b99fd332c0f",
+    "Research/AxialMSZ/Proof/ExDBlock.lean": "27de25b8888bfab5a0db113ffdac3c6be3f2ec5568675617a26d86fef0634b53",
+    "Research/AxialMSZ/Proof/ExDFrobenius.lean": "370cc36208cb6b25f54f7016f75d75f5ac878b7c589fe855ec35d5026d0cd9e7",
+    "Research/AxialMSZ/Proof/ExDSupplement.lean": "a84190c27b28c0caafc0db8f160f7c951a4301c85f2094f8e3d97d22b87c7717",
+    "Research/AxialMSZ/Proof/ExE.lean": "18071106e8b0f5a12944ee94735df951be4c73c439815052ea56a2f893c5aef5",
+    "Research/AxialMSZ/Proof/ExEBase.lean": "58c74669030fff13cce9e012499fe2b8a811b21deed4822c6df37f43a517a36d",
+    "Research/AxialMSZ/Proof/ExEBlocks.lean": "24b96be0775f1d70d4031cd82e4c65f715af4c71d69185a88bd5b65a906403c7",
+    "Research/AxialMSZ/Proof/ExEGraph.lean": "b682a8abf05997789d0ebf2080dd1ed813457b7e9126fcd37fb3cda337dce449",
+    "Research/AxialMSZ/Proof/ExP.lean": "37d48cc7e7d1ebdd54f8efde97392c7e0f2f804765c856ce6099715637d250b3",
+    "Research/AxialMSZ/Proof/ExS.lean": "f3b2d933cebfe6b4aeaa2920614a6958e60cf0bdbc10f307bb2c23328c82f2aa",
+    "Research/AxialMSZ/Proof/ExSBase.lean": "f8f211e9e400d03406f05c15a6e4859926abfcf9b0d015f90f14d7d79fee99b3",
+    "Research/AxialMSZ/Proof/ExSDecomp.lean": "499a246faf845fc1cebd3e48ddb62beb5ebf609218c43668f577e2ecfa0862f3",
+    "Research/AxialMSZ/Proof/ExSGraph.lean": "e9a4c355073d1ba54fc6b75d430f7c24b63f0bdbba52b36053d14a31699dc39e",
+    "Research/AxialMSZ/Proof/ExSSimple.lean": "fc971b74764a730e41adfae58f92dccabfaa15c5286e09430f7c7f55e1164abb",
+    "Research/AxialMSZ/Proof/Laws.lean": "d5b63d8801243b1638ebb55ce4f322b7500529f1034d3288747c64cbb5a71e7b",
+    "Research/AxialMSZ/Proof/PConsequence.lean": "89d340798b51d7679126cfd99853e1511c0a79ffb961567a31549c0ce8fa1ae0",
+    "Research/AxialMSZ/Proof/SFourNegations.lean": "6ec3e0b6da0e3a9fc9fe942258d14c2fa18ada646aea03a9560ad82536e97f91",
+    "Research/AxialMSZ/Proof/SimpleIndecomposable.lean": "e97860ff0f0cafd0d8fa6fc2c43d1fd4ce137448678d4ac152f1fcdfef1a69c7",
+    "Research/AxialMSZ/SupplementDChallenge.lean": "afd751c0df8ba036995314a0efd7a5b60d6b333ab9958111a879724d81fc9175"
+  },
+  "proof_migration": {
+    "Research/AxialMSZ/Proof/Laws.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/Laws.lean",
+      "source_sha256": "d5b63d8801243b1638ebb55ce4f322b7500529f1034d3288747c64cbb5a71e7b",
+      "delivered_sha256": "d5b63d8801243b1638ebb55ce4f322b7500529f1034d3288747c64cbb5a71e7b",
+      "import_replacements": [],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExP.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExP.lean",
+      "source_sha256": "37d48cc7e7d1ebdd54f8efde97392c7e0f2f804765c856ce6099715637d250b3",
+      "delivered_sha256": "37d48cc7e7d1ebdd54f8efde97392c7e0f2f804765c856ce6099715637d250b3",
+      "import_replacements": [],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/PConsequence.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/PConsequence.lean",
+      "source_sha256": "37c87d91200b43733768240f01ce743668a5611c158e92549deaf9b7cb651e05",
+      "delivered_sha256": "89d340798b51d7679126cfd99853e1511c0a79ffb961567a31549c0ce8fa1ae0",
+      "import_replacements": [
+        [
+          "import Laws",
+          "import Research.AxialMSZ.Proof.Laws"
+        ],
+        [
+          "import ExP",
+          "import Research.AxialMSZ.Proof.ExP"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/SimpleIndecomposable.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/SimpleIndecomposable.lean",
+      "source_sha256": "e97860ff0f0cafd0d8fa6fc2c43d1fd4ce137448678d4ac152f1fcdfef1a69c7",
+      "delivered_sha256": "e97860ff0f0cafd0d8fa6fc2c43d1fd4ce137448678d4ac152f1fcdfef1a69c7",
+      "import_replacements": [],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExSBase.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExSBase.lean",
+      "source_sha256": "d1b72f4b8384eb6421752512172933eeeceae36671fc58af19132a9358d1de12",
+      "delivered_sha256": "f8f211e9e400d03406f05c15a6e4859926abfcf9b0d015f90f14d7d79fee99b3",
+      "import_replacements": [
+        [
+          "import ExP",
+          "import Research.AxialMSZ.Proof.ExP"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExSSimple.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExSSimple.lean",
+      "source_sha256": "dd92183295bc22cda58e47d914ac97c43c06c01b601bc1fc4a4b6d41fe0e40b0",
+      "delivered_sha256": "fc971b74764a730e41adfae58f92dccabfaa15c5286e09430f7c7f55e1164abb",
+      "import_replacements": [
+        [
+          "import ExSBase",
+          "import Research.AxialMSZ.Proof.ExSBase"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExSGraph.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExSGraph.lean",
+      "source_sha256": "ec573f322e5d0c242e3df1dd424d470c9b46b2e920ef56019bba4a5e57c59eb5",
+      "delivered_sha256": "e9a4c355073d1ba54fc6b75d430f7c24b63f0bdbba52b36053d14a31699dc39e",
+      "import_replacements": [
+        [
+          "import ExSSimple",
+          "import Research.AxialMSZ.Proof.ExSSimple"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExSDecomp.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExSDecomp.lean",
+      "source_sha256": "1acd51d3c4271c6bc3f945434083c85b451de648bdb429ab86e9677ef0337464",
+      "delivered_sha256": "499a246faf845fc1cebd3e48ddb62beb5ebf609218c43668f577e2ecfa0862f3",
+      "import_replacements": [
+        [
+          "import ExSBase",
+          "import Research.AxialMSZ.Proof.ExSBase"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExS.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExS.lean",
+      "source_sha256": "d944ff6f158df27ba87f9b7d60e4cd1ecbdb1a4ebf14739e2cdece36f34e0aef",
+      "delivered_sha256": "f3b2d933cebfe6b4aeaa2920614a6958e60cf0bdbc10f307bb2c23328c82f2aa",
+      "import_replacements": [
+        [
+          "import Laws",
+          "import Research.AxialMSZ.Proof.Laws"
+        ],
+        [
+          "import ExSGraph",
+          "import Research.AxialMSZ.Proof.ExSGraph"
+        ],
+        [
+          "import ExSDecomp",
+          "import Research.AxialMSZ.Proof.ExSDecomp"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExEBase.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExEBase.lean",
+      "source_sha256": "0f7096e825364780dd7ef618d228d97c15ba5cea828979ea268615c9ea770092",
+      "delivered_sha256": "58c74669030fff13cce9e012499fe2b8a811b21deed4822c6df37f43a517a36d",
+      "import_replacements": [
+        [
+          "import ExSBase",
+          "import Research.AxialMSZ.Proof.ExSBase"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExEBlocks.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExEBlocks.lean",
+      "source_sha256": "4ec3e42e666f5ddaa4e6d68115658921fab55cf4cbeb241cd5d1be8e51004964",
+      "delivered_sha256": "24b96be0775f1d70d4031cd82e4c65f715af4c71d69185a88bd5b65a906403c7",
+      "import_replacements": [
+        [
+          "import ExEBase",
+          "import Research.AxialMSZ.Proof.ExEBase"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExEGraph.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExEGraph.lean",
+      "source_sha256": "fbad21d9a46ec6af7203a6f3cd1b960b1c0c2dafcaea9fcc47bcec7b4b8900d1",
+      "delivered_sha256": "b682a8abf05997789d0ebf2080dd1ed813457b7e9126fcd37fb3cda337dce449",
+      "import_replacements": [
+        [
+          "import ExEBlocks",
+          "import Research.AxialMSZ.Proof.ExEBlocks"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExE.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExE.lean",
+      "source_sha256": "7aeae6323c6d6695292325140a11154268459591abdd02705437c35d4bb4441f",
+      "delivered_sha256": "18071106e8b0f5a12944ee94735df951be4c73c439815052ea56a2f893c5aef5",
+      "import_replacements": [
+        [
+          "import ExEGraph",
+          "import Research.AxialMSZ.Proof.ExEGraph"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExDBase.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExDBase.lean",
+      "source_sha256": "a55166f6875e0a89d486349135589292b479967a62d97171da469aea7d4e7a01",
+      "delivered_sha256": "8395e75327c2c069bb9c73a3f9b93c569e19657b5bfd8fdcf3554b99fd332c0f",
+      "import_replacements": [
+        [
+          "import ExSBase",
+          "import Research.AxialMSZ.Proof.ExSBase"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExDBlock.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExDBlock.lean",
+      "source_sha256": "a74a64f47175f6d0a252d74d49a405dfcd8d15fba4feadafc4b3bd597aeae821",
+      "delivered_sha256": "27de25b8888bfab5a0db113ffdac3c6be3f2ec5568675617a26d86fef0634b53",
+      "import_replacements": [
+        [
+          "import ExDBase",
+          "import Research.AxialMSZ.Proof.ExDBase"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExDFrobenius.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExDFrobenius.lean",
+      "source_sha256": "54a7934c697638c3846c79212c4c36db91b144a6d64850c1dbcc04f0f80ec12c",
+      "delivered_sha256": "370cc36208cb6b25f54f7016f75d75f5ac878b7c589fe855ec35d5026d0cd9e7",
+      "import_replacements": [
+        [
+          "import ExDBase",
+          "import Research.AxialMSZ.Proof.ExDBase"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExD.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExD.lean",
+      "source_sha256": "ee3d41b9e5544b377c1e01cb530dfd66768a8db743f77c848d737d5d543a9162",
+      "delivered_sha256": "7db1f3c0f70ee9cd2e2d00cac1deaceebd2fe26585db14b42fd8f589a0267600",
+      "import_replacements": [
+        [
+          "import ExDBlock",
+          "import Research.AxialMSZ.Proof.ExDBlock"
+        ],
+        [
+          "import ExDFrobenius",
+          "import Research.AxialMSZ.Proof.ExDFrobenius"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/ExDSupplement.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/ExDSupplement.lean",
+      "source_sha256": "d249e7919622024ddea30ba4278f6ce35f12f0d54e1d408499f16afabce588c3",
+      "delivered_sha256": "a84190c27b28c0caafc0db8f160f7c951a4301c85f2094f8e3d97d22b87c7717",
+      "import_replacements": [
+        [
+          "import ExDBlock",
+          "import Research.AxialMSZ.Proof.ExDBlock"
+        ],
+        [
+          "import SupplementDChallenge",
+          "import Research.AxialMSZ.SupplementDChallenge"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/Corollary.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/Corollary.lean",
+      "source_sha256": "63651996b876d64b17bb288b5d699edac6ec8af71bc4b602ce7ec5319a26e7ec",
+      "delivered_sha256": "9c2c21b517c37354c562af013f855a17492dbd27947383f04652a9a1d658c8dd",
+      "import_replacements": [
+        [
+          "import SimpleIndecomposable",
+          "import Research.AxialMSZ.Proof.SimpleIndecomposable"
+        ],
+        [
+          "import ExS",
+          "import Research.AxialMSZ.Proof.ExS"
+        ],
+        [
+          "import ExE",
+          "import Research.AxialMSZ.Proof.ExE"
+        ],
+        [
+          "import ExD",
+          "import Research.AxialMSZ.Proof.ExD"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    },
+    "Research/AxialMSZ/Proof/SFourNegations.lean": {
+      "source": "<project>/work/codex-r3/phase12/axial/SFourNegations.lean",
+      "source_sha256": "c25e6214cca4cf0635f67a30347a56d50a392d652cf1d9fdc1ec3435a99b5930",
+      "delivered_sha256": "6ec3e0b6da0e3a9fc9fe942258d14c2fa18ada646aea03a9560ad82536e97f91",
+      "import_replacements": [
+        [
+          "import SimpleIndecomposable",
+          "import Research.AxialMSZ.Proof.SimpleIndecomposable"
+        ],
+        [
+          "import ExS",
+          "import Research.AxialMSZ.Proof.ExS"
+        ]
+      ],
+      "inverse_byte_comparison": "PASS"
+    }
+  },
+  "expected_axiom_declarations": [
+    "AxialMSZ.Check.check_Laws_facts",
+    "AxialMSZ.Check.check_ExS_Statement",
+    "AxialMSZ.Check.check_ExE_Statement",
+    "AxialMSZ.Check.check_ExD_Statement",
+    "AxialMSZ.Check.check_ExP_Statement",
+    "AxialMSZ.Check.check_TheoremA",
+    "AxialMSZ.Check.check_TheoremB",
+    "AxialMSZ.Check.check_TheoremC",
+    "AxialMSZ.Check.check_RemarkP",
+    "AxialMSZ.Check.check_Corollary",
+    "AxialMSZ.Check.check_not_MS_Conjecture_3_16",
+    "AxialMSZ.Check.check_not_FinestSumDecomposition_connected",
+    "AxialMSZ.Check.check_not_Indecomposable_connected",
+    "AxialMSZ.Check.check_not_Simple_connected",
+    "AxialMSZ.Check.check_Dominance_nonsymmetric",
+    "AxialMSZ.Check.check_ExD_axes_in_block",
+    "AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes"
+  ],
+  "goals": [
+    {
+      "check": "AxialMSZ.Check.check_Laws_facts",
+      "frozen_target": "Laws_facts",
+      "proof": "CodexAxial.check_Laws_facts"
+    },
+    {
+      "check": "AxialMSZ.Check.check_ExS_Statement",
+      "frozen_target": "ExS.Statement",
+      "proof": "CodexAxial.check_ExS_Statement"
+    },
+    {
+      "check": "AxialMSZ.Check.check_ExE_Statement",
+      "frozen_target": "ExE.Statement",
+      "proof": "CodexAxial.check_ExE_Statement"
+    },
+    {
+      "check": "AxialMSZ.Check.check_ExD_Statement",
+      "frozen_target": "ExD.Statement",
+      "proof": "CodexAxial.check_ExD_Statement"
+    },
+    {
+      "check": "AxialMSZ.Check.check_ExP_Statement",
+      "frozen_target": "ExP.Statement",
+      "proof": "CodexAxial.check_ExP_Statement"
+    },
+    {
+      "check": "AxialMSZ.Check.check_TheoremA",
+      "frozen_target": "TheoremA",
+      "proof": "CodexAxial.check_TheoremA"
+    },
+    {
+      "check": "AxialMSZ.Check.check_TheoremB",
+      "frozen_target": "TheoremB",
+      "proof": "CodexAxial.check_TheoremB"
+    },
+    {
+      "check": "AxialMSZ.Check.check_TheoremC",
+      "frozen_target": "TheoremC",
+      "proof": "CodexAxial.check_TheoremC"
+    },
+    {
+      "check": "AxialMSZ.Check.check_RemarkP",
+      "frozen_target": "RemarkP",
+      "proof": "CodexAxial.check_RemarkP"
+    },
+    {
+      "check": "AxialMSZ.Check.check_Corollary",
+      "frozen_target": "Corollary",
+      "proof": "CodexAxial.check_Corollary"
+    },
+    {
+      "check": "AxialMSZ.Check.check_not_MS_Conjecture_3_16",
+      "frozen_target": "¬ MS_Conjecture_3_16",
+      "proof": "CodexAxial.FromS.check_not_MS_Conjecture_3_16"
+    },
+    {
+      "check": "AxialMSZ.Check.check_not_FinestSumDecomposition_connected",
+      "frozen_target": "¬ FinestSumDecomposition_connected",
+      "proof": "CodexAxial.FromS.check_not_FinestSumDecomposition_connected"
+    },
+    {
+      "check": "AxialMSZ.Check.check_not_Indecomposable_connected",
+      "frozen_target": "¬ Indecomposable_connected",
+      "proof": "CodexAxial.FromS.check_not_Indecomposable_connected"
+    },
+    {
+      "check": "AxialMSZ.Check.check_not_Simple_connected",
+      "frozen_target": "¬ Simple_connected",
+      "proof": "CodexAxial.FromS.check_not_Simple_connected"
+    },
+    {
+      "check": "AxialMSZ.Check.check_Dominance_nonsymmetric",
+      "frozen_target": "Dominance_nonsymmetric",
+      "proof": "CodexAxial.FromP.check_Dominance_nonsymmetric"
+    },
+    {
+      "check": "AxialMSZ.Check.check_ExD_axes_in_block",
+      "frozen_target": "Supplement:ExD_axes_in_block",
+      "proof": "CodexAxial.check_ExD_axes_in_block"
+    },
+    {
+      "check": "AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes",
+      "frozen_target": "Supplement:ExD_block_not_axial_on_contained_axes",
+      "proof": "CodexAxial.check_ExD_block_not_axial_on_contained_axes"
+    }
+  ],
+  "generator_sha256": "1cc0aae355c3c630a39cd7c46cc7ba3bf16a00ffe31d4501b71e8eac7671d828",
+  "acceptance_authority": "receipt.json"
+}

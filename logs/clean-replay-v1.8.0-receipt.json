@@ -1,0 +1,238 @@
+{
+  "purpose": "Clean-directory rebuild of the whole Lean tree for v1.8.0: the v1.7.1 sources plus the axial-algebra package lean/Research/AxialMSZ/ (25 files) and a comment fix in Research/Carenini.lean; same toolchain and Mathlib as v1.7.1",
+  "start_utc": "2026-09-28T00:25:31Z",
+  "end_utc": "2026-09-28T01:05:03Z",
+  "exit_code": 0,
+  "result": "PASS",
+  "toolchain": "leanprover/lean4:v4.34.1 (commit 5045d0056413266e57c625dcd7c365b10e377c52)",
+  "toolchain_bin": "<project>/work/toolchains/lean-4.34.1-darwin_aarch64/bin",
+  "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "previous": "v1.7.1: same toolchain and Mathlib (logs/clean-replay-v1.7.1-receipt.json)",
+  "procedure": [
+    "Same procedure as logs/clean-replay-v1.7.1-receipt.json: fresh directory, only sources and configuration copied from the release tree lean/ (Research.lean, Research/**/*.lean, lakefile.toml, lake-manifest.json, lean-toolchain: 91 files, the same file list as lean/), shared Lake package cache for Mathlib and its dependencies at the pinned revisions (.lake/packages is a symlink to <project>/work/research-lean-v434/.lake/packages, as in v1.7.1; every package HEAD equal to lake-manifest.json, no tracked changes), fresh .lake/build (absent before the first build). No download.",
+    "Environment for every Lake and Lean run: PATH starts with the toolchain bin; LEAN_NUM_THREADS=2 (as in v1.7.1); LAKE_NO_CACHE=true, LAKE_ARTIFACT_CACHE=false, LAKE_RESTORE_ARTIFACTS=false (added for v1.8.0: no cache download and no reuse of cached build artifacts, so every module of this project is compiled from source).",
+    "Before any build, a read-only check that the shared Mathlib artifacts are up to date: `lake --no-build build +Research.AxialMSZ.Challenge:deps +Research.CirculantQ3:deps` (Research.AxialMSZ.Challenge imports all of Mathlib): \"All targets up-to-date (8925 jobs).\", exit 0 (log: clean-replay-v1.8.0-deps-guard.log).",
+    "Research.CirculantQ3 (about 19-28 GB; here 19.0 GB to build and 21.4 GB for leanchecker) built alone first, holding both Lean lock slots: `/usr/bin/time -l lake build Research.CirculantQ3` (log: clean-replay-v1.8.0-build-circulantq3.log); its leanchecker run also held both slots.",
+    "`/usr/bin/time -l lake build` (default target Research, which now imports Research.AxialMSZ.Check) (log: clean-replay-v1.8.0-build.log): 8999 jobs, exit 0; 74 modules compiled, CirculantQ3 replayed from the first step, no Mathlib module rebuilt.",
+    "`/usr/bin/time -l lake build` of the 13 modules that Research.lean does not import: the eleven audit modules of v1.7.1, Research.AxialMSZ.Audit and Research.AxialMSZ.ChallengeTests (log: clean-replay-v1.8.0-build-audit-modules.log): exit 0.",
+    "Twelve audit files run with `lake env lean --threads=2 Research/<File>.lean` (logs: clean-replay-v1.8.0-audit-*.log; also once more with --json for the axiom audit): the eleven of v1.7.1 and the new Research/AxialMSZ/Audit.lean (log: clean-replay-v1.8.0-audit-axial-msz.log). The eleven old outputs are compared with logs/clean-replay-v1.7.1-audit-*.log line by line. --threads=2 only limits the worker threads of lean; v1.7.1 ran the same command without it.",
+    "`lake env leanchecker <Module>` for every module, one module per run (log: clean-replay-v1.8.0-leanchecker.log): CirculantQ3 under both lock slots, then the other 86 modules two at a time: the other 50 proof modules of v1.7.1, the 11 audit modules of v1.7.1 and all 25 axial modules (Check and the 22 modules it imports, all reached from Research.lean, plus Audit and ChallengeTests). The root module Research is not passed to leanchecker, which would read it as a module-name prefix and check everything at once; it defines no constants.",
+    "Axiom audit (log: clean-replay-v1.8.0-axiom-audit.log): every `#print axioms` output of the build logs and the audit files, position-matched to the `#print axioms` commands in the 88 .lean files, as in v1.7.1; the one command of Research.AxialMSZ.ChallengeTests (not imported by Research.lean, not an audit file) is taken from its section of the audit-module build log.",
+    "Forbidden-token scan of the 88 .lean files (log: clean-replay-v1.8.0-forbidden-tokens.log).",
+    "`shasum -a 256` of sources and configuration (lean-sources-sha256.txt, 91 files, same format and order as the v1.7.1 manifest), checked in the replay directory and against the release tree lean/ folder.",
+    "LEAN_NUM_THREADS=2 for every run: Lake ran at most two build jobs at a time (Lake 5.0 has no -j option; LEAN_NUM_THREADS is what limits its job count) and leanchecker at most two worker threads per run (two runs at a time); direct `lean` calls used --threads=2. The `lean` processes that Lake starts do not read LEAN_NUM_THREADS and use their default thread pool (lakefile.toml, which could pass -j, was not changed), so `lake build` exceeds four cores at its peaks; see \"cpu\"."
+  ],
+  "source_manifest": "logs/lean-sources-sha256.txt (written to <project>/work/release-v180/lean-sources-sha256.txt)",
+  "source_manifest_sha256": "2720393ee90c53c39f40cc92be78443d200833bee9d347ef47a8d9fed0a15f99",
+  "trusted_cache": "Shared Lake package cache for Mathlib and its dependencies at the pinned revisions (Mathlib .olean files from `lake exe cache get`, not rebuilt). No build output of this project was copied.",
+  "replay_directory": "<project>/work/release-v180/replay/run-20260928T002238Z/lean",
+  "packages_check": {
+    "source_files": 91,
+    "same_file_list_as_release_lean": true,
+    "build_dir_absent_before": true,
+    "packages_at_manifest_revision": 9,
+    "packages": 9,
+    "packages_with_tracked_changes": 0
+  },
+  "deps_guard": {
+    "result": "All targets up-to-date (8925 jobs).",
+    "exit_code": 0,
+    "real_seconds": 7.7
+  },
+  "build": {
+    "jobs": 8999,
+    "real_seconds": 344.09,
+    "max_rss_bytes": 12749635584,
+    "exit_code": 0,
+    "modules_compiled": 74,
+    "modules_compiled_axial": 23,
+    "replayed": [
+      "Research.CirculantQ3"
+    ],
+    "non_research_jobs_built": [],
+    "warnings": 258,
+    "errors": 0
+  },
+  "build_circulantq3_alone": {
+    "real_seconds": 898.56,
+    "max_rss_bytes": 18962137088,
+    "exit_code": 0,
+    "jobs": 8924
+  },
+  "build_audit_modules": {
+    "jobs": 8992,
+    "real_seconds": 37.15,
+    "max_rss_bytes": 6669467648,
+    "exit_code": 0,
+    "modules_compiled": [
+      "Research.AxialMSZ.Audit",
+      "Research.AxialMSZ.ChallengeTests",
+      "Research.CareniniAudit",
+      "Research.HKOTriameterAudit",
+      "Research.ICGBridgeAudit",
+      "Research.ICGEqualParityBAudit",
+      "Research.ICGEqualParityBCertAudit",
+      "Research.ICGGeneralAudit",
+      "Research.RM714WeightsAudit",
+      "Research.SwitchingDiam4CubicAudit",
+      "Research.SwitchingRowCountAudit",
+      "Research.SwitchingThmHAudit",
+      "Research.SwitchingWalkProfileAudit"
+    ]
+  },
+  "audit_files": {
+    "count": 12,
+    "exit_0": 12,
+    "old_eleven_identical_to_v1.7.1": 11,
+    "comparison": "every line after the first (the start time) is identical to logs/clean-replay-v1.7.1-audit-<name>.log, including the exit line",
+    "differences": {},
+    "new": {
+      "axial-msz": {
+        "file": "Research/AxialMSZ/Audit.lean",
+        "exit_code": 0,
+        "lines": 725,
+        "axiom_lines": 0
+      }
+    },
+    "json_runs_without_error_messages": 12
+  },
+  "axiom_audit": {
+    "build_log_axiom_lines": 173,
+    "build_log_no_axiom_lines": 1,
+    "audit_files_axiom_lines": 392,
+    "challenge_tests_axiom_lines": 1,
+    "nonstandard": 0,
+    "print_axioms_commands_matched": 567,
+    "print_axioms_commands": 567,
+    "distinct_declarations": 516,
+    "missing": 0,
+    "duplicates": 0,
+    "unexpected": 0,
+    "name_mismatch": 0,
+    "unparsed": 0,
+    "axiom_sets": {
+      "{Classical.choice, Quot.sound, propext}": 563,
+      "{}": 1,
+      "{Quot.sound, propext}": 3
+    },
+    "axiom_sets_by_part": {
+      "v1.7.1 modules": {
+        "{Classical.choice, Quot.sound, propext}": 118,
+        "{}": 1,
+        "{Quot.sound, propext}": 1
+      },
+      "axial": {
+        "{Classical.choice, Quot.sound, propext}": 55
+      },
+      "v1.7.1 modules (audit files)": {
+        "{Classical.choice, Quot.sound, propext}": 390,
+        "{Quot.sound, propext}": 2
+      }
+    },
+    "axial_check_declarations": {
+      "expected": 17,
+      "present_once_with_standard_axioms": 17,
+      "where": "Research/AxialMSZ/Check.lean (lake build log)",
+      "occurrences_in_build_log_text": [
+        1
+      ]
+    },
+    "note": "Every printed axiom list is a subset of {propext, Classical.choice, Quot.sound}; Carenini.H3_bipartite depends on no axioms. The v1.7.1 part is unchanged (119 + 1 lines in the build log, 392 in the eleven old audit logs, the same 512 commands). New: 55 commands in the axial files (35 in Proof/, 2 in SupplementDChallenge, 17 in Check, printed in the build log, and 1 in ChallengeTests, printed in the audit-module build log), all with {propext, Classical.choice, Quot.sound}; the axial Audit.lean prints no axioms.",
+    "log": "logs/clean-replay-v1.8.0-axiom-audit.log"
+  },
+  "leanchecker": {
+    "command": "lake env leanchecker <Module>",
+    "modules_ok": 87,
+    "failures": 0,
+    "modules": "51 proof modules of v1.7.1 (CirculantQ3 under both lock slots), 11 audit modules of v1.7.1, 25 axial modules",
+    "axial_modules_ok": 25,
+    "axial_modules": 25,
+    "root_module_constants": 0,
+    "modules_with_zero_constants": [
+      "Research.AxialMSZ.Audit",
+      "Research.CareniniAudit",
+      "Research.HKOTriameterAudit",
+      "Research.ICGBridgeAudit",
+      "Research.ICGEqualParityBAudit",
+      "Research.ICGEqualParityBCertAudit",
+      "Research.ICGGeneralAudit",
+      "Research.RM714WeightsAudit",
+      "Research.SubstSemanticsCheck",
+      "Research.SwitchingDiam4CubicAudit",
+      "Research.SwitchingRowCountAudit",
+      "Research.SwitchingThmHAudit",
+      "Research.SwitchingWalkProfileAudit"
+    ],
+    "circulantq3": {
+      "real_seconds": 452.72,
+      "max_rss_bytes": 21372043264
+    },
+    "log": "logs/clean-replay-v1.8.0-leanchecker.log"
+  },
+  "forbidden_tokens": {
+    "files": 88,
+    "code_hits": 0,
+    "comment_hits": 3,
+    "string_hits": 0,
+    "axiom_declaration_lines": 0,
+    "log": "logs/clean-replay-v1.8.0-forbidden-tokens.log"
+  },
+  "source_check": {
+    "replay_directory_ok": 91,
+    "release_tree_lean_folder_ok": 91,
+    "of": 91,
+    "manifest_lists_every_file_of_release_lean": true,
+    "axial_files_equal_to_package_manifest": "25 of 25",
+    "challenge_sha256": "0d88e7321e0f0931f953ea250f2c5dc1d6d5773cd8f78e3080e0d6eeceb13ee1",
+    "versus_v1.7.1_manifest": {
+      "unchanged": 64,
+      "changed": [
+        "Research.lean",
+        "Research/Carenini.lean"
+      ],
+      "removed": [],
+      "added": 25
+    }
+  },
+  "changes": {
+    "summary": "New: lean/Research/AxialMSZ/ (25 files: Challenge.lean, SupplementDChallenge.lean, ChallengeTests.lean, Check.lean, Audit.lean and 20 modules in Proof/), byte-identical to the SHA-256 list in <project>/work/codex-r3/release-axial/package-manifest.json. Changed: Research.lean (adds `import Research.AxialMSZ.Check`), Research/Carenini.lean (line 573, doc comment: \"distance 3\" -> \"distance 4\"; no code change). The other 64 files are byte-identical to v1.7.1."
+  },
+  "cpu": {
+    "build_circulantq3": {
+      "average_cores": 0.68
+    },
+    "leanchecker_circulantq3": {
+      "average_cores": 0.87
+    },
+    "phase1_samples": {
+      "max_sampled_percent": 207,
+      "mean_sampled_percent": 74,
+      "samples": 268
+    },
+    "lake_build": {
+      "average_cores": 4.08,
+      "max_sampled_percent": 1518,
+      "mean_sampled_percent": 369,
+      "samples": 69
+    },
+    "build_audit_modules": {
+      "average_cores": 2.06,
+      "max_sampled_percent": 198,
+      "mean_sampled_percent": 190,
+      "samples": 7
+    },
+    "audit_files": {
+      "max_sampled_percent": 114,
+      "mean_sampled_percent": 85,
+      "samples": 23
+    },
+    "leanchecker_86_modules": {
+      "max_sampled_percent": 199,
+      "mean_sampled_percent": 180,
+      "samples": 97
+    },
+    "note": "ps %CPU is a decaying average; 100 = one core. Limit asked for: at most 4 cores where controllable. Within 4 cores on average in every step except `lake build` (4.08 cores on average, about 15 at its sampled peak), where the lean processes started by Lake use their default thread pool; every other step stayed at or below about 2 cores in the samples."
+  },
+  "locks": "Taken and released only with <project>/work/tools/leanlock.sh (owner claude-agent/v1.8.0-replay): slots A and B together for the deps check, the CirculantQ3 build and its leanchecker (2026-09-28T00:25:31Z to 2026-09-28T00:48:10Z), one slot for the rest (2026-09-28T00:48:28Z to 2026-09-28T01:05:03Z); 1 wait(s) of 150 s for a busy slot (slot A held by another agent at the start); releases logged: A B A.",
+  "notes": "Written from the logs listed above; paths are logical names. Max RSS values are those of the largest single process. Raw files: <project>/work/release-v180/raw/. The machine was under memory pressure during the replay (sysctl vm.swapusage: used = 29420.50M at 00:37Z and 27449.25M at 00:54Z; other applications, among them an Xcode build with watchOS simulators, were running), so CirculantQ3 took 899 s to build instead of 527 s in v1.7.1; this does not affect the results."
+}

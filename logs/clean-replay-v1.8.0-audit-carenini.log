@@ -1,0 +1,109 @@
+2026-09-28T00:54:57Z
+def Carenini.edgesIn.{u_1} : {V : Type u_1} →
+  [Fintype V] → [DecidableEq V] → (G : SimpleGraph V) → [DecidableRel G.Adj] → Finset V → ℕ :=
+fun {V} [Fintype V] [DecidableEq V] G [DecidableRel G.Adj] A => {x ∈ G.edgeFinset | x ∈ A.sym2}.card
+def Carenini.iCount.{u_1} : {V : Type u_1} →
+  [Fintype V] → [DecidableEq V] → (G : SimpleGraph V) → [DecidableRel G.Adj] → ℕ → ℕ :=
+fun {V} [Fintype V] [DecidableEq V] G [DecidableRel G.Adj] t => {A | Carenini.edgesIn G A ≤ t}.card
+def Carenini.iGamma.{u_1} : {V : Type u_1} →
+  [Fintype V] → [DecidableEq V] → (G : SimpleGraph V) → [DecidableRel G.Adj] → ℕ → ℝ → ℕ :=
+fun {V} [Fintype V] [DecidableEq V] G [DecidableRel G.Adj] d γ =>
+  {A | ↑(Carenini.edgesIn G A) ≤ γ * ↑d * ↑(Fintype.card V)}.card
+def Carenini.KddUnion : (m d : ℕ) → SimpleGraph (Fin m × (Fin d ⊕ Fin d)) :=
+fun m d =>
+  { Adj := fun x y => x.1 = y.1 ∧ (completeBipartiteGraph (Fin d) (Fin d)).Adj x.2 y.2, symm := ⋯, loopless := ⋯ }
+def Carenini.CareniniQuestion : ℕ → ℕ → ℝ → Prop :=
+fun n d γ =>
+  ∀ (V : Type) [inst : Fintype V] [inst_1 : DecidableEq V] (G : SimpleGraph V) [inst_2 : DecidableRel G.Adj],
+    Fintype.card V = n →
+      G.IsRegularOfDegree d → Carenini.iGamma G d γ ≤ Carenini.iGamma (Carenini.KddUnion (n / (2 * d)) d) d γ
+def Carenini.K33 : SimpleGraph (Fin 6) :=
+{ Adj := fun i j => ↑i < 3 ∧ 3 ≤ ↑j ∨ 3 ≤ ↑i ∧ ↑j < 3, symm := Carenini.K33._proof_3,
+  loopless := Carenini.K33._proof_4 }
+def Carenini.prism : SimpleGraph (Fin 6) :=
+{ Adj := fun i j => i ≠ j ∧ ((↑i < 3 ↔ ↑j < 3) ∨ ↑i % 3 = ↑j % 3), symm := Carenini.prism._proof_1,
+  loopless := Carenini.prism._proof_2 }
+def Carenini.swAdj : {d : ℕ} → Fin d ⊕ Fin d → Fin d ⊕ Fin d → Prop :=
+fun {d} x x_1 =>
+  match x, x_1 with
+  | Sum.inl a, Sum.inl b => ↑a = 0 ∧ ↑b = 1 ∨ ↑a = 1 ∧ ↑b = 0
+  | Sum.inr a, Sum.inr b => ↑a = 0 ∧ ↑b = 1 ∨ ↑a = 1 ∧ ↑b = 0
+  | Sum.inl a, Sum.inr b => ¬(↑a = ↑b ∧ ↑a ≤ 1)
+  | Sum.inr a, Sum.inl b => ¬(↑a = ↑b ∧ ↑a ≤ 1)
+def Carenini.switchedKdd : (d : ℕ) → SimpleGraph (Fin d ⊕ Fin d) :=
+fun d => { Adj := Carenini.swAdj, symm := ⋯, loopless := ⋯ }
+def Carenini.C8 : SimpleGraph (Fin 8) :=
+{ Adj := fun i j => (↑i + 1) % 8 = ↑j ∨ (↑j + 1) % 8 = ↑i, symm := Carenini.C8._proof_2,
+  loopless := Carenini.C8._proof_3 }
+def Carenini.h3Adj : Fin 12 → Fin 12 → Bool :=
+fun i j =>
+  have a := ↑i;
+  have b := ↑j;
+  have cross := decide (a % 6 < 3) != decide (b % 6 < 3);
+  have same := a / 6 == b / 6;
+  have removed := a == 0 && b == 3 || a == 3 && b == 0 || a == 6 && b == 9 || a == 9 && b == 6;
+  have added := a == 0 && b == 9 || a == 9 && b == 0 || a == 6 && b == 3 || a == 3 && b == 6;
+  cross && same && !removed || added
+def Carenini.H3 : SimpleGraph (Fin 12) :=
+{ Adj := fun i j => Carenini.h3Adj i j = true, symm := Carenini.H3._proof_1, loopless := Carenini.H3._proof_2 }
+def Carenini.threeK4 : SimpleGraph (Fin 12) :=
+{ Adj := fun i j => i ≠ j ∧ ↑i / 4 = ↑j / 4, symm := Carenini.threeK4._proof_1, loopless := Carenini.threeK4._proof_2 }
+Carenini.not_careniniQuestion_six : ¬Carenini.CareniniQuestion 6 3 (1 / 18)
+@Carenini.not_careniniQuestion_two_d : ∀ {d : ℕ}, 3 ≤ d → ¬Carenini.CareniniQuestion (2 * d) d (1 / (2 * ↑d ^ 2))
+Carenini.not_careniniQuestion_eight_two : ¬Carenini.CareniniQuestion 8 2 (1 / 16)
+Carenini.not_careniniQuestion_twelve_bip : ¬Carenini.CareniniQuestion 12 3 (1 / 36)
+Carenini.not_careniniQuestion_twelve_top : ¬Carenini.CareniniQuestion 12 3 (5 / 18)
+@Carenini.iGamma_eq_iCount_floor : ∀ {V : Type u_1} [inst : Fintype V] [inst_1 : DecidableEq V] (G : SimpleGraph V)
+  [inst_2 : DecidableRel G.Adj] (d : ℕ) {γ : ℝ},
+  0 ≤ γ → Carenini.iGamma G d γ = Carenini.iCount G ⌊γ * ↑d * ↑(Fintype.card V)⌋₊
+@Carenini.iGamma_eq_iCount : ∀ {V : Type u_1} [inst : Fintype V] [inst_1 : DecidableEq V] (G : SimpleGraph V)
+  [inst_2 : DecidableRel G.Adj] (d : ℕ) {γ : ℝ} (t : ℕ),
+  γ * ↑d * ↑(Fintype.card V) = ↑t → Carenini.iGamma G d γ = Carenini.iCount G t
+@Carenini.iGamma_iso : ∀ {V : Type u_1} {W : Type u_2} [inst : Fintype V] [inst_1 : DecidableEq V] [inst_2 : Fintype W]
+  [inst_3 : DecidableEq W] {G : SimpleGraph V} {H : SimpleGraph W} [inst_4 : DecidableRel G.Adj]
+  [inst_5 : DecidableRel H.Adj] (e : G ≃g H) (d : ℕ) {γ : ℝ}, 0 ≤ γ → Carenini.iGamma G d γ = Carenini.iGamma H d γ
+@Carenini.iCount_iso : ∀ {V : Type u_1} {W : Type u_2} [inst : Fintype V] [inst_1 : DecidableEq V] [inst_2 : Fintype W]
+  [inst_3 : DecidableEq W] {G : SimpleGraph V} {H : SimpleGraph W} [inst_4 : DecidableRel G.Adj]
+  [inst_5 : DecidableRel H.Adj] (e : G ≃g H) (t : ℕ), Carenini.iCount G t = Carenini.iCount H t
+Carenini.prism_regular : Carenini.prism.IsRegularOfDegree 3
+Carenini.K33_regular : Carenini.K33.IsRegularOfDegree 3
+Carenini.iCount_prism_one : Carenini.iCount Carenini.prism 1 = 28
+Carenini.iCount_K33_one : Carenini.iCount Carenini.K33 1 = 24
+Carenini.iCount_KddUnion_one : Carenini.iCount (Carenini.KddUnion 1 3) 1 = 24
+Carenini.prismIso : Carenini.prism ≃g ⊤ □ ⊤
+Carenini.K33Iso : Carenini.K33 ≃g completeBipartiteGraph (Fin 3) (Fin 3)
+Carenini.K33IsoKddUnion : Carenini.K33 ≃g Carenini.KddUnion 1 3
+Carenini.prism_beats_K33 : Carenini.prism.IsRegularOfDegree 3 ∧
+  Carenini.K33.IsRegularOfDegree 3 ∧ Carenini.iGamma Carenini.K33 3 (1 / 18) < Carenini.iGamma Carenini.prism 3 (1 / 18)
+@Carenini.switchedKdd_regular : ∀ {d : ℕ}, 2 ≤ d → (Carenini.switchedKdd d).IsRegularOfDegree d
+@Carenini.edgesIn_switched_le_one : ∀ {d : ℕ} (A : Finset (Fin d ⊕ Fin d)),
+  Carenini.edgesIn (completeBipartiteGraph (Fin d) (Fin d)) A ≤ 1 → Carenini.edgesIn (Carenini.switchedKdd d) A ≤ 1
+@Carenini.switched_extra_set : ∀ {d : ℕ} (hd : 3 ≤ d),
+  ¬Carenini.edgesIn (completeBipartiteGraph (Fin d) (Fin d)) {Sum.inl ⟨0, ⋯⟩, Sum.inr ⟨0, ⋯⟩, Sum.inr ⟨2, ⋯⟩} ≤ 1 ∧
+    Carenini.edgesIn (Carenini.switchedKdd d) {Sum.inl ⟨0, ⋯⟩, Sum.inr ⟨0, ⋯⟩, Sum.inr ⟨2, ⋯⟩} ≤ 1
+@Carenini.iCount_one_lt : ∀ {d : ℕ},
+  3 ≤ d → Carenini.iCount (completeBipartiteGraph (Fin d) (Fin d)) 1 < Carenini.iCount (Carenini.switchedKdd d) 1
+Carenini.kddUnionOneIso : (d : ℕ) → Carenini.KddUnion 1 d ≃g completeBipartiteGraph (Fin d) (Fin d)
+Carenini.C8_regular : Carenini.C8.IsRegularOfDegree 2
+Carenini.iCount_C8_one : Carenini.iCount Carenini.C8 1 = 111
+Carenini.iCount_2C4_one : Carenini.iCount (Carenini.KddUnion 2 2) 1 = 105
+Carenini.H3_regular : Carenini.H3.IsRegularOfDegree 3
+Carenini.H3_bipartite : ∀ (i j : Fin 12), Carenini.H3.Adj i j → (↑i % 6 < 3 ↔ ¬↑j % 6 < 3)
+Carenini.H3_connected : Carenini.H3.Connected
+Carenini.iCount_H3_one : Carenini.iCount Carenini.H3 1 = 527
+Carenini.iCount_2K33_one : Carenini.iCount (Carenini.KddUnion 2 3) 1 = 495
+Carenini.threeK4_regular : Carenini.threeK4.IsRegularOfDegree 3
+Carenini.iCount_threeK4_ten : Carenini.iCount Carenini.threeK4 10 = 4002
+Carenini.iCount_2K33_ten : Carenini.iCount (Carenini.KddUnion 2 3) 10 = 3981
+Carenini.KddUnion_two_three_regular : (Carenini.KddUnion 2 3).IsRegularOfDegree 3
+'Carenini.not_careniniQuestion_six' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Carenini.not_careniniQuestion_two_d' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Carenini.not_careniniQuestion_eight_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Carenini.not_careniniQuestion_twelve_bip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Carenini.not_careniniQuestion_twelve_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Carenini.CareniniQuestion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Carenini.iGamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Carenini.iCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Carenini.edgesIn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Carenini.KddUnion' depends on axioms: [propext, Quot.sound]
+exit=0

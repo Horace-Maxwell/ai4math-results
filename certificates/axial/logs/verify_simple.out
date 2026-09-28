@@ -1,0 +1,18 @@
+products: a*b = 1/4*a + 1/4*b + -1/4*x ; c*x = -1/2*a + -1/2*b + 1/2*x + -1/4*c ; c*a = 0 ; c*b = 0
+axis a: idempotent True; semisimple, spectrum in F: True; primitive: True; eigenspaces: {'1': ['1*a'], '0': ['-1/2*a + 1*b + 1*x', '1*c'], '1/2': ['-1*b + 1*x']} ; charpoly: ['1', '-3/2', '1/2', '0', '0'] ; fusion law J+(1/2) respected: True
+axis b: idempotent True; semisimple, spectrum in F: True; primitive: True; eigenspaces: {'1': ['1*b'], '0': ['1*a + -1/2*b + 1*x', '1*c'], '1/2': ['-1*a + 1*x']} ; charpoly: ['1', '-3/2', '1/2', '0', '0'] ; fusion law J+(1/2) respected: True
+axis c: idempotent True; semisimple, spectrum in F: True; primitive: True; eigenspaces: {'1': ['1*c'], '0': ['1*a', '1*b'], '1/2': ['-2*a + -2*b + 2*x + 1*c']} ; charpoly: ['1', '-3/2', '1/2', '0', '0'] ; fusion law J+(1/2) respected: True
+realised law: {'0*0': ['0', '1', '1/2'], '0*1/2': ['0', '1', '1/2'], '0*1': [], '1/2*1/2': ['0', '1'], '1/2*1': ['1/2'], '1*1': ['1']}
+dim <<a,b,c>> = 4 ; <<a,b>> = ['1*a', '1*b', '1*x']
+Delta edges: [('a', 'b')]
+x in <<a,b>> and c*x != 0: True True
+words of length <= 2: dim span = 16
+dim M(A) over Q = 16 (16 means M(A) = End(A), hence A has no proper nonzero ideal: simple)
+basis words of M(A): ['a', 'b', 'x', 'c', 'aa', 'ba', 'ca', 'ab', 'bb', 'cb', 'ax', 'bx', 'xx', 'cx', 'ac', 'bc']
+E_00 (e_a coefficient projector) = {'a': '20/13', 'b': '8/39', 'x': '190/39', 'c': '15/13', 'ba': '16/39', 'ca': '-10/13', 'ab': '-88/39', 'cb': '-10/13', 'ax': '-140/39', 'bx': '-140/39', 'xx': '-140/39', 'cx': '-10/13', 'ac': '28/13', 'bc': '-24/13'}
+all 16 matrix-unit identities verified: True
+mod 5: ideal dimensions [0, 4]
+mod 7: ideal dimensions [0, 4]
+mod 11: ideal dimensions [0, 4]
+mod 13: ideal dimensions [0, 4]
+Frobenius forms (dimension of space): 0

@@ -570,7 +570,7 @@ theorem H3_regular : H3.IsRegularOfDegree 3 := by
 theorem H3_bipartite : ∀ i j : Fin 12, H3.Adj i j → (i.val % 6 < 3 ↔ ¬ j.val % 6 < 3) := by
   decide
 
-/-- `H_3` is connected: `0–9` joins the two blocks (every vertex is within distance 3 of 0). -/
+/-- `H_3` is connected: `0–9` joins the two blocks (every vertex is within distance 4 of 0). -/
 theorem H3_connected : H3.Connected := by
   have hreach : ∀ v : Fin 12, H3.Reachable 0 v := by
     have a : ∀ i j : Fin 12, H3.Adj i j → (H3.Reachable 0 i → H3.Reachable 0 j) :=
