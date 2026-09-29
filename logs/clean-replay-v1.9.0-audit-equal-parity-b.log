@@ -1,0 +1,190 @@
+2026-09-28T21:35:14Z
+def ICGEqualParityB.Theta : ℝ → ℝ → ℕ → ℝ :=
+fun p q b =>
+  ICGEqualParityB.Dp (p - 1) * ICGGeneral.L1 q b ICGGeneral.sgnv -
+    2 * ((p - 1) ^ 2 + 1) * ICGGeneral.Tv q b ICGGeneral.sgnv b
+def ICGEqualParityB.Gfun : ℝ → ℝ → ℕ → (ℕ → ℕ → ℝ) → ℝ :=
+fun p q b Y =>
+  ICGGeneral.L1 q b (ICGEqualParityB.rw0 p Y) + ICGGeneral.L1 q b (ICGEqualParityB.rw1 p Y) +
+      ICGGeneral.L1 q b (ICGEqualParityB.rw2 p Y) -
+    2 * q ^ b * max 0 (-ICGGeneral.Zp q b (ICGEqualParityB.rw2 p Y) 0)
+def ICGEqualParityB.Ym : ℕ → ℕ → ℝ :=
+fun i l => -(ICGGeneral.sgnv i * ICGGeneral.sgnv l)
+def ICGEqualParityB.Yp : ℕ → ℕ → ℕ → ℝ :=
+fun b i l => if i = 2 ∧ l = b then -1 else ICGGeneral.sgnv i * ICGGeneral.sgnv l
+def ICGEqualParityB.ParamB : ℝ → ℝ → Prop :=
+fun p q => 5 ≤ p ∧ 3 ≤ q ∨ p = 3 ∧ 5 ≤ q
+def ICGEqualParityB.SignMat : ℕ → (ℕ → ℕ → ℝ) → Prop :=
+fun b Y => ∀ i ≤ 2, ∀ l ≤ b, Y i l = 1 ∨ Y i l = -1
+def ICGEqualParityB.DtruncB : ℕ → ℕ → ℕ → Finset ℕ :=
+fun p q b => (ICGGeneral.DstarPQ p q 2 b).erase (p ^ 2 * q ^ b)
+def ICGEqualParity.DantiPQ : ℕ → ℕ → ℕ → ℕ → Finset ℕ :=
+fun p q a b =>
+  Finset.image (fun ij => p ^ ij.1 * q ^ ij.2) ({ij ∈ Finset.range (a + 1) ×ˢ Finset.range (b + 1) | Odd (ij.1 + ij.2)})
+def ICGGeneral.DstarPQ : ℕ → ℕ → ℕ → ℕ → Finset ℕ :=
+fun p q a b =>
+  Finset.image (fun ij => p ^ ij.1 * q ^ ij.2)
+    ({ij ∈ Finset.range (a + 1) ×ˢ Finset.range (b + 1) | Even (ij.1 + ij.2)})
+ICGEqualParityB.theoremB : ∀ (p q b : ℕ),
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        3 ≤ p →
+          3 ≤ q →
+            Even b →
+              2 ≤ b →
+                ∀ D ⊆ (p ^ 2 * q ^ b).properDivisors,
+                  ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) D) ⋯ ≤
+                      (↑p ^ 2 * ↑q ^ b + (5 * ↑p ^ 2 - 8 * ↑p + 4) * ICGGeneral.L1 (↑q) b ICGGeneral.sgnv) / 2 -
+                        (↑p ^ 2 - 2 * ↑p + 2) * ICGGeneral.Tv (↑q) b ICGGeneral.sgnv b ∧
+                    (ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) D) ⋯ =
+                        (↑p ^ 2 * ↑q ^ b + (5 * ↑p ^ 2 - 8 * ↑p + 4) * ICGGeneral.L1 (↑q) b ICGGeneral.sgnv) / 2 -
+                          (↑p ^ 2 - 2 * ↑p + 2) * ICGGeneral.Tv (↑q) b ICGGeneral.sgnv b ↔
+                      D = ICGEqualParity.DantiPQ p q 2 b ∨ D = ICGEqualParityB.DtruncB p q b)
+ICGEqualParityB.corollaryB : ∀ (p q b : ℕ),
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        3 ≤ p →
+          3 ≤ q →
+            Even b →
+              2 ≤ b →
+                ICGEqualParity.DantiPQ p q 2 b ⊆ (p ^ 2 * q ^ b).properDivisors ∧
+                  ICGEqualParityB.DtruncB p q b ⊆ (p ^ 2 * q ^ b).properDivisors ∧
+                    2 * ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) (ICGEqualParity.DantiPQ p q 2 b)) ⋯ =
+                        ↑p ^ 2 * ↑q ^ b + (5 * ↑p ^ 2 - 8 * ↑p + 4) * ICGGeneral.L1 (↑q) b ICGGeneral.sgnv -
+                          2 * (↑p ^ 2 - 2 * ↑p + 2) * ICGGeneral.Tv (↑q) b ICGGeneral.sgnv b ∧
+                      ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) (ICGEqualParityB.DtruncB p q b)) ⋯ =
+                          ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) (ICGEqualParity.DantiPQ p q 2 b)) ⋯ ∧
+                        ∀ D ⊆ (p ^ 2 * q ^ b).properDivisors,
+                          ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) D) ⋯ ≤
+                              ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) (ICGEqualParity.DantiPQ p q 2 b)) ⋯ ∧
+                            (ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) D) ⋯ =
+                                ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) (ICGEqualParity.DantiPQ p q 2 b)) ⋯ →
+                              D = ICGEqualParity.DantiPQ p q 2 b ∨ D = ICGEqualParityB.DtruncB p q b)
+ICGEqualParityB.theoremB_swap : ∀ (p q b : ℕ),
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        3 ≤ p →
+          3 ≤ q →
+            Even b →
+              2 ≤ b →
+                ∀ D ⊆ (p ^ b * q ^ 2).properDivisors,
+                  ICGBridge.energy (ICGBridge.icgAdj (p ^ b * q ^ 2) D) ⋯ ≤
+                      (↑p ^ b * ↑q ^ 2 + (5 * ↑q ^ 2 - 8 * ↑q + 4) * ICGGeneral.L1 (↑p) b ICGGeneral.sgnv) / 2 -
+                        (↑q ^ 2 - 2 * ↑q + 2) * ICGGeneral.Tv (↑p) b ICGGeneral.sgnv b ∧
+                    (ICGBridge.energy (ICGBridge.icgAdj (p ^ b * q ^ 2) D) ⋯ =
+                        (↑p ^ b * ↑q ^ 2 + (5 * ↑q ^ 2 - 8 * ↑q + 4) * ICGGeneral.L1 (↑p) b ICGGeneral.sgnv) / 2 -
+                          (↑q ^ 2 - 2 * ↑q + 2) * ICGGeneral.Tv (↑p) b ICGGeneral.sgnv b ↔
+                      D = ICGEqualParity.DantiPQ p q b 2 ∨ D = (ICGGeneral.DstarPQ p q b 2).erase (p ^ b * q ^ 2))
+@ICGEqualParityB.thmB' : ∀ {p q : ℝ},
+  ICGEqualParityB.ParamB p q →
+    ∀ {b : ℕ},
+      Even b →
+        2 ≤ b →
+          ∀ {Y : ℕ → ℕ → ℝ},
+            ICGEqualParityB.SignMat b Y →
+              Y 2 b = -1 →
+                ICGEqualParityB.Gfun p q b Y ≤ ICGEqualParityB.Theta p q b ∧
+                  (ICGEqualParityB.Gfun p q b Y = ICGEqualParityB.Theta p q b ↔
+                    (∀ i ≤ 2, ∀ l ≤ b, Y i l = ICGEqualParityB.Ym i l) ∨
+                      ∀ i ≤ 2, ∀ l ≤ b, Y i l = ICGEqualParityB.Yp b i l)
+@ICGEqualParityB.prop1 : ∀ {p q : ℝ},
+  2 < q →
+    ∀ (b : ℕ) (Y : ℕ → ℕ → ℝ),
+      ICGEqualParityB.Theta p q b - ICGEqualParityB.Gfun p q b Y =
+        q ^ b *
+          ((∑ k ∈ Finset.range b, ICGEqualParityB.ScY p q b Y k) / q +
+                ICGGeneral.nu q b *
+                  (ICGEqualParityB.Dp (p - 1) -
+                    (|ICGEqualParityB.rw0 p Y b| + |ICGEqualParityB.rw1 p Y b| + |ICGEqualParityB.rw2 p Y b|)) +
+              2 * max 0 (-ICGGeneral.Zp q b (ICGEqualParityB.rw2 p Y) 0) -
+            2 * ((p - 1) ^ 2 + 1) * ICGGeneral.nu q b)
+@ICGEqualParityB.lemS : ∀ {P Q μ c0 c1 c2 B0 B1 B2 : ℝ},
+  ICGEqualParityB.PQok P Q →
+    0 ≤ μ →
+      μ ≤ 1 →
+        c0 = 1 ∨ c0 = -1 →
+          c1 = 1 ∨ c1 = -1 →
+            c2 = 1 ∨ c2 = -1 →
+              |B0| ≤ 2 * P * (P + 1) →
+                |B1| ≤ 2 * P * (P + 1) →
+                  |B2| ≤ (P + 1) ^ 2 →
+                    0 ≤
+                        ICGEqualParityB.Sc P Q μ (ICGEqualParityB.Mc0 P c0 c1 c2) (ICGEqualParityB.Mc1 P c0 c1 c2)
+                          (ICGEqualParityB.Mc2 P c0 c1 c2) B0 B1 B2 ∧
+                      (¬(c0 = 1 ∧ c1 = -1 ∧ c2 = 1 ∨ c0 = -1 ∧ c1 = 1 ∧ c2 = -1) →
+                        0 <
+                          ICGEqualParityB.Sc P Q μ (ICGEqualParityB.Mc0 P c0 c1 c2) (ICGEqualParityB.Mc1 P c0 c1 c2)
+                            (ICGEqualParityB.Mc2 P c0 c1 c2) B0 B1 B2)
+@ICGEqualParityB.fd1 : ∀ {P Q μ m ρ c0 c1 c2 : ℝ},
+  ICGEqualParityB.PQok P Q →
+    Q - 1 ≤ (Q + 1) * μ →
+      μ ≤ 1 →
+        Q - 1 ≤ (Q + 1) * m →
+          m ≤ 1 →
+            (Q + 1) ^ 2 * ρ ≤ Q ^ 2 + 1 →
+              μ = 1 ∧ (Q + 1) * ρ = Q - m ∨ m = 1 ∧ (Q + 1) * ρ = Q - μ ∨ (Q + 1) ^ 2 * m ≤ Q ^ 2 + 1 →
+                c0 = 1 ∨ c0 = -1 →
+                  c1 = 1 ∨ c1 = -1 →
+                    c2 = 1 ∨ c2 = -1 →
+                      ¬(c0 = -1 ∧ c1 = 1 ∧ c2 = -1) →
+                        2 * (Q + 1) * (P ^ 2 + 1) * ρ <
+                          ICGEqualParityB.Sc P Q μ (ICGEqualParityB.Mc0 P c0 c1 c2) (ICGEqualParityB.Mc1 P c0 c1 c2)
+                            (ICGEqualParityB.Mc2 P c0 c1 c2) (m * (2 * P * (P + 1))) (m * -(2 * P ^ 2))
+                            (m * (P ^ 2 + 1))
+@ICGEqualParityB.fd2a : ∀ {P Q μ c0 c1 c2 : ℝ},
+  ICGEqualParityB.PQok P Q →
+    0 ≤ μ →
+      μ ≤ 1 →
+        c0 = 1 ∨ c0 = -1 →
+          c1 = 1 ∨ c1 = -1 →
+            c2 = 1 ∨ c2 = -1 →
+              ¬(c0 = -1 ∧ c1 = -1 ∧ c2 = 1) ∨ 4 ≤ P →
+                4 * P * (Q - μ) <
+                  ICGEqualParityB.Sc P Q μ (ICGEqualParityB.Mc0 P c0 c1 c2) (ICGEqualParityB.Mc1 P c0 c1 c2)
+                    (ICGEqualParityB.Mc2 P c0 c1 c2) (-(2 * P * (P + 1))) (-(2 * P)) (P ^ 2 + 2 * P - 1)
+@ICGEqualParityB.fd2dom : ∀ {P Q μ m c0 c1 c2 : ℝ},
+  P = 2 →
+    4 ≤ Q →
+      Q - 1 ≤ (Q + 1) * μ →
+        μ ≤ 1 →
+          (Q + 1) * m = Q - 1 →
+            c0 = 1 ∨ c0 = -1 →
+              c1 = 1 ∨ c1 = -1 →
+                c2 = 1 ∨ c2 = -1 →
+                  2 * Q * (1 + μ) ≤
+                    ICGEqualParityB.Sc P Q μ (ICGEqualParityB.Mc0 P c0 c1 c2) (ICGEqualParityB.Mc1 P c0 c1 c2)
+                      (ICGEqualParityB.Mc2 P c0 c1 c2) (m * (2 * P * (P + 1))) (m * (2 * P))
+                      (-(m * (P ^ 2 + 2 * P - 1)))
+@ICGEqualParityB.eq_all : ∀ {p q : ℝ} {b : ℕ} {Y : ℕ → ℕ → ℝ},
+  ICGEqualParityB.PQok (p - 1) (q - 1) →
+    Even b →
+      2 ≤ b →
+        ICGEqualParityB.SignMat b Y →
+          Y 0 b = 1 ∧ Y 1 b = -1 ∧ Y 2 b = -1 →
+            (∀ k < b, ICGEqualParityB.ScY p q b Y k = 0) → ∀ l < b, ICGEqualParityB.IsPlusCol Y l
+@ICGEqualParityB.G_Ym : ∀ {p q : ℝ},
+  1 ≤ p → 2 < q → ∀ (b : ℕ), ICGEqualParityB.Gfun p q b ICGEqualParityB.Ym = ICGEqualParityB.Theta p q b
+@ICGEqualParityB.G_Yp : ∀ {p q : ℝ},
+  ICGEqualParityB.PQok (p - 1) (q - 1) →
+    ∀ {b : ℕ}, Even b → 2 ≤ b → ICGEqualParityB.Gfun p q b (ICGEqualParityB.Yp b) = ICGEqualParityB.Theta p q b
+@ICGEqualParityB.two_L1mat_rows2 : ∀ {p q : ℝ},
+  1 ≤ p →
+    1 < q →
+      ∀ (b : ℕ) (X : ℕ → ℕ → ℝ),
+        (∀ i ≤ 2, ∀ l ≤ b, X i l = 0 ∨ X i l = 1) →
+          2 * ICGGeneral.L1mat p q 2 b X = (ICGEqualParityB.Gfun p q b fun c e => 2 * X c e - 1) + p ^ 2 * q ^ b
+'ICGEqualParityB.theoremB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGEqualParityB.corollaryB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGEqualParityB.theoremB_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGEqualParityB.thmB'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGEqualParityB.prop1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGEqualParityB.lemS' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGEqualParityB.fd1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGEqualParityB.fd2a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGEqualParityB.fd2dom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ICGEqualParityB.G_Yp' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0
+json-exit=0

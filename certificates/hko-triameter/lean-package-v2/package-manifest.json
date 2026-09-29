@@ -1,0 +1,1936 @@
+{
+ "schema_version": 1,
+ "prepared_utc": "2026-09-28T18:14:05Z",
+ "prepared_by": "Claude (make_release_paper4.py)",
+ "challenge_sha256": "9f1b0c95f35addf03f54c330ea0cd63324154d17e1cc8e707c8bf830da4a0785",
+ "challenge_tests_sha256": "62bee5c5a6870e61edf396e2e7236ea21b801bd1982073f24fefe76c285dc709",
+ "check_sha256": "264f74862c08d8ead8b2327dfef93cc8f5bf1534c79f9b8ecd85cc96fbbdffd5",
+ "targets": [
+  {
+   "target": "Sec5_FP_symm",
+   "check": "BackfillPaper4.Check.check_Sec5_FP_symm",
+   "declaration": "CodexPaper4.check_Sec5_FP_symm",
+   "module": "Research.Backfill.Paper4.Proof.Foundation",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec5_FP_iff_viii",
+   "check": "BackfillPaper4.Check.check_Sec5_FP_iff_viii",
+   "declaration": "CodexPaper4.check_Sec5_FP_iff_viii",
+   "module": "Research.Backfill.Paper4.Proof.Foundation",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Lemma2",
+   "check": "BackfillPaper4.Check.check_Lemma2",
+   "declaration": "CodexPaper4.check_Lemma2",
+   "module": "Research.Backfill.Paper4.Proof.Foundation",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec2_bounds",
+   "check": "BackfillPaper4.Check.check_Sec2_bounds",
+   "declaration": "CodexPaper4.check_Sec2_bounds",
+   "module": "Research.Backfill.Paper4.Proof.MetricBounds",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Proposition3",
+   "check": "BackfillPaper4.Check.check_Proposition3",
+   "declaration": "CodexPaper4.check_Proposition3",
+   "module": "Research.Backfill.Paper4.Proof.FourPointConsequences",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec2_peripheral_iff",
+   "check": "BackfillPaper4.Check.check_Sec2_peripheral_iff",
+   "declaration": "CodexPaper4.check_Sec2_peripheral_iff",
+   "module": "Research.Backfill.Paper4.Proof.Readings",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec2_Q3_imp_Q3'",
+   "check": "BackfillPaper4.Check.check_Sec2_Q3_imp_Q3'",
+   "declaration": "CodexPaper4.check_Sec2_Q3_imp_Q3'",
+   "module": "Research.Backfill.Paper4.Proof.Readings",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec2_Q4_imp_Q4'",
+   "check": "BackfillPaper4.Check.check_Sec2_Q4_imp_Q4'",
+   "declaration": "CodexPaper4.check_Sec2_Q4_imp_Q4'",
+   "module": "Research.Backfill.Paper4.Proof.Readings",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec2_repeated",
+   "check": "BackfillPaper4.Check.check_Sec2_repeated",
+   "declaration": "CodexPaper4.check_Sec2_repeated",
+   "module": "Research.Backfill.Paper4.Proof.Readings",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec2_readings_Q3",
+   "check": "BackfillPaper4.Check.check_Sec2_readings_Q3",
+   "declaration": "CodexPaper4.check_Sec2_readings_Q3",
+   "module": "Research.Backfill.Paper4.Proof.Readings",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec2_readings_Q4",
+   "check": "BackfillPaper4.Check.check_Sec2_readings_Q4",
+   "declaration": "CodexPaper4.check_Sec2_readings_Q4",
+   "module": "Research.Backfill.Paper4.Proof.Readings",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "TheoremC_FP",
+   "check": "BackfillPaper4.Check.check_TheoremC_FP",
+   "declaration": "CodexPaper4.check_TheoremC_FP",
+   "module": "Research.Backfill.Paper4.Proof.TheoremCFP",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec4_median_triangleFree",
+   "check": "BackfillPaper4.Check.check_Sec4_median_triangleFree",
+   "declaration": "CodexPaper4.check_Sec4_median_triangleFree",
+   "module": "Research.Backfill.Paper4.Proof.ReductionBasics",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec4_nonCutVertex",
+   "check": "BackfillPaper4.Check.check_Sec4_nonCutVertex",
+   "declaration": "CodexPaper4.check_Sec4_nonCutVertex",
+   "module": "Research.Backfill.Paper4.Proof.ReductionBasics",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec4_reduction",
+   "check": "BackfillPaper4.Check.check_Sec4_reduction",
+   "declaration": "CodexPaper4.check_Sec4_reduction",
+   "module": "Research.Backfill.Paper4.Proof.Reduction",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "TheoremA_i",
+   "check": "BackfillPaper4.Check.check_TheoremA_i",
+   "declaration": "CodexPaper4.check_TheoremA_i",
+   "module": "Research.Backfill.Paper4.Proof.ConcreteCore",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "TheoremA_ii",
+   "check": "BackfillPaper4.Check.check_TheoremA_ii",
+   "declaration": "CodexPaper4.check_TheoremA_ii",
+   "module": "Research.Backfill.Paper4.Proof.ConcreteCore",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "TheoremB_ii",
+   "check": "BackfillPaper4.Check.check_TheoremB_ii",
+   "declaration": "CodexPaper4.check_TheoremB_ii",
+   "module": "Research.Backfill.Paper4.Proof.ConcreteCore",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Remark4_ii",
+   "check": "BackfillPaper4.Check.check_Remark4_ii",
+   "declaration": "CodexPaper4.check_Remark4_ii",
+   "module": "Research.Backfill.Paper4.Proof.ConcreteRemarks",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec8_open",
+   "check": "BackfillPaper4.Check.check_Sec8_open",
+   "declaration": "CodexPaper4.check_Sec8_open",
+   "module": "Research.Backfill.Paper4.Proof.ConcreteRemarks",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec2_problem2_altReading",
+   "check": "BackfillPaper4.Check.check_Sec2_problem2_altReading",
+   "declaration": "CodexPaper4.check_Sec2_problem2_altReading",
+   "module": "Research.Backfill.Paper4.Proof.ConcreteRemarks",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Remark4_iii",
+   "check": "BackfillPaper4.Check.check_Remark4_iii",
+   "declaration": "CodexPaper4.check_Remark4_iii",
+   "module": "Research.Backfill.Paper4.Proof.HKOFig2Remark",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Remark5_i",
+   "check": "BackfillPaper4.Check.check_Remark5_i",
+   "declaration": "CodexPaper4.check_Remark5_i",
+   "module": "Research.Backfill.Paper4.Proof.BasicCorollaries",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Released_fourPoint_facts",
+   "check": "BackfillPaper4.Check.check_Released_fourPoint_facts",
+   "declaration": "CodexPaper4.check_Released_fourPoint_facts",
+   "module": "Research.Backfill.Paper4.Proof.BasicCorollaries",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "TheoremB_i",
+   "check": "BackfillPaper4.Check.check_TheoremB_i",
+   "declaration": "CodexPaper4.check_TheoremB_i",
+   "module": "Research.Backfill.Paper4.Proof.G2DistanceHereditary",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec3_medianDH_noQ4",
+   "check": "BackfillPaper4.Check.check_Sec3_medianDH_noQ4",
+   "declaration": "CodexPaper4.check_Sec3_medianDH_noQ4",
+   "module": "Research.Backfill.Paper4.Proof.G2DistanceHereditary",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Remark4_i",
+   "check": "BackfillPaper4.Check.check_Remark4_i",
+   "declaration": "CodexPaper4.check_Remark4_i",
+   "module": "Research.Backfill.Paper4.Proof.F1DistanceHereditary",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec2_classReading",
+   "check": "BackfillPaper4.Check.check_Sec2_classReading",
+   "declaration": "CodexPaper4.check_Sec2_classReading",
+   "module": "Research.Backfill.Paper4.Proof.F1DistanceHereditary",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec3_MO_notDH",
+   "check": "BackfillPaper4.Check.check_Sec3_MO_notDH",
+   "declaration": "CodexPaper4.check_Sec3_MO_notDH",
+   "module": "Research.Backfill.Paper4.Proof.NonDHExamples",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Remark5_ii",
+   "check": "BackfillPaper4.Check.check_Remark5_ii",
+   "declaration": "CodexPaper4.check_Remark5_ii",
+   "module": "Research.Backfill.Paper4.Proof.H11AssemblyDraft",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Remark5_iii",
+   "check": "BackfillPaper4.Check.check_Remark5_iii",
+   "declaration": "CodexPaper4.check_Remark5_iii",
+   "module": "Research.Backfill.Paper4.Proof.H11AssemblyDraft",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec6_DHtests",
+   "check": "BackfillPaper4.Check.check_Sec6_DHtests",
+   "declaration": "CodexPaper4.check_Sec6_DHtests",
+   "module": "Research.Backfill.Paper4.Proof.H11AssemblyDraft",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Lemma1",
+   "check": "BackfillPaper4.Check.check_Lemma1",
+   "declaration": "CodexPaper4.check_Lemma1",
+   "module": "Research.Backfill.Paper4.Proof.GridInterval",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "TheoremA_grid",
+   "check": "BackfillPaper4.Check.check_TheoremA_grid",
+   "declaration": "CodexPaper4.check_TheoremA_grid",
+   "module": "Research.Backfill.Paper4.Proof.GridExamples",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "TheoremB_grid",
+   "check": "BackfillPaper4.Check.check_TheoremB_grid",
+   "declaration": "CodexPaper4.check_TheoremB_grid",
+   "module": "Research.Backfill.Paper4.Proof.GridExamples",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec3_monotonePath",
+   "check": "BackfillPaper4.Check.check_Sec3_monotonePath",
+   "declaration": "CodexPaper4.check_Sec3_monotonePath",
+   "module": "Research.Backfill.Paper4.Proof.GridMonotone",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "BandeltMulder_extension",
+   "check": "BackfillPaper4.Check.check_BandeltMulder_extension",
+   "declaration": "CodexPaper4.check_BandeltMulder_extension",
+   "module": "Research.Backfill.Paper4.Proof.DHExtension",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "BandeltMulder_DH_fourPoint",
+   "check": "BackfillPaper4.Check.check_BandeltMulder_DH_fourPoint",
+   "declaration": "CodexPaper4.check_BandeltMulder_DH_fourPoint",
+   "module": "Research.Backfill.Paper4.Proof.DHFourPoint",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "TheoremC_i",
+   "check": "BackfillPaper4.Check.check_TheoremC_i",
+   "declaration": "CodexPaper4.check_TheoremC_i",
+   "module": "Research.Backfill.Paper4.Proof.DHFourPointConsequences",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "TheoremC_ii",
+   "check": "BackfillPaper4.Check.check_TheoremC_ii",
+   "declaration": "CodexPaper4.check_TheoremC_ii",
+   "module": "Research.Backfill.Paper4.Proof.DHFourPointConsequences",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec3_DH_noQ4_imp_Q3",
+   "check": "BackfillPaper4.Check.check_Sec3_DH_noQ4_imp_Q3",
+   "declaration": "CodexPaper4.check_Sec3_DH_noQ4_imp_Q3",
+   "module": "Research.Backfill.Paper4.Proof.DHFourPointConsequences",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec4_aut",
+   "check": "BackfillPaper4.Check.check_Sec4_aut",
+   "declaration": "CodexPaper4.check_Sec4_aut",
+   "module": "Research.Backfill.Paper4.Proof.GraphAutomorphisms",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec4_count_triangleFree7",
+   "check": "BackfillPaper4.Check.check_Sec4_count_triangleFree7",
+   "declaration": "CodexPaper4.check_Sec4_count_triangleFree7",
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeClassification",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "Sec4_count_candidates",
+   "check": "BackfillPaper4.Check.check_Sec4_count_candidates",
+   "declaration": "CodexPaper4.check_Sec4_count_candidates",
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeCandidates",
+   "proof_author": "Codex"
+  },
+  {
+   "target": "TheoremA_min",
+   "check": "BackfillPaper4.Check.check_TheoremA_min",
+   "declaration": "CodexPaper4.check_TheoremA_min",
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianMinimality",
+   "proof_author": "Codex (compiled and accepted by Claude)"
+  },
+  {
+   "target": "TheoremB_min",
+   "check": "BackfillPaper4.Check.check_TheoremB_min",
+   "declaration": "CodexPaper4.check_TheoremB_min",
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianMinimality",
+   "proof_author": "Codex (compiled and accepted by Claude)"
+  },
+  {
+   "target": "TheoremA_unique",
+   "check": "BackfillPaper4.Check.check_TheoremA_unique",
+   "declaration": "ClaudePaper4.check_TheoremA_unique",
+   "module": "Research.Backfill.Paper4.Proof.MedianEight",
+   "proof_author": "Claude"
+  },
+  {
+   "target": "TheoremB_unique",
+   "check": "BackfillPaper4.Check.check_TheoremB_unique",
+   "declaration": "ClaudePaper4.check_TheoremB_unique",
+   "module": "Research.Backfill.Paper4.Proof.MedianEight",
+   "proof_author": "Claude"
+  },
+  {
+   "target": "Sec4_count_median",
+   "check": "BackfillPaper4.Check.check_Sec4_count_median",
+   "declaration": "ClaudePaper4.check_Sec4_count_median",
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianCounts",
+   "proof_author": "Claude"
+  },
+  {
+   "target": "Sec4_count_labelled",
+   "check": "BackfillPaper4.Check.check_Sec4_count_labelled",
+   "declaration": "ClaudePaper4.check_Sec4_count_labelled",
+   "module": "Research.Backfill.Paper4.Proof.MedianEightLabelled",
+   "proof_author": "Claude"
+  }
+ ],
+ "modules": [
+  {
+   "module": "Research.Backfill.Paper4.Proof.Foundation",
+   "file": "Research/Backfill/Paper4/Proof/Foundation.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/Foundation.lean",
+   "source_sha256": "c17090f5ff5b70825c098d9906258c524f911d1b9eaa35770e784e51759517ac",
+   "package_sha256": "c17090f5ff5b70825c098d9906258c524f911d1b9eaa35770e784e51759517ac"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MetricBounds",
+   "file": "Research/Backfill/Paper4/Proof/MetricBounds.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/MetricBounds.lean",
+   "source_sha256": "35515f949f3b8e1bba21067ef09bcd2c4619cbf78f7d9a28b7493f7fc7f4a15a",
+   "package_sha256": "35515f949f3b8e1bba21067ef09bcd2c4619cbf78f7d9a28b7493f7fc7f4a15a"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.FourPointConsequences",
+   "file": "Research/Backfill/Paper4/Proof/FourPointConsequences.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/FourPointConsequences.lean",
+   "source_sha256": "d3cb1a87d33c8aa687f950d36f1d02aa530ebfe95c7a270144d3e8cf03e11080",
+   "package_sha256": "574dc89f73d3085c1cb975f34cd1bf9bf42f1973b5b7f6d02bf8d49babe22141"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.Readings",
+   "file": "Research/Backfill/Paper4/Proof/Readings.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/Readings.lean",
+   "source_sha256": "7df78a019a656ab859e514877a198a3b055f6aef4c7bbf29e1390ffb92a488d8",
+   "package_sha256": "35ff7a67081f84fd70387bc5ee3d1cbc2aca3fad7b7e345bf6001f183a066b5a"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TheoremCFP",
+   "file": "Research/Backfill/Paper4/Proof/TheoremCFP.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TheoremCFP.lean",
+   "source_sha256": "a1ba94d245e0e4c49902547d0488eb9c1517b97f746fd43fae30ffdba4cb3691",
+   "package_sha256": "e9e13f271269fb0cca0a54b61441fb20c80f42d2229ece0c63d3dc7690a4525d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.ReductionBasics",
+   "file": "Research/Backfill/Paper4/Proof/ReductionBasics.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/ReductionBasics.lean",
+   "source_sha256": "f7a5ecc0a3ace8c3840b0ca38b02d27c6f9591410f29ff7c4525de7b7fd501ba",
+   "package_sha256": "f7a5ecc0a3ace8c3840b0ca38b02d27c6f9591410f29ff7c4525de7b7fd501ba"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.Reduction",
+   "file": "Research/Backfill/Paper4/Proof/Reduction.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/Reduction.lean",
+   "source_sha256": "ed18bef7aa194c2a8fd77e384f2403b24187887d2bcebbcd0e864cc15c12bf37",
+   "package_sha256": "678a36e9d7afdf9a5f4a40feecea6003852996940cc53a9a42a10181ab7f9bac"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.ConcreteCore",
+   "file": "Research/Backfill/Paper4/Proof/ConcreteCore.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/ConcreteCore.lean",
+   "source_sha256": "8887eba10e4af28ee2ee82b4131188cb840cdd1cd33705b173dc395005b46aaa",
+   "package_sha256": "2fed79d177df7d560f276da453c8639d0376b401dfcf32af889b7dd8c5e95585"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.ConcreteRemarks",
+   "file": "Research/Backfill/Paper4/Proof/ConcreteRemarks.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/ConcreteRemarks.lean",
+   "source_sha256": "527694db053bb73cec3d547216f6771e161cdfbd563c283bbd2309264c7a7ffc",
+   "package_sha256": "9cd4499a2131927bed53ba42c46fb6ce6ad3f64a92e93e8b573ef8b570b05f1a"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.HKOFig2Remark",
+   "file": "Research/Backfill/Paper4/Proof/HKOFig2Remark.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/HKOFig2Remark.lean",
+   "source_sha256": "3611f8c7471fd64b7fa1624231408daed258caf2dd2fbd83dcfc0df12e35471b",
+   "package_sha256": "5d903ffa56f8e380b3660eeecb6064116e312a427f6879b7fe499d21c3acc984"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.BasicCorollaries",
+   "file": "Research/Backfill/Paper4/Proof/BasicCorollaries.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/BasicCorollaries.lean",
+   "source_sha256": "3abeb967cac89213a6767a0f648fdf85261ccd9e380fb56ab9ac2232a563106e",
+   "package_sha256": "2128ea2040c4b88eaa10822ea52bf977bbb08a2f0dd1843775653fa640947b93"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.ConcreteDHCertificate",
+   "file": "Research/Backfill/Paper4/Proof/ConcreteDHCertificate.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/ConcreteDHCertificate.lean",
+   "source_sha256": "0caf4c4690f7f8f7659164d8dda9ec088a972bbf2091dff54549422384848e2e",
+   "package_sha256": "0caf4c4690f7f8f7659164d8dda9ec088a972bbf2091dff54549422384848e2e"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.G2DHData",
+   "file": "Research/Backfill/Paper4/Proof/G2DHData.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/G2DHData.lean",
+   "source_sha256": "977a02aa50fd09d1a70467d2501baac683fa82c47617a658bb5d7f085c913916",
+   "package_sha256": "80c6af3d4d4b1692fef79aa8dd570768f1093a6a98a89a11f232ef8a7643d042"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.G2DistanceHereditary",
+   "file": "Research/Backfill/Paper4/Proof/G2DistanceHereditary.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/G2DistanceHereditary.lean",
+   "source_sha256": "bcb0d8fca56efcc5a8ab97a5f2f55d5ae0d70148ce1cd486e5bdfc0dc3a47094",
+   "package_sha256": "2e3e4f18d8ad56917e5a77adca8e445cdb73ef6636ecdc684074b7a3d57d5e79"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.F1GDHData",
+   "file": "Research/Backfill/Paper4/Proof/F1GDHData.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/F1GDHData.lean",
+   "source_sha256": "64086979f4b4ff16f1a9e97908e6594c07bb3a484adec12b6e3086e16628465a",
+   "package_sha256": "7ae0356c9166ba9776331b36673300e234365fd2f631e1a60539923f12ce6bae"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.F1HDHData",
+   "file": "Research/Backfill/Paper4/Proof/F1HDHData.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/F1HDHData.lean",
+   "source_sha256": "670d68fe3e95944d78a1ebe6283c861a462a078e862adedd4e6b35477b880c34",
+   "package_sha256": "a5094f5e7c54be9f7ff7f04a5af1c68fc942e52386fc394f18082063d0df65ae"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.F1DistanceHereditary",
+   "file": "Research/Backfill/Paper4/Proof/F1DistanceHereditary.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/F1DistanceHereditary.lean",
+   "source_sha256": "ad45770d1c4039c30204202647a7027472e24a198aaeb0e815b2e78473e439c5",
+   "package_sha256": "c554c7324c181aaf8dda460eeba7fa783001ce54eacd32a0c6eb980740f228cb"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.NonDHExamples",
+   "file": "Research/Backfill/Paper4/Proof/NonDHExamples.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/NonDHExamples.lean",
+   "source_sha256": "00baf267d2db891f9e04f9a3bca60fb659d1069ba9060d74dda14c16bccd364b",
+   "package_sha256": "19f4fe121dfc1b2f30ffa32718772e05b421ab51b3abf29fb984afef82b9a57a"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11SubsetCover",
+   "file": "Research/Backfill/Paper4/Proof/H11SubsetCover.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11SubsetCover.lean",
+   "source_sha256": "f8490d414f084e6bd091596bc671639f59263c790380ef2e04bc5e5674f7c55e",
+   "package_sha256": "faa9f7c495279a0afa2b788aad6d014b5f1ebde0ba9d98be6ae5347d09530d61"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11Metric",
+   "file": "Research/Backfill/Paper4/Proof/H11Metric.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11Metric.lean",
+   "source_sha256": "b9e7dfdaf806c97505a5c838fc94be121256fdf18d2957c86a9402a64654520b",
+   "package_sha256": "f1ee7dc5d8435d04828d94bccec90655c240da921985596ea8829cf58a509540"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock00",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock00.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock00.lean",
+   "source_sha256": "2c4571bf11ba4d82b9cca9083a4f9e42ca9c21cc1ec14e47be365d7d7bb1471c",
+   "package_sha256": "83be03329d6c1d45612180f38f059cdccb47596232e9c7cc4c56c328451bf20d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock01",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock01.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock01.lean",
+   "source_sha256": "05ee3a93dd6c0fa86772cbcb68d905d1fc5937e535db99e2d54d648dc1336509",
+   "package_sha256": "67f5707cff9538a594f540e1fa87814a76b6f12201fefd955642085274bfd8f4"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock02",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock02.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock02.lean",
+   "source_sha256": "6b222211ae194af04fbf636d1500c62de7a91132f8ed450278b22a5e9ddb1c4a",
+   "package_sha256": "61dd69bad9b02f89689fb3ac989ca57ec09a6dcb02ac040b27f56ae781289bd2"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock03",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock03.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock03.lean",
+   "source_sha256": "19a36cc33d5e249e8b8fed5ecb7b6376122a69f5988edaed7f5b5180a35c57f8",
+   "package_sha256": "2eb5fd7893fe2c3ea89a666e8d4b7afcb1fae1f320494ed3f12bc351574b2b1b"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock04",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock04.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock04.lean",
+   "source_sha256": "fb6db4152fbcc30ad5dea200fe99a3df8b3d94beae24ce4c558f6e88e14a783e",
+   "package_sha256": "8b18652a920e7d436ea16a55b1b4ff02b7097bb1c98c0ff7a35adb388d639057"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock05",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock05.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock05.lean",
+   "source_sha256": "e1a9b2513469d39590b6fe78119f2d477cedf4b0aaee277b58ae623c4f4d6b22",
+   "package_sha256": "4165f5daeebbb1c28f1eaca0a09c1e9bebab4e8d5b204a15f3091a272fcbca52"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock06",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock06.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock06.lean",
+   "source_sha256": "662a86847b89e68fa99acfe61d4abc56ac9c8ff364cc42f2dc3bdd5a1ac16e0e",
+   "package_sha256": "2a852a3db181624f44bbe7a1303664cf2e58ea7db35b7c9250dd23876fb8e88f"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock07",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock07.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock07.lean",
+   "source_sha256": "de997bff3de502d14ccc931c4b72dfb641e00ca3a6df5a930b5248057769c683",
+   "package_sha256": "f725251df5a2d95b0829f6a22e7562e2f503b8864415961ecfee12f97f221a95"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock08",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock08.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock08.lean",
+   "source_sha256": "0713e7fd0400238ae3fa78d66f1f4e0d2716365621b94ef506fb1dc87cbf8deb",
+   "package_sha256": "80594a974ca05ce53ae533bd906415e8924f2d0040d63f1b893fdd6ffc2eb59d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock09",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock09.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock09.lean",
+   "source_sha256": "e8e3c0ca948c672ed03c8d68850d32204eb1861d531f8dfc6f91515ebec8b31c",
+   "package_sha256": "8b392ab849029f931b8a9b9937b2b8404454501fc9ff2ef4e0fc21f9abf418ed"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock10",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock10.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock10.lean",
+   "source_sha256": "730843a847af0d3eca71582a6da00331e373b3b2bbb4ee37e589efbf8e31ab86",
+   "package_sha256": "eafef525b564acb9ee61275859c77fe3b0e7c564bdf3c7ea3de74b0911a32f0c"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock11",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock11.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock11.lean",
+   "source_sha256": "887a8d050ac8d6619cef73f5c5a9eddd913176a95d94436bd3ba756260032f89",
+   "package_sha256": "5a95277cfa4abeca5a66e0879ec7b7c4ddd800f3534cbc948b7098b5e08e93dd"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock12",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock12.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock12.lean",
+   "source_sha256": "1c12704dc25d2c7a0fc1e3d3fcf572f094071af26c8ce318bcc92db260f95239",
+   "package_sha256": "d2f2c7c3f396a77e68d36751f8500616c8815bc0ddee008b640d20d284f0b1fa"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock13",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock13.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock13.lean",
+   "source_sha256": "71b17b26f1a6713e0b3f42abcdb361482151504893b5f155a6bf1078fcda5af4",
+   "package_sha256": "81c88b49afca8009173ef6b96892511c16d5fa6921999738c715a55061c04eeb"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock14",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock14.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock14.lean",
+   "source_sha256": "ff99361ba0ecea78ea2f31f8c323834b97ca027390b9230608d474c83a721fdc",
+   "package_sha256": "d5d3d70cd8916fbc4cd382f98c973c0acfc0a1f3cc8a91db7d7a99b0e1b070d0"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock15",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock15.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock15.lean",
+   "source_sha256": "35b6c9e7845bc50f2b188c2286c02814af64b6c6b0ceb5cd65836a9052dc86d0",
+   "package_sha256": "03ad7ca99bb88d8f485f533cdc499c5ae1490cd2feb41d8c8e8c83fe289bc383"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock16",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock16.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock16.lean",
+   "source_sha256": "03bff657c2401cf8d0be9dc72d1d1f6450218dbf3823828888977fbb7acfde7a",
+   "package_sha256": "34a7238366685fee91ed9f53e5e5940d3c7718baa4eba58799de11326b96c7a8"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock17",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock17.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock17.lean",
+   "source_sha256": "e337c88ae5db868a69f6cecaa060048caf4b2fc73493973646d6c9be3c7c9163",
+   "package_sha256": "199a3e5c2fcfaba9246e3eb911c87a8d964f0cb22500f296c3edf9635c9b0f5b"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock18",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock18.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock18.lean",
+   "source_sha256": "3538f65db36fecc1ade5869e9c4c341b3493448e95e82889585c39acb169cd84",
+   "package_sha256": "6a3d504ccfce792bec9c3818528c568b8816aa2831c90126da678e78486d5007"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock19",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock19.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock19.lean",
+   "source_sha256": "82811937d6beff2d7de8659c0a6602d861d415bfb05fd97d30cba4b839bd3350",
+   "package_sha256": "ab01b2e5221ceefbd776565560854be231c8c5b5837c0316bedd81d5cd71cb28"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock20",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock20.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock20.lean",
+   "source_sha256": "a3ffd65d23b04f5ea70e9a79e2d287b423f8ff1a050a84a62f7e9a6c18b07fc4",
+   "package_sha256": "c542c8e303b5c0b868808fd5b8372eda9dccd7c1b281101c9f3444fe591c177e"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock21",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock21.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock21.lean",
+   "source_sha256": "5cdd2233e466b2bce6cc7546f47ada60b6f26aa145967c5b2f3f6010d2e9893d",
+   "package_sha256": "602e7fe1692f35fb62ace3ea25093ae5cd3e78cfec79e79a66f0ad574677cac6"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock22",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock22.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock22.lean",
+   "source_sha256": "02fa4e91fc6cf69ed67e8eed2e760571edde3b689958cac49c1647bf11b6693e",
+   "package_sha256": "c8830dfb258a00977283303bc28b243334f80f5690040d8337dfd68818edc457"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock23",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock23.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock23.lean",
+   "source_sha256": "028f7493a546078cc6362527c266634ffc3decadd5e591f805262ee76dfc87ef",
+   "package_sha256": "cbc657100d4fc2fb1534a60e950af22dd2471dff521016d719f62ba3706f3ee8"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock24",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock24.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock24.lean",
+   "source_sha256": "7f423b1236e54ccf3612bfc7ce217f10d08f7363826884aa69ec22b3f7239781",
+   "package_sha256": "fb610710acda8b74d54d2e7c247e77c3c4ea72eb201e53658d71c95726e08e3c"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock25",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock25.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock25.lean",
+   "source_sha256": "665c39c0c0e6e1b33a0f386d81c29638586aaf9a65b33487d41c40ce1deb9481",
+   "package_sha256": "e7af4c19b5376f55cc6abe7f4fb54c893230f24bac9e33fe128b7081e41e1e32"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock26",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock26.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock26.lean",
+   "source_sha256": "61640843b0bd518993ca0c6e16ef2aed087eb1ce8cf18ba4f4328c2c25f292df",
+   "package_sha256": "70df5ca336e2a54a7b0ed3d0425fc094418dc419aa11ff48e18a911d265d4141"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock27",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock27.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock27.lean",
+   "source_sha256": "52f32aa7d52060d627cd960c5f69ad2d6c74940c4ddd8df1342241891e49913e",
+   "package_sha256": "cb99756d09c5e6e45c78a99c82fa438fe125e43eaa6763464ecbf3f5c53b14ad"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock28",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock28.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock28.lean",
+   "source_sha256": "746cb9075f328709c2bd1da3db7b5445c98e0d0d15cfad66ae56980f5db57a1a",
+   "package_sha256": "8ba5365fdb3f92dd2f12c3398a42c6ba9babbd7dd53ee76732a0b6356e049dbb"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock29",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock29.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock29.lean",
+   "source_sha256": "d7f936e1aa7148582a3c045f85974e0c9097c1efab0990337c79fbfadff60cf0",
+   "package_sha256": "80937ea37a59fbda911aba712546316ba2e544492d4875d37e4576a2561a4180"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock30",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock30.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock30.lean",
+   "source_sha256": "4729a9908c603fe3f05385ead19f79b330d9ddc2c0266e05b8027c9bf33d3d6c",
+   "package_sha256": "e0109dccd8667123e7c890580a3d6af1059ef20e98982d0b433330c816395d39"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11DHBlock31",
+   "file": "Research/Backfill/Paper4/Proof/H11DHBlock31.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11DHBlock31.lean",
+   "source_sha256": "0bc6240a4949e70a69b690cf99e10745aa724ffe98e8aa4ef369143f956c1ee1",
+   "package_sha256": "b6b42c72ace097d8d526abafa1ef34ae7f5e5e1ab28296370b994711656ca6d3"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.H11AssemblyDraft",
+   "file": "Research/Backfill/Paper4/Proof/H11AssemblyDraft.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/H11AssemblyDraft.lean",
+   "source_sha256": "6b852568e18a71cec3b8341099586e354284f70b16b1489877cab4116ef293a0",
+   "package_sha256": "3f8446ea39336928c19f7921eab2829d0c4ca0615c9d41f4ca3118bdac425139"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.GridInterval",
+   "file": "Research/Backfill/Paper4/Proof/GridInterval.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/GridInterval.lean",
+   "source_sha256": "c1aad99920f2bc82c003291fea8be75dffa6aeeb52742784611f3db566086ee6",
+   "package_sha256": "c1aad99920f2bc82c003291fea8be75dffa6aeeb52742784611f3db566086ee6"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.GridExamples",
+   "file": "Research/Backfill/Paper4/Proof/GridExamples.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/GridExamples.lean",
+   "source_sha256": "23dc83f307b5b8e0ad71b9795fa271b379dcb6707e13c641f0f69e5894e96573",
+   "package_sha256": "23dc83f307b5b8e0ad71b9795fa271b379dcb6707e13c641f0f69e5894e96573"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.GridMonotone",
+   "file": "Research/Backfill/Paper4/Proof/GridMonotone.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/GridMonotone.lean",
+   "source_sha256": "55392d9d4c03ae23f21b2190a1fa6757bc58078aa571b1c4baeb0e563030d770",
+   "package_sha256": "892878840d851cd5c9d9b6e4672105e37be2bf1ac45b2f4367c6ed1cd7bddecf"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.DHExtensionCore",
+   "file": "Research/Backfill/Paper4/Proof/DHExtensionCore.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/DHExtensionCore.lean",
+   "source_sha256": "407160c3500049afbbb7bcd0315845e1b2eca25c03907bbaa4a73d99f89d84ca",
+   "package_sha256": "407160c3500049afbbb7bcd0315845e1b2eca25c03907bbaa4a73d99f89d84ca"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.DHExtension",
+   "file": "Research/Backfill/Paper4/Proof/DHExtension.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/DHExtension.lean",
+   "source_sha256": "fe425707528a76bcee394c8f6a7950cdc883c56550bee918c7d8003aed630400",
+   "package_sha256": "02cd6ffb3fdf29f87b0bbe33e88a8ce6d1e1851163fc5c81bdf8aae18be71431"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.CutVertexMetric",
+   "file": "Research/Backfill/Paper4/Proof/CutVertexMetric.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/CutVertexMetric.lean",
+   "source_sha256": "cfe748573b05c8af73444538e1dd41cea29529876c7be49209814825c94a4e05",
+   "package_sha256": "a76e6ea60b82eea960fb67b7000dd6aa6db160cc5446bae17d0432c23d530d95"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.DHFourPointBase",
+   "file": "Research/Backfill/Paper4/Proof/DHFourPointBase.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/DHFourPointBase.lean",
+   "source_sha256": "023a5b64c9b0dfffb9d7e3e6ae1f71c3833d7a5df4f79f4bb4c6bf3cf77e54b7",
+   "package_sha256": "023a5b64c9b0dfffb9d7e3e6ae1f71c3833d7a5df4f79f4bb4c6bf3cf77e54b7"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.DHFourPoint",
+   "file": "Research/Backfill/Paper4/Proof/DHFourPoint.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/DHFourPoint.lean",
+   "source_sha256": "6e0eb1205b089c4af52938898715faa983b46b53d8095fd0084aa6faa2c0dc9c",
+   "package_sha256": "2fd168f50d1abc8280e97d3cdbf04eb0ee52c1a95f1d85e8c5243e2c73613d34"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.DHFourPointConsequences",
+   "file": "Research/Backfill/Paper4/Proof/DHFourPointConsequences.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/DHFourPointConsequences.lean",
+   "source_sha256": "a540604dfd42aa67d3897f6067519c70ac5d504c7958d52271521572541a053a",
+   "package_sha256": "5bd84b4fc0e6804f0d95dd2296d8eb204da300e0f919e572a405bb07ed529775"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.GraphAutomorphisms",
+   "file": "Research/Backfill/Paper4/Proof/GraphAutomorphisms.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/GraphAutomorphisms.lean",
+   "source_sha256": "d2c58e86bbcaab3071da2de4256159ad9902f56e8e00aa10de4721a83b506361",
+   "package_sha256": "d2c58e86bbcaab3071da2de4256159ad9902f56e8e00aa10de4721a83b506361"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeFingerprint",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeFingerprint.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeFingerprint.lean",
+   "source_sha256": "fd79d4f0c3ea9f9f2538bf3040dc68330c0688cf0c4c286efa4f3f8aa8634f34",
+   "package_sha256": "fd79d4f0c3ea9f9f2538bf3040dc68330c0688cf0c4c286efa4f3f8aa8634f34"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationCore",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationCore.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationCore.lean",
+   "source_sha256": "72ef2ee711af2b474145836f1bb259fc1405f7a45756b22dc60cd2222248d493",
+   "package_sha256": "72ef2ee711af2b474145836f1bb259fc1405f7a45756b22dc60cd2222248d493"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationFamily",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationFamily.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationFamily.lean",
+   "source_sha256": "9227b62f62880dd363cb50d559b417e81c48d5db0642592030d70d7a7dcb29c6",
+   "package_sha256": "2ae97ba3a80e6d682cb6f4ae12f64440d410fc8730a05563daaa100a48ffd3ae"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeRepresentativeFingerprint",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeRepresentativeFingerprint.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeRepresentativeFingerprint.lean",
+   "source_sha256": "e80be2f54017bbfd21f778b14e7ebb6624133d12c7e5c0d46ed1bec34326622c",
+   "package_sha256": "0e89d750c07d2a82bc70fe30539944f190ba88a05e048f5031980f4031985a48"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationValidity",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationValidity.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationValidity.lean",
+   "source_sha256": "8bae59fc4e2b0a8feb82685b1773b00f0aa2c67ea4eb3ebb12962e89665837c7",
+   "package_sha256": "ed5e855b8b6cb2489b221cbdad194b67e4ac62d1c74a0a3f60788e4a7a1ae3a6"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationSmallLayers",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationSmallLayers.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationSmallLayers.lean",
+   "source_sha256": "878cc64f6b30579bacb21b9e198249534a9ed196600d18ad029094a3f3f2b4c8",
+   "package_sha256": "70e6f2435b436fa53e45149509bdd9e456085e9fe6dd39a53f7864858059a579"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent3P00",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent3P00.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent3P00.lean",
+   "source_sha256": "a7a427fa03df67234a30da405be76b153f8486fec310a4326fd44ff3d95bcf0d",
+   "package_sha256": "94054cd7a63e39a955094cbe88910054e1cd3c86859a8bb6276692a5950eb30a"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent4P00",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent4P00.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent4P00.lean",
+   "source_sha256": "a2d0ebdd8387fed1c435b3ee31ec0e63963e0b076066c389b6f28318aeb664d0",
+   "package_sha256": "573868bf16c413ccd9ad899323d471b3217e5a286e8f8fababbb0f07a0e4447b"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent4P01",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent4P01.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent4P01.lean",
+   "source_sha256": "9cd21a27b51d3cef4bc92b2d88b422921e44d3a4036e6d3eabdbe6eab9aa1541",
+   "package_sha256": "155046e3c66e4f2f7d01aef1ff8f6ac25630f20115617bf22a4fa8729164438f"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent4P02",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent4P02.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent4P02.lean",
+   "source_sha256": "fd50d2eb7f9da614d0ff1f03fbd7803892e19f08bd168c12b3594c86f9577e56",
+   "package_sha256": "be52fb682f7844981d1b8e43e8440b7e16c50c69957cb652c7e37c8f603d1c41"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P00",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P00.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent5P00.lean",
+   "source_sha256": "3a11d94166a3ac0fa474e150e9baf472ec9b6a52b6cea53395429fa743df7686",
+   "package_sha256": "e78f536d548b166061e340bc44eb5dc9b57ba61c8e71ef10b6d9c5583597076d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P01",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P01.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent5P01.lean",
+   "source_sha256": "eb3e5d77f9da0153e4e20ce60a1c7b231e31202de38c5ca904b2c01af1db9496",
+   "package_sha256": "c7880260082fdf5e405c07a7a03b4466bd1423c11f33385328ab834d359cf3ea"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P02",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P02.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent5P02.lean",
+   "source_sha256": "a4eaaaf063602b4d409ec56e5e6af252fa4649f53b37577fcaccf79b65499532",
+   "package_sha256": "a0f61bdfb8cf8d0496e7f8633b835afa4688a860c2cbe009810f5b1fb07e9b2e"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P03",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P03.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent5P03.lean",
+   "source_sha256": "77e5f0b660b8cee8b0d4148e67fd7e1948df925fe33f446bf98b2a7cc3cc3ae2",
+   "package_sha256": "3110089c817b041b4294ccf693afebb353f6b101409f212414b0e36f185e34d1"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P04",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P04.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent5P04.lean",
+   "source_sha256": "f12cddd060f222a351267dd29b44f91c140fe8d174be490f84218f54e04bc8fa",
+   "package_sha256": "d00ac1842183ebeea73e7fff2c4db6787fedbfaa7d78f667c59e69ba85935d6d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P05",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P05.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent5P05.lean",
+   "source_sha256": "e6c9ed474f0c7bbcb52e016b362fe20b6080c55d219f70c019dd7be0db1795b3",
+   "package_sha256": "c6c29276a8b84da5a119732777f32e292b5ff8d2e71b627b84c5dd0751d15043"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P00",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P00.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P00.lean",
+   "source_sha256": "3fac28c1640df4b225fe4c7411a8e86bedb600aea5fc39400e57c550854705ee",
+   "package_sha256": "5b3bafea162f6a930aab0661134c968110fac99081e8760131fa842b51999cb0"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P01",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P01.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P01.lean",
+   "source_sha256": "23953d57e481652e180e7ed14493cc23cf3dc468637d2c9b30d205d84190a7c1",
+   "package_sha256": "4a8f846a5fea32358bde0a538d4519d5a8aae7aa7610a64a5d26372d3dc340d6"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P02",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P02.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P02.lean",
+   "source_sha256": "44df36d6645be9eb6830feff528b901d74ea34848b5ffe4734d108bbeac111b5",
+   "package_sha256": "ee98c4126e934d8307cab2baacd87c6735aaf3808926c889fe4b57dfd255c6c0"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P03",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P03.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P03.lean",
+   "source_sha256": "17acf0f592caee5454681829eae2dd4e29b734e3f0684b9c475f2565fbdd1ca1",
+   "package_sha256": "3927714f332f4fb3a8dc93cfbc96989dff543f54c3670c8d3dd76b57c7df5b2c"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P04",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P04.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P04.lean",
+   "source_sha256": "ed9653006de4efd1730a4178226d99f09ed6535a6089b58b695d808d033fe70d",
+   "package_sha256": "cdd5c3b83e6dbcb82b10f8a8743779ac7b987d09f9ce1d7c7617e33439b0de38"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P05",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P05.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P05.lean",
+   "source_sha256": "fb348ffe1ee97fe8287df5dba2a8ef3ce445c19572044039715fff0ee73830b2",
+   "package_sha256": "6a1e9a0b36ae9738d166111cc6415dceee0a4359c34254ca625b4116c229edda"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P06",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P06.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P06.lean",
+   "source_sha256": "306236cc9c0c3575e00b914f606f85b60980a09ebd879c3f8be2d84bedf0da20",
+   "package_sha256": "4344feb6423753cd05b373598f0f7567fc022a14a408b514fc30d3b5c577deab"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P07",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P07.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P07.lean",
+   "source_sha256": "4b7224fe4f72899af02f165da704e181e25875d11e5b85f2686ad7a2cfd559c7",
+   "package_sha256": "618bb07b3eb8a2c62a918d54631b85925d0c8910ecf062905440afb609ba4ddc"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P08",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P08.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P08.lean",
+   "source_sha256": "c1d811206bba32303766ba9fe87dc0a87f3451181e2093213de0d5455cc9a105",
+   "package_sha256": "5cc343f2fe331ab58f880163361694eb6c05961219a912d7430779a17349d999"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P09",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P09.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P09.lean",
+   "source_sha256": "ae59bac2acb566c6bf20a51564e16f270d7267f3193146d291b8de46ac26049f",
+   "package_sha256": "83901dc28f8162855645b5612b22b1b5d2a9f43101e73b9bae20ddc7c8807229"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P10",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P10.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P10.lean",
+   "source_sha256": "fa32955cd1530de642976be9f0634f97edc082946886a2f979e304143686fe6d",
+   "package_sha256": "b2c021d784a2c48f061c86efaf44c8570579031b382b22b2a9cee744d0eb13a9"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P11",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P11.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P11.lean",
+   "source_sha256": "b9c05426294f4ae41560ffca5031333c909f8810ee4db6d868ddffbcaccd3e76",
+   "package_sha256": "76fddbd74c28528a8d29f17ac45f26dc094868c9b3bd43e8cea8207d7b24f05f"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P12",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P12.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P12.lean",
+   "source_sha256": "a7521c6c1adb01160b55a553ae8da6ae6d3e398b11ab71bf7ada94e780cdd9bd",
+   "package_sha256": "c25a3d1c2a3d7473f81dcb1c935addd4d1c10428ae37d98db7efd77ca614b844"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P13",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P13.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P13.lean",
+   "source_sha256": "8d3fa364e97f71939ada37f69b9fb9722824265e955d01dc0cad94b867e1df77",
+   "package_sha256": "196fd7e877d9a28b72608500b9bb490ee844628a93cacaf5e2f1183ab84f3254"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P14",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P14.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P14.lean",
+   "source_sha256": "aac298950e411309b7b95681edcf5ff1750d50b23de79786d8b2caf95cb197f5",
+   "package_sha256": "69db047b49fc38ceaa0f76144a0cacb64779edf4e7d0c16db3027e630c8cff8d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P15",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P15.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P15.lean",
+   "source_sha256": "c654657482e83b077ec9fd21c870671354e2257e5cc3c372b5b8cd4d3adcd733",
+   "package_sha256": "a640953e6464bc98b0446fe6a76d37147420daba7c9ae6277819e8a0ebd1eae6"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P16",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P16.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P16.lean",
+   "source_sha256": "f8ccd586d5ed47667fd943abed18d7e41749da559d6e2ade6fbde715ddb18425",
+   "package_sha256": "3d0a7760e921929a1ce7df1c3d8127d66d28756a9599a3184ae9d8a8585938a9"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P17",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P17.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P17.lean",
+   "source_sha256": "6ad9ebf3279c3200da73709b8c09536706046c41e18c2cdc0a71655356e35139",
+   "package_sha256": "862bb999339a4db52d5f19e1dd615b582f4c03fee86685381b8f317766450ea7"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P18",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P18.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationParent6P18.lean",
+   "source_sha256": "3abf5d7a3c13cd7198096e9ab53900e8df57ebff6ea773b6febd766e4af56f4a",
+   "package_sha256": "3fbc9420c5de7ad4e345777fb340d2a7f4aca41578acec788daaece8e352b5b6"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeEnumerationLayers",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeEnumerationLayers.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeEnumerationLayers.lean",
+   "source_sha256": "5abc16bed482be20b874d374c60b87f751dcd415767f4c554d11ed690722a0ec",
+   "package_sha256": "4f5b3c8e36770e949430e8e39ab64d5c2798f1dc17736627e65f49726c791e90"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeClassification",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeClassification.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeClassification.lean",
+   "source_sha256": "720568671f09fa037f53db307ac9b03a00100c0e0407ab6228c325712a164998",
+   "package_sha256": "3f0520a6b3ac6e631c4687f21c75bb288a25167625db3daec04b85dc5d2bb3a2"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeIndependentCount",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeIndependentCount.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeIndependentCount.lean",
+   "source_sha256": "3e6ba5454b6eaef66f154bd35caea3b0fb0fd0bbc4c1871d0ff665d8c1c22b04",
+   "package_sha256": "3e6ba5454b6eaef66f154bd35caea3b0fb0fd0bbc4c1871d0ff665d8c1c22b04"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.TriangleFreeCandidates",
+   "file": "Research/Backfill/Paper4/Proof/TriangleFreeCandidates.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/TriangleFreeCandidates.lean",
+   "source_sha256": "6a6056b7fe30a7d7c9788e0870b7b68ae87a2f0681824e9246320191d3feabd9",
+   "package_sha256": "83b5ed55845b8eda89691713e8cf2bc1a121960405f6fcecacb6dd2ddab0340e"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMetricCertificate",
+   "file": "Research/Backfill/Paper4/Proof/SmallMetricCertificate.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMetricCertificate.lean",
+   "source_sha256": "cce54e1d15e6b1ada121bbf6f93cfff0d056e43380bc2c3e9e2f8601aab216af",
+   "package_sha256": "26c1e2005ca9cb3633eb2795c34b969b2b5a6dc4bc441d9d7d58a4444cb9fc8e"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock00",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianClassificationBlock00.lean",
+   "source_sha256": "5fdc03f768d69a6e7f0dc7e7c17c1c4f913b18aa3efdb7b2b872d8d2ee0bebfd",
+   "package_sha256": "403f54700d0cee5021d80c0708ff44ef6c3d9dfbed8bb56f2f080dc327f12a9f"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock01",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianClassificationBlock01.lean",
+   "source_sha256": "95f52c51757cacc887171d4260d93ce2dee3e38c9200812ff142d50aa35d5987",
+   "package_sha256": "24c907e5127924b44b4abb2465c173237aea24ef8141f6daf60e2be5ad465bcc"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock02",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock02.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianClassificationBlock02.lean",
+   "source_sha256": "c9ea79d2bf318e903dda0acf083fcb7b40a68c36afa22d414ba22774bb30bc6a",
+   "package_sha256": "d38d9d67195ede45d71f49c11bf3fc2d1e0d9a038aa6e37158d23a137932c31c"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock03",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianClassificationBlock03.lean",
+   "source_sha256": "1e2f14948f707997a04f2806df5882f361061716c4bfed560102d7bc10a7615e",
+   "package_sha256": "5c6b45d86f98c45490979f7462e7931d906c9d68fa057fbeb29a03e75e131a1d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock04",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianClassificationBlock04.lean",
+   "source_sha256": "2afe89911260014fa16e1566167c1fb6b3d90ddfd0da43accf0dbf9a0ab96bd9",
+   "package_sha256": "5081a6695cc7eab6096fd60983dafb460c66131866f27134239b38657cc83ead"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock05",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianClassificationBlock05.lean",
+   "source_sha256": "fb5dc53036048af7bb9cf056f4af62604d46a12f2ddfcb44ec387b41d36fc449",
+   "package_sha256": "7e3e30d46d57d920bd993ec881b46055589b5db7c673075f8d392bc567e4b7b2"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock06",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianClassificationBlock06.lean",
+   "source_sha256": "a8f1eee27b5b13e9825642c6a3bfde2beeabbb4bedb7ef97ea7b5cfe95109b1c",
+   "package_sha256": "9e6351ed1cf02ed57b2bf0d4225d831d29dfcaeca41ee972ab8621809870a545"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock07",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianClassificationBlock07.lean",
+   "source_sha256": "973b97557ee97a7e0ac2e221e1a4e7f8f17cd8a09bb06a3a5ee2c4443d2239f8",
+   "package_sha256": "1021e81cea04fe2d29aeb5aed6d7f6eacf2aed19c0ef41bd01ae6a2f86f60780"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock08",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock08.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianClassificationBlock08.lean",
+   "source_sha256": "6b755f371b9af0cb75c373e233065e0572a341c8625e5d3a1c09bee4db92c1f5",
+   "package_sha256": "5f8ad2e8a7b86322cbe9022ec79fbaa6ddebd247d37e8d121b532daaec73f764"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianClassification",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianClassification.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianClassification.lean",
+   "source_sha256": "255a051b65b1c4416f1f54ace2eb2b062b3f01dbe2279c0f83000c9ab3bb03c5",
+   "package_sha256": "74eb8e142e4e556fda13f4edab131e8883084f9b06937711e92dc74d5a681024"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianMetricTransport",
+   "file": "Research/Backfill/Paper4/Proof/MedianMetricTransport.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/MedianMetricTransport.lean",
+   "source_sha256": "1f46d9e29786fcbac20284f6c3b715efbe4194fa5ae72f6315eb28df76e3520d",
+   "package_sha256": "6c51a855c3f2b4f73631d31df8ca2263fa0b640f7b73f24fc34f034f2c1c79c0"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianMinimality",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianMinimality.lean",
+   "author": "Codex",
+   "source": "work/codex-r3/phase12/paper4/SmallMedianMinimality.lean",
+   "source_sha256": "5c18fb53d5b7c6ee8abca8576e0594ca983ac288f4acdbe875561d12d5732621",
+   "package_sha256": "30178e0b314000b7be0041e403dd6469c0bf13ff13cce2dd57958cbca0458011"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightReps",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightReps.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightReps.lean",
+   "source_sha256": "c3f0dfab1a9d57a9db25df43c3cd954f74dace43df2a7f21d5d28e4cc869b3cc",
+   "package_sha256": "fd038c1e99d9b209114daf39af6ed7d643881e66b6c7052f1164690d748e0f55"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightRepFacts0",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightRepFacts0.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightRepFacts0.lean",
+   "source_sha256": "83ec0885cda6b3be89353595a3a1a0edb6e063e4f46e236b114d3d8c7107fafe",
+   "package_sha256": "868e6e7a1cdc3fd44c0de9bd857b3bea5d7077939098fadfe25107c5eb5b45c4"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightRepFacts1",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightRepFacts1.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightRepFacts1.lean",
+   "source_sha256": "7a54b0b79d99d6067bce6abc1cd24db124e7b1e8e7f31dbe014d7f5b4f002d52",
+   "package_sha256": "17731967237928380d5f93452505284170124d73be01e48be594b109abd6cd80"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightRepFacts2",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightRepFacts2.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightRepFacts2.lean",
+   "source_sha256": "ac1e3f3d9af811f156d69dc9a63468a0c06544eebff2590f455fc02b45bab2af",
+   "package_sha256": "00e52aff8fdb31e6f029c7e7363fde938105cc72d8375b923fa0b90b8ddc1adb"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightRepFacts3",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightRepFacts3.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightRepFacts3.lean",
+   "source_sha256": "c7700c066bca92b912887ae30e1dd72d9d45055f9632c1ae6ae23e37c69014c3",
+   "package_sha256": "18f1b1c329b5f13e9eeb44e9fcedd57847f8c8efe1bb70dc29a224c9561c6a78"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightRepFacts4",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightRepFacts4.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightRepFacts4.lean",
+   "source_sha256": "196ca902028c9fbfe9746a832017287cb94ff20ea47abecffc5756fb684c50d2",
+   "package_sha256": "0aaaccb4eaea24ca076ed254de897e82eb817f0848b48de3b471a738845fd8a8"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightRepFacts5",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightRepFacts5.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightRepFacts5.lean",
+   "source_sha256": "8dc9b6b4190cd06aa4d68946fd1feaec88599fb81d748324f1a121eaa32c676c",
+   "package_sha256": "973e8bb77f617d77e2e0644853128c96fac523f322d63e14b34ea14a0d2afd15"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightRepFacts6",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightRepFacts6.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightRepFacts6.lean",
+   "source_sha256": "631c5f2af00c78412f06be46f83e9e8ce344d2f1063be7aaed31e7ae93298b26",
+   "package_sha256": "81b6d1329388f540da35dfe2b5383248f83df3d88dfbc0f70b2ce39bc126a218"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightRepFacts",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightRepFacts.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightRepFacts.lean",
+   "source_sha256": "c20605382574270f9c61f231cd4b3faf2a670ab0e98ff939f2e0be47a86da869",
+   "package_sha256": "bed2cc39e8aaa6c98c07e0a49bfb8299167f572dabdeed00c4a27745265d67dd"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.RowDist",
+   "file": "Research/Backfill/Paper4/Proof/RowDist.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/RowDist.lean",
+   "source_sha256": "b7dd426f12ff31a025fa0d7c74b58c2c6dc5d70423a1cdbd7080b1a24ba2ff9a",
+   "package_sha256": "b7dd426f12ff31a025fa0d7c74b58c2c6dc5d70423a1cdbd7080b1a24ba2ff9a"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent00",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent00.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent00.lean",
+   "source_sha256": "8310a2f518b5ac45316ecc82d069020ac2af9f0231cf66b724f1a6253dfd9f7f",
+   "package_sha256": "278569ead9aa340542969a0b5bfa31f7a175070be6cfec4408a31cbb97d407b6"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent01",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent01.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent01.lean",
+   "source_sha256": "312aa2789ce2df7be5b15629a329906d8d7c3c9b2e0c90ab01b02f6c4e365dbc",
+   "package_sha256": "7fe7da59fd0705f65b3f1aab9aa223a87c2bd12fb2931f7ff1a49a90f6bf21dd"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent02",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent02.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent02.lean",
+   "source_sha256": "434852f6fde4099a64a3f9ec0057e0ea48b7272a2798209189c2c38f8caab1c7",
+   "package_sha256": "55ec2f3aad96c0dfbbeb55cc29801242c3e501abd5c69db81439035131dea821"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent03",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent03.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent03.lean",
+   "source_sha256": "09eae26185a576ad338495c27aefa378f4b2692d9755d13385a4fdee6d67a024",
+   "package_sha256": "04a1a1e4ffbe9dbf7201402f4c2888d65d97ff75c967b66a718a844a153e7974"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent04",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent04.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent04.lean",
+   "source_sha256": "ac9dd01a05d73b0fc22a21fd19bdb38ca0d48ab433bc87ca36ca3637deec4179",
+   "package_sha256": "01a84e75fc39d3d70a95eb1d81328602aff8190931f67667aa634643c9588caa"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent05",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent05.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent05.lean",
+   "source_sha256": "c7d11753ae68b6c8eb8094ca2f8c6a3f627d5bfba080b01dcdd171aa9677f3ea",
+   "package_sha256": "d0d26fd064c139c2c9b5ef5c968b3594b78dba29087b2c4b369afbf72574a4da"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent06",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent06.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent06.lean",
+   "source_sha256": "1f860dc58e43d924a1c52c5a9ba66fb2efd0bda7a32a89c58432dcb6e9bc1535",
+   "package_sha256": "dd86dc46013dbc60240fee50ecc44aebb7bda267bf3fd428ec54647455645188"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent07",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent07.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent07.lean",
+   "source_sha256": "c869977a6cc1a7be2695b0f6abd12286ab0baa3ad88bebea4714f90f7c48814d",
+   "package_sha256": "1484533843cf9c86f01ddc244ec3dc409c03248d650d58592e38e6ef33f65611"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent08",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent08.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent08.lean",
+   "source_sha256": "44dd77cab8f756174f4a6d4d6ddee03c9d9aef8953bf1138a9062a3bcaf0a97a",
+   "package_sha256": "e35c190f4efc7dd9cb0009200bfe92512ac724c2c7e30c57570da6982251bbca"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent09",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent09.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent09.lean",
+   "source_sha256": "1c894d2fcd707e48ffc241100a171676bb4fbbd7e815ae3d029f65022ba06542",
+   "package_sha256": "f71165c1594146c0b47b5113925012f73ddc23e25f0a59f5db8698e79e72d444"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent10",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent10.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent10.lean",
+   "source_sha256": "5f45e1ebe9cff79ed9ea20fdd625701975894177b50253cec1def9898294a618",
+   "package_sha256": "d1f8d0d744f9d8ecd268666367a827f1c531c36afed6b9868d49394bf03e7b07"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent11",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent11.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent11.lean",
+   "source_sha256": "37b519e44574d9a371c204b2076b402d6dc0c69f8ed4340ce921da300ba7be6e",
+   "package_sha256": "dbc356429a3f790e7e3012e3954c7d539cd1d9de178b9d9acd68074a6dd98277"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent12",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent12.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent12.lean",
+   "source_sha256": "37cabb5c4caa5a6646e105b73f12b76ec6bfe4ed089176adcedc0fd95f82b65a",
+   "package_sha256": "fdef737832a4eb07751f8dbe10549ee3b0939556621bed5a272641d9597fe338"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent13",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent13.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent13.lean",
+   "source_sha256": "5c07514365b24a7237ec362bb7a68797a3357e050db8a553a7db6160c985af24",
+   "package_sha256": "f3f6af77c3e0cd3c42e4a9f1856ce55dda1179310afbafd7f336bc769a820940"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent14",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent14.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent14.lean",
+   "source_sha256": "3390bb7e371f8e0ed964a4c298b1d1d6eb80da50b2b58c97d8342a0134523e40",
+   "package_sha256": "1b63ab8e83a783f0c9f9bd8bffe21c0cabcb3bd2214b93dcd2d963fcd878bcc9"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent15",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent15.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent15.lean",
+   "source_sha256": "f62232916c0b35e44d3bc9bfb12d5d544e8930c33dff19340b053a9103433f72",
+   "package_sha256": "6da813a337e4062ababc008053fbc7f6279683b6e9ee192b48154f027b1ea961"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent16",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent16.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent16.lean",
+   "source_sha256": "7675b8f364fe966038f2412c02896cd975b0c5d14b16064767c6c4d34852905f",
+   "package_sha256": "dd53e93d7c0d02ed4effe63d8db3d889f2a33615ae7da431727604592dfc23f6"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent17",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent17.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent17.lean",
+   "source_sha256": "887f0fff38e262466bd158423bf3dafe011df06603e28a5979eac1711a90f2c0",
+   "package_sha256": "743949f386d79c4f359048728152f17fa871026cb5350b4fdeacb71addbb2b19"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent18",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent18.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent18.lean",
+   "source_sha256": "f16c27b1ce2a5fe8e65014754f216ccfd4b4217bc88e85acecbc5caa6fbf702c",
+   "package_sha256": "cd274c7e82e946561c963d84c3c9ac4df3de3d70617e2440fbf919fb837151c2"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent19",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent19.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent19.lean",
+   "source_sha256": "0361b37c7cb03d8dd3bfba3e37f6ab58871d05f0a9521c721dba8dba8275302a",
+   "package_sha256": "6615a42dcf14f4d108d02612d7988921ff1c0f493022b7e4385da38c2d96cecc"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent20",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent20.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent20.lean",
+   "source_sha256": "dc835bbaa3362ae4d2bfc3fa10a3590e5e1ad65ec8acdeb6b5fa3fb5b21d6998",
+   "package_sha256": "4c8e3bc8415e010dad57bdf4c3ca1a8b39d0ea2020f7ed0fdb9ffaf871b4accb"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent21",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent21.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent21.lean",
+   "source_sha256": "27a3599d9c9843a3ff846d8584f52777287c889880135722298757bab28a6c76",
+   "package_sha256": "76ee23e146ee6ea253982d186652873b8aca69df4c4cf9b74eb08dacc60ec6ee"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent22",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent22.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent22.lean",
+   "source_sha256": "bb3db93bf01725ed61694850e31e91eeaf6a01bcc46e5a36f52512b4b10bdedc",
+   "package_sha256": "4229e4369e73e02298115b2b247a998e216e16b7defb854f8e1ad5f7d4f483db"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent23",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent23.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent23.lean",
+   "source_sha256": "ee5fd40acb0ca2d5545320b9272ef6c4b10fd3fa6b215e06e2b77977d9fc4955",
+   "package_sha256": "6f11f4b1da2a1c3236d40e6ef33f817ba7a38ae7ee20324273cad8abc3b48894"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent24",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent24.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent24.lean",
+   "source_sha256": "d48c946ddf4dd8ca919636a3506117ecc20e580fec4ea3081ffbce29d7c3ac2c",
+   "package_sha256": "702eb06df765370156eff7a6684982f477f569bcd6141fe7304d35fb630ec01c"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent25",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent25.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent25.lean",
+   "source_sha256": "0ab19e87dccf025f05e780741084b287691b528682a40d975386ca1f2a03f7c0",
+   "package_sha256": "51fad6ea1b7a35a2f890162290d1532acb616bbfbccf5a3d06b72c9732c1db17"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent26",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent26.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent26.lean",
+   "source_sha256": "c44bb7385e866279838ad5be5877220147fecf16744a4b69af6e603636812dde",
+   "package_sha256": "1961d5c9c790307db448c8a4f7d0b293dddac7c2d361d32eb5e3556d093937a8"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent27",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent27.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent27.lean",
+   "source_sha256": "6dccd9020ad26085a81192fbfe50b647a4929935c5296fc5ef2537e3b0afe854",
+   "package_sha256": "679da7e48a12c5e5a7b5f0d532239125e54b7d77c6e5141e908b3eafe311e930"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent28",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent28.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent28.lean",
+   "source_sha256": "f47798c8f65ab152a3689ccf8f603cf3e701eb8d763ce58a8734a2a74a37ef9f",
+   "package_sha256": "a8b3c20903b06c0cfcc721b5fbbf6789f039df407a1db2095aed20d46b431d96"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent29",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent29.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent29.lean",
+   "source_sha256": "0931e9319fff23499e6e13d68e2aab6e2036ec097ec1338d767a2769ea4da596",
+   "package_sha256": "d369fe9a88be9daf1135b002023b169f63d644001d143372cc26f29263246dd9"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent30",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent30.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent30.lean",
+   "source_sha256": "a4dd6c13735642b89fe4bb8b20df92a9ac9e88d10bed38e11939aeae7d4982c3",
+   "package_sha256": "3ee520c9b389c25d09e94f8c204fa611be64f617bd82b6ccff66062d86e1c139"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent31",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent31.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent31.lean",
+   "source_sha256": "574c8f69829064e6c25149261ea86bb5ca85eba65540ab52915b3c217046e1ed",
+   "package_sha256": "f822bace3fd43f2428022df42504b45cdfa1d6f63e445df263203eee89c85202"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent32",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent32.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent32.lean",
+   "source_sha256": "817988a229f26a416545bdb5c1d9624e57507fe32e31571986ef7452b3c24280",
+   "package_sha256": "9f025a38553ecdbb41dc27fbe50c4830c9cc3a1c0e176ff0012cac29553cf390"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent33",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent33.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent33.lean",
+   "source_sha256": "78ae74a968bacbbfff238397ac7cabea924203aa01a1acab637a5b638c7ca007",
+   "package_sha256": "55e7ffef295667a578415a81517429cdd143813d6d0e4c1cf47946dcb85c7906"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent34",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent34.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent34.lean",
+   "source_sha256": "e2c9665278d1d684ad7328ef74d3336d7b19cee3674794c331561d35820d7f3f",
+   "package_sha256": "6b2f0b1845f1846f68246023418ef258f1c76a9860c80b52652655bbe078e0d5"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent35",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent35.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent35.lean",
+   "source_sha256": "ba80efc1b2e03edcc0e75be2ea736c6cdc10d06b2953394c770303ad08387f7f",
+   "package_sha256": "e7eeaa20edb12b5051e767058ab0e5b4db6e15616c8fbc151bff4f2ad91a50a1"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent36",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent36.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent36.lean",
+   "source_sha256": "0ddaa47f49376b833a78a56447d9cce0a737e4a87fe2caac8258ded4e86d4fb2",
+   "package_sha256": "a670c9526fdd6a63dcc2d8bd0351609b36424a3fa21c3202d3e60314ff055a45"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent37",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent37.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent37.lean",
+   "source_sha256": "541ed91ccda8aee0501660e3932999744ddee07745982de388c8ac4cb1c18cc8",
+   "package_sha256": "3c7441eff475fb2acffb303959b6ec21407ae0d83522108265dd91d1db0e3ab2"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent38",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent38.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent38.lean",
+   "source_sha256": "fe38f415f757dffc49897ea375642890463f64fcf2b285b3ec1dee8145b32e77",
+   "package_sha256": "0b4a846532d11b1b5ff11b552d1d9e81e7d36461ea4d8f5c93e4b2a3c1b119b2"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent39",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent39.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent39.lean",
+   "source_sha256": "9d22960c376c1736f70668198657bd5f072e6bbf35c807b70177b2ba2a94038a",
+   "package_sha256": "79246af211f49248d35bc448f4d9b70766b86ea983c1dc0ffcf438bcd69a562d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent40",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent40.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent40.lean",
+   "source_sha256": "bf153671432830716150a9fb98786b6f40bc17511807a26fa76fe0b73ca2e6fc",
+   "package_sha256": "05a4d4d253f4fa90bdc76f4c34da2acb6837c8e2204d134acb4c47e2515c6440"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent41",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent41.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent41.lean",
+   "source_sha256": "9251f898ca904660cc315f949d18cde78bf5e87b1b58fdfffbe20a38ccc4996e",
+   "package_sha256": "20384105e931d6cf74b82f774f2e8bc1f85fb58b3dd2ce16c483782770f08236"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent42",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent42.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent42.lean",
+   "source_sha256": "f0d731828cf194e16b1e74409904012f6484e7b171d67df298b4fdd5963268d3",
+   "package_sha256": "1eeb951c05c021fa33abf4273adc37910bc04e6cab2121491533cfd681dc49f4"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent43",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent43.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent43.lean",
+   "source_sha256": "f1f2408b7a692f9135eba24b3ff84b2e55d6d677f14266fb0f130ad9f47e8b05",
+   "package_sha256": "9b37578ab14035ba9d8cbe620290991dde14d2c771380e67d34947b17b61aa09"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent44",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent44.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent44.lean",
+   "source_sha256": "009e2f4a3721c0c1e21c2a1b3ec7e0803c1205ce6a8d8e9d52a26eb9f3d09f1a",
+   "package_sha256": "41b5c44d222c93c398060405270db224495cbe395c39860f82872a3777ebb3dc"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent45",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent45.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent45.lean",
+   "source_sha256": "2d518f2484dc8278554e9bda5b75ed7a3ec4cc7798f566893ad5c2e09467aadf",
+   "package_sha256": "5b88bd01201442960e3c983123f17d4b8f989320bbe7dba146304cd066dea421"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent46",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent46.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent46.lean",
+   "source_sha256": "c62cf0686302b978f3a961561967acbc75abf413948c7149ad0d3a53563c2d67",
+   "package_sha256": "a54946d6d5ded77fefaa286c67688b6381ad621e65d0d261be65c01ec21c5396"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent47",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent47.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent47.lean",
+   "source_sha256": "c99f25757fc25bb752dc27e706636083770d1174e0c0035756387ed28cf62942",
+   "package_sha256": "b6e95fe9f29f608a64e8301b2a022893dbb52ef002b86ec2a37586e9d141342d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent48",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent48.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent48.lean",
+   "source_sha256": "eede39f5527ec77897b3679c87082e959196f43c7f538a88920617bc90ba7c3a",
+   "package_sha256": "f6d954dc5f3c7f17be1f27ebb050d1e19611e056f0f3f8edaeb2f52db9da3d8a"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent49",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent49.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent49.lean",
+   "source_sha256": "b78cbb440582ae89a506ab754d5a6c885a6eeaa35333b8a26c23012f61e75469",
+   "package_sha256": "bfb03928b7496af967af72b3f7cf32521fe82263e7c4cecb6dd42b0c1f4aec05"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent50",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent50.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent50.lean",
+   "source_sha256": "9ec9182176bce5205f1c7a3f989395e9544363d2586a98fa3076d8211a37d2d4",
+   "package_sha256": "226203cc328ed956b18c6d5042b0c37387b20852bb82d68822aba1a284bef0c0"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent51",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent51.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent51.lean",
+   "source_sha256": "12bde77ed186078e2432f943da80d66e2ece319c9c4f825cd581751e6158827b",
+   "package_sha256": "382987794d63788453b9ff74694bb23f7b4f7c92bb83c8d866c5588714ed5653"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent52",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent52.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent52.lean",
+   "source_sha256": "b4f183ed1de006407c810d528cd71d48f704dc1fb30e52a8a8f67beab80c5757",
+   "package_sha256": "7abf961e6f65b18a8a5534f99ca334d17b85e7c78c414f1c0781ab19d785a461"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent53",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent53.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent53.lean",
+   "source_sha256": "d3dc2160a8552db32d87ec1ba54648c947c89122a0f38621ff9d9d17942147eb",
+   "package_sha256": "d35eb855a8e7a09d5f52fae7db419bd849eb7ac637bf1942282865a1eaa3c9ee"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent54",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent54.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent54.lean",
+   "source_sha256": "2065fb056e4becef17c393068925395112ae94a48e89774963efa79e1f4468f4",
+   "package_sha256": "2bfcc667017b0495286876aa0305385ebea5c60cb5c2ef7b825c9f8da680bf8d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent55",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent55.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent55.lean",
+   "source_sha256": "0b0e5e5157756a5198993af859164ad7bd98f9ccf8614df1b9cc7f6cce0a4617",
+   "package_sha256": "9d666aed33c3b7e3e497436103260dbab5bf7da7cc2daf529e4e6f2beef26e48"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent56",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent56.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent56.lean",
+   "source_sha256": "b4cdd6de4b2e8815813ca9642c12f174aedf0cb044e0b649859c651a015b8876",
+   "package_sha256": "c51333ae70742404245157f1f153a73c4a2ea26b59c2289f23a2fa760736bf3a"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent57",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent57.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent57.lean",
+   "source_sha256": "da7adea46b908b22b775fe87c3216beb23415ec2620edd99938b2ddea7a83fe8",
+   "package_sha256": "cd702fe46262f69aeb96083d88365bcf3bd946f738a36269910d901e0cb3cc77"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightParent58",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightParent58.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightParent58.lean",
+   "source_sha256": "39a61db00bf975ae59bfc33888304b09bfd2296a37e83df63f43ff75b09fb58d",
+   "package_sha256": "eae06255be6e2167ab01983ac8392b6a4e9409d57f1a7d66e90cdfbc3eaefb04"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEight",
+   "file": "Research/Backfill/Paper4/Proof/MedianEight.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEight.lean",
+   "source_sha256": "25be0cf15dd32dedeb666700fe0c904069d38aa86ca7c1ad19fe6a7879dc6572",
+   "package_sha256": "338ba7f828151b69c0adfb13e8fa29cb1a31902f44a90e8ab37faf92fa35dff2"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianFacts",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianFacts.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/SmallMedianFacts.lean",
+   "source_sha256": "4c72b9d649d2c643545b3506011a60d1c14a5f509c9a5dbbbda23f8383018f35",
+   "package_sha256": "dd130dda2606a73ad9033db1a21108a63e086759571ba8377a8aebc9856cbc02"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.SmallMedianCounts",
+   "file": "Research/Backfill/Paper4/Proof/SmallMedianCounts.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/SmallMedianCounts.lean",
+   "source_sha256": "9e3bda415f1dee6ac478f73fbfc1e54f8f6e70cfa89b0d9834c2f409a91a75e1",
+   "package_sha256": "a5adf9bdc62aea4e637eb89503b3a8223281d8cfd73ee5e6af0387c5db073c83"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.AutCount",
+   "file": "Research/Backfill/Paper4/Proof/AutCount.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/AutCount.lean",
+   "source_sha256": "8361aec1347c65ab4f154fec44adb84161dd3077b6626cf52b21ff212406cf9a",
+   "package_sha256": "c751556b15a76c8ec3b2f2701a1e074c7169ed40c7720bae45923044c1f7df1a"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightAut0",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightAut0.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightAut0.lean",
+   "source_sha256": "58459a826d632ce6ae2e05f0ad8f8be2ceb2bc09055846c00f7fb26447b2d92a",
+   "package_sha256": "504e9754f66171ee0efb1165165bccef8414123a487a28e8c859825aaea6a591"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightAut1",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightAut1.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightAut1.lean",
+   "source_sha256": "266bceded63d514a2d81813ff06b956d13f2fae795a511f25e4df10a0b8a8e10",
+   "package_sha256": "8ee1286b70b53d28050b48ed96e860ffab45427d1a10b8784da44f1a3775071a"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightAut2",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightAut2.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightAut2.lean",
+   "source_sha256": "411f67279a6b366b6461dea4101eff3a4604376e3089321e51eb34a2ffdb8018",
+   "package_sha256": "ac46468fabfef99f2eb5d66707793c68b2a259155b75b6f2ac3b4e4bab7744f0"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightAut3",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightAut3.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightAut3.lean",
+   "source_sha256": "00f2a342fdd81c292c0d73f256da509230b19a2595e20db83ea602b9692d3d74",
+   "package_sha256": "6c36f73d3af5623f051b6d1d067b00eb1717dcb5acf5d803cd213775d5f9ec21"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightAut4",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightAut4.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightAut4.lean",
+   "source_sha256": "cce7b70228178403e39b748ba0dcf5e399d7a412eebdb81b155a70ae2b629845",
+   "package_sha256": "88d58759610e39f55ec1a196c94fbf8a1c59330d59656aa7a98bed90c4f79c19"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightAut5",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightAut5.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightAut5.lean",
+   "source_sha256": "49eb7fea16d7b33766df90b037e99e8ed694ca98ca6c5b39b204e5205410de73",
+   "package_sha256": "a3b30d468b2d9f38ad4bc3874d77ddb69b3437b09a95bb5ae1e002750f703f10"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightAut6",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightAut6.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightAut6.lean",
+   "source_sha256": "765de1079905f9530f2bb9b6c6ce0402f7afe6301a940ed173769641c9d57c3b",
+   "package_sha256": "010d644f08489fd582f06aa79f079bcd65c57e343a3bbee871011b5490e7059d"
+  },
+  {
+   "module": "Research.Backfill.Paper4.Proof.MedianEightLabelled",
+   "file": "Research/Backfill/Paper4/Proof/MedianEightLabelled.lean",
+   "author": "Claude",
+   "source": "work/claude-lean/p4count/src/MedianEightLabelled.lean",
+   "source_sha256": "3cc894d87fa8ed05276c1d86c98a9f374248084be9c39b9e45e642d52a0b3e1e",
+   "package_sha256": "3f99cd79836dd162ff8d882717e07aa8a7ae3aa14e7f1f8c1fab4c5854063449"
+  }
+ ],
+ "counts": {
+  "targets": 50,
+  "proof_modules": 196,
+  "by_codex": 115,
+  "by_claude": 81
+ }
+}

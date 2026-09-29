@@ -1,0 +1,455 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={Tensor products of Mycielskians of odd cycles with odd wheels are not word-representable},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}[lemma]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[lemma]{Remark}
+\newcommand{\Z}{\mathbb Z}
+\DeclareUrlCommand\code{\urlstyle{tt}\def\UrlBreaks{\do\_\do\/\do\.}\def\UrlBigBreaks{}}
+% Repository version 1.9.0 (user decision 2026-09-28T19:22:59Z: released together with version 2 of Paper 4).
+\newcommand{\repoversion}{1.9.0}
+\setlength{\emergencystretch}{1.5em}
+
+\title{Tensor products of Mycielskians of odd cycles\\ with odd wheels are not
+word-representable}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{September 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A graph is word-representable if there is a word over its vertex set,
+containing every vertex, in which two distinct letters alternate exactly when
+the corresponding vertices are adjacent. Alshammari asked whether the tensor products
+$\mu(C_{2n+1})\times W_{2m+1}$ and $\mu'(C_{2n+1})\times W_{2m+1}$ are
+non-word-representable for all $n\ge1$ and $m\ge2$, where $\mu$ and $\mu'$
+denote the Mycielskian and the extended Mycielskian and $W_{2m+1}$ is the
+wheel on an odd cycle. We show that the answer is yes. When $n\ge m$, each
+product contains an induced copy of its first factor; when $n\le m$, both
+contain an induced copy of $\mu(C_{2m+1})$. These graphs are not
+word-representable by theorems of Hameed and of Kitaev and Pyatkin.
+The result, the non-word-representability of $\mu(C_{2t+1})$ and
+$\mu'(C_{2t+1})$ on which it relies, and the other facts its proof uses are
+formally verified in Lean~4. The proof was found by AI agents
+working under the author's direction; their role is described at the end of
+the paper.
+\end{abstract}
+
+\section{Introduction}
+All graphs are finite and simple. Two distinct letters $x$ and $y$
+\emph{alternate} in a word $w$ if deleting from $w$ all letters other than
+$x$ and $y$ leaves a word $xyxy\cdots$ or $yxyx\cdots$, of even or odd
+length. A graph $G$ is \emph{word-representable} if there is a word $w$ over
+the alphabet $V(G)$ in which every vertex occurs and, for all distinct
+vertices $x$ and $y$, the letters $x$ and $y$ alternate in $w$ if and only if
+$xy$ is an edge~\cite{kl,alsh}. Halld\'orsson, Kitaev and Pyatkin~\cite{hkp}
+proved that a graph is word-representable if and only if it has a
+semi-transitive orientation.
+
+The \emph{tensor product} $G\times H$ of graphs $G$ and $H$ has vertex set
+$V(G)\times V(H)$, and $(a,b)$ is adjacent to $(a',b')$ if and only if $aa'$
+is an edge of $G$ and $bb'$ is an edge of $H$. Kitaev and Lozin asked whether
+anything definite can be said about the word-representability of tensor
+products of two word-representable graphs, of a word-representable and a
+non-word-representable graph, or of two non-word-representable graphs
+\cite[Problem~7.2.5]{kl}, as quoted in~\cite[Problem~1.1]{alsh}. Choi, Kim and
+Kim~\cite{ckk} showed that the tensor product of two graphs with
+semi-transitive orientations need not have one. Alshammari~\cite{alsh}
+studied tensor products of graphs containing wheels, complete graphs and
+(extended) Mycielskians of cycles, and posed four problems. The first of them
+is the following~\cite[Problem~5.1]{alsh}.
+
+\begin{quote}
+Is it true that $\mu_{2n+1}\times W_{2m+1}$ and $\mu'_{2n+1}\times
+W_{2m+1}$ is always non-word-representable for $n\ge1$ and $m\ge2$?
+\end{quote}
+
+Here, as in~\cite{alsh}, $W_k$ is the wheel obtained from the cycle $C_k$ by
+adding a vertex adjacent to all its vertices, $\mu_k=\mu(C_k)$ is the
+Mycielskian of $C_k$ and $\mu'_k=\mu'(C_k)$ its extended Mycielskian
+(Section~\ref{sec:defs}). We answer the question in the affirmative.
+
+\begin{theorem}\label{thm:main}
+For all integers $n\ge1$ and $m\ge2$, the graphs $\mu_{2n+1}\times W_{2m+1}$
+and $\mu'_{2n+1}\times W_{2m+1}$ are not word-representable.
+\end{theorem}
+
+The proof (Section~\ref{sec:proof}) finds a non-word-representable induced
+subgraph: for $n\ge m$, a copy of the first factor, embedded through a
+homomorphism into $W_{2m+1}$, as in the proof
+of~\cite[Theorem~3.6]{alsh}; for $n\le m$, a copy of $\mu_{2m+1}$, by an
+embedding that adapts the one in the proof of~\cite[Theorem~4.3]{alsh}. That
+these subgraphs are not word-representable is due to Hameed~\cite{hameed} and
+to Kitaev and Pyatkin~\cite{kp}. We claim nothing about the other problems
+of~\cite{alsh}; in particular, whether the tensor product of two
+non-word-representable graphs can be word-representable~\cite[Problem~5.4]{alsh}
+remains open.
+
+\paragraph{Prior work.}
+We found no earlier answer to~\cite[Problem~5.1]{alsh}. We searched on
+27 September 2026 between 18:06 and 19:02 UTC: the arXiv (its API, for the
+topic and the author); the works citing~\cite{alsh} in OpenAlex (there were
+none); MathDB; MathOverflow and Mathematics Stack Exchange, through the Stack
+Exchange API; GitHub (code, commits, issues, pull requests and
+repositories), including the repositories \texttt{trureturing}~\cite{tru}
+and \texttt{SCOPE2026}~\cite{scope} of AI-assisted work on open problems;
+Wikipedia; and web search. A second AI system repeated a smaller search later
+that day.
+A final check between 23:38 UTC on 28 September and 00:17 UTC on
+29 September 2026 (the arXiv, including new versions of~\cite{alsh}; the works
+citing it in Semantic Scholar and OpenAlex; MathOverflow and Mathematics Stack
+Exchange; GitHub; MathDB; and web search) found nothing new. We did not search Google
+Scholar, Scopus or Web of Science, and we did not consult the book~\cite{kl}
+itself. This reports the coverage of our searches, not a guarantee of
+priority.
+
+\section{Definitions and three known facts}\label{sec:defs}
+For $k\ge3$ the cycle $C_k$ has vertex set $\Z_k$, with $i$ adjacent to
+$i\pm1$. The wheel $W_k$ has the \emph{rim} vertices $r_i$, $i\in\Z_k$,
+which form a copy of $C_k$, and the \emph{hub} $h$, adjacent to every rim
+vertex. The Mycielskian $\mu_k$ has the \emph{top} vertices $v_i$, the
+\emph{shadows} $u_i$ ($i\in\Z_k$) and the \emph{root} $w$; its edges are
+$v_iv_{i+1}$, $u_iv_{i+1}$, $u_iv_{i-1}$ and $wu_i$ for $i\in\Z_k$. The
+extended Mycielskian $\mu'_k$ has the same vertices and the edges $v_iv_{i+1}$,
+$u_iv_j$ for all $j\ne i$, and $wu_i$~\cite{alsh,kp}. In both graphs the
+shadows are pairwise non-adjacent, and the root is adjacent to no top vertex.
+
+\begin{lemma}[{well known; see~\cite{kl}}]\label{lem:hered}
+An induced subgraph of a word-representable graph is word-representable.
+\end{lemma}
+\begin{proof}
+If $w$ represents $G$ and $S\subseteq V(G)$, delete from $w$ all letters
+outside $S$. Every letter of $S$ still occurs, and whether two letters of
+$S$ alternate depends only on the subword formed by these two letters, which
+does not change; so the new word represents the subgraph induced by $S$.
+\end{proof}
+
+\begin{lemma}\label{lem:graphhom}
+If $f\colon G\to H$ is a homomorphism of graphs, then $x\mapsto(x,f(x))$ is an
+isomorphism of $G$ onto an induced subgraph of $G\times H$.
+\end{lemma}
+\begin{proof}
+The map is injective. For vertices $x$ and $y$ of $G$, the pair
+$(x,f(x))$, $(y,f(y))$ is an edge of $G\times H$ if and only if $xy$ is an
+edge of $G$ and $f(x)f(y)$ is an edge of $H$; as $f$ is a homomorphism, this
+holds if and only if $xy$ is an edge of $G$.
+\end{proof}
+
+\begin{theorem}[{Hameed~\cite{hameed}; Kitaev and Pyatkin~\cite[Theorem~4 and Remark~5]{kp}}]\label{thm:kp}
+For every $t\ge1$, the graphs $\mu_{2t+1}$ and $\mu'_{2t+1}$ are not
+word-representable.
+\end{theorem}
+
+Hameed~\cite{hameed} proved that $\mu'_{2t+1}$ has no semi-transitive
+orientation; Kitaev and Pyatkin~\cite[Theorem~4]{kp} proved the same for
+$\mu_{2t+1}$, and observed that their proof also applies to
+$\mu'_{2t+1}$~\cite[Remark~5]{kp}. By~\cite{hkp}, these graphs are
+therefore not word-representable. We use Theorem~\ref{thm:kp} only for
+$t\ge2$.
+
+\section{Proof of Theorem~\ref{thm:main}}\label{sec:proof}
+For odd integers $K\ge k\ge3$ define the \emph{fold}
+$\varphi_{K,k}\colon\Z_K\to\Z_k$ by $\varphi_{K,k}(i)=i$ for $0\le i\le k-1$,
+and, for $k\le i\le K-1$, by $\varphi_{K,k}(i)=k-2$ if $i-k$ is even and
+$\varphi_{K,k}(i)=k-1$ if $i-k$ is odd. For $K=k$ it is the identity. For
+$K>k$ it is a homomorphism $C_K\to C_k$: the images of $i$ and $i+1$ are
+adjacent for $0\le i\le K-2$, and $\varphi_{K,k}(K-1)=k-1$ is adjacent to
+$\varphi_{K,k}(0)=0$, as $K-1-k$ is odd. In particular
+$\varphi_{K,k}(i)\ne\varphi_{K,k}(i\pm1)$ for every $i$.
+
+\begin{lemma}\label{lem:hom}
+Let $k\ge K\ge5$ be odd. There are homomorphisms $\mu_k\to W_K$ and
+$\mu'_k\to W_K$.
+\end{lemma}
+\begin{proof}
+Put $\psi=\varphi_{k,K}$. Map $v_i$ and $u_i$ to $r_{\psi(i)}$, and $w$ to
+$h$. The edges $v_iv_{i+1}$ and $u_iv_{i\pm1}$ of $\mu_k$ go to the rim edges
+$r_{\psi(i)}r_{\psi(i+1)}$ and $r_{\psi(i)}r_{\psi(i\pm1)}$, and $wu_i$ goes to
+the edge $hr_{\psi(i)}$. For $\mu'_k$, map $v_i$ to $r_{\psi(i)}$, every $u_i$
+to $h$, and $w$ to $r_0$: the edges $v_iv_{i+1}$ go to rim edges, and the
+edges $u_iv_j$ and $wu_i$ to edges at the hub.
+\end{proof}
+
+\begin{lemma}\label{lem:emb}
+Let $K\ge k\ge3$ be odd, with $K\ge5$, and let $G$ be $\mu_k$ or $\mu'_k$.
+Then $\mu_K$ is isomorphic to an induced subgraph of $G\times W_K$.
+\end{lemma}
+\begin{proof}
+Put $\varphi=\varphi_{K,k}$ and define $\iota$ on the vertices of $\mu_K$ by
+\[
+ \iota(v_i)=(v_{\varphi(i)},r_i),\qquad \iota(u_i)=(u_{\varphi(i)},r_i),\qquad
+ \iota(w)=(w,h).
+\]
+It is injective: the second coordinate determines $i$, or shows that the
+vertex is $w$, and the first coordinate tells top vertices from shadows.
+
+Edges go to edges. For $v_iv_{i+1}$: the top vertices $v_{\varphi(i)}$ and
+$v_{\varphi(i+1)}$ are adjacent in $G$, as $\varphi$ is a homomorphism, and
+$r_ir_{i+1}$ is an edge. For $u_iv_{i\pm1}$: in $\mu_k$ the shadow
+$u_{\varphi(i)}$ is adjacent to $v_{\varphi(i\pm1)}$ because $\varphi(i)$ and
+$\varphi(i\pm1)$ are adjacent in $C_k$, and in $\mu'_k$ because they are
+different; and $r_ir_{i\pm1}$ is an edge. For $wu_i$: $w$ is adjacent to
+$u_{\varphi(i)}$ in $G$, and $h$ to $r_i$.
+
+Non-edges go to non-edges. The non-edges of $\mu_K$ are $v_iv_j$ with
+$j\notin\{i-1,i,i+1\}$, $u_iv_j$ with $j\notin\{i-1,i+1\}$ (including
+$j=i$), $u_iu_j$ with $j\ne i$, and $wv_j$. In the first two cases the
+second coordinates $r_i$ and $r_j$ are not adjacent in $W_K$, as
+$j\notin\{i-1,i+1\}$ and $W_K$ has no loops. For $u_iu_j$ the first
+coordinates are two shadows, or one shadow twice, which are not adjacent
+in~$G$; for $wv_j$ the first coordinates $w$ and $v_{\varphi(j)}$ are not
+adjacent in~$G$. So $\iota$ is an isomorphism onto the subgraph of
+$G\times W_K$ induced by its image.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Let $k=2n+1$ and $K=2m+1\ge5$, and let $G$ be $\mu_k$ or $\mu'_k$. If $n\ge m$,
+Lemmas~\ref{lem:hom} and~\ref{lem:graphhom} give an induced copy of $G$ in
+$G\times W_K$. If $n\le m$, Lemma~\ref{lem:emb} gives an induced copy of
+$\mu_K$ in $G\times W_K$. In both cases the copy is not word-representable by
+Theorem~\ref{thm:kp}, since $k\ge K\ge5$ in the first case; so $G\times W_K$
+is not word-representable by Lemma~\ref{lem:hered}.
+\end{proof}
+
+\section{Formal verification}\label{sec:lean}
+
+The results of this paper are formally verified in Lean~4 (version 4.34.1)
+with Mathlib~\cite{mathlib} (version v4.34.1, commit \texttt{d13f23b7}).
+
+\paragraph{Statements before proofs.}
+After the proof had been found, the agent that found it wrote a Lean file of
+definitions and statements, the \emph{statement file}, which contains no
+proofs. An independent agent reviewed version~1 of this file against the
+sources and tested its definitions with programs of its own; version~2 applies
+its corrections and adds the lemmas used in the proof. A second AI system
+reviewed version~2, and it was frozen on 27 September 2026 at 22:04 UTC by
+recording its SHA-256 hash
+\begin{center}\small
+\texttt{40c8efd69f8499c9874f07163043c0793c94c8597b7a3902d5aeb0a2ce0c9b58}.
+\end{center}
+The proofs were written after the freeze, in separate files that import the
+statement file, which was not changed.
+
+\paragraph{What is proved.}
+Table~\ref{tab:lean} lists the eleven statements of the frozen file; the file
+of checks proves each of them. In ASCII notation, the definition of
+word-representability and the statement of Theorem~\ref{thm:main} for $\mu$
+read as follows (implicit arguments omitted), with \texttt{forall}, \texttt{exists}, \texttt{->},
+\verb|<->|, \verb|/\|, \texttt{in}, \texttt{!=} and \texttt{Not} for
+$\forall$, $\exists$, $\to$, $\leftrightarrow$, $\wedge$, $\in$, $\ne$ and
+$\neg$.
+{\footnotesize
+\begin{verbatim}
+def Alternate (w : List V) (x y : V) : Prop :=
+  noRepeat (w.filter (fun z => z == x || z == y)) = true
+def Represents (G : SimpleGraph V) (w : List V) : Prop :=
+  (forall v : V, v in w) /\
+    forall x y : V, x != y -> (G.Adj x y <-> Alternate w x y)
+def WordRepresentable (G : SimpleGraph V) : Prop := exists w : List V, Represents G w
+def Problem1Mu : Prop := forall n m : Nat, 1 <= n -> 2 <= m ->
+  Not (WordRepresentable (tensorProd (mu (2 * n + 1)) (wheel (2 * m + 1))))
+\end{verbatim}}
+\noindent Here \texttt{noRepeat} says that no two consecutive letters are
+equal, and \texttt{mu n} and \texttt{muExt n} stand for
+\texttt{mycielskian (cycleGraph n)} and \texttt{extMycielskian (cycleGraph n)}.
+The name \texttt{Problem1Mu} comes from the label of
+\cite[Problem~5.1]{alsh} in the source of~\cite{alsh}.
+Lemmas~\ref{lem:hered}, \ref{lem:graphhom}, \ref{lem:hom}
+and~\ref{lem:emb} are proved in Lean as in the text.
+
+\begin{table}[!htb]\centering\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}
+ >{\raggedright\arraybackslash}p{0.5\textwidth}
+ >{\raggedright\arraybackslash}p{0.1\textwidth}@{}}\toprule
+Lean statement & what it says & here\\\midrule
+\code{Problem1Mu}, \code{Problem1MuExt} & $\mu_{2n+1}\times W_{2m+1}$, resp.\
+ $\mu'_{2n+1}\times W_{2m+1}$, is not word-representable for all $n\ge1$,
+ $m\ge2$ & Thm~\ref{thm:main}\\
+\code{Problem5_1} & the conjunction of the two & Thm~\ref{thm:main}\\
+\code{MycielskiOddCycleNotWR}, \code{ExtMycielskiOddCycleNotWR} & $\mu_{2t+1}$,
+ resp.\ $\mu'_{2t+1}$, is not word-representable for all $t\ge1$ &
+ Thm~\ref{thm:kp}\\
+\code{WordRepresentableOfEmbedding} & a graph that embeds as an induced
+ subgraph into a word-representable graph is word-representable &
+ Lem.~\ref{lem:hered}\\
+\code{EmbeddingOfHom} & a homomorphism $G\to H$ gives an embedding of $G$ into
+ $G\times H$ as an induced subgraph & Lem.~\ref{lem:graphhom}\\
+\code{Lemma1Mu}, \code{Lemma1MuExt} & a homomorphism $\mu_{2n+1}\to W_{2m+1}$,
+ resp.\ $\mu'_{2n+1}\to W_{2m+1}$, for $2\le m\le n$ & Lem.~\ref{lem:hom}\\
+\code{Lemma2Mu}, \code{Lemma2MuExt} & an embedding of $\mu_{2m+1}$ as an induced
+ subgraph into $\mu_{2n+1}\times W_{2m+1}$, resp.\
+ $\mu'_{2n+1}\times W_{2m+1}$, for $1\le n\le m$, $m\ge2$ & Lem.~\ref{lem:emb}\\
+\bottomrule
+\end{tabular}
+\caption{The eleven statements of the frozen statement file (namespace
+\texttt{WordRepTensor.\allowbreak Challenge}). Each is proved.}\label{tab:lean}
+\end{table}
+
+\paragraph{How Theorem~\ref{thm:kp} is proved in Lean.}
+The Lean proof does not follow~\cite{hameed,kp}; it works with words
+directly. Let $x\ne y$ be letters of a word, and let $x$ occur first. Then
+$x$ and $y$ alternate if and only if every prefix of the word contains at
+least as many letters~$x$ as letters~$y$, and at most one more. Now let a word
+represent a graph, and orient each edge from the end vertex that occurs
+first. Write $\#x$ for the number of letters~$x$ in a prefix. If
+$a\to c\to d\to b$ is a directed path and $a$ is adjacent to~$b$, then $a$
+occurs before~$b$, so in every prefix each of $\alpha=\#a-\#c$,
+$\beta=\#c-\#d$, $\gamma=\#d-\#b$ and $\delta=\#a-\#b$ is $0$ or~$1$.
+Hence $\#a-\#d=\alpha+\beta=\delta-\gamma$ and
+$\#c-\#b=\beta+\gamma=\delta-\alpha$ are $0$ or~$1$; as $a$ occurs
+before~$d$, and $c$ before~$b$, the vertex $a$ is adjacent to~$d$, and $c$
+to~$b$. For $\mu_{2t+1}$ and $\mu'_{2t+1}$ with $t\ge2$, consider the seven
+vertices
+$w,v_i,v_{i+1},v_{i+2},u_i,u_{i+1},u_{i+2}$. A computation checked by the
+Lean kernel runs through all orientations of the edges among them ($2^9$ for
+$\mu$, $2^{11}$ for $\mu'$) and shows that in every orientation with the
+property just proved, the orientation of the five edges between the columns
+$i$ and $i+1$ (the edges $v_iv_{i+1}$, $v_iu_{i+1}$, $u_iv_{i+1}$, $wu_i$
+and $wu_{i+1}$) and that of the five corresponding edges between the columns
+$i+1$ and $i+2$ get different colours, for a fixed colouring of the $2^5$
+orientations of five edges with two colours. Going once around the odd
+cycle changes the colour an odd number of times, which is impossible. The graphs $\mu_3$
+and $\mu'_3$ are equal, and a computation over the $2^{12}$ orientations of
+their twelve edges shows that none has the property.
+
+\paragraph{Checks.}
+For every statement of Table~\ref{tab:lean}, the axiom audits
+(\texttt{\#print axioms}) report only the axioms \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. A static scan found no
+\texttt{sorry}, \texttt{admit}, \texttt{native\_decide},
+\texttt{bv\_decide}, \texttt{implemented\_by}, \texttt{extern},
+\texttt{unsafe} or \texttt{opaque}, and no \texttt{axiom} declaration, in
+the proof files. The Lean package of this paper, $11$ modules (the
+statement file, its tests, eight proof modules and the file of checks), was
+built module by module in an empty directory,
+reusing only the pinned toolchain and the compiled Mathlib and its
+dependencies, and every module was checked with \texttt{leanchecker}, all
+with exit code~$0$, twice (on 28 September 2026 between 20:12 and 20:21~UTC).
+For the release, the whole Lean project of the
+repository was rebuilt from a clean directory and all its modules were
+checked again with \texttt{leanchecker} (28 September 2026,
+20:48--22:16~UTC). The Lean
+files are in version~\repoversion{} of the repository~\cite{repo},
+directory \texttt{lean/Research/WordRepTensor/}.
+
+\paragraph{Definitions the reader must trust.}
+Apart from Mathlib's graphs, cycle graphs (\texttt{cycleGraph}),
+homomorphisms, embeddings and lists, the statements use the definitions of
+alternation, representation and word-representability shown above; the
+tensor product (\texttt{tensorProd}, built with Mathlib's
+\texttt{SimpleGraph.fromRel}); the wheel (\texttt{wheel}, on
+\texttt{Sum (Fin n) Unit}); and the Mycielskian and the extended Mycielskian
+(\texttt{mycielskian}, \texttt{extMycielskian}, on
+\texttt{Sum V (Sum V Unit)},
+with top vertices, shadows and root in this order). A file of known-answer
+tests checks these definitions on small graphs: adjacencies and edge counts
+of cycles, wheels, Mycielskians and tensor products; words that represent
+$C_4$, $C_5$, $K_3$ and $K_2\times K_2$; words that do not represent a given
+graph, including words that omit a vertex; small instances of the maps of
+Lemmas~\ref{lem:graphhom}, \ref{lem:hom} and~\ref{lem:emb}; and a wrong
+map that is not an embedding.
+
+\paragraph{Faithfulness and non-claims.}
+A word is a list of vertices in which every vertex must occur, as
+in~\cite{alsh}; so the empty word represents no graph with a vertex. The Lean
+statements concern word-representability itself, not semi-transitive
+orientations, so the theorem of~\cite{hkp} is not needed as a hypothesis.
+Theorem~\ref{thm:kp} is formalized in its word-representability form; we do
+not formalize the characterizations of~\cite{hameed,kp} for arbitrary graphs.
+That the Lean definitions agree with those of~\cite{alsh} was checked by the
+reviewing agents, not by a machine.
+
+\section*{How this paper was produced}
+This work was carried out from 27 to 29 September 2026 (UTC) in a workflow
+directed by the author, using AI agents. Agents of Anthropic Claude Code,
+with the model Claude Opus~5.5, selected the question, found the proof,
+checked it with two separately written programs for small parameters, wrote
+the statement file of Section~\ref{sec:lean}, carried out the main
+literature search described in the introduction, and drafted this text. An independent
+Claude Code agent reviewed version~1 of the statement file against the
+sources and checked the definitions with its own programs; its corrections
+were applied in version~2. OpenAI Codex (desktop application; models
+\texttt{gpt-6-astra} and \texttt{gpt-6-sol}) then checked the
+mathematics independently, recomputing the embeddings with its own program,
+reviewed version~2 of the statement file and froze it. When Codex's usage
+quota ran out, Claude Code wrote the Lean proofs and ran the checks of
+Section~\ref{sec:lean}, and an independent Claude Code agent reviewed the
+proofs. Another independent Claude Code agent refereed a draft of this
+paper. Codex has not reviewed the Lean proofs or this paper; the final
+review before release was done by an independent Claude Code agent in its
+place.
+Throughout, ``we'' refers to this workflow. The author is not a professional
+mathematician.
+% Author role chosen by the user on 2026-09-28T23:35Z (option A).
+The author has read the paper and, using a side-by-side table, compared the
+statements of the Lean theorems with the results stated here.
+No human mathematician has reviewed this paper. The correctness of the
+result rests on the Lean proofs of the statements in Table~\ref{tab:lean}
+and on the agreement of those statements with the definitions
+of~\cite{alsh}, which was checked by the reviewing agents; the written proofs
+are given for the reader. AI systems are not authors of this paper; the
+author takes full responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Nawaf Alshammari for the question studied here.
+
+{\small
+\begin{thebibliography}{99}
+\bibitem{alsh}
+N.~Alshammari, On the word-representability of tensor product graphs,
+arXiv:2609.20881v1, 16 September 2026; we use its numbering.
+\bibitem{ckk}
+I.~Choi, J.~Kim and M.~Kim, On operations preserving semi-transitive
+orientability of graphs, \emph{J.\ Comb.\ Optim.} \textbf{37} (2019),
+1351--1366, \url{https://doi.org/10.1007/s10878-018-0358-7};
+arXiv:1810.11620.
+\bibitem{repo}
+H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{hkp}
+M.~M. Halld\'orsson, S.~Kitaev and A.~Pyatkin, Semi-transitive orientations
+and word-representable graphs, \emph{Discrete Appl.\ Math.} \textbf{201}
+(2016), 164--171, \url{https://doi.org/10.1016/j.dam.2015.07.033}.
+\bibitem{hameed}
+H.~Hameed, On semi-transitivity of (extended) Mycielski graphs,
+\emph{Discrete Appl.\ Math.} \textbf{359} (2024), 83--88,
+\url{https://doi.org/10.1016/j.dam.2024.07.028}.
+\bibitem{kl}
+S.~Kitaev and V.~Lozin, \emph{Words and Graphs}, Monographs in Theoretical
+Computer Science, an EATCS Series, Springer, 2015,
+\url{https://doi.org/10.1007/978-3-319-25859-1}.
+\bibitem{kp}
+S.~Kitaev and A.~Pyatkin, A note on Hameed's conjecture on the
+semi-transitivity of Mycielski graphs, \emph{Discuss.\ Math.\ Graph Theory}
+\textbf{45} (2025), \url{https://doi.org/10.7151/dmgt.2575}; quoted from
+arXiv:2408.05066v1 (``A note on semi-transitivity of Mycielski graphs''),
+whose numbering we use.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{scope}
+SCOPE-Science, \texttt{SCOPE2026} repository,
+\url{https://github.com/SCOPE-Science/SCOPE2026}, accessed 27 September 2026.
+\bibitem{tru}
+The Omega Institute, \texttt{trureturing} repository,
+\url{https://github.com/the-omega-institute/trureturing}, accessed 27
+September 2026.
+\end{thebibliography}}
+\end{document}

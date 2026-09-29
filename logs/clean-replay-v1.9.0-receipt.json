@@ -1,0 +1,169 @@
+{
+ "purpose": "Whole-tree clean replay of the Lean project of release v1.9.0 (adds Paper 4 version 2 and Paper 10).",
+ "start_utc": "2026-09-28T20:48:52Z",
+ "end_utc": "2026-09-28T22:16:04Z",
+ "result": "R1=0 R2=0 R3=0 audit=0",
+ "toolchain": "leanprover/lean4:v4.34.1 (commit 5045d0056413266e57c625dcd7c365b10e377c52)",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.8.0-receipt.json",
+ "procedure": [
+  "Fresh directory; only sources and configuration copied from the release tree lean/ (Research.lean, Research/**/*.lean, Comparator/*.lean, lakefile.toml, lake-manifest.json, lean-toolchain); .lake/packages is a symlink to the shared Lake package cache of Mathlib and its dependencies at the pinned revisions (every package HEAD equal to lake-manifest.json, no tracked changes); fresh .lake/build (absent before the first build). No download.",
+  "Environment for every Lake and Lean run: PATH starts with the toolchain bin; LEAN_NUM_THREADS=2; LAKE_NO_CACHE=true, LAKE_ARTIFACT_CACHE=false, LAKE_RESTORE_ARTIFACTS=false.",
+  "R1, holding both Lean lock slots: read-only deps guard (`lake --no-build build +Research.AxialMSZ.Challenge:deps +Research.CirculantQ3:deps`); `lake build Research.CirculantQ3` alone; `lake build` (default target Research, which imports the Check modules of Papers 4, 9 and 10); `lake build` of the twelve audit modules; `lake build` of the three ChallengeTests modules (Papers 4, 9 and 10).",
+  "R2, one lock slot: the twelve audit files run with `lake env lean --threads=2` (plain text and --json); `lake env leanchecker <Module>` for every module except CirculantQ3 and the root module, two at a time; forbidden-token scan of every .lean file under Research/ and Research.lean; `shasum -a 256 -c` of the replay manifest against the release tree lean/.",
+  "R3, both lock slots: `lake env leanchecker Research.CirculantQ3`.",
+  "Axiom audit: every `#print axioms` output of the build logs (CirculantQ3, default target, ChallengeTests) and of the JSON output of the audit files, position-matched to the `#print axioms` commands in the .lean files."
+ ],
+ "source_manifest": {
+  "file": "logs/lean-sources-sha256.txt",
+  "entries": 304,
+  "sha256": "02defcaddc685ae9dfaf90c10ee4a51e84077375ddd56285d387e9d3031d3c53"
+ },
+ "packages_check": {
+  "build_dir_absent_before": true,
+  "all_match": true,
+  "packages": 9
+ },
+ "deps_guard": {
+  "exit_code": 0,
+  "all_up_to_date": true
+ },
+ "build_circulantq3_alone": {
+  "log": "clean-replay-v1.9.0-build-circulantq3.log",
+  "start_utc": "2026-09-28T20:49:06Z",
+  "end_utc": "2026-09-28T21:10:01Z",
+  "exit_code": 0,
+  "real_seconds": 1254.81,
+  "max_rss_bytes": 19804602368,
+  "modules_built": 1,
+  "jobs": 8924,
+  "warnings": 1,
+  "errors": 0
+ },
+ "build": {
+  "log": "clean-replay-v1.9.0-build.log",
+  "start_utc": "2026-09-28T21:10:01Z",
+  "end_utc": "2026-09-28T21:33:53Z",
+  "exit_code": 0,
+  "real_seconds": 1431.96,
+  "max_rss_bytes": 12424478720,
+  "modules_built": 281,
+  "jobs": 3148,
+  "warnings": 258,
+  "errors": 0
+ },
+ "build_audit_modules": {
+  "log": "clean-replay-v1.9.0-build-audit-modules.log",
+  "start_utc": "2026-09-28T21:33:53Z",
+  "end_utc": "2026-09-28T21:34:26Z",
+  "exit_code": 0,
+  "real_seconds": 32.64,
+  "max_rss_bytes": 6671400960,
+  "modules_built": 12,
+  "jobs": 8953,
+  "warnings": 168,
+  "errors": 0
+ },
+ "build_challenge_tests": {
+  "log": "clean-replay-v1.9.0-build-challenge-tests.log",
+  "start_utc": "2026-09-28T21:34:26Z",
+  "end_utc": "2026-09-28T21:34:41Z",
+  "exit_code": 0,
+  "real_seconds": 15.6,
+  "max_rss_bytes": 6368952320,
+  "modules_built": 3,
+  "jobs": 8931,
+  "warnings": 0,
+  "errors": 0
+ },
+ "audit_files": [
+  [
+   "Research.AxialMSZ.Audit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.CareniniAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.HKOTriameterAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.ICGBridgeAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.ICGEqualParityBAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.ICGEqualParityBCertAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.ICGGeneralAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.RM714WeightsAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.SwitchingDiam4CubicAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.SwitchingRowCountAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.SwitchingThmHAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.SwitchingWalkProfileAudit",
+   "exit=0 json-exit=0"
+  ]
+ ],
+ "leanchecker": {
+  "modules_ok": 296,
+  "failures": 0,
+  "parallelism": 2,
+  "circulantq3": {
+   "exit_code": 0,
+   "max_rss_bytes": 22669459456,
+   "real_seconds": 268.25
+  }
+ },
+ "axiom_audit": {
+  "axiom_output_lines": 984,
+  "distinct_declarations": 933,
+  "files_with_output": 298,
+  "expected_commands": 984,
+  "violations": 0,
+  "missing": 0,
+  "duplicates": 0,
+  "unexpected": 0,
+  "unparsed": 0,
+  "source_files_declared": 298,
+  "files_with_print_axioms": 256,
+  "axiom_set_histogram": {
+   "{Classical.choice, Quot.sound, propext}": 975,
+   "{}": 1,
+   "{Quot.sound, propext}": 8
+  }
+ },
+ "forbidden_tokens": {
+  "code_hits": 0,
+  "summary_lines": [
+   "#   axiom\tCOMMENT\t3",
+   "#   native_decide\tCOMMENT\t2"
+  ]
+ },
+ "source_check": {
+  "shasum_ok": 304,
+  "shasum_failed": 0
+ },
+ "notes": "Written by make_receipt.py from the logs listed above; paths are logical names."
+}

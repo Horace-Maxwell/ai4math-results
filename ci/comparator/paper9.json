@@ -1,0 +1,29 @@
+{
+  "challenge_module": "Comparator.Paper9",
+  "solution_module": "Research.AxialMSZ.Check",
+  "theorem_names": [
+    "AxialMSZ.Check.check_Laws_facts",
+    "AxialMSZ.Check.check_ExS_Statement",
+    "AxialMSZ.Check.check_ExE_Statement",
+    "AxialMSZ.Check.check_ExD_Statement",
+    "AxialMSZ.Check.check_ExP_Statement",
+    "AxialMSZ.Check.check_TheoremA",
+    "AxialMSZ.Check.check_TheoremB",
+    "AxialMSZ.Check.check_TheoremC",
+    "AxialMSZ.Check.check_RemarkP",
+    "AxialMSZ.Check.check_Corollary",
+    "AxialMSZ.Check.check_not_MS_Conjecture_3_16",
+    "AxialMSZ.Check.check_not_FinestSumDecomposition_connected",
+    "AxialMSZ.Check.check_not_Indecomposable_connected",
+    "AxialMSZ.Check.check_not_Simple_connected",
+    "AxialMSZ.Check.check_Dominance_nonsymmetric",
+    "AxialMSZ.Check.check_ExD_axes_in_block",
+    "AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

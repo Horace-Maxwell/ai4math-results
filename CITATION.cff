@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "Research papers with partial Lean 4 formalizations: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues and axial algebras"
+title: "Research papers with partial Lean 4 formalizations: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras and word-representability"
 type: software
 authors:
   - family-names: "Dong"
@@ -8,8 +8,8 @@ authors:
     affiliation: "Independent researcher"
     email: "maxwelldhx@gmail.com"
     orcid: "https://orcid.org/0009-0002-7554-7548"
-version: 1.8.0
-date-released: 2026-09-28
+version: 1.9.0
+date-released: 2026-09-29
 license: Apache-2.0
 repository-code: "https://github.com/Horace-Maxwell/ai4math-results"
 keywords:
@@ -29,3 +29,6 @@ keywords:
   - main eigenvalues
   - axial algebras
   - fusion laws
+  - word-representable graphs
+  - Mycielski graphs
+  - tensor products of graphs

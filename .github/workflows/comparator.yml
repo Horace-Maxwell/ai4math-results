@@ -1,0 +1,103 @@
+# Checks the completely formalized papers with comparator
+# (https://github.com/leanprover/comparator): for every theorem listed in
+# ci/comparator/<paper>.json, the solution in lean/Research/ proves exactly the
+# statement given in the challenge file lean/Comparator/<Paper>.lean, which imports
+# only the frozen statement files; it uses no axioms other than propext,
+# Quot.sound and Classical.choice; and it is accepted by the Lean kernel and by the
+# independent kernel nanoda. The solution is built inside the landrun sandbox.
+#
+# Pinned versions: comparator d03acab (its Lean toolchain is replaced by the
+# project's, v4.34.1, so that lean4export reads the project's .olean files),
+# lean4export 076e8e5 (the revision pinned by that comparator commit), landrun
+# 811cfff, nanoda_lib 3a24072.
+name: Comparator
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  comparator:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        paper: [paper9, paper4, wordrep]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: leanprover/comparator
+          ref: d03acab154d269c06e60e4de7e4cc85deebff94b
+          path: .ci/comparator
+
+      - uses: actions/checkout@v4
+        with:
+          repository: Zouuup/landrun
+          ref: 811cfff51ceaf3d9843708aa6d22e9b84ccac8b4
+          path: .ci/landrun
+
+      - uses: actions/checkout@v4
+        with:
+          repository: ammkrn/nanoda_lib
+          ref: 3a2407216ee84a75f9e1aead6803d0578be06ae7
+          path: .ci/nanoda
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Build landrun
+        working-directory: .ci/landrun
+        run: go build -o landrun cmd/landrun/main.go
+
+      - name: Build nanoda
+        working-directory: .ci/nanoda
+        run: cargo build --release --locked
+
+      - name: Set up Lean and fetch the Mathlib cache
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean
+          auto-config: false
+          use-mathlib-cache: true
+
+      - name: Use the project's Lean toolchain for comparator and lean4export
+        run: cp lean/lean-toolchain .ci/comparator/lean-toolchain
+
+      - name: Build comparator and lean4export
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: .ci/comparator
+          auto-config: false
+          build: true
+          build-args: lean4export comparator
+          use-mathlib-cache: false
+
+      - name: Run comparator (Lean kernel and nanoda)
+        working-directory: lean
+        env:
+          COMPARATOR_LANDRUN: ${{ github.workspace }}/.ci/landrun/landrun
+          COMPARATOR_LEAN4EXPORT: ${{ github.workspace }}/.ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export
+          COMPARATOR_NANODA: ${{ github.workspace }}/.ci/nanoda/target/release/nanoda_bin
+          COMPARATOR_BIN: ${{ github.workspace }}/.ci/comparator/.lake/build/bin/comparator
+          CONFIG: ${{ github.workspace }}/ci/comparator/${{ matrix.paper }}.json
+          # at most two Lean jobs at a time (each can use several GB; the runner has 16 GB)
+          LEAN_NUM_THREADS: "2"
+        run: >-
+          systemd-run --property=RestrictAddressFamilies=~AF_UNIX --user --pty --pipe
+          -E PATH="$PATH"
+          -E LEAN_NUM_THREADS="$LEAN_NUM_THREADS"
+          -E COMPARATOR_LANDRUN="$COMPARATOR_LANDRUN"
+          -E COMPARATOR_LEAN4EXPORT="$COMPARATOR_LEAN4EXPORT"
+          -E COMPARATOR_NANODA="$COMPARATOR_NANODA"
+          --working-directory "$PWD" --
+          bash -c "lake env $COMPARATOR_BIN $CONFIG"

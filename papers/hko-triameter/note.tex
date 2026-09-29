@@ -5,6 +5,9 @@
 \usepackage{enumitem}
 \usepackage{upquote}
 \usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
 \usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
@@ -28,19 +31,36 @@
 \newcommand{\QB}{\textup{(Q4)}}
 \newcommand{\QBp}{\textup{(Q4$'$)}}
 \setlength{\emergencystretch}{1.5em}
+\setlength{\LTcapwidth}{\textwidth}
 \DeclareUrlCommand\code{\urlstyle{tt}\def\UrlBreaks{\do\_\do\/\do\.}\def\UrlBigBreaks{}}
 \newcommand{\qs}{\textquotesingle}
 \newcommand{\cd}[1]{\texttt{\spaceskip=0.525em plus 0.25em minus 0.05em\relax#1}}
+% Repository version that will contain this version of the paper.
+% Release number 1.9.0 confirmed by the user on 2026-09-28T19:22:59Z.
+\newcommand{\repoversion}{1.9.0}
 \tikzset{
  vx/.style={circle,fill=black,inner sep=0pt,minimum size=5pt},
  wx/.style={circle,draw,thick,fill=white,inner sep=0pt,minimum size=6.5pt},
  px/.style={rectangle,fill=black,inner sep=0pt,minimum size=5.5pt},
  pw/.style={rectangle,draw,thick,fill=white,inner sep=0pt,minimum size=6.5pt}}
-\title{Answers to three problems of Hak, Kozerenko and Oliynyk\\ on the triameter of graphs}
+\title{Answers to three problems of Hak, Kozerenko and Oliynyk\\ on the
+triameter of graphs\thanks{\emph{Version~2.} This version corrects
+version~1, which was released on 26 September 2026 in version~1.4.0
+of~\cite{repo}. It adds three hypotheses that version~1 omitted: in
+Lemma~\ref{lem:grid} the set $S$ must be nonempty; in the proof of
+Theorem~B, the extension step of Bandelt and Mulder needs a connected graph;
+and in Section~\ref{sec:min}, a connected graph needs at least two vertices to
+have a vertex whose removal leaves it connected. None of these changes
+Theorems~A, B and~C. It removes the claims of version~1 that are not formally
+verified: the counts of connected labelled graphs in Section~\ref{sec:min},
+the last sentence of Remark~\ref{rem:h11}, and Section~6 of version~1, which
+reported computations on distance-hereditary graphs, apart from its last
+sentence, which now ends Section~\ref{sec:dh}. Every result of the paper is
+now formally verified in Lean~4 (Section~\ref{sec:lean}).}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
-\date{September 2026}
+\date{September 2026 (version 2)}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -50,18 +70,18 @@ whether every triametral triple of a median graph contains a peripheral vertex
 (Problem~1), whether every diametral pair of a median graph extends to a
 triametral triple (Problem~2), and whether every distance-hereditary graph has
 at least one of these two properties (Problem~3). For Problem~1 we give an
-$8$-vertex median counterexample, which exhaustive enumeration shows to be the
-unique smallest one. Problem~2 was answered negatively on MathOverflow in
+$8$-vertex median counterexample and show that it is the unique smallest
+one. Problem~2 was answered negatively on MathOverflow in
 December 2025 with an $11$-vertex example; we show that the smallest
 counterexample has $8$ vertices, is unique, and is also distance-hereditary.
 Problem~3 has a positive answer in a stronger form: in a connected
 distance-hereditary graph, every triametral triple contains a diametral pair or
 every diametral pair extends to a triametral triple. The proof uses the
-four-point condition of Bandelt and Mulder. The counterexamples, and the answer
-to Problem~3 for graphs that satisfy the four-point condition, are formally
-verified in Lean~4. The results were found by AI coding agents
-working under the author's direction; their role is described at the end of
-the paper.
+four-point condition of Bandelt and Mulder.
+All results of the paper, including the minimality statements and the
+implication of the theorem of Bandelt and Mulder that the proof uses, are
+formally verified in Lean~4. The results were found by AI agents working under the author's
+direction; their role is described at the end of the paper.
 \end{abstract}
 
 \section{Introduction}
@@ -176,12 +196,14 @@ vertices $1,5,6$ form a triametral triple without a peripheral vertex; in $G_2$
 the white vertices $1,4,7$ form the only triametral triple.}\label{fig:graphs}
 \end{figure}
 
-The last sentences of Theorems~A and~B rest on exhaustive enumerations
-(Section~\ref{sec:min}). Theorem~C holds for all finite connected graphs that
+The last sentences of Theorems~A and~B rest on an exhaustive enumeration of
+the median graphs with at most eight vertices (Section~\ref{sec:min}).
+Theorem~C holds for all finite connected graphs that
 satisfy the four-point condition of Bandelt and Mulder~\cite[Theorem~2]{bm}
-(Section~\ref{sec:dh}); Remark~\ref{rem:sharp} shows that it is sharp. The
-counterexamples $G_1$ and $G_2$, and Theorem~C under the four-point condition,
-are formally verified in Lean~4 (Section~\ref{sec:lean}).
+(Section~\ref{sec:dh}); Remark~\ref{rem:sharp} shows that it is sharp.
+All the results, including the enumeration and the two facts from Bandelt
+and Mulder that we use, are formally verified in Lean~4
+(Section~\ref{sec:lean}).
 
 \paragraph{Prior work.}
 The negative answer to Problem~2 is not new. Hak and Kozerenko restated the
@@ -210,7 +232,7 @@ search. The Wikipedia article on the triameter~\cite{wiki}, last
 revised on 19 October 2025, before the MathOverflow answer, lists Problem~2 as
 open and suggests studying \QAp{} and \QBp{} for median graphs; the
 paper~\cite{koz} (29 August 2026) mentions such questions for median and
-distance-hereditary graphs without answering them.\footnote{A figure caption in~\cite{wiki} calls the graph $G$
+distance-hereditary graphs without answering them.\footnote{\label{fn:wiki}A figure caption in~\cite{wiki} calls the graph $G$
 of~\cite[Figure~3]{hko} ($K_{2,3}$ with a pendant vertex) a median graph. It
 lacks \QAp, but it is not median, as its vertices $a,b,c$ have two medians; so
 it does not answer Problem~1.} Some searches
@@ -222,8 +244,12 @@ usable result. We did not search Google Scholar, Scopus, Web of Science
 or ResearchGate. General web search did not find the MathOverflow thread, which
 we found only through the Stack Exchange API. A final check on 26 September
 2026 between 15:49 and 15:52 UTC (the arXiv, GitHub, MathDB and MathOverflow)
-found nothing new. This reports the coverage of our searches, not a guarantee
-of priority.
+found nothing new.
+For version~2 we repeated this final check between 23:38 UTC on 28 September
+and 00:17 UTC on 29 September 2026 (the arXiv, MathOverflow and Mathematics
+Stack Exchange, GitHub, MathDB, the works citing~\cite{hko} listed by
+Semantic Scholar and OpenAlex, and web search) and found nothing new. This
+reports the coverage of our searches, not a guarantee of priority.
 
 We quote~\cite{hko} from its arXiv version~1; its theorem, figure and problem
 numbers refer to that version.
@@ -270,7 +296,7 @@ middle one of the three. For $S\subseteq\mathbb Z^k$ let $\Gamma(S)$ be the
 graph on $S$ in which $u$ and $v$ are adjacent when $\|u-v\|=1$.
 
 \begin{lemma}\label{lem:grid}
-Let $S\subseteq\mathbb Z^k$ be finite, and suppose that
+Let $S\subseteq\mathbb Z^k$ be finite and nonempty, and suppose that
 \textup{(a)} $d_{\Gamma(S)}(u,v)=\|u-v\|$ for all $u,v\in S$, and
 \textup{(b)} $S$ is closed under coordinatewise medians: for $u,v,w\in S$, the
 point $m(u,v,w)$ with coordinates $\med(u_i,v_i,w_i)$ lies in $S$. Then
@@ -292,6 +318,10 @@ $[u,v]\cap[u,w]\cap[v,w]=\{m(u,v,w)\}\cap S=\{m(u,v,w)\}$ by~(b). Finally, if
 $a\le b\le c$ then $|a-b|+|a-c|+|b-c|=2(c-a)$; applying this in each
 coordinate and using (a) gives~\eqref{eq:tri}.
 \end{proof}
+
+The hypothesis that $S$ is nonempty was missing in version~1; it is needed
+under the convention, which we follow with Mathlib, that a graph without
+vertices is not connected.
 
 Condition~(a) holds if any two points $u,v\in S$ are joined by a
 \emph{monotone lattice path} in $S$, that is, a path in $\Gamma(S)$ along which
@@ -357,12 +387,21 @@ peripheral. As $5\notin\{1,4,7\}$, no triple containing $5$ is triametral. So
 $d(5,7,z)<12$ for every vertex $z$, and $G_2$ has neither \QB{} nor \QBp. It has \QA, since its only triametral triple
 consists of diametral pairs.
 
-Finally, $G_2$ is distance-hereditary. It is obtained from the edge $02$ by
-attaching a pendant vertex $5$ at $2$, then adding a vertex $3$ adjacent to the
-two neighbours $0$ and $5$ of $2$ (a false twin of $2$), and then attaching
-pendant vertices $1$ at $2$, $4$ at $3$, $6$ at $0$ and $7$ at $6$. Attaching a
-pendant vertex and adding a twin preserve distance-heredity; this is the easy
-direction of~\cite[Theorem~1]{bm}.
+Finally, $G_2$ is distance-hereditary. Call $t$ a \emph{twin} of a vertex
+$v\ne t$ if every vertex other than $v$ and $t$ is adjacent to both of them
+or to neither. We use the easy direction of~\cite[Theorem~1]{bm}: \emph{if
+$G$ is a connected graph, $v$ is a pendant vertex of $G$ or has a twin
+in~$G$, and $G-v$ is distance-hereditary, then $G$ is distance-hereditary.}
+(Version~1 omitted the hypothesis that $G$ is connected, which is needed: two
+vertices without an edge are twins; deleting one leaves a graph with one
+vertex, which is distance-hereditary, while the two together are not
+connected.) Now $G_2$ is obtained from the edge $02$
+by attaching a pendant vertex $5$ at $2$, then adding a vertex $3$ adjacent to
+the two neighbours $0$ and $5$ of $2$ (a twin of $2$ that is not adjacent
+to it), and then attaching
+pendant vertices $1$ at $2$, $4$ at $3$, $6$ at $0$ and $7$ at $6$. Every graph
+in this sequence is connected, and the edge $02$ is distance-hereditary; so
+$G_2$ is distance-hereditary.
 \end{proof}
 
 So \QB{} fails even for graphs that are both median and distance-hereditary;
@@ -371,43 +410,50 @@ example of~\cite{mo-a} is not distance-hereditary: in its notation, the
 vertices $b,v_2,s,w_1,x$ induce a path of length~$4$, while $d(b,x)=2$.
 
 \section{The smallest counterexamples}\label{sec:min}
-The last sentences of Theorems~A and~B were proved by two independent
-exhaustive enumerations of the median graphs with at most eight vertices. The
-programs and their logs are in version~1.4.0 of the repository~\cite{repo},
-directory \texttt{certificates/hko-triameter/}.
+The last sentences of Theorems~A and~B follow from an exhaustive enumeration
+of the median graphs with at most eight vertices. It rests on two facts. A
+median graph has no triangle, since for a triangle $u,v,w$ the intervals
+$\{u,v\}$, $\{u,w\}$, $\{v,w\}$ have no common vertex. And every connected
+graph with at least two vertices has a vertex whose removal leaves it
+connected, such as a leaf of a spanning tree (version~1 omitted the words
+``with at least two vertices'').
 
-The first enumeration, a C program, runs for each $n\le8$ over all
-$2^{n(n-1)/2}$ graphs on $\{0,\dots,n-1\}$, keeps the connected ones, tests the
-median property from the definition for all triples, and for each median graph
-tests \QA, \QAp{} and \QB, the last under both readings. Isomorphism classes
-come from canonical forms, over all $n!$ relabellings for $n\le7$ and over
-relabellings refined by vertex invariants for $n\le8$; the two agree for
-$n\le7$. The numbers of
-connected labelled graphs, $1,1,4,38,728,26704,1866256,251548592$ for
-$n=1,\dots,8$, are those of sequence A001187 of the OEIS~\cite{oeis}, and the
-numbers of median graphs up to isomorphism, $1,1,1,3,4,11,23,69$, are those of
-sequence A292623 (median graphs on $n$ nodes). No median graph with at most
-seven vertices lacks \QAp{} or \QB. Of the $1{,}008{,}904$ labelled median
-graphs with eight vertices, exactly $20{,}160$ lack \QAp{} and exactly
-$20{,}160$ lack \QB. A check over all $8!$ bijections shows that these are the
-labelled copies of $G_1$ and of $G_2$, respectively; each of $G_1$ and $G_2$
+Let $G$ be a connected triangle-free graph with $n\ge2$ vertices, and let $v$ be
+a vertex whose removal leaves $G$ connected. Then $G-v$ is connected and
+triangle-free, and the neighbours of $v$ form a nonempty independent set, as
+$G$ is connected and has no triangle. So every connected triangle-free graph
+with $n$ vertices arises from one with $n-1$ vertices by adding a vertex
+adjacent to a nonempty independent set. Starting from the graph with one
+vertex, this gives all connected triangle-free graphs with at most seven
+vertices; up to isomorphism, there are $59$ of them with seven vertices. In
+particular, every median graph with eight vertices is isomorphic to a graph
+obtained from one of these $59$ graphs by adding a vertex adjacent to a
+nonempty independent set, and
+over the $59$ graphs there are $1{,}857$ such pairs of a graph and a nonempty
+independent set, so $1{,}857$ graphs to test. The median graphs with at most
+seven vertices are among the connected triangle-free graphs with at most
+seven vertices.
+
+Testing the median property, and properties \QAp, \QB{} and \QBp, on all
+these graphs gives the last sentences of Theorems~A and~B. Here, as in the
+rest of the paper, \QB{} and \QBp{} have their weak reading, which is their
+definition (in the strong reading, the median graphs with one or two vertices
+fail \QB{} trivially). The same enumeration shows that the numbers of median graphs with
+$n=1,\dots,8$ vertices, up to isomorphism, are $1,1,1,3,4,11,23,69$, the first
+terms of sequence A292623 of the OEIS~\cite{oeis} (median graphs on $n$
+nodes). Of the $1{,}008{,}904$ labelled median graphs on $\{0,\dots,7\}$,
+exactly $20{,}160$ lack \QAp{} and exactly $20{,}160$ lack \QB. These are the
+labelled copies of $G_1$ and of $G_2$, respectively: each of $G_1$ and $G_2$
 has exactly two automorphisms, and $8!/2=20{,}160$.
 
-The second enumeration, a Python program, takes all graphs with at most seven
-vertices from the graph atlas of the NetworkX library and tests the median
-property from the definition, with Floyd--Warshall distances. For $n=8$ it
-uses two facts: a median graph has no triangle, since for a triangle $u,v,w$
-the intervals $\{u,v\}$, $\{u,w\}$, $\{v,w\}$ have no common vertex; and every
-connected graph has a vertex whose removal leaves it connected, such as a leaf
-of a spanning tree. So every median graph with eight vertices arises from one
-of the $59$ connected triangle-free graphs with seven vertices by adding a
-vertex adjacent to a nonempty independent set. The program forms all $1{,}857$
-such graphs and reduces the median ones up to isomorphism with NetworkX. It
-finds the same numbers of median graphs, no violation for $n\le7$, and for
-$n=8$ exactly one median graph lacking \QAp{} and one lacking \QB, isomorphic
-to $G_1$ and $G_2$. Finally, as \QB{} implies \QBp, no median graph with at most
-seven vertices lacks \QBp, and $G_2$ is the only one with eight vertices that
-does.
+This finite check was carried out by computer. For version~1, two
+independent programs did it, a C program over all graphs with at most eight
+vertices and a Python program that used the reduction above for eight
+vertices; their code and
+logs are in version~1.4.0 of the repository~\cite{repo}, directory
+\texttt{certificates/hko-triameter/}. For version~2 the check is part of the
+Lean proof (Section~\ref{sec:lean}), where every step, from the reduction to
+the final counts, is checked by the Lean kernel.
 
 \section{Distance-hereditary graphs: proof of Theorem C}\label{sec:dh}
 Bandelt and Mulder~\cite[Theorem~2]{bm} proved that, for a connected
@@ -426,7 +472,12 @@ smaller ones are equal, (viii) bounds the largest. A connected graph $G$ satisfi
 $\FP\bigl(d(u,v)+d(w,x),\,d(u,w)+d(v,x),\,d(u,x)+d(v,w)\bigr)$ holds for all
 $u,v,w,x\in V(G)$. By the implication (i)$\Rightarrow$(viii) of~\cite[Theorem~2]{bm}, every
 connected distance-hereditary graph satisfies the four-point condition. This is
-the only fact about distance-hereditary graphs that we use.
+the only fact about distance-hereditary graphs that we use in the proof of
+Theorem~C. We do not repeat the proof of~\cite{bm}. The Lean proof of this
+implication (Section~\ref{sec:lean}) is independent of it: it proceeds by
+induction on the number of vertices, deleting a vertex other than the four
+given ones, with a separate argument when that vertex is a cut vertex, and it
+checks the graphs with four vertices directly.
 
 The core of the proof is a statement about integers, in which $a,b,c$ are
 three labels.
@@ -554,133 +605,295 @@ distance-hereditary graphs with $\tr(G)>2\diam(G)$ have \QAp. This is false. Let
 edges $01$, $02$, $03$, $05$, $14$, $16$, $24$, $27$, $34$, $38$, $49$
 and $\{5,10\}$: the graph $K_{2,3}$ with parts $\{0,4\}$ and $\{1,2,3\}$, pendant
 vertices $6,7,8,9$ at $1,2,3,4$, and a path $0,5,10$. It is
-distance-hereditary, as $K_{2,3}$ is, and attaching pendant vertices preserves
-the property~\cite[Theorem~1]{bm}. Its only diametral pair is $\{9,10\}$, at
+distance-hereditary: it is obtained from the edge $01$ by attaching a pendant
+vertex $4$ at $1$, adding two twins $2$ and $3$ of $1$ (each adjacent to $0$
+and $4$), and attaching pendant vertices $5$ at $0$, $10$ at $5$, and
+$6,7,8,9$ at $1,2,3,4$; every graph in this sequence is connected, so the
+statement used in the proof of Theorem~B applies at each step. Its only diametral pair is $\{9,10\}$, at
 distance~$5$; the vertices $6,7,8$ are pairwise at distance~$4$; and one checks
 that $\tr(H_{11})=12>10$. So $\{6,7,8\}$ is a triametral triple without a
 peripheral vertex. As Theorem~C predicts, \QB{} holds: $\{9,10\}$ extends by
-each of $6,7,8$, for example $d(9,10,6)=5+3+4=12$. Up to isomorphism, $H_{11}$ is
-the only connected distance-hereditary graph with at most $11$ vertices that has
-$\tr(G)>2\diam(G)$ and lacks \QAp{} (Section~\ref{sec:dhcomp}).
+each of $6,7,8$, for example $d(9,10,6)=5+3+4=12$.
 \end{remark}
 
-\section{Computations on distance-hereditary graphs}\label{sec:dhcomp}
-These computations are not used in the proofs; programs and logs are in the
-directory named in Section~\ref{sec:min}. We generated all connected
-distance-hereditary graphs with $2\le n\le11$ vertices, up to isomorphism, from
-one vertex by the one-vertex extensions of~\cite[Theorem~1]{bm} (attaching a
-pendant vertex, or adding a twin of a vertex, adjacent to it or not),
-discarding disconnected graphs and removing isomorphic copies with NetworkX.
-By~\cite[Theorem~1]{bm} the list is complete, and its sizes for $n=2,\dots,11$, namely
-$1,2,6,18,73,308,1484,7492,40010,220676$ ($270{,}070$ graphs in all), agree
-with sequence A277862 of the OEIS~\cite{oeis}. With distances from our own
-breadth-first search, we checked the four-point condition on all sets of four
-vertices of the $49{,}394$ graphs with $n\le10$; the equation of Theorem~C in
-all $48{,}108$ cases consisting of a triametral triple of distinct vertices
-without a diametral pair and a diametral pair; and \QA{} or \QB, and \QAp{} or
-\QB, for every graph with $n\ge3$. There was no failure. In all, $5{,}888$ of
-these graphs lack \QA, $1{,}692$ lack \QAp{} and $29{,}263$ lack \QB, but none
-lacks both \QA{} and \QB. Exactly one graph in the list has
-$\tr(G)>2\diam(G)$ and lacks \QAp, namely $H_{11}$ of Remark~\ref{rem:h11}.
-
-We also tested random connected distance-hereditary graphs, built by random
-one-vertex extensions of the three kinds (not uniformly distributed). In $15{,}000$ such graphs with at most $34$ vertices ($6{,}000$
-with $5\le n\le22$ and $9{,}000$ with up to $34$ vertices), every graph had
-\QAp{} or \QB; the four-point condition, checked in the first group for
-$n\le14$, always held. In $3{,}300$ further
-graphs with at most $30$ vertices, the equation of Theorem~C held in all $578$
-applicable cases, the inequality of Proposition~\ref{prop:ineq} held in all
-$11{,}609{,}908$ applicable cases, and every graph had \QA{} or \QB. A test from the
-definition confirmed that $G_2$, $H_{11}$ and the graphs
-of~\cite[Figure~3]{hko} are distance-hereditary and that $G_1$ and the graph
-of~\cite[Figure~2]{hko} are not.
+Finally, $G_1$ and the graph of~\cite[Figure~2]{hko} are not
+distance-hereditary. In $G_1$, the vertices $3,1,0,4,5$ induce a path of
+length~$4$, while $d(3,5)=2$; the graph of~\cite[Figure~2]{hko} has neither
+\QA{} nor \QB, which by Theorem~C is impossible for a distance-hereditary
+graph.
 
 \section{Formal verification}\label{sec:lean}
-The Lean files \code{HKOTriameter.lean} and \code{HKOTriameterDH.lean} (in
-\code{lean/Research/} of version~1.4.0 of the repository~\cite{repo}) prove
-that $G_1$ and $G_2$ are median graphs with the diameters and triameters of
-Theorems~A and~B, that $G_1$ lacks \QAp{} and $G_2$ lacks \QB{} and \QBp, as
-shown there, and Theorem~C for finite connected graphs that satisfy the
-four-point condition. They use Lean~4 (version 4.33.1) and
-Mathlib~\cite{mathlib} (commit \texttt{0df444a3}), and all metric notions are
-Mathlib's \texttt{dist}, \texttt{diam}, \texttt{eccent} and \texttt{ediam} of a
-\texttt{SimpleGraph}. In the namespace
-\texttt{HKOTriameter}, \cd{triameter G} is the maximum of
-\cd{triDist G u v w = G.dist u v + G.dist u w + G.dist v w} over all ordered
-triples, so that vertices may repeat; \cd{IsTriametral G u v w},
-\cd{IsDiametral G u v} and \cd{IsPeripheral G u} say that
-\cd{triDist G u v w = triameter G}, \cd{G.dist u v = G.diam} and
-\cd{G.eccent u = G.ediam}. On finite connected graphs the last is
-equivalent to belonging to a diametral pair, the wording of~\cite{hko}
-(\code{isPeripheral_iff_isPeripheralPair}), and Problem~1 is refuted with
-either definition (\code{not_problem1ClaimPair}). \cd{IsMedian G} says that
-$G$ is connected and any three vertices have exactly one common vertex in their
-three intervals (\texttt{InInterval}). In ASCII notation (the files use Unicode
-symbols), the other definitions and the main theorems read as follows.
+All the results are formally verified in Lean~4 (version 4.34.1) with
+Mathlib~\cite{mathlib} (version v4.34.1, commit \texttt{d13f23b7}).
+Version~1 of this paper was released with a partial formalisation, the modules
+\code{HKOTriameter.lean} and \code{HKOTriameterDH.lean} of version~1.4.0
+of~\cite{repo}, which covered the two counterexamples and Theorem~C, in its
+weak reading, for graphs that satisfy the four-point condition. For
+version~2 every result of the paper was formalised: each of its mathematical
+claims is a statement of Table~\ref{tab:lean}, a definition, a cited result
+or a step of a written proof.
+
+\paragraph{Statements before proofs.}
+Here the statements were written after the written proofs: they formalise a
+paper that had already been released. After version~1 had been released, an
+agent wrote a Lean file of definitions and statements, the \emph{statement
+file}, which proves none of its statements. An independent agent reviewed version~1 of
+this file against the paper and the cited sources and checked its
+definitions with programs of its own. Version~2 of the file applies the
+review's corrections, adds the count~$1{,}857$ of Section~\ref{sec:min}, and
+leaves out the claims removed from this version of the paper. A second AI
+system reviewed version~2, and it was frozen on 27 September 2026 at 22:04
+UTC by recording its SHA-256 hash
+\texttt{9f1b0c95f35addf03f54c330ea0cd63324154d17e1cc8e707c8bf830da4a0785}.
+The proofs were written after the freeze, in separate files that import the
+statement file, which was not changed. The definitions of the metric
+notions, of the properties and problems, of the four-point condition and of
+the graphs $G_1$, $G_2$, $G$ and $H$ are copied verbatim from the modules of
+version~1, so that the earlier Lean results remain linked to them.
+
+\paragraph{What is proved.}
+The statement file states $50$ propositions, listed in
+Table~\ref{tab:lean}; the file of checks
+(\texttt{Research/Backfill/Paper4/Check.lean}) proves each of them, by a
+theorem \code{check_X : X} for every name~\code{X} of the table.
+In ASCII notation (\texttt{forall}, \texttt{->}, \verb|/\|, \verb|\/| and
+\texttt{Not}), the definition of distance-hereditary graphs and three of
+the statements read as follows; \texttt{G.dist} and \texttt{G.induce} are
+Mathlib's distance and induced subgraph, and \verb|SimpleGraph.Iso G G1| is
+Mathlib's type of graph isomorphisms.
 \begin{footnotesize}
 \begin{verbatim}
-def Question3' (G : SimpleGraph V) : Prop := forall a b c : V, IsTriametral G a b c ->
-    IsPeripheral G a \/ IsPeripheral G b \/ IsPeripheral G c
-def Question4 (G : SimpleGraph V) : Prop :=
-    forall x y : V, IsDiametral G x y -> exists z, IsTriametral G x y z
-def Question4' (G : SimpleGraph V) : Prop :=
-    forall x : V, IsPeripheral G x -> exists y z, IsTriametral G x y z
-def Problem1Claim : Prop :=
-    forall (V : Type) [Fintype V] (G : SimpleGraph V), IsMedian G -> Question3' G
--- Problem2Claim, Problem2ClaimWeak: the same with Question4, Question4' for Question3'
-theorem not_problem1Claim : Not Problem1Claim
-theorem not_problem2Claim : Not Problem2Claim
-theorem not_problem2ClaimWeak : Not Problem2ClaimWeak
-def FP (A B C : Nat) : Prop :=
-    (A = B /\ C <= A + 2) \/ (A = C /\ B <= A + 2) \/ (B = C /\ A <= B + 2)
-def FourPointBM (G : SimpleGraph V) : Prop := forall u v w x : V,
-    FP (G.dist u v + G.dist w x) (G.dist u w + G.dist v x) (G.dist u x + G.dist v w)
-theorem question3_or_question4 [Fintype V] (G : SimpleGraph V) :
-    G.Connected -> FourPointBM G -> Question3 G \/ Question4 G
-def Problem3ClaimFP : Prop := forall (V : Type) [Fintype V] (G : SimpleGraph V),
-    G.Connected -> FourPointBM G -> Question3' G \/ Question4 G
-theorem problem3ClaimFP : Problem3ClaimFP
+def IsDistanceHereditary (G : SimpleGraph V) : Prop :=
+  G.Connected /\ forall s : Set V, (G.induce s).Connected ->
+    forall u v : s, (G.induce s).dist u v = G.dist u v
+def BandeltMulder_DH_fourPoint : Prop := forall (V : Type) [Fintype V]
+  (G : SimpleGraph V), IsDistanceHereditary G -> FourPointBM G
+def TheoremC_ii : Prop := forall (V : Type) [Fintype V] (G : SimpleGraph V),
+  IsDistanceHereditary G ->
+    (Question3 G \/ Question4 G) /\ (Question3' G \/ Question4 G) /\
+    (Question3 G \/ Question4Strong G) /\ (Question3' G \/ Question4' G)
+def TheoremA_unique : Prop := forall (V : Type) [Fintype V] (G : SimpleGraph V),
+  Fintype.card V = 8 -> IsMedian G -> Not (Question3' G) ->
+    Nonempty (SimpleGraph.Iso G G1)
 \end{verbatim}
 \end{footnotesize}
-Here \texttt{Question3} is \QA, defined like \texttt{Question3\qs} with
-\cd{IsDiametral G a b}, \cd{IsDiametral G a c} and
-\cd{IsDiametral G b c}. \texttt{Question4} does not restrict $z$; this is
-the weak reading, so its negation is the strongest form of the refutation. The
-equation of Theorem~C is \code{extends_of_no_diametral}, and
-Lemma~\ref{lem:core}, for natural numbers, is \texttt{core}. Other declarations
-record the facts about $G_1$ and $G_2$ used above (such as
-\code{G2_fourPoint}) and about the graphs $G$ and $H$ of~\cite[Figure~3]{hko},
-called \texttt{F1G} and \texttt{F1H} after the label of that figure in the
-source of~\cite{hko}: both satisfy the four-point condition, $G$ lacks \QAp{} and is not
-median, and $H$ lacks \QB. The comments in the files call Theorem~C ``Theorem~B'',
-and they refer to Figures~3 and~4 of~\cite{hko} as ``Figure~1'' and
-``Figure~2'', after the labels in the source of~\cite{hko}.
 
-Distances in the concrete graphs are given by tables, identified with Mathlib's
-distance by a certificate lemma (\code{dist_eq_of_certificate}). The finite checks,
-including the median property over all triples, use \texttt{decide} and
-\cd{decide +kernel} (kernel evaluation), and \texttt{core} is a split into $27$
-cases closed by \texttt{omega}; there is no \texttt{sorry} and no
-\code{native_decide}. Not formalised are the theorem of Bandelt and Mulder
-(so the formal statement of Problem~3 assumes the four-point condition, and for
-$G_2$ only the four-point condition is formal), the uniqueness
-statements of Theorems~A and~B (the only peripheral vertices of $G_1$, the only
-triametral triple of $G_2$, and the last sentences), Lemma~\ref{lem:grid}, Proposition~\ref{prop:ineq} as stated,
-the strong reading in Theorem~C, Remarks~\ref{rem:sharp} and~\ref{rem:h11}
-beyond the facts listed above, and the computations of
-Section~\ref{sec:dhcomp}.
+{\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.33\textwidth}
+ >{\raggedright\arraybackslash}p{0.52\textwidth}
+ >{\raggedright\arraybackslash}p{0.09\textwidth}@{}}
+\caption{The $50$ statements of the frozen statement file (namespace
+\texttt{BackfillPaper4.Challenge}). Each is proved. The names follow the
+section numbers of version~1: its Sections~6 and~8 are the last paragraph of
+Section~\ref{sec:dh} and Section~\ref{sec:open} here.}\label{tab:lean}\\
+\toprule
+Lean statement & what it says & here\\\midrule
+\endfirsthead
+\toprule
+Lean statement & what it says & here\\\midrule
+\endhead
+\bottomrule
+\endfoot
+\code{Sec2_peripheral_iff} & eccentricity $=\diam(G)$ if and only if the
+ vertex lies in a diametral pair & \S\ref{sec:defs}\\
+\code{Sec2_bounds} & $2\diam(G)\le\tr(G)\le3\diam(G)$, and
+ $d(x,y,z)\ge2\diam(G)$ for a diametral pair & \S\ref{sec:defs}\\
+\code{Sec2_repeated} & $d(u,u,v)=2d(u,v)\le\tr(G)$, with equality if and
+ only if $\tr(G)=2\diam(G)$ and $\{u,v\}$ is diametral & \S\ref{sec:defs}\\
+\code{Sec2_readings_Q3} & \QA{} and \QAp{} do not change if the triple must
+ consist of distinct vertices & \S\ref{sec:defs}\\
+\code{Sec2_readings_Q4} & with at least three vertices, the weak and strong
+ readings of \QB{} agree, and so do those of \QBp & \S\ref{sec:defs}\\
+\texttt{Sec2\_Q4\_imp\_Q4\qs}, \texttt{Sec2\_Q3\_imp\_Q3\qs} & \QB{} implies \QBp;
+ \QA{} implies \QAp & \S\ref{sec:defs}\\
+\code{Sec2_classReading} & neither ``every distance-hereditary graph has
+ \QAp'' nor ``every one has \QB'' holds & \S\ref{sec:defs}\\
+\code{Sec2_problem2_altReading} & not every median graph has \QA &
+ \S\ref{sec:defs}\\
+\code{Lemma1} & Lemma~\ref{lem:grid} & \S\ref{sec:median}\\
+\code{Sec3_monotonePath} & monotone lattice paths give condition (a) &
+ \S\ref{sec:median}\\
+\code{TheoremA_grid}, \code{TheoremB_grid} & $G_1\cong\Gamma(S_1)$ and
+ $G_2\cong\Gamma(S_2)$ for the placements of Section~\ref{sec:median}, and
+ $S_1$, $S_2$ satisfy (a) and (b) & \S\ref{sec:median}\\
+\code{TheoremA_i}, \code{TheoremA_ii} & Theorem~A except its last sentence,
+ with both definitions of ``peripheral'', and the further facts of its proof;
+ $G_1$ lacks \QA{} and has \QB{} in both readings & Thm~A\\
+\code{TheoremB_i}, \code{TheoremB_ii} & Theorem~B except its last sentence
+ (``only triametral triple'': every triametral triple consists of
+ $1,4,7$), and the facts of its proof; $G_2$ lacks \QB{} and \QBp{} in both
+ readings and has \QA & Thm~B\\
+\code{Sec3_medianDH_noQ4} & some graph is median and distance-hereditary and
+ lacks \QB & \S\ref{sec:median}\\
+\code{Sec3_DH_noQ4_imp_Q3} & a distance-hereditary graph that lacks \QB{} has
+ \QA & \S\ref{sec:median}\\
+\code{Sec3_MO_notDH} & the example of~\cite{mo-a} is not
+ distance-hereditary, with the induced path given there &
+ \S\ref{sec:median}\\
+\code{TheoremA_min}, \code{TheoremA_unique} & the last sentence of
+ Theorem~A & Thm~A\\
+\code{TheoremB_min}, \code{TheoremB_unique} & the last sentence of
+ Theorem~B, for \QB{} and for \QBp & Thm~B\\
+\code{Sec4_median_triangleFree} & a median graph has no triangle &
+ \S\ref{sec:min}\\
+\code{Sec4_nonCutVertex} & a connected graph with at least two vertices has a
+ vertex whose removal leaves it connected & \S\ref{sec:min}\\
+\code{Sec4_reduction} & a median graph with eight vertices has a vertex $v$
+ such that $G-v$ is connected and triangle-free and the neighbours of $v$
+ form a nonempty independent set & \S\ref{sec:min}\\
+\code{Sec4_count_triangleFree7} & $59$ classes of connected triangle-free
+ graphs with seven vertices & \S\ref{sec:min}\\
+\code{Sec4_count_candidates} & over these $59$ classes, $1{,}857$ nonempty
+ independent sets & \S\ref{sec:min}\\
+\code{Sec4_count_median} & $1,1,1,3,4,11,23,69$ classes of median graphs
+ with $1,\dots,8$ vertices & \S\ref{sec:min}\\
+\code{Sec4_count_labelled} & $1{,}008{,}904$ labelled median graphs on
+ $\{0,\dots,7\}$, of which $20{,}160$ lack \QAp{} and $20{,}160$ lack \QB &
+ \S\ref{sec:min}\\
+\code{Sec4_aut} & $G_1$ and $G_2$ have two automorphisms each &
+ \S\ref{sec:min}\\
+\code{Sec5_FP_symm}, \code{Sec5_FP_iff_viii} & $\FP$ is symmetric (for
+ natural numbers and for integers); three sums satisfy $\FP$ exactly when
+ they satisfy (viii) & \S\ref{sec:dh}\\
+\code{BandeltMulder_DH_fourPoint} & every finite distance-hereditary graph
+ satisfies the four-point condition~\cite[Theorem~2]{bm} &
+ \S\ref{sec:dh}\\
+\code{BandeltMulder_extension} & the statement from~\cite[Theorem~1]{bm} in
+ the proof of Theorem~B & \S\ref{sec:median}\\
+\code{Lemma2}, \code{Proposition3} & Lemma~\ref{lem:core} (for integers)
+ and Proposition~\ref{prop:ineq} & \S\ref{sec:dh}\\
+\code{TheoremC_i}, \code{TheoremC_ii} & Theorem~C: the equation, and
+ \QA{} or \QB{} in both readings, \QAp{} or \QB, and \QAp{} or \QBp & Thm~C\\
+\code{TheoremC_FP} & the equation and the conclusions of Theorem~C for
+ finite connected graphs that satisfy the four-point condition &
+ \S\ref{sec:dh}\\
+\code{Remark4_i}, \code{Remark4_ii}, \code{Remark4_iii} &
+ Remark~\ref{rem:sharp}~(1), (2), (3) & \S\ref{sec:dh}\\
+\code{Remark5_i}, \code{Remark5_ii}, \code{Remark5_iii} & \QB{} when
+ $\tr(G)=2\diam(G)$; the facts about $H_{11}$; not every
+ distance-hereditary graph with $\tr(G)>2\diam(G)$ has \QAp &
+ \S\ref{sec:dh}\\
+\code{Sec6_DHtests} & $G_2$, $H_{11}$, $G$ and $H$ are distance-hereditary;
+ $G_1$ and the graph of~\cite[Figure~2]{hko} are not & \S\ref{sec:dh}\\
+\code{Sec8_open} & $G_1$ has \QB{} and $G_2$ has \QAp & \S\ref{sec:open}\\
+\code{Released_fourPoint_facts} & $G$, $H$ and $G_2$ satisfy the four-point
+ condition, $G_1$ does not (a part not used in the text), and $G$ is not
+ median & \S\ref{sec:dh}, note~\ref{fn:wiki}\\
+\end{longtable}}
 
-The modules build with \cd{lake build} (exit code~$0$, no warnings), and an
-audit file, \code{HKOTriameterAudit.lean}, prints the definitions, the
-statements and the axioms of $21$ main declarations: all depend only on the
-standard axioms \texttt{propext}, \texttt{Classical.choice} and
-\texttt{Quot.sound}, and \texttt{core} only on \texttt{propext} and
-\texttt{Quot.sound}. Both compiled modules pass \texttt{leanchecker} (exit
-code~$0$), and a replay in a clean directory, from a fresh copy of the sources
-with the Mathlib build taken from the local cache, repeated the build, the
-audit and both \texttt{leanchecker} runs with exit code~$0$ and the same axiom
-lines. These checks ran on 26 September 2026 between 07:36 and 07:38 UTC; their
-log is among the logs in version~1.4.0 of the repository.
+\paragraph{How the proofs work.}
+Distances in the concrete graphs are given by tables, identified with
+Mathlib's distance by a lemma that checks the table against the edges. The
+distance-heredity of $G_2$, $H_{11}$, $G$ and $H$ is checked from the
+definition, over all sets of vertices. The implication of Bandelt and
+Mulder is proved as described in Section~\ref{sec:dh}. The enumeration of
+Section~\ref{sec:min} is carried out in Lean: the proof constructs
+representatives of the connected triangle-free graphs with at most seven
+vertices, proves that every such graph, on any vertex type, is isomorphic to
+one of them, by an explicit isomorphism for each representative with one
+vertex fewer and each nonempty independent set, and separates the $59$
+representatives with seven vertices by isomorphism invariants.
+For the minimality statements, every median graph with at most seven
+vertices is connected and triangle-free, hence isomorphic to one of these
+representatives, and for each representative a distance table shows that it
+is not median or that it has \QAp{} and \QB{} (and \QB{} implies \QBp).
+For eight vertices, the
+proof removes a vertex whose removal leaves the graph connected; what
+remains is isomorphic to one of the $59$ representatives, and the removed
+vertex is adjacent to a nonempty independent set of it, so the graph is
+isomorphic to one of the $1{,}857$ graphs of Section~\ref{sec:min}, formed
+from a representative and one of its nonempty independent sets. For
+each of these $1{,}857$ graphs the proof gives either three rows of its
+distance table, which exhibit three vertices with two medians or with none,
+or an explicit isomorphism onto one of $69$ representatives. The $69$
+representatives are median (by their distance tables), pairwise
+non-isomorphic (by an isomorphism invariant), and each has \QAp{} and \QB{}
+or is isomorphic to $G_1$ or to $G_2$; since $G_1$ has \QB{} and $G_2$ has
+\QAp, this gives the uniqueness statements, and it gives the number~$69$.
+The numbers $1,1,1,3,4,11,23$ come from classifying the representatives
+with at most seven vertices in the same way. The number
+$1{,}008{,}904$ is the sum of $8!/|\mathrm{Aut}(R)|$ over the $69$
+representatives~$R$. Each automorphism group is counted by fixing vertices
+one at a time. Automorphisms given explicitly, which fix the vertices
+already fixed, move the next vertex to every vertex of a set~$O$; a
+colouring of the vertices by their distances to the fixed vertices, refined
+twice, is preserved by every automorphism that fixes them, and shows that
+none moves the next vertex outside~$O$. Once all colours are distinct, only
+the identity is left, so the order of the group is the product of the sizes
+of the sets~$O$. The two counts
+$20{,}160=8!/2$ follow from the uniqueness statements, since $G_1$ and $G_2$
+have two automorphisms each.
+Finite checks use \texttt{decide} and kernel reduction; there is no
+\texttt{native\_decide}.
+
+\paragraph{Checks.}
+For every statement of Table~\ref{tab:lean}, the recorded axiom audits
+(\texttt{\#print axioms}) report only the axioms \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. A static scan found no
+\texttt{sorry}, \texttt{admit}, \texttt{native\_decide},
+\texttt{bv\_decide}, \texttt{implemented\_by}, \texttt{extern},
+\texttt{unsafe}, and no \texttt{axiom} declaration, in the proof files.
+The Lean package of
+this paper, $201$ modules (the $199$ files of
+\texttt{lean/Research/Backfill/Paper4/} and the two modules of version~1 that
+they import), was built module by module from an empty
+directory, reusing only the pinned toolchain and the compiled Mathlib and
+its dependencies, and every module was checked with \texttt{leanchecker},
+all with exit code~$0$, twice (on 28 September 2026 between 18:34 and
+20:11~UTC). For the release, the whole Lean project of the repository was
+rebuilt from a clean directory and all its modules were checked again with
+\texttt{leanchecker} (28 September 2026, 20:48--22:16~UTC). The Lean files
+are in
+version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/Research/Backfill/Paper4/}.
+
+\paragraph{Definitions the reader must trust.}
+Apart from Mathlib's graphs, distances, diameters, eccentricities, connected
+graphs, induced subgraphs, walks, isomorphisms, cardinalities, cliques
+(\texttt{CliqueFree}) and independent sets (\texttt{IsIndepSet}), the
+statements use the following definitions, each at most eight lines long:
+\texttt{triDist} and \texttt{triameter} ($d(u,v,w)$, and its maximum over
+ordered triples, with repetitions allowed); \texttt{IsTriametral},
+\texttt{IsDiametral}, \texttt{IsPeripheral} (eccentricity equal to the
+diameter) and \texttt{IsPeripheralPair} (lying in a diametral pair);
+\texttt{InInterval} and \texttt{IsMedian} (connected, and exactly one vertex
+in the three intervals of any three vertices); the properties
+\texttt{Question3}, \texttt{Question3\qs}, \texttt{Question3\qs Pair},
+\texttt{Question4}, \texttt{Question4\qs}, their strong and distinct-vertex
+readings, and the problem claims \texttt{Problem1Claim},
+\texttt{Problem1ClaimPair}, \texttt{Problem2Claim} and
+\texttt{Problem2ClaimWeak}; the equation of Theorem~C
+(\texttt{TheoremCEquation}); \texttt{IsDistanceHereditary},
+\texttt{IsPendant} and \texttt{AreTwins}; \texttt{FP},
+\texttt{FourPointBM}, and the conditions (vii) and (viii) of~\cite{bm};
+the $\ell^1$ distance, the graph $\Gamma(S)$, coordinatewise medians,
+conditions (a) and (b) and monotone walks; the edge lists of $G_1$, $G_2$,
+$H_{11}$, the graphs $G$ and $H$ of~\cite[Figure~3]{hko}, the graph
+of~\cite[Figure~2]{hko} and the graph of~\cite{mo-a}, the placements of
+Section~\ref{sec:median}, and the counting predicate
+\texttt{ClassCount} (a list of pairwise non-isomorphic representatives such
+that every graph with the property is isomorphic to one of them). A file of
+known-answer tests checks these definitions, except \texttt{ClassCount} and
+\texttt{TheoremCEquation}, on small graphs, including examples where they
+fail.
+
+\paragraph{Faithfulness and non-claims.}
+A graph is a Mathlib \texttt{SimpleGraph} on a finite type, and ``a graph
+with $n$ vertices'' means that the type has $n$ elements; the minimality and
+uniqueness statements therefore cover graphs on every finite vertex type.
+Following Mathlib, a graph without vertices is not connected, which is why
+Lemma~\ref{lem:grid} needs $S$ to be nonempty. The triameter is a maximum
+over ordered triples with repetitions allowed, as in~\cite{hko}. A vertex
+is peripheral in Lean if its eccentricity equals the diameter; the wording
+of~\cite{hko}, ``lies in a diametral pair'', is a second definition, proved
+equivalent for connected graphs, and Problem~1 is refuted with either. \QB{} and
+\QBp{} are stated in their weak reading, which is their definition; the
+strong readings are separate definitions, and Table~\ref{tab:lean} says
+where they are proved or refuted. ``Labelled graphs on $\{0,\dots,7\}$'' are
+the graphs on \texttt{Fin 8}. The edge lists of the graphs of~\cite{hko}
+and~\cite{mo-a} were compared with the sources by the reviewing agents, not
+by a machine, and the same holds for the agreement of the Lean definitions
+with those of the paper and of~\cite{hko}.
 
 \section{An open question}\label{sec:open}
 As $G_1$ has \QB{} and $G_2$ has \QAp, our examples leave open the analogue of
@@ -690,27 +903,53 @@ at least one median; each of \QAp{} and \QB{} fails for some modular
 graph~\cite[Section~4]{hko}.
 
 \section*{Tool and computational resource disclosure}
-This work was carried out on 26 September 2026 (UTC) in a workflow directed by
-the author, using AI coding agents: Anthropic Claude Code, with the model
-Claude Opus~5.5. The author set the research programme, namely resolving open
-problems with AI agents and formal verification, and directed the agents.
-Claude Code agents selected the question, found the results and their proofs,
-wrote the verification programs and the Lean formalisation, carried out the
-literature searches described in the introduction, and drafted this text.
-An independent Claude Code agent reviewed the results before the paper was
-written, and a second one refereed the paper: it rechecked every proof, compared
-the Lean statements with the theorems, checked the MathOverflow credit and the
-cited theorem of Bandelt and Mulder, and recomputed all counts with its own
-programs. The programs, logs and Lean
-code are in version~1.4.0 of the repository~\cite{repo}. The author
-is not a professional mathematician.
-The author has read the paper and, using a side-by-side table, compared the
-statements of the Lean theorems with the results stated here.
-The results rest on the written proofs, on the Lean formalisation described in
-Section~\ref{sec:lean} and, for the last sentences of Theorems~A and~B, on the
-computations of Section~\ref{sec:min}; Section~\ref{sec:dhcomp} gives
-additional checks. AI systems are not authors of this paper; the author takes
-full responsibility for its content.
+Version~1 of this paper was produced on 26 September 2026 (UTC) in a
+workflow directed by the author, using AI coding agents: Anthropic Claude
+Code, with the model Claude Opus~5.5. The author set the research programme,
+namely resolving open problems with AI agents and formal verification, and
+directed the agents. Claude Code agents selected the question, found the
+results and their proofs, wrote the verification programs and the partial
+Lean formalisation of version~1, carried out the literature searches
+described in the introduction, and drafted the text. An independent Claude
+Code agent reviewed the results before the paper was written, and a second
+one refereed the paper: it rechecked every proof, compared the Lean
+statements with the theorems, checked the MathOverflow credit and the cited
+theorem of Bandelt and Mulder, and recomputed all counts with its own
+programs.
+
+Version~2 was produced from 27 to 29 September 2026. A Claude Code agent
+(model Claude Opus~5.5) wrote the statement file of
+Section~\ref{sec:lean}, and an independent Claude agent reviewed version~1
+of it and recomputed the enumeration with its own programs. OpenAI Codex
+(desktop application; models \texttt{gpt-6-astra} and \texttt{gpt-6-sol}) then
+checked version~1 of the paper independently, recomputing the enumeration with its own program, reviewed
+version~2 of the statement file and froze it, and wrote the Lean proofs of
+$46$ of the $50$ statements, of which it checked $44$, batch by batch
+(compilation from an empty directory, \texttt{leanchecker} and axiom audit).
+When Codex's usage quota ran out, Claude Code compiled and checked Codex's
+proofs of the two minimality statements, and wrote and checked the proofs of
+the other four statements (the uniqueness statements of Theorems~A and~B,
+and the counts $1,1,1,3,4,11,23,69$ and $1{,}008{,}904$, with $20{,}160$, of
+Section~\ref{sec:min}), building on Codex's enumeration; independent Claude
+agents reviewed these six proofs. Claude Code also assembled the Lean package
+of Section~\ref{sec:lean} and ran the checks described there. Writing and
+reviewing the statement file brought to light the three missing hypotheses
+that version~2 adds. Claude Code drafted the changes of version~2, and
+another independent Claude Code agent refereed a draft of version~2. Codex
+has not reviewed version~2 of the paper or the Lean proofs written by
+Claude Code; the final review before release was done by an independent
+Claude Code agent in its place.
+Throughout, ``we'' refers to this workflow. The author is not a professional
+mathematician.
+% Author role chosen by the user on 2026-09-28T23:35Z (option A).
+The author has read version~2 of the paper and, using a side-by-side table,
+compared the statements of the Lean theorems with the results stated here.
+No human mathematician has reviewed this paper. The correctness of the
+results rests on the Lean proofs of the statements in Table~\ref{tab:lean}
+and on the agreement of those statements with the paper, which was checked
+by the reviewing agents; the written proofs are given for the reader. AI
+systems are not authors of this paper; the author takes full responsibility
+for its content.
 
 {\small
 \begin{thebibliography}{99}
@@ -723,8 +962,8 @@ A.~Das, Triameter of graphs, \emph{Discuss.\ Math.\ Graph Theory} \textbf{41}
 (2021), 601--616.
 \bibitem{repo}
 H.~Dong, \emph{ai4math-results}, repository,
-\url{https://github.com/Horace-Maxwell/ai4math-results}, version~1.4.0
-(2026); archived at Zenodo under the concept DOI
+\url{https://github.com/Horace-Maxwell/ai4math-results}, versions~1.4.0
+and~\repoversion{} (2026); archived at Zenodo under the concept DOI
 \url{https://doi.org/10.5281/zenodo.22970254}.
 \bibitem{fc}
 Google DeepMind, \texttt{formal-conjectures} repository,
@@ -759,8 +998,7 @@ H.~M. Mulder, The structure of median graphs, \emph{Discrete Math.}
 \textbf{24} (1978), 197--204.
 \bibitem{oeis}
 OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences},
-\url{https://oeis.org}, sequences A001187, A277862 and A292623, accessed 26
-September 2026.
+\url{https://oeis.org}, sequence A292623, accessed 26 September 2026.
 \bibitem{mo-a}
 rgvalenciaalbornoz (MathOverflow user 302667), answer 506536 to~\cite{mo-q},
 posted 31 December 2025, \url{https://mathoverflow.net/a/506536}, accessed 26

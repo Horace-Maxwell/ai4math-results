@@ -1,0 +1,10 @@
+# forbidden-token scan over 298 files
+# summary (token, class): count
+#   axiom	COMMENT	3
+#   native_decide	COMMENT	2
+# hits
+COMMENT	axiom	Research/Backfill/Paper4/Proof/Foundation.lean:6	that compilation, axiom audit, checker or clean replay has passed.
+COMMENT	axiom	Research/Backfill/Paper4/Proof/MetricBounds.lean:6	must establish the complete target checks, axiom audit, checker and fresh replay.
+COMMENT	native_decide	Research/Carenini.lean:29	All finite counts are checked by `decide` / `decide +kernel` (kernel reduction); no `native_decide`.
+COMMENT	native_decide	Research/HKOTriameter.lean:29	done by `decide` / `decide +kernel` (kernel reduction, no `native_decide`).
+COMMENT	axiom	Research/ICGEqualParityBAudit.lean:5	/-! Statement and axiom audit for Theorem B (round 6, `work/round6/equal-parity-a2/PROOF.md`). -/

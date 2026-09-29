@@ -1,6 +1,6 @@
-# Research papers with partial Lean 4 formalizations: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues and axial algebras
+# Research papers with partial Lean 4 formalizations: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras and word-representability
 
-This repository contains nine papers, Lean 4 formalizations of some of
+This repository contains ten papers, Lean 4 formalizations of some of
 their results and computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254); version 1.0.0
 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255); version 1.1.0
@@ -12,24 +12,27 @@ their results and computational certificates. It is archived on Zenodo: all vers
 [10.5281/zenodo.22982516](https://doi.org/10.5281/zenodo.22982516); version 1.6.0
 [10.5281/zenodo.23000177](https://doi.org/10.5281/zenodo.23000177); version 1.7.0
 [10.5281/zenodo.23000178](https://doi.org/10.5281/zenodo.23000178); version 1.7.1
-[10.5281/zenodo.23002935](https://doi.org/10.5281/zenodo.23002935).
+[10.5281/zenodo.23002935](https://doi.org/10.5281/zenodo.23002935); version 1.8.0
+[10.5281/zenodo.23004801](https://doi.org/10.5281/zenodo.23004801).
 
-> **Verification status (version 1.8.0, 28 September 2026).** No human
-> mathematician has reviewed these papers. Paper 9 is formalized
-> completely: every theorem, corollary, proposition and lemma in it has a
-> Lean proof. For the other papers only some results are formally verified
-> in Lean 4, and the table "What is verified, and how" lists exactly
-> which. Paper 7 has no Lean proof; Papers 1, 3, 4, 5, 6 and 8 are partly
-> formalized; the theorems of Paper 2 are formalized for every
+> **Verification status (version 1.9.0, 29 September 2026).** No human
+> mathematician has reviewed these papers. Papers 4 (in its version 2), 9
+> and 10 are formalized completely: every result in them has a Lean proof,
+> checked against a statement file that was frozen before the Lean proofs
+> were written. For the other papers only some results are formally
+> verified in Lean 4, and the table "What is verified, and how" lists
+> exactly which. Paper 7 has no Lean proof; Papers 1, 3, 5, 6 and 8 are
+> partly formalized; the theorems of Paper 2 are formalized for every
 > power series satisfying the defining equations, while the existence and
 > uniqueness of these series, and their agreement with the OEIS entries,
 > are checked numerically but not yet in Lean. We are formalizing every
-> paper completely: statements are frozen and reviewed independently before
-> the proofs, computations are checked by the Lean kernel, and only the
-> three standard axioms are allowed. Claims that cannot be formalized
-> completely will be removed in later versions. Problems found so far are
-> listed under [Known issues](#known-issues); every problem we worked on,
-> including the ones we dropped, is listed in [ATTEMPTS.md](ATTEMPTS.md).
+> paper completely: statements are frozen and reviewed independently
+> before the proofs, computations are checked by the Lean kernel, and only
+> the three standard axioms are allowed. Claims that cannot be formalized
+> completely will be removed from the other papers too, as in version 2 of
+> Paper 4. Problems found so far are listed under
+> [Known issues](#known-issues); every problem we worked on, including the
+> ones we dropped, is listed in [ATTEMPTS.md](ATTEMPTS.md).
 
 ## Index
 
@@ -38,12 +41,13 @@ their results and computational certificates. It is archived on Zenodo: all vers
 | Paper 1 (version 1.5) | Maximal energy of integral circulant graphs of orders `p^(2r)·3^(2s+1)`, `pq^m` and `p²q^b`; for exponents of equal parity, every order `p^a q^b` with `min(a,b) ≤ 8` | new theorems; Theorem 5 (for `3 ≤ min(a,b) ≤ 8`) and Proposition 15 are computer-assisted | `ICGGeneral.jiang_yang_q3`, `ICGGeneral.jiang_yang_thmA`, `ICGEqualParity.corollaryA`, `ICGEqualParityB.theoremB` | [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) |
 | Paper 2 | Hanna's OEIS congruence conjectures: eleven proved, three more resolved | proofs; several follow quickly from classical results (stated in the corrected version 1.2.1) | `Oeis389472Mod3.*`, `HannaA*.*` | [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) |
 | Paper 3 | A negative answer to a question of Carenini on almost independent sets in regular graphs | new theorems (counterexamples and an asymptotic result) | `Carenini.not_careniniQuestion_six`, `Carenini.not_careniniQuestion_two_d` | [`papers/carenini-almost-independent`](papers/carenini-almost-independent/note.pdf) |
-| Paper 4 | Answers to three problems of Hak, Kozerenko and Oliynyk on the triameter of graphs | Problems 1 and 3 answered (new); Problem 2 was first answered on MathOverflow, and we add its smallest counterexample | `HKOTriameter.not_problem1Claim`, `HKOTriameter.not_problem2Claim`, `HKOTriameter.problem3ClaimFP` | [`papers/hko-triameter`](papers/hko-triameter/note.pdf) |
+| Paper 4 (version 2) | Answers to three problems of Hak, Kozerenko and Oliynyk on the triameter of graphs | Problems 1 and 3 answered (we found no earlier answer); Problem 2 was first answered on MathOverflow, and we add its smallest counterexample; completely formalized | `BackfillPaper4.Check.check_TheoremA_i`, `check_TheoremA_unique`, `check_TheoremB_unique`, `check_TheoremC_ii` (50 checked statements) | [`papers/hko-triameter`](papers/hko-triameter/note.pdf) |
 | Paper 5 | Complete mappings of the Brauer and partial Brauer monoids | Problem 15.11 of arXiv:2608.25092 settled in its existence reading; Lean covers only two constructions | `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC` | [`papers/brauer-complete-mappings`](papers/brauer-complete-mappings/note.pdf) |
 | Paper 6 | The weight spectrum of the Reed–Muller code RM(7,14) up to four weights | 14 new weights; spectrum determined except for four weights and their complements; Conjecture 2 of Lou and Wang fails for m = 6, which Lou and Wang had already shown (see Known issues) | `RM714.rm714_new_weights` (all 17 weights of Theorem A) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
 | Paper 7 | The minimum order of a counterexample to a conjecture on integral generalized sun graphs | new result (computer-assisted; not formalized) | none | [`papers/sun-graphs`](papers/sun-graphs/note.pdf) |
 | Paper 8 | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem (partly computer-assisted); some steps formalized in Lean | `SwitchingThmH.*`, `SwitchingRow.card_bad_le_two`, `SwitchingDiam4.no_eigenvalue_root_cubic`; `SwitchingWalkProfile.main_after_switching` (a remark not used for Theorem 1) | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
 | Paper 9 | A simple primitive axial algebra with a disconnected non-annihilation graph, and a decomposable axial block | new theorems (counterexamples when arbitrary finite symmetric fusion laws are allowed); completely formalized | `AxialMSZ.Check.check_TheoremA`, `check_TheoremB`, `check_TheoremC`, `check_Corollary`, `check_not_Simple_connected` | [`papers/axial-nonannihilation`](papers/axial-nonannihilation/note.pdf) |
+| Paper 10 | Tensor products of Mycielskians of odd cycles with odd wheels are not word-representable | Problem 5.1 of arXiv:2609.20881 answered (we found no earlier answer); completely formalized | `WordRepTensor.Check.check_Problem5_1`, `check_MycielskiOddCycleNotWR`, `check_ExtMycielskiOddCycleNotWR` (11 checked statements) | [`papers/wordrep-tensor`](papers/wordrep-tensor/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
@@ -163,7 +167,7 @@ regular graphs.*
   paper. The minimality of `(6,3,1/18)` and Theorems A, B′ (general `d`), D
   and Proposition C are proved in the paper, not in Lean.
 
-**Paper 4: [`papers/hko-triameter`](papers/hko-triameter/note.pdf).**
+**Paper 4: [`papers/hko-triameter`](papers/hko-triameter/note.pdf) (version 2).**
 *Answers to three problems of Hak, Kozerenko and Oliynyk on the triameter of
 graphs.*
 
@@ -175,9 +179,9 @@ graphs.*
   (Q4), that every diametral pair extends to a triametral triple (Problem 2);
   and whether every distance-hereditary graph has (Q3′) or (Q4) (Problem 3).
 - **Problem 1: no (Theorem A).** In an 8-vertex median graph `G1`, the
-  triametral triple `{1, 5, 6}` contains no peripheral vertex. Exhaustive
-  enumeration shows that every median graph with at most seven vertices has
-  (Q3′), and that `G1` is the only 8-vertex exception up to isomorphism.
+  triametral triple `{1, 5, 6}` contains no peripheral vertex. Every median
+  graph with at most seven vertices has (Q3′), and `G1` is the only 8-vertex
+  exception up to isomorphism.
 - **Problem 2: no, first answered on MathOverflow.** The user
   rgvalenciaalbornoz answered the question on 31 December 2025, in the
   accepted [answer 506536](https://mathoverflow.net/a/506536) to question
@@ -191,17 +195,23 @@ graphs.*
   condition of Bandelt and Mulder (1986), and Theorem C holds for every
   finite connected graph that satisfies it.
 - Still open: does every median graph have (Q3′) or (Q4)?
-- Lean: `G1` and `G2` are median graphs with the stated diameters and
-  triameters, `G1` lacks (Q3′) and `G2` lacks (Q4) and (Q4′)
-  (`HKOTriameter.not_problem1Claim`, `not_problem2Claim`,
-  `not_problem2ClaimWeak`), and Theorem C in its weak reading holds for
-  finite connected graphs that satisfy the four-point condition
-  (`question3_or_question4`, `problem3ClaimFP`); the strong reading is
-  proved in the paper, not in Lean. The theorem of Bandelt and Mulder is
-  cited, not formalized: the formal statement of Problem 3 assumes the
-  four-point condition, and for `G2` only the four-point condition, not
-  distance-heredity, is formal. The uniqueness and minimality statements
-  rest on the enumerations, not on Lean.
+- **Version 2 (new in version 1.9.0) is formalized completely.** Every
+  result of the paper is proved in Lean: the 50 statements of a statement
+  file frozen before the Lean proofs were written
+  (`lean/Research/Backfill/Paper4/`): Theorems A, B and C, including the
+  minimality and uniqueness statements; Lemmas 1 and 2, Proposition 3 and
+  Remarks 4 and 5; the counts of Section 4; and the two facts from Bandelt
+  and Mulder that the proofs use (distance-hereditary graphs satisfy the
+  four-point condition; a connected graph obtained from a
+  distance-hereditary graph by attaching a pendant vertex or adding a twin
+  is distance-hereditary), which version 1 only cited. OpenAI
+  Codex wrote the proofs of 46 statements; the other four (the uniqueness
+  statements of Theorems A and B, and the counts 1, 1, 1, 3, 4, 11, 23, 69
+  and 1,008,904 of Section 4) were written by Claude Code while Codex's
+  usage quota had run out. Version 2 also adds three hypotheses that
+  version 1 omitted, and removes the computations of version 1 that were
+  not formally verified (see Known issues). The Lean modules of version 1
+  (`HKOTriameter.lean`, `HKOTriameterDH.lean`) remain in the repository.
 
 **Paper 5: [`papers/brauer-complete-mappings`](papers/brauer-complete-mappings/note.pdf).**
 *Complete mappings of the Brauer and partial Brauer monoids.*
@@ -385,6 +395,41 @@ and a decomposable axial block.*
   frozen in the same way, in a separate file. The proofs were written by
   OpenAI Codex.
 
+**Paper 10: [`papers/wordrep-tensor`](papers/wordrep-tensor/note.pdf).**
+*Tensor products of Mycielskians of odd cycles with odd wheels are not
+word-representable.*
+
+- A graph is word-representable if some word over its vertices, containing
+  every vertex, has two distinct letters alternating exactly when the
+  vertices are adjacent. Alshammari (arXiv:2609.20881, Problem 5.1) asked
+  whether the tensor products `μ(C_{2n+1}) × W_{2m+1}` and
+  `μ′(C_{2n+1}) × W_{2m+1}` are non-word-representable for all `n ≥ 1` and
+  `m ≥ 2`, where `μ` and `μ′` are the Mycielskian and the extended
+  Mycielskian and `W_{2m+1}` is the wheel on an odd cycle.
+- **Theorem 1.** The answer is yes. When `n ≥ m`, each product contains an
+  induced copy of its first factor, through a homomorphism into the wheel
+  (as in the proof of Alshammari's Theorem 3.6); when `n ≤ m`, both contain
+  an induced copy of `μ(C_{2m+1})`, by an embedding adapted from the proof
+  of her Theorem 4.3. These graphs are not word-representable by theorems
+  of Hameed and of Kitaev and Pyatkin (arXiv:2408.05066, Theorem 4 and
+  Remark 5), and word-representability passes to induced subgraphs.
+- Scope: nothing is claimed about Problems 5.2–5.4 of arXiv:2609.20881; in
+  particular, whether a tensor product of two non-word-representable graphs
+  can be word-representable remains open.
+- Lean: every result of Paper 10 is formalized
+  (`lean/Research/WordRepTensor/`; the 11 checked statements are in
+  `Check.lean`), including the non-word-representability of `μ(C_{2t+1})`
+  and `μ′(C_{2t+1})` for all `t ≥ 1`, in its word-representability form.
+  The Lean proof of that fact does not follow the cited papers: it works
+  with words directly, through a chord property of the orientation by first
+  occurrences and a finite check, by the Lean kernel, of a window of seven
+  vertices. The characterization by semi-transitive orientations
+  (Halldórsson, Kitaev and Pyatkin) is not formalized and not needed. The
+  statements were written first, in a statement file that an independent AI
+  review compared with the source, and the file was frozen by its SHA-256
+  hash, after a review by OpenAI Codex, before the proofs were written. The
+  proofs were written by Claude Code while Codex's usage quota had run out.
+
 **Also formalized (known results): OEIS A246056 and A376230.** Both are
 Hanna conjectures listed as open on the OEIS, but their content follows from
 published theorems, so we claim no new mathematics here:
@@ -462,7 +507,8 @@ Problems found after publication by our own re-checks, including an
 independent check of Papers 1–8 by a second AI system (OpenAI Codex),
 completed on 27 September 2026. That check found no error that affects a
 main result; it found the problems below. The papers will be corrected in
-later versions; until then, read them with these corrections.
+later versions; version 1.9.0 corrects Paper 4. Until then, read the other
+papers with these corrections.
 
 - **Paper 6, Theorem C is not new.** Lou and Wang proved it earlier, in
   Discrete Appl. Math. 388 (2026) 142–145, Proposition 2 (see Prior work).
@@ -486,14 +532,20 @@ later versions; until then, read them with these corrections.
 - **Paper 1, Proposition 15** covers exactly the eleven exponent pairs
   listed in the paper; earlier versions of this README said "every shape
   with `(a+1)(b+1) ≤ 27`". Corrected in version 1.7.1.
-- **Paper 4, three missing hypotheses.** Lemma 1 needs `S` to be
-  nonempty: for `S = ∅` conditions (a) and (b) hold, but the empty graph
-  is not connected. Adding a false twin preserves distance-heredity only
-  if the result is connected (a single vertex with a false twin gives two
-  isolated vertices). A connected graph has a vertex whose removal leaves
-  it connected only if it has at least two vertices. The proofs use these
-  statements only where the extra hypotheses hold, so no result is
-  affected.
+- **Paper 4, three missing hypotheses (corrected in version 2 of the
+  paper, in version 1.9.0).** Lemma 1 needs `S` to be nonempty: for
+  `S = ∅` conditions (a) and (b) hold, but the empty graph is not connected
+  (the convention we follow with Mathlib). Adding a false twin preserves
+  distance-heredity only if the result is connected (a single vertex with a
+  false twin gives two isolated vertices). A connected graph has a vertex
+  whose removal leaves it connected only if it has at least two vertices.
+  The proofs use these statements only where the extra hypotheses hold, so
+  Theorems A, B and C are not affected. Version 2 also removes three claims
+  of version 1 that are not formally verified: the numbers of connected
+  labelled graphs in Section 4, the last sentence of Remark 5 (a uniqueness
+  statement for `H₁₁`), and Section 6 of version 1 (computations on
+  distance-hereditary graphs), apart from its last sentence, which now ends
+  Section 5.
 - **Paper 3, reading R1.** The table of readings says of the
   counterexample `(6,3,1/18)` that it is the smallest and "formally
   verified". Lean verifies that it is a counterexample; its minimality is
@@ -508,7 +560,7 @@ later versions; until then, read them with these corrections.
   A389472 does not determine `a(2)`; the entry has `a(2) = 1`. The theorems
   hold as stated for these normalizations.
 - **README wording corrected in version 1.8.0:** what Lean covers for
-  Papers 3 and 4 (above), and the count of new weights in Paper 6
+  Papers 3 and 4 (above; for Paper 4 now superseded by version 2), and the count of new weights in Paper 6
   (Theorem A gives 17 weights, 14 of them among the 22 open values).
 
 ## What is verified, and how
@@ -532,21 +584,23 @@ later versions; until then, read them with these corrections.
 | A376230 (formalization of a known result; the comment is refuted) | `HannaA376230.hanna_a376230`, `hanna_a376230_literal_false` | 48 terms computed exactly from the equation; the parity pattern checked on all 1030 b-file terms (`certificates/oeis-hanna/round5/a376230/`) |
 | Paper 3: the answer to Carenini's Question 1.3 is no at `(6,3,1/18)`, at `(2d, d, 1/(2d²))` for every `d ≥ 3`, and at `(8,2,1/16)`, `(12,3,1/36)` (connected bipartite competitor), `(12,3,5/18)` | `Carenini.not_careniniQuestion_six`, `not_careniniQuestion_two_d`, `not_careniniQuestion_eight_two`, `not_careniniQuestion_twelve_bip`, `not_careniniQuestion_twelve_top` | exact edge-count distributions by two independent methods; exhaustive check over all `d`-regular graphs on `2d` vertices for `d = 3, 4, 5`; Theorem D's competitor checked exactly for `γ = 1/10` (`certificates/carenini/`) |
 | A184894, A107099, A361047 (resolved) | `HannaA184894.zero_part`, `value_at_pow`, `counterexample`; `HannaA107099.hanna_a107099`, `hanna_a107099_counterexample`; `HannaA361047.hanna_a361047_pow`, `hanna_a361047_nonpow` | A184894: exact recomputation vs. the b-file; A107099: b-file substituted into the defining equation modulo two primes; A361047: the same, plus the first 60 terms recomputed independently (`batch2/`) |
-| Paper 4: `G1` refutes Problem 1, `G2` refutes Problem 2 and its weak form (Q4′); Theorem C in its weak reading, for connected graphs with the four-point condition (that distance-hereditary graphs satisfy it is the cited theorem of Bandelt and Mulder; the strong reading is not formalized) | `HKOTriameter.not_problem1Claim`, `not_problem1ClaimPair`, `not_problem2Claim`, `not_problem2ClaimWeak`, `question3_or_question4`, `problem3ClaimFP` | two independent exhaustive enumerations of the median graphs with at most 8 vertices (`median_enum.c`, `median8_second_impl.py`) and a check over all 8! bijections (`iso_check.py`); all 270,070 connected distance-hereditary graphs with at most 11 vertices, up to isomorphism (`dh_exhaustive.py`), and random tests (`certificates/hko-triameter/`) |
-| Paper 4: `G1` and `G2` are the only counterexamples with at most 8 vertices | not formalized | the enumerations above |
+| Paper 4 (version 2): every result, the 50 statements of the frozen statement file: Theorems A, B and C, including the minimality and uniqueness statements; Lemmas 1 and 2, Proposition 3, Remarks 4 and 5; the counts of Section 4 (59 connected triangle-free graphs with 7 vertices, 1,857 candidates, 1, 1, 1, 3, 4, 11, 23, 69 median graphs, 1,008,904 labelled median graphs with 8 vertices, 20,160 lacking (Q3′), 20,160 lacking (Q4), two automorphisms of `G1` and of `G2`); the two facts from Bandelt and Mulder used in the proofs | `BackfillPaper4.Check.check_*`, one theorem for each of the 50 statements of the frozen statement file `lean/Research/Backfill/Paper4/Challenge.lean` (SHA-256 `9f1b0c95…0785`); the version-1 declarations `HKOTriameter.not_problem1Claim`, `not_problem2Claim`, `problem3ClaimFP` and others remain | for version 1, two independent exhaustive enumerations of the median graphs with at most 8 vertices (`median_enum.c`, `median8_second_impl.py`) and a check over all 8! bijections (`iso_check.py`) (`certificates/hko-triameter/`); the computations on distance-hereditary graphs of version 1 (`dh_exhaustive.py`) are kept there but are no longer claimed |
 | Paper 5: Theorem 1.1 (every proper principal factor of `B_n` and `PB_n` has a complete mapping, except the rank-2 factor of `PB_3`; `B_n` and `PB_n` have one iff `n ∉ {2, 3}`) | only the two constructions of Lemmas 4.3 and 4.4, over `Z_2` for any finite index set: `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC`; the rest rests on the written proofs | certificates for the rank-2 factor of `B_6`, the rank-3 factor of `B_7`, the whole monoids `B_1`, `B_4`, `B_5`, `B_6`, `PB_1`, `PB_4`, `PB_5`, `PB_6`, and second versions of the first two, each built by one implementation and checked by a second that shares no code with it; an exhaustive search showing that the rank-2 factor of `PB_3` has no complete mapping (`certificates/brauer-complete/`) |
 | Paper 6: the 17 weights of Theorem A (14 of them new) | `RM714.rm714_new_weights` (the name is historical: it covers all 17) | two programs (`verify_witnesses.c`, `verify_bitset.py`) |
 | Paper 6: Theorems B and C, Propositions C′, D, E and F | not formalized | two programs for every computation used in a proof: `verify_witnesses.c` and `verify_all_py.py` for the 7901 codewords of Theorem B; `cert_arith.py` and `cert_arith.c` for Lemma 4.1 and Propositions C′, D and F; `venn_enum_fast.c` and `venn_enum_indep.c` for Proposition E (`certificates/rm714/`) |
 | Paper 7: Theorems 1 and 2 (minimum order 42, uniqueness; classification up to 41 vertices) and Proposition 3 | not formalized | spectral lemmas proved in the paper; exhaustive searches by separately written programs (`sunsearch*`, `sunB*`, and the referee agents' `sunC*` and `sunD*`), with audited versions identified by SHA-256 in the paper (`certificates/sun-graphs/`) |
 | Paper 9: Theorem A (the algebra `S`), Theorem B (`E`), Theorem C (`D`), Corollary 1.1 (the general forms (R1)–(R5) are false when arbitrary finite symmetric fusion laws are allowed), Proposition 4.1 (non-symmetric dominance in the algebra of Peng and of Kaygorodov, Martín González and Páez-Guillán), the facts about the fusion laws, and the two statements about `D` in Remark 5.1 | `AxialMSZ.Check.check_TheoremA`, `check_TheoremB`, `check_TheoremC`, `check_Corollary`, `check_not_MS_Conjecture_3_16`, `check_not_FinestSumDecomposition_connected`, `check_not_Indecomposable_connected`, `check_not_Simple_connected`, `check_RemarkP`, `check_Dominance_nonsymmetric`, `check_Laws_facts`, `check_ExD_axes_in_block`, `check_ExD_block_not_axial_on_contained_axes` (and the aliases `check_ExS_Statement`, `check_ExE_Statement`, `check_ExD_Statement`, `check_ExP_Statement`) | exact rational arithmetic by two separately written programs, recomputation by a reviewing agent and by Codex, and a check of every structure constant and displayed number in the paper against the statement file (`certificates/axial/`) |
 | Paper 8: Theorem 1 (trees of diameter at most 4) | abstract steps only: `SwitchingThmH.two_sqrt_add_seven_le`, `row_budget`, `sol_subsingleton`, `indep_of_irrational`; `SwitchingRow.card_bad_le_two`; `SwitchingDiam4.no_eigenvalue_root_cubic` (`SwitchingWalkProfile.main_after_switching` formalizes Remark 8.3, which Theorem 1 does not use) | exact computations by two programs and a referee agent's program (`certificates/switching/`) |
+| Paper 10: Theorem 1 (both products, all `n ≥ 1`, `m ≥ 2`); Theorem 2 in its word-representability form (`μ(C_{2t+1})` and `μ′(C_{2t+1})` are not word-representable, `t ≥ 1`); Lemmas 2.1, 2.2, 3.1 and 3.2 | `WordRepTensor.Check.check_Problem1Mu`, `check_Problem1MuExt`, `check_Problem5_1`, `check_MycielskiOddCycleNotWR`, `check_ExtMycielskiOddCycleNotWR`, `check_WordRepresentableOfEmbedding`, `check_EmbeddingOfHom`, `check_Lemma1Mu`, `check_Lemma1MuExt`, `check_Lemma2Mu`, `check_Lemma2MuExt` | no published programs: the finite checks of the proof are carried out by the Lean kernel (small cases were also checked with unpublished programs before the formalization) |
 
 Each OEIS theorem is stated for every integer power series satisfying the
 defining equation. The energy is `∑ |eigenvalues|`, using
 `Matrix.IsHermitian.eigenvalues`.
 
 All final theorems depend only on the axioms `propext`, `Classical.choice`
-and `Quot.sound`. There is no `sorry`, no custom axiom and no
+and `Quot.sound`. There is no `sorry` in any proof (the comparator challenge
+files in `lean/Comparator/` state the checked theorems with `sorry` on
+purpose and are not built by default), no custom axiom and no
 `native_decide`. Version 1.7.1 moved the project from Lean 4.33.1 to Lean
 4.34.1, which fixes three issues in the Lean runtime that could in principle
 be used to derive `False` (see its release notes). Three files changed, in
@@ -564,12 +618,64 @@ is a subset of these three axioms (`logs/clean-replay-v1.8.0-axiom-audit.log`).
 All 87 modules, namely the 51 proof modules and 11 audit modules of earlier
 versions and the 25 modules of Paper 9, were replayed through the Lean
 kernel with `lake env leanchecker <Module>`, and all passed
-(`logs/clean-replay-v1.8.0-leanchecker.log`). The source manifest
-`logs/lean-sources-sha256.txt` lists 91 files, and the procedure and its
-parameters are recorded in `logs/clean-replay-v1.8.0-receipt.json`
+(`logs/clean-replay-v1.8.0-leanchecker.log`). The source manifest of
+version 1.8.0 had 91 files, and the procedure and its parameters are
+recorded in `logs/clean-replay-v1.8.0-receipt.json`
 (earlier rebuilds: `logs/clean-replay-v1.4.0-receipt.json`,
 `logs/clean-replay-v1.7.0-receipt.json`,
 `logs/clean-replay-v1.7.1-receipt.json`).
+
+For version 1.9.0, which adds the 199 files of Paper 4, version 2
+(`lean/Research/Backfill/Paper4/`; with the two version-1 modules
+`HKOTriameter` and `HKOTriameterDH` that they import, the 201 modules of its
+Lean package), and the 11 files of Paper 10
+(`lean/Research/WordRepTensor/`), the whole project was again rebuilt from a
+clean directory (`lake build`, exit code 0;
+`logs/clean-replay-v1.9.0-build.log`), the known-answer tests of Papers 4, 9
+and 10 were built (`logs/clean-replay-v1.9.0-build-challenge-tests.log`),
+and the twelve audit files were run (`logs/clean-replay-v1.9.0-audit-*.log`;
+they print the same as for version 1.8.0). Every axiom list printed in these
+logs, 591 in the build logs, 392 in the audit logs and 1 in the tests (each
+command counted once), is a subset of the three standard axioms, and each
+matches one `#print axioms` command in the sources (`logs/clean-replay-v1.9.0-axiom-audit.log`). All 297
+modules were replayed through the Lean kernel with
+`lake env leanchecker <Module>`, and all passed
+(`logs/clean-replay-v1.9.0-leanchecker.log`,
+`logs/clean-replay-v1.9.0-leanchecker-circulantq3.log`). The source manifest
+`logs/lean-sources-sha256.txt` lists 304 files, and the procedure is recorded
+in `logs/clean-replay-v1.9.0-receipt.json`. Before they were copied into the
+release tree, the Lean packages of Papers 4 and 10 had each been built module
+by module in an empty directory and checked with `leanchecker`, twice
+(`certificates/hko-triameter/lean-package-v2/receipt.json`,
+`certificates/wordrep-tensor/lean-package/receipt.json`).
+
+### Comparator check of the completely formalized papers
+
+The completely formalized papers are also checked with
+[comparator](https://github.com/leanprover/comparator), in the GitHub Actions
+workflow `.github/workflows/comparator.yml`, which runs at every push to
+`main`. For each such paper, a challenge file in `lean/Comparator/` states the
+checked theorems with `sorry` proofs and imports only the paper's frozen
+statement files, and `ci/comparator/` lists the theorems and the permitted
+axioms (`propext`, `Quot.sound`, `Classical.choice`). comparator builds the
+proofs (the `Check` modules) inside the
+[landrun](https://github.com/Zouuup/landrun) sandbox, checks that every listed
+theorem has exactly the statement of the challenge file and uses only the
+permitted axioms, and replays the proofs in the Lean kernel and in the
+independent kernel [nanoda](https://github.com/ammkrn/nanoda_lib). The
+versions are pinned in the workflow. The files in `lean/Comparator/` contain
+`sorry` on purpose and are not part of the default build. The workflow
+checks Papers 4 (version 2), 9 and 10. Before this release, the same
+comparator, lean4export and nanoda versions were run locally on macOS, where
+the landrun sandbox is not available (comparator's
+`scripts/fake-landrun.sh` was used instead), in the directory of the clean
+rebuild described above: for each of Papers 4, 9 and 10, nanoda and the
+Lean kernel accepted the solution (`logs/comparator-local-v1.9.0-paper4.log`,
+`logs/comparator-local-v1.9.0-paper9.log`,
+`logs/comparator-local-v1.9.0-wordrep.log`,
+`logs/comparator-local-v1.9.0-receipts.json`). The first run on GitHub takes
+place after this version is pushed; its result is shown on the repository's
+Actions page.
 
 ### Reproduce the Lean checks
 
@@ -577,14 +683,15 @@ Each code block in this and the following sections starts from the repository
 root.
 
 Requirements: [elan](https://github.com/leanprover/elan), about 24 GB of free
-RAM for `CirculantQ3.lean` (with Lean 4.34.1 its build peaked at 19–22 GB and
-its `leanchecker` run at 21.4 GB), and about 20–25 minutes (the clean
-rebuild for version 1.8.0 took about 21 minutes).
+RAM for `CirculantQ3.lean` (with Lean 4.34.1 its build peaked at 18–22 GB and
+its `leanchecker` run at 21–23 GB), and about 45–50 minutes (the clean
+rebuild for version 1.9.0 took about 46 minutes, with at most two build jobs
+at a time).
 
 ```sh
 cd lean
 lake exe cache get                               # prebuilt mathlib, pinned in lake-manifest.json
-lake build                                       # builds everything imported by Research.lean; BrauerCMCore (Paper 5) and AxialMSZ/Check (Paper 9) print their own axiom audits
+lake build                                       # builds everything imported by Research.lean; BrauerCMCore (Paper 5) and the Check files of Papers 4 (version 2), 9 and 10 print their own axiom audits
 lake env lean Research/ICGGeneralAudit.lean      # Paper 1: prints the final statements, definitions and axioms
 lake env lean Research/ICGEqualParityBAudit.lean # Paper 1, Theorem 4: the same
 lake env lean Research/ICGEqualParityBCertAudit.lean # Paper 1, Theorem 4: axioms of the 325 certificate lemmas
@@ -598,9 +705,19 @@ lake env lean Research/SwitchingDiam4CubicAudit.lean  # Paper 8: the same, with 
 lake env lean Research/SwitchingWalkProfileAudit.lean # Paper 8, Remark 8.3 (not used for Theorem 1): the same
 lake build Research.AxialMSZ.ChallengeTests      # Paper 9: known-answer tests of the statement file
 lake env lean Research/AxialMSZ/Audit.lean       # Paper 9: prints the definitions, the frozen statements and the types of the 17 checks
+lake build Research.Backfill.Paper4.ChallengeTests  # Paper 4 (version 2): known-answer tests of the statement file
+lake build Research.WordRepTensor.ChallengeTests  # Paper 10: known-answer tests of the statement file
 ```
 
 Toolchain: Lean 4.34.1, mathlib v4.34.1 (commit `d13f23b723b8a846827a245b89c10fc7d3f11612`).
+
+The comparator check can be reproduced on Linux with the commands of
+`.github/workflows/comparator.yml`: build landrun, nanoda, and comparator
+with lean4export (after copying `lean/lean-toolchain` into the comparator
+checkout), then run, in `lean/`, `lake env <comparator>
+../ci/comparator/<paper>.json` with `COMPARATOR_LANDRUN`,
+`COMPARATOR_LEAN4EXPORT` and `COMPARATOR_NANODA` pointing to the three
+binaries.
 
 ### Reproduce the certificates and numerical checks
 
@@ -684,11 +801,11 @@ Paper 4 (requires a C compiler, and Python 3 with NetworkX):
 
 ```sh
 cd certificates/hko-triameter/code
-python3 verify_paper_claims.py   # every concrete graph claim of the paper
+python3 verify_paper_claims.py   # every concrete graph claim of version 1 of the paper
 cc -O2 -o median_enum median_enum.c && ./median_enum 8 1   # all graphs with at most 8 vertices (about 30 seconds; compare ../logs/median_enum_le8.log)
 python3 median8_second_impl.py   # the second enumeration of the median graphs with at most 8 vertices
 python3 iso_check.py             # the two violators with 8 vertices are G1 and G2 (all 8! bijections)
-python3 dh_exhaustive.py 11      # all connected distance-hereditary graphs with at most 11 vertices (about 4 minutes)
+python3 dh_exhaustive.py 11      # version 1 only: all connected distance-hereditary graphs with at most 11 vertices (about 4 minutes); version 2 no longer claims these counts
 ```
 
 Paper 5 (requires zsh, and Python 3 with NetworkX):
@@ -750,20 +867,22 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Layout
 
-- `papers/`: LaTeX sources and PDFs of the nine papers.
+- `papers/`: LaTeX sources and PDFs of the ten papers.
 - `ATTEMPTS.md`: every problem we worked on, and what became of it.
 - `certificates/icg-equal-parity/`: programs, logs and a negative control for Theorem 3 and Proposition 15 of Paper 1; `PROOF-working-note.md` is the working note.
 - `certificates/icg-equal-parity/theorems-b-c/`: programs and logs for Theorems 4 and 5 of Paper 1, including those of the three referee agents (`review/`, `review2/`, `review3/`); its `README.md` lists the commands.
 - `certificates/oeis-hanna/round5/`: checks for A246056 and A376230.
 - `certificates/carenini/`: programs and logs for Paper 3.
-- `certificates/hko-triameter/`: programs (`code/`) and logs (`logs/`) for Paper 4.
+- `certificates/hko-triameter/`: programs (`code/`) and logs (`logs/`) for version 1 of Paper 4, and the manifest and acceptance receipt of the Lean package of version 2 (`lean-package-v2/`).
 - `certificates/brauer-complete/`: programs, certificates and logs for Paper 5; `review/REVIEW.md` is the referee agent's report.
 - `certificates/rm714/`: programs, data and logs for Paper 6.
 - `certificates/sun-graphs/`: programs, logs and the referee agents' code and reports for Paper 7.
 - `certificates/switching/`: programs and logs for Paper 8, and the referee agent's report and programs (`review/`).
 - `certificates/axial/`: the statement contract, the reviews of the statement file, the programs and logs for Paper 9, and the receipt of the acceptance run of its Lean package (`lean-package/`).
+- `certificates/wordrep-tensor/lean-package/`: the manifest and acceptance receipt of the Lean package of Paper 10.
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
-- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them).
+- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/AxialMSZ/` (Paper 9) and `lean/Research/WordRepTensor/` (Paper 10). `lean/Comparator/` holds the challenge files for the comparator check below.
+- `.github/workflows/comparator.yml` and `ci/comparator/`: the public comparator check of the completely formalized papers (see below).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
   rebuilds. `roldan-q3-lean-build-receipt.json` predates the formalization of
@@ -822,7 +941,9 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
     Scholar, Scopus, Web of Science or ResearchGate. General web search did
     not find the MathOverflow thread, which we found only through the Stack
     Exchange API. A final check of the arXiv, GitHub, MathDB and MathOverflow
-    at 15:49–15:52 UTC found nothing new.
+    at 15:49–15:52 UTC found nothing new. For version 2 of the paper we
+    repeated the final check between 23:38 UTC on 28 September and 00:17 UTC
+    on 29 September 2026 and found nothing new.
   This reports the coverage of our searches, not a guarantee of priority.
 - Paper 5: Problem 15.11 is from J. Araújo, W. Bentz, P. J. Cameron,
   K. Hendrey and M. Kinyon, *Complete mappings of semigroups*
@@ -923,6 +1044,22 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
   versions of the papers of Khasraw, McInroy and Shpectorov and of McInroy
   and Shpectorov. This reports the coverage of our searches, not a guarantee
   of priority.
+- Paper 10: the question is Problem 5.1 of Alshammari (arXiv:2609.20881,
+  posted on 16 September 2026). Choi, Kim and Kim had shown that a tensor
+  product of two graphs with semi-transitive orientations need not have one
+  (the first part of Problem 7.2.5 of Kitaev and Lozin). We found no
+  earlier answer to Problem 5.1. We searched on 27 September 2026 between
+  18:06 and 19:02 UTC: the arXiv (its API, for the topic and the author);
+  the works citing the paper in OpenAlex (there were none); MathDB;
+  MathOverflow and Mathematics Stack Exchange, through the Stack Exchange
+  API; GitHub (code, commits, issues, pull requests and repositories),
+  including the repositories trureturing and SCOPE2026; Wikipedia; and web
+  search. OpenAI Codex repeated a smaller search later that day, and a
+  final check between 23:38 UTC on 28 September and 00:17 UTC on
+  29 September 2026 found nothing new. We did not search
+  Google Scholar, Scopus or Web of Science, and we did not consult the book
+  of Kitaev and Lozin itself. This reports the coverage of our searches,
+  not a guarantee of priority.
 - Roldán's conjecture, case q = 3 (the formalization here is of a known
   result):
   - S. Park, *Exact Energy Maximisation for Integral Circulant Graphs of
@@ -956,7 +1093,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Tool and computational resource disclosure
 
-This work was carried out on 25–28 September 2026 (UTC) in a workflow directed by
+This work was carried out on 25–29 September 2026 (UTC) in a workflow directed by
 the author, using two AI coding agents:
 
 - OpenAI Codex (desktop app; models `gpt-6-astra`, `gpt-6-sol`);
@@ -1028,6 +1165,42 @@ acceptance checks, and reviewed the paper. The author has also read
 Paper 9 and, using the same kind of side-by-side table, compared its Lean
 statements with the results in the paper.
 
+Version 2 of Paper 4 (version 1.9.0) was prepared from 27 to 29 September
+2026. A Claude Code agent (model Claude Opus 5.5) wrote the statement file,
+and an independent Claude agent reviewed version 1 of it and recomputed the
+enumeration with its own programs. OpenAI Codex (desktop application;
+models gpt-6-astra and gpt-6-sol) then checked version 1 of the paper
+independently, recomputing the enumeration with its own program, reviewed
+version 2 of the statement file and froze it, and wrote the Lean proofs of 46 of the 50
+statements, 44 of which it also checked. When Codex's usage quota ran out,
+Claude Code compiled and checked Codex's proofs of the two minimality
+statements, wrote and checked the proofs of the other four statements, and
+assembled and checked the Lean package; independent Claude agents reviewed
+these six proofs and refereed a draft of version 2. Claude Code drafted the
+corrections. The author has also read version 2 of Paper 4 and, using the
+same kind of side-by-side table, compared its Lean statements with the
+results in the paper.
+
+Paper 10 (version 1.9.0) was produced from 27 to 29 September 2026 by Claude
+Code agents (model Claude Opus 5.5), which selected the question, found the
+proof, checked it with two separately written programs for small
+parameters, wrote the statement file, carried out the main literature
+search and drafted the text. An independent Claude Code agent reviewed
+version 1 of the statement file. OpenAI Codex (desktop application; models
+gpt-6-astra and gpt-6-sol) checked the mathematics independently,
+recomputing the embeddings with its own program, reviewed version 2 of the
+statement file and froze it. When Codex's usage quota ran out, Claude Code
+wrote the Lean proofs and ran the checks; an independent Claude Code agent
+reviewed the proofs, and another refereed a draft of the paper.
+The author has also read Paper 10 and, using the same kind of side-by-side
+table, compared its Lean statements with the results in the paper.
+
+For version 1.9.0 the final review before release was done by an
+independent Claude Code agent instead of OpenAI Codex, whose usage quota had
+run out (the author's decision; version 1.4.0 was handled the same way).
+Codex has not reviewed version 2 of Paper 4, the text of Paper 10 or the
+Lean proofs written by Claude Code; it will review them when it can.
+
 AI systems are not authors. The author takes full responsibility for the content.
 
 ## License
@@ -1048,5 +1221,9 @@ v1.2.0 [10.5281/zenodo.22972115](https://doi.org/10.5281/zenodo.22972115),
 v1.2.1 [10.5281/zenodo.22979318](https://doi.org/10.5281/zenodo.22979318),
 v1.3.0 [10.5281/zenodo.22979323](https://doi.org/10.5281/zenodo.22979323),
 v1.4.0 [10.5281/zenodo.22981669](https://doi.org/10.5281/zenodo.22981669),
-v1.5.0 [10.5281/zenodo.22982516](https://doi.org/10.5281/zenodo.22982516); later
+v1.5.0 [10.5281/zenodo.22982516](https://doi.org/10.5281/zenodo.22982516),
+v1.6.0 [10.5281/zenodo.23000177](https://doi.org/10.5281/zenodo.23000177),
+v1.7.0 [10.5281/zenodo.23000178](https://doi.org/10.5281/zenodo.23000178),
+v1.7.1 [10.5281/zenodo.23002935](https://doi.org/10.5281/zenodo.23002935),
+v1.8.0 [10.5281/zenodo.23004801](https://doi.org/10.5281/zenodo.23004801); later
 versions are listed on the Zenodo record.

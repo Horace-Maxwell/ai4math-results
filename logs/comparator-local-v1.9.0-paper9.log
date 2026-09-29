@@ -1,0 +1,138 @@
+start 2026-09-28T22:18:38Z
+config <project>/outputs/release/ai4math-results/ci/comparator/paper9.json
+Building Comparator.Paper9
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Comparator.Paper9
+ℹ [8925/8926] Replayed Research.AxialMSZ.SupplementDChallenge
+info: Research/AxialMSZ/SupplementDChallenge.lean:18:0: 'CodexAxial.SupplementChallenge.ExD_axes_in_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/SupplementDChallenge.lean:19:0: 'CodexAxial.SupplementChallenge.ExD_block_not_axial_on_contained_axes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8926/8926] Built Comparator.Paper9 (5.1s)
+warning: Comparator/Paper9.lean:23:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:25:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:27:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:29:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:31:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:33:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:35:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:37:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:39:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:41:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:43:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:45:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:47:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:49:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:51:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:53:8: declaration uses `sorry`
+warning: Comparator/Paper9.lean:55:8: declaration uses `sorry`
+Build completed successfully (8926 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Comparator.Paper9 -- Quot Quot.mk Quot.lift Quot.ind AxialMSZ.Check.check_Laws_facts AxialMSZ.Check.check_ExS_Statement AxialMSZ.Check.check_ExE_Statement AxialMSZ.Check.check_ExD_Statement AxialMSZ.Check.check_ExP_Statement AxialMSZ.Check.check_TheoremA AxialMSZ.Check.check_TheoremB AxialMSZ.Check.check_TheoremC AxialMSZ.Check.check_RemarkP AxialMSZ.Check.check_Corollary AxialMSZ.Check.check_not_MS_Conjecture_3_16 AxialMSZ.Check.check_not_FinestSumDecomposition_connected AxialMSZ.Check.check_not_Indecomposable_connected AxialMSZ.Check.check_not_Simple_connected AxialMSZ.Check.check_Dominance_nonsymmetric AxialMSZ.Check.check_ExD_axes_in_block AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, AxialMSZ.Check.check_Laws_facts, AxialMSZ.Check.check_ExS_Statement, AxialMSZ.Check.check_ExE_Statement, AxialMSZ.Check.check_ExD_Statement, AxialMSZ.Check.check_ExP_Statement, AxialMSZ.Check.check_TheoremA, AxialMSZ.Check.check_TheoremB, AxialMSZ.Check.check_TheoremC, AxialMSZ.Check.check_RemarkP, AxialMSZ.Check.check_Corollary, AxialMSZ.Check.check_not_MS_Conjecture_3_16, AxialMSZ.Check.check_not_FinestSumDecomposition_connected, AxialMSZ.Check.check_not_Indecomposable_connected, AxialMSZ.Check.check_not_Simple_connected, AxialMSZ.Check.check_Dominance_nonsymmetric, AxialMSZ.Check.check_ExD_axes_in_block, AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Comparator.Paper9
+Building Research.AxialMSZ.Check
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Research.AxialMSZ.Check
+ℹ [8925/8946] Replayed Research.AxialMSZ.Proof.ExP
+info: Research/AxialMSZ/Proof/ExP.lean:306:0: 'CodexAxial.check_RemarkP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExP.lean:307:0: 'CodexAxial.check_ExP_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8926/8946] Replayed Research.AxialMSZ.Proof.ExSBase
+info: Research/AxialMSZ/Proof/ExSBase.lean:354:0: 'CodexAxial.SimpleExample.axial' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8927/8946] Replayed Research.AxialMSZ.Proof.ExSSimple
+info: Research/AxialMSZ/Proof/ExSSimple.lean:100:0: 'CodexAxial.SimpleExample.simple' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8928/8946] Replayed Research.AxialMSZ.Proof.ExSGraph
+info: Research/AxialMSZ/Proof/ExSGraph.lean:100:0: 'CodexAxial.SimpleExample.disconnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExSGraph.lean:101:0: 'CodexAxial.SimpleExample.components_do_not_annihilate' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8930/8946] Replayed Research.AxialMSZ.Proof.Laws
+info: Research/AxialMSZ/Proof/Laws.lean:54:0: 'CodexAxial.check_Laws_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8931/8946] Replayed Research.AxialMSZ.Proof.ExS
+info: Research/AxialMSZ/Proof/ExS.lean:23:0: 'CodexAxial.check_TheoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExS.lean:24:0: 'CodexAxial.check_ExS_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExS.lean:25:0: 'CodexAxial.check_not_MS_Conjecture_3_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8932/8946] Replayed Research.AxialMSZ.Proof.ExEBase
+info: Research/AxialMSZ/Proof/ExEBase.lean:310:0: 'CodexAxial.DominanceExample.axial' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8933/8946] Replayed Research.AxialMSZ.Proof.ExEBlocks
+info: Research/AxialMSZ/Proof/ExEBlocks.lean:168:0: 'CodexAxial.DominanceExample.blocks_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExEBlocks.lean:169:0: 'CodexAxial.DominanceExample.indecomposable' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8934/8946] Replayed Research.AxialMSZ.Proof.ExEGraph
+info: Research/AxialMSZ/Proof/ExEGraph.lean:100:0: 'CodexAxial.DominanceExample.disconnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExEGraph.lean:101:0: 'CodexAxial.DominanceExample.components_do_not_annihilate' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8935/8946] Replayed Research.AxialMSZ.Proof.ExE
+info: Research/AxialMSZ/Proof/ExE.lean:13:0: 'CodexAxial.check_TheoremB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExE.lean:14:0: 'CodexAxial.check_ExE_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8936/8946] Replayed Research.AxialMSZ.Proof.ExDBase
+info: Research/AxialMSZ/Proof/ExDBase.lean:518:0: 'CodexAxial.DecomposableExample.axial' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8937/8946] Replayed Research.AxialMSZ.Proof.ExDBlock
+info: Research/AxialMSZ/Proof/ExDBlock.lean:194:0: 'CodexAxial.DecomposableExample.block_a_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:195:0: 'CodexAxial.DecomposableExample.decomposable_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:196:0: 'CodexAxial.DecomposableExample.first_internal_ideal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:197:0: 'CodexAxial.DecomposableExample.second_internal_ideal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:198:0: 'CodexAxial.DecomposableExample.notWholeIdeal' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8938/8946] Replayed Research.AxialMSZ.Proof.ExDFrobenius
+info: Research/AxialMSZ/Proof/ExDFrobenius.lean:34:0: 'CodexAxial.DecomposableExample.frobenius_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8939/8946] Replayed Research.AxialMSZ.Proof.ExD
+info: Research/AxialMSZ/Proof/ExD.lean:24:0: 'CodexAxial.check_ExD_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExD.lean:25:0: 'CodexAxial.check_TheoremC' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8940/8946] Replayed Research.AxialMSZ.Proof.SimpleIndecomposable
+info: Research/AxialMSZ/Proof/SimpleIndecomposable.lean:31:0: 'CodexAxial.simple_not_decomposable' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8941/8946] Replayed Research.AxialMSZ.Proof.Corollary
+info: Research/AxialMSZ/Proof/Corollary.lean:39:0: 'CodexAxial.check_Corollary' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8942/8946] Replayed Research.AxialMSZ.Proof.SFourNegations
+info: Research/AxialMSZ/Proof/SFourNegations.lean:39:0: 'CodexAxial.FromS.check_not_MS_Conjecture_3_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/SFourNegations.lean:40:0: 'CodexAxial.FromS.check_not_FinestSumDecomposition_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/SFourNegations.lean:41:0: 'CodexAxial.FromS.check_not_Indecomposable_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/SFourNegations.lean:42:0: 'CodexAxial.FromS.check_not_Simple_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8943/8946] Replayed Research.AxialMSZ.Proof.PConsequence
+info: Research/AxialMSZ/Proof/PConsequence.lean:16:0: 'CodexAxial.FromP.check_Dominance_nonsymmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8944/8946] Replayed Research.AxialMSZ.SupplementDChallenge
+info: Research/AxialMSZ/SupplementDChallenge.lean:18:0: 'CodexAxial.SupplementChallenge.ExD_axes_in_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/SupplementDChallenge.lean:19:0: 'CodexAxial.SupplementChallenge.ExD_block_not_axial_on_contained_axes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8945/8946] Replayed Research.AxialMSZ.Proof.ExDSupplement
+info: Research/AxialMSZ/Proof/ExDSupplement.lean:56:0: 'CodexAxial.check_ExD_axes_in_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDSupplement.lean:57:0: 'CodexAxial.check_ExD_block_not_axial_on_contained_axes' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8946/8946] Replayed Research.AxialMSZ.Check
+info: Research/AxialMSZ/Check.lean:61:0: 'AxialMSZ.Check.check_Laws_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:62:0: 'AxialMSZ.Check.check_ExS_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:63:0: 'AxialMSZ.Check.check_ExE_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:64:0: 'AxialMSZ.Check.check_ExD_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:65:0: 'AxialMSZ.Check.check_ExP_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:66:0: 'AxialMSZ.Check.check_TheoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:67:0: 'AxialMSZ.Check.check_TheoremB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:68:0: 'AxialMSZ.Check.check_TheoremC' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:69:0: 'AxialMSZ.Check.check_RemarkP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:70:0: 'AxialMSZ.Check.check_Corollary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:71:0: 'AxialMSZ.Check.check_not_MS_Conjecture_3_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:72:0: 'AxialMSZ.Check.check_not_FinestSumDecomposition_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:73:0: 'AxialMSZ.Check.check_not_Indecomposable_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:74:0: 'AxialMSZ.Check.check_not_Simple_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:75:0: 'AxialMSZ.Check.check_Dominance_nonsymmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:76:0: 'AxialMSZ.Check.check_ExD_axes_in_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:77:0: 'AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8946 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Research.AxialMSZ.Check -- Quot Quot.mk Quot.lift Quot.ind AxialMSZ.Check.check_Laws_facts AxialMSZ.Check.check_ExS_Statement AxialMSZ.Check.check_ExE_Statement AxialMSZ.Check.check_ExD_Statement AxialMSZ.Check.check_ExP_Statement AxialMSZ.Check.check_TheoremA AxialMSZ.Check.check_TheoremB AxialMSZ.Check.check_TheoremC AxialMSZ.Check.check_RemarkP AxialMSZ.Check.check_Corollary AxialMSZ.Check.check_not_MS_Conjecture_3_16 AxialMSZ.Check.check_not_FinestSumDecomposition_connected AxialMSZ.Check.check_not_Indecomposable_connected AxialMSZ.Check.check_not_Simple_connected AxialMSZ.Check.check_Dominance_nonsymmetric AxialMSZ.Check.check_ExD_axes_in_block AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, AxialMSZ.Check.check_Laws_facts, AxialMSZ.Check.check_ExS_Statement, AxialMSZ.Check.check_ExE_Statement, AxialMSZ.Check.check_ExD_Statement, AxialMSZ.Check.check_ExP_Statement, AxialMSZ.Check.check_TheoremA, AxialMSZ.Check.check_TheoremB, AxialMSZ.Check.check_TheoremC, AxialMSZ.Check.check_RemarkP, AxialMSZ.Check.check_Corollary, AxialMSZ.Check.check_not_MS_Conjecture_3_16, AxialMSZ.Check.check_not_FinestSumDecomposition_connected, AxialMSZ.Check.check_not_Indecomposable_connected, AxialMSZ.Check.check_not_Simple_connected, AxialMSZ.Check.check_Dominance_nonsymmetric, AxialMSZ.Check.check_ExD_axes_in_block, AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Research.AxialMSZ.Check
+Running nanoda kernel on solution
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/nanoda_lib/target/release/nanoda_bin <tmp>
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       45.46 real        35.73 user        12.25 sys
+          5951373312  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1447567  page reclaims
+               44014  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              103201  voluntary context switches
+              188959  involuntary context switches
+          3615889278  instructions retired
+          1455168231  cycles elapsed
+           138814408  peak memory footprint
+exit=0
+end 2026-09-28T22:19:24Z

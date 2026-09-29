@@ -1,0 +1,5 @@
+2026-09-28T21:36:34Z
+'SwitchingThmH.row_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SwitchingThmH.sol_subsingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0
+json-exit=0

@@ -7,8 +7,8 @@ problems that were dropped without a result. It gives the denominator behind
 the results in this repository: how many problems were tried, and what
 became of each.
 
-Status: 28 September 2026, covering the work of 25–28 September 2026 up to
-version 1.8.0. All dates are UTC.
+Status: 29 September 2026, covering the work of 25–29 September 2026 up to version
+1.9.0. All dates are UTC.
 
 ## How to read this file
 
@@ -28,7 +28,7 @@ version 1.8.0. All dates are UTC.
 
 ## (a) Published
 
-The column "Lean" describes the formal verification in version 1.8.0; the
+The column "Lean" describes the formal verification in version 1.9.0; the
 README has the details.
 
 | # | Problem | Source | Published in | What was proved | Lean |
@@ -47,13 +47,14 @@ README has the details.
 | 18 | A246056: the pattern of `a(n) mod 3` | OEIS (P. D. Hanna) | v1.2.0 | Known result, formalized only: it follows from a theorem of Deutsch and Sagan (J. Number Theory 117 (2006)) | yes |
 | 19 | A376230: a parity comment | OEIS (P. D. Hanna) | v1.2.0 | The comment is false as stated (`a(4) = 8`). The corrected pattern follows from a theorem of Gawron and Ulas (Discrete Math. 339 (2016)): known result, formalized only | yes |
 | 20 | Carenini's Question 1.3 on almost independent sets in regular graphs | arXiv:2609.28527 | v1.3.0 (Paper 3) | Answer: no. Smallest counterexample `(n, d, γ) = (6, 3, 1/18)`; counterexamples for every `(n, d)` with `2d ∣ n` apart from trivial cases, and further families; a positive result at the exponential scale. Some cases remain open | some counterexamples, including one infinite family |
-| 21 | Problems 1–3 of Hak, Kozerenko and Oliynyk on the triameter of graphs (3 problems) | Discrete Appl. Math. 309 (2022); arXiv:2103.10806 | v1.4.0 (Paper 4) | Problem 1: no (an 8-vertex median graph). Problem 2: no, but this had already been answered on MathOverflow by rgvalenciaalbornoz ([answer 506536](https://mathoverflow.net/a/506536), 2025-12-31; found by us on 2026-09-26); we add only the smallest counterexample. Problem 3: yes, in a stronger form | the counterexamples; Problem 3 under the four-point condition |
+| 21 | Problems 1–3 of Hak, Kozerenko and Oliynyk on the triameter of graphs (3 problems) | Discrete Appl. Math. 309 (2022); arXiv:2103.10806 | v1.4.0 (Paper 4); version 2 in v1.9.0 | Problem 1: no (an 8-vertex median graph). Problem 2: no, but this had already been answered on MathOverflow by rgvalenciaalbornoz ([answer 506536](https://mathoverflow.net/a/506536), 2025-12-31; found by us on 2026-09-26); we add only the smallest counterexample. Problem 3: yes, in a stronger form | all results (version 2) |
 | 22 | Problem 15.11 of Araújo, Bentz, Cameron, Hendrey and Kinyon: complete mappings of the Brauer and partial Brauer monoids | arXiv:2608.25092 | v1.4.0 (Paper 5) | Settled in its existence reading: `B_n` and `PB_n` have a complete mapping if and only if `n ∉ {2, 3}`, with the answer for every proper principal factor. The set of all complete mappings is not described | two constructions only |
 | 23 | Weights of the Reed–Muller code RM(7,14) (Carlet's question; 22 undecided values listed by Leuenberger and Albrizzio) | C. Carlet, IEEE Trans. Inf. Theory 70 (2024); arXiv:2606.21425 | v1.4.0 (Paper 6) | Partial answer: 14 new weights (17 found, 3 of them already known); the spectrum is determined except for 322, 326, 330, 334 and their complements (this step cites a 1976 theorem we could not consult); Conjecture 2 of Lou and Wang fails for `m = 6` (Theorem C), but this was not new: Lou and Wang had proved it in Discrete Appl. Math. 388 (2026) 142–145, a note we read only after publication (see Corrections) | the 17 weights |
 | 24 | Minimum order of a counterexample to the conjecture of Braga, Del-Vecchio and Rodrigues on integral generalized sun graphs | arXiv:2609.28754 (Braga, Moraes and Santos) | v1.6.0 (Paper 7) | The minimum order is 42, and the 42-vertex counterexample is unique (computer-assisted); also a constraint on odd cycles in integral unicyclic graphs | none |
 | 25 | The switching conjecture for main eigenvalues, for trees (Problem 1.6 of Akbari, Kumar, Mohar and Pragada) | arXiv:2609.27046 | v1.7.0 (Paper 8) | Partial answer: the conjecture holds for every tree of diameter at most 4 other than K₂ (partly computer-assisted). Open for all trees and for regular graphs | some abstract steps |
 | 26 | Conjecture 3.16 of McInroy and Shpectorov, and Problem 3.11 of Gorshkov and Shpectorov (= Question 9.5 of Mamontov, Shpectorov and Zhelyabin): the finest sum decomposition of an axial algebra and the connected components of its non-annihilation graph | arXiv:2209.08043; arXiv:2606.30048; arXiv:2602.11984 | v1.8.0 (Paper 9, Theorem A and Corollary 1.1) | Answer: no, when arbitrary finite symmetric fusion laws are allowed: a four-dimensional simple primitive axial algebra over ℚ whose non-annihilation graph is disconnected. Not about the Monster-type case (row 5 of section c) | all results |
 | 27 | Problem 3.8 of Gorshkov and Shpectorov (= Question 9.2 of Mamontov, Shpectorov and Zhelyabin): is every axial block indecomposable? | arXiv:2606.30048; arXiv:2602.11984 | v1.8.0 (Paper 9, Theorem C) | Answer: no, when arbitrary finite symmetric fusion laws are allowed: a five-dimensional example. Its block is not generated by the axes it contains, so it does not answer the question if only blocks that are axial algebras are meant | all results |
+| 28 | Problem 5.1 of Alshammari: are `μ(C_{2n+1}) × W_{2m+1}` and `μ′(C_{2n+1}) × W_{2m+1}` non-word-representable for all `n ≥ 1`, `m ≥ 2`? | arXiv:2609.20881 | v1.9.0 (Paper 10) | Answer: yes. The proof finds a non-word-representable induced subgraph and uses the theorems of Hameed and of Kitaev and Pyatkin, which we also formalize in their word-representability form | all results |
 
 ## (b) Dropped because earlier work was found
 
@@ -83,11 +84,12 @@ items is claimed as a result in this repository.
 | 3 | Conjecture 6.1 of J. W. Sander and T. Sander (framing conjecture for integral circulant graphs of prime-power order) | Discrete Appl. Math. 160 (2012); arXiv:1205.4603 | Exact search: no counterexample (for example `p = 3` up to `s = 102`) | No proof found within the time box; a proof within a day was judged unlikely. Stopped on 2026-09-26 |
 | 4 | Hu's question on nonflexible finite generalized polygons | arXiv:2609.28550 | Checked all known projective planes of orders 16 and 25 (22 and 193 planes): all are flexible, so none answers the question | Finite check done, no new result: the same fact can already be read off published tables (arXiv:2506.14060v16). The question remains open. Stopped on 2026-09-26 |
 | 5 | Conjecture 6.2 of Khasraw, McInroy and Shpectorov: the question of row 26 for axial algebras of Monster type M(1/4, 1/32) | Trans. Amer. Math. Soc. 373 (2020); arXiv:1809.10132 | Tried to build a counterexample by gluing two copies of a suitable algebra; tested one candidate, the 18-dimensional algebra of McInroy and Shpectorov with Miyamoto group S3 × S3 (arXiv:1804.00587) | The tested algebra does not have the property that the construction needs, and we know no other candidate. Stopped on 2026-09-27 |
+| 6 | Problems 5.2–5.4 of Alshammari: the question of row 28 for `μ(C_{2n+1}) × μ′(C_{2m+1})` and `μ′(C_{2n+1}) × μ′(C_{2m+1})`, and whether a tensor product of two non-word-representable graphs can be word-representable | arXiv:2609.20881 | Computer checks of small cases with a SAT solver: the 9 products tested for Problems 5.2 and 5.3, and all 496 products of two graphs from a pool of 31 non-word-representable graphs for Problem 5.4, are non-word-representable | No proof found; the small-case evidence is not published. The problems remain open. Stopped on 2026-09-27 |
 
 ## Counts
 
-- Listed in total: 43 items.
-  - Published: 27 items (section a). Of these, 3 are known results that we
+- Listed in total: 45 items.
+  - Published: 28 items (section a). Of these, 3 are known results that we
     only formalized (rows 15, 18 and 19), and 12 of the 14 OEIS entries of
     Paper 2 turned out to follow quickly from classical results or from
     identities stated in the entries (rows 3–14). Several of the other items
@@ -95,10 +97,9 @@ items is claimed as a result in this repository.
   - Dropped because earlier work was found: 11 items (section b). For 4 of
     them (rows 4–7) our own work was small: screening checks, a numerical
     check or a statement contract.
-  - Dropped without a result: 5 items (section c).
-- Under active work and not listed here: 1 problem. It will be added when
-  it is finished or dropped. Separately, the parts of Papers 1–8 that are
-  not yet formalized in Lean are being formalized.
+  - Dropped without a result: 6 items (section c).
+- Under active work and not listed here: none. The parts of Papers 1–3
+  and 5–8 that are not yet formalized in Lean are being formalized.
 - Scouted but not attempted: 49 candidates. This counts the candidates that
   scouting agents wrote up and ranked in their reports but on which no
   research was done. Problems rejected during bulk screening (for example,
@@ -144,3 +145,9 @@ Published corrections so far:
    implicit normalizations in Paper 2; they are listed under Known issues.
    The README now states precisely what Lean covers for Papers 3 and 4,
    and how many of the weights of Paper 6 were among the open values.
+6. **Paper 4, version 2 (v1.9.0).** Adds the three hypotheses listed under
+   Known issues in v1.8.0 and removes three claims that were not formally
+   verified: the counts of connected labelled graphs in Section 4, the last
+   sentence of Remark 5, and Section 6 of version 1 apart from its last
+   sentence. Every result of version 2 is formalized in Lean. Theorems A, B
+   and C are unchanged.

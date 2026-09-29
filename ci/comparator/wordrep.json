@@ -1,0 +1,23 @@
+{
+  "challenge_module": "Comparator.WordRep",
+  "solution_module": "Research.WordRepTensor.Check",
+  "theorem_names": [
+    "WordRepTensor.Check.check_Problem1Mu",
+    "WordRepTensor.Check.check_Problem1MuExt",
+    "WordRepTensor.Check.check_Problem5_1",
+    "WordRepTensor.Check.check_MycielskiOddCycleNotWR",
+    "WordRepTensor.Check.check_ExtMycielskiOddCycleNotWR",
+    "WordRepTensor.Check.check_WordRepresentableOfEmbedding",
+    "WordRepTensor.Check.check_EmbeddingOfHom",
+    "WordRepTensor.Check.check_Lemma1Mu",
+    "WordRepTensor.Check.check_Lemma1MuExt",
+    "WordRepTensor.Check.check_Lemma2Mu",
+    "WordRepTensor.Check.check_Lemma2MuExt"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

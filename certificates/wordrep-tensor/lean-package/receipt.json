@@ -1,0 +1,176 @@
+{
+ "name": "accept-rel-wr",
+ "written_utc": "2026-09-28T20:21:27Z",
+ "challenge": "work/claude-lean/release-wordrep/Research/WordRepTensor/Challenge.lean",
+ "challenge_sha256": "40c8efd69f8499c9874f07163043c0793c94c8597b7a3902d5aeb0a2ce0c9b58",
+ "targets": [
+  {
+   "target": "Problem1Mu",
+   "check_declaration": "WordRepTensor.Check.check_Problem1Mu"
+  },
+  {
+   "target": "Problem1MuExt",
+   "check_declaration": "WordRepTensor.Check.check_Problem1MuExt"
+  },
+  {
+   "target": "Problem5_1",
+   "check_declaration": "WordRepTensor.Check.check_Problem5_1"
+  },
+  {
+   "target": "MycielskiOddCycleNotWR",
+   "check_declaration": "WordRepTensor.Check.check_MycielskiOddCycleNotWR"
+  },
+  {
+   "target": "ExtMycielskiOddCycleNotWR",
+   "check_declaration": "WordRepTensor.Check.check_ExtMycielskiOddCycleNotWR"
+  },
+  {
+   "target": "WordRepresentableOfEmbedding",
+   "check_declaration": "WordRepTensor.Check.check_WordRepresentableOfEmbedding"
+  },
+  {
+   "target": "EmbeddingOfHom",
+   "check_declaration": "WordRepTensor.Check.check_EmbeddingOfHom"
+  },
+  {
+   "target": "Lemma1Mu",
+   "check_declaration": "WordRepTensor.Check.check_Lemma1Mu"
+  },
+  {
+   "target": "Lemma1MuExt",
+   "check_declaration": "WordRepTensor.Check.check_Lemma1MuExt"
+  },
+  {
+   "target": "Lemma2Mu",
+   "check_declaration": "WordRepTensor.Check.check_Lemma2Mu"
+  },
+  {
+   "target": "Lemma2MuExt",
+   "check_declaration": "WordRepTensor.Check.check_Lemma2MuExt"
+  }
+ ],
+ "tools_at_recording": {
+  "build.py": "d3191e8eff20f2b6b6bc6b9136d706775153062f75961a87e734d3c0a42e5b8a",
+  "scan.py": "60e30eeaf57dbcbf3f59b2d90ababcfca9798197a0810c4aa007d2dc37b4a641",
+  "record_acceptance.py": "da8ecde5697428c5e76771c7080ae0665e803bd8ae99c0d0389e7f99de7466e6"
+ },
+ "tools_note": "Run with build.py SHA-256 d3191e8eff20f2b6b6bc6b9136d706775153062f75961a87e734d3c0a42e5b8a (copy: work/claude-lean/logs/build-d3191e8e.py) on the release package work/claude-lean/release-wordrep; targets Research.WordRepTensor.Check and Research.WordRepTensor.ChallengeTests; the axiom lines were re-parsed from the compile logs by record_acceptance.py.",
+ "phases": {
+  "normal": {
+   "build_dir": "work/claude-lean/accept-rel-wr-normal",
+   "start_utc": "2026-09-28T20:12:02Z",
+   "end_utc": "2026-09-28T20:17:05Z",
+   "fresh_flag": false,
+   "lock_slot": "A",
+   "modules_compiled": 11,
+   "leanchecker_runs": 11,
+   "axiom_lines": 19,
+   "max_peak_rss": 7174553600,
+   "report_sha256": "3e1b06314014897684adc2a3955d8e43bb622f2a4363ccd4278ccbdd724fd546",
+   "sources": {
+    "Research.WordRepTensor.Challenge": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Challenge.lean",
+     "sha256": "40c8efd69f8499c9874f07163043c0793c94c8597b7a3902d5aeb0a2ce0c9b58"
+    },
+    "Research.WordRepTensor.Proof.WRWords": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRWords.lean",
+     "sha256": "5e83048b67b08df0f77bce88616ee7a4522f09e4732e023516ca8ab451610126"
+    },
+    "Research.WordRepTensor.Proof.WRGraphs": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRGraphs.lean",
+     "sha256": "bb05ad520857f1db3ffa50d0563261dab21b6f6c007a0d85c81f2cfcd6623d52"
+    },
+    "Research.WordRepTensor.Proof.WRWindowData": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRWindowData.lean",
+     "sha256": "79f16e5153229305f3bf3d3de0aa831d27176d1aa56c3a2f15f8b11b0f43ea32"
+    },
+    "Research.WordRepTensor.Proof.WRWindow": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRWindow.lean",
+     "sha256": "4c9265c3f1d49402a6b23fc2e405f8c199ee20a24bd505023f698532c8d4876c"
+    },
+    "Research.WordRepTensor.Proof.WRMycielski": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRMycielski.lean",
+     "sha256": "4cf8ec3480c21125db08bbbbaf4a63863266ddb89a387b725183c70d67dbdd04"
+    },
+    "Research.WordRepTensor.Proof.WREmbed": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WREmbed.lean",
+     "sha256": "db3d4b449984f7f07830a965055d57c1a51148986e40d6c038c92cdc389b28aa"
+    },
+    "Research.WordRepTensor.Proof.WRFold": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRFold.lean",
+     "sha256": "9764bec193536f10b3cdc4a4ca20850ae04854c773fe44d9b3bb78fd87907701"
+    },
+    "Research.WordRepTensor.Proof.WRMain": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRMain.lean",
+     "sha256": "0005446a49eb65c50c6072e2c88a78b74e0c8aefcf4c9639d9c301d153054d4a"
+    },
+    "Research.WordRepTensor.Check": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Check.lean",
+     "sha256": "27e55b04b72ae133e6b3ac8b144653d81c4961df3fdff92a586c8a33c0583582"
+    },
+    "Research.WordRepTensor.ChallengeTests": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/ChallengeTests.lean",
+     "sha256": "e00c28ef82fe8c98a1d5254c3fba6835df95baa7148251997c1abe7023c1e2fd"
+    }
+   }
+  },
+  "fresh": {
+   "build_dir": "work/claude-lean/accept-rel-wr-fresh",
+   "start_utc": "2026-09-28T20:17:05Z",
+   "end_utc": "2026-09-28T20:21:11Z",
+   "fresh_flag": true,
+   "lock_slot": "A",
+   "modules_compiled": 11,
+   "leanchecker_runs": 11,
+   "axiom_lines": 19,
+   "max_peak_rss": 7566802944,
+   "report_sha256": "4bfe27bff8c92157e38a915361afd009631a449b9cc7e391083e5052c3e46733",
+   "sources": {
+    "Research.WordRepTensor.Challenge": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Challenge.lean",
+     "sha256": "40c8efd69f8499c9874f07163043c0793c94c8597b7a3902d5aeb0a2ce0c9b58"
+    },
+    "Research.WordRepTensor.Proof.WRWords": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRWords.lean",
+     "sha256": "5e83048b67b08df0f77bce88616ee7a4522f09e4732e023516ca8ab451610126"
+    },
+    "Research.WordRepTensor.Proof.WRGraphs": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRGraphs.lean",
+     "sha256": "bb05ad520857f1db3ffa50d0563261dab21b6f6c007a0d85c81f2cfcd6623d52"
+    },
+    "Research.WordRepTensor.Proof.WRWindowData": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRWindowData.lean",
+     "sha256": "79f16e5153229305f3bf3d3de0aa831d27176d1aa56c3a2f15f8b11b0f43ea32"
+    },
+    "Research.WordRepTensor.Proof.WRWindow": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRWindow.lean",
+     "sha256": "4c9265c3f1d49402a6b23fc2e405f8c199ee20a24bd505023f698532c8d4876c"
+    },
+    "Research.WordRepTensor.Proof.WRMycielski": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRMycielski.lean",
+     "sha256": "4cf8ec3480c21125db08bbbbaf4a63863266ddb89a387b725183c70d67dbdd04"
+    },
+    "Research.WordRepTensor.Proof.WREmbed": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WREmbed.lean",
+     "sha256": "db3d4b449984f7f07830a965055d57c1a51148986e40d6c038c92cdc389b28aa"
+    },
+    "Research.WordRepTensor.Proof.WRFold": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRFold.lean",
+     "sha256": "9764bec193536f10b3cdc4a4ca20850ae04854c773fe44d9b3bb78fd87907701"
+    },
+    "Research.WordRepTensor.Proof.WRMain": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Proof/WRMain.lean",
+     "sha256": "0005446a49eb65c50c6072e2c88a78b74e0c8aefcf4c9639d9c301d153054d4a"
+    },
+    "Research.WordRepTensor.Check": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/Check.lean",
+     "sha256": "27e55b04b72ae133e6b3ac8b144653d81c4961df3fdff92a586c8a33c0583582"
+    },
+    "Research.WordRepTensor.ChallengeTests": {
+     "path": "work/claude-lean/release-wordrep/Research/WordRepTensor/ChallengeTests.lean",
+     "sha256": "e00c28ef82fe8c98a1d5254c3fba6835df95baa7148251997c1abe7023c1e2fd"
+    }
+   }
+  }
+ }
+}
