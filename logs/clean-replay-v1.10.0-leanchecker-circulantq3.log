@@ -1,0 +1,21 @@
+2026-09-29T13:48:52Z cmd: lake env leanchecker Research.CirculantQ3
+      328.95 real       125.67 user       180.45 sys
+         22562078720  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+            57988351  page reclaims
+               74891  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                5254  voluntary context switches
+             1960495  involuntary context switches
+          3514817854  instructions retired
+          1451579024  cycles elapsed
+           138584912  peak memory footprint
+exit=0
+2026-09-29T13:54:21Z

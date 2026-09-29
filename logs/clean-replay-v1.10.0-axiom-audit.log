@@ -1,0 +1,18 @@
+{
+ "axiom_output_lines": 1104,
+ "distinct_declarations": 1053,
+ "files_with_output": 392,
+ "expected_commands": 1104,
+ "violations": 0,
+ "missing": 0,
+ "duplicates": 0,
+ "unexpected": 0,
+ "unparsed": 0,
+ "source_files_declared": 392,
+ "files_with_print_axioms": 270,
+ "axiom_set_histogram": {
+  "{Classical.choice, Quot.sound, propext}": 1095,
+  "{}": 1,
+  "{Quot.sound, propext}": 8
+ }
+}

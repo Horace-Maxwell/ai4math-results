@@ -8,7 +8,7 @@ the results in this repository: how many problems were tried, and what
 became of each.
 
 Status: 29 September 2026, covering the work of 25–29 September 2026 up to version
-1.9.0. All dates are UTC.
+1.10.0. All dates are UTC.
 
 ## How to read this file
 
@@ -28,7 +28,7 @@ Status: 29 September 2026, covering the work of 25–29 September 2026 up to ver
 
 ## (a) Published
 
-The column "Lean" describes the formal verification in version 1.9.0; the
+The column "Lean" describes the formal verification in version 1.10.0; the
 README has the details.
 
 | # | Problem | Source | Published in | What was proved | Lean |
@@ -46,7 +46,7 @@ README has the details.
 | 17 | Equal-parity conjecture on the maximal energy of integral circulant graphs of order `p^a q^b` | our Paper 1 (conjecture stated in v1.1.0) | v1.2.0 (Theorem 3), v1.4.0 (Theorems 4 and 5), v1.5.0 (Theorem 5 extended) | Proved for orders `pq^m` and `p^m q` with `m` odd (Theorem 3) and `p²q^b` and `p^b q²` with `b` even (Theorem 4), and, with computer assistance, for every order `p^a q^b` with `a + b` even and `min(a, b) ≤ 8` (Theorem 5). The case `n = pq` follows from earlier formulas of Ilić and Ilić–Bašić. Open for `min(a, b) ≥ 9` | Theorems 3 and 4; not Theorem 5 |
 | 18 | A246056: the pattern of `a(n) mod 3` | OEIS (P. D. Hanna) | v1.2.0 | Known result, formalized only: it follows from a theorem of Deutsch and Sagan (J. Number Theory 117 (2006)) | yes |
 | 19 | A376230: a parity comment | OEIS (P. D. Hanna) | v1.2.0 | The comment is false as stated (`a(4) = 8`). The corrected pattern follows from a theorem of Gawron and Ulas (Discrete Math. 339 (2016)): known result, formalized only | yes |
-| 20 | Carenini's Question 1.3 on almost independent sets in regular graphs | arXiv:2609.28527 | v1.3.0 (Paper 3) | Answer: no. Smallest counterexample `(n, d, γ) = (6, 3, 1/18)`; counterexamples for every `(n, d)` with `2d ∣ n` apart from trivial cases, and further families; a positive result at the exponential scale. Some cases remain open | some counterexamples, including one infinite family |
+| 20 | Carenini's Question 1.3 on almost independent sets in regular graphs | arXiv:2609.28527 | v1.3.0 (Paper 3); version 2 in v1.10.0 | Answer: no. Smallest counterexample `(n, d, γ) = (6, 3, 1/18)`; counterexamples for every `(n, d)` with `2d ∣ n` apart from trivial cases, and further families; a positive result at the exponential scale. Some cases remain open | all results (version 2) |
 | 21 | Problems 1–3 of Hak, Kozerenko and Oliynyk on the triameter of graphs (3 problems) | Discrete Appl. Math. 309 (2022); arXiv:2103.10806 | v1.4.0 (Paper 4); version 2 in v1.9.0 | Problem 1: no (an 8-vertex median graph). Problem 2: no, but this had already been answered on MathOverflow by rgvalenciaalbornoz ([answer 506536](https://mathoverflow.net/a/506536), 2025-12-31; found by us on 2026-09-26); we add only the smallest counterexample. Problem 3: yes, in a stronger form | all results (version 2) |
 | 22 | Problem 15.11 of Araújo, Bentz, Cameron, Hendrey and Kinyon: complete mappings of the Brauer and partial Brauer monoids | arXiv:2608.25092 | v1.4.0 (Paper 5) | Settled in its existence reading: `B_n` and `PB_n` have a complete mapping if and only if `n ∉ {2, 3}`, with the answer for every proper principal factor. The set of all complete mappings is not described | two constructions only |
 | 23 | Weights of the Reed–Muller code RM(7,14) (Carlet's question; 22 undecided values listed by Leuenberger and Albrizzio) | C. Carlet, IEEE Trans. Inf. Theory 70 (2024); arXiv:2606.21425 | v1.4.0 (Paper 6) | Partial answer: 14 new weights (17 found, 3 of them already known); the spectrum is determined except for 322, 326, 330, 334 and their complements (this step cites a 1976 theorem we could not consult); Conjecture 2 of Lou and Wang fails for `m = 6` (Theorem C), but this was not new: Lou and Wang had proved it in Discrete Appl. Math. 388 (2026) 142–145, a note we read only after publication (see Corrections) | the 17 weights |
@@ -98,7 +98,7 @@ items is claimed as a result in this repository.
     them (rows 4–7) our own work was small: screening checks, a numerical
     check or a statement contract.
   - Dropped without a result: 6 items (section c).
-- Under active work and not listed here: none. The parts of Papers 1–3
+- Under active work and not listed here: none. The parts of Papers 1, 2
   and 5–8 that are not yet formalized in Lean are being formalized.
 - Scouted but not attempted: 49 candidates. This counts the candidates that
   scouting agents wrote up and ranked in their reports but on which no
@@ -151,3 +151,10 @@ Published corrections so far:
    sentence of Remark 5, and Section 6 of version 1 apart from its last
    sentence. Every result of version 2 is formalized in Lean. Theorems A, B
    and C are unchanged.
+7. **Paper 3, version 2 (v1.10.0).** Removes two claims of version 1 for
+   which we have no formal proof (the normal approximation at `γ = 1/8` in
+   Remark 10, with reading R6 at `γ = 1/8`, and the count of 19,355
+   labelled 4-regular graphs on eight vertices) and three unformalized side
+   remarks, and corrects the overstatement in reading R1 listed under Known
+   issues in v1.8.0. Every result of version 2 is formalized in Lean. The
+   theorems are unchanged.

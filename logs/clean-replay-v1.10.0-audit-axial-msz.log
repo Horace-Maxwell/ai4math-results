@@ -1,0 +1,726 @@
+2026-09-29T13:14:10Z
+structure AxialMSZ.Challenge.FusionLaw.{u_1} (K : Type u_1) : Type u_1
+number of parameters: 1
+fields:
+  AxialMSZ.Challenge.FusionLaw.carrier.{u_1} : Set.{u_1} K
+  AxialMSZ.Challenge.FusionLaw.star.{u_1} : K → K → Set.{u_1} K
+constructor:
+  AxialMSZ.Challenge.FusionLaw.mk.{u_1} {K : Type u_1} (carrier : Set.{u_1} K) (star : K → K → Set.{u_1} K) :
+    AxialMSZ.Challenge.FusionLaw.{u_1} K
+def AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{u_1} : {K : Type u_1} →
+  AxialMSZ.Challenge.FusionLaw.{u_1} K → Prop :=
+fun {K} F =>
+  Set.Finite.{u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) ∧
+    (∀ (l m : K),
+        Eq.{u_1 + 1} (AxialMSZ.Challenge.FusionLaw.star.{u_1} F l m) (AxialMSZ.Challenge.FusionLaw.star.{u_1} F m l)) ∧
+      ∀ (l : K),
+        Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) l →
+          ∀ (m : K),
+            Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) m →
+              AxialMSZ.Challenge.FusionLaw.star.{u_1} F l m ⊆ AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F
+def AxialMSZ.Challenge.FusionLaw.IsSeress.{u_1} : {K : Type u_1} →
+  [Field.{u_1} K] → AxialMSZ.Challenge.FusionLaw.{u_1} K → Prop :=
+fun {K} [Field.{u_1} K] F =>
+  Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) 0 ∧
+    ∀ (l : K),
+      Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) l →
+        AxialMSZ.Challenge.FusionLaw.star.{u_1} F 0 l ⊆ Singleton.singleton.{u_1, u_1} l
+def AxialMSZ.Challenge.IsCommutative.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ =>
+  ∀ (u v : V), Eq.{u_2 + 1} ((μ u) v) ((μ v) u)
+def AxialMSZ.Challenge.eigsp.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            V → K → Submodule.{u_1, u_2} K V :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ a l =>
+  Module.End.eigenspace.{u_1, u_2} (μ a) l
+def AxialMSZ.Challenge.eigspSet.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            V → Set.{u_1} K → Submodule.{u_1, u_2} K V :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ a Λ =>
+  ⨆ l, ⨆ (_ : Membership.mem.{u_1, u_1} Λ l), AxialMSZ.Challenge.eigsp.{u_1, u_2} μ a l
+def AxialMSZ.Challenge.IsAxis.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          AxialMSZ.Challenge.FusionLaw.{u_1} K →
+            LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+                (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+              V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] F μ a =>
+  Ne.{u_2 + 1} a 0 ∧
+    Eq.{u_2 + 1} ((μ a) a) a ∧
+      Eq.{u_2 + 1} (AxialMSZ.Challenge.eigspSet.{u_1, u_2} μ a (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F))
+          Top.top.{u_2} ∧
+        ∀ (l : K),
+          Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) l →
+            ∀ (m : K),
+              Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) m →
+                ∀ (u : V),
+                  Membership.mem.{u_2, u_2} (AxialMSZ.Challenge.eigsp.{u_1, u_2} μ a l) u →
+                    ∀ (v : V),
+                      Membership.mem.{u_2, u_2} (AxialMSZ.Challenge.eigsp.{u_1, u_2} μ a m) v →
+                        Membership.mem.{u_2, u_2}
+                          (AxialMSZ.Challenge.eigspSet.{u_1, u_2} μ a (AxialMSZ.Challenge.FusionLaw.star.{u_1} F l m))
+                          ((μ u) v)
+def AxialMSZ.Challenge.IsPrimitiveAxis.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          AxialMSZ.Challenge.FusionLaw.{u_1} K →
+            LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+                (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+              V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] F μ a =>
+  AxialMSZ.Challenge.IsAxis.{u_1, u_2} F μ a ∧
+    Eq.{u_2 + 1} (AxialMSZ.Challenge.eigsp.{u_1, u_2} μ a 1)
+      (Submodule.span.{u_1, u_2} K (Singleton.singleton.{u_2, u_2} a))
+def AxialMSZ.Challenge.IsSubalgebra.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Submodule.{u_1, u_2} K V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ S =>
+  ∀ (u : V),
+    Membership.mem.{u_2, u_2} S u → ∀ (v : V), Membership.mem.{u_2, u_2} S v → Membership.mem.{u_2, u_2} S ((μ u) v)
+def AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          AxialMSZ.Challenge.FusionLaw.{u_1} K →
+            LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+                (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+              Set.{u_2} V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] F μ X =>
+  AxialMSZ.Challenge.IsCommutative.{u_1, u_2} μ ∧
+    (∀ (a : V), Membership.mem.{u_2, u_2} X a → AxialMSZ.Challenge.IsPrimitiveAxis.{u_1, u_2} F μ a) ∧
+      Eq.{u_2 + 1} (AxialMSZ.Challenge.gen.{u_1, u_2} μ X) Top.top.{u_2}
+def AxialMSZ.Challenge.IsIdeal.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Submodule.{u_1, u_2} K V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ I =>
+  ∀ (u v : V),
+    Membership.mem.{u_2, u_2} I v → Membership.mem.{u_2, u_2} I ((μ u) v) ∧ Membership.mem.{u_2, u_2} I ((μ v) u)
+def AxialMSZ.Challenge.IsIdealIn.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Submodule.{u_1, u_2} K V → Submodule.{u_1, u_2} K V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ S J =>
+  LE.le.{u_2} J S ∧
+    ∀ (u : V),
+      Membership.mem.{u_2, u_2} S u →
+        ∀ (v : V),
+          Membership.mem.{u_2, u_2} J v → Membership.mem.{u_2, u_2} J ((μ u) v) ∧ Membership.mem.{u_2, u_2} J ((μ v) u)
+def AxialMSZ.Challenge.gen.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Set.{u_2} V → Submodule.{u_1, u_2} K V :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ X =>
+  InfSet.sInf.{u_2} (Set.ofPred.{u_2} fun S => X ⊆ ↑S ∧ AxialMSZ.Challenge.IsSubalgebra.{u_1, u_2} μ S)
+def AxialMSZ.Challenge.block.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            V → Submodule.{u_1, u_2} K V :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ a =>
+  InfSet.sInf.{u_2}
+    (Set.ofPred.{u_2} fun I => AxialMSZ.Challenge.IsIdeal.{u_1, u_2} μ I ∧ Membership.mem.{u_2, u_2} I a)
+def AxialMSZ.Challenge.IsDecomposableSub.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Submodule.{u_1, u_2} K V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ S =>
+  Eq.{u_2 + 1}
+    (SupSet.sSup.{u_2} (Set.ofPred.{u_2} fun J => AxialMSZ.Challenge.IsIdealIn.{u_1, u_2} μ S J ∧ Ne.{u_2 + 1} J S)) S
+def AxialMSZ.Challenge.IsDecomposable.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ =>
+  AxialMSZ.Challenge.IsDecomposableSub.{u_1, u_2} μ Top.top.{u_2}
+def AxialMSZ.Challenge.IsSimpleAlg.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ =>
+  (∃ u v, Ne.{u_2 + 1} ((μ u) v) 0) ∧
+    ∀ (I : Submodule.{u_1, u_2} K V),
+      AxialMSZ.Challenge.IsIdeal.{u_1, u_2} μ I → Eq.{u_2 + 1} I Bot.bot.{u_2} ∨ Eq.{u_2 + 1} I Top.top.{u_2}
+def AxialMSZ.Challenge.IsFrobeniusForm.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            LinearMap.{u_1, u_1, u_2, max u_1 u_2} (RingHom.id.{u_1} K) V
+                (LinearMap.{u_1, u_1, u_2, u_1} (RingHom.id.{u_1} K) V K) →
+              Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ β =>
+  ∀ (u v w : V), Eq.{u_1 + 1} ((β ((μ u) v)) w) ((β u) ((μ v) w))
+def AxialMSZ.Challenge.nonAnnGraph.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            (X : Set.{u_2} V) → SimpleGraph.{u_2} ↑X :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ X =>
+  SimpleGraph.fromRel.{u_2} fun p q => Ne.{u_2 + 1} ((μ ↑p) ↑q) 0
+def AxialMSZ.Challenge.ComponentsAnnihilate.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Set.{u_2} V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ X =>
+  ∀ (C D : SimpleGraph.ConnectedComponent.{u_2} (AxialMSZ.Challenge.nonAnnGraph.{u_1, u_2} μ X)),
+    Ne.{u_2 + 1} C D →
+      ∀ (u : V),
+        Membership.mem.{u_2, u_2}
+            (AxialMSZ.Challenge.gen.{u_1, u_2} μ
+              (Set.image.{u_2, u_2} Subtype.val.{u_2 + 1} (SimpleGraph.ConnectedComponent.supp.{u_2} C)))
+            u →
+          ∀ (v : V),
+            Membership.mem.{u_2, u_2}
+                (AxialMSZ.Challenge.gen.{u_1, u_2} μ
+                  (Set.image.{u_2, u_2} Subtype.val.{u_2 + 1} (SimpleGraph.ConnectedComponent.supp.{u_2} D)))
+                v →
+              Eq.{u_2 + 1} ((μ u) v) 0
+def AxialMSZ.Challenge.IsSumDecomposition.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Set.{u_2} (Submodule.{u_1, u_2} K V) → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ S =>
+  (∀ (B : Submodule.{u_1, u_2} K V), Membership.mem.{u_2, u_2} S B → AxialMSZ.Challenge.IsSubalgebra.{u_1, u_2} μ B) ∧
+    (∀ (B : Submodule.{u_1, u_2} K V),
+        Membership.mem.{u_2, u_2} S B →
+          ∀ (C : Submodule.{u_1, u_2} K V),
+            Membership.mem.{u_2, u_2} S C →
+              Ne.{u_2 + 1} B C →
+                ∀ (u : V),
+                  Membership.mem.{u_2, u_2} B u → ∀ (v : V), Membership.mem.{u_2, u_2} C v → Eq.{u_2 + 1} ((μ u) v) 0) ∧
+      Eq.{u_2 + 1} (AxialMSZ.Challenge.gen.{u_1, u_2} μ (⋃ B, ⋃ (_ : Membership.mem.{u_2, u_2} S B), ↑B)) Top.top.{u_2}
+def AxialMSZ.Challenge.OnlyTrivialSumDecompositions.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ =>
+  ∀ (S : Set.{u_2} (Submodule.{u_1, u_2} K V)),
+    AxialMSZ.Challenge.IsSumDecomposition.{u_1, u_2} μ S → Membership.mem.{u_2, u_2} S Top.top.{u_2}
+def AxialMSZ.Challenge.MS_Conjecture_3_16 : Prop :=
+∀ (K : Type) [inst : Field.{0} K] (V : Type) [inst_1 : AddCommGroup.{0} V] [inst_2 : Module.{0, 0} K V]
+  (F : AxialMSZ.Challenge.FusionLaw.{0} K)
+  (μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V V)) (X : Set.{0} V),
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F →
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X → AxialMSZ.Challenge.ComponentsAnnihilate.{0, 0} μ X
+def AxialMSZ.Challenge.FinestSumDecomposition_connected : Prop :=
+∀ (K : Type) [inst : Field.{0} K] (V : Type) [inst_1 : AddCommGroup.{0} V] [inst_2 : Module.{0, 0} K V]
+  (F : AxialMSZ.Challenge.FusionLaw.{0} K)
+  (μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V V)) (X : Set.{0} V),
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F →
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X →
+      AxialMSZ.Challenge.OnlyTrivialSumDecompositions.{0, 0} μ →
+        SimpleGraph.Connected.{0} (AxialMSZ.Challenge.nonAnnGraph.{0, 0} μ X)
+def AxialMSZ.Challenge.Indecomposable_connected : Prop :=
+∀ (K : Type) [inst : Field.{0} K] (V : Type) [inst_1 : AddCommGroup.{0} V] [inst_2 : Module.{0, 0} K V]
+  (F : AxialMSZ.Challenge.FusionLaw.{0} K)
+  (μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V V)) (X : Set.{0} V),
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F →
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X →
+      ¬AxialMSZ.Challenge.IsDecomposable.{0, 0} μ →
+        SimpleGraph.Connected.{0} (AxialMSZ.Challenge.nonAnnGraph.{0, 0} μ X)
+def AxialMSZ.Challenge.Simple_connected : Prop :=
+∀ (K : Type) [inst : Field.{0} K] (V : Type) [inst_1 : AddCommGroup.{0} V] [inst_2 : Module.{0, 0} K V]
+  (F : AxialMSZ.Challenge.FusionLaw.{0} K)
+  (μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V V)) (X : Set.{0} V),
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F →
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X →
+      AxialMSZ.Challenge.IsSimpleAlg.{0, 0} μ → SimpleGraph.Connected.{0} (AxialMSZ.Challenge.nonAnnGraph.{0, 0} μ X)
+def AxialMSZ.Challenge.Blocks_indecomposable : Prop :=
+∀ (K : Type) [inst : Field.{0} K] (V : Type) [inst_1 : AddCommGroup.{0} V] [inst_2 : Module.{0, 0} K V]
+  (F : AxialMSZ.Challenge.FusionLaw.{0} K)
+  (μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V V)) (X : Set.{0} V),
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F →
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X →
+      ∀ (a : V),
+        Membership.mem.{0, 0} X a → ¬AxialMSZ.Challenge.IsDecomposableSub.{0, 0} μ (AxialMSZ.Challenge.block.{0, 0} μ a)
+def AxialMSZ.Challenge.Dominance_nonsymmetric : Prop :=
+∃ K x V x_1 x_2 F μ X,
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F ∧
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X ∧
+      ∃ a,
+        Membership.mem.{0, 0} X a ∧
+          ∃ b,
+            Membership.mem.{0, 0} X b ∧
+              LT.lt.{0} (AxialMSZ.Challenge.block.{0, 0} μ a) (AxialMSZ.Challenge.block.{0, 0} μ b)
+def AxialMSZ.Challenge.JPlus.{u_1} : {K : Type u_1} →
+  [Field.{u_1} K] → [DecidableEq.{u_1 + 1} K] → K → AxialMSZ.Challenge.FusionLaw.{u_1} K :=
+fun {K} [Field.{u_1} K] [DecidableEq.{u_1 + 1} K] η =>
+  AxialMSZ.Challenge.FusionLaw.mk.{u_1}
+    (Insert.insert.{u_1, u_1} 1 (Insert.insert.{u_1, u_1} 0 (Singleton.singleton.{u_1, u_1} η))) fun l m =>
+    ite.{u_1 + 1} (Eq.{u_1 + 1} l 1)
+      (ite.{u_1 + 1} (Eq.{u_1 + 1} m 0) EmptyCollection.emptyCollection.{u_1} (Singleton.singleton.{u_1, u_1} m))
+      (ite.{u_1 + 1} (Eq.{u_1 + 1} m 1)
+        (ite.{u_1 + 1} (Eq.{u_1 + 1} l 0) EmptyCollection.emptyCollection.{u_1} (Singleton.singleton.{u_1, u_1} l))
+        (ite.{u_1 + 1} (Eq.{u_1 + 1} l 0 ∨ Eq.{u_1 + 1} m 0)
+          (Insert.insert.{u_1, u_1} 1 (Insert.insert.{u_1, u_1} 0 (Singleton.singleton.{u_1, u_1} η)))
+          (Insert.insert.{u_1, u_1} 1 (Singleton.singleton.{u_1, u_1} 0))))
+def AxialMSZ.Challenge.JMild.{u_1} : {K : Type u_1} →
+  [Field.{u_1} K] → [DecidableEq.{u_1 + 1} K] → K → AxialMSZ.Challenge.FusionLaw.{u_1} K :=
+fun {K} [Field.{u_1} K] [DecidableEq.{u_1 + 1} K] η =>
+  AxialMSZ.Challenge.FusionLaw.mk.{u_1}
+    (Insert.insert.{u_1, u_1} 1 (Insert.insert.{u_1, u_1} 0 (Singleton.singleton.{u_1, u_1} η))) fun l m =>
+    ite.{u_1 + 1} (Eq.{u_1 + 1} l 1)
+      (ite.{u_1 + 1} (Eq.{u_1 + 1} m 0) EmptyCollection.emptyCollection.{u_1} (Singleton.singleton.{u_1, u_1} m))
+      (ite.{u_1 + 1} (Eq.{u_1 + 1} m 1)
+        (ite.{u_1 + 1} (Eq.{u_1 + 1} l 0) EmptyCollection.emptyCollection.{u_1} (Singleton.singleton.{u_1, u_1} l))
+        (ite.{u_1 + 1} (Eq.{u_1 + 1} l 0 ∨ Eq.{u_1 + 1} m 0)
+          (Insert.insert.{u_1, u_1} 0 (Singleton.singleton.{u_1, u_1} η))
+          (Insert.insert.{u_1, u_1} 1 (Singleton.singleton.{u_1, u_1} 0))))
+def AxialMSZ.Challenge.FD3 : AxialMSZ.Challenge.FusionLaw.{0} ℚ :=
+AxialMSZ.Challenge.FusionLaw.mk.{0} (Insert.insert.{0, 0} 0 (Insert.insert.{0, 0} 1 (Singleton.singleton.{0, 0} 2)))
+  fun l m =>
+  ite.{1} (Eq.{1} l 0 ∧ Eq.{1} m 0) (Insert.insert.{0, 0} 0 (Singleton.singleton.{0, 0} 1))
+    (ite.{1} (Eq.{1} l 1 ∧ Eq.{1} m 1) (Singleton.singleton.{0, 0} 1)
+      (ite.{1} (Eq.{1} l 1 ∧ Eq.{1} m 2 ∨ Eq.{1} l 2 ∧ Eq.{1} m 1 ∨ Eq.{1} l 2 ∧ Eq.{1} m 2)
+        (Singleton.singleton.{0, 0} 2) EmptyCollection.emptyCollection.{0}))
+def AxialMSZ.Challenge.structProduct.{u_1} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {n : ℕ} →
+      (Fin n → Fin n → Fin n → K) →
+        LinearMap.{u_1, u_1, u_1, u_1} (RingHom.id.{u_1} K) (Fin n → K)
+          (LinearMap.{u_1, u_1, u_1, u_1} (RingHom.id.{u_1} K) (Fin n → K) (Fin n → K)) :=
+fun {K} [Field.{u_1} K] {n} T =>
+  LinearMap.mk₂.{u_1, u_1, u_1, u_1} K
+    (fun u v => ∑ i, ∑ j, HSMul.hSMul.{u_1, u_1, u_1} (HMul.hMul.{u_1, u_1, u_1} (u i) (v j)) (T i j)) ⋯ ⋯ ⋯ ⋯
+def AxialMSZ.Challenge.ExS.T : Fin 4 → Fin 4 → Fin 4 → ℚ :=
+Matrix.vecCons.{0}
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 4)
+        (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          Matrix.vecEmpty.{0}))))
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 4)
+        (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            Matrix.vecEmpty.{0}))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} (-1 / 2)
+                (Matrix.vecCons.{0} (-1 / 2)
+                  (Matrix.vecCons.{0} (1 / 2) (Matrix.vecCons.{0} (-1 / 4) Matrix.vecEmpty.{0}))))
+              Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} (-1 / 2)
+                (Matrix.vecCons.{0} (-1 / 2)
+                  (Matrix.vecCons.{0} (1 / 2) (Matrix.vecCons.{0} (-1 / 4) Matrix.vecEmpty.{0}))))
+              (Matrix.vecCons.{0}
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 Matrix.vecEmpty.{0}))))
+                Matrix.vecEmpty.{0}))))
+        Matrix.vecEmpty.{0})))
+def AxialMSZ.Challenge.ExS.μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 4 → ℚ)
+  (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 4 → ℚ) (Fin 4 → ℚ)) :=
+AxialMSZ.Challenge.structProduct.{0} AxialMSZ.Challenge.ExS.T
+def AxialMSZ.Challenge.ExS.X : Set.{0} (Fin 4 → ℚ) :=
+Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+  (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 3)))
+def AxialMSZ.Challenge.ExE.T : Fin 4 → Fin 4 → Fin 4 → ℚ :=
+Matrix.vecCons.{0}
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 6)
+        (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} (-1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 6)
+          (Matrix.vecCons.{0} (-1 / 6) (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          Matrix.vecEmpty.{0}))))
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 6)
+        (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} (-1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 6)
+            (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            Matrix.vecEmpty.{0}))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 6)
+          (Matrix.vecCons.{0} (-1 / 6) (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 6)
+            (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} (-1 / 3)
+                (Matrix.vecCons.{0} (-1 / 3) (Matrix.vecCons.{0} (1 / 3) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+              Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} (-1 / 3)
+                (Matrix.vecCons.{0} (-1 / 3) (Matrix.vecCons.{0} (1 / 3) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+              (Matrix.vecCons.{0}
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 Matrix.vecEmpty.{0}))))
+                Matrix.vecEmpty.{0}))))
+        Matrix.vecEmpty.{0})))
+def AxialMSZ.Challenge.ExE.μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 4 → ℚ)
+  (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 4 → ℚ) (Fin 4 → ℚ)) :=
+AxialMSZ.Challenge.structProduct.{0} AxialMSZ.Challenge.ExE.T
+def AxialMSZ.Challenge.ExE.X : Set.{0} (Fin 4 → ℚ) :=
+Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+  (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 3)))
+def AxialMSZ.Challenge.ExD.T : Fin 5 → Fin 5 → Fin 5 → ℚ :=
+Matrix.vecCons.{0}
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0} 1
+      (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 4)
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+            Matrix.vecEmpty.{0})))))
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 4)
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} 0
+          (Matrix.vecCons.{0} 1
+            (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4)
+              (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+              Matrix.vecEmpty.{0})))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4)
+              (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 Matrix.vecEmpty.{0})))))
+              (Matrix.vecCons.{0}
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0
+                    (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+                Matrix.vecEmpty.{0})))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 Matrix.vecEmpty.{0})))))
+              (Matrix.vecCons.{0}
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0
+                    (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+                (Matrix.vecCons.{0}
+                  (Matrix.vecCons.{0} 0
+                    (Matrix.vecCons.{0} 0
+                      (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} (1 / 2) Matrix.vecEmpty.{0})))))
+                  Matrix.vecEmpty.{0})))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+              (Matrix.vecCons.{0}
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0
+                    (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+                (Matrix.vecCons.{0}
+                  (Matrix.vecCons.{0} 0
+                    (Matrix.vecCons.{0} 0
+                      (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} (1 / 2) Matrix.vecEmpty.{0})))))
+                  (Matrix.vecCons.{0}
+                    (Matrix.vecCons.{0} 0
+                      (Matrix.vecCons.{0} 0
+                        (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+                    Matrix.vecEmpty.{0})))))
+          Matrix.vecEmpty.{0}))))
+def AxialMSZ.Challenge.ExD.μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 5 → ℚ)
+  (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 5 → ℚ) (Fin 5 → ℚ)) :=
+AxialMSZ.Challenge.structProduct.{0} AxialMSZ.Challenge.ExD.T
+def AxialMSZ.Challenge.ExD.X : Set.{0} (Fin 5 → ℚ) :=
+Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+  (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 3)))
+def AxialMSZ.Challenge.ExP.T : Fin 2 → Fin 2 → Fin 2 → ℚ :=
+Matrix.vecCons.{0}
+  (Matrix.vecCons.{0} (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))
+    (Matrix.vecCons.{0} (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 2 Matrix.vecEmpty.{0})) Matrix.vecEmpty.{0}))
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0} (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 2 Matrix.vecEmpty.{0}))
+      (Matrix.vecCons.{0} (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 Matrix.vecEmpty.{0})) Matrix.vecEmpty.{0}))
+    Matrix.vecEmpty.{0})
+def AxialMSZ.Challenge.ExP.μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 2 → ℚ)
+  (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 2 → ℚ) (Fin 2 → ℚ)) :=
+AxialMSZ.Challenge.structProduct.{0} AxialMSZ.Challenge.ExP.T
+def AxialMSZ.Challenge.ExP.X : Set.{0} (Fin 2 → ℚ) :=
+Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 1))
+def AxialMSZ.Challenge.ExS.Statement : Prop :=
+AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} (AxialMSZ.Challenge.JPlus.{0} (1 / 2)) AxialMSZ.Challenge.ExS.μ
+    AxialMSZ.Challenge.ExS.X ∧
+  AxialMSZ.Challenge.IsSimpleAlg.{0, 0} AxialMSZ.Challenge.ExS.μ ∧
+    ¬SimpleGraph.Connected.{0}
+          (AxialMSZ.Challenge.nonAnnGraph.{0, 0} AxialMSZ.Challenge.ExS.μ AxialMSZ.Challenge.ExS.X) ∧
+      AxialMSZ.Challenge.OnlyTrivialSumDecompositions.{0, 0} AxialMSZ.Challenge.ExS.μ ∧
+        ¬AxialMSZ.Challenge.ComponentsAnnihilate.{0, 0} AxialMSZ.Challenge.ExS.μ AxialMSZ.Challenge.ExS.X
+def AxialMSZ.Challenge.ExE.Statement : Prop :=
+AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} (AxialMSZ.Challenge.JPlus.{0} (1 / 3)) AxialMSZ.Challenge.ExE.μ
+    AxialMSZ.Challenge.ExE.X ∧
+  LT.lt.{0} (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExE.μ (AxialMSZ.Challenge.e 0))
+      (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExE.μ (AxialMSZ.Challenge.e 3)) ∧
+    Eq.{1} (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExE.μ (AxialMSZ.Challenge.e 0))
+        (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExE.μ (AxialMSZ.Challenge.e 1)) ∧
+      Eq.{1} (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExE.μ (AxialMSZ.Challenge.e 3)) Top.top.{0} ∧
+        ¬AxialMSZ.Challenge.IsDecomposable.{0, 0} AxialMSZ.Challenge.ExE.μ ∧
+          ¬SimpleGraph.Connected.{0}
+                (AxialMSZ.Challenge.nonAnnGraph.{0, 0} AxialMSZ.Challenge.ExE.μ AxialMSZ.Challenge.ExE.X) ∧
+            ¬AxialMSZ.Challenge.ComponentsAnnihilate.{0, 0} AxialMSZ.Challenge.ExE.μ AxialMSZ.Challenge.ExE.X
+def AxialMSZ.Challenge.ExD.Statement : Prop :=
+AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} (AxialMSZ.Challenge.JMild.{0} (1 / 2)) AxialMSZ.Challenge.ExD.μ
+    AxialMSZ.Challenge.ExD.X ∧
+  AxialMSZ.Challenge.IsDecomposableSub.{0, 0} AxialMSZ.Challenge.ExD.μ
+      (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0)) ∧
+    (∃ β,
+        AxialMSZ.Challenge.IsFrobeniusForm.{0, 0} AxialMSZ.Challenge.ExD.μ β ∧
+          ∀ (a : Fin 5 → ℚ), Membership.mem.{0, 0} AxialMSZ.Challenge.ExD.X a → Ne.{1} ((β a) a) 0) ∧
+      Eq.{1} (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))
+          (Submodule.span.{0, 0} ℚ
+            (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+              (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1)
+                (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 2)
+                  (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 4)))))) ∧
+        AxialMSZ.Challenge.IsIdealIn.{0, 0} AxialMSZ.Challenge.ExD.μ
+            (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))
+            (Submodule.span.{0, 0} ℚ
+              (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+                (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1)
+                  (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 2))))) ∧
+          AxialMSZ.Challenge.IsIdealIn.{0, 0} AxialMSZ.Challenge.ExD.μ
+              (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))
+              (Submodule.span.{0, 0} ℚ (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 4))) ∧
+            ¬AxialMSZ.Challenge.IsIdeal.{0, 0} AxialMSZ.Challenge.ExD.μ
+                (Submodule.span.{0, 0} ℚ
+                  (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+                    (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1)
+                      (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 2)))))
+def AxialMSZ.Challenge.ExP.Statement : Prop :=
+AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} AxialMSZ.Challenge.FD3 AxialMSZ.Challenge.ExP.μ
+    AxialMSZ.Challenge.ExP.X ∧
+  LT.lt.{0} (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExP.μ (AxialMSZ.Challenge.e 1))
+    (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExP.μ (AxialMSZ.Challenge.e 0))
+def AxialMSZ.Challenge.Laws_facts : Prop :=
+AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} (AxialMSZ.Challenge.JPlus.{0} (1 / 2)) ∧
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} (AxialMSZ.Challenge.JPlus.{0} (1 / 3)) ∧
+    AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} (AxialMSZ.Challenge.JMild.{0} (1 / 2)) ∧
+      AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} AxialMSZ.Challenge.FD3 ∧
+        ¬AxialMSZ.Challenge.FusionLaw.IsSeress.{0} (AxialMSZ.Challenge.JPlus.{0} (1 / 2)) ∧
+          ¬AxialMSZ.Challenge.FusionLaw.IsSeress.{0} (AxialMSZ.Challenge.JPlus.{0} (1 / 3)) ∧
+            ¬AxialMSZ.Challenge.FusionLaw.IsSeress.{0} (AxialMSZ.Challenge.JMild.{0} (1 / 2))
+def AxialMSZ.Challenge.TheoremA : Prop :=
+AxialMSZ.Challenge.ExS.Statement
+def AxialMSZ.Challenge.TheoremB : Prop :=
+AxialMSZ.Challenge.ExE.Statement
+def AxialMSZ.Challenge.TheoremC : Prop :=
+AxialMSZ.Challenge.ExD.Statement
+def AxialMSZ.Challenge.RemarkP : Prop :=
+AxialMSZ.Challenge.ExP.Statement
+def AxialMSZ.Challenge.Corollary : Prop :=
+¬AxialMSZ.Challenge.MS_Conjecture_3_16 ∧
+  ¬AxialMSZ.Challenge.FinestSumDecomposition_connected ∧
+    ¬AxialMSZ.Challenge.Indecomposable_connected ∧
+      ¬AxialMSZ.Challenge.Simple_connected ∧
+        ¬AxialMSZ.Challenge.Blocks_indecomposable ∧ AxialMSZ.Challenge.Dominance_nonsymmetric
+def CodexAxial.SupplementChallenge.ExD_axes_in_block : Prop :=
+Eq.{1}
+  (Inter.inter.{0} AxialMSZ.Challenge.ExD.X
+    ↑(AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0)))
+  (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 1)))
+def CodexAxial.SupplementChallenge.ExD_block_not_axial_on_contained_axes : Prop :=
+Eq.{1}
+    (AxialMSZ.Challenge.gen.{0, 0} AxialMSZ.Challenge.ExD.μ
+      (Inter.inter.{0} AxialMSZ.Challenge.ExD.X
+        ↑(AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))))
+    (Submodule.span.{0, 0} ℚ
+      (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+        (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 2))))) ∧
+  LT.lt.{0}
+    (AxialMSZ.Challenge.gen.{0, 0} AxialMSZ.Challenge.ExD.μ
+      (Inter.inter.{0} AxialMSZ.Challenge.ExD.X
+        ↑(AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))))
+    (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))
+AxialMSZ.Check.check_Laws_facts : AxialMSZ.Challenge.Laws_facts
+AxialMSZ.Check.check_ExS_Statement : AxialMSZ.Challenge.ExS.Statement
+AxialMSZ.Check.check_ExE_Statement : AxialMSZ.Challenge.ExE.Statement
+AxialMSZ.Check.check_ExD_Statement : AxialMSZ.Challenge.ExD.Statement
+AxialMSZ.Check.check_ExP_Statement : AxialMSZ.Challenge.ExP.Statement
+AxialMSZ.Check.check_TheoremA : AxialMSZ.Challenge.TheoremA
+AxialMSZ.Check.check_TheoremB : AxialMSZ.Challenge.TheoremB
+AxialMSZ.Check.check_TheoremC : AxialMSZ.Challenge.TheoremC
+AxialMSZ.Check.check_RemarkP : AxialMSZ.Challenge.RemarkP
+AxialMSZ.Check.check_Corollary : AxialMSZ.Challenge.Corollary
+AxialMSZ.Check.check_not_MS_Conjecture_3_16 : ¬AxialMSZ.Challenge.MS_Conjecture_3_16
+AxialMSZ.Check.check_not_FinestSumDecomposition_connected : ¬AxialMSZ.Challenge.FinestSumDecomposition_connected
+AxialMSZ.Check.check_not_Indecomposable_connected : ¬AxialMSZ.Challenge.Indecomposable_connected
+AxialMSZ.Check.check_not_Simple_connected : ¬AxialMSZ.Challenge.Simple_connected
+AxialMSZ.Check.check_Dominance_nonsymmetric : AxialMSZ.Challenge.Dominance_nonsymmetric
+AxialMSZ.Check.check_ExD_axes_in_block : CodexAxial.SupplementChallenge.ExD_axes_in_block
+AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes :
+  CodexAxial.SupplementChallenge.ExD_block_not_axial_on_contained_axes
+exit=0
+json-exit=0

@@ -5,6 +5,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{placeins}
+\usepackage{longtable}
 \usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
@@ -26,11 +27,24 @@
 \newcommand{\Ex}{\mathbb E}
 \newcommand{\Nle}[1]{N_{\le #1}}
 \newcommand{\cart}{\mathbin{\square}}
-\title{A negative answer to a question of Carenini\\ on almost independent sets in regular graphs}
+\setlength{\emergencystretch}{1.5em}
+\setlength{\LTcapwidth}{\textwidth}
+\DeclareUrlCommand\code{\urlstyle{tt}\def\UrlBreaks{\do\_\do\/\do\.}\def\UrlBigBreaks{}}
+% Repository version that will contain this version of the paper.
+% Release number 1.10.0 confirmed by the user on 2026-09-29T12:47:07Z (paper 3, version 2, released alone).
+\newcommand{\repoversion}{1.10.0}
+\title{A negative answer to a question of Carenini\\ on almost independent sets in regular
+graphs\thanks{\emph{Version~2.} Every result of this version is formally verified in Lean~4
+(Section~\ref{sec:lean}).
+Two claims of version~1 for which we have no formal proof have been deleted: the normal
+approximation at $\gamma=1/8$ in Remark~\ref{rem:size}, with the corresponding entry of
+reading~R6, and a count of labelled graphs in Section~\ref{sec:comp}. A few other sentences
+have been reworded or removed; the theorems are unchanged. The main changes are listed at the
+end of Section~\ref{sec:lean}.}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
-\date{September 2026}
+\date{September 2026 (version 2)}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -44,7 +58,8 @@ independent sets. We show that the answer is no. The smallest counterexample
 $(n,d,\gamma)=(6,3,1/18)$: the triangular prism has $28$ vertex sets
 spanning at most one edge, and $K_{3,3}$ has $24$. More generally, for every
 pair $(n,d)$ with $n>0$ and $2d\mid n$, except the trivial cases $d=1$ and
-$(n,d)=(4,2)$ in which only one $d$-regular graph exists, the answer is
+$(n,d)=(4,2)$ in which only one $d$-regular graph exists up to isomorphism,
+the answer is
 negative for some $\gamma<1/2$; for $d\ge3$ the union of copies of $K_{d,d}$
 is then even a minimiser, and every $d$-regular graph containing a triangle
 beats it. For small $\gamma$ we give two families: a switched $K_{d,d}$ beats
@@ -55,14 +70,14 @@ $\gamma\in(1/8,1/2)$ and every $d\ge2$, a bipartite competitor wins for all
 sufficiently large $n$. On the other hand, the union of copies of $K_{d,d}$ is
 optimal at the exponential scale for every $\gamma$; the upper bound here is
 Carenini's biclique reduction, which rests on a theorem of Sah, Sawhney,
-Stoner and Zhao. The exact question remains open for fixed
-$\gamma\in(0,1/8]$ as $n\to\infty$, and our counterexamples are consistent
-with the weaker statement in which the union of copies of $K_{d,d}$ is
-optimal up to a factor $1+o(1)$. The counterexample at $(6,3,1/18)$, the
-switched family for every $d\ge3$ and three further instances are formally
-verified in Lean~4. The counterexamples and proofs were found by AI coding
-agents working under the author's direction; their role is described at the
-end of the paper.
+Stoner and Zhao, which we also prove in the case used here. The exact
+question remains open for
+fixed $\gamma\in(0,1/8]$ as $n\to\infty$; for $\gamma=0$ and for every fixed
+$\gamma>1/8$, the weaker statement in which the union of copies of $K_{d,d}$
+is optimal up to a factor $1+o(1)$ holds. Every result of the paper is
+formally verified in Lean~4.
+The counterexamples and proofs were found by AI coding agents working under
+the author's direction; their role is described at the end of the paper.
 \end{abstract}
 
 \section{Introduction}
@@ -100,7 +115,8 @@ condition implies $e_G(J)\le dn/(2k)$, so this answers the quantitative part
 of Seth's question. The key step~\cite[Proposition~2.1]{car} is a biclique
 reduction based on a theorem of Sah, Sawhney, Stoner and
 Zhao~\cite[Corollary~1.15]{sssz} (Corollary~1.14 in version~2 of the arXiv
-preprint, the numbering used in~\cite{car}): for $0<q\le1$, the sum of
+preprint, the numbering used in~\cite{car}): in the case used there, for
+$0<q\le1$, the sum of
 $q^{e_G(A)}$ over
 all $A\subseteq V(G)$ is at most the $n/(2d)$-th power of the sum of
 $q^{e(A)}$ over all subsets $A$ of $V(K_{d,d})$. Carenini then asked for the
@@ -233,8 +249,8 @@ multiples of $2d$, where $m=n/(2d)$.
 The upper bound is Carenini's Proposition~2.1 with the fugacity equal to~$1$,
 optimised over~$q$. Proposition~C shows that the maximum of $i_\gamma$ over
 $d$-regular graphs on $n$ vertices is $i_\gamma(mK_{d,d})\,e^{o(n)}$ for fixed
-$d$ and $\gamma$; all the failures in this paper are subexponential. They are
-not confined to small $n$, however.
+$d$ and $\gamma$; so every failure is subexponential. The failures are not
+confined to small $n$, however.
 
 \begin{thmD}
 Let $d\ge2$ and $1/8<\gamma<1/2$. For $n$ divisible by $2d$ write
@@ -248,7 +264,7 @@ its qualitative form, so it gives no explicit threshold $n_0$ beyond which the
 inequality holds.
 
 \paragraph{Scope.}
-Our counterexamples are exact-count effects. In Theorems~B and~B$'$ the
+In Theorems~B and~B$'$ the
 threshold is a single edge, $\lfloor\gamma dn\rfloor=1$. In Theorem~A,
 $\gamma^*$ exceeds $1/8$ unless $(n,d)=(6,3)$, and $\gamma^*\to1/2$ as
 $n\to\infty$. In Theorem~D, $\gamma>1/8$ is fixed; both counts are then
@@ -257,11 +273,17 @@ $(1-o(1))2^n$, and their relative difference tends to~$0$
 threshold: a uniformly random subset of a $d$-regular graph on $n$ vertices
 spans $dn/8$ edges on average. Question~1.3 remains open for fixed
 $\gamma\in(0,1/8]$ as $n\to\infty$. All our counterexamples with
-$\gamma\le1/8$ have $\gamma d<1$. In particular, we know no counterexample
-with $\gamma\le1/8$ and $\gamma d\ge2$, the range of small $\gamma$ in which
+$\gamma\le1/8$ have $\gamma d<1$: in Theorems~B and~B$'$ and
+Corollary~\ref{cor:copies} we have $\gamma<1/d^2$, and the others, namely
+the case $(n,d)=(6,3)$ of Theorem~A, Remark~\ref{rem:tenth} and the
+failures in Table~\ref{tab:exh}, have $d\le5$. In particular, none of our
+counterexamples with $\gamma\le1/8$ has $\gamma d\ge2$, the range of small
+$\gamma$ in which
 Carenini's Proposition~1.2 shows that the term $\gamma\log(e/\gamma)\,n$ of
-her Theorem~1.1 is needed. Our counterexamples also do not refute the weaker
-statement $i_\gamma(G)\le(1+o(1))\,i_\gamma(mK_{d,d})$.
+her Theorem~1.1 is needed. The weaker statement
+$\max_Gi_\gamma(G)\le(1+o(1))\,i_\gamma(mK_{d,d})$ holds for $\gamma=0$ and
+for every fixed $\gamma>1/8$ (reading R6 in Section~\ref{sec:readings}); it
+is open for $0<\gamma<1/8$, and we make no claim at $\gamma=1/8$.
 Section~\ref{sec:readings} lists several readings of the question with our
 status for each, and Section~\ref{sec:open} states open questions.
 
@@ -281,10 +303,13 @@ with the same result: we searched the issues and pull requests of the
 \texttt{trureturing} repository for the versioned identifier
 \texttt{2609.28527v1} (as a positive control, the same search for the
 versioned identifier of another recent arXiv paper found the expected issue),
-searched GitHub issues and commits, and searched MathDB by title. We did not
-search Google Scholar, zbMATH or MathOverflow. This reports the coverage of
-our searches, not a guarantee of priority. Theorem~1.1 and Proposition~2.1
-of~\cite{car} are due to Carenini. The upper bound in Proposition~C is a
+searched GitHub issues and commits, and searched MathDB by title. For
+version~1 we did not search Google Scholar, zbMATH or MathOverflow. For
+version~2 we repeated these searches on 29 September 2026 between 12:55 and
+13:35~UTC, this time also on MathOverflow and zbMATH; \cite{car} still had
+only version~1, and we found no answer to the question other than version~1
+of this paper. This reports the coverage of our searches, not a guarantee of
+priority. Theorem~1.1 and Proposition~2.1 of~\cite{car} are due to Carenini. The upper bound in Proposition~C is a
 direct consequence of the latter, which rests on the theorem of Sah, Sawhney,
 Stoner and Zhao~\cite[Corollary~1.15]{sssz}.
 
@@ -311,8 +336,8 @@ R1 & Literal: for all admissible $(n,d)$ and all $\gamma\ge0$,
  $i_\gamma(G)\le i_\gamma(mK_{d,d})$ for every $d$-regular graph $G$ on $n$
  vertices.
  & False. Smallest counterexample (smallest $n$, then smallest $\gamma$):
- $(n,d,\gamma)=(6,3,1/18)$ (Theorems~A and~B); formally
- verified.\\\addlinespace
+ $(n,d,\gamma)=(6,3,1/18)$ (Theorems~A and~B). Both the counterexample and
+ its minimality are formally verified.\\\addlinespace
 R2 & For a given admissible pair $(n,d)$, the inequality holds for all
  $\gamma\ge0$.
  & False for every admissible pair with $d\ge2$ and $(n,d)\ne(4,2)$
@@ -331,10 +356,9 @@ R5 & R4 for fixed $\gamma\in(0,1/8]$.
  Theorem~D lose for large $n$ when $\gamma<1/8$
  (Remark~\ref{rem:lower}).\\\addlinespace
 R6 & Ratio form: $\max_Gi_\gamma(G)\le(1+o(1))\,i_\gamma(mK_{d,d})$.
- & Not refuted. True for $\gamma=0$; for $\gamma=1/8$, where
- $i_{1/8}(G)=(1/2+o(1))2^n$ uniformly in $G$; and for $\gamma>1/8$, where
+ & Not refuted. True for $\gamma=0$, and for $\gamma>1/8$, where
  $i_\gamma(mK_{d,d})=(1-o(1))2^n$ (Remark~\ref{rem:size}). Open for
- $0<\gamma<1/8$.\\\bottomrule
+ $0<\gamma<1/8$; we make no claim at $\gamma=1/8$.\\\bottomrule
 \end{tabular}
 \caption{Readings of Question~1.3 of~\cite{car}; here $m=n/(2d)$.}
 \label{tab:readings}
@@ -462,8 +486,7 @@ For $n=2d$, every $d$-regular graph $G\ne K_{d,d}$ contains a triangle.
 Indeed, if $G$ is triangle-free and $uv$ is an edge, the neighbourhoods $N(u)$
 and $N(v)$ are disjoint independent sets of size $d$, so they partition
 $V(G)$; every vertex of $N(u)$ then has all its $d$ neighbours in $N(v)$, and
-$G=K_{d,d}$. (This is also the equality case of Mantel's
-theorem~\cite{mantel}, since $G$ has $d^2$ edges.) Hence, for every $d\ge3$,
+$G=K_{d,d}$. Hence, for every $d\ge3$,
 every $d$-regular graph on $2d$ vertices other than $K_{d,d}$ beats $K_{d,d}$
 at $t^*=d^2-3d+1$. As a second
 example, for $(n,d)=(12,3)$ we have $t^*=10$ and $\gamma^*=5/18$, and the
@@ -738,10 +761,11 @@ $\rho(d,\gamma)$.
 \end{itemize}
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{rem:rho}
 In the notation of~\cite{car}, $P_d(e^{-t/d})=B_d(t)$, so
 $\rho(d,\gamma)=\inf_{t\ge0}\bigl(\gamma t+\frac1{2d}\log B_d(t)\bigr)$.
-Carenini's Theorem~1.1 bounds this infimum by choosing $t=2\log(e/\gamma)$.
+Carenini's proof of Theorem~1.1 bounds this infimum by choosing
+$t=2\log(e/\gamma)$.
 \end{remark}
 
 \section{Fixed thresholds above one eighth: proof of Theorem D}\label{sec:D}
@@ -785,26 +809,18 @@ For $\gamma>1/8$ the law of large numbers gives $\Prb(\Sigma_m\le mx)\to1$, so
 $i_\gamma(mK_{d,d})=(1-o(1))2^n$, and the relative difference
 $i_\gamma(G_n)/i_\gamma(mK_{d,d})-1\le U(mK_{d,d})/i_\gamma(mK_{d,d})$ tends to
 $0$ exponentially fast. For example, for $d=2$, $\gamma=1/4$ and $n=400$ the
-relative difference is about $1.3\cdot10^{-17}$. In particular, Theorem~D is
-consistent with reading R6. Our proof gives no explicit $n_0$; one could be
-extracted from a quantitative form of Cramér's theorem (for example,
-exponential tilting combined with the Berry--Esseen theorem, or the theorem of
-Bahadur and Rao~\cite{br}), which we have not done. The base
+relative difference is about $1.3\cdot10^{-17}$. So the competitors of
+Theorem~D win only by a factor $1+o(1)$. The base
 $P_d(q^*)^2/P_H(q^*)$ tends to $1$ as $\gamma\downarrow1/8$, since then
 $q^*\to1$; for $d=2$ it is about $1.0006$ at $\gamma=1/4$ and $1.0001$ at
-$\gamma=0.49$. So $n_0$ can be large, and we give no value.
+$\gamma=0.49$. Our proof gives no explicit $n_0$, and we give no value.
 
-Reading R6 also holds at $\gamma=1/8$. Let $A$ be a uniformly random subset of
+The value $1/8$ comes from the mean. Let $A$ be a uniformly random subset of
 $V(G)$, where $G$ is $d$-regular on $n$ vertices. Then $e_G(A)$ is the sum of
 the indicators $[u,v\in A]$ over the $dn/2$ edges $uv$ of $G$; it has mean
 $dn/8$ and variance $dn(2d+1)/32$, as each indicator has variance $3/16$ and
 each of the $nd(d-1)$ ordered pairs of distinct edges with a common end has
-covariance $1/16$. The indicators of two sets of edges that share no vertex are
-independent, so the line graph of $G$, of maximum degree $2d-2$, is a
-dependency graph for them, and a normal approximation
-bound~\cite[Theorem~3.5 and Proposition~1.2]{ross} gives
-$i_{1/8}(G)=2^n\Prb(e_G(A)\le dn/8)=(1/2+O(n^{-1/4}))\,2^n$, uniformly in $G$
-for fixed $d$.
+covariance $1/16$.
 \end{remark}
 
 \begin{remark}\label{rem:lower}
@@ -817,7 +833,7 @@ Lemma~\ref{lem:cramer}(b) gives
 $i_\gamma(mK_{d,d})\ge P_d(q^*)^m(q^*)^{-mx}e^{-\varepsilon m}$, the inequality
 $[e(A)\le\gamma dn]\le q^{e(A)-\gamma dn}$ for $q\le1$ gives
 $i_\gamma(G_n)\le(q^*)^{-mx}P_H(q^*)^kP_d(q^*)^r$, and the comparison is as
-above. This is consistent with Proposition~C.
+above.
 \end{remark}
 
 \begin{remark}\label{rem:tenth}
@@ -831,13 +847,16 @@ effects.
 \end{remark}
 
 \section{Computations}\label{sec:comp}
-All counts in this paper were computed in exact integer arithmetic. Our
+In version~2 every mathematical claim of this section is proved in Lean
+(Section~\ref{sec:lean}). The programs described here were written for
+version~1 and remain independent cross-checks. All counts in this paper were
+computed in exact integer arithmetic. Our
 programs compute the distribution $(N_s(G))_s$ in two independent ways: by a
 recursion over bitmasks, $e_G(A\cup\{v\})=e_G(A)+|N(v)\cap A|$ for a vertex
 $v$ larger than every element of $A$, and by a direct loop over all sets and
 all edges. The two agree on eleven test graphs. Counts for disjoint unions are
-obtained from $P_{G\cup F}=P_GP_F$. Two referee agents (see the disclosure at
-the end of the paper) recomputed the main numbers, each with its own programs.
+obtained from $P_{G\cup F}=P_GP_F$. Two referee agents of version~1 (see the
+disclosure at the end of the paper) recomputed the main numbers, each with its own programs.
 Our programs and their logs are available in version~1.3.0 of the
 repository~\cite{repo} (directory \texttt{certificates/carenini/}).
 
@@ -845,15 +864,17 @@ repository~\cite{repo} (directory \texttt{certificates/carenini/}).
 For $d\in\{3,4,5\}$ we generated all $d$-regular graphs on $2d$ vertices up to
 isomorphism, starting from $K_{d,d}$ and applying $2$-switches (replacing two
 edges $ab$, $cd$ by $ac$, $bd$ or by $ad$, $bc$ when these are not edges), with
-exact isomorphism tests. Any two graphs with the same degree sequence are
-connected by a sequence of $2$-switches~\cite{hakimi,fhm}, so this finds every
+exact isomorphism tests. Any two graphs on the same vertex set with the same
+degree at every vertex are connected by a sequence of
+$2$-switches~\cite{hakimi,fhm}, so this finds every
 class. We found $2$, $6$ and $60$ classes. Every $d$-regular graph on $2d$
 vertices is connected, since each component has at least $d+1$ vertices, and
 these are the numbers of connected cubic graphs on $6$ vertices, quartic
 graphs on $8$ vertices and quintic graphs on $10$ vertices (sequences A002851,
-A006820 and A006821 of~\cite{oeis}). The first referee agent confirmed the cases
-$d=3,4$ from all $70$ and $19355$ labelled graphs. Table~\ref{tab:exh} lists
-the thresholds at which $K_{d,d}$ is not a maximiser.
+A006820 and A006821 of~\cite{oeis}). For $d=3$ the first referee agent of
+version~1 also
+enumerated all $70$ labelled cubic graphs on six vertices. Table~\ref{tab:exh}
+lists the thresholds at which $K_{d,d}$ is not a maximiser.
 
 \begin{table}[ht]\centering\small
 \begin{tabular}{@{}cccccc@{}}\toprule
@@ -881,16 +902,15 @@ maximiser for $t\in\{0,2\}$ when $d=3$, for $t\in\{0,4,6\}$ when $d=4$, and
 for $t\in\{0,4,6,9,10,12\}$ when $d=5$; at the remaining thresholds it ties
 with other graphs. (By Lemma~\ref{lem:complement}, for $d\ge3$ all $d$-regular
 graphs on $n$ vertices have the same value of $\Nle t$ when $t\ge dn/2-2d$.)
-The failures at $t=1$ are those of Theorem~B, and the failures at
-$t=d^2-3d+1$, that is, $t=1,5,11$, are those of Theorem~A (see also
-Remark~\ref{rem:n2d}); the other failures are not covered by our theorems.
+Theorem~B gives the failures at $t=1$, and Theorem~A with
+Remark~\ref{rem:n2d} gives those at $t=d^2-3d+1$, that is, at $t=1,5,11$.
 
 \paragraph{Other checks.}
 The formula of Proposition~\ref{prop:formula} was checked on $100$ regular
 graphs with $2\le d\le8$ and $n\le20$ (unions of copies of $K_{d,d}$,
 $(K_d\cart K_2)\cup(m-1)K_{d,d}$, cycles, $C_3\cup C_{n-3}$, unions of copies
 of $K_{d+1}$, and random regular graphs), with no mismatch; the first referee
-agent checked $75$ further graphs, including graphs in which $5$-sets contribute
+agent of version~1 checked $75$ further graphs, including graphs in which $5$-sets contribute
 to~$Q$. Theorem~B was checked for $3\le d\le12$, and
 Corollary~\ref{cor:copies} against brute force for
 $(d,m)\in\{(3,2),(3,3),(4,2),(5,2)\}$. The identity of
@@ -900,120 +920,424 @@ Lemma~\ref{lem:sign} was checked on a grid of values of $q$, as a sanity
 check. For Theorem~D, we compared $kH_d$ with $2kK_{d,d}$ exactly for
 $d\in\{2,3,4\}$ and all $n\le600$ divisible by $4d$. At $n=192$ the competitor
 wins for $\gamma\in\{1/5,1/4,1/3,2/5,9/20\}$, while for $\gamma=3/20$, closer
-to $1/8$, it still loses, as expected when $n_0$ is large. The outcome is not
+to $1/8$, it still loses. The outcome is not
 monotone in $n$, so this does not show that $n_0\le192$: for $d=4$ and
 $\gamma=9/20$ the competitor loses at $n=128$ and again at $n=208$, and for
 $d=3$ and $\gamma=9/20$ it wins at $n=96$ and $n=192$ but loses at $n=144$.
 For $\gamma=3/20$ it wins for every such $n$ from $360$ to $600$ when $d=2$,
-from $336$ to $600$ when $d=3$, and from $320$ to $592$ when $d=4$, in line
-with Theorem~D. The counts in
+from $336$ to $600$ when $d=3$, and from $320$ to $592$ when $d=4$. The
+counts in
 Remark~\ref{rem:tenth} are exact comparisons for all $n$ in the stated
 ranges.
 
 \section{Formal verification}\label{sec:lean}
-The Lean file \texttt{lean/Research/Carenini.lean} in version~1.3.0 of the
-repository~\cite{repo} formalises Question~1.3 literally and proves five
-negative results: four instances and one infinite family ($d\ge3$). It uses
-Lean~4
-(version 4.33.1) and Mathlib~\cite{mathlib} (commit \texttt{0df444a3}); all
-declarations are in the namespace \texttt{Carenini}. The basic definitions are
-the following.
-\begin{itemize}
-\item \texttt{edgesIn G A} is the number of edges of \texttt{G} (elements of
- Mathlib's \texttt{G.edgeFinset}) with both ends in the finite set \texttt{A};
- this is $e_G(A)$. \texttt{iCount G t} is the number of sets \texttt{A} with
- \texttt{edgesIn G A} $\le t$, for $t\in\mathbb N$; this is $\Nle t(G)$.
-\item \texttt{iGamma G d gamma} is the number of sets \texttt{A} with
- $\texttt{edgesIn G A}\le\gamma\cdot d\cdot|V|$, the comparison being made in
- $\mathbb R$ for a real number $\gamma$; this is $i_\gamma(G)$.
-\item \texttt{KddUnion m d} is the graph on
- $\texttt{Fin m}\times(\texttt{Fin d}\oplus\texttt{Fin d})$ in which $(i,x)$
- and $(j,y)$ are adjacent when $i=j$ and $x,y$ are adjacent in Mathlib's
- \texttt{completeBipartiteGraph (Fin d) (Fin d)}; this is $mK_{d,d}$.
-\end{itemize}
-The question and the two main theorems read, in ASCII notation:
+All the results are formally verified in Lean~4 (version 4.34.1) with
+Mathlib~\cite{mathlib} (version v4.34.1, commit \texttt{d13f23b7}).
+Version~1 of this paper was released with a partial formalisation, the module
+\code{Carenini.lean} of version~1.3.0 of~\cite{repo}, which proved the five
+negative instances of Table~\ref{tab:inst}. For version~2 every result of the
+paper was formalised: each of its mathematical claims is a statement of
+Table~\ref{tab:lean}, a definition, a cited result or a step of a written
+proof.
+
+\paragraph{Statements before formal proofs.}
+Here the statements were written after the written proofs: they formalise a
+paper that had already been released. On 27 September 2026, after version~1
+had been released, an agent wrote a Lean file of definitions and statements,
+the \emph{statement file}, which proves none of its statements. An independent
+agent reviewed it against the paper and the cited sources and checked its
+definitions with programs of its own; it was frozen by recording its SHA-256
+hash \texttt{5cf68b68181d0528bab5ebc8a2b18abe\allowbreak 29b0409b1f40d23f3176d3ed45873163}
+before any proof was written, and a second AI system then audited the frozen
+file. Version~2 of the file leaves out the two claims
+removed from this version of the paper (parts of three statements), adds two
+statements (the negation of Question~1.3 as a single statement, and the
+statement that our counterexamples with $\gamma\le1/8$ have $\gamma d<1$), and
+adds the values $t^*=1$ and $\gamma^*=1/18$ at $(n,d)=(6,3)$ to an existing
+statement (GammaStarScope); the
+other $54$ statements are unchanged. An independent agent reviewed version~2;
+after two edits to comments that the review suggested, it was frozen on
+29 September 2026 at 01:31~UTC by recording its SHA-256 hash
+\texttt{846efb56558f734ba475092854effbe7\allowbreak 598549b68e6ea8b7bcad19e9c02d8777}.
+The proofs were written in separate files that import the statement file,
+which was not changed; work on proofs of statements unchanged from
+version~1 began at 01:18~UTC, before version~2 was frozen. The definitions of $e_G(A)$, $\Nle t$,
+$i_\gamma$ and of the question are copied verbatim from the module of
+version~1, and $mK_{d,d}$ is defined from Mathlib's Cartesian product and
+complete bipartite graph.
+
+\paragraph{What is proved.}
+The statement file states $60$ propositions, listed in
+Table~\ref{tab:lean}; the file of checks
+(\texttt{Research/Backfill/Paper3/Check.lean}) proves each of them, by a
+theorem \texttt{check\_X : X} for every name~\code{X} of the table.
+The statement file also defines $i_\gamma$, the question and its literal
+form; in ASCII notation (\texttt{forall}, \texttt{->}, \texttt{<=},
+\texttt{Not}, \texttt{Dvd.dvd a b} for $a\mid b$, \texttt{Nat} and \texttt{Real}
+for $\mathbb N$ and $\mathbb R$, and \texttt{g} for $\gamma$; the directive
+\texttt{open Classical in} before \texttt{iGamma} is omitted),
+\begin{footnotesize}
 \begin{verbatim}
-def CareniniQuestion (n d : Nat) (gamma : Real) : Prop :=
+noncomputable def iGamma (G : SimpleGraph V) [DecidableRel G.Adj] (d : Nat) (g : Real) : Nat :=
+  #((univ : Finset (Finset V)).filter
+    (fun A => ((edgesIn G A : Nat) : Real) <= g * d * (Fintype.card V : Real)))
+def CareniniQuestion (n d : Nat) (g : Real) : Prop :=
   forall (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V)
     [DecidableRel G.Adj], Fintype.card V = n -> G.IsRegularOfDegree d ->
-      iGamma G d gamma <= iGamma (KddUnion (n / (2 * d)) d) d gamma
-
-theorem not_careniniQuestion_six : Not (CareniniQuestion 6 3 (1 / 18))
-
-theorem not_careniniQuestion_two_d {d : Nat} (hd : 3 <= d) :
-    Not (CareniniQuestion (2 * d) d (1 / (2 * (d : Real) ^ 2)))
+      iGamma G d g <= iGamma (KddUnion (n / (2 * d)) d) d g
+def Question13 : Prop :=
+  forall n d : Nat, 1 <= d -> Dvd.dvd (2 * d) n -> forall g : Real, 0 <= g ->
+    CareniniQuestion n d g
+def AnswerNegative : Prop := Not Question13
 \end{verbatim}
-The predicate quantifies over every finite vertex type of cardinality $n$ and
-every $d$-regular simple graph on it (Mathlib's \texttt{IsRegularOfDegree});
-the threshold $\gamma dn$ is a real number, as in the question; and the
-reference graph consists of $n/(2d)$ disjoint copies of Mathlib's $K_{d,d}$.
-The standing hypothesis $2d\mid n$ is not part of the predicate. Every
-instance refuted below satisfies it, and at such an instance the predicate is
-exactly the claim of Question~1.3. The lemma \texttt{iGamma\_eq\_iCount\_floor}
-shows that $i_\gamma=\Nle{\lfloor\gamma dn\rfloor}$ for $\gamma\ge0$, and
-\texttt{iGamma\_iso} shows that $i_\gamma$ is invariant under isomorphism.
-Table~\ref{tab:lean} lists the five negative results: four instances and one
-infinite family ($d\ge3$).
+\end{footnotesize}
+Here \texttt{edgesIn G A} is the number of edges of \code{G} (elements of
+Mathlib's \code{G.edgeFinset}) with both ends in \code{A}, so \code{iGamma}
+is $i_\gamma(G)$ with the threshold $\gamma dn$ compared in $\mathbb R$, and
+\texttt{KddUnion m d} is $mK_{d,d}$. The predicate quantifies over every finite
+vertex type with $n$ elements and every $d$-regular simple graph on it
+(Mathlib's \code{IsRegularOfDegree}).
 
 \begin{table}[ht]\centering\small
-\begin{tabular}{@{}lll@{}}\toprule
-Lean theorem & $(n,d,\gamma)$ & competitor and counts\\\midrule
-\texttt{not\_careniniQuestion\_six} & $(6,3,1/18)$ &
- prism, $28>24$ (Theorems~A, B)\\
-\texttt{not\_careniniQuestion\_two\_d} & $(2d,d,1/(2d^2))$, $d\ge3$ &
- $S_d$ (Theorem~B)\\
-\texttt{not\_careniniQuestion\_eight\_two} & $(8,2,1/16)$ &
- $C_8=H_2$, $111>105$ (Theorem~B$'$)\\
-\texttt{not\_careniniQuestion\_twelve\_bip} & $(12,3,1/36)$ &
- $H_3$, $527>495$ (Theorem~B$'$)\\
-\texttt{not\_careniniQuestion\_twelve\_top} & $(12,3,5/18)$ &
- $3K_4$, $4002>3981$ (Theorem~A)\\\bottomrule
+\begin{tabular}{@{}llll@{}}\toprule
+$(n,d,\gamma)$ & competitor & counts $\Nle t$ & Lean statement\\\midrule
+$(6,3,1/18)$ & prism $K_3\cart K_2$ & $28>24$ ($t=1$) & \code{Neg_6_3}\\
+$(2d,d,1/(2d^2))$, $d\ge3$ & $S_d$ & Theorem~B ($t=1$) & \code{Neg_2d}\\
+$(8,2,1/16)$ & $H_2=C_8$ & $111>105$ ($t=1$) & \code{Neg_8_2}\\
+$(12,3,1/36)$ & $H_3$ & $527>495$ ($t=1$) & \code{Neg_12_3_bip}\\
+$(12,3,5/18)$ & $3K_4$ & $4002>3981$ ($t=10$) & \code{Neg_12_3_top}\\\bottomrule
 \end{tabular}
-\caption{The negative results proved in Lean. In each case the reference
-graph is $\frac n{2d}K_{d,d}$.}\label{tab:lean}
+\caption{The five negative instances formalised in version~1. In each case
+the reference graph is $\frac n{2d}K_{d,d}$; the eight counts form the
+statement Table4Counts.}\label{tab:inst}
 \end{table}
 
-Supporting declarations make the statements concrete. For $n=6$,
-\texttt{prism\_regular} and \texttt{K33\_regular} are proved by
-\texttt{decide}, the counts $28$ and $24$ are evaluated by \texttt{decide},
-and \texttt{prismIso}, \texttt{K33Iso} and \texttt{K33IsoKddUnion} show that the
-two graphs are Mathlib's $K_3\cart K_2$ and $K_{3,3}$, the latter also as
-\texttt{KddUnion 1 3}; \texttt{prism\_beats\_K33} is the explicit form of the
-instance. For general $d$, \texttt{switchedKdd\_regular} shows that $S_d$ is
-$d$-regular, \texttt{edgesIn\_switched\_le\_one} is the inclusion in
-Theorem~B, \texttt{switched\_extra\_set} is the witness $\{x_1,y_1,y_3\}$
-(indexed from $0$ in Lean), \texttt{iCount\_one\_lt} gives
-$\Nle1(K_{d,d})<\Nle1(S_d)$, and \texttt{kddUnionOneIso} identifies $K_{d,d}$
-with \texttt{KddUnion 1 d}. Finally, \texttt{H3\_regular},
-\texttt{H3\_bipartite} and \texttt{H3\_connected} prove the properties of $H_3$
-stated in Theorem~B$'$.
+\FloatBarrier
+{\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}
+ >{\raggedright\arraybackslash}p{0.56\textwidth}
+ >{\raggedright\arraybackslash}p{0.11\textwidth}@{}}
+\caption{The $60$ statements of the frozen statement file (namespace
+BackfillPaper3.Challenge, version~2). Each is proved.
+The names are those of
+the statement file: Table2 formalises Table~\ref{tab:exh}, and Table4Counts
+the counts of Table~\ref{tab:inst}.}\label{tab:lean}\\
+\toprule
+Lean statement & what it says & here\\\midrule
+\endfirsthead
+\toprule
+Lean statement & what it says & here\\\midrule
+\endhead
+\bottomrule
+\endfoot
+\code{IGammaFloor} & $i_\gamma=\Nle{\lfloor\gamma dn\rfloor}$ for $\gamma\ge0$
+ & \S1\\
+\code{IGammaIso} & $i_\gamma$ is invariant under isomorphism, for $\gamma\ge0$
+ & used throughout\\
+\code{PolyFacts} & $P_{G\cup F}=P_GP_F$, $P_{K_{d,d}}=P_d$,
+ $P_{mK_{d,d}}=P_d^{\,m}$ and $\Nle t(G)=\sum_{s\le t}[z^s]P_G$
+ & \S\ref{sec:prelim}\\
+\code{IntegerForm} & for admissible $(n,d)$, Question~1.3 for all $\gamma\ge0$
+ is equivalent to $\Nle t(G)\le\Nle t(mK_{d,d})$ for all $t\ge0$
+ & \S\ref{sec:prelim}\\
+\code{Neg_6_3}, \code{Neg_2d}, \code{Neg_8_2}, \code{Neg_12_3_bip},
+ \code{Neg_12_3_top} & the five negative instances of Table~\ref{tab:inst}
+ & Table~\ref{tab:inst}\\
+\code{Table4Counts} & the eight counts of Table~\ref{tab:inst}
+ & Table~\ref{tab:inst}\\
+\code{KddIndependentSets} & $K_{d,d}$ has $2^{d+1}-1$ independent sets & \S1\\
+\code{Lemma1} & Lemma~\ref{lem:complement} & \S\ref{sec:prelim}\\
+\code{Proposition2} & Proposition~\ref{prop:formula} & \S\ref{sec:A}\\
+\code{Lemma3} & Lemma~\ref{lem:Q} & \S\ref{sec:A}\\
+\code{TheoremA} & Theorem~A, with $t^*\ge1$ and
+ $\gamma^*=\frac12-\frac{3d-1}{dn}$ & \S1, \S\ref{sec:A}\\
+\code{Remark4} & Remark~\ref{rem:n2d} & \S\ref{sec:A}\\
+\code{TheoremB} & Theorem~B & \S1, \S\ref{sec:B}\\
+\code{Corollary5} & Corollary~\ref{cor:copies}, with
+ $i_0(S_d)=3\cdot2^{d-1}+1$ & \S\ref{sec:B}\\
+\code{WSymm} & $W_{10}=W_{01}$ & \S\ref{sec:B}\\
+\code{Lemma6} & Lemma~\ref{lem:switch} & \S\ref{sec:B}\\
+\code{Lemma7} & Lemma~\ref{lem:sign} & \S\ref{sec:B}\\
+\code{TheoremBprime} & Theorem~B$'$ & \S1, \S\ref{sec:B}\\
+\code{Lemma8} & Lemma~\ref{lem:cramer}, for independent copies of $\xi$ on
+ any probability space & \S\ref{sec:C}\\
+\code{Lemma8_bddBelow} & the two infima in Lemma~\ref{lem:cramer} are over
+ sets bounded below & well-definedness\\
+\code{PropositionC} & Proposition~C & \S1, \S\ref{sec:C}\\
+\code{Rho_bddBelow} & the infimum defining $\rho(d,\gamma)$ is over a set
+ bounded below & well-definedness\\
+\code{TheoremD} & Theorem~D, with the facts that $G_n$ is a bipartite
+ $d$-regular graph on $n$ vertices & \S1, \S\ref{sec:D}\\
+\code{SSSZBound} & $P_G(q)\le P_d(q)^{n/(2d)}$ for $d$-regular $G$ on $n$
+ vertices and $0<q\le1$, the case of~\cite[Corollary~1.15]{sssz} used
+ in~\cite{car} & \S1\\
+\code{CareniniProp21} & \cite[Proposition~2.1]{car} with fugacity $1$ &
+ \S\ref{sec:C}\\
+\code{KahnZhao} & $i_0(G)\le(2^{d+1}-1)^{n/(2d)}$ for $d$-regular $G$
+ (Kahn, Zhao) & \S1\\
+\code{QuestionTrueHalf} & the answer is yes for $\gamma\ge1/2$ & \S1, R4\\
+\code{QuestionTrueZero} & the answer is yes for $\gamma=0$ & \S1, R4\\
+\code{TrivialCasesUnique} & for $d=1$ and for $(n,d)=(4,2)$ the only
+ $d$-regular graph is $mK_{d,d}$ & \S1\\
+\code{TrivialCasesTrue} & in these cases the answer is yes for every
+ $\gamma$ & R2\\
+\code{CompetitorFacts} & the competitors of \S1 exist: $(K_d\cart
+ K_2)\cup(m-1)K_{d,d}$ is $d$-regular with a triangle, and $C_n\ne mC_4$ for
+ $n\ge8$; $C_4=K_{2,2}$ & \S1\\
+\code{NegativeEveryAdmissible} & the answer is no at $\gamma=\gamma^*\in(0,1/2)$
+ for every admissible pair other than the trivial ones & \S1, R2\\
+\code{AnswerNegative} & the answer to Question~1.3 is no & abstract, R1\\
+\code{GammaStarScope} & $\gamma^*>1/8$ unless $(n,d)=(6,3)$, $\gamma^*\to1/2$,
+ and $t^*=1$, $\gamma^*=1/18$ at $(6,3)$ & \S1\\
+\code{LowGammaExamples} & $\gamma<1/d^2$ implies $\gamma d<1$, and $d\le5$,
+ $\gamma\le1/8$ imply $\gamma d<1$; together these cover our counterexamples
+ with $\gamma\le1/8$ & \S1, \S\ref{sec:open}\\
+\code{S3PrismH2Cycle} & $S_3$ is the prism and $H_2$ is $C_8$ & \S1\\
+\code{SethDensity} & Seth's density condition implies $e_G(J)\le dn/(2k)$ &
+ \S1\\
+\code{MaximisersAtGammaStar} & at $\gamma^*$ the maximisers of $i_{\gamma^*}$
+ are the maximisers of $2T(G)-Q(G)$ & \S\ref{sec:open}\\
+\code{Table1} & Table~\ref{tab:six} & \S1\\
+\code{CubicSix} & the only cubic graphs on six vertices are $K_{3,3}$ and the
+ prism & \S1\\
+\code{ExactFailureSix} & at $(n,d)=(6,3)$, $K_{3,3}$ fails to be a maximiser
+ exactly for $\gamma\in[1/18,1/9)$ & \S1\\
+\code{SmallestCounterexample} & $(6,3,1/18)$ is the smallest counterexample &
+ \S1, R1\\
+\code{Remark9} & Remark~\ref{rem:rho} & \S\ref{sec:C}\\
+\code{Remark10a} & Remark~\ref{rem:size}: for $\gamma>1/8$,
+ $i_\gamma(mK_{d,d})=(1-o(1))2^n$, and the relative difference is at most
+ $U(mK_{d,d})/i_\gamma(mK_{d,d})$, which is at most $Cc^m$ with $c<1$ &
+ \S\ref{sec:D}\\
+\code{Remark10b} & Remark~\ref{rem:size}: the value $1.3\cdot10^{-17}$ &
+ \S\ref{sec:D}\\
+\code{Remark10c} & Remark~\ref{rem:size}: $q^*>1$ exists, the base tends
+ to $1$ as $\gamma\downarrow1/8$, and the values $1.0006$ and $1.0001$ &
+ \S\ref{sec:D}\\
+\code{Remark10d} & Remark~\ref{rem:size}: the mean $dn/8$ and the variance
+ $dn(2d+1)/32$ & \S\ref{sec:D}\\
+\code{ReadingR6} & reading R6 holds for $\gamma=0$ and for $\gamma>1/8$ &
+ \S\ref{sec:readings}\\
+\code{Remark11} & Remark~\ref{rem:lower} & \S\ref{sec:D}\\
+\code{Remark12} & Remark~\ref{rem:tenth} & \S\ref{sec:D}\\
+\code{RegularOn2dConnected} & every $d$-regular graph on $2d$ vertices is
+ connected & \S\ref{sec:comp}\\
+\code{HighThresholdTie} & for $d\ge3$ all $d$-regular graphs on $n$ vertices
+ have the same $\Nle t$ when $t\ge dn/2-2d$ & \S\ref{sec:comp}\\
+\code{TwoSwitchConnected} & two graphs with the same degree at every vertex
+ are joined by a sequence of $2$-switches~\cite{hakimi,fhm} &
+ \S\ref{sec:comp}\\
+\code{Table2} & Table~\ref{tab:exh} and the text after it: the numbers $2$,
+ $6$, $60$ of classes, the maxima, and the thresholds with a unique maximiser
+ or a tie & \S\ref{sec:comp}\\
+\code{LabelledCounts} & there are $70$ labelled cubic graphs on six vertices &
+ \S\ref{sec:comp}\\
+\code{TheoremDNumerics} & the comparisons for Theorem~D in
+ Section~\ref{sec:comp} & \S\ref{sec:comp}\\
+\end{longtable}}
 
-The following are not formalised: Theorem~A (only two instances of its
-conclusion are formal, the prism at $(6,3,1/18)$ and $3K_4$ at $(12,3,5/18)$;
-Proposition~\ref{prop:formula}, Lemma~\ref{lem:Q} and the minimiser statement
-are not); the exact value $4d-8$ in Theorem~B (only the strict inequality is)
-and Corollary~\ref{cor:copies}; Theorem~B$'$ (only
-$\Nle1(H_d)>\Nle1(2K_{d,d})$ for $d=2,3$, via the counts $111>105$ and
-$527>495$, the regularity of $H_2=C_8$ and of $H_3$, and the bipartiteness and
-connectivity of $H_3$ are formal), and Lemmas~\ref{lem:switch}
-and~\ref{lem:sign}; Proposition~C and
-Theorem~D, which use Cramér's theorem and, for the upper bound in
-Proposition~C, the theorem of Sah, Sawhney, Stoner and Zhao; and the
-computations of Section~\ref{sec:comp}.
+\paragraph{How the proofs work.}
+Most proofs follow the written ones. The edge counts of disjoint unions, of
+copies and of $K_{d,d}$ come from the identity
+$2e_G(A)=|\{(u,v):u,v\in A,\ u\sim v\}|$, which also gives
+$P_{G\cup F}=P_GP_F$, $P_{K_{d,d}}=P_d$ and $P_{mK_{d,d}}=P_d^{\,m}$.
+Proposition~\ref{prop:formula} and Lemma~\ref{lem:Q} are proved as in
+Section~\ref{sec:A}: the $3$-sets are counted through the cherries at their
+apex, and the heavy $4$- and $5$-sets through the cliques they contain. For
+$d=2$, a $4$-set spanning four edges is shown to be the vertex set of a
+component; this gives $Q(G)=c_4(G)$ and $4Q(G)\le n$, and when $4Q(G)=n$ it
+gives an isomorphism $G\cong\frac n4K_{2,2}$ assembled from the components.
+The same lemma on blocks gives the trivial case $d=1$. For Theorem~B and
+Corollary~\ref{cor:copies}, the formula for $e_{S_d}(A)$ of
+Section~\ref{sec:B} is proved for every choice of $x_1,x_2,y_1,y_2$, and the
+four families of extra sets and the independent sets of $S_d$ are counted
+directly; the list of pairs $(d,m)$ is checked for $d\le13$ and follows from
+$2^{d+1}>2d^2+8$ for $d\ge14$. The isomorphisms $S_3\cong K_3\cart K_2$ and
+$H_2\cong C_8$ are explicit for one choice of labels, and are transported to
+every other choice by automorphisms of $K_{d,d}$ and of $2K_{d,d}$.
+The $2$-switches are handled by an edge-count identity valid for any
+$2$-switch. Lemma~\ref{lem:switch} is proved from the identity
+$z^{e_{2K}(A)}-z^{e_{H_d}(A)}=(z-1)(\alpha_1-\alpha_2)(\beta_1-\beta_2)z^{e'(A)}$
+for every set $A$, where $e'(A)$ counts the edges other than $u_1w_1$,
+$u_2w_2$, $u_1w_2$, $u_2w_1$, summed as in Section~\ref{sec:B}, and
+Lemma~\ref{lem:sign} from $4D(q)=\Delta$. The mean and variance in
+Remark~\ref{rem:size} are computed with the signs $z_v(A)=\pm1$, where
+$[v\in A]=(1+z_v(A))/2$: a product of signs sums to zero over all sets $A$
+unless every vertex occurs in it an even number of times.
 
-The file contains no \texttt{sorry} and does not use \texttt{native\_decide};
-the finite counts are evaluated by the kernel, using \texttt{decide} and
-\texttt{decide +kernel}. The file was rebuilt with \texttt{lake build} in a
-clean directory, with exit code~$0$, and the compiled module was checked again
-with \texttt{leanchecker}. The recorded axiom audits (\texttt{\#print axioms})
-of the fourteen main declarations report only the standard axioms
-\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and no
-axioms at all for \texttt{H3\_bipartite}. An audit file,
-\texttt{lean/Research/CareniniAudit.lean}, prints the basic definitions and the
-statements of Table~\ref{tab:lean} together with their axioms. The Lean file,
-the audit file and the logs of the clean rebuild and of the \texttt{leanchecker}
-run (files \texttt{logs/clean-replay-v1.3.0-*}) are in version~1.3.0 of the
-repository~\cite{repo}.
+Several cited results are proved rather than assumed: the case of the
+theorem of Sah, Sawhney, Stoner and Zhao that we use, and with it the theorem
+of Kahn and Zhao (its case $q=0$) and Carenini's Proposition~2.1 with
+fugacity $1$; the $2$-switch theorem; and the lower bound in Cramér's
+theorem, Lemma~\ref{lem:cramer}. The bound
+$P_G(q)\le P_d(q)^{n/(2d)}$ is proved for $0\le q\le1$, which at $q=0$ is the
+theorem of Kahn and Zhao, in two steps. First, $P_G(q)^2\le Z(q)$, where
+$Z(q)$ is the sum of $q^{e(A,B)}$ over all pairs of vertex sets and $e(A,B)$ is
+the number of ordered adjacent pairs $(u,v)$ with $u\in A$ and $v\in B$ (the
+edge polynomial of the bipartite double cover of $G$). Grouping the pairs
+$(A,B)$ by $A\cap B$ and $A\triangle B$ reduces this to the inequality
+$\sum_{X\subseteq M}q^{u(X)}\le\sum_{X\subseteq M}q^{c(X)}$, where $u(X)$ and
+$c(X)$ count the edges inside a set $M$ that the cut $(X,M\setminus X)$ leaves
+uncut and cuts; this follows by expanding both products over sets of edges,
+in the spirit of Zhao's bipartite swapping trick~\cite{zhao}. Second,
+$Z(q)=\sum_A\prod_v\bigl(1+q^{|A\cap N(v)|}\bigr)\le P_d(q)^{n/d}$ by Finner's
+form of Hölder's inequality~\cite{finner} on the Boolean cube, as each vertex lies in
+exactly $d$ neighbourhoods. The $2$-switch theorem~\cite{hakimi,fhm} is proved
+by making the neighbourhoods agree one vertex at a time. Lemma~\ref{lem:cramer}
+is proved without Cramér's theorem, by exponential tilting and Chebyshev's
+inequality for the tilted law: in part~(a), the intermediate value theorem gives
+a tilt $\lambda$ for which the tilted mean is $x+\delta$, and then the coefficients of
+$(\sum_ip_iz^i)^m$ within $m\delta$ of $m(x+\delta)$ have total mass at least
+$e^{m(\Lambda(\lambda)-\lambda(x+\delta)-\delta|\lambda|)}(1-M^2/(m\delta^2))$;
+the law of $\Sigma_m$ is identified with these coefficients by induction
+on~$m$. Proposition~C, Theorem~D and Remarks~9--11 follow Sections~\ref{sec:C}
+and~\ref{sec:D}, with Lemma~\ref{lem:cramer} applied to independent copies
+of~$\xi$ on a product probability space. In Proposition~C, the central limit
+theorem is not used for $\gamma\ge1/8$: Lemma~\ref{lem:cramer}(b) at points
+just below $\Ex\xi=d^2/4$, with the bounds $P_d(q)\ge4^dq^{d^2/4}$ (Jensen's
+inequality) and $P_d(q)\ge P_d(0)$, gives the lower bound $\log2$. In
+Remark~\ref{rem:size}, the limit $i_\gamma(mK_{d,d})/2^n\to1$ and its
+exponential rate come from a Markov bound at some $q>1$; the limit of the
+base as $\gamma\downarrow1/8$ comes from the equation $\varphi'(q^*)=0$ and
+the monotonicity of the tilted mean $qP_d'(q)/P_d(q)$; and the two values for
+$d=2$ come from the enclosures $9/5<q^*<181/100$ at $\gamma=1/4$ and
+$53/5<q^*<1063/100$ at $\gamma=49/100$, with
+$P_{H_2}(q)=P_2(q)^2-2(q-1)^4$ from Lemma~\ref{lem:switch}. The counts on graphs with
+at most twelve vertices (Tables~\ref{tab:six} and~\ref{tab:inst}) are computed
+by the kernel on bit masks: a graph on $\{0,\dots,n-1\}$ is encoded by the
+mask of its edges, a checker computes $\Nle t$ of a mask by a loop over all
+vertex masks, and a lemma proves that the checker computes $\Nle t$ of the
+graph; the graphs of the paper are identified with their masks by explicit
+isomorphisms. The cubic graphs on six vertices are enumerated over all
+$2^{15}$ edge masks, and each of the $70$ cubic ones is mapped onto $K_{3,3}$
+or the prism by an explicit permutation, found by a program and checked in
+Lean. For Table~\ref{tab:exh}, the $2$-switch theorem reduces the
+classification to a finite check: for each of the $2$, $6$ and $60$
+representatives and each of its $2$-switches, an explicit isomorphism onto a
+representative is checked by the kernel ($30$, $307$ and $7597$
+certificates), so every $d$-regular graph on $2d$ vertices is isomorphic to a
+representative. The representatives are pairwise non-isomorphic because their
+profiles $(\Nle t)_t$ differ, except for seven pairs with $d=5$, which are
+separated by two further isomorphism invariants; the maxima, the unique
+maximisers and the ties are read off the profiles, which the kernel computes
+in a similar way. The comparisons of Remarks~\ref{rem:size} and~\ref{rem:tenth} and of
+Section~\ref{sec:comp} are exact computations with polynomials: $i_\gamma$ of
+$mK_{d,d}$ and of $G_n$ is a sum of initial coefficients of $P_d^{\,m}$ or of
+$P_{H_d}^{\lfloor m/2\rfloor}P_d^{\,m\bmod2}$, where
+$P_{H_d}=P_d^2-2(z-1)D$ by Lemma~\ref{lem:switch}, and these powers are
+computed by the kernel as lists of coefficients, with multiplication and
+truncation proved correct. One verified loop is run once for each statement
+and each value of~$d$ (six runs), and each run checks the comparisons of its
+statement.
+Finite checks use \texttt{decide} and kernel reduction; there is no
+\texttt{native\_decide}.
+
+\paragraph{Checks.}
+For every statement of Table~\ref{tab:lean}, the recorded axiom audits
+(\texttt{\#print axioms}) report only the axioms \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. A static scan found no
+\texttt{sorry}, \texttt{admit}, \texttt{native\_decide}, \texttt{bv\_decide},
+\texttt{implemented\_by}, \texttt{extern}, \texttt{unsafe}, and no
+\texttt{axiom} declaration, in the proof files. The Lean package of this paper,
+$94$ modules (the statement file, its tests, the $91$ proof modules and the
+check file), was built module by module from an empty directory, reusing only
+the pinned toolchain and the compiled Mathlib and its dependencies, and every
+module was checked with \texttt{leanchecker}, all with exit code~$0$, twice
+(on 29 September 2026, between 03:19 and 04:16~UTC). For the release, the
+whole Lean project of the repository was rebuilt from a clean directory and
+all its modules were checked again with \texttt{leanchecker} (29 September
+2026, 12:49--13:54~UTC). The statement file, its tests, the proofs, the check
+file and the two programs that generated the data of the finite checks (the
+data are checked by the kernel, not trusted) are in version~\repoversion{} of
+the repository~\cite{repo}, directory \texttt{lean/Research/Backfill/Paper3/};
+the receipt of the two builds is in \texttt{certificates/carenini/lean-package-v2/},
+and the logs of the rebuild of the whole project are in \texttt{logs/}.
+
+\paragraph{Definitions the reader must trust.}
+Apart from Mathlib's graphs, regularity, isomorphisms, Cartesian products,
+disjoint sums, cycles, complete and complete bipartite graphs, cliques,
+bipartiteness, connectedness, connected components, cardinalities,
+polynomials, logarithms, limits, infima, integrals, probability measures,
+independence
+and laws of random variables, the statements use the following definitions,
+each at most a few lines long: \code{edgesIn}, \code{iCount}, \code{NleZ},
+\code{iGamma}, \code{boundary}, \code{edgePoly}, \code{triangles},
+\code{Qcount} and \code{c4} (the quantities $e_G(A)$, $\Nle t$ for natural and
+integer $t$, $i_\gamma$, $\partial(S)$, $P_G$, $T(G)$, $Q(G)$ and $c_4(G)$);
+\code{Kdd}, \code{copies}, \code{KddUnion}, \code{twoSwitch}, \code{Sd},
+\code{Hd}, \code{GnV}, \code{Gn}, \code{prism}, \code{threeK4} and
+\code{prismUnion} (the
+graphs of the paper, where \texttt{copies m G} is the Cartesian product of the
+empty graph on $m$ vertices with \code{G}, and a $2$-switch deletes two edges
+and adds two with Mathlib's \code{deleteEdges} and \code{fromEdgeSet});
+\code{CareniniQuestion}, its bipartite form, \code{Question13},
+\code{Admissible}, \code{tStar} and \code{gammaStar}; the polynomials
+\code{Pd}, \code{Wpoly} and \code{Dpoly} ($P_d$, $W_{\alpha\beta}$, $D$) and
+their real values (\code{evalR}), the
+functions \code{rhoFun} and \code{rho} ($\rho(d,\gamma)$), \code{phiFun},
+\code{IsQStar} and \code{baseRatio} (the function $\varphi$, its minimisers
+$q^*$ over $[1,\infty)$ and the base of Remark~\ref{rem:size}); and the
+predicates of Section~\ref{sec:comp}: a $2$-switch step, the number of
+isomorphism classes (a list of pairwise non-isomorphic representatives such
+that every graph with the property is isomorphic to one of them), failure,
+maximum, unique maximiser and tie at a threshold, a row of
+Table~\ref{tab:exh} (\code{Table2Row}), a win or a loss of $G_n$, and the
+list of the five values of $\gamma$ at $n=192$ (\code{gammasWin192}). A file
+of known-answer tests checks the counting and graph definitions, the
+polynomials, the $2$-switch step and the thresholds on small cases from the
+paper, including instances that must come out false; \code{c4}, \code{rhoFun},
+\code{rho}, \code{phiFun}, \code{IsQStar}, \code{baseRatio},
+\code{prismUnion}, the predicates of the question and the other predicates of
+Section~\ref{sec:comp} have no separate test.
+
+\paragraph{Faithfulness and non-claims.}
+A graph is a Mathlib \texttt{SimpleGraph} on a finite type, and ``a graph on
+$n$ vertices'' means that the type has $n$ elements; so the statements cover
+graphs on every finite vertex type. ``$G\ne mC_4$'' and ``other than
+$K_{d,d}$'' mean ``not isomorphic to''. The graphs $S_d$, $H_d$ and $G_n$ are
+defined for every choice of the vertices $x_1,x_2,y_1,y_2$ and
+$u_1,w_1,u_2,w_2$, and the statements hold for every choice, except the
+numerical statements Table4Counts, Remark10b, Remark12 and TheoremDNumerics and
+the two values in Remark10c, which use one fixed choice ($u_k$ and $w_k$ the
+first vertices of their sides). A lower limit
+$\liminf_m\frac1m\log a_m\ge L$ is stated as: for every $\varepsilon>0$,
+eventually $a_m\ge e^{m(L-\varepsilon)}$. Lemma~\ref{lem:cramer} is stated for
+every family of independent random variables with the law of $\xi$, on any
+probability space. ``Beats'' and ``loses'' are strict inequalities. A value
+stated as ``about'' is read as a half-open interval of the last digit: about
+$1.3\cdot10^{-17}$ means in $[1.25,1.35)\cdot10^{-17}$, and about $1.0006$
+and $1.0001$ mean in $[1.00055,1.00065)$ and $[1.00005,1.00015)$. The
+sentence on $n=192$ in Section~\ref{sec:comp} is read as holding for each
+$d\in\{2,3,4\}$. \code{SSSZBound} and \code{CareniniProp21} are the special
+cases of~\cite[Corollary~1.15]{sssz} and~\cite[Proposition~2.1]{car} that the
+paper uses, not these results in general. The statement LowGammaExamples
+consists of two arithmetic facts; that they cover all our counterexamples
+with $\gamma\le1/8$ is the case analysis in Section~1 (Scope). The agreement of the Lean
+definitions with those of the paper and of~\cite{car} was checked by the
+reviewing agents, not by a machine.
+
+\paragraph{Changes in version 2.}
+Apart from this section, the disclosure and the dates, version~2 differs from
+version~1 as follows. Two claims for which we have no formal proof were
+deleted: the approximation $i_{1/8}(G)=(1/2+O(n^{-1/4}))\,2^n$ in
+Remark~\ref{rem:size}, which rested on a normal approximation bound, with the
+claim that reading R6 holds at $\gamma=1/8$ (Table~\ref{tab:readings} and open
+question~3); and the count of $19{,}355$ labelled $4$-regular graphs on eight
+vertices in Section~\ref{sec:comp}. Three remarks that were not formalised
+were removed: that Remark~\ref{rem:n2d} is also the equality case of Mantel's
+theorem; that an explicit $n_0$ in Theorem~D could be extracted from
+quantitative forms of Cramér's theorem; and, in open question~1, a remark on
+where the infimum defining $\rho(d,\gamma)$ is attained. Sentences saying that
+our counterexamples are consistent with other statements were replaced by the
+statements themselves (abstract, Section~1, Remarks~\ref{rem:size}
+and~\ref{rem:lower}, Section~\ref{sec:comp}); Section~1 now gives the case
+analysis behind the claim that our counterexamples with $\gamma\le1/8$ have
+$\gamma d<1$; reading R1 now says that the minimality of $(6,3,1/18)$ is also
+formally verified; and Section~\ref{sec:comp} says which numbers come from
+programs of version~1. Section~1 also reports the searches for version~2,
+and a few sentences were reworded for precision or, like ``Our
+counterexamples are exact-count effects'', deleted as vague. The theorems and
+their written proofs are unchanged.
 
 \section{Open questions}\label{sec:open}
 \begin{enumerate}
@@ -1022,60 +1346,72 @@ repository~\cite{repo}.
  vertices, for all sufficiently large $n$ divisible by $2d$? At
  $\gamma=1/10$ the inequality fails for many $n$ up to $400$
  (Remark~\ref{rem:tenth}), but the competitors used there lose for large $n$
- (Remark~\ref{rem:lower}). For $\gamma<1/8$ the infimum defining
- $\rho(d,\gamma)$ is attained at some $q<1$, in the antiferromagnetic range in
- which the theorem of Sah, Sawhney, Stoner and Zhao favours $K_{d,d}$. This
- suggests a positive answer, but we make no claim.
+ (Remark~\ref{rem:lower}), and Proposition~C shows that the answer is
+ positive at the exponential scale. We make no claim.
 \item All our counterexamples with $\gamma\le1/8$ have $\gamma d<1$. Is
  there a counterexample, for some $n$, with $\gamma\le1/8$ and $\gamma d\ge2$,
  the range of small $\gamma$ in Carenini's Proposition~1.2?
 \item (Reading R6.) For fixed $d$ and $0<\gamma<1/8$, is the maximum of
  $i_\gamma$ over $d$-regular graphs on $n$ vertices at most
- $(1+o(1))\,i_\gamma(mK_{d,d})$ as $n\to\infty$? (For $\gamma=1/8$ it is; see
- Remark~\ref{rem:size}.)
+ $(1+o(1))\,i_\gamma(mK_{d,d})$ as $n\to\infty$? (We make no claim at
+ $\gamma=1/8$.)
 \item Which $d$-regular graphs maximise $i_\gamma$ when $1/8<\gamma<1/2$ and
  $n$ is large? By Proposition~\ref{prop:formula}, at $\gamma=\gamma^*$ the
  maximisers are the graphs that maximise $2T(G)-Q(G)$.
 \end{enumerate}
 
 \section*{Tool and computational resource disclosure}
-This work was carried out on 26 September 2026 (UTC) in a workflow directed
-by the author, using AI coding agents: Anthropic Claude Code, with the model
-Claude Opus~5.5. The author set the research programme, namely resolving
-open problems with AI agents and formal verification, and directed the
-agents; the agents selected this question. Claude Code agents found
-the counterexamples and the proofs, wrote the verification programs and the
-Lean formalisation, carried out the literature searches described in the
-introduction, and drafted this text. An independent Claude Code agent, without
-access to the reasoning of the agents that found the proofs, refereed the
-proofs and the correspondence between the Lean statements and the question,
-and recomputed the main numbers with its own programs. A second independent
-Claude Code agent then reviewed the whole paper: it checked the proofs and the
-statements against the Lean file, recomputed the numbers with its own
-programs, and checked the references. Before release, OpenAI Codex (desktop
-application) carried out a brief independent check of the question, the main
-statements and their Lean formalisation, and recounted the numbers $28$
-and~$24$; its one finding, that Theorem~A must require $n>0$, has been
-applied. The programs, logs and Lean code are
-available in version~1.3.0 of the repository~\cite{repo} (directories
-\texttt{certificates/carenini/}, \texttt{lean/Research/} and \texttt{logs/}).
-The author is not a professional mathematician.
-The author has read the paper and, using a side-by-side table, compared the
-statements of the Lean theorems with the results stated here.
-The correctness of the results rests on the written proofs and, for the
-results listed in Table~\ref{tab:lean}, also on the Lean formalisation; the
-computations of Section~\ref{sec:comp} are additional cross-checks. AI systems
-are not authors of this paper; the author takes full responsibility for its
-content.
+Version~1 of this paper was produced on 26 September 2026 (UTC) in a workflow
+directed by the author, using AI coding agents: Anthropic Claude Code, with
+the model Claude Opus~5.5. The author set the research programme, namely
+resolving open problems with AI agents and formal verification, and directed
+the agents; the agents selected this question. Claude Code agents found the
+counterexamples and the proofs, wrote the verification programs and the Lean
+formalisation of version~1, carried out the literature searches described in
+the introduction, and drafted the text. An independent Claude Code agent,
+without access to the reasoning of the agents that found the proofs, refereed
+the proofs and the correspondence between the Lean statements and the
+question, and recomputed the main numbers with its own programs. A second
+independent Claude Code agent then reviewed the whole paper: it checked the
+proofs and the statements against the Lean file, recomputed the numbers with
+its own programs, and checked the references. Before release, OpenAI Codex
+(desktop application) carried out a brief independent check of the question,
+the main statements and their Lean formalisation, and recounted the numbers
+$28$ and~$24$; its one finding, that Theorem~A must require $n>0$, was
+applied.
+
+Version~2 was produced from 27 to 29 September 2026.
+A Claude Code agent (model Claude Opus~5.5) wrote version~1 of the statement
+file of Section~\ref{sec:lean}, and an independent Claude Code agent reviewed
+it and recomputed the numbers of the paper with its own programs. OpenAI Codex
+(desktop application; models \texttt{gpt-6-astra} and \texttt{gpt-6-sol})
+checked version~1 of the paper independently, recomputing most of its numbers
+with its own programs, and audited version~1 of the statement file. Codex's usage quota
+then ran out, and Claude Code carried out the rest: it wrote version~2 of the
+statement file, which an independent Claude Code agent reviewed; on
+29 September 2026 Claude Code agents wrote the Lean proofs, working in
+parallel, and Claude Code ran the checks described in Section~\ref{sec:lean}.
+An independent Claude Code agent reviewed the Lean package and checked the
+account of it in Section~\ref{sec:lean} against the code. Claude Code drafted
+the changes of version~2, and another independent Claude Code agent refereed a
+draft of version~2 and recomputed the main numbers with its own programs.
+Codex has not reviewed version~2 of the paper, version~2 of the statement
+file or the Lean proofs. Throughout, ``we'' refers to this workflow. The
+author is not a professional mathematician.
+% Author role chosen by the user on 2026-09-29T12:47:07Z (option A).
+The author has read version~2 of the paper and, using a side-by-side table,
+compared the statements of the Lean theorems with the results stated here.
+No human mathematician has reviewed this paper. The correctness of the
+results rests on the Lean proofs of the statements in Table~\ref{tab:lean}
+and on the agreement of those statements with the paper, which was checked
+by the reviewing agents; the written proofs are given for the reader. AI
+systems are not authors of this paper; the author takes full responsibility
+for its content.
 
 \begin{thebibliography}{99}
 \bibitem{alon}
 N.~Alon, Independent sets in regular graphs and sum-free subsets of finite
 groups, \emph{Israel J.\ Math.} \textbf{73} (1991), 247--256.
-\bibitem{br}
-R.~R. Bahadur and R.~Ranga Rao, On deviations of the sample mean,
-\emph{Ann.\ Math.\ Statist.} \textbf{31} (1960), 1015--1027,
-\url{https://doi.org/10.1214/aoms/1177705674}.
 \bibitem{car}
 G.~Carenini, Counting almost independent sets in regular graphs,
 arXiv:2609.28527v1, 22 September 2026.
@@ -1085,9 +1421,12 @@ Applications}, 2nd ed., Applications of Mathematics~38, Springer, New York,
 1998.
 \bibitem{repo}
 H.~Dong, \emph{ai4math-results}, repository,
-\url{https://github.com/Horace-Maxwell/ai4math-results}, version~1.3.0
-(2026); archived at Zenodo under the concept DOI
+\url{https://github.com/Horace-Maxwell/ai4math-results}, versions~1.3.0
+and~\repoversion{} (2026); archived at Zenodo under the concept DOI
 \url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{finner}
+H.~Finner, A generalization of Hölder's inequality and some probability
+inequalities, \emph{Ann.\ Probab.} \textbf{20} (1992), 1893--1901.
 \bibitem{fhm}
 D.~R. Fulkerson, A.~J. Hoffman and M.~H. McAndrew, Some properties of graphs
 with multiple edges, \emph{Canad.\ J.\ Math.} \textbf{17} (1965), 166--177.
@@ -1098,10 +1437,6 @@ vertices of a linear graph.~I, \emph{J.\ Soc.\ Indust.\ Appl.\ Math.}
 \bibitem{kahn}
 J.~Kahn, An entropy approach to the hard-core model on bipartite graphs,
 \emph{Combin.\ Probab.\ Comput.} \textbf{10} (2001), 219--237.
-\bibitem{mantel}
-W.~Mantel, Problem 28 (solution by H.~Gouwentak, W.~Mantel, J.~Teixeira de
-Mattes, F.~Schuh and W.~A. Wythoff), \emph{Wiskundige Opgaven} \textbf{10}
-(1907), 60--61.
 \bibitem{mathlib}
 The mathlib Community, The Lean mathematical library, in \emph{Proceedings of
 the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs}
@@ -1110,10 +1445,6 @@ the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs}
 OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences},
 \url{https://oeis.org}, sequences A002851, A006820 and A006821, accessed 26
 September 2026.
-\bibitem{ross}
-N.~Ross, Fundamentals of Stein's method, \emph{Probab.\ Surv.} \textbf{8}
-(2011), 210--293, \url{https://doi.org/10.1214/11-PS182}; theorem numbers as
-in arXiv:1109.1880v1.
 \bibitem{sssz}
 A.~Sah, M.~Sawhney, D.~Stoner and Y.~Zhao, A reverse Sidorenko inequality,
 \emph{Invent.\ Math.} \textbf{221} (2020), 665--711,

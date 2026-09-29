@@ -1,0 +1,2216 @@
+2026-09-29T13:12:56Z cmd: lake build Research.AxialMSZ.Audit Research.CareniniAudit Research.HKOTriameterAudit Research.ICGBridgeAudit Research.ICGEqualParityBAudit Research.ICGEqualParityBCertAudit Research.ICGGeneralAudit Research.RM714WeightsAudit Research.SwitchingDiam4CubicAudit Research.SwitchingRowCountAudit Research.SwitchingThmHAudit Research.SwitchingWalkProfileAudit
+ℹ [8924/8953] Replayed Research.AxialMSZ.Proof.ExP
+info: Research/AxialMSZ/Proof/ExP.lean:306:0: 'CodexAxial.check_RemarkP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExP.lean:307:0: 'CodexAxial.check_ExP_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8925/8953] Replayed Research.AxialMSZ.Proof.ExSBase
+info: Research/AxialMSZ/Proof/ExSBase.lean:354:0: 'CodexAxial.SimpleExample.axial' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8926/8953] Replayed Research.AxialMSZ.Proof.ExSSimple
+info: Research/AxialMSZ/Proof/ExSSimple.lean:100:0: 'CodexAxial.SimpleExample.simple' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8927/8953] Replayed Research.AxialMSZ.Proof.ExSGraph
+info: Research/AxialMSZ/Proof/ExSGraph.lean:100:0: 'CodexAxial.SimpleExample.disconnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExSGraph.lean:101:0: 'CodexAxial.SimpleExample.components_do_not_annihilate' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8929/8953] Replayed Research.AxialMSZ.Proof.Laws
+info: Research/AxialMSZ/Proof/Laws.lean:54:0: 'CodexAxial.check_Laws_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8930/8953] Replayed Research.AxialMSZ.Proof.ExS
+info: Research/AxialMSZ/Proof/ExS.lean:23:0: 'CodexAxial.check_TheoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExS.lean:24:0: 'CodexAxial.check_ExS_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExS.lean:25:0: 'CodexAxial.check_not_MS_Conjecture_3_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8931/8953] Replayed Research.AxialMSZ.Proof.ExEBase
+info: Research/AxialMSZ/Proof/ExEBase.lean:310:0: 'CodexAxial.DominanceExample.axial' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8932/8953] Replayed Research.AxialMSZ.Proof.ExEBlocks
+info: Research/AxialMSZ/Proof/ExEBlocks.lean:168:0: 'CodexAxial.DominanceExample.blocks_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExEBlocks.lean:169:0: 'CodexAxial.DominanceExample.indecomposable' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8933/8953] Replayed Research.AxialMSZ.Proof.ExEGraph
+info: Research/AxialMSZ/Proof/ExEGraph.lean:100:0: 'CodexAxial.DominanceExample.disconnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExEGraph.lean:101:0: 'CodexAxial.DominanceExample.components_do_not_annihilate' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8934/8953] Replayed Research.AxialMSZ.Proof.ExE
+info: Research/AxialMSZ/Proof/ExE.lean:13:0: 'CodexAxial.check_TheoremB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExE.lean:14:0: 'CodexAxial.check_ExE_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8935/8953] Replayed Research.AxialMSZ.Proof.ExDBase
+info: Research/AxialMSZ/Proof/ExDBase.lean:518:0: 'CodexAxial.DecomposableExample.axial' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8936/8953] Replayed Research.AxialMSZ.Proof.ExDBlock
+info: Research/AxialMSZ/Proof/ExDBlock.lean:194:0: 'CodexAxial.DecomposableExample.block_a_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:195:0: 'CodexAxial.DecomposableExample.decomposable_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:196:0: 'CodexAxial.DecomposableExample.first_internal_ideal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:197:0: 'CodexAxial.DecomposableExample.second_internal_ideal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDBlock.lean:198:0: 'CodexAxial.DecomposableExample.notWholeIdeal' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8937/8953] Replayed Research.AxialMSZ.Proof.ExDFrobenius
+info: Research/AxialMSZ/Proof/ExDFrobenius.lean:34:0: 'CodexAxial.DecomposableExample.frobenius_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8938/8953] Replayed Research.AxialMSZ.Proof.ExD
+info: Research/AxialMSZ/Proof/ExD.lean:24:0: 'CodexAxial.check_ExD_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExD.lean:25:0: 'CodexAxial.check_TheoremC' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8939/8953] Replayed Research.AxialMSZ.Proof.SimpleIndecomposable
+info: Research/AxialMSZ/Proof/SimpleIndecomposable.lean:31:0: 'CodexAxial.simple_not_decomposable' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8940/8953] Replayed Research.AxialMSZ.Proof.PConsequence
+info: Research/AxialMSZ/Proof/PConsequence.lean:16:0: 'CodexAxial.FromP.check_Dominance_nonsymmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8941/8953] Replayed Research.AxialMSZ.SupplementDChallenge
+info: Research/AxialMSZ/SupplementDChallenge.lean:18:0: 'CodexAxial.SupplementChallenge.ExD_axes_in_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/SupplementDChallenge.lean:19:0: 'CodexAxial.SupplementChallenge.ExD_block_not_axial_on_contained_axes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8942/8953] Replayed Research.AxialMSZ.Proof.ExDSupplement
+info: Research/AxialMSZ/Proof/ExDSupplement.lean:56:0: 'CodexAxial.check_ExD_axes_in_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/ExDSupplement.lean:57:0: 'CodexAxial.check_ExD_block_not_axial_on_contained_axes' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8943/8953] Replayed Research.Carenini
+info: Research/Carenini.lean:650:0: 'Carenini.not_careniniQuestion_six' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:651:0: 'Carenini.prism_beats_K33' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:652:0: 'Carenini.K33Iso' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:653:0: 'Carenini.prismIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:654:0: 'Carenini.K33IsoKddUnion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:655:0: 'Carenini.not_careniniQuestion_two_d' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:656:0: 'Carenini.iCount_one_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:657:0: 'Carenini.switchedKdd_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:658:0: 'Carenini.not_careniniQuestion_eight_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:659:0: 'Carenini.not_careniniQuestion_twelve_bip' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:660:0: 'Carenini.not_careniniQuestion_twelve_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:661:0: 'Carenini.H3_bipartite' does not depend on any axioms
+info: Research/Carenini.lean:662:0: 'Carenini.H3_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Carenini.lean:663:0: 'Carenini.KddUnion_two_three_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8944/8953] Replayed Research.HKOTriameter
+info: Research/HKOTriameter.lean:503:0: 'HKOTriameter.not_problem1Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:504:0: 'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:505:0: 'HKOTriameter.not_problem2Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:506:0: 'HKOTriameter.not_problem2ClaimWeak' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:507:0: 'HKOTriameter.G1_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:508:0: 'HKOTriameter.G2_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:509:0: 'HKOTriameter.not_question3_G1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:510:0: 'HKOTriameter.isPeripheral_iff_isPeripheralPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:511:0: 'HKOTriameter.dist_eq_of_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:512:0: 'HKOTriameter.C6_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8945/8953] Replayed Research.HKOTriameterDH
+info: Research/HKOTriameterDH.lean:309:0: 'HKOTriameter.core' depends on axioms: [propext, Quot.sound]
+info: Research/HKOTriameterDH.lean:310:0: 'HKOTriameter.extends_of_no_diametral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:311:0: 'HKOTriameter.question3_or_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:312:0: 'HKOTriameter.problem3_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:313:0: 'HKOTriameter.problem3ClaimFP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:314:0: 'HKOTriameter.F1G_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:315:0: 'HKOTriameter.F1G_not_question3'' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:316:0: 'HKOTriameter.F1H_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:317:0: 'HKOTriameter.F1H_not_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:318:0: 'HKOTriameter.G1_not_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:319:0: 'HKOTriameter.G2_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:320:0: 'HKOTriameter.F1G_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8946/8953] Replayed Research.CirculantQ3
+warning: Research/CirculantQ3.lean:167:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: Research/CirculantQ3.lean:186:0: 'CirculantQ3.coefficient_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:187:0: 'CirculantQ3.exactEnergy_eq_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:188:0: 'CirculantQ3.exactEnergy_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:189:0: 'CirculantQ3.exactEnergy_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CirculantQ3.lean:190:0: 'CirculantQ3.exactEnergy_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8947/8959] Replayed Research.AxialMSZ.Proof.Corollary
+info: Research/AxialMSZ/Proof/Corollary.lean:39:0: 'CodexAxial.check_Corollary' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8948/8959] Replayed Research.AxialMSZ.Proof.SFourNegations
+info: Research/AxialMSZ/Proof/SFourNegations.lean:39:0: 'CodexAxial.FromS.check_not_MS_Conjecture_3_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/SFourNegations.lean:40:0: 'CodexAxial.FromS.check_not_FinestSumDecomposition_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/SFourNegations.lean:41:0: 'CodexAxial.FromS.check_not_Indecomposable_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Proof/SFourNegations.lean:42:0: 'CodexAxial.FromS.check_not_Simple_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8949/8959] Replayed Research.AxialMSZ.Check
+info: Research/AxialMSZ/Check.lean:61:0: 'AxialMSZ.Check.check_Laws_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:62:0: 'AxialMSZ.Check.check_ExS_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:63:0: 'AxialMSZ.Check.check_ExE_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:64:0: 'AxialMSZ.Check.check_ExD_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:65:0: 'AxialMSZ.Check.check_ExP_Statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:66:0: 'AxialMSZ.Check.check_TheoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:67:0: 'AxialMSZ.Check.check_TheoremB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:68:0: 'AxialMSZ.Check.check_TheoremC' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:69:0: 'AxialMSZ.Check.check_RemarkP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:70:0: 'AxialMSZ.Check.check_Corollary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:71:0: 'AxialMSZ.Check.check_not_MS_Conjecture_3_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:72:0: 'AxialMSZ.Check.check_not_FinestSumDecomposition_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:73:0: 'AxialMSZ.Check.check_not_Indecomposable_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:74:0: 'AxialMSZ.Check.check_not_Simple_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:75:0: 'AxialMSZ.Check.check_Dominance_nonsymmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:76:0: 'AxialMSZ.Check.check_ExD_axes_in_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/AxialMSZ/Check.lean:77:0: 'AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8950/8959] Built Research.HKOTriameterAudit (3.0s)
+info: Research/HKOTriameterAudit.lean:15:0: def HKOTriameter.triDist.{u_1} : {V : Type u_1} → SimpleGraph V → V → V → V → ℕ :=
+fun {V} G u v w => G.dist u v + G.dist u w + G.dist v w
+info: Research/HKOTriameterAudit.lean:16:0: def HKOTriameter.triameter.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → ℕ :=
+fun {V} [Fintype V] G => Finset.univ.sup fun t => triDist G t.1 t.2.1 t.2.2
+info: Research/HKOTriameterAudit.lean:17:0: def HKOTriameter.IsTriametral.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → V → V → V → Prop :=
+fun {V} [Fintype V] G u v w => triDist G u v w = triameter G
+info: Research/HKOTriameterAudit.lean:18:0: def HKOTriameter.IsDiametral.{u_1} : {V : Type u_1} → SimpleGraph V → V → V → Prop :=
+fun {V} G u v => G.dist u v = G.diam
+info: Research/HKOTriameterAudit.lean:19:0: def HKOTriameter.IsPeripheral.{u_1} : {V : Type u_1} → SimpleGraph V → V → Prop :=
+fun {V} G u => G.eccent u = G.ediam
+info: Research/HKOTriameterAudit.lean:20:0: def HKOTriameter.IsPeripheralPair.{u_1} : {V : Type u_1} → SimpleGraph V → V → Prop :=
+fun {V} G u => ∃ v, IsDiametral G u v
+info: Research/HKOTriameterAudit.lean:21:0: def HKOTriameter.InInterval.{u_1} : {V : Type u_1} → SimpleGraph V → V → V → V → Prop :=
+fun {V} G u v x => G.dist u x + G.dist x v = G.dist u v
+info: Research/HKOTriameterAudit.lean:22:0: def HKOTriameter.IsMedian.{u_1} : {V : Type u_1} → SimpleGraph V → Prop :=
+fun {V} G => G.Connected ∧ ∀ (u v w : V), ∃! x, InInterval G u v x ∧ InInterval G u w x ∧ InInterval G v w x
+info: Research/HKOTriameterAudit.lean:23:0: def HKOTriameter.Question3'.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G => ∀ (a b c : V), IsTriametral G a b c → IsPeripheral G a ∨ IsPeripheral G b ∨ IsPeripheral G c
+info: Research/HKOTriameterAudit.lean:24:0: def HKOTriameter.Question3'Pair.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G =>
+  ∀ (a b c : V), IsTriametral G a b c → IsPeripheralPair G a ∨ IsPeripheralPair G b ∨ IsPeripheralPair G c
+info: Research/HKOTriameterAudit.lean:25:0: def HKOTriameter.Question3.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G => ∀ (a b c : V), IsTriametral G a b c → IsDiametral G a b ∨ IsDiametral G a c ∨ IsDiametral G b c
+info: Research/HKOTriameterAudit.lean:26:0: def HKOTriameter.Question4.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G => ∀ (x y : V), IsDiametral G x y → ∃ z, IsTriametral G x y z
+info: Research/HKOTriameterAudit.lean:27:0: def HKOTriameter.Question4'.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G => ∀ (x : V), IsPeripheral G x → ∃ y z, IsTriametral G x y z
+info: Research/HKOTriameterAudit.lean:28:0: def HKOTriameter.Problem2ClaimWeak : Prop :=
+∀ (V : Type) [inst : Fintype V] (G : SimpleGraph V), IsMedian G → Question4' G
+info: Research/HKOTriameterAudit.lean:29:0: def HKOTriameter.Problem1Claim : Prop :=
+∀ (V : Type) [inst : Fintype V] (G : SimpleGraph V), IsMedian G → Question3' G
+info: Research/HKOTriameterAudit.lean:30:0: def HKOTriameter.Problem1ClaimPair : Prop :=
+∀ (V : Type) [inst : Fintype V] (G : SimpleGraph V), IsMedian G → Question3'Pair G
+info: Research/HKOTriameterAudit.lean:31:0: def HKOTriameter.Problem2Claim : Prop :=
+∀ (V : Type) [inst : Fintype V] (G : SimpleGraph V), IsMedian G → Question4 G
+info: Research/HKOTriameterAudit.lean:32:0: def HKOTriameter.g1Edges : List (ℕ × ℕ) :=
+[(0, 1), (0, 2), (0, 4), (0, 6), (1, 3), (2, 3), (2, 5), (4, 5), (4, 7), (6, 7)]
+info: Research/HKOTriameterAudit.lean:33:0: def HKOTriameter.G1 : SimpleGraph (Fin 8) :=
+{ Adj := fun i j => (↑i, ↑j) ∈ g1Edges ∨ (↑j, ↑i) ∈ g1Edges, symm := G1._proof_1, loopless := G1._proof_2 }
+info: Research/HKOTriameterAudit.lean:34:0: def HKOTriameter.g2Edges : List (ℕ × ℕ) :=
+[(0, 2), (0, 3), (0, 6), (1, 2), (2, 5), (3, 4), (3, 5), (6, 7)]
+info: Research/HKOTriameterAudit.lean:35:0: def HKOTriameter.G2 : SimpleGraph (Fin 8) :=
+{ Adj := fun i j => (↑i, ↑j) ∈ g2Edges ∨ (↑j, ↑i) ∈ g2Edges, symm := G2._proof_1, loopless := G2._proof_2 }
+info: Research/HKOTriameterAudit.lean:36:0: def HKOTriameter.FP : ℕ → ℕ → ℕ → Prop :=
+fun A B C => A = B ∧ C ≤ A + 2 ∨ A = C ∧ B ≤ A + 2 ∨ B = C ∧ A ≤ B + 2
+info: Research/HKOTriameterAudit.lean:37:0: def HKOTriameter.FourPointBM.{u_1} : {V : Type u_1} → SimpleGraph V → Prop :=
+fun {V} G => ∀ (u v w x : V), FP (G.dist u v + G.dist w x) (G.dist u w + G.dist v x) (G.dist u x + G.dist v w)
+info: Research/HKOTriameterAudit.lean:38:0: def HKOTriameter.Problem3ClaimFP : Prop :=
+∀ (V : Type) [inst : Fintype V] (G : SimpleGraph V), G.Connected → FourPointBM G → Question3' G ∨ Question4 G
+info: Research/HKOTriameterAudit.lean:39:0: def HKOTriameter.f1gEdges : List (ℕ × ℕ) :=
+[(0, 1), (1, 2), (1, 3), (1, 4), (2, 5), (3, 5), (4, 5)]
+info: Research/HKOTriameterAudit.lean:40:0: def HKOTriameter.f1hEdges : List (ℕ × ℕ) :=
+[(0, 3), (0, 4), (0, 5), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (4, 5)]
+info: Research/HKOTriameterAudit.lean:42:0: def SimpleGraph.dist.{u_1} : {V : Type u_1} → SimpleGraph V → V → V → ℕ :=
+fun {V} G u v => (G.edist u v).toNat
+info: Research/HKOTriameterAudit.lean:43:0: def SimpleGraph.edist.{u_1} : {V : Type u_1} → SimpleGraph V → V → V → ℕ∞ :=
+fun {V} G u v => ⨅ w, ↑w.length
+info: Research/HKOTriameterAudit.lean:44:0: def SimpleGraph.diam.{u_1} : {α : Type u_1} → SimpleGraph α → ℕ :=
+fun {α} G => G.ediam.toNat
+info: Research/HKOTriameterAudit.lean:45:0: def SimpleGraph.ediam.{u_1} : {α : Type u_1} → SimpleGraph α → ℕ∞ :=
+fun {α} G => ⨆ u, G.eccent u
+info: Research/HKOTriameterAudit.lean:46:0: def SimpleGraph.eccent.{u_1} : {α : Type u_1} → SimpleGraph α → α → ℕ∞ :=
+fun {α} G u => ⨆ v, G.edist u v
+info: Research/HKOTriameterAudit.lean:49:0: not_problem1Claim : ¬Problem1Claim
+info: Research/HKOTriameterAudit.lean:50:0: not_problem1ClaimPair : ¬Problem1ClaimPair
+info: Research/HKOTriameterAudit.lean:51:0: not_problem2Claim : ¬Problem2Claim
+info: Research/HKOTriameterAudit.lean:52:0: not_problem2ClaimWeak : ¬Problem2ClaimWeak
+info: Research/HKOTriameterAudit.lean:53:0: G1_counterexample : IsMedian G1 ∧
+  1 ≠ 5 ∧ 1 ≠ 6 ∧ 5 ≠ 6 ∧ IsTriametral G1 1 5 6 ∧ ¬IsPeripheral G1 1 ∧ ¬IsPeripheral G1 5 ∧ ¬IsPeripheral G1 6
+info: Research/HKOTriameterAudit.lean:54:0: G2_counterexample : IsMedian G2 ∧ IsDiametral G2 5 7 ∧ ∀ (z : Fin 8), ¬IsTriametral G2 5 7 z
+info: Research/HKOTriameterAudit.lean:55:0: not_question3_G1 : ¬Question3 G1
+info: Research/HKOTriameterAudit.lean:56:0: @isPeripheral_iff_isPeripheralPair : ∀ {V : Type u_1} (G : SimpleGraph V) [Fintype V] [Nonempty V],
+  G.Connected → ∀ (u : V), IsPeripheral G u ↔ IsPeripheralPair G u
+info: Research/HKOTriameterAudit.lean:57:0: @dist_eq_of_certificate : ∀ {V : Type u_1} (G : SimpleGraph V) (D : V → V → ℕ),
+  (∀ (x : V), D x x = 0) →
+    (∀ (x y : V), D x y = 0 → x = y) →
+      (∀ (x y : V), D x y ≠ 0 → ∃ z, G.Adj x z ∧ D z y + 1 = D x y) →
+        (∀ (u v w : V), G.Adj u v → D u w ≤ D v w + 1) → ∀ (x y : V), G.dist x y = D x y
+info: Research/HKOTriameterAudit.lean:58:0: G1_diam : G1.diam = 4
+info: Research/HKOTriameterAudit.lean:59:0: G1_triameter : triameter G1 = 8
+info: Research/HKOTriameterAudit.lean:60:0: G2_diam : G2.diam = 4
+info: Research/HKOTriameterAudit.lean:61:0: G2_triameter : triameter G2 = 12
+info: Research/HKOTriameterAudit.lean:62:0: C6_not_median : ¬IsMedian C6
+info: Research/HKOTriameterAudit.lean:63:0: core : ∀ (D eab eac ebc pa pb pc qa qb qc : ℕ),
+  eab + 1 ≤ D →
+    eac + 1 ≤ D →
+      ebc + 1 ≤ D →
+        FP (D + eab) (pa + qb) (pb + qa) →
+          FP (D + eac) (pa + qc) (pc + qa) →
+            FP (D + ebc) (pb + qc) (pc + qb) →
+              D + pa + qa + 1 ≤ eab + eac + ebc →
+                D + pb + qb + 1 ≤ eab + eac + ebc → D + pc + qc + 1 ≤ eab + eac + ebc → False
+info: Research/HKOTriameterAudit.lean:64:0: @extends_of_no_diametral : ∀ {V : Type u_1} [inst : Fintype V] (G : SimpleGraph V),
+  FourPointBM G →
+    ∀ (a b c : V),
+      IsTriametral G a b c →
+        G.dist a b < G.diam →
+          G.dist a c < G.diam →
+            G.dist b c < G.diam →
+              ∀ (x y : V), IsDiametral G x y → IsTriametral G x y a ∨ IsTriametral G x y b ∨ IsTriametral G x y c
+info: Research/HKOTriameterAudit.lean:65:0: @question3_or_question4 : ∀ {V : Type u_1} [inst : Fintype V] (G : SimpleGraph V),
+  G.Connected → FourPointBM G → Question3 G ∨ Question4 G
+info: Research/HKOTriameterAudit.lean:66:0: @question3'_of_question3 : ∀ {V : Type u_1} [inst : Fintype V] (G : SimpleGraph V),
+  G.Connected → Question3 G → Question3' G
+info: Research/HKOTriameterAudit.lean:67:0: @problem3_fourPoint : ∀ {V : Type u_1} [inst : Fintype V] (G : SimpleGraph V),
+  G.Connected → FourPointBM G → Question3' G ∨ Question4 G
+info: Research/HKOTriameterAudit.lean:68:0: problem3ClaimFP : Problem3ClaimFP
+info: Research/HKOTriameterAudit.lean:69:0: F1G_fourPoint : FourPointBM F1G
+info: Research/HKOTriameterAudit.lean:70:0: F1G_not_question3' : ¬Question3' F1G
+info: Research/HKOTriameterAudit.lean:71:0: F1H_fourPoint : FourPointBM F1H
+info: Research/HKOTriameterAudit.lean:72:0: F1H_not_question4 : ¬Question4 F1H
+info: Research/HKOTriameterAudit.lean:73:0: G1_not_fourPoint : ¬FourPointBM G1
+info: Research/HKOTriameterAudit.lean:74:0: G2_fourPoint : FourPointBM G2
+info: Research/HKOTriameterAudit.lean:75:0: F1G_not_median : ¬IsMedian F1G
+info: Research/HKOTriameterAudit.lean:77:0: 'HKOTriameter.not_problem1Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:78:0: 'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:79:0: 'HKOTriameter.not_problem2Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:80:0: 'HKOTriameter.not_problem2ClaimWeak' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:81:0: 'HKOTriameter.G1_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:82:0: 'HKOTriameter.G2_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:83:0: 'HKOTriameter.not_question3_G1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:84:0: 'HKOTriameter.isPeripheral_iff_isPeripheralPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:85:0: 'HKOTriameter.C6_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:86:0: 'HKOTriameter.core' depends on axioms: [propext, Quot.sound]
+info: Research/HKOTriameterAudit.lean:87:0: 'HKOTriameter.extends_of_no_diametral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:88:0: 'HKOTriameter.question3_or_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:89:0: 'HKOTriameter.problem3_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:90:0: 'HKOTriameter.problem3ClaimFP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:91:0: 'HKOTriameter.F1G_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:92:0: 'HKOTriameter.F1G_not_question3'' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:93:0: 'HKOTriameter.F1H_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:94:0: 'HKOTriameter.F1H_not_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:95:0: 'HKOTriameter.G1_not_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:96:0: 'HKOTriameter.G2_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterAudit.lean:97:0: 'HKOTriameter.F1G_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8951/8959] Built Research.CareniniAudit (4.2s)
+info: Research/CareniniAudit.lean:15:0: def Carenini.edgesIn.{u_1} : {V : Type u_1} →
+  [Fintype V] → [DecidableEq V] → (G : SimpleGraph V) → [DecidableRel G.Adj] → Finset V → ℕ :=
+fun {V} [Fintype V] [DecidableEq V] G [DecidableRel G.Adj] A => {x ∈ G.edgeFinset | x ∈ A.sym2}.card
+info: Research/CareniniAudit.lean:16:0: def Carenini.iCount.{u_1} : {V : Type u_1} →
+  [Fintype V] → [DecidableEq V] → (G : SimpleGraph V) → [DecidableRel G.Adj] → ℕ → ℕ :=
+fun {V} [Fintype V] [DecidableEq V] G [DecidableRel G.Adj] t => {A | Carenini.edgesIn G A ≤ t}.card
+info: Research/CareniniAudit.lean:17:0: def Carenini.iGamma.{u_1} : {V : Type u_1} →
+  [Fintype V] → [DecidableEq V] → (G : SimpleGraph V) → [DecidableRel G.Adj] → ℕ → ℝ → ℕ :=
+fun {V} [Fintype V] [DecidableEq V] G [DecidableRel G.Adj] d γ =>
+  {A | ↑(Carenini.edgesIn G A) ≤ γ * ↑d * ↑(Fintype.card V)}.card
+info: Research/CareniniAudit.lean:18:0: def Carenini.KddUnion : (m d : ℕ) → SimpleGraph (Fin m × (Fin d ⊕ Fin d)) :=
+fun m d =>
+  { Adj := fun x y => x.1 = y.1 ∧ (completeBipartiteGraph (Fin d) (Fin d)).Adj x.2 y.2, symm := ⋯, loopless := ⋯ }
+info: Research/CareniniAudit.lean:19:0: def Carenini.CareniniQuestion : ℕ → ℕ → ℝ → Prop :=
+fun n d γ =>
+  ∀ (V : Type) [inst : Fintype V] [inst_1 : DecidableEq V] (G : SimpleGraph V) [inst_2 : DecidableRel G.Adj],
+    Fintype.card V = n →
+      G.IsRegularOfDegree d → Carenini.iGamma G d γ ≤ Carenini.iGamma (Carenini.KddUnion (n / (2 * d)) d) d γ
+info: Research/CareniniAudit.lean:22:0: def Carenini.K33 : SimpleGraph (Fin 6) :=
+{ Adj := fun i j => ↑i < 3 ∧ 3 ≤ ↑j ∨ 3 ≤ ↑i ∧ ↑j < 3, symm := Carenini.K33._proof_3,
+  loopless := Carenini.K33._proof_4 }
+info: Research/CareniniAudit.lean:23:0: def Carenini.prism : SimpleGraph (Fin 6) :=
+{ Adj := fun i j => i ≠ j ∧ ((↑i < 3 ↔ ↑j < 3) ∨ ↑i % 3 = ↑j % 3), symm := Carenini.prism._proof_1,
+  loopless := Carenini.prism._proof_2 }
+info: Research/CareniniAudit.lean:24:0: def Carenini.swAdj : {d : ℕ} → Fin d ⊕ Fin d → Fin d ⊕ Fin d → Prop :=
+fun {d} x x_1 =>
+  match x, x_1 with
+  | Sum.inl a, Sum.inl b => ↑a = 0 ∧ ↑b = 1 ∨ ↑a = 1 ∧ ↑b = 0
+  | Sum.inr a, Sum.inr b => ↑a = 0 ∧ ↑b = 1 ∨ ↑a = 1 ∧ ↑b = 0
+  | Sum.inl a, Sum.inr b => ¬(↑a = ↑b ∧ ↑a ≤ 1)
+  | Sum.inr a, Sum.inl b => ¬(↑a = ↑b ∧ ↑a ≤ 1)
+info: Research/CareniniAudit.lean:25:0: def Carenini.switchedKdd : (d : ℕ) → SimpleGraph (Fin d ⊕ Fin d) :=
+fun d => { Adj := Carenini.swAdj, symm := ⋯, loopless := ⋯ }
+info: Research/CareniniAudit.lean:26:0: def Carenini.C8 : SimpleGraph (Fin 8) :=
+{ Adj := fun i j => (↑i + 1) % 8 = ↑j ∨ (↑j + 1) % 8 = ↑i, symm := Carenini.C8._proof_2,
+  loopless := Carenini.C8._proof_3 }
+info: Research/CareniniAudit.lean:27:0: def Carenini.h3Adj : Fin 12 → Fin 12 → Bool :=
+fun i j =>
+  have a := ↑i;
+  have b := ↑j;
+  have cross := decide (a % 6 < 3) != decide (b % 6 < 3);
+  have same := a / 6 == b / 6;
+  have removed := a == 0 && b == 3 || a == 3 && b == 0 || a == 6 && b == 9 || a == 9 && b == 6;
+  have added := a == 0 && b == 9 || a == 9 && b == 0 || a == 6 && b == 3 || a == 3 && b == 6;
+  cross && same && !removed || added
+info: Research/CareniniAudit.lean:28:0: def Carenini.H3 : SimpleGraph (Fin 12) :=
+{ Adj := fun i j => Carenini.h3Adj i j = true, symm := Carenini.H3._proof_1, loopless := Carenini.H3._proof_2 }
+info: Research/CareniniAudit.lean:29:0: def Carenini.threeK4 : SimpleGraph (Fin 12) :=
+{ Adj := fun i j => i ≠ j ∧ ↑i / 4 = ↑j / 4, symm := Carenini.threeK4._proof_1, loopless := Carenini.threeK4._proof_2 }
+info: Research/CareniniAudit.lean:32:0: Carenini.not_careniniQuestion_six : ¬Carenini.CareniniQuestion 6 3 (1 / 18)
+info: Research/CareniniAudit.lean:33:0: @Carenini.not_careniniQuestion_two_d : ∀ {d : ℕ}, 3 ≤ d → ¬Carenini.CareniniQuestion (2 * d) d (1 / (2 * ↑d ^ 2))
+info: Research/CareniniAudit.lean:34:0: Carenini.not_careniniQuestion_eight_two : ¬Carenini.CareniniQuestion 8 2 (1 / 16)
+info: Research/CareniniAudit.lean:35:0: Carenini.not_careniniQuestion_twelve_bip : ¬Carenini.CareniniQuestion 12 3 (1 / 36)
+info: Research/CareniniAudit.lean:36:0: Carenini.not_careniniQuestion_twelve_top : ¬Carenini.CareniniQuestion 12 3 (5 / 18)
+info: Research/CareniniAudit.lean:39:0: @Carenini.iGamma_eq_iCount_floor : ∀ {V : Type u_1} [inst : Fintype V] [inst_1 : DecidableEq V] (G : SimpleGraph V)
+  [inst_2 : DecidableRel G.Adj] (d : ℕ) {γ : ℝ},
+  0 ≤ γ → Carenini.iGamma G d γ = Carenini.iCount G ⌊γ * ↑d * ↑(Fintype.card V)⌋₊
+info: Research/CareniniAudit.lean:40:0: @Carenini.iGamma_eq_iCount : ∀ {V : Type u_1} [inst : Fintype V] [inst_1 : DecidableEq V] (G : SimpleGraph V)
+  [inst_2 : DecidableRel G.Adj] (d : ℕ) {γ : ℝ} (t : ℕ),
+  γ * ↑d * ↑(Fintype.card V) = ↑t → Carenini.iGamma G d γ = Carenini.iCount G t
+info: Research/CareniniAudit.lean:41:0: @Carenini.iGamma_iso : ∀ {V : Type u_1} {W : Type u_2} [inst : Fintype V] [inst_1 : DecidableEq V] [inst_2 : Fintype W]
+  [inst_3 : DecidableEq W] {G : SimpleGraph V} {H : SimpleGraph W} [inst_4 : DecidableRel G.Adj]
+  [inst_5 : DecidableRel H.Adj] (e : G ≃g H) (d : ℕ) {γ : ℝ}, 0 ≤ γ → Carenini.iGamma G d γ = Carenini.iGamma H d γ
+info: Research/CareniniAudit.lean:42:0: @Carenini.iCount_iso : ∀ {V : Type u_1} {W : Type u_2} [inst : Fintype V] [inst_1 : DecidableEq V] [inst_2 : Fintype W]
+  [inst_3 : DecidableEq W] {G : SimpleGraph V} {H : SimpleGraph W} [inst_4 : DecidableRel G.Adj]
+  [inst_5 : DecidableRel H.Adj] (e : G ≃g H) (t : ℕ), Carenini.iCount G t = Carenini.iCount H t
+info: Research/CareniniAudit.lean:43:0: Carenini.prism_regular : Carenini.prism.IsRegularOfDegree 3
+info: Research/CareniniAudit.lean:44:0: Carenini.K33_regular : Carenini.K33.IsRegularOfDegree 3
+info: Research/CareniniAudit.lean:45:0: Carenini.iCount_prism_one : Carenini.iCount Carenini.prism 1 = 28
+info: Research/CareniniAudit.lean:46:0: Carenini.iCount_K33_one : Carenini.iCount Carenini.K33 1 = 24
+info: Research/CareniniAudit.lean:47:0: Carenini.iCount_KddUnion_one : Carenini.iCount (Carenini.KddUnion 1 3) 1 = 24
+info: Research/CareniniAudit.lean:48:0: Carenini.prismIso : Carenini.prism ≃g ⊤ □ ⊤
+info: Research/CareniniAudit.lean:49:0: Carenini.K33Iso : Carenini.K33 ≃g completeBipartiteGraph (Fin 3) (Fin 3)
+info: Research/CareniniAudit.lean:50:0: Carenini.K33IsoKddUnion : Carenini.K33 ≃g Carenini.KddUnion 1 3
+info: Research/CareniniAudit.lean:51:0: Carenini.prism_beats_K33 : Carenini.prism.IsRegularOfDegree 3 ∧
+  Carenini.K33.IsRegularOfDegree 3 ∧ Carenini.iGamma Carenini.K33 3 (1 / 18) < Carenini.iGamma Carenini.prism 3 (1 / 18)
+info: Research/CareniniAudit.lean:52:0: @Carenini.switchedKdd_regular : ∀ {d : ℕ}, 2 ≤ d → (Carenini.switchedKdd d).IsRegularOfDegree d
+info: Research/CareniniAudit.lean:53:0: @Carenini.edgesIn_switched_le_one : ∀ {d : ℕ} (A : Finset (Fin d ⊕ Fin d)),
+  Carenini.edgesIn (completeBipartiteGraph (Fin d) (Fin d)) A ≤ 1 → Carenini.edgesIn (Carenini.switchedKdd d) A ≤ 1
+info: Research/CareniniAudit.lean:54:0: @Carenini.switched_extra_set : ∀ {d : ℕ} (hd : 3 ≤ d),
+  ¬Carenini.edgesIn (completeBipartiteGraph (Fin d) (Fin d)) {Sum.inl ⟨0, ⋯⟩, Sum.inr ⟨0, ⋯⟩, Sum.inr ⟨2, ⋯⟩} ≤ 1 ∧
+    Carenini.edgesIn (Carenini.switchedKdd d) {Sum.inl ⟨0, ⋯⟩, Sum.inr ⟨0, ⋯⟩, Sum.inr ⟨2, ⋯⟩} ≤ 1
+info: Research/CareniniAudit.lean:55:0: @Carenini.iCount_one_lt : ∀ {d : ℕ},
+  3 ≤ d → Carenini.iCount (completeBipartiteGraph (Fin d) (Fin d)) 1 < Carenini.iCount (Carenini.switchedKdd d) 1
+info: Research/CareniniAudit.lean:56:0: Carenini.kddUnionOneIso : (d : ℕ) → Carenini.KddUnion 1 d ≃g completeBipartiteGraph (Fin d) (Fin d)
+info: Research/CareniniAudit.lean:57:0: Carenini.C8_regular : Carenini.C8.IsRegularOfDegree 2
+info: Research/CareniniAudit.lean:58:0: Carenini.iCount_C8_one : Carenini.iCount Carenini.C8 1 = 111
+info: Research/CareniniAudit.lean:59:0: Carenini.iCount_2C4_one : Carenini.iCount (Carenini.KddUnion 2 2) 1 = 105
+info: Research/CareniniAudit.lean:60:0: Carenini.H3_regular : Carenini.H3.IsRegularOfDegree 3
+info: Research/CareniniAudit.lean:61:0: Carenini.H3_bipartite : ∀ (i j : Fin 12), Carenini.H3.Adj i j → (↑i % 6 < 3 ↔ ¬↑j % 6 < 3)
+info: Research/CareniniAudit.lean:62:0: Carenini.H3_connected : Carenini.H3.Connected
+info: Research/CareniniAudit.lean:63:0: Carenini.iCount_H3_one : Carenini.iCount Carenini.H3 1 = 527
+info: Research/CareniniAudit.lean:64:0: Carenini.iCount_2K33_one : Carenini.iCount (Carenini.KddUnion 2 3) 1 = 495
+info: Research/CareniniAudit.lean:65:0: Carenini.threeK4_regular : Carenini.threeK4.IsRegularOfDegree 3
+info: Research/CareniniAudit.lean:66:0: Carenini.iCount_threeK4_ten : Carenini.iCount Carenini.threeK4 10 = 4002
+info: Research/CareniniAudit.lean:67:0: Carenini.iCount_2K33_ten : Carenini.iCount (Carenini.KddUnion 2 3) 10 = 3981
+info: Research/CareniniAudit.lean:68:0: Carenini.KddUnion_two_three_regular : (Carenini.KddUnion 2 3).IsRegularOfDegree 3
+info: Research/CareniniAudit.lean:80:0: 'Carenini.not_careniniQuestion_six' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CareniniAudit.lean:81:0: 'Carenini.not_careniniQuestion_two_d' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CareniniAudit.lean:82:0: 'Carenini.not_careniniQuestion_eight_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CareniniAudit.lean:83:0: 'Carenini.not_careniniQuestion_twelve_bip' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CareniniAudit.lean:84:0: 'Carenini.not_careniniQuestion_twelve_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CareniniAudit.lean:85:0: 'Carenini.CareniniQuestion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CareniniAudit.lean:86:0: 'Carenini.iGamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CareniniAudit.lean:87:0: 'Carenini.iCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CareniniAudit.lean:88:0: 'Carenini.edgesIn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/CareniniAudit.lean:89:0: 'Carenini.KddUnion' depends on axioms: [propext, Quot.sound]
+ℹ [8952/8959] Replayed Research.ICGBridgeSpectral
+info: Research/ICGBridgeSpectral.lean:123:0: 'ICGBridge.sum_abs_eigenvalues_eq_sum_norm_dft' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8953/8959] Replayed Research.ICGBridgeRamanujan
+warning: Research/ICGBridgeRamanujan.lean:216:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGBridgeRamanujan.lean:216:32: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGBridgeRamanujan.lean:219:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGBridgeRamanujan.lean:219:44: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGBridgeRamanujan.lean:224:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGBridgeRamanujan.lean:227:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGBridgeRamanujan.lean:252:0: 'ICGBridge.dft_gcd_class' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeRamanujan.lean:253:0: 'ICGBridge.sum_dvd_stdAddChar' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8954/8959] Replayed Research.ICGBridgeEnergy
+warning: Research/ICGBridgeEnergy.lean:79:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGBridgeEnergy.lean:110:20: `if_true` has been deprecated: Use `ite_true` instead
+warning: Research/ICGBridgeEnergy.lean:151:32: `if_true` has been deprecated: Use `ite_true` instead
+info: Research/ICGBridgeEnergy.lean:171:0: 'ICGBridge.sum_norm_dft_connFun' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8955/8959] Replayed Research.ICGBridgeMain
+info: Research/ICGBridgeMain.lean:449:0: 'ICGBridge.energy_icgAdj_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeMain.lean:450:0: 'ICGBridge.energy_icgGraph_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeMain.lean:451:0: 'ICGBridge.roldan_q3_graph_of_arith' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeMain.lean:452:0: 'ICGBridge.roldan_q3_of_arith' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8956/8959] Replayed Research.ICGBridgeFinal
+info: Research/ICGBridgeFinal.lean:78:0: 'ICGBridge.roldan_q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeFinal.lean:79:0: 'ICGBridge.roldan_q3_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeFinal.lean:80:0: 'ICGBridge.energy_Dstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeFinal.lean:81:0: 'ICGBridge.energy_icgAdj_eq_exactEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8957/8979] Built Research.AxialMSZ.Audit (3.4s)
+info: Research/AxialMSZ/Audit.lean:6:0: structure AxialMSZ.Challenge.FusionLaw.{u_1} (K : Type u_1) : Type u_1
+number of parameters: 1
+fields:
+  AxialMSZ.Challenge.FusionLaw.carrier.{u_1} : Set.{u_1} K
+  AxialMSZ.Challenge.FusionLaw.star.{u_1} : K → K → Set.{u_1} K
+constructor:
+  AxialMSZ.Challenge.FusionLaw.mk.{u_1} {K : Type u_1} (carrier : Set.{u_1} K) (star : K → K → Set.{u_1} K) :
+    AxialMSZ.Challenge.FusionLaw.{u_1} K
+info: Research/AxialMSZ/Audit.lean:7:0: def AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{u_1} : {K : Type u_1} →
+  AxialMSZ.Challenge.FusionLaw.{u_1} K → Prop :=
+fun {K} F =>
+  Set.Finite.{u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) ∧
+    (∀ (l m : K),
+        Eq.{u_1 + 1} (AxialMSZ.Challenge.FusionLaw.star.{u_1} F l m) (AxialMSZ.Challenge.FusionLaw.star.{u_1} F m l)) ∧
+      ∀ (l : K),
+        Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) l →
+          ∀ (m : K),
+            Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) m →
+              AxialMSZ.Challenge.FusionLaw.star.{u_1} F l m ⊆ AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F
+info: Research/AxialMSZ/Audit.lean:8:0: def AxialMSZ.Challenge.FusionLaw.IsSeress.{u_1} : {K : Type u_1} →
+  [Field.{u_1} K] → AxialMSZ.Challenge.FusionLaw.{u_1} K → Prop :=
+fun {K} [Field.{u_1} K] F =>
+  Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) 0 ∧
+    ∀ (l : K),
+      Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) l →
+        AxialMSZ.Challenge.FusionLaw.star.{u_1} F 0 l ⊆ Singleton.singleton.{u_1, u_1} l
+info: Research/AxialMSZ/Audit.lean:9:0: def AxialMSZ.Challenge.IsCommutative.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ =>
+  ∀ (u v : V), Eq.{u_2 + 1} ((μ u) v) ((μ v) u)
+info: Research/AxialMSZ/Audit.lean:10:0: def AxialMSZ.Challenge.eigsp.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            V → K → Submodule.{u_1, u_2} K V :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ a l =>
+  Module.End.eigenspace.{u_1, u_2} (μ a) l
+info: Research/AxialMSZ/Audit.lean:11:0: def AxialMSZ.Challenge.eigspSet.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            V → Set.{u_1} K → Submodule.{u_1, u_2} K V :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ a Λ =>
+  ⨆ l, ⨆ (_ : Membership.mem.{u_1, u_1} Λ l), AxialMSZ.Challenge.eigsp.{u_1, u_2} μ a l
+info: Research/AxialMSZ/Audit.lean:12:0: def AxialMSZ.Challenge.IsAxis.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          AxialMSZ.Challenge.FusionLaw.{u_1} K →
+            LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+                (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+              V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] F μ a =>
+  Ne.{u_2 + 1} a 0 ∧
+    Eq.{u_2 + 1} ((μ a) a) a ∧
+      Eq.{u_2 + 1} (AxialMSZ.Challenge.eigspSet.{u_1, u_2} μ a (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F))
+          Top.top.{u_2} ∧
+        ∀ (l : K),
+          Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) l →
+            ∀ (m : K),
+              Membership.mem.{u_1, u_1} (AxialMSZ.Challenge.FusionLaw.carrier.{u_1} F) m →
+                ∀ (u : V),
+                  Membership.mem.{u_2, u_2} (AxialMSZ.Challenge.eigsp.{u_1, u_2} μ a l) u →
+                    ∀ (v : V),
+                      Membership.mem.{u_2, u_2} (AxialMSZ.Challenge.eigsp.{u_1, u_2} μ a m) v →
+                        Membership.mem.{u_2, u_2}
+                          (AxialMSZ.Challenge.eigspSet.{u_1, u_2} μ a (AxialMSZ.Challenge.FusionLaw.star.{u_1} F l m))
+                          ((μ u) v)
+info: Research/AxialMSZ/Audit.lean:13:0: def AxialMSZ.Challenge.IsPrimitiveAxis.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          AxialMSZ.Challenge.FusionLaw.{u_1} K →
+            LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+                (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+              V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] F μ a =>
+  AxialMSZ.Challenge.IsAxis.{u_1, u_2} F μ a ∧
+    Eq.{u_2 + 1} (AxialMSZ.Challenge.eigsp.{u_1, u_2} μ a 1)
+      (Submodule.span.{u_1, u_2} K (Singleton.singleton.{u_2, u_2} a))
+info: Research/AxialMSZ/Audit.lean:14:0: def AxialMSZ.Challenge.IsSubalgebra.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Submodule.{u_1, u_2} K V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ S =>
+  ∀ (u : V),
+    Membership.mem.{u_2, u_2} S u → ∀ (v : V), Membership.mem.{u_2, u_2} S v → Membership.mem.{u_2, u_2} S ((μ u) v)
+info: Research/AxialMSZ/Audit.lean:15:0: def AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          AxialMSZ.Challenge.FusionLaw.{u_1} K →
+            LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+                (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+              Set.{u_2} V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] F μ X =>
+  AxialMSZ.Challenge.IsCommutative.{u_1, u_2} μ ∧
+    (∀ (a : V), Membership.mem.{u_2, u_2} X a → AxialMSZ.Challenge.IsPrimitiveAxis.{u_1, u_2} F μ a) ∧
+      Eq.{u_2 + 1} (AxialMSZ.Challenge.gen.{u_1, u_2} μ X) Top.top.{u_2}
+info: Research/AxialMSZ/Audit.lean:16:0: def AxialMSZ.Challenge.IsIdeal.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Submodule.{u_1, u_2} K V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ I =>
+  ∀ (u v : V),
+    Membership.mem.{u_2, u_2} I v → Membership.mem.{u_2, u_2} I ((μ u) v) ∧ Membership.mem.{u_2, u_2} I ((μ v) u)
+info: Research/AxialMSZ/Audit.lean:17:0: def AxialMSZ.Challenge.IsIdealIn.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Submodule.{u_1, u_2} K V → Submodule.{u_1, u_2} K V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ S J =>
+  LE.le.{u_2} J S ∧
+    ∀ (u : V),
+      Membership.mem.{u_2, u_2} S u →
+        ∀ (v : V),
+          Membership.mem.{u_2, u_2} J v → Membership.mem.{u_2, u_2} J ((μ u) v) ∧ Membership.mem.{u_2, u_2} J ((μ v) u)
+info: Research/AxialMSZ/Audit.lean:18:0: def AxialMSZ.Challenge.gen.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Set.{u_2} V → Submodule.{u_1, u_2} K V :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ X =>
+  InfSet.sInf.{u_2} (Set.ofPred.{u_2} fun S => X ⊆ ↑S ∧ AxialMSZ.Challenge.IsSubalgebra.{u_1, u_2} μ S)
+info: Research/AxialMSZ/Audit.lean:19:0: def AxialMSZ.Challenge.block.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            V → Submodule.{u_1, u_2} K V :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ a =>
+  InfSet.sInf.{u_2}
+    (Set.ofPred.{u_2} fun I => AxialMSZ.Challenge.IsIdeal.{u_1, u_2} μ I ∧ Membership.mem.{u_2, u_2} I a)
+info: Research/AxialMSZ/Audit.lean:20:0: def AxialMSZ.Challenge.IsDecomposableSub.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Submodule.{u_1, u_2} K V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ S =>
+  Eq.{u_2 + 1}
+    (SupSet.sSup.{u_2} (Set.ofPred.{u_2} fun J => AxialMSZ.Challenge.IsIdealIn.{u_1, u_2} μ S J ∧ Ne.{u_2 + 1} J S)) S
+info: Research/AxialMSZ/Audit.lean:21:0: def AxialMSZ.Challenge.IsDecomposable.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ =>
+  AxialMSZ.Challenge.IsDecomposableSub.{u_1, u_2} μ Top.top.{u_2}
+info: Research/AxialMSZ/Audit.lean:22:0: def AxialMSZ.Challenge.IsSimpleAlg.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ =>
+  (∃ u v, Ne.{u_2 + 1} ((μ u) v) 0) ∧
+    ∀ (I : Submodule.{u_1, u_2} K V),
+      AxialMSZ.Challenge.IsIdeal.{u_1, u_2} μ I → Eq.{u_2 + 1} I Bot.bot.{u_2} ∨ Eq.{u_2 + 1} I Top.top.{u_2}
+info: Research/AxialMSZ/Audit.lean:23:0: def AxialMSZ.Challenge.IsFrobeniusForm.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            LinearMap.{u_1, u_1, u_2, max u_1 u_2} (RingHom.id.{u_1} K) V
+                (LinearMap.{u_1, u_1, u_2, u_1} (RingHom.id.{u_1} K) V K) →
+              Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ β =>
+  ∀ (u v w : V), Eq.{u_1 + 1} ((β ((μ u) v)) w) ((β u) ((μ v) w))
+info: Research/AxialMSZ/Audit.lean:24:0: def AxialMSZ.Challenge.nonAnnGraph.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            (X : Set.{u_2} V) → SimpleGraph.{u_2} ↑X :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ X =>
+  SimpleGraph.fromRel.{u_2} fun p q => Ne.{u_2 + 1} ((μ ↑p) ↑q) 0
+info: Research/AxialMSZ/Audit.lean:25:0: def AxialMSZ.Challenge.ComponentsAnnihilate.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Set.{u_2} V → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ X =>
+  ∀ (C D : SimpleGraph.ConnectedComponent.{u_2} (AxialMSZ.Challenge.nonAnnGraph.{u_1, u_2} μ X)),
+    Ne.{u_2 + 1} C D →
+      ∀ (u : V),
+        Membership.mem.{u_2, u_2}
+            (AxialMSZ.Challenge.gen.{u_1, u_2} μ
+              (Set.image.{u_2, u_2} Subtype.val.{u_2 + 1} (SimpleGraph.ConnectedComponent.supp.{u_2} C)))
+            u →
+          ∀ (v : V),
+            Membership.mem.{u_2, u_2}
+                (AxialMSZ.Challenge.gen.{u_1, u_2} μ
+                  (Set.image.{u_2, u_2} Subtype.val.{u_2 + 1} (SimpleGraph.ConnectedComponent.supp.{u_2} D)))
+                v →
+              Eq.{u_2 + 1} ((μ u) v) 0
+info: Research/AxialMSZ/Audit.lean:26:0: def AxialMSZ.Challenge.IsSumDecomposition.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Set.{u_2} (Submodule.{u_1, u_2} K V) → Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ S =>
+  (∀ (B : Submodule.{u_1, u_2} K V), Membership.mem.{u_2, u_2} S B → AxialMSZ.Challenge.IsSubalgebra.{u_1, u_2} μ B) ∧
+    (∀ (B : Submodule.{u_1, u_2} K V),
+        Membership.mem.{u_2, u_2} S B →
+          ∀ (C : Submodule.{u_1, u_2} K V),
+            Membership.mem.{u_2, u_2} S C →
+              Ne.{u_2 + 1} B C →
+                ∀ (u : V),
+                  Membership.mem.{u_2, u_2} B u → ∀ (v : V), Membership.mem.{u_2, u_2} C v → Eq.{u_2 + 1} ((μ u) v) 0) ∧
+      Eq.{u_2 + 1} (AxialMSZ.Challenge.gen.{u_1, u_2} μ (⋃ B, ⋃ (_ : Membership.mem.{u_2, u_2} S B), ↑B)) Top.top.{u_2}
+info: Research/AxialMSZ/Audit.lean:27:0: def AxialMSZ.Challenge.OnlyTrivialSumDecompositions.{u_1, u_2} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {V : Type u_2} →
+      [inst_1 : AddCommGroup.{u_2} V] →
+        [inst_2 : Module.{u_1, u_2} K V] →
+          LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V
+              (LinearMap.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} K) V V) →
+            Prop :=
+fun {K} [Field.{u_1} K] {V} [AddCommGroup.{u_2} V] [Module.{u_1, u_2} K V] μ =>
+  ∀ (S : Set.{u_2} (Submodule.{u_1, u_2} K V)),
+    AxialMSZ.Challenge.IsSumDecomposition.{u_1, u_2} μ S → Membership.mem.{u_2, u_2} S Top.top.{u_2}
+info: Research/AxialMSZ/Audit.lean:28:0: def AxialMSZ.Challenge.MS_Conjecture_3_16 : Prop :=
+∀ (K : Type) [inst : Field.{0} K] (V : Type) [inst_1 : AddCommGroup.{0} V] [inst_2 : Module.{0, 0} K V]
+  (F : AxialMSZ.Challenge.FusionLaw.{0} K)
+  (μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V V)) (X : Set.{0} V),
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F →
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X → AxialMSZ.Challenge.ComponentsAnnihilate.{0, 0} μ X
+info: Research/AxialMSZ/Audit.lean:29:0: def AxialMSZ.Challenge.FinestSumDecomposition_connected : Prop :=
+∀ (K : Type) [inst : Field.{0} K] (V : Type) [inst_1 : AddCommGroup.{0} V] [inst_2 : Module.{0, 0} K V]
+  (F : AxialMSZ.Challenge.FusionLaw.{0} K)
+  (μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V V)) (X : Set.{0} V),
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F →
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X →
+      AxialMSZ.Challenge.OnlyTrivialSumDecompositions.{0, 0} μ →
+        SimpleGraph.Connected.{0} (AxialMSZ.Challenge.nonAnnGraph.{0, 0} μ X)
+info: Research/AxialMSZ/Audit.lean:30:0: def AxialMSZ.Challenge.Indecomposable_connected : Prop :=
+∀ (K : Type) [inst : Field.{0} K] (V : Type) [inst_1 : AddCommGroup.{0} V] [inst_2 : Module.{0, 0} K V]
+  (F : AxialMSZ.Challenge.FusionLaw.{0} K)
+  (μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V V)) (X : Set.{0} V),
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F →
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X →
+      ¬AxialMSZ.Challenge.IsDecomposable.{0, 0} μ →
+        SimpleGraph.Connected.{0} (AxialMSZ.Challenge.nonAnnGraph.{0, 0} μ X)
+info: Research/AxialMSZ/Audit.lean:31:0: def AxialMSZ.Challenge.Simple_connected : Prop :=
+∀ (K : Type) [inst : Field.{0} K] (V : Type) [inst_1 : AddCommGroup.{0} V] [inst_2 : Module.{0, 0} K V]
+  (F : AxialMSZ.Challenge.FusionLaw.{0} K)
+  (μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V V)) (X : Set.{0} V),
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F →
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X →
+      AxialMSZ.Challenge.IsSimpleAlg.{0, 0} μ → SimpleGraph.Connected.{0} (AxialMSZ.Challenge.nonAnnGraph.{0, 0} μ X)
+info: Research/AxialMSZ/Audit.lean:32:0: def AxialMSZ.Challenge.Blocks_indecomposable : Prop :=
+∀ (K : Type) [inst : Field.{0} K] (V : Type) [inst_1 : AddCommGroup.{0} V] [inst_2 : Module.{0, 0} K V]
+  (F : AxialMSZ.Challenge.FusionLaw.{0} K)
+  (μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} K) V V)) (X : Set.{0} V),
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F →
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X →
+      ∀ (a : V),
+        Membership.mem.{0, 0} X a → ¬AxialMSZ.Challenge.IsDecomposableSub.{0, 0} μ (AxialMSZ.Challenge.block.{0, 0} μ a)
+info: Research/AxialMSZ/Audit.lean:33:0: def AxialMSZ.Challenge.Dominance_nonsymmetric : Prop :=
+∃ K x V x_1 x_2 F μ X,
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} F ∧
+    AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} F μ X ∧
+      ∃ a,
+        Membership.mem.{0, 0} X a ∧
+          ∃ b,
+            Membership.mem.{0, 0} X b ∧
+              LT.lt.{0} (AxialMSZ.Challenge.block.{0, 0} μ a) (AxialMSZ.Challenge.block.{0, 0} μ b)
+info: Research/AxialMSZ/Audit.lean:34:0: def AxialMSZ.Challenge.JPlus.{u_1} : {K : Type u_1} →
+  [Field.{u_1} K] → [DecidableEq.{u_1 + 1} K] → K → AxialMSZ.Challenge.FusionLaw.{u_1} K :=
+fun {K} [Field.{u_1} K] [DecidableEq.{u_1 + 1} K] η =>
+  AxialMSZ.Challenge.FusionLaw.mk.{u_1}
+    (Insert.insert.{u_1, u_1} 1 (Insert.insert.{u_1, u_1} 0 (Singleton.singleton.{u_1, u_1} η))) fun l m =>
+    ite.{u_1 + 1} (Eq.{u_1 + 1} l 1)
+      (ite.{u_1 + 1} (Eq.{u_1 + 1} m 0) EmptyCollection.emptyCollection.{u_1} (Singleton.singleton.{u_1, u_1} m))
+      (ite.{u_1 + 1} (Eq.{u_1 + 1} m 1)
+        (ite.{u_1 + 1} (Eq.{u_1 + 1} l 0) EmptyCollection.emptyCollection.{u_1} (Singleton.singleton.{u_1, u_1} l))
+        (ite.{u_1 + 1} (Eq.{u_1 + 1} l 0 ∨ Eq.{u_1 + 1} m 0)
+          (Insert.insert.{u_1, u_1} 1 (Insert.insert.{u_1, u_1} 0 (Singleton.singleton.{u_1, u_1} η)))
+          (Insert.insert.{u_1, u_1} 1 (Singleton.singleton.{u_1, u_1} 0))))
+info: Research/AxialMSZ/Audit.lean:35:0: def AxialMSZ.Challenge.JMild.{u_1} : {K : Type u_1} →
+  [Field.{u_1} K] → [DecidableEq.{u_1 + 1} K] → K → AxialMSZ.Challenge.FusionLaw.{u_1} K :=
+fun {K} [Field.{u_1} K] [DecidableEq.{u_1 + 1} K] η =>
+  AxialMSZ.Challenge.FusionLaw.mk.{u_1}
+    (Insert.insert.{u_1, u_1} 1 (Insert.insert.{u_1, u_1} 0 (Singleton.singleton.{u_1, u_1} η))) fun l m =>
+    ite.{u_1 + 1} (Eq.{u_1 + 1} l 1)
+      (ite.{u_1 + 1} (Eq.{u_1 + 1} m 0) EmptyCollection.emptyCollection.{u_1} (Singleton.singleton.{u_1, u_1} m))
+      (ite.{u_1 + 1} (Eq.{u_1 + 1} m 1)
+        (ite.{u_1 + 1} (Eq.{u_1 + 1} l 0) EmptyCollection.emptyCollection.{u_1} (Singleton.singleton.{u_1, u_1} l))
+        (ite.{u_1 + 1} (Eq.{u_1 + 1} l 0 ∨ Eq.{u_1 + 1} m 0)
+          (Insert.insert.{u_1, u_1} 0 (Singleton.singleton.{u_1, u_1} η))
+          (Insert.insert.{u_1, u_1} 1 (Singleton.singleton.{u_1, u_1} 0))))
+info: Research/AxialMSZ/Audit.lean:36:0: def AxialMSZ.Challenge.FD3 : AxialMSZ.Challenge.FusionLaw.{0} ℚ :=
+AxialMSZ.Challenge.FusionLaw.mk.{0} (Insert.insert.{0, 0} 0 (Insert.insert.{0, 0} 1 (Singleton.singleton.{0, 0} 2)))
+  fun l m =>
+  ite.{1} (Eq.{1} l 0 ∧ Eq.{1} m 0) (Insert.insert.{0, 0} 0 (Singleton.singleton.{0, 0} 1))
+    (ite.{1} (Eq.{1} l 1 ∧ Eq.{1} m 1) (Singleton.singleton.{0, 0} 1)
+      (ite.{1} (Eq.{1} l 1 ∧ Eq.{1} m 2 ∨ Eq.{1} l 2 ∧ Eq.{1} m 1 ∨ Eq.{1} l 2 ∧ Eq.{1} m 2)
+        (Singleton.singleton.{0, 0} 2) EmptyCollection.emptyCollection.{0}))
+info: Research/AxialMSZ/Audit.lean:37:0: def AxialMSZ.Challenge.structProduct.{u_1} : {K : Type u_1} →
+  [inst : Field.{u_1} K] →
+    {n : ℕ} →
+      (Fin n → Fin n → Fin n → K) →
+        LinearMap.{u_1, u_1, u_1, u_1} (RingHom.id.{u_1} K) (Fin n → K)
+          (LinearMap.{u_1, u_1, u_1, u_1} (RingHom.id.{u_1} K) (Fin n → K) (Fin n → K)) :=
+fun {K} [Field.{u_1} K] {n} T =>
+  LinearMap.mk₂.{u_1, u_1, u_1, u_1} K
+    (fun u v => ∑ i, ∑ j, HSMul.hSMul.{u_1, u_1, u_1} (HMul.hMul.{u_1, u_1, u_1} (u i) (v j)) (T i j)) ⋯ ⋯ ⋯ ⋯
+info: Research/AxialMSZ/Audit.lean:38:0: def AxialMSZ.Challenge.ExS.T : Fin 4 → Fin 4 → Fin 4 → ℚ :=
+Matrix.vecCons.{0}
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 4)
+        (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          Matrix.vecEmpty.{0}))))
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 4)
+        (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            Matrix.vecEmpty.{0}))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} (-1 / 2)
+                (Matrix.vecCons.{0} (-1 / 2)
+                  (Matrix.vecCons.{0} (1 / 2) (Matrix.vecCons.{0} (-1 / 4) Matrix.vecEmpty.{0}))))
+              Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} (-1 / 2)
+                (Matrix.vecCons.{0} (-1 / 2)
+                  (Matrix.vecCons.{0} (1 / 2) (Matrix.vecCons.{0} (-1 / 4) Matrix.vecEmpty.{0}))))
+              (Matrix.vecCons.{0}
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 Matrix.vecEmpty.{0}))))
+                Matrix.vecEmpty.{0}))))
+        Matrix.vecEmpty.{0})))
+info: Research/AxialMSZ/Audit.lean:39:0: def AxialMSZ.Challenge.ExS.μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 4 → ℚ)
+  (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 4 → ℚ) (Fin 4 → ℚ)) :=
+AxialMSZ.Challenge.structProduct.{0} AxialMSZ.Challenge.ExS.T
+info: Research/AxialMSZ/Audit.lean:40:0: def AxialMSZ.Challenge.ExS.X : Set.{0} (Fin 4 → ℚ) :=
+Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+  (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 3)))
+info: Research/AxialMSZ/Audit.lean:41:0: def AxialMSZ.Challenge.ExE.T : Fin 4 → Fin 4 → Fin 4 → ℚ :=
+Matrix.vecCons.{0}
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 6)
+        (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} (-1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 6)
+          (Matrix.vecCons.{0} (-1 / 6) (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          Matrix.vecEmpty.{0}))))
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 6)
+        (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} (-1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 6)
+            (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            Matrix.vecEmpty.{0}))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 6)
+          (Matrix.vecCons.{0} (-1 / 6) (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 6)
+            (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} (1 / 6) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} (-1 / 3)
+                (Matrix.vecCons.{0} (-1 / 3) (Matrix.vecCons.{0} (1 / 3) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+              Matrix.vecEmpty.{0}))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} (-1 / 3)
+                (Matrix.vecCons.{0} (-1 / 3) (Matrix.vecCons.{0} (1 / 3) (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))))
+              (Matrix.vecCons.{0}
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 Matrix.vecEmpty.{0}))))
+                Matrix.vecEmpty.{0}))))
+        Matrix.vecEmpty.{0})))
+info: Research/AxialMSZ/Audit.lean:42:0: def AxialMSZ.Challenge.ExE.μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 4 → ℚ)
+  (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 4 → ℚ) (Fin 4 → ℚ)) :=
+AxialMSZ.Challenge.structProduct.{0} AxialMSZ.Challenge.ExE.T
+info: Research/AxialMSZ/Audit.lean:43:0: def AxialMSZ.Challenge.ExE.X : Set.{0} (Fin 4 → ℚ) :=
+Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+  (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 3)))
+info: Research/AxialMSZ/Audit.lean:44:0: def AxialMSZ.Challenge.ExD.T : Fin 5 → Fin 5 → Fin 5 → ℚ :=
+Matrix.vecCons.{0}
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0} 1
+      (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 4)
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+            Matrix.vecEmpty.{0})))))
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0} (1 / 4)
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} 0
+          (Matrix.vecCons.{0} 1
+            (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4)
+              (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+              Matrix.vecEmpty.{0})))))
+    (Matrix.vecCons.{0}
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0} (1 / 4)
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} (-1 / 4)
+            (Matrix.vecCons.{0} (1 / 4)
+              (Matrix.vecCons.{0} (1 / 4) (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 Matrix.vecEmpty.{0})))))
+              (Matrix.vecCons.{0}
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0
+                    (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+                Matrix.vecEmpty.{0})))))
+      (Matrix.vecCons.{0}
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0} 0
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 Matrix.vecEmpty.{0})))))
+              (Matrix.vecCons.{0}
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0
+                    (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+                (Matrix.vecCons.{0}
+                  (Matrix.vecCons.{0} 0
+                    (Matrix.vecCons.{0} 0
+                      (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} (1 / 2) Matrix.vecEmpty.{0})))))
+                  Matrix.vecEmpty.{0})))))
+        (Matrix.vecCons.{0}
+          (Matrix.vecCons.{0}
+            (Matrix.vecCons.{0} 0
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+            (Matrix.vecCons.{0}
+              (Matrix.vecCons.{0} 0
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+              (Matrix.vecCons.{0}
+                (Matrix.vecCons.{0} 0
+                  (Matrix.vecCons.{0} 0
+                    (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+                (Matrix.vecCons.{0}
+                  (Matrix.vecCons.{0} 0
+                    (Matrix.vecCons.{0} 0
+                      (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} (1 / 2) Matrix.vecEmpty.{0})))))
+                  (Matrix.vecCons.{0}
+                    (Matrix.vecCons.{0} 0
+                      (Matrix.vecCons.{0} 0
+                        (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0})))))
+                    Matrix.vecEmpty.{0})))))
+          Matrix.vecEmpty.{0}))))
+info: Research/AxialMSZ/Audit.lean:45:0: def AxialMSZ.Challenge.ExD.μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 5 → ℚ)
+  (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 5 → ℚ) (Fin 5 → ℚ)) :=
+AxialMSZ.Challenge.structProduct.{0} AxialMSZ.Challenge.ExD.T
+info: Research/AxialMSZ/Audit.lean:46:0: def AxialMSZ.Challenge.ExD.X : Set.{0} (Fin 5 → ℚ) :=
+Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+  (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 3)))
+info: Research/AxialMSZ/Audit.lean:47:0: def AxialMSZ.Challenge.ExP.T : Fin 2 → Fin 2 → Fin 2 → ℚ :=
+Matrix.vecCons.{0}
+  (Matrix.vecCons.{0} (Matrix.vecCons.{0} 1 (Matrix.vecCons.{0} 0 Matrix.vecEmpty.{0}))
+    (Matrix.vecCons.{0} (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 2 Matrix.vecEmpty.{0})) Matrix.vecEmpty.{0}))
+  (Matrix.vecCons.{0}
+    (Matrix.vecCons.{0} (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 2 Matrix.vecEmpty.{0}))
+      (Matrix.vecCons.{0} (Matrix.vecCons.{0} 0 (Matrix.vecCons.{0} 1 Matrix.vecEmpty.{0})) Matrix.vecEmpty.{0}))
+    Matrix.vecEmpty.{0})
+info: Research/AxialMSZ/Audit.lean:48:0: def AxialMSZ.Challenge.ExP.μ : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 2 → ℚ)
+  (LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℚ) (Fin 2 → ℚ) (Fin 2 → ℚ)) :=
+AxialMSZ.Challenge.structProduct.{0} AxialMSZ.Challenge.ExP.T
+info: Research/AxialMSZ/Audit.lean:49:0: def AxialMSZ.Challenge.ExP.X : Set.{0} (Fin 2 → ℚ) :=
+Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 1))
+info: Research/AxialMSZ/Audit.lean:50:0: def AxialMSZ.Challenge.ExS.Statement : Prop :=
+AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} (AxialMSZ.Challenge.JPlus.{0} (1 / 2)) AxialMSZ.Challenge.ExS.μ
+    AxialMSZ.Challenge.ExS.X ∧
+  AxialMSZ.Challenge.IsSimpleAlg.{0, 0} AxialMSZ.Challenge.ExS.μ ∧
+    ¬SimpleGraph.Connected.{0}
+          (AxialMSZ.Challenge.nonAnnGraph.{0, 0} AxialMSZ.Challenge.ExS.μ AxialMSZ.Challenge.ExS.X) ∧
+      AxialMSZ.Challenge.OnlyTrivialSumDecompositions.{0, 0} AxialMSZ.Challenge.ExS.μ ∧
+        ¬AxialMSZ.Challenge.ComponentsAnnihilate.{0, 0} AxialMSZ.Challenge.ExS.μ AxialMSZ.Challenge.ExS.X
+info: Research/AxialMSZ/Audit.lean:51:0: def AxialMSZ.Challenge.ExE.Statement : Prop :=
+AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} (AxialMSZ.Challenge.JPlus.{0} (1 / 3)) AxialMSZ.Challenge.ExE.μ
+    AxialMSZ.Challenge.ExE.X ∧
+  LT.lt.{0} (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExE.μ (AxialMSZ.Challenge.e 0))
+      (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExE.μ (AxialMSZ.Challenge.e 3)) ∧
+    Eq.{1} (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExE.μ (AxialMSZ.Challenge.e 0))
+        (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExE.μ (AxialMSZ.Challenge.e 1)) ∧
+      Eq.{1} (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExE.μ (AxialMSZ.Challenge.e 3)) Top.top.{0} ∧
+        ¬AxialMSZ.Challenge.IsDecomposable.{0, 0} AxialMSZ.Challenge.ExE.μ ∧
+          ¬SimpleGraph.Connected.{0}
+                (AxialMSZ.Challenge.nonAnnGraph.{0, 0} AxialMSZ.Challenge.ExE.μ AxialMSZ.Challenge.ExE.X) ∧
+            ¬AxialMSZ.Challenge.ComponentsAnnihilate.{0, 0} AxialMSZ.Challenge.ExE.μ AxialMSZ.Challenge.ExE.X
+info: Research/AxialMSZ/Audit.lean:52:0: def AxialMSZ.Challenge.ExD.Statement : Prop :=
+AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} (AxialMSZ.Challenge.JMild.{0} (1 / 2)) AxialMSZ.Challenge.ExD.μ
+    AxialMSZ.Challenge.ExD.X ∧
+  AxialMSZ.Challenge.IsDecomposableSub.{0, 0} AxialMSZ.Challenge.ExD.μ
+      (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0)) ∧
+    (∃ β,
+        AxialMSZ.Challenge.IsFrobeniusForm.{0, 0} AxialMSZ.Challenge.ExD.μ β ∧
+          ∀ (a : Fin 5 → ℚ), Membership.mem.{0, 0} AxialMSZ.Challenge.ExD.X a → Ne.{1} ((β a) a) 0) ∧
+      Eq.{1} (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))
+          (Submodule.span.{0, 0} ℚ
+            (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+              (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1)
+                (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 2)
+                  (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 4)))))) ∧
+        AxialMSZ.Challenge.IsIdealIn.{0, 0} AxialMSZ.Challenge.ExD.μ
+            (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))
+            (Submodule.span.{0, 0} ℚ
+              (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+                (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1)
+                  (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 2))))) ∧
+          AxialMSZ.Challenge.IsIdealIn.{0, 0} AxialMSZ.Challenge.ExD.μ
+              (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))
+              (Submodule.span.{0, 0} ℚ (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 4))) ∧
+            ¬AxialMSZ.Challenge.IsIdeal.{0, 0} AxialMSZ.Challenge.ExD.μ
+                (Submodule.span.{0, 0} ℚ
+                  (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+                    (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1)
+                      (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 2)))))
+info: Research/AxialMSZ/Audit.lean:53:0: def AxialMSZ.Challenge.ExP.Statement : Prop :=
+AxialMSZ.Challenge.IsPrimitiveAxialAlgebra.{0, 0} AxialMSZ.Challenge.FD3 AxialMSZ.Challenge.ExP.μ
+    AxialMSZ.Challenge.ExP.X ∧
+  LT.lt.{0} (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExP.μ (AxialMSZ.Challenge.e 1))
+    (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExP.μ (AxialMSZ.Challenge.e 0))
+info: Research/AxialMSZ/Audit.lean:54:0: def AxialMSZ.Challenge.Laws_facts : Prop :=
+AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} (AxialMSZ.Challenge.JPlus.{0} (1 / 2)) ∧
+  AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} (AxialMSZ.Challenge.JPlus.{0} (1 / 3)) ∧
+    AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} (AxialMSZ.Challenge.JMild.{0} (1 / 2)) ∧
+      AxialMSZ.Challenge.FusionLaw.IsFiniteSymmetric.{0} AxialMSZ.Challenge.FD3 ∧
+        ¬AxialMSZ.Challenge.FusionLaw.IsSeress.{0} (AxialMSZ.Challenge.JPlus.{0} (1 / 2)) ∧
+          ¬AxialMSZ.Challenge.FusionLaw.IsSeress.{0} (AxialMSZ.Challenge.JPlus.{0} (1 / 3)) ∧
+            ¬AxialMSZ.Challenge.FusionLaw.IsSeress.{0} (AxialMSZ.Challenge.JMild.{0} (1 / 2))
+info: Research/AxialMSZ/Audit.lean:55:0: def AxialMSZ.Challenge.TheoremA : Prop :=
+AxialMSZ.Challenge.ExS.Statement
+info: Research/AxialMSZ/Audit.lean:56:0: def AxialMSZ.Challenge.TheoremB : Prop :=
+AxialMSZ.Challenge.ExE.Statement
+info: Research/AxialMSZ/Audit.lean:57:0: def AxialMSZ.Challenge.TheoremC : Prop :=
+AxialMSZ.Challenge.ExD.Statement
+info: Research/AxialMSZ/Audit.lean:58:0: def AxialMSZ.Challenge.RemarkP : Prop :=
+AxialMSZ.Challenge.ExP.Statement
+info: Research/AxialMSZ/Audit.lean:59:0: def AxialMSZ.Challenge.Corollary : Prop :=
+¬AxialMSZ.Challenge.MS_Conjecture_3_16 ∧
+  ¬AxialMSZ.Challenge.FinestSumDecomposition_connected ∧
+    ¬AxialMSZ.Challenge.Indecomposable_connected ∧
+      ¬AxialMSZ.Challenge.Simple_connected ∧
+        ¬AxialMSZ.Challenge.Blocks_indecomposable ∧ AxialMSZ.Challenge.Dominance_nonsymmetric
+info: Research/AxialMSZ/Audit.lean:60:0: def CodexAxial.SupplementChallenge.ExD_axes_in_block : Prop :=
+Eq.{1}
+  (Inter.inter.{0} AxialMSZ.Challenge.ExD.X
+    ↑(AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0)))
+  (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 1)))
+info: Research/AxialMSZ/Audit.lean:61:0: def CodexAxial.SupplementChallenge.ExD_block_not_axial_on_contained_axes : Prop :=
+Eq.{1}
+    (AxialMSZ.Challenge.gen.{0, 0} AxialMSZ.Challenge.ExD.μ
+      (Inter.inter.{0} AxialMSZ.Challenge.ExD.X
+        ↑(AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))))
+    (Submodule.span.{0, 0} ℚ
+      (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 0)
+        (Insert.insert.{0, 0} (AxialMSZ.Challenge.e 1) (Singleton.singleton.{0, 0} (AxialMSZ.Challenge.e 2))))) ∧
+  LT.lt.{0}
+    (AxialMSZ.Challenge.gen.{0, 0} AxialMSZ.Challenge.ExD.μ
+      (Inter.inter.{0} AxialMSZ.Challenge.ExD.X
+        ↑(AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))))
+    (AxialMSZ.Challenge.block.{0, 0} AxialMSZ.Challenge.ExD.μ (AxialMSZ.Challenge.e 0))
+info: Research/AxialMSZ/Audit.lean:62:0: AxialMSZ.Check.check_Laws_facts : AxialMSZ.Challenge.Laws_facts
+info: Research/AxialMSZ/Audit.lean:63:0: AxialMSZ.Check.check_ExS_Statement : AxialMSZ.Challenge.ExS.Statement
+info: Research/AxialMSZ/Audit.lean:64:0: AxialMSZ.Check.check_ExE_Statement : AxialMSZ.Challenge.ExE.Statement
+info: Research/AxialMSZ/Audit.lean:65:0: AxialMSZ.Check.check_ExD_Statement : AxialMSZ.Challenge.ExD.Statement
+info: Research/AxialMSZ/Audit.lean:66:0: AxialMSZ.Check.check_ExP_Statement : AxialMSZ.Challenge.ExP.Statement
+info: Research/AxialMSZ/Audit.lean:67:0: AxialMSZ.Check.check_TheoremA : AxialMSZ.Challenge.TheoremA
+info: Research/AxialMSZ/Audit.lean:68:0: AxialMSZ.Check.check_TheoremB : AxialMSZ.Challenge.TheoremB
+info: Research/AxialMSZ/Audit.lean:69:0: AxialMSZ.Check.check_TheoremC : AxialMSZ.Challenge.TheoremC
+info: Research/AxialMSZ/Audit.lean:70:0: AxialMSZ.Check.check_RemarkP : AxialMSZ.Challenge.RemarkP
+info: Research/AxialMSZ/Audit.lean:71:0: AxialMSZ.Check.check_Corollary : AxialMSZ.Challenge.Corollary
+info: Research/AxialMSZ/Audit.lean:72:0: AxialMSZ.Check.check_not_MS_Conjecture_3_16 : ¬AxialMSZ.Challenge.MS_Conjecture_3_16
+info: Research/AxialMSZ/Audit.lean:73:0: AxialMSZ.Check.check_not_FinestSumDecomposition_connected : ¬AxialMSZ.Challenge.FinestSumDecomposition_connected
+info: Research/AxialMSZ/Audit.lean:74:0: AxialMSZ.Check.check_not_Indecomposable_connected : ¬AxialMSZ.Challenge.Indecomposable_connected
+info: Research/AxialMSZ/Audit.lean:75:0: AxialMSZ.Check.check_not_Simple_connected : ¬AxialMSZ.Challenge.Simple_connected
+info: Research/AxialMSZ/Audit.lean:76:0: AxialMSZ.Check.check_Dominance_nonsymmetric : AxialMSZ.Challenge.Dominance_nonsymmetric
+info: Research/AxialMSZ/Audit.lean:77:0: AxialMSZ.Check.check_ExD_axes_in_block : CodexAxial.SupplementChallenge.ExD_axes_in_block
+info: Research/AxialMSZ/Audit.lean:78:0: AxialMSZ.Check.check_ExD_block_not_axial_on_contained_axes :
+  CodexAxial.SupplementChallenge.ExD_block_not_axial_on_contained_axes
+⚠ [8958/8979] Replayed Research.ICGGeneralPath
+warning: Research/ICGGeneralPath.lean:120:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:120:29: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:120:48: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:125:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:125:27: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:125:46: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:136:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:137:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:137:22: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:158:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:159:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:159:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:262:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:263:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:384:39: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:395:39: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:406:39: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:417:39: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralPath.lean:456:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralPath.lean:486:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [8959/8979] Replayed Research.ICGGeneralThm5
+warning: Research/ICGGeneralThm5.lean:295:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralThm5.lean:297:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralThm5.lean:319:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralThm5.lean:321:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralThm5.lean:325:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+info: Research/ICGGeneralThm5.lean:602:0: 'ICGGeneral.thm5_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralThm5.lean:603:0: 'ICGGeneral.thm5_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralThm5.lean:604:0: 'ICGGeneral.L1mat_sgnv' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8960/8979] Replayed Research.ICGGeneralBridge
+warning: Research/ICGGeneralBridge.lean:131:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:131:32: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:131:54: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:134:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:136:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:138:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:143:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:148:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:150:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:180:27: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:184:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:201:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:201:20: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:236:19: `if_true` has been deprecated: Use `ite_true` instead
+warning: Research/ICGGeneralBridge.lean:324:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:326:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:326:21: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:327:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:332:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:332:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:334:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:334:23: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralBridge.lean:338:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralBridge.lean:338:23: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGGeneralBridge.lean:394:0: 'ICGGeneral.energy_icgAdj_pq' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8961/8979] Replayed Research.ICGGeneralMain
+warning: Research/ICGGeneralMain.lean:75:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:76:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:97:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:97:21: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:97:32: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:98:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:98:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:98:32: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:100:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:100:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:160:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:160:57: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:162:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:162:71: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:247:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:250:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:260:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:262:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralMain.lean:265:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralMain.lean:267:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGGeneralMain.lean:316:0: 'ICGGeneral.checkerboard_unique_max' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralMain.lean:317:0: 'ICGGeneral.jiang_yang_q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralMain.lean:318:0: 'ICGGeneral.jiang_yang_q3_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralMain.lean:319:0: 'ICGGeneral.energy_DstarPQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8962/8979] Replayed Research.ICGEqualParityLemmas
+warning: Research/ICGEqualParityLemmas.lean:215:39: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityLemmas.lean:225:39: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityLemmas.lean:235:39: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityLemmas.lean:245:39: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityLemmas.lean:285:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityLemmas.lean:355:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [8963/8979] Replayed Research.ICGEqualParityA
+warning: Research/ICGEqualParityA.lean:89:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityA.lean:91:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityA.lean:95:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityA.lean:99:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityA.lean:179:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityA.lean:211:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityA.lean:469:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityA.lean:474:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [8964/8979] Replayed Research.ICGEqualParityGraph
+warning: Research/ICGEqualParityGraph.lean:122:66: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityGraph.lean:143:61: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityGraph.lean:145:62: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityGraph.lean:195:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityGraph.lean:198:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityGraph.lean:204:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityGraph.lean:207:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityGraph.lean:280:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGEqualParityGraph.lean:290:0: 'ICGEqualParity.energy_le_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityGraph.lean:291:0: 'ICGEqualParity.energy_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityGraph.lean:292:0: 'ICGEqualParity.thmA_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8965/8979] Replayed Research.ICGEqualParityUnique
+warning: Research/ICGEqualParityUnique.lean:393:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:440:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:549:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:559:19: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:562:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:714:53: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:719:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:733:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:759:53: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:764:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:781:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:824:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:833:55: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:836:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:844:49: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:881:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:883:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:891:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:894:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:897:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityUnique.lean:900:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityUnique.lean:902:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGEqualParityUnique.lean:972:0: 'ICGEqualParity.trunc_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:973:0: 'ICGEqualParity.energy_trunc' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:976:0: 'ICGEqualParity.thmA_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:977:0: 'ICGEqualParity.energy_lt_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityUnique.lean:978:0: 'ICGEqualParity.corollaryA' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8974/8983] Replayed Research.ICGGeneralSwap
+warning: Research/ICGGeneralSwap.lean:98:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralSwap.lean:101:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralSwap.lean:111:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralSwap.lean:113:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGGeneralSwap.lean:116:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGGeneralSwap.lean:118:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/ICGGeneralSwap.lean:190:0: 'ICGGeneral.checkerboard_unique_max_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralSwap.lean:191:0: 'ICGGeneral.jiang_yang_thmA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralSwap.lean:192:0: 'ICGGeneral.thm5_le_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralSwap.lean:193:0: 'ICGGeneral.DstarPQ_roldan' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8975/8983] Built Research.ICGBridgeAudit (3.3s)
+info: Research/ICGBridgeAudit.lean:6:0: ICGBridge.roldan_q3 : ∀ (p : ℕ),
+  Nat.Prime p →
+    5 ≤ p →
+      ∀ D ⊆ (27 * p ^ 2).properDivisors,
+        D ≠ ICGBridge.Dstar p →
+          ICGBridge.energy (ICGBridge.icgAdj (27 * p ^ 2) D) ⋯ <
+            ICGBridge.energy (ICGBridge.icgAdj (27 * p ^ 2) (ICGBridge.Dstar p)) ⋯
+info: Research/ICGBridgeAudit.lean:7:0: ICGBridge.roldan_q3_graph : ∀ (p : ℕ),
+  Nat.Prime p →
+    5 ≤ p →
+      ∀ [inst : NeZero (27 * p ^ 2)],
+        ∀ D ⊆ (27 * p ^ 2).properDivisors,
+          D ≠ ICGBridge.Dstar p →
+            ICGBridge.energy (SimpleGraph.adjMatrix ℝ (ICGBridge.icgGraph (27 * p ^ 2) D)) ⋯ <
+              ICGBridge.energy (SimpleGraph.adjMatrix ℝ (ICGBridge.icgGraph (27 * p ^ 2) (ICGBridge.Dstar p))) ⋯
+info: Research/ICGBridgeAudit.lean:8:0: ICGBridge.energy_Dstar : ∀ (p : ℕ),
+  Nat.Prime p →
+    5 ≤ p → ICGBridge.energy (ICGBridge.icgAdj (27 * p ^ 2) (ICGBridge.Dstar p)) ⋯ = 266 * ↑p ^ 2 - 404 * ↑p + 202
+info: Research/ICGBridgeAudit.lean:9:0: ICGBridge.energy_icgAdj_eq_exactEnergy : ∀ (p : ℕ),
+  Nat.Prime p →
+    p ≠ 3 →
+      ∀ (D : Finset ℕ),
+        27 * p ^ 2 ∉ D →
+          ICGBridge.energy (ICGBridge.icgAdj (27 * p ^ 2) D) ⋯ = ↑(CirculantQ3.exactEnergy (↑p) (ICGBridge.maskOf p D))
+info: Research/ICGBridgeAudit.lean:10:0: @ICGBridge.sum_abs_eigenvalues_eq_sum_norm_dft : ∀ {N : ℕ} [inst : NeZero N] {ι : Type u_1} [inst_1 : Fintype ι]
+  [inst_2 : DecidableEq ι] (A : Matrix ι ι ℝ) (hA : A.IsHermitian) (e : ι ≃ ZMod N) (f : ZMod N → ℝ),
+  (∀ (i j : ι), A i j = f (e i - e j)) → ∑ i, |hA.eigenvalues i| = ∑ k, ‖ZMod.dft (fun s => ↑(f s)) k‖
+info: Research/ICGBridgeAudit.lean:11:0: @ICGBridge.eigenvalues_multiset_eq_dft : ∀ {N : ℕ} [inst : NeZero N] {ι : Type u_1} [inst_1 : Fintype ι]
+  [inst_2 : DecidableEq ι] (A : Matrix ι ι ℝ) (hA : A.IsHermitian) (e : ι ≃ ZMod N) (f : ZMod N → ℝ),
+  (∀ (i j : ι), A i j = f (e i - e j)) →
+    Multiset.map (fun i => ↑(hA.eigenvalues i)) Finset.univ.val =
+      Multiset.map (ZMod.dft fun s => ↑(f s)) Finset.univ.val
+info: Research/ICGBridgeAudit.lean:12:0: @ICGBridge.dft_connFun : ∀ {p : ℕ},
+  Nat.Prime p →
+    p ≠ 3 →
+      ∀ {N : ℕ} [inst : NeZero N],
+        N = p ^ 2 * 3 ^ 3 →
+          ∀ (D : Finset ℕ),
+            N ∉ D →
+              ∀ (k : ZMod N) {a b : ℕ},
+                k.val.gcd N = p ^ a * 3 ^ b →
+                  ZMod.dft (fun s => ↑(ICGBridge.connFun N D s)) k = ↑(ICGBridge.lamD (↑p) (ICGBridge.bitsOf p D) a b)
+info: Research/ICGBridgeAudit.lean:13:0: def ICGBridge.icgAdj : (n : ℕ) → Finset ℕ → Matrix (Fin n) (Fin n) ℝ :=
+fun n D => Matrix.of fun i j => if (↑(j - i)).gcd n ∈ D then 1 else 0
+info: Research/ICGBridgeAudit.lean:14:0: def ICGBridge.energy.{u_1} : {ι : Type u_1} → [Fintype ι] → [DecidableEq ι] → (A : Matrix ι ι ℝ) → A.IsHermitian → ℝ :=
+fun {ι} [Fintype ι] [DecidableEq ι] A hA => ∑ i, |hA.eigenvalues i|
+info: Research/ICGBridgeAudit.lean:15:0: def ICGBridge.Dstar : ℕ → Finset ℕ :=
+fun p => {1, p ^ 2, 3 * p, 9, 9 * p ^ 2, 27 * p}
+info: Research/ICGBridgeAudit.lean:16:0: def ICGBridge.icgGraph : (n : ℕ) → Finset ℕ → SimpleGraph (ZMod n) :=
+fun n D => SimpleGraph.circulantGraph {s | s.val.gcd n ∈ D}
+info: Research/ICGBridgeAudit.lean:17:0: def SimpleGraph.circulantGraph.{u_1} : {G : Type u_1} → [AddGroup G] → Set G → SimpleGraph G :=
+fun {G} [AddGroup G] s => SimpleGraph.fromRel fun x1 x2 => x1 - x2 ∈ s
+info: Research/ICGBridgeAudit.lean:18:0: ICGBridge.fin_sub_val_eq_emod : ∀ (n : ℕ) (i j : Fin n), ↑↑(j - i) = (↑↑j - ↑↑i) % ↑n
+info: Research/ICGBridgeAudit.lean:19:0: 'ICGBridge.roldan_q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeAudit.lean:20:0: 'ICGBridge.roldan_q3_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeAudit.lean:21:0: 'ICGBridge.energy_Dstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGBridgeAudit.lean:22:0: 'ICGBridge.energy_icgAdj_eq_exactEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8976/8983] Replayed Research.RM714Weights
+warning: Research/RM714Weights.lean:93:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/RM714Weights.lean:100:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/RM714Weights.lean:300:0: 'RM714.rm714_new_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/RM714Weights.lean:301:0: 'RM714.weight_map_maskSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8977/8985] Replayed Research.ICGEqualParityBMain
+warning: Research/ICGEqualParityBMain.lean:766:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBMain.lean:775:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBMain.lean:776:16: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBMain.lean:777:16: `if_pos` has been deprecated: Use `ite_eq_left` instead
+ℹ [8978/8985] Built Research.ICGGeneralAudit (3.5s)
+info: Research/ICGGeneralAudit.lean:6:0: def ICGGeneral.phiX : ℝ → ℕ → ℝ :=
+fun x e => if e = 0 then 1 else x ^ (e - 1) * (x - 1)
+info: Research/ICGGeneralAudit.lean:7:0: def ICGGeneral.ramX : ℝ → ℕ → ℕ → ℝ :=
+fun x k u => if k = 0 then 1 else if k ≤ u then ICGGeneral.phiX x k else if k = u + 1 then -x ^ u else 0
+info: Research/ICGGeneralAudit.lean:8:0: def ICGGeneral.Tent : ℝ → ℕ → ℕ → ℕ → ℝ :=
+fun x m u j => ICGGeneral.phiX x (m - u) * ICGGeneral.ramX x (m - j) u
+info: Research/ICGGeneralAudit.lean:9:0: def ICGGeneral.Tv : ℝ → ℕ → (ℕ → ℝ) → ℕ → ℝ :=
+fun x m w u => ∑ j ∈ Finset.range (m + 1), ICGGeneral.Tent x m u j * w j
+info: Research/ICGGeneralAudit.lean:10:0: def ICGGeneral.L1 : ℝ → ℕ → (ℕ → ℝ) → ℝ :=
+fun x m w => ∑ u ∈ Finset.range (m + 1), |ICGGeneral.Tv x m w u|
+info: Research/ICGGeneralAudit.lean:11:0: def ICGGeneral.sgnv : ℕ → ℝ :=
+fun i => (-1) ^ i
+info: Research/ICGGeneralAudit.lean:12:0: def ICGGeneral.Mentry : ℝ → ℝ → ℕ → ℕ → (ℕ → ℕ → ℝ) → ℕ → ℕ → ℝ :=
+fun p q a b Y u v =>
+  ∑ i ∈ Finset.range (a + 1), ∑ l ∈ Finset.range (b + 1), ICGGeneral.Tent p a u i * Y i l * ICGGeneral.Tent q b v l
+info: Research/ICGGeneralAudit.lean:13:0: def ICGGeneral.L1mat : ℝ → ℝ → ℕ → ℕ → (ℕ → ℕ → ℝ) → ℝ :=
+fun p q a b Y => ∑ u ∈ Finset.range (a + 1), ∑ v ∈ Finset.range (b + 1), |ICGGeneral.Mentry p q a b Y u v|
+info: Research/ICGGeneralAudit.lean:14:0: def ICGGeneral.DstarPQ : ℕ → ℕ → ℕ → ℕ → Finset ℕ :=
+fun p q a b =>
+  Finset.image (fun ij => p ^ ij.1 * q ^ ij.2)
+    ({ij ∈ Finset.range (a + 1) ×ˢ Finset.range (b + 1) | Even (ij.1 + ij.2)})
+info: Research/ICGGeneralAudit.lean:15:0: def ICGBridge.icgAdj : (n : ℕ) → Finset ℕ → Matrix (Fin n) (Fin n) ℝ :=
+fun n D => Matrix.of fun i j => if (↑(j - i)).gcd n ∈ D then 1 else 0
+info: Research/ICGGeneralAudit.lean:16:0: def ICGBridge.energy.{u_1} : {ι : Type u_1} → [Fintype ι] → [DecidableEq ι] → (A : Matrix ι ι ℝ) → A.IsHermitian → ℝ :=
+fun {ι} [Fintype ι] [DecidableEq ι] A hA => ∑ i, |hA.eigenvalues i|
+info: Research/ICGGeneralAudit.lean:18:0: @ICGGeneral.L1_path : ∀ {x : ℝ},
+  0 < x →
+    ∀ (m : ℕ) (w : ℕ → ℝ),
+      ICGGeneral.L1 x m w =
+        x ^ m * (|ICGGeneral.Zp x m w 0| + ∑ k ∈ Finset.range m, |ICGGeneral.Zp x m w k - ICGGeneral.Zp x m w (k + 1)|)
+info: Research/ICGGeneralAudit.lean:19:0: @ICGGeneral.L1_sign : ∀ {x : ℝ},
+  2 < x →
+    ∀ {m : ℕ} {y : ℕ → ℝ},
+      ICGGeneral.IsSign m y →
+        ICGGeneral.L1 x m y =
+          x ^ m * (∑ k ∈ Finset.range m, ICGGeneral.cc x k + ICGGeneral.nu x m - ICGGeneral.slack x m y)
+info: Research/ICGGeneralAudit.lean:20:0: @ICGGeneral.L1_le_sgnv : ∀ {x : ℝ},
+  2 < x → ∀ {m : ℕ} {y : ℕ → ℝ}, ICGGeneral.IsSign m y → ICGGeneral.L1 x m y ≤ ICGGeneral.L1 x m ICGGeneral.sgnv
+info: Research/ICGGeneralAudit.lean:21:0: @ICGGeneral.L1_eq_sgnv : ∀ {x : ℝ},
+  2 < x →
+    ∀ {m : ℕ} {y : ℕ → ℝ},
+      ICGGeneral.IsSign m y →
+        ICGGeneral.L1 x m y = ICGGeneral.L1 x m ICGGeneral.sgnv →
+          (∀ i ≤ m, y i = ICGGeneral.sgnv i) ∨ ∀ i ≤ m, y i = -ICGGeneral.sgnv i
+info: Research/ICGGeneralAudit.lean:22:0: @ICGGeneral.Tv_sgnv_last_pos : ∀ {x : ℝ}, 2 < x → ∀ (m : ℕ), 0 < ICGGeneral.Tv x m ICGGeneral.sgnv m
+info: Research/ICGGeneralAudit.lean:24:0: @ICGGeneral.hcell_le : ∀ {P μ : ℝ},
+  0 ≤ μ → μ ≤ 1 → μ ≤ P → ∀ (A B : ℝ), ICGGeneral.hcell P μ A B ≤ 2 * μ * max 0 (|B| - P * |A|)
+info: Research/ICGGeneralAudit.lean:25:0: @ICGGeneral.local_ineq : ∀ {q P μ : ℝ},
+  3 ≤ q →
+    4 ≤ P →
+      3 / 5 ≤ μ →
+        μ ≤ 1 →
+          ∀ {b : ℕ} {y ζ : ℕ → ℝ},
+            ICGGeneral.IsSign b y →
+              (∀ i ≤ b, |ζ i| ≤ 1) →
+                ((P * ICGGeneral.L1 q b fun i => y i - ζ i) + μ * ICGGeneral.L1 q b fun i => ζ i + P * y i) -
+                    (P - μ) * ICGGeneral.L1 q b ζ ≤
+                  P * (1 + μ) * ICGGeneral.L1 q b ICGGeneral.sgnv
+info: Research/ICGGeneralAudit.lean:26:0: @ICGGeneral.local_ineq_strict : ∀ {q P μ : ℝ},
+  3 ≤ q →
+    4 ≤ P →
+      3 / 5 ≤ μ →
+        μ ≤ 1 →
+          ∀ {b : ℕ} {y ζ : ℕ → ℝ},
+            ICGGeneral.IsSign b y →
+              (∀ i ≤ b, |ζ i| ≤ 1) →
+                (∃ j < b, y j = y (j + 1)) →
+                  ((P * ICGGeneral.L1 q b fun i => y i - ζ i) + μ * ICGGeneral.L1 q b fun i => ζ i + P * y i) -
+                      (P - μ) * ICGGeneral.L1 q b ζ <
+                    P * (1 + μ) * ICGGeneral.L1 q b ICGGeneral.sgnv
+info: Research/ICGGeneralAudit.lean:28:0: @ICGGeneral.thm5_le : ∀ {p q : ℝ},
+  5 ≤ p →
+    3 ≤ q →
+      ∀ {a b : ℕ} {Y : ℕ → ℕ → ℝ},
+        (∀ i ≤ a, ICGGeneral.IsSign b (Y i)) →
+          ICGGeneral.L1mat p q a b Y ≤ ICGGeneral.L1 p a ICGGeneral.sgnv * ICGGeneral.L1 q b ICGGeneral.sgnv
+info: Research/ICGGeneralAudit.lean:29:0: @ICGGeneral.thm5_eq : ∀ {p q : ℝ},
+  5 ≤ p →
+    3 ≤ q →
+      ∀ {a b : ℕ} {Y : ℕ → ℕ → ℝ},
+        (∀ i ≤ a, ICGGeneral.IsSign b (Y i)) →
+          ICGGeneral.L1mat p q a b Y = ICGGeneral.L1 p a ICGGeneral.sgnv * ICGGeneral.L1 q b ICGGeneral.sgnv →
+            (∀ i ≤ a, ∀ l ≤ b, Y i l = ICGGeneral.sgnv i * ICGGeneral.sgnv l) ∨
+              ∀ i ≤ a, ∀ l ≤ b, Y i l = -(ICGGeneral.sgnv i * ICGGeneral.sgnv l)
+info: Research/ICGGeneralAudit.lean:30:0: ICGGeneral.L1mat_sgnv : ∀ (p q : ℝ) (a b : ℕ),
+  (ICGGeneral.L1mat p q a b fun i l => ICGGeneral.sgnv i * ICGGeneral.sgnv l) =
+    ICGGeneral.L1 p a ICGGeneral.sgnv * ICGGeneral.L1 q b ICGGeneral.sgnv
+info: Research/ICGGeneralAudit.lean:31:0: @ICGGeneral.thm5_le_swap : ∀ {p q : ℝ},
+  3 ≤ p →
+    5 ≤ q →
+      ∀ {a b : ℕ} {Y : ℕ → ℕ → ℝ},
+        (∀ i ≤ a, ICGGeneral.IsSign b (Y i)) →
+          ICGGeneral.L1mat p q a b Y ≤ ICGGeneral.L1 p a ICGGeneral.sgnv * ICGGeneral.L1 q b ICGGeneral.sgnv
+info: Research/ICGGeneralAudit.lean:32:0: @ICGGeneral.thm5_eq_swap : ∀ {p q : ℝ},
+  3 ≤ p →
+    5 ≤ q →
+      ∀ {a b : ℕ} {Y : ℕ → ℕ → ℝ},
+        (∀ i ≤ a, ICGGeneral.IsSign b (Y i)) →
+          ICGGeneral.L1mat p q a b Y = ICGGeneral.L1 p a ICGGeneral.sgnv * ICGGeneral.L1 q b ICGGeneral.sgnv →
+            (∀ i ≤ a, ∀ l ≤ b, Y i l = ICGGeneral.sgnv i * ICGGeneral.sgnv l) ∨
+              ∀ i ≤ a, ∀ l ≤ b, Y i l = -(ICGGeneral.sgnv i * ICGGeneral.sgnv l)
+info: Research/ICGGeneralAudit.lean:34:0: ICGGeneral.energy_icgAdj_pq : ∀ (p q a b : ℕ),
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        ∀ (D : Finset ℕ),
+          ICGBridge.energy (ICGBridge.icgAdj (p ^ a * q ^ b) D) ⋯ =
+            ICGGeneral.L1mat (↑p) (↑q) a b fun c e => if p ^ c * q ^ e ∈ D then 1 else 0
+info: Research/ICGGeneralAudit.lean:36:0: ICGGeneral.checkerboard_unique_max : ∀ (p q a b : ℕ),
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        5 ≤ p →
+          3 ≤ q →
+            Odd (a + b) →
+              ∀ D ⊆ (p ^ a * q ^ b).properDivisors,
+                D ≠ ICGGeneral.DstarPQ p q a b →
+                  ICGBridge.energy (ICGBridge.icgAdj (p ^ a * q ^ b) D) ⋯ <
+                    ICGBridge.energy (ICGBridge.icgAdj (p ^ a * q ^ b) (ICGGeneral.DstarPQ p q a b)) ⋯
+info: Research/ICGGeneralAudit.lean:37:0: @ICGGeneral.energy_DstarPQ : ∀ {p q : ℕ},
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        3 ≤ p →
+          3 ≤ q →
+            ∀ (a b : ℕ),
+              2 * ICGBridge.energy (ICGBridge.icgAdj (p ^ a * q ^ b) (ICGGeneral.DstarPQ p q a b)) ⋯ =
+                ↑p ^ a * ↑q ^ b + ICGGeneral.L1 (↑p) a ICGGeneral.sgnv * ICGGeneral.L1 (↑q) b ICGGeneral.sgnv
+info: Research/ICGGeneralAudit.lean:38:0: ICGGeneral.jiang_yang_q3 : ∀ (p r s : ℕ),
+  Nat.Prime p →
+    5 ≤ p →
+      ∀ D ⊆ (p ^ (2 * r) * 3 ^ (2 * s + 1)).properDivisors,
+        D ≠ ICGGeneral.DstarPQ p 3 (2 * r) (2 * s + 1) →
+          ICGBridge.energy (ICGBridge.icgAdj (p ^ (2 * r) * 3 ^ (2 * s + 1)) D) ⋯ <
+            ICGBridge.energy
+              (ICGBridge.icgAdj (p ^ (2 * r) * 3 ^ (2 * s + 1)) (ICGGeneral.DstarPQ p 3 (2 * r) (2 * s + 1))) ⋯
+info: Research/ICGGeneralAudit.lean:39:0: ICGGeneral.jiang_yang_q3_value : ∀ (p r s : ℕ),
+  Nat.Prime p →
+    5 ≤ p →
+      2 *
+          ICGBridge.energy
+            (ICGBridge.icgAdj (p ^ (2 * r) * 3 ^ (2 * s + 1)) (ICGGeneral.DstarPQ p 3 (2 * r) (2 * s + 1))) ⋯ =
+        ↑p ^ (2 * r) * 3 ^ (2 * s + 1) +
+          ICGGeneral.L1 (↑p) (2 * r) ICGGeneral.sgnv * ICGGeneral.L1 3 (2 * s + 1) ICGGeneral.sgnv
+info: Research/ICGGeneralAudit.lean:40:0: ICGGeneral.DstarPQ_admissible : ∀ (p r s : ℕ),
+  Nat.Prime p →
+    5 ≤ p →
+      ICGGeneral.DstarPQ p 3 (2 * r) (2 * s + 1) ⊆ (p ^ (2 * r) * 3 ^ (2 * s + 1)).properDivisors ∧
+        1 ∈ ICGGeneral.DstarPQ p 3 (2 * r) (2 * s + 1)
+info: Research/ICGGeneralAudit.lean:41:0: ICGGeneral.checkerboard_unique_max_odd : ∀ (p q a b : ℕ),
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        p ≠ 2 →
+          q ≠ 2 →
+            Odd (a + b) →
+              ∀ D ⊆ (p ^ a * q ^ b).properDivisors,
+                D ≠ ICGGeneral.DstarPQ p q a b →
+                  ICGBridge.energy (ICGBridge.icgAdj (p ^ a * q ^ b) D) ⋯ <
+                    ICGBridge.energy (ICGBridge.icgAdj (p ^ a * q ^ b) (ICGGeneral.DstarPQ p q a b)) ⋯
+info: Research/ICGGeneralAudit.lean:42:0: ICGGeneral.jiang_yang_thmA : ∀ (p q r s : ℕ),
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        p ≠ 2 →
+          q ≠ 2 →
+            ∀ D ⊆ (p ^ (2 * r) * q ^ (2 * s + 1)).properDivisors,
+              D ≠ ICGGeneral.DstarPQ p q (2 * r) (2 * s + 1) →
+                ICGBridge.energy (ICGBridge.icgAdj (p ^ (2 * r) * q ^ (2 * s + 1)) D) ⋯ <
+                  ICGBridge.energy
+                    (ICGBridge.icgAdj (p ^ (2 * r) * q ^ (2 * s + 1)) (ICGGeneral.DstarPQ p q (2 * r) (2 * s + 1))) ⋯
+info: Research/ICGGeneralAudit.lean:43:0: ICGGeneral.DstarPQ_roldan : ∀ (p : ℕ), ICGGeneral.DstarPQ p 3 2 3 = ICGBridge.Dstar p
+info: Research/ICGGeneralAudit.lean:44:0: 'ICGGeneral.thm5_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralAudit.lean:45:0: 'ICGGeneral.thm5_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralAudit.lean:46:0: 'ICGGeneral.energy_icgAdj_pq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralAudit.lean:47:0: 'ICGGeneral.jiang_yang_q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralAudit.lean:48:0: 'ICGGeneral.jiang_yang_q3_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralAudit.lean:49:0: 'ICGGeneral.checkerboard_unique_max_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralAudit.lean:50:0: 'ICGGeneral.jiang_yang_thmA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGGeneralAudit.lean:51:0: 'ICGGeneral.DstarPQ_roldan' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8979/8987] Replayed Research.ICGEqualParityBGraph
+warning: Research/ICGEqualParityBGraph.lean:114:53: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:115:54: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:116:53: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:123:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:125:21: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:126:49: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:298:63: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:313:61: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:315:62: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:365:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:365:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:366:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:366:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:373:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:373:19: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:374:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:376:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:376:20: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:377:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:377:20: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:385:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:385:57: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:386:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:386:71: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:402:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:402:29: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:403:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:403:43: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:473:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Research/ICGEqualParityBGraph.lean:487:19: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/ICGEqualParityBGraph.lean:490:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+ℹ [8980/8987] Built Research.ICGEqualParityBCertAudit (3.5s)
+info: Research/ICGEqualParityBCertAudit.lean:12:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R0_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:13:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R0_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:14:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:15:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:16:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R1_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:17:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R1_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:18:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R1_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:19:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R1_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:20:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2a_mu_L_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:21:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2a_mu_L_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:22:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2a_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:23:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2a_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:24:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2a_mu_mu1_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:25:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2a_mu_mu1_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:26:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2a_mu_mu1_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:27:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2a_mu_mu1_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:28:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2b_mu_mu0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:29:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2b_mu_mu0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:30:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2b_mu_mu0_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:31:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2b_mu_mu0_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:32:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2b_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:33:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2b_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:34:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2b_mu_L_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:35:0: 'ICGEqualParityB.Cert.cert_FD1_Asame_R2b_mu_L_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:36:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R0_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:37:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R0_m_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:38:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R0_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:39:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R0_m_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:40:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:41:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R0_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:42:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:43:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R0_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:44:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R1_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:45:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R1_mu_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:46:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R1_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:47:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R1_mu_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:48:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R1_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:49:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R1_mu_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:50:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R1_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:51:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R1_mu_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:52:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_L_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:53:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_L_m_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:54:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_L_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:55:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_L_m_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:56:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:57:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_L_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:58:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:59:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_L_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:60:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_mu1_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:61:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_mu1_m_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:62:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_mu1_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:63:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_mu1_m_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:64:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_mu1_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:65:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_mu1_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:66:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_mu1_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:67:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2a_mu_mu1_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:68:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_mu0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:69:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_mu0_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:70:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_mu0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:71:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_mu0_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:72:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_mu0_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:73:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_mu0_m_mu1_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:74:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_mu0_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:75:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_mu0_m_mu1_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:76:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:77:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_L_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:78:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:79:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_L_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:80:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_L_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:81:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_L_m_mu1_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:82:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_L_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:83:0: 'ICGEqualParityB.Cert.cert_FD1_Bsame_R2b_mu_L_m_mu1_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:84:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R0_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:85:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R0_m_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:86:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R0_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:87:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R0_m_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:88:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:89:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R0_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:90:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:91:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R0_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:92:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R1_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:93:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R1_mu_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:94:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R1_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:95:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R1_mu_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:96:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R1_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:97:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R1_mu_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:98:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R1_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:99:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R1_mu_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:100:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_L_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:101:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_L_m_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:102:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_L_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:103:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_L_m_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:104:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:105:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_L_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:106:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:107:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_L_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:108:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_mu1_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:109:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_mu1_m_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:110:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_mu1_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:111:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_mu1_m_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:112:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_mu1_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:113:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_mu1_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:114:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_mu1_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:115:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2a_mu_mu1_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:116:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_mu0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:117:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_mu0_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:118:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_mu0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:119:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_mu0_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:120:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_mu0_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:121:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_mu0_m_mu1_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:122:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_mu0_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:123:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_mu0_m_mu1_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:124:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:125:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_L_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:126:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:127:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_L_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:128:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_L_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:129:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_L_m_mu1_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:130:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_L_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:131:0: 'ICGEqualParityB.Cert.cert_FD1_Bopp_R2b_mu_L_m_mu1_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:132:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R0_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:133:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R0_m_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:134:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R0_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:135:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R0_m_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:136:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:137:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R0_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:138:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:139:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R0_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:140:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R1_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:141:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R1_mu_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:142:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R1_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:143:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R1_mu_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:144:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R1_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:145:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R1_mu_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:146:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R1_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:147:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R1_mu_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:148:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_L_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:149:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_L_m_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:150:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_L_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:151:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_L_m_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:152:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:153:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_L_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:154:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:155:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_L_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:156:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_mu1_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:157:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_mu1_m_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:158:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_mu1_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:159:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_mu1_m_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:160:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_mu1_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:161:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_mu1_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:162:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_mu1_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:163:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2a_mu_mu1_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:164:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_mu0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:165:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_mu0_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:166:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_mu0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:167:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_mu0_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:168:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_mu0_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:169:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_mu0_m_mu1_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:170:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_mu0_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:171:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_mu0_m_mu1_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:172:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:173:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_L_m_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:174:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:175:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_L_m_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:176:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_L_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:177:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_L_m_mu1_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:178:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_L_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:179:0: 'ICGEqualParityB.Cert.cert_FD1_Csame_R2b_mu_L_m_mu1_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:180:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R0_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:181:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R0_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:182:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:183:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:184:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R1_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:185:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R1_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:186:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R1_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:187:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R1_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:188:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2a_mu_L_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:189:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2a_mu_L_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:190:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2a_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:191:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2a_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:192:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2a_mu_mu1_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:193:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2a_mu_mu1_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:194:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2a_mu_mu1_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:195:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2a_mu_mu1_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:196:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2b_mu_mu0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:197:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2b_mu_mu0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:198:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2b_mu_mu0_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:199:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2b_mu_mu0_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:200:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2b_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:201:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2b_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:202:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2b_mu_L_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:203:0: 'ICGEqualParityB.Cert.cert_FD1_Copp_R2b_mu_L_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:204:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R0_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:205:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R0_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:206:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:207:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:208:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R1_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:209:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R1_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:210:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R1_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:211:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R1_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:212:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2a_mu_L_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:213:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2a_mu_L_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:214:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2a_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:215:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2a_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:216:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2a_mu_mu1_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:217:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2a_mu_mu1_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:218:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2a_mu_mu1_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:219:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2a_mu_mu1_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:220:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2b_mu_mu0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:221:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2b_mu_mu0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:222:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2b_mu_mu0_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:223:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2b_mu_mu0_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:224:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2b_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:225:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2b_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:226:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2b_mu_L_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:227:0: 'ICGEqualParityB.Cert.cert_FD1_Esame_R2b_mu_L_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:228:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R0_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:229:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R0_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:230:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:231:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:232:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R1_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:233:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R1_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:234:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R1_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:235:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R1_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:236:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2a_mu_L_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:237:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2a_mu_L_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:238:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2a_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:239:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2a_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:240:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2a_mu_mu1_m_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:241:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2a_mu_mu1_m_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:242:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2a_mu_mu1_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:243:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2a_mu_mu1_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:244:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2b_mu_mu0_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:245:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2b_mu_mu0_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:246:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2b_mu_mu0_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:247:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2b_mu_mu0_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:248:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2b_mu_L_m_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:249:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2b_mu_L_m_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:250:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2b_mu_L_m_mu1_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:251:0: 'ICGEqualParityB.Cert.cert_FD1_Eopp_R2b_mu_L_m_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:252:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Asame_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:253:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Asame_mu_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:254:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Asame_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:255:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Asame_mu_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:256:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Asame_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:257:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Asame_mu_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:258:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Asame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:259:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Asame_mu_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:260:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Aopp_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:261:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Aopp_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:262:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Aopp_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:263:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Aopp_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:264:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Bsame_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:265:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Bsame_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:266:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Bsame_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:267:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Bsame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:268:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Csame_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:269:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Csame_mu_mu0_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:270:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Csame_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:271:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Csame_mu_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:272:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Csame_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:273:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Csame_mu_L_big_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:274:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Csame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:275:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Csame_mu_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:276:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Copp_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:277:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Copp_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:278:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Copp_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:279:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Copp_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:280:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Esame_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:281:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Esame_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:282:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Esame_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:283:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Esame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:284:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Eopp_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:285:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Eopp_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:286:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Eopp_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:287:0: 'ICGEqualParityB.Cert.cert_FD2_J_b_1_Eopp_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:288:0: 'ICGEqualParityB.Cert.cert_FD2_i_B_at_b_1_P_4_mu_mu0_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:289:0: 'ICGEqualParityB.Cert.cert_FD2_i_B_at_b_1_P_4_mu_L_big_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:290:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Asame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:291:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Asame_mu_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:292:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Asame_mu_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:293:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Asame_mu_mu1_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:294:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Asame_mu_one_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:295:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Asame_mu_one_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:296:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Aopp_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:297:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Aopp_mu_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:298:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Aopp_mu_one_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:299:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Bsame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:300:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Bsame_mu_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:301:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Bsame_mu_one_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:302:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Csame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:303:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Csame_mu_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:304:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Csame_mu_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:305:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Csame_mu_mu1_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:306:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Csame_mu_one_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:307:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Csame_mu_one_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:308:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Copp_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:309:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Copp_mu_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:310:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Copp_mu_one_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:311:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Esame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:312:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Esame_mu_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:313:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Esame_mu_one_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:314:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Eopp_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:315:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Eopp_mu_mu1_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:316:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_1_Eopp_mu_one_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:317:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Asame_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:318:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Asame_mu_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:319:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Asame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:320:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Asame_mu_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:321:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Aopp_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:322:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Aopp_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:323:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Bsame_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:324:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Bsame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:325:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Csame_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:326:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Csame_mu_mu0_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:327:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Csame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:328:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Csame_mu_L_p3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:329:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Copp_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:330:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Copp_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:331:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Esame_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:332:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Esame_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:333:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Eopp_mu_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:334:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_2_Eopp_mu_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:335:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_3_chain_alone_x_mu0_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBCertAudit.lean:336:0: 'ICGEqualParityB.Cert.cert_FD2_ii_k_3_chain_alone_x_L_p3_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8981/8987] Replayed Research.SwitchingDiam4Cubic
+info: Research/SwitchingDiam4Cubic.lean:112:0: 'SwitchingDiam4.no_rat_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingDiam4Cubic.lean:113:0: 'SwitchingDiam4.real_root_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingDiam4Cubic.lean:114:0: 'SwitchingDiam4.no_eigenvalue_root_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8982/8987] Built Research.ICGEqualParityBAudit (3.4s)
+info: Research/ICGEqualParityBAudit.lean:8:0: def ICGEqualParityB.Theta : ℝ → ℝ → ℕ → ℝ :=
+fun p q b =>
+  ICGEqualParityB.Dp (p - 1) * ICGGeneral.L1 q b ICGGeneral.sgnv -
+    2 * ((p - 1) ^ 2 + 1) * ICGGeneral.Tv q b ICGGeneral.sgnv b
+info: Research/ICGEqualParityBAudit.lean:9:0: def ICGEqualParityB.Gfun : ℝ → ℝ → ℕ → (ℕ → ℕ → ℝ) → ℝ :=
+fun p q b Y =>
+  ICGGeneral.L1 q b (ICGEqualParityB.rw0 p Y) + ICGGeneral.L1 q b (ICGEqualParityB.rw1 p Y) +
+      ICGGeneral.L1 q b (ICGEqualParityB.rw2 p Y) -
+    2 * q ^ b * max 0 (-ICGGeneral.Zp q b (ICGEqualParityB.rw2 p Y) 0)
+info: Research/ICGEqualParityBAudit.lean:10:0: def ICGEqualParityB.Ym : ℕ → ℕ → ℝ :=
+fun i l => -(ICGGeneral.sgnv i * ICGGeneral.sgnv l)
+info: Research/ICGEqualParityBAudit.lean:11:0: def ICGEqualParityB.Yp : ℕ → ℕ → ℕ → ℝ :=
+fun b i l => if i = 2 ∧ l = b then -1 else ICGGeneral.sgnv i * ICGGeneral.sgnv l
+info: Research/ICGEqualParityBAudit.lean:12:0: def ICGEqualParityB.ParamB : ℝ → ℝ → Prop :=
+fun p q => 5 ≤ p ∧ 3 ≤ q ∨ p = 3 ∧ 5 ≤ q
+info: Research/ICGEqualParityBAudit.lean:13:0: def ICGEqualParityB.SignMat : ℕ → (ℕ → ℕ → ℝ) → Prop :=
+fun b Y => ∀ i ≤ 2, ∀ l ≤ b, Y i l = 1 ∨ Y i l = -1
+info: Research/ICGEqualParityBAudit.lean:14:0: def ICGEqualParityB.DtruncB : ℕ → ℕ → ℕ → Finset ℕ :=
+fun p q b => (ICGGeneral.DstarPQ p q 2 b).erase (p ^ 2 * q ^ b)
+info: Research/ICGEqualParityBAudit.lean:15:0: def ICGEqualParity.DantiPQ : ℕ → ℕ → ℕ → ℕ → Finset ℕ :=
+fun p q a b =>
+  Finset.image (fun ij => p ^ ij.1 * q ^ ij.2) ({ij ∈ Finset.range (a + 1) ×ˢ Finset.range (b + 1) | Odd (ij.1 + ij.2)})
+info: Research/ICGEqualParityBAudit.lean:16:0: def ICGGeneral.DstarPQ : ℕ → ℕ → ℕ → ℕ → Finset ℕ :=
+fun p q a b =>
+  Finset.image (fun ij => p ^ ij.1 * q ^ ij.2)
+    ({ij ∈ Finset.range (a + 1) ×ˢ Finset.range (b + 1) | Even (ij.1 + ij.2)})
+info: Research/ICGEqualParityBAudit.lean:18:0: ICGEqualParityB.theoremB : ∀ (p q b : ℕ),
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        3 ≤ p →
+          3 ≤ q →
+            Even b →
+              2 ≤ b →
+                ∀ D ⊆ (p ^ 2 * q ^ b).properDivisors,
+                  ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) D) ⋯ ≤
+                      (↑p ^ 2 * ↑q ^ b + (5 * ↑p ^ 2 - 8 * ↑p + 4) * ICGGeneral.L1 (↑q) b ICGGeneral.sgnv) / 2 -
+                        (↑p ^ 2 - 2 * ↑p + 2) * ICGGeneral.Tv (↑q) b ICGGeneral.sgnv b ∧
+                    (ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) D) ⋯ =
+                        (↑p ^ 2 * ↑q ^ b + (5 * ↑p ^ 2 - 8 * ↑p + 4) * ICGGeneral.L1 (↑q) b ICGGeneral.sgnv) / 2 -
+                          (↑p ^ 2 - 2 * ↑p + 2) * ICGGeneral.Tv (↑q) b ICGGeneral.sgnv b ↔
+                      D = ICGEqualParity.DantiPQ p q 2 b ∨ D = ICGEqualParityB.DtruncB p q b)
+info: Research/ICGEqualParityBAudit.lean:19:0: ICGEqualParityB.corollaryB : ∀ (p q b : ℕ),
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        3 ≤ p →
+          3 ≤ q →
+            Even b →
+              2 ≤ b →
+                ICGEqualParity.DantiPQ p q 2 b ⊆ (p ^ 2 * q ^ b).properDivisors ∧
+                  ICGEqualParityB.DtruncB p q b ⊆ (p ^ 2 * q ^ b).properDivisors ∧
+                    2 * ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) (ICGEqualParity.DantiPQ p q 2 b)) ⋯ =
+                        ↑p ^ 2 * ↑q ^ b + (5 * ↑p ^ 2 - 8 * ↑p + 4) * ICGGeneral.L1 (↑q) b ICGGeneral.sgnv -
+                          2 * (↑p ^ 2 - 2 * ↑p + 2) * ICGGeneral.Tv (↑q) b ICGGeneral.sgnv b ∧
+                      ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) (ICGEqualParityB.DtruncB p q b)) ⋯ =
+                          ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) (ICGEqualParity.DantiPQ p q 2 b)) ⋯ ∧
+                        ∀ D ⊆ (p ^ 2 * q ^ b).properDivisors,
+                          ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) D) ⋯ ≤
+                              ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) (ICGEqualParity.DantiPQ p q 2 b)) ⋯ ∧
+                            (ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) D) ⋯ =
+                                ICGBridge.energy (ICGBridge.icgAdj (p ^ 2 * q ^ b) (ICGEqualParity.DantiPQ p q 2 b)) ⋯ →
+                              D = ICGEqualParity.DantiPQ p q 2 b ∨ D = ICGEqualParityB.DtruncB p q b)
+info: Research/ICGEqualParityBAudit.lean:20:0: ICGEqualParityB.theoremB_swap : ∀ (p q b : ℕ),
+  Nat.Prime p →
+    Nat.Prime q →
+      p ≠ q →
+        3 ≤ p →
+          3 ≤ q →
+            Even b →
+              2 ≤ b →
+                ∀ D ⊆ (p ^ b * q ^ 2).properDivisors,
+                  ICGBridge.energy (ICGBridge.icgAdj (p ^ b * q ^ 2) D) ⋯ ≤
+                      (↑p ^ b * ↑q ^ 2 + (5 * ↑q ^ 2 - 8 * ↑q + 4) * ICGGeneral.L1 (↑p) b ICGGeneral.sgnv) / 2 -
+                        (↑q ^ 2 - 2 * ↑q + 2) * ICGGeneral.Tv (↑p) b ICGGeneral.sgnv b ∧
+                    (ICGBridge.energy (ICGBridge.icgAdj (p ^ b * q ^ 2) D) ⋯ =
+                        (↑p ^ b * ↑q ^ 2 + (5 * ↑q ^ 2 - 8 * ↑q + 4) * ICGGeneral.L1 (↑p) b ICGGeneral.sgnv) / 2 -
+                          (↑q ^ 2 - 2 * ↑q + 2) * ICGGeneral.Tv (↑p) b ICGGeneral.sgnv b ↔
+                      D = ICGEqualParity.DantiPQ p q b 2 ∨ D = (ICGGeneral.DstarPQ p q b 2).erase (p ^ b * q ^ 2))
+info: Research/ICGEqualParityBAudit.lean:21:0: @ICGEqualParityB.thmB' : ∀ {p q : ℝ},
+  ICGEqualParityB.ParamB p q →
+    ∀ {b : ℕ},
+      Even b →
+        2 ≤ b →
+          ∀ {Y : ℕ → ℕ → ℝ},
+            ICGEqualParityB.SignMat b Y →
+              Y 2 b = -1 →
+                ICGEqualParityB.Gfun p q b Y ≤ ICGEqualParityB.Theta p q b ∧
+                  (ICGEqualParityB.Gfun p q b Y = ICGEqualParityB.Theta p q b ↔
+                    (∀ i ≤ 2, ∀ l ≤ b, Y i l = ICGEqualParityB.Ym i l) ∨
+                      ∀ i ≤ 2, ∀ l ≤ b, Y i l = ICGEqualParityB.Yp b i l)
+info: Research/ICGEqualParityBAudit.lean:23:0: @ICGEqualParityB.prop1 : ∀ {p q : ℝ},
+  2 < q →
+    ∀ (b : ℕ) (Y : ℕ → ℕ → ℝ),
+      ICGEqualParityB.Theta p q b - ICGEqualParityB.Gfun p q b Y =
+        q ^ b *
+          ((∑ k ∈ Finset.range b, ICGEqualParityB.ScY p q b Y k) / q +
+                ICGGeneral.nu q b *
+                  (ICGEqualParityB.Dp (p - 1) -
+                    (|ICGEqualParityB.rw0 p Y b| + |ICGEqualParityB.rw1 p Y b| + |ICGEqualParityB.rw2 p Y b|)) +
+              2 * max 0 (-ICGGeneral.Zp q b (ICGEqualParityB.rw2 p Y) 0) -
+            2 * ((p - 1) ^ 2 + 1) * ICGGeneral.nu q b)
+info: Research/ICGEqualParityBAudit.lean:24:0: @ICGEqualParityB.lemS : ∀ {P Q μ c0 c1 c2 B0 B1 B2 : ℝ},
+  ICGEqualParityB.PQok P Q →
+    0 ≤ μ →
+      μ ≤ 1 →
+        c0 = 1 ∨ c0 = -1 →
+          c1 = 1 ∨ c1 = -1 →
+            c2 = 1 ∨ c2 = -1 →
+              |B0| ≤ 2 * P * (P + 1) →
+                |B1| ≤ 2 * P * (P + 1) →
+                  |B2| ≤ (P + 1) ^ 2 →
+                    0 ≤
+                        ICGEqualParityB.Sc P Q μ (ICGEqualParityB.Mc0 P c0 c1 c2) (ICGEqualParityB.Mc1 P c0 c1 c2)
+                          (ICGEqualParityB.Mc2 P c0 c1 c2) B0 B1 B2 ∧
+                      (¬(c0 = 1 ∧ c1 = -1 ∧ c2 = 1 ∨ c0 = -1 ∧ c1 = 1 ∧ c2 = -1) →
+                        0 <
+                          ICGEqualParityB.Sc P Q μ (ICGEqualParityB.Mc0 P c0 c1 c2) (ICGEqualParityB.Mc1 P c0 c1 c2)
+                            (ICGEqualParityB.Mc2 P c0 c1 c2) B0 B1 B2)
+info: Research/ICGEqualParityBAudit.lean:25:0: @ICGEqualParityB.fd1 : ∀ {P Q μ m ρ c0 c1 c2 : ℝ},
+  ICGEqualParityB.PQok P Q →
+    Q - 1 ≤ (Q + 1) * μ →
+      μ ≤ 1 →
+        Q - 1 ≤ (Q + 1) * m →
+          m ≤ 1 →
+            (Q + 1) ^ 2 * ρ ≤ Q ^ 2 + 1 →
+              μ = 1 ∧ (Q + 1) * ρ = Q - m ∨ m = 1 ∧ (Q + 1) * ρ = Q - μ ∨ (Q + 1) ^ 2 * m ≤ Q ^ 2 + 1 →
+                c0 = 1 ∨ c0 = -1 →
+                  c1 = 1 ∨ c1 = -1 →
+                    c2 = 1 ∨ c2 = -1 →
+                      ¬(c0 = -1 ∧ c1 = 1 ∧ c2 = -1) →
+                        2 * (Q + 1) * (P ^ 2 + 1) * ρ <
+                          ICGEqualParityB.Sc P Q μ (ICGEqualParityB.Mc0 P c0 c1 c2) (ICGEqualParityB.Mc1 P c0 c1 c2)
+                            (ICGEqualParityB.Mc2 P c0 c1 c2) (m * (2 * P * (P + 1))) (m * -(2 * P ^ 2))
+                            (m * (P ^ 2 + 1))
+info: Research/ICGEqualParityBAudit.lean:26:0: @ICGEqualParityB.fd2a : ∀ {P Q μ c0 c1 c2 : ℝ},
+  ICGEqualParityB.PQok P Q →
+    0 ≤ μ →
+      μ ≤ 1 →
+        c0 = 1 ∨ c0 = -1 →
+          c1 = 1 ∨ c1 = -1 →
+            c2 = 1 ∨ c2 = -1 →
+              ¬(c0 = -1 ∧ c1 = -1 ∧ c2 = 1) ∨ 4 ≤ P →
+                4 * P * (Q - μ) <
+                  ICGEqualParityB.Sc P Q μ (ICGEqualParityB.Mc0 P c0 c1 c2) (ICGEqualParityB.Mc1 P c0 c1 c2)
+                    (ICGEqualParityB.Mc2 P c0 c1 c2) (-(2 * P * (P + 1))) (-(2 * P)) (P ^ 2 + 2 * P - 1)
+info: Research/ICGEqualParityBAudit.lean:27:0: @ICGEqualParityB.fd2dom : ∀ {P Q μ m c0 c1 c2 : ℝ},
+  P = 2 →
+    4 ≤ Q →
+      Q - 1 ≤ (Q + 1) * μ →
+        μ ≤ 1 →
+          (Q + 1) * m = Q - 1 →
+            c0 = 1 ∨ c0 = -1 →
+              c1 = 1 ∨ c1 = -1 →
+                c2 = 1 ∨ c2 = -1 →
+                  2 * Q * (1 + μ) ≤
+                    ICGEqualParityB.Sc P Q μ (ICGEqualParityB.Mc0 P c0 c1 c2) (ICGEqualParityB.Mc1 P c0 c1 c2)
+                      (ICGEqualParityB.Mc2 P c0 c1 c2) (m * (2 * P * (P + 1))) (m * (2 * P))
+                      (-(m * (P ^ 2 + 2 * P - 1)))
+info: Research/ICGEqualParityBAudit.lean:28:0: @ICGEqualParityB.eq_all : ∀ {p q : ℝ} {b : ℕ} {Y : ℕ → ℕ → ℝ},
+  ICGEqualParityB.PQok (p - 1) (q - 1) →
+    Even b →
+      2 ≤ b →
+        ICGEqualParityB.SignMat b Y →
+          Y 0 b = 1 ∧ Y 1 b = -1 ∧ Y 2 b = -1 →
+            (∀ k < b, ICGEqualParityB.ScY p q b Y k = 0) → ∀ l < b, ICGEqualParityB.IsPlusCol Y l
+info: Research/ICGEqualParityBAudit.lean:29:0: @ICGEqualParityB.G_Ym : ∀ {p q : ℝ},
+  1 ≤ p → 2 < q → ∀ (b : ℕ), ICGEqualParityB.Gfun p q b ICGEqualParityB.Ym = ICGEqualParityB.Theta p q b
+info: Research/ICGEqualParityBAudit.lean:30:0: @ICGEqualParityB.G_Yp : ∀ {p q : ℝ},
+  ICGEqualParityB.PQok (p - 1) (q - 1) →
+    ∀ {b : ℕ}, Even b → 2 ≤ b → ICGEqualParityB.Gfun p q b (ICGEqualParityB.Yp b) = ICGEqualParityB.Theta p q b
+info: Research/ICGEqualParityBAudit.lean:31:0: @ICGEqualParityB.two_L1mat_rows2 : ∀ {p q : ℝ},
+  1 ≤ p →
+    1 < q →
+      ∀ (b : ℕ) (X : ℕ → ℕ → ℝ),
+        (∀ i ≤ 2, ∀ l ≤ b, X i l = 0 ∨ X i l = 1) →
+          2 * ICGGeneral.L1mat p q 2 b X = (ICGEqualParityB.Gfun p q b fun c e => 2 * X c e - 1) + p ^ 2 * q ^ b
+info: Research/ICGEqualParityBAudit.lean:33:0: 'ICGEqualParityB.theoremB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBAudit.lean:34:0: 'ICGEqualParityB.corollaryB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBAudit.lean:35:0: 'ICGEqualParityB.theoremB_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBAudit.lean:36:0: 'ICGEqualParityB.thmB'' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBAudit.lean:37:0: 'ICGEqualParityB.prop1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBAudit.lean:38:0: 'ICGEqualParityB.lemS' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBAudit.lean:39:0: 'ICGEqualParityB.fd1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBAudit.lean:40:0: 'ICGEqualParityB.fd2a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBAudit.lean:41:0: 'ICGEqualParityB.fd2dom' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/ICGEqualParityBAudit.lean:42:0: 'ICGEqualParityB.G_Yp' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8983/8989] Built Research.SwitchingDiam4CubicAudit (3.0s)
+info: Research/SwitchingDiam4CubicAudit.lean:10:0: @SwitchingDiam4.no_eigenvalue_root_cubic : ∀ {n : Type u_1} [inst : Fintype n] [inst_1 : DecidableEq n]
+  (A : Matrix n n ℚ), Aᵀ = A → ∀ (θ : ℝ), eval θ (A.map ⇑(algebraMap ℚ ℝ)).charpoly = 0 → θ ^ 3 - θ + 2 ≠ 0
+info: Research/SwitchingDiam4CubicAudit.lean:11:0: SwitchingDiam4.no_rat_root : ∀ (r : ℚ), r ^ 3 - r + 2 ≠ 0
+info: Research/SwitchingDiam4CubicAudit.lean:12:0: SwitchingDiam4.real_root_unique : ∀ (x y : ℝ), x ^ 3 - x + 2 = 0 → y ^ 3 - y + 2 = 0 → x = y
+info: Research/SwitchingDiam4CubicAudit.lean:23:0: 'SwitchingDiam4.no_eigenvalue_root_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingDiam4CubicAudit.lean:24:0: 'SwitchingDiam4.no_rat_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingDiam4CubicAudit.lean:25:0: 'SwitchingDiam4.real_root_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8984/8989] Replayed Research.SwitchingRowCount
+info: Research/SwitchingRowCount.lean:71:0: 'SwitchingRow.card_bad_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingRowCount.lean:72:0: 'SwitchingRow.card_bad_le_one_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8986/8991] Built Research.SwitchingRowCountAudit (3.0s)
+info: Research/SwitchingRowCountAudit.lean:8:0: @SwitchingRow.card_bad_le_two : ∀ {K : Type u_1} [inst : Field K] [CharZero K] (u w θ : K),
+  w ≠ 0 → {Λ | u + ↑Λ * w = θ ∨ u + ↑Λ * w = -θ}.ncard ≤ 2
+info: Research/SwitchingRowCountAudit.lean:9:0: @SwitchingRow.card_bad_le_one_of_ne : ∀ {K : Type u_1} [inst : Field K] [CharZero K] (u w θ : K),
+  w ≠ 0 → (∀ (j : ℤ), ↑j * w ≠ 2 * θ) → {Λ | u + ↑Λ * w = θ ∨ u + ↑Λ * w = -θ}.ncard ≤ 1
+info: Research/SwitchingRowCountAudit.lean:10:0: @SwitchingRow.affine_injective : ∀ {K : Type u_1} [inst : Field K] [CharZero K] (u w : K),
+  w ≠ 0 → Function.Injective fun Λ => u + ↑Λ * w
+info: Research/SwitchingRowCountAudit.lean:16:0: 'SwitchingRow.card_bad_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingRowCountAudit.lean:17:0: 'SwitchingRow.card_bad_le_one_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8987/8991] Replayed Research.SwitchingThmH
+info: Research/SwitchingThmH.lean:70:0: 'SwitchingThmH.two_sqrt_add_seven_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:71:0: 'SwitchingThmH.row_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:72:0: 'SwitchingThmH.sol_subsingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:73:0: 'SwitchingThmH.indep_of_irrational' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8988/8991] Built Research.RM714WeightsAudit (11s)
+info: Research/RM714WeightsAudit.lean:8:0: def RM714.evalPoly : List (Finset (Fin 14)) → (Fin 14 → ZMod 2) → ZMod 2 :=
+fun L x => (List.map (fun S => ∏ i ∈ S, x i) L).sum
+info: Research/RM714WeightsAudit.lean:9:0: def RM714.weight : List (Finset (Fin 14)) → ℕ :=
+fun L => {x | RM714.evalPoly L x = 1}.card
+info: Research/RM714WeightsAudit.lean:10:0: def RM714.IsRM714Weight : ℕ → Prop :=
+fun w => ∃ L, (∀ S ∈ L, S.card ≤ 7) ∧ RM714.weight L = w
+info: Research/RM714WeightsAudit.lean:11:0: RM714.rm714_new_weights : ∀
+  w ∈ [354, 16030, 4378, 4380, 4382, 8174, 8178, 8182, 8186, 8188, 8190, 8194, 8196, 8198, 8202, 8206, 8210],
+  RM714.IsRM714Weight w
+info: Research/RM714WeightsAudit.lean:12:0: RM714.weight_map_maskSet : ∀ (L : List ℕ),
+  (∀ s ∈ L, s < 2 ^ 14) → RM714.weight (List.map RM714.maskSet L) = RM714.weightNat L
+info: Research/RM714WeightsAudit.lean:13:0: RM714.isRM714Weight_of : ∀ (L : List ℕ) (w : ℕ),
+  (∀ s ∈ L, s < 2 ^ 14) →
+    (L.all fun s => decide (RM714.degNat s ≤ 7)) = true → RM714.weightNat L = w → RM714.IsRM714Weight w
+info: Research/RM714WeightsAudit.lean:30:0: 'RM714.rm714_new_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/RM714WeightsAudit.lean:31:0: 'RM714.weight_map_maskSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/RM714WeightsAudit.lean:32:0: 'RM714.isRM714Weight_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8989/8991] Replayed Research.SwitchingWalkProfile
+info: Research/SwitchingWalkProfile.lean:274:0: 'SwitchingWalkProfile.annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:275:0: 'SwitchingWalkProfile.eigen_nonorth' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:276:0: 'SwitchingWalkProfile.main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:277:0: 'SwitchingWalkProfile.walkRegular_main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8990/8991] Built Research.SwitchingThmHAudit (3.0s)
+info: Research/SwitchingThmHAudit.lean:13:0: 'SwitchingThmH.row_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmHAudit.lean:14:0: 'SwitchingThmH.sol_subsingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8991/8991] Built Research.SwitchingWalkProfileAudit (2.0s)
+info: Research/SwitchingWalkProfileAudit.lean:10:0: def SwitchingWalkProfile.switchVec.{u_1} : {ι : Type u_1} → [DecidableEq ι] → ι → ι → ℝ :=
+fun {ι} [DecidableEq ι] v i => if i = v then -1 else 1
+info: Research/SwitchingWalkProfileAudit.lean:11:0: @SwitchingWalkProfile.annihilator : ∀ {ι : Type u_1} [inst : Fintype ι] [inst_1 : DecidableEq ι] (A : Matrix ι ι ℝ),
+  Aᵀ = A →
+    ∀ (k : ℝ),
+      ((A *ᵥ fun x => 1) = k • fun x => 1) →
+        Fintype.card ι ≠ 2 →
+          ∀ (v : ι) (w : ι → ℝ),
+            (∀ (u : ι), 0 < w u) →
+              (∀ (j : ℕ), (A ^ j) v v = ∑ u, w u * (A ^ j) u u) →
+                ∀ (f : Polynomial ℝ),
+                  (Polynomial.aeval A) f *ᵥ SwitchingWalkProfile.switchVec v = 0 → (Polynomial.aeval A) f = 0
+info: Research/SwitchingWalkProfileAudit.lean:12:0: @SwitchingWalkProfile.eigen_nonorth : ∀ {ι : Type u_1} [inst : Fintype ι] [inst_1 : DecidableEq ι] (A : Matrix ι ι ℝ),
+  Aᵀ = A →
+    ∀ (k : ℝ),
+      ((A *ᵥ fun x => 1) = k • fun x => 1) →
+        Fintype.card ι ≠ 2 →
+          ∀ (v : ι) (w : ι → ℝ),
+            (∀ (u : ι), 0 < w u) →
+              (∀ (j : ℕ), (A ^ j) v v = ∑ u, w u * (A ^ j) u u) →
+                ∀ (θ : ℝ) (x : ι → ℝ),
+                  x ≠ 0 → A *ᵥ x = θ • x → ∃ y, A *ᵥ y = θ • y ∧ SwitchingWalkProfile.switchVec v ⬝ᵥ y ≠ 0
+info: Research/SwitchingWalkProfileAudit.lean:13:0: @SwitchingWalkProfile.main_after_switching : ∀ {ι : Type u_1} [inst : Fintype ι] [inst_1 : DecidableEq ι]
+  (A : Matrix ι ι ℝ),
+  Aᵀ = A →
+    ∀ (k : ℝ),
+      ((A *ᵥ fun x => 1) = k • fun x => 1) →
+        Fintype.card ι ≠ 2 →
+          ∀ (v : ι) (w : ι → ℝ),
+            (∀ (u : ι), 0 < w u) →
+              (∀ (j : ℕ), (A ^ j) v v = ∑ u, w u * (A ^ j) u u) →
+                ∀ (θ : ℝ) (x : ι → ℝ),
+                  x ≠ 0 →
+                    (diagonal (SwitchingWalkProfile.switchVec v) * A * diagonal (SwitchingWalkProfile.switchVec v)) *ᵥ
+                          x =
+                        θ • x →
+                      ∃ z,
+                        (diagonal (SwitchingWalkProfile.switchVec v) * A *
+                                diagonal (SwitchingWalkProfile.switchVec v)) *ᵥ
+                              z =
+                            θ • z ∧
+                          (fun x => 1) ⬝ᵥ z ≠ 0
+info: Research/SwitchingWalkProfileAudit.lean:14:0: @SwitchingWalkProfile.walkRegular_main_after_switching : ∀ {ι : Type u_1} [inst : Fintype ι] [inst_1 : DecidableEq ι]
+  (A : Matrix ι ι ℝ),
+  Aᵀ = A →
+    ∀ (k : ℝ),
+      ((A *ᵥ fun x => 1) = k • fun x => 1) →
+        Fintype.card ι ≠ 2 →
+          (∀ (j : ℕ) (u u' : ι), (A ^ j) u u = (A ^ j) u' u') →
+            ∀ (v : ι) (θ : ℝ) (x : ι → ℝ),
+              x ≠ 0 →
+                (diagonal (SwitchingWalkProfile.switchVec v) * A * diagonal (SwitchingWalkProfile.switchVec v)) *ᵥ x =
+                    θ • x →
+                  ∃ z,
+                    (diagonal (SwitchingWalkProfile.switchVec v) * A * diagonal (SwitchingWalkProfile.switchVec v)) *ᵥ
+                          z =
+                        θ • z ∧
+                      (fun x => 1) ⬝ᵥ z ≠ 0
+warning: Research/SwitchingWalkProfileAudit.lean:26:58: This simp argument is unused:
+  Fin.sum_univ_three
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SwitchingWalkProfile.switchVec, Matrix.mul_apply, diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Research/SwitchingWalkProfileAudit.lean:30:58: This simp argument is unused:
+  Fin.sum_univ_three
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SwitchingWalkProfile.switchVec, Matrix.mul_apply, diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: Research/SwitchingWalkProfileAudit.lean:32:0: 'SwitchingWalkProfile.annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfileAudit.lean:33:0: 'SwitchingWalkProfile.eigen_nonorth' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfileAudit.lean:34:0: 'SwitchingWalkProfile.main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfileAudit.lean:35:0: 'SwitchingWalkProfile.walkRegular_main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8991 jobs).
+       31.67 real        29.06 user        31.18 sys
+          6671597568  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             5461878  page reclaims
+                 212  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               80886  voluntary context switches
+              256318  involuntary context switches
+         73638335418  instructions retired
+         27745945802  cycles elapsed
+           366863784  peak memory footprint
+exit=0
+2026-09-29T13:13:28Z

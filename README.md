@@ -13,15 +13,16 @@ their results and computational certificates. It is archived on Zenodo: all vers
 [10.5281/zenodo.23000177](https://doi.org/10.5281/zenodo.23000177); version 1.7.0
 [10.5281/zenodo.23000178](https://doi.org/10.5281/zenodo.23000178); version 1.7.1
 [10.5281/zenodo.23002935](https://doi.org/10.5281/zenodo.23002935); version 1.8.0
-[10.5281/zenodo.23004801](https://doi.org/10.5281/zenodo.23004801).
+[10.5281/zenodo.23004801](https://doi.org/10.5281/zenodo.23004801); version 1.9.0
+[10.5281/zenodo.23043604](https://doi.org/10.5281/zenodo.23043604).
 
-> **Verification status (version 1.9.0, 29 September 2026).** No human
-> mathematician has reviewed these papers. Papers 4 (in its version 2), 9
-> and 10 are formalized completely: every result in them has a Lean proof,
-> checked against a statement file that was frozen before the Lean proofs
-> were written. For the other papers only some results are formally
-> verified in Lean 4, and the table "What is verified, and how" lists
-> exactly which. Paper 7 has no Lean proof; Papers 1, 3, 5, 6 and 8 are
+> **Verification status (version 1.10.0, 29 September 2026).** No human
+> mathematician has reviewed these papers. Papers 3 and 4 (in their
+> versions 2), 9 and 10 are formalized completely: every result in them has
+> a Lean proof, checked against statements that were frozen before work on
+> their Lean proofs began. For the other papers only some results are
+> formally verified in Lean 4, and the table "What is verified, and how"
+> lists exactly which. Paper 7 has no Lean proof; Papers 1, 5, 6 and 8 are
 > partly formalized; the theorems of Paper 2 are formalized for every
 > power series satisfying the defining equations, while the existence and
 > uniqueness of these series, and their agreement with the OEIS entries,
@@ -29,8 +30,8 @@ their results and computational certificates. It is archived on Zenodo: all vers
 > paper completely: statements are frozen and reviewed independently
 > before the proofs, computations are checked by the Lean kernel, and only
 > the three standard axioms are allowed. Claims that cannot be formalized
-> completely will be removed from the other papers too, as in version 2 of
-> Paper 4. Problems found so far are listed under
+> completely will be removed from the other papers too, as in versions 2
+> of Papers 3 and 4. Problems found so far are listed under
 > [Known issues](#known-issues); every problem we worked on, including the
 > ones we dropped, is listed in [ATTEMPTS.md](ATTEMPTS.md).
 
@@ -40,7 +41,7 @@ their results and computational certificates. It is archived on Zenodo: all vers
 | --- | --- | --- | --- | --- |
 | Paper 1 (version 1.5) | Maximal energy of integral circulant graphs of orders `p^(2r)·3^(2s+1)`, `pq^m` and `p²q^b`; for exponents of equal parity, every order `p^a q^b` with `min(a,b) ≤ 8` | new theorems; Theorem 5 (for `3 ≤ min(a,b) ≤ 8`) and Proposition 15 are computer-assisted | `ICGGeneral.jiang_yang_q3`, `ICGGeneral.jiang_yang_thmA`, `ICGEqualParity.corollaryA`, `ICGEqualParityB.theoremB` | [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) |
 | Paper 2 | Hanna's OEIS congruence conjectures: eleven proved, three more resolved | proofs; several follow quickly from classical results (stated in the corrected version 1.2.1) | `Oeis389472Mod3.*`, `HannaA*.*` | [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) |
-| Paper 3 | A negative answer to a question of Carenini on almost independent sets in regular graphs | new theorems (counterexamples and an asymptotic result) | `Carenini.not_careniniQuestion_six`, `Carenini.not_careniniQuestion_two_d` | [`papers/carenini-almost-independent`](papers/carenini-almost-independent/note.pdf) |
+| Paper 3 (version 2) | A negative answer to a question of Carenini on almost independent sets in regular graphs | new theorems (counterexamples and an asymptotic result); completely formalized | `BackfillPaper3.Check.check_AnswerNegative`, `check_TheoremA`, `check_TheoremD`, `check_PropositionC` (60 checked statements) | [`papers/carenini-almost-independent`](papers/carenini-almost-independent/note.pdf) |
 | Paper 4 (version 2) | Answers to three problems of Hak, Kozerenko and Oliynyk on the triameter of graphs | Problems 1 and 3 answered (we found no earlier answer); Problem 2 was first answered on MathOverflow, and we add its smallest counterexample; completely formalized | `BackfillPaper4.Check.check_TheoremA_i`, `check_TheoremA_unique`, `check_TheoremB_unique`, `check_TheoremC_ii` (50 checked statements) | [`papers/hko-triameter`](papers/hko-triameter/note.pdf) |
 | Paper 5 | Complete mappings of the Brauer and partial Brauer monoids | Problem 15.11 of arXiv:2608.25092 settled in its existence reading; Lean covers only two constructions | `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC` | [`papers/brauer-complete-mappings`](papers/brauer-complete-mappings/note.pdf) |
 | Paper 6 | The weight spectrum of the Reed–Muller code RM(7,14) up to four weights | 14 new weights; spectrum determined except for four weights and their complements; Conjecture 2 of Lou and Wang fails for m = 6, which Lou and Wang had already shown (see Known issues) | `RM714.rm714_new_weights` (all 17 weights of Theorem A) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
@@ -135,7 +136,7 @@ three more.*
 >
 > The theorems, proofs and Lean formalisation are unchanged.
 
-**Paper 3: [`papers/carenini-almost-independent`](papers/carenini-almost-independent/note.pdf).**
+**Paper 3: [`papers/carenini-almost-independent`](papers/carenini-almost-independent/note.pdf) (version 2).**
 *A negative answer to a question of Carenini on almost independent sets in
 regular graphs.*
 
@@ -158,14 +159,24 @@ regular graphs.*
   is optimal for every `γ` (the upper bound is Carenini's biclique reduction,
   which rests on Sah–Sawhney–Stoner–Zhao).
 - Still open: the exact question for fixed `γ ∈ (0, 1/8]` as `n → ∞`, and
-  the `(1 + o(1))` form for fixed `d` and `0 < γ < 1/8` (at `γ = 1/8` the
-  `(1 + o(1))` form holds, as shown in the paper).
-- Lean: the counterexample at `(6,3,1/18)`, the switched family for every
-  `d ≥ 3`, and three further instances (`lean/Research/Carenini.lean`).
-  For the switched family only the strict inequality is formal; the exact
-  excess `4d − 8`, the range of `γ` and Corollary 5 are proved in the
-  paper. The minimality of `(6,3,1/18)` and Theorems A, B′ (general `d`), D
-  and Proposition C are proved in the paper, not in Lean.
+  the `(1 + o(1))` form for fixed `d` and `0 < γ < 1/8` (version 2 makes no
+  claim at `γ = 1/8`).
+- Lean: every result of Paper 3 (version 2) is formalized. The 60 statements
+  of the frozen statement file `lean/Research/Backfill/Paper3/Challenge.lean`
+  (SHA-256 `846efb56…8777`) are proved in `lean/Research/Backfill/Paper3/`
+  (`Check.lean`), including Theorems A, B, B′ and D, Proposition C, the
+  minimality of `(6,3,1/18)`, the class counts 2, 6 and 60 of Table 3 (via a
+  formalized 2-switch theorem and kernel-checked certificates), the case of
+  the theorem of Sah, Sawhney, Stoner and Zhao that the paper uses, the
+  Kahn–Zhao theorem, and Lemma 8 without Cramér's theorem. The statements
+  were written after the paper, reviewed independently and frozen (version 1
+  on 27 September 2026, before any proof; version 2 on 29 September 2026 at
+  01:31 UTC); the Lean proofs were written by Claude Code agents while
+  Codex's usage quota had run out. Version 2 deletes two claims of version 1
+  for which we have no formal proof: the normal approximation at `γ = 1/8`
+  (Remark 10, with reading R6 at `γ = 1/8`) and the count of 19,355
+  labelled 4-regular graphs on eight vertices. The module
+  `lean/Research/Carenini.lean` of version 1 remains.
 
 **Paper 4: [`papers/hko-triameter`](papers/hko-triameter/note.pdf) (version 2).**
 *Answers to three problems of Hak, Kozerenko and Oliynyk on the triameter of
@@ -507,8 +518,8 @@ Problems found after publication by our own re-checks, including an
 independent check of Papers 1–8 by a second AI system (OpenAI Codex),
 completed on 27 September 2026. That check found no error that affects a
 main result; it found the problems below. The papers will be corrected in
-later versions; version 1.9.0 corrects Paper 4. Until then, read the other
-papers with these corrections.
+later versions; version 1.9.0 corrected Paper 4, and version 1.10.0
+corrects Paper 3. Until then, read the other papers with these corrections.
 
 - **Paper 6, Theorem C is not new.** Lou and Wang proved it earlier, in
   Discrete Appl. Math. 388 (2026) 142–145, Proposition 2 (see Prior work).
@@ -546,10 +557,16 @@ papers with these corrections.
   statement for `H₁₁`), and Section 6 of version 1 (computations on
   distance-hereditary graphs), apart from its last sentence, which now ends
   Section 5.
-- **Paper 3, reading R1.** The table of readings says of the
-  counterexample `(6,3,1/18)` that it is the smallest and "formally
-  verified". Lean verifies that it is a counterexample; its minimality is
-  proved in the paper, not in Lean.
+- **Paper 3 (corrected in version 2 of the paper, in version 1.10.0).**
+  Version 2 removes two claims of version 1 for which we have no formal
+  proof: the normal approximation `i_{1/8}(G) = (1/2 + O(n^{-1/4})) 2^n` in
+  Remark 10, with reading R6 at `γ = 1/8`, and the count of 19,355 labelled
+  4-regular graphs on eight vertices in Section 8. It also removes three
+  unformalized side remarks (on Mantel's theorem, on an explicit `n₀` in
+  Theorem D, and on where the infimum defining `ρ(d, γ)` is attained). In
+  version 1 the table of readings called the minimality of `(6,3,1/18)`
+  "formally verified", although only the counterexample itself was; in
+  version 2 both are. The theorems are unchanged.
 - **Paper 6, property (P2)** divides by `r`, so it needs `r ≥ 1`, while
   the introduction allows `r = 0`. The paper uses (P2) only with `r = 6`.
 - **Paper 2, implicit normalizations.** For A240998, "minus 1" refers to the
@@ -560,7 +577,7 @@ papers with these corrections.
   A389472 does not determine `a(2)`; the entry has `a(2) = 1`. The theorems
   hold as stated for these normalizations.
 - **README wording corrected in version 1.8.0:** what Lean covers for
-  Papers 3 and 4 (above; for Paper 4 now superseded by version 2), and the count of new weights in Paper 6
+  Papers 3 and 4 (above; for both now superseded by their versions 2), and the count of new weights in Paper 6
   (Theorem A gives 17 weights, 14 of them among the 22 open values).
 
 ## What is verified, and how
@@ -582,7 +599,7 @@ papers with these corrections.
 | A338633, A338634, A120566 | `HannaA338633.hanna_a338633`, `HannaA338633.hanna_a338634`, `HannaA120566.hanna_a120566` | b-files substituted into the defining equation modulo two primes, and the first 60 (A338633, A338634) or 150 (A120566) terms recomputed independently (`batch2/`) |
 | A246056 (formalization of a known result) | `HannaA246056.hanna_a246056_one`, `hanna_a246056_zero`; data check `a_initial` | 320 terms recomputed from the definition vs. the b-file (301 terms) (`certificates/oeis-hanna/round5/a246056/`) |
 | A376230 (formalization of a known result; the comment is refuted) | `HannaA376230.hanna_a376230`, `hanna_a376230_literal_false` | 48 terms computed exactly from the equation; the parity pattern checked on all 1030 b-file terms (`certificates/oeis-hanna/round5/a376230/`) |
-| Paper 3: the answer to Carenini's Question 1.3 is no at `(6,3,1/18)`, at `(2d, d, 1/(2d²))` for every `d ≥ 3`, and at `(8,2,1/16)`, `(12,3,1/36)` (connected bipartite competitor), `(12,3,5/18)` | `Carenini.not_careniniQuestion_six`, `not_careniniQuestion_two_d`, `not_careniniQuestion_eight_two`, `not_careniniQuestion_twelve_bip`, `not_careniniQuestion_twelve_top` | exact edge-count distributions by two independent methods; exhaustive check over all `d`-regular graphs on `2d` vertices for `d = 3, 4, 5`; Theorem D's competitor checked exactly for `γ = 1/10` (`certificates/carenini/`) |
+| Paper 3 (version 2): every result, the 60 statements of the frozen statement file: Theorems A, B, B′ and D, Proposition C, Corollary 5, Lemmas 1, 3, 6, 7 and 8, Proposition 2, Remarks 4 and 9–12, the smallest counterexample `(6,3,1/18)` and its minimality, Tables 1, 3 and 4, the readings of Section 2, the case of the theorem of Sah, Sawhney, Stoner and Zhao used in the paper, the Kahn–Zhao theorem and the 2-switch theorem | `BackfillPaper3.Check.check_*`, one theorem for each of the 60 statements of the frozen statement file `lean/Research/Backfill/Paper3/Challenge.lean` (SHA-256 `846efb56…8777`); the version-1 declarations `Carenini.not_careniniQuestion_*` remain | for version 1, exact edge-count distributions by two independent methods and exhaustive checks over all `d`-regular graphs on `2d` vertices for `d = 3, 4, 5` (`certificates/carenini/`); in version 2 all finite checks are carried out by the Lean kernel, and the data of the class counts and of the six-vertex cubic graphs come from two programs (`lean/Research/Backfill/Paper3/Proof/TS/gen/`, `Proof/Small/gen/`) whose output the kernel checks |
 | A184894, A107099, A361047 (resolved) | `HannaA184894.zero_part`, `value_at_pow`, `counterexample`; `HannaA107099.hanna_a107099`, `hanna_a107099_counterexample`; `HannaA361047.hanna_a361047_pow`, `hanna_a361047_nonpow` | A184894: exact recomputation vs. the b-file; A107099: b-file substituted into the defining equation modulo two primes; A361047: the same, plus the first 60 terms recomputed independently (`batch2/`) |
 | Paper 4 (version 2): every result, the 50 statements of the frozen statement file: Theorems A, B and C, including the minimality and uniqueness statements; Lemmas 1 and 2, Proposition 3, Remarks 4 and 5; the counts of Section 4 (59 connected triangle-free graphs with 7 vertices, 1,857 candidates, 1, 1, 1, 3, 4, 11, 23, 69 median graphs, 1,008,904 labelled median graphs with 8 vertices, 20,160 lacking (Q3′), 20,160 lacking (Q4), two automorphisms of `G1` and of `G2`); the two facts from Bandelt and Mulder used in the proofs | `BackfillPaper4.Check.check_*`, one theorem for each of the 50 statements of the frozen statement file `lean/Research/Backfill/Paper4/Challenge.lean` (SHA-256 `9f1b0c95…0785`); the version-1 declarations `HKOTriameter.not_problem1Claim`, `not_problem2Claim`, `problem3ClaimFP` and others remain | for version 1, two independent exhaustive enumerations of the median graphs with at most 8 vertices (`median_enum.c`, `median8_second_impl.py`) and a check over all 8! bijections (`iso_check.py`) (`certificates/hko-triameter/`); the computations on distance-hereditary graphs of version 1 (`dh_exhaustive.py`) are kept there but are no longer claimed |
 | Paper 5: Theorem 1.1 (every proper principal factor of `B_n` and `PB_n` has a complete mapping, except the rank-2 factor of `PB_3`; `B_n` and `PB_n` have one iff `n ∉ {2, 3}`) | only the two constructions of Lemmas 4.3 and 4.4, over `Z_2` for any finite index set: `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC`; the rest rests on the written proofs | certificates for the rank-2 factor of `B_6`, the rank-3 factor of `B_7`, the whole monoids `B_1`, `B_4`, `B_5`, `B_6`, `PB_1`, `PB_4`, `PB_5`, `PB_6`, and second versions of the first two, each built by one implementation and checked by a second that shares no code with it; an exhaustive search showing that the rank-2 factor of `PB_3` has no complete mapping (`certificates/brauer-complete/`) |
@@ -642,12 +659,33 @@ modules were replayed through the Lean kernel with
 `lake env leanchecker <Module>`, and all passed
 (`logs/clean-replay-v1.9.0-leanchecker.log`,
 `logs/clean-replay-v1.9.0-leanchecker-circulantq3.log`). The source manifest
-`logs/lean-sources-sha256.txt` lists 304 files, and the procedure is recorded
+`logs/lean-sources-sha256.txt` then listed 304 files, and the procedure is recorded
 in `logs/clean-replay-v1.9.0-receipt.json`. Before they were copied into the
 release tree, the Lean packages of Papers 4 and 10 had each been built module
 by module in an empty directory and checked with `leanchecker`, twice
 (`certificates/hko-triameter/lean-package-v2/receipt.json`,
 `certificates/wordrep-tensor/lean-package/receipt.json`).
+
+For version 1.10.0, which adds the 94 Lean files of Paper 3, version 2
+(`lean/Research/Backfill/Paper3/`: the statement file, its tests, the 91
+proof modules and `Check.lean`), the whole project was again rebuilt from a
+clean directory on 29 September 2026, 12:49–13:14 UTC (`lake build`, exit
+code 0; `logs/clean-replay-v1.10.0-build.log`), the known-answer tests of
+Papers 3, 4, 9 and 10 were built
+(`logs/clean-replay-v1.10.0-build-challenge-tests.log`), and the twelve audit
+files were run (`logs/clean-replay-v1.10.0-audit-*.log`). Every axiom list
+printed in these logs, 711 in the build logs, 392 in the audit logs and 1 in
+the tests (each command counted once), is a subset of the three standard
+axioms, and each matches one `#print axioms` command in the sources
+(`logs/clean-replay-v1.10.0-axiom-audit.log`). All 391 modules were replayed
+through the Lean kernel with `lake env leanchecker <Module>`, and all passed
+(`logs/clean-replay-v1.10.0-leanchecker.log`,
+`logs/clean-replay-v1.10.0-leanchecker-circulantq3.log`). The source manifest
+`logs/lean-sources-sha256.txt` lists 399 files, and the procedure is
+recorded in `logs/clean-replay-v1.10.0-receipt.json`. Before it was copied
+into the release tree, the Lean package of Paper 3 had been built module by
+module in an empty directory and checked with `leanchecker`, twice
+(`certificates/carenini/lean-package-v2/receipt.json`).
 
 ### Comparator check of the completely formalized papers
 
@@ -665,38 +703,42 @@ permitted axioms, and replays the proofs in the Lean kernel and in the
 independent kernel [nanoda](https://github.com/ammkrn/nanoda_lib). The
 versions are pinned in the workflow. The files in `lean/Comparator/` contain
 `sorry` on purpose and are not part of the default build. The workflow
-checks Papers 4 (version 2), 9 and 10. Before this release, the same
-comparator, lean4export and nanoda versions were run locally on macOS, where
-the landrun sandbox is not available (comparator's
-`scripts/fake-landrun.sh` was used instead), in the directory of the clean
-rebuild described above: for each of Papers 4, 9 and 10, nanoda and the
-Lean kernel accepted the solution (`logs/comparator-local-v1.9.0-paper4.log`,
-`logs/comparator-local-v1.9.0-paper9.log`,
-`logs/comparator-local-v1.9.0-wordrep.log`,
-`logs/comparator-local-v1.9.0-receipts.json`). The first run on GitHub takes
-place after this version is pushed; its result is shown on the repository's
-Actions page.
+checks Papers 3 and 4 (versions 2), 9 and 10. For version 1.9.0 the check
+passed on GitHub for Papers 4, 9 and 10
+([run 36505842920](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/36505842920)).
+Before this release, the same comparator, lean4export and nanoda versions were
+run locally on macOS, where the landrun sandbox is not available
+(comparator's `scripts/fake-landrun.sh` was used instead), in the directory
+of the clean rebuild for version 1.10.0 described above: for each of Papers
+3, 4, 9 and 10, nanoda and the Lean kernel accepted the solution
+(`logs/comparator-local-v1.10.0-paper3.log`,
+`logs/comparator-local-v1.10.0-paper4.log`,
+`logs/comparator-local-v1.10.0-paper9.log`,
+`logs/comparator-local-v1.10.0-wordrep.log`,
+`logs/comparator-local-v1.10.0-receipts.json`; the logs of version 1.9.0 are
+kept). The run on GitHub for version 1.10.0 takes place after it is pushed;
+its result is shown on the repository's Actions page.
 
 ### Reproduce the Lean checks
 
 Each code block in this and the following sections starts from the repository
 root.
 
-Requirements: [elan](https://github.com/leanprover/elan), about 24 GB of free
-RAM for `CirculantQ3.lean` (with Lean 4.34.1 its build peaked at 18–22 GB and
-its `leanchecker` run at 21–23 GB), and about 45–50 minutes (the clean
-rebuild for version 1.9.0 took about 46 minutes, with at most two build jobs
-at a time).
+Requirements: [elan](https://github.com/leanprover/elan), about 26 GB of free
+RAM for `CirculantQ3.lean` (with Lean 4.34.1 its build peaked at 18–24 GB and
+its `leanchecker` run at 21–23 GB), and between about half an hour and an hour
+(the clean rebuilds took about 46 minutes for version 1.9.0 and about 24
+minutes for version 1.10.0, with at most two build jobs at a time).
 
 ```sh
 cd lean
 lake exe cache get                               # prebuilt mathlib, pinned in lake-manifest.json
-lake build                                       # builds everything imported by Research.lean; BrauerCMCore (Paper 5) and the Check files of Papers 4 (version 2), 9 and 10 print their own axiom audits
+lake build                                       # builds everything imported by Research.lean; BrauerCMCore (Paper 5) and the Check files of Papers 3 and 4 (versions 2), 9 and 10 print their own axiom audits
 lake env lean Research/ICGGeneralAudit.lean      # Paper 1: prints the final statements, definitions and axioms
 lake env lean Research/ICGEqualParityBAudit.lean # Paper 1, Theorem 4: the same
 lake env lean Research/ICGEqualParityBCertAudit.lean # Paper 1, Theorem 4: axioms of the 325 certificate lemmas
 lake env lean Research/ICGBridgeAudit.lean       # Roldán q = 3: the same
-lake env lean Research/CareniniAudit.lean        # Paper 3: the same
+lake env lean Research/CareniniAudit.lean        # Paper 3, version 1: the same
 lake env lean Research/HKOTriameterAudit.lean    # Paper 4: the same
 lake env lean Research/RM714WeightsAudit.lean    # Paper 6: the same
 lake env lean Research/SwitchingThmHAudit.lean        # Paper 8: restates the main statements, prints their axioms
@@ -705,6 +747,7 @@ lake env lean Research/SwitchingDiam4CubicAudit.lean  # Paper 8: the same, with 
 lake env lean Research/SwitchingWalkProfileAudit.lean # Paper 8, Remark 8.3 (not used for Theorem 1): the same
 lake build Research.AxialMSZ.ChallengeTests      # Paper 9: known-answer tests of the statement file
 lake env lean Research/AxialMSZ/Audit.lean       # Paper 9: prints the definitions, the frozen statements and the types of the 17 checks
+lake build Research.Backfill.Paper3.ChallengeTests  # Paper 3 (version 2): known-answer tests of the statement file
 lake build Research.Backfill.Paper4.ChallengeTests  # Paper 4 (version 2): known-answer tests of the statement file
 lake build Research.WordRepTensor.ChallengeTests  # Paper 10: known-answer tests of the statement file
 ```
@@ -786,7 +829,7 @@ python3 paper-checks/check_proof.py  # Theorem 4: exact replay of the proof of T
 python3 review/rv_graph.py           # Theorem 4: all divisor sets of 21 orders p²q^b, exact energies
 ```
 
-Paper 3 (requires Python 3 with NumPy, NetworkX and SymPy):
+Paper 3, version 1 (requires Python 3 with NumPy, NetworkX and SymPy; in version 2 the finite checks are done by the Lean kernel):
 
 ```sh
 cd lean && lake build Research.Carenini && cd ..   # the Carenini module alone (a few minutes)
@@ -872,7 +915,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 - `certificates/icg-equal-parity/`: programs, logs and a negative control for Theorem 3 and Proposition 15 of Paper 1; `PROOF-working-note.md` is the working note.
 - `certificates/icg-equal-parity/theorems-b-c/`: programs and logs for Theorems 4 and 5 of Paper 1, including those of the three referee agents (`review/`, `review2/`, `review3/`); its `README.md` lists the commands.
 - `certificates/oeis-hanna/round5/`: checks for A246056 and A376230.
-- `certificates/carenini/`: programs and logs for Paper 3.
+- `certificates/carenini/`: programs and logs for version 1 of Paper 3, and the manifest and acceptance receipt of the Lean package of version 2 (`lean-package-v2/`).
 - `certificates/hko-triameter/`: programs (`code/`) and logs (`logs/`) for version 1 of Paper 4, and the manifest and acceptance receipt of the Lean package of version 2 (`lean-package-v2/`).
 - `certificates/brauer-complete/`: programs, certificates and logs for Paper 5; `review/REVIEW.md` is the referee agent's report.
 - `certificates/rm714/`: programs, data and logs for Paper 6.
@@ -881,7 +924,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 - `certificates/axial/`: the statement contract, the reviews of the statement file, the programs and logs for Paper 9, and the receipt of the acceptance run of its Lean package (`lean-package/`).
 - `certificates/wordrep-tensor/lean-package/`: the manifest and acceptance receipt of the Lean package of Paper 10.
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
-- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/AxialMSZ/` (Paper 9) and `lean/Research/WordRepTensor/` (Paper 10). `lean/Comparator/` holds the challenge files for the comparator check below.
+- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/AxialMSZ/` (Paper 9) and `lean/Research/WordRepTensor/` (Paper 10). `lean/Comparator/` holds the challenge files for the comparator check below.
 - `.github/workflows/comparator.yml` and `ci/comparator/`: the public comparator check of the completely formalized papers (see below).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
@@ -915,8 +958,11 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
   Scholar, MathDB, GitHub code, commits, issues, pull requests and
   repositories, the AI-assisted repositories listed below, and web search;
   26 September 2026, 05:12–05:23 and 06:39–06:42 UTC, and again at 13:41 UTC
-  before release). This reports the coverage of our searches, not a guarantee
-  of priority.
+  before release). For version 2 we repeated the searches on 29 September
+  2026, 12:55–13:35 UTC, also on MathOverflow and zbMATH; Carenini's paper
+  still had only version 1, and we found no answer to the question other
+  than version 1 of Paper 3. This reports the coverage of our searches, not a
+  guarantee of priority.
 - Paper 4:
   - The negative answer to Problem 2 is not new. Hak and Kozerenko restated
     the question in the Lviv Scottish Book (volume 3, page 154, entry dated
@@ -1121,6 +1167,19 @@ proofs, the Lean statements and the paper; before release OpenAI Codex
 checked the main statements, the Lean statements and the key counts.
 The author has also read Paper 3 and, using the same kind of side-by-side
 table, compared its Lean statements with the results in the paper.
+Version 2 of Paper 3 was produced from 27 to 29 September 2026. A Claude
+Code agent wrote version 1 of its statement file, which an independent
+Claude Code agent reviewed and OpenAI Codex (desktop application; models
+gpt-6-astra and gpt-6-sol) audited; Codex also checked version 1 of the
+paper, recomputing most of its numbers with its own programs. When Codex's
+usage quota ran out, Claude Code wrote version 2 of the statement file,
+which an independent Claude Code agent reviewed; on 29 September 2026 Claude
+Code agents wrote the Lean proofs, working in parallel, and Claude Code ran
+the checks. Independent Claude Code agents reviewed the Lean package and
+refereed a draft of the paper. Codex has not reviewed version 2 of the paper,
+version 2 of the statement file or the Lean proofs. The author
+has read version 2 of Paper 3 and, using a side-by-side table, compared its
+Lean statements with the results in the paper.
 
 The material new in version 1.4.0, namely Theorems 4 and 5 of Paper 1
 (version 1.4) and Papers 4, 5 and 6, was found, formalized in Lean (to the
@@ -1195,11 +1254,12 @@ reviewed the proofs, and another refereed a draft of the paper.
 The author has also read Paper 10 and, using the same kind of side-by-side
 table, compared its Lean statements with the results in the paper.
 
-For version 1.9.0 the final review before release was done by an
-independent Claude Code agent instead of OpenAI Codex, whose usage quota had
-run out (the author's decision; version 1.4.0 was handled the same way).
-Codex has not reviewed version 2 of Paper 4, the text of Paper 10 or the
-Lean proofs written by Claude Code; it will review them when it can.
+For versions 1.9.0 and 1.10.0 the final review before release was done by
+an independent Claude Code agent instead of OpenAI Codex, whose usage quota
+had run out (the author's decision; version 1.4.0 was handled the same way).
+Codex has not reviewed version 2 of Paper 3, version 2 of Paper 4, the text
+of Paper 10 or the Lean proofs written by Claude Code; it will review them
+when it can.
 
 AI systems are not authors. The author takes full responsibility for the content.
 
@@ -1225,5 +1285,6 @@ v1.5.0 [10.5281/zenodo.22982516](https://doi.org/10.5281/zenodo.22982516),
 v1.6.0 [10.5281/zenodo.23000177](https://doi.org/10.5281/zenodo.23000177),
 v1.7.0 [10.5281/zenodo.23000178](https://doi.org/10.5281/zenodo.23000178),
 v1.7.1 [10.5281/zenodo.23002935](https://doi.org/10.5281/zenodo.23002935),
-v1.8.0 [10.5281/zenodo.23004801](https://doi.org/10.5281/zenodo.23004801); later
+v1.8.0 [10.5281/zenodo.23004801](https://doi.org/10.5281/zenodo.23004801),
+v1.9.0 [10.5281/zenodo.23043604](https://doi.org/10.5281/zenodo.23043604); later
 versions are listed on the Zenodo record.

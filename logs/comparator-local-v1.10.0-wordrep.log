@@ -1,0 +1,73 @@
+start 2026-09-29T14:09:20Z
+config <project>/outputs/release/ai4math-results/ci/comparator/wordrep.json
+Building Comparator.WordRep
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Comparator.WordRep
+⚠ [8925/8925] Built Comparator.WordRep (3.1s)
+warning: Comparator/WordRep.lean:22:8: declaration uses `sorry`
+warning: Comparator/WordRep.lean:24:8: declaration uses `sorry`
+warning: Comparator/WordRep.lean:26:8: declaration uses `sorry`
+warning: Comparator/WordRep.lean:28:8: declaration uses `sorry`
+warning: Comparator/WordRep.lean:30:8: declaration uses `sorry`
+warning: Comparator/WordRep.lean:32:8: declaration uses `sorry`
+warning: Comparator/WordRep.lean:34:8: declaration uses `sorry`
+warning: Comparator/WordRep.lean:36:8: declaration uses `sorry`
+warning: Comparator/WordRep.lean:38:8: declaration uses `sorry`
+warning: Comparator/WordRep.lean:40:8: declaration uses `sorry`
+warning: Comparator/WordRep.lean:42:8: declaration uses `sorry`
+Build completed successfully (8925 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Comparator.WordRep -- Quot Quot.mk Quot.lift Quot.ind WordRepTensor.Check.check_Problem1Mu WordRepTensor.Check.check_Problem1MuExt WordRepTensor.Check.check_Problem5_1 WordRepTensor.Check.check_MycielskiOddCycleNotWR WordRepTensor.Check.check_ExtMycielskiOddCycleNotWR WordRepTensor.Check.check_WordRepresentableOfEmbedding WordRepTensor.Check.check_EmbeddingOfHom WordRepTensor.Check.check_Lemma1Mu WordRepTensor.Check.check_Lemma1MuExt WordRepTensor.Check.check_Lemma2Mu WordRepTensor.Check.check_Lemma2MuExt propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, WordRepTensor.Check.check_Problem1Mu, WordRepTensor.Check.check_Problem1MuExt, WordRepTensor.Check.check_Problem5_1, WordRepTensor.Check.check_MycielskiOddCycleNotWR, WordRepTensor.Check.check_ExtMycielskiOddCycleNotWR, WordRepTensor.Check.check_WordRepresentableOfEmbedding, WordRepTensor.Check.check_EmbeddingOfHom, WordRepTensor.Check.check_Lemma1Mu, WordRepTensor.Check.check_Lemma1MuExt, WordRepTensor.Check.check_Lemma2Mu, WordRepTensor.Check.check_Lemma2MuExt, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Comparator.WordRep
+Building Research.WordRepTensor.Check
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Research.WordRepTensor.Check
+ℹ [8929/8933] Replayed Research.WordRepTensor.Proof.WRMycielski
+info: Research/WordRepTensor/Proof/WRMycielski.lean:160:0: 'ClaudeWordRep.mycielskiOddCycleNotWR' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Proof/WRMycielski.lean:161:0: 'ClaudeWordRep.extMycielskiOddCycleNotWR' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8930/8933] Replayed Research.WordRepTensor.Proof.WREmbed
+info: Research/WordRepTensor/Proof/WREmbed.lean:124:0: 'ClaudeWordRep.wordRepresentableOfEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Proof/WREmbed.lean:125:0: 'ClaudeWordRep.embeddingOfHom' depends on axioms: [propext, Quot.sound]
+ℹ [8931/8933] Replayed Research.WordRepTensor.Proof.WRFold
+info: Research/WordRepTensor/Proof/WRFold.lean:151:0: 'ClaudeWordRep.lemma1Mu' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Proof/WRFold.lean:152:0: 'ClaudeWordRep.lemma1MuExt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Proof/WRFold.lean:153:0: 'ClaudeWordRep.lemma2Mu' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Proof/WRFold.lean:154:0: 'ClaudeWordRep.lemma2MuExt' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8933/8933] Replayed Research.WordRepTensor.Check
+info: Research/WordRepTensor/Check.lean:31:0: 'WordRepTensor.Check.check_Problem1Mu' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Check.lean:32:0: 'WordRepTensor.Check.check_Problem1MuExt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Check.lean:33:0: 'WordRepTensor.Check.check_Problem5_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Check.lean:34:0: 'WordRepTensor.Check.check_MycielskiOddCycleNotWR' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Check.lean:35:0: 'WordRepTensor.Check.check_ExtMycielskiOddCycleNotWR' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Check.lean:36:0: 'WordRepTensor.Check.check_WordRepresentableOfEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Check.lean:37:0: 'WordRepTensor.Check.check_EmbeddingOfHom' depends on axioms: [propext, Quot.sound]
+info: Research/WordRepTensor/Check.lean:38:0: 'WordRepTensor.Check.check_Lemma1Mu' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Check.lean:39:0: 'WordRepTensor.Check.check_Lemma1MuExt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Check.lean:40:0: 'WordRepTensor.Check.check_Lemma2Mu' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/WordRepTensor/Check.lean:41:0: 'WordRepTensor.Check.check_Lemma2MuExt' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8933 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Research.WordRepTensor.Check -- Quot Quot.mk Quot.lift Quot.ind WordRepTensor.Check.check_Problem1Mu WordRepTensor.Check.check_Problem1MuExt WordRepTensor.Check.check_Problem5_1 WordRepTensor.Check.check_MycielskiOddCycleNotWR WordRepTensor.Check.check_ExtMycielskiOddCycleNotWR WordRepTensor.Check.check_WordRepresentableOfEmbedding WordRepTensor.Check.check_EmbeddingOfHom WordRepTensor.Check.check_Lemma1Mu WordRepTensor.Check.check_Lemma1MuExt WordRepTensor.Check.check_Lemma2Mu WordRepTensor.Check.check_Lemma2MuExt propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, WordRepTensor.Check.check_Problem1Mu, WordRepTensor.Check.check_Problem1MuExt, WordRepTensor.Check.check_Problem5_1, WordRepTensor.Check.check_MycielskiOddCycleNotWR, WordRepTensor.Check.check_ExtMycielskiOddCycleNotWR, WordRepTensor.Check.check_WordRepresentableOfEmbedding, WordRepTensor.Check.check_EmbeddingOfHom, WordRepTensor.Check.check_Lemma1Mu, WordRepTensor.Check.check_Lemma1MuExt, WordRepTensor.Check.check_Lemma2Mu, WordRepTensor.Check.check_Lemma2MuExt, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Research.WordRepTensor.Check
+Running nanoda kernel on solution
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/nanoda_lib/target/release/nanoda_bin <tmp>
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       41.09 real        37.24 user        10.96 sys
+          5951897600  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1633760  page reclaims
+                1307  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                2157  voluntary context switches
+              151061  involuntary context switches
+          3523711377  instructions retired
+          1438907169  cycles elapsed
+           138748824  peak memory footprint
+exit=0
+end 2026-09-29T14:10:01Z
