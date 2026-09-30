@@ -1,0 +1,860 @@
+{
+ "name": "accept-p8r2",
+ "written_utc": "2026-09-29T19:05:24Z",
+ "challenge": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Challenge.lean",
+ "challenge_sha256": "69332eca957449e7613a6c95fa6bda906ecb2fbf688e0dc6ae4bba59fedec715",
+ "targets": [
+  {
+   "target": "Lemma_2_1",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_2_1"
+  },
+  {
+   "target": "Lemma_2_1_good",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_2_1_good"
+  },
+  {
+   "target": "Lemma_2_2",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_2_2"
+  },
+  {
+   "target": "Secular_monic",
+   "check_declaration": "BackfillPaper8.Check.check_Secular_monic"
+  },
+  {
+   "target": "TreeStructure",
+   "check_declaration": "BackfillPaper8.Check.check_TreeStructure"
+  },
+  {
+   "target": "Lemma_3_1_i",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_1_i"
+  },
+  {
+   "target": "Lemma_3_1_ii",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_1_ii"
+  },
+  {
+   "target": "Lemma_3_1_iii",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_1_iii"
+  },
+  {
+   "target": "Lemma_3_1_iv",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_1_iv"
+  },
+  {
+   "target": "Lemma_3_2",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_2"
+  },
+  {
+   "target": "Lemma_3_3_a",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_3_a"
+  },
+  {
+   "target": "Lemma_3_3_b",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_3_b"
+  },
+  {
+   "target": "Lemma_3_3_c",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_3_c"
+  },
+  {
+   "target": "Lemma_3_3_d",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_3_d"
+  },
+  {
+   "target": "Lemma_3_3_e",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_3_e"
+  },
+  {
+   "target": "Lemma_3_4",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_4"
+  },
+  {
+   "target": "StdLeafSums",
+   "check_declaration": "BackfillPaper8.Check.check_StdLeafSums"
+  },
+  {
+   "target": "Lemma_4_1",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_4_1"
+  },
+  {
+   "target": "Lemma_4_2",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_4_2"
+  },
+  {
+   "target": "Lemma_4_3",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_4_3"
+  },
+  {
+   "target": "Cor_4_4",
+   "check_declaration": "BackfillPaper8.Check.check_Cor_4_4"
+  },
+  {
+   "target": "Prop_5_1",
+   "check_declaration": "BackfillPaper8.Check.check_Prop_5_1"
+  },
+  {
+   "target": "Lemma_5_2",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_5_2"
+  },
+  {
+   "target": "Prop_5_3",
+   "check_declaration": "BackfillPaper8.Check.check_Prop_5_3"
+  },
+  {
+   "target": "Lemma_5_4",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_5_4"
+  },
+  {
+   "target": "Prop_5_5",
+   "check_declaration": "BackfillPaper8.Check.check_Prop_5_5"
+  },
+  {
+   "target": "Prop_5_6",
+   "check_declaration": "BackfillPaper8.Check.check_Prop_5_6"
+  },
+  {
+   "target": "Theorem1",
+   "check_declaration": "BackfillPaper8.Check.check_Theorem1"
+  },
+  {
+   "target": "Theorem1_mathlib",
+   "check_declaration": "BackfillPaper8.Check.check_Theorem1_mathlib"
+  },
+  {
+   "target": "Remark_8_3",
+   "check_declaration": "BackfillPaper8.Check.check_Remark_8_3"
+  },
+  {
+   "target": "GoodNeg",
+   "check_declaration": "BackfillPaper8.Check.check_GoodNeg"
+  },
+  {
+   "target": "DiamRadius",
+   "check_declaration": "BackfillPaper8.Check.check_DiamRadius"
+  },
+  {
+   "target": "Theorem1_signed",
+   "check_declaration": "BackfillPaper8.Check.check_Theorem1_signed"
+  },
+  {
+   "target": "Lemma_U1",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_U1"
+  },
+  {
+   "target": "Lemma_3_2_pointwise",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_2_pointwise"
+  },
+  {
+   "target": "Sharp_T15",
+   "check_declaration": "BackfillPaper8.Check.check_Sharp_T15"
+  },
+  {
+   "target": "Sharp_T18",
+   "check_declaration": "BackfillPaper8.Check.check_Sharp_T18"
+  },
+  {
+   "target": "Remark_8_2",
+   "check_declaration": "BackfillPaper8.Check.check_Remark_8_2"
+  }
+ ],
+ "tools_at_recording": {
+  "build.py": "646bfdea9e070f86c17baf9801a129c664753a2931100b57291ab05b152cb950",
+  "scan.py": "60e30eeaf57dbcbf3f59b2d90ababcfca9798197a0810c4aa007d2dc37b4a641",
+  "record_acceptance.py": "da8ecde5697428c5e76771c7080ae0665e803bd8ae99c0d0389e7f99de7466e6"
+ },
+ "tools_note": "",
+ "phases": {
+  "normal": {
+   "build_dir": "work/claude-lean/accept-p8r2-normal",
+   "start_utc": "2026-09-29T18:33:44Z",
+   "end_utc": "2026-09-29T18:49:48Z",
+   "fresh_flag": false,
+   "lock_slot": "A",
+   "modules_compiled": 83,
+   "leanchecker_runs": 83,
+   "axiom_lines": 245,
+   "max_peak_rss": 6064668672,
+   "report_sha256": "48973a79a1a5960df40073cf37a6bffe7ab7f53c5902e571e445f849c02be860",
+   "sources": {
+    "Research.Backfill.Paper8.Challenge": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Challenge.lean",
+     "sha256": "69332eca957449e7613a6c95fa6bda906ecb2fbf688e0dc6ae4bba59fedec715"
+    },
+    "Research.Backfill.Paper8.Proof.Basic": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Basic.lean",
+     "sha256": "6829e4b480c8ac464e18ad2a089176ac32c97e9f2d7a60e9179153e1c8dc1c3b"
+    },
+    "Research.SwitchingWalkProfile": {
+     "path": "work/research-lean-v434/Research/SwitchingWalkProfile.lean",
+     "sha256": "cf33cae4f0ec4a21a35fb24c0f851bce94a3ab266490b6a76335b005a6220596"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.Switch": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/Switch.lean",
+     "sha256": "164294ce8d56d1a8648532a8f6ede0b7402f7dd603f92c9172230e9c9ac8479d"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.BaseChange": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/BaseChange.lean",
+     "sha256": "528f0327d687ef6e2637c7e42437520982b1b90aeb243452e02d455f886d0f42"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.Spectral": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/Spectral.lean",
+     "sha256": "00f4658ca90dfac89352b3853a1384191641d8f5ffbb8eb4e4fedf1408dc5a09"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.Krylov": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/Krylov.lean",
+     "sha256": "7f0d19edc541e8deb4b9dec19f75bb45e6dbb6c044dbc5d7e3cf05cc6bb09082"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.Bipartite": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/Bipartite.lean",
+     "sha256": "67c556fcc4ce221534dccb05bf739c790d85a9e1a3fb3502ea8266fbe6f75cfb"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/Main.lean",
+     "sha256": "a8c4413c36008eb33400d496d41886a4ababf10636442e1e7f1129ec44dfc27e"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Setup": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Setup.lean",
+     "sha256": "fe9d20ec46ffb9ef421a930637aa460c3aebe741fd172fbc9fc0962ed3cbb918"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Eigen": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Eigen.lean",
+     "sha256": "adb50f30684c65d7e72d0296c711f846ac55c0e70c8e15ab01725c577677a5a5"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Lemma32": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Lemma32.lean",
+     "sha256": "94b750b9dc1bf2c027384d72a8afa8cad020e4b850e9f37bfc06f7aa131a7b84"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Prop56": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Prop56.lean",
+     "sha256": "0e326e2611b5697ce9f07330ac140a8bfe6f79dee080d077728e0feb8b34e3cd"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Pointwise": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Pointwise.lean",
+     "sha256": "6a5bfb190cf18f00c0b21007453f2844576d637159cccccbfc3c0d8e6843e968"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Main.lean",
+     "sha256": "10d4f4dc05b2eb73ea7b6e0119d680510099e1e102c1893d9756fd1fdc71d623"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Poly": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Poly.lean",
+     "sha256": "b2f92b61c36a21a82136eb15e711f83ae6d83363a9a7f00e5342a714e957b9a6"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Secular": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Secular.lean",
+     "sha256": "977fca34a7a73995eec7800757edc13ebaf0713d993a306fcdfaa1bb7725eab9"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Orbits": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Orbits.lean",
+     "sha256": "a02ec06f87f409077227c8bcd2d86f96d903baeabd1a6fc942b3238f337ed43b"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Counts": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Counts.lean",
+     "sha256": "7d55c625a93018106c7ecd895ed712443e959c17120ecc45a8cdf9b18e4903c3"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Switch": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Switch.lean",
+     "sha256": "48c87ba3200673f4fcb3185f130dfd47cac7531c59fb1305b9c5f6cd2cc32df9"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Secular": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Secular.lean",
+     "sha256": "7956148d84e0ec38e3f10d7c6b7875aabc0aac9239c3940cacec1d2b4f767dc3"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Main.lean",
+     "sha256": "672d25be9849040692cc64f01a1bfbc6eb4236bbc5d25ec95643b632a3aee28b"
+    },
+    "Research.Backfill.Paper8.Proof.Real.StdLeaf": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Real/StdLeaf.lean",
+     "sha256": "29e6a338fe8e357e2c9073551b9dcec7136f030a245db50e5cb69cb9a7245239"
+    },
+    "Research.Backfill.Paper8.Proof.Real.Lset": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Real/Lset.lean",
+     "sha256": "be5377be5e63e120ae5921184e2a24841859129894a487823809c04794d8e1a0"
+    },
+    "Research.Backfill.Paper8.Proof.Real.Count": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Real/Count.lean",
+     "sha256": "c79b33875be12667c0094888e00bd95d10716a7848c62b5b713114ffb75e3d6e"
+    },
+    "Research.SwitchingThmH": {
+     "path": "work/research-lean-v434/Research/SwitchingThmH.lean",
+     "sha256": "f4796e4ff919057dd042dd358b40b79bc5837a716ba4e4aa08867b686b03086f"
+    },
+    "Research.Backfill.Paper8.Proof.Real.Large": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Real/Large.lean",
+     "sha256": "9c399f4758e80d9de2a98ea96980cc18cb823c79f5a6e1c552698927d9c0c573"
+    },
+    "Research.Backfill.Paper8.Proof.Real.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Real/Main.lean",
+     "sha256": "eeecceb8e5db279b512c7b8b31975f42b4f250c58aad5a145bde8cc98f79b18f"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Defs": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Defs.lean",
+     "sha256": "c478d09d8008728436ea1e2eda39b86ca5e697550f4e1563b47d80f1d55791ed"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Enum": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Enum.lean",
+     "sha256": "96f39401c065c72b01c8269d93176cfad35a9315114c9310c9c18b423a928560"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Bridge": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Bridge.lean",
+     "sha256": "a9b0a7df9d3fe359d0913e3f77b9521984ef45e4e3f8385ae93f3256e10c69bf"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Crit": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Crit.lean",
+     "sha256": "77c38e58d2186c78a1f2e928720c9ccd05d141b1a4adb7e0f522be216ab19112"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk1": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk1.lean",
+     "sha256": "498b4b52cff56281304e885a42b442502b742ee75b53353831558d2acb8eb10d"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk2": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk2.lean",
+     "sha256": "dac8afb5ae85aca4f353861e473449412c0ecceb8c0151b22e9e5af212cfb02b"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk3": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk3.lean",
+     "sha256": "725f3424ea40d7e5ac607c61e776c34a76f2774e10353019633a566de6284aad"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk4": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk4.lean",
+     "sha256": "0b11f9099234700fb74bf3339a94c5b4c96806bd8ff708e3aef0497019a4b749"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk5": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk5.lean",
+     "sha256": "175df0a6c53cc3713e571f944bb2210289d69c951b141a19cad26a3b0c4a3223"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk6": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk6.lean",
+     "sha256": "7709fcd306761484f891ba3e3746fc94ec3570a54fa88a0ad167c017ed9c2277"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk7": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk7.lean",
+     "sha256": "c73c2180255bf749818e5e153574beb76e4787781bec3a165b7d2a9330d33dd0"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk8": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk8.lean",
+     "sha256": "b03ebdad17bf29c6380e6aa787655ece65ac00bc220a2bdd29b3350e47bfd888"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk9": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk9.lean",
+     "sha256": "22b77c3ca0c97443f1b046c4d314b367052544e9cb77620ff4ba2912523891b0"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk10": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk10.lean",
+     "sha256": "33fe946f4d03b9761c529df3371bb7c56cc3bcbad997c32acf0c1e813ec804ed"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Search": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Search.lean",
+     "sha256": "ad4cf45c7df4e88424c13271594a0e3594c6d1a91c8dcbce01c2b14d4867f161"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Roots": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Roots.lean",
+     "sha256": "eeddf46fbe9f57327c28f0c49fbc39df1a52ee74f715c6914814254b2a813e58"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Eigen": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Eigen.lean",
+     "sha256": "8032f636489ad1b9843d26042d4493987b43598314537f3508f44309644faf11"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Kernel": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Kernel.lean",
+     "sha256": "481f388cdab4d47b94dd7fd64310d379daa9702cb07891838f9b5c3f26c65849"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Count": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Count.lean",
+     "sha256": "101559778864ca0b9a5114ef55c52820233cb5c2ae50be6706e07c6c23560636"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Main.lean",
+     "sha256": "6aea367a12a8f796b442e7d7eab89f55212f14b4fb3e7b6ade4c319d4f8f0064"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Main.lean",
+     "sha256": "d5a6c8e1570741c4ad02d065c26484e338f97a883435ac0b1701cd18f7cf2a1f"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Secular": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Secular.lean",
+     "sha256": "4b649d4e2de9ec7ec8f0069d1cb2d7b9136a717c4afce8cea79acfa44214f61d"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Members": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Members.lean",
+     "sha256": "81ba91a2a09d94f16e99862c3d312ae61abf7740daa299aed13c1c5c922f7a47"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.GFormula": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/GFormula.lean",
+     "sha256": "30dc4476fce3fd8f7bfb43c35c20ea88c9504d75d2d05cdddf7164860f473c56"
+    },
+    "Research.SwitchingRowCount": {
+     "path": "work/research-lean-v434/Research/SwitchingRowCount.lean",
+     "sha256": "69b57ccfe5e79d16489046fc075d9adb781d38be13a0c851edb7a708cd9e36c4"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Count": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Count.lean",
+     "sha256": "dd53725805b325b0fd1ac323d6fad44bca0b2fc0f99937b82a60d2da4a58231f"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.CountBare": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/CountBare.lean",
+     "sha256": "e160609e42e723720d1c25920dd420efced0774b99552079b5c10bbe92c0d44e"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Lemmas": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Lemmas.lean",
+     "sha256": "65a8ec72a6cae85b462c789bc0bcc2bbc178f21526c0c897bd8df19016f6fbbb"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Cor": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Cor.lean",
+     "sha256": "8e98467830ed2623f3167638388b6b02b7007192a03302f03350079b61b4dcb4"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.CorMain": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/CorMain.lean",
+     "sha256": "5060dbde047699aa32652ad86cad2c1a4dd62a543125f54c63cdc918f938710d"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Sharp": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Sharp.lean",
+     "sha256": "678bfc0214460d0401ca0b63383235fd273960e4d5f5372c4b2ac5d23a742d8f"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Main.lean",
+     "sha256": "62e44108faf9099e238f8b21a7acf2f07e3a1af96774a9074be3618db05a87e0"
+    },
+    "Research.Backfill.Paper8.Proof.Small.Setup": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/Setup.lean",
+     "sha256": "6a63a4ce23f31c60df9daafc395b84a280c75850abe89b27ec72ddc9b8adde13"
+    },
+    "Research.Backfill.Paper8.Proof.Small.Irr": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/Irr.lean",
+     "sha256": "a4e8423883c34098a2384a0c5e8cfc86d309136c8c8b5dac54803e7b9f214a6f"
+    },
+    "Research.Backfill.Paper8.Proof.Small.Alg": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/Alg.lean",
+     "sha256": "35eb020a245d1e5283669ad603c5c4b13152b6dcd9607a84f6016f02b98e810c"
+    },
+    "Research.Backfill.Paper8.Proof.Small.CasesABC": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/CasesABC.lean",
+     "sha256": "71ec36d3250a53168ed8ba27df8ce8dcac3148ccec98e0a1a0ef2f6c5322d8d7"
+    },
+    "Research.Backfill.Paper8.Proof.Small.LamStd": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/LamStd.lean",
+     "sha256": "b7a75dfd95687d8e3b6337019e10d7e11ea2af2d326b9c56ac8412f3b2959312"
+    },
+    "Research.Backfill.Paper8.Proof.Small.CasesDE": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/CasesDE.lean",
+     "sha256": "52e3171462b20c52a637eb265a79cc11d62b8b0a35a5cec61d79b07c1badff3d"
+    },
+    "Research.Backfill.Paper8.Proof.Small.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/Main.lean",
+     "sha256": "21c3c47823614e9a62ee51c2794e623468a30097b1b2bd004638578c996a064e"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Metric": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Metric.lean",
+     "sha256": "36fa18aa22c101e131ed30ab5970fa87848eb5d1a385039efff4c95f6c96d99d"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Build": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Build.lean",
+     "sha256": "22fcc7b2a09277671c120273f8e213f4c903dbd05ced16bc73c4c9553d000eb8"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Transfer": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Transfer.lean",
+     "sha256": "273eafb84ca3ef8f23fe9c0577ecf9629c6a7834c50caf75b5580be19f3c5b78"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Thm1": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Thm1.lean",
+     "sha256": "8720cdf0ab8b9bea76a9c07b759fbbb85ad898fcc11717e6d502c89350cc6c09"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Signed": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Signed.lean",
+     "sha256": "e98c936f776b86509251d82abb395f4363d26fe9d82f1f822118f6df0e5da998"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Main.lean",
+     "sha256": "19cbb0f733a7bfbf01b0e09f549cad596b2c9a44a5288478696c4394fe5df351"
+    },
+    "Research.Backfill.Paper8.Check": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Check.lean",
+     "sha256": "b0d9176f90391d30fbdc323fd5c4e39f3f79f70d6e3122eaa61474785321b727"
+    },
+    "Research.Backfill.Paper8.ChallengeTests": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/ChallengeTests.lean",
+     "sha256": "89e7a81b278fe20b80561a801a8d805eba43d83087763c7cbb75776adf8911d4"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Poly": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Poly.lean",
+     "sha256": "0b8d91d42322311c5003836f17118e86cc1a638c44c38057b78195326786a93c"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Counts": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Counts.lean",
+     "sha256": "93354360ea01fa5b493c8d96ccdfcf278ca2e6934e846274578b2fee7e0a292b"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Crit": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Crit.lean",
+     "sha256": "ba3314b197ff6f56e2650a10c4ce6face0bf36ca70c5e7de7b57bcbba3318353"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Vec": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Vec.lean",
+     "sha256": "507b71856c0e269815793808728af695b40f81f9da923aae6a5dea706abcc388"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Switch": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Switch.lean",
+     "sha256": "4825145a4f044b8af4813468f2bd8c3f1b8d7c285eb25c2c24db58a7fd51cddb"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Cond": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Cond.lean",
+     "sha256": "7d054a3a14ba099941625b9df936a037ffc552273d16bb7121f9b9a2e9cf95cc"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Spectral": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Spectral.lean",
+     "sha256": "22932f2dbcd34bebf958b1b24c099c3aef09dce079f6f3170b570a004d15b439"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Main.lean",
+     "sha256": "aec5fa762dea4a0641c59238988b20fc643ee88c7d1195a21ea47a3135c3393e"
+    }
+   }
+  },
+  "fresh": {
+   "build_dir": "work/claude-lean/accept-p8r2-fresh",
+   "start_utc": "2026-09-29T18:49:49Z",
+   "end_utc": "2026-09-29T19:05:07Z",
+   "fresh_flag": true,
+   "lock_slot": "A",
+   "modules_compiled": 83,
+   "leanchecker_runs": 83,
+   "axiom_lines": 245,
+   "max_peak_rss": 6067126272,
+   "report_sha256": "3e425f88f4276471537445f76c55a5e75c32464a117a82a69268d0e1f538b1a7",
+   "sources": {
+    "Research.Backfill.Paper8.Challenge": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Challenge.lean",
+     "sha256": "69332eca957449e7613a6c95fa6bda906ecb2fbf688e0dc6ae4bba59fedec715"
+    },
+    "Research.Backfill.Paper8.Proof.Basic": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Basic.lean",
+     "sha256": "6829e4b480c8ac464e18ad2a089176ac32c97e9f2d7a60e9179153e1c8dc1c3b"
+    },
+    "Research.SwitchingWalkProfile": {
+     "path": "work/research-lean-v434/Research/SwitchingWalkProfile.lean",
+     "sha256": "cf33cae4f0ec4a21a35fb24c0f851bce94a3ab266490b6a76335b005a6220596"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.Switch": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/Switch.lean",
+     "sha256": "164294ce8d56d1a8648532a8f6ede0b7402f7dd603f92c9172230e9c9ac8479d"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.BaseChange": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/BaseChange.lean",
+     "sha256": "528f0327d687ef6e2637c7e42437520982b1b90aeb243452e02d455f886d0f42"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.Spectral": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/Spectral.lean",
+     "sha256": "00f4658ca90dfac89352b3853a1384191641d8f5ffbb8eb4e4fedf1408dc5a09"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.Krylov": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/Krylov.lean",
+     "sha256": "7f0d19edc541e8deb4b9dec19f75bb45e6dbb6c044dbc5d7e3cf05cc6bb09082"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.Bipartite": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/Bipartite.lean",
+     "sha256": "67c556fcc4ce221534dccb05bf739c790d85a9e1a3fb3502ea8266fbe6f75cfb"
+    },
+    "Research.Backfill.Paper8.Proof.Lin.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Lin/Main.lean",
+     "sha256": "a8c4413c36008eb33400d496d41886a4ababf10636442e1e7f1129ec44dfc27e"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Setup": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Setup.lean",
+     "sha256": "fe9d20ec46ffb9ef421a930637aa460c3aebe741fd172fbc9fc0962ed3cbb918"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Eigen": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Eigen.lean",
+     "sha256": "adb50f30684c65d7e72d0296c711f846ac55c0e70c8e15ab01725c577677a5a5"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Lemma32": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Lemma32.lean",
+     "sha256": "94b750b9dc1bf2c027384d72a8afa8cad020e4b850e9f37bfc06f7aa131a7b84"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Prop56": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Prop56.lean",
+     "sha256": "0e326e2611b5697ce9f07330ac140a8bfe6f79dee080d077728e0feb8b34e3cd"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Pointwise": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Pointwise.lean",
+     "sha256": "6a5bfb190cf18f00c0b21007453f2844576d637159cccccbfc3c0d8e6843e968"
+    },
+    "Research.Backfill.Paper8.Proof.Main.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Main/Main.lean",
+     "sha256": "10d4f4dc05b2eb73ea7b6e0119d680510099e1e102c1893d9756fd1fdc71d623"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Poly": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Poly.lean",
+     "sha256": "b2f92b61c36a21a82136eb15e711f83ae6d83363a9a7f00e5342a714e957b9a6"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Secular": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Secular.lean",
+     "sha256": "977fca34a7a73995eec7800757edc13ebaf0713d993a306fcdfaa1bb7725eab9"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Orbits": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Orbits.lean",
+     "sha256": "a02ec06f87f409077227c8bcd2d86f96d903baeabd1a6fc942b3238f337ed43b"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Counts": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Counts.lean",
+     "sha256": "7d55c625a93018106c7ecd895ed712443e959c17120ecc45a8cdf9b18e4903c3"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Switch": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Switch.lean",
+     "sha256": "48c87ba3200673f4fcb3185f130dfd47cac7531c59fb1305b9c5f6cd2cc32df9"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Secular": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Secular.lean",
+     "sha256": "7956148d84e0ec38e3f10d7c6b7875aabc0aac9239c3940cacec1d2b4f767dc3"
+    },
+    "Research.Backfill.Paper8.Proof.Orb.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Orb/Main.lean",
+     "sha256": "672d25be9849040692cc64f01a1bfbc6eb4236bbc5d25ec95643b632a3aee28b"
+    },
+    "Research.Backfill.Paper8.Proof.Real.StdLeaf": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Real/StdLeaf.lean",
+     "sha256": "29e6a338fe8e357e2c9073551b9dcec7136f030a245db50e5cb69cb9a7245239"
+    },
+    "Research.Backfill.Paper8.Proof.Real.Lset": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Real/Lset.lean",
+     "sha256": "be5377be5e63e120ae5921184e2a24841859129894a487823809c04794d8e1a0"
+    },
+    "Research.Backfill.Paper8.Proof.Real.Count": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Real/Count.lean",
+     "sha256": "c79b33875be12667c0094888e00bd95d10716a7848c62b5b713114ffb75e3d6e"
+    },
+    "Research.SwitchingThmH": {
+     "path": "work/research-lean-v434/Research/SwitchingThmH.lean",
+     "sha256": "f4796e4ff919057dd042dd358b40b79bc5837a716ba4e4aa08867b686b03086f"
+    },
+    "Research.Backfill.Paper8.Proof.Real.Large": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Real/Large.lean",
+     "sha256": "9c399f4758e80d9de2a98ea96980cc18cb823c79f5a6e1c552698927d9c0c573"
+    },
+    "Research.Backfill.Paper8.Proof.Real.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Real/Main.lean",
+     "sha256": "eeecceb8e5db279b512c7b8b31975f42b4f250c58aad5a145bde8cc98f79b18f"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Defs": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Defs.lean",
+     "sha256": "c478d09d8008728436ea1e2eda39b86ca5e697550f4e1563b47d80f1d55791ed"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Enum": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Enum.lean",
+     "sha256": "96f39401c065c72b01c8269d93176cfad35a9315114c9310c9c18b423a928560"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Bridge": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Bridge.lean",
+     "sha256": "a9b0a7df9d3fe359d0913e3f77b9521984ef45e4e3f8385ae93f3256e10c69bf"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Crit": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Crit.lean",
+     "sha256": "77c38e58d2186c78a1f2e928720c9ccd05d141b1a4adb7e0f522be216ab19112"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk1": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk1.lean",
+     "sha256": "498b4b52cff56281304e885a42b442502b742ee75b53353831558d2acb8eb10d"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk2": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk2.lean",
+     "sha256": "dac8afb5ae85aca4f353861e473449412c0ecceb8c0151b22e9e5af212cfb02b"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk3": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk3.lean",
+     "sha256": "725f3424ea40d7e5ac607c61e776c34a76f2774e10353019633a566de6284aad"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk4": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk4.lean",
+     "sha256": "0b11f9099234700fb74bf3339a94c5b4c96806bd8ff708e3aef0497019a4b749"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk5": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk5.lean",
+     "sha256": "175df0a6c53cc3713e571f944bb2210289d69c951b141a19cad26a3b0c4a3223"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk6": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk6.lean",
+     "sha256": "7709fcd306761484f891ba3e3746fc94ec3570a54fa88a0ad167c017ed9c2277"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk7": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk7.lean",
+     "sha256": "c73c2180255bf749818e5e153574beb76e4787781bec3a165b7d2a9330d33dd0"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk8": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk8.lean",
+     "sha256": "b03ebdad17bf29c6380e6aa787655ece65ac00bc220a2bdd29b3350e47bfd888"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk9": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk9.lean",
+     "sha256": "22b77c3ca0c97443f1b046c4d314b367052544e9cb77620ff4ba2912523891b0"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Chunk10": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Chunk10.lean",
+     "sha256": "33fe946f4d03b9761c529df3371bb7c56cc3bcbad997c32acf0c1e813ec804ed"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Search": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Search.lean",
+     "sha256": "ad4cf45c7df4e88424c13271594a0e3594c6d1a91c8dcbce01c2b14d4867f161"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Roots": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Roots.lean",
+     "sha256": "eeddf46fbe9f57327c28f0c49fbc39df1a52ee74f715c6914814254b2a813e58"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Eigen": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Eigen.lean",
+     "sha256": "8032f636489ad1b9843d26042d4493987b43598314537f3508f44309644faf11"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Kernel": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Kernel.lean",
+     "sha256": "481f388cdab4d47b94dd7fd64310d379daa9702cb07891838f9b5c3f26c65849"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Count": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Count.lean",
+     "sha256": "101559778864ca0b9a5114ef55c52820233cb5c2ae50be6706e07c6c23560636"
+    },
+    "Research.Backfill.Paper8.Proof.Spec.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Spec/Main.lean",
+     "sha256": "6aea367a12a8f796b442e7d7eab89f55212f14b4fb3e7b6ade4c319d4f8f0064"
+    },
+    "Research.Backfill.Paper8.Proof.Region.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Region/Main.lean",
+     "sha256": "d5a6c8e1570741c4ad02d065c26484e338f97a883435ac0b1701cd18f7cf2a1f"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Secular": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Secular.lean",
+     "sha256": "4b649d4e2de9ec7ec8f0069d1cb2d7b9136a717c4afce8cea79acfa44214f61d"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Members": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Members.lean",
+     "sha256": "81ba91a2a09d94f16e99862c3d312ae61abf7740daa299aed13c1c5c922f7a47"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.GFormula": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/GFormula.lean",
+     "sha256": "30dc4476fce3fd8f7bfb43c35c20ea88c9504d75d2d05cdddf7164860f473c56"
+    },
+    "Research.SwitchingRowCount": {
+     "path": "work/research-lean-v434/Research/SwitchingRowCount.lean",
+     "sha256": "69b57ccfe5e79d16489046fc075d9adb781d38be13a0c851edb7a708cd9e36c4"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Count": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Count.lean",
+     "sha256": "dd53725805b325b0fd1ac323d6fad44bca0b2fc0f99937b82a60d2da4a58231f"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.CountBare": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/CountBare.lean",
+     "sha256": "e160609e42e723720d1c25920dd420efced0774b99552079b5c10bbe92c0d44e"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Lemmas": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Lemmas.lean",
+     "sha256": "65a8ec72a6cae85b462c789bc0bcc2bbc178f21526c0c897bd8df19016f6fbbb"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Cor": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Cor.lean",
+     "sha256": "8e98467830ed2623f3167638388b6b02b7007192a03302f03350079b61b4dcb4"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.CorMain": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/CorMain.lean",
+     "sha256": "5060dbde047699aa32652ad86cad2c1a4dd62a543125f54c63cdc918f938710d"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Sharp": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Sharp.lean",
+     "sha256": "678bfc0214460d0401ca0b63383235fd273960e4d5f5372c4b2ac5d23a742d8f"
+    },
+    "Research.Backfill.Paper8.Proof.Rows.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Rows/Main.lean",
+     "sha256": "62e44108faf9099e238f8b21a7acf2f07e3a1af96774a9074be3618db05a87e0"
+    },
+    "Research.Backfill.Paper8.Proof.Small.Setup": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/Setup.lean",
+     "sha256": "6a63a4ce23f31c60df9daafc395b84a280c75850abe89b27ec72ddc9b8adde13"
+    },
+    "Research.Backfill.Paper8.Proof.Small.Irr": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/Irr.lean",
+     "sha256": "a4e8423883c34098a2384a0c5e8cfc86d309136c8c8b5dac54803e7b9f214a6f"
+    },
+    "Research.Backfill.Paper8.Proof.Small.Alg": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/Alg.lean",
+     "sha256": "35eb020a245d1e5283669ad603c5c4b13152b6dcd9607a84f6016f02b98e810c"
+    },
+    "Research.Backfill.Paper8.Proof.Small.CasesABC": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/CasesABC.lean",
+     "sha256": "71ec36d3250a53168ed8ba27df8ce8dcac3148ccec98e0a1a0ef2f6c5322d8d7"
+    },
+    "Research.Backfill.Paper8.Proof.Small.LamStd": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/LamStd.lean",
+     "sha256": "b7a75dfd95687d8e3b6337019e10d7e11ea2af2d326b9c56ac8412f3b2959312"
+    },
+    "Research.Backfill.Paper8.Proof.Small.CasesDE": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/CasesDE.lean",
+     "sha256": "52e3171462b20c52a637eb265a79cc11d62b8b0a35a5cec61d79b07c1badff3d"
+    },
+    "Research.Backfill.Paper8.Proof.Small.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Small/Main.lean",
+     "sha256": "21c3c47823614e9a62ee51c2794e623468a30097b1b2bd004638578c996a064e"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Metric": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Metric.lean",
+     "sha256": "36fa18aa22c101e131ed30ab5970fa87848eb5d1a385039efff4c95f6c96d99d"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Build": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Build.lean",
+     "sha256": "22fcc7b2a09277671c120273f8e213f4c903dbd05ced16bc73c4c9553d000eb8"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Transfer": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Transfer.lean",
+     "sha256": "273eafb84ca3ef8f23fe9c0577ecf9629c6a7834c50caf75b5580be19f3c5b78"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Thm1": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Thm1.lean",
+     "sha256": "8720cdf0ab8b9bea76a9c07b759fbbb85ad898fcc11717e6d502c89350cc6c09"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Signed": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Signed.lean",
+     "sha256": "e98c936f776b86509251d82abb395f4363d26fe9d82f1f822118f6df0e5da998"
+    },
+    "Research.Backfill.Paper8.Proof.Tree.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tree/Main.lean",
+     "sha256": "19cbb0f733a7bfbf01b0e09f549cad596b2c9a44a5288478696c4394fe5df351"
+    },
+    "Research.Backfill.Paper8.Check": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Check.lean",
+     "sha256": "b0d9176f90391d30fbdc323fd5c4e39f3f79f70d6e3122eaa61474785321b727"
+    },
+    "Research.Backfill.Paper8.ChallengeTests": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/ChallengeTests.lean",
+     "sha256": "89e7a81b278fe20b80561a801a8d805eba43d83087763c7cbb75776adf8911d4"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Poly": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Poly.lean",
+     "sha256": "0b8d91d42322311c5003836f17118e86cc1a638c44c38057b78195326786a93c"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Counts": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Counts.lean",
+     "sha256": "93354360ea01fa5b493c8d96ccdfcf278ca2e6934e846274578b2fee7e0a292b"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Crit": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Crit.lean",
+     "sha256": "ba3314b197ff6f56e2650a10c4ce6face0bf36ca70c5e7de7b57bcbba3318353"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Vec": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Vec.lean",
+     "sha256": "507b71856c0e269815793808728af695b40f81f9da923aae6a5dea706abcc388"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Switch": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Switch.lean",
+     "sha256": "4825145a4f044b8af4813468f2bd8c3f1b8d7c285eb25c2c24db58a7fd51cddb"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Cond": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Cond.lean",
+     "sha256": "7d054a3a14ba099941625b9df936a037ffc552273d16bb7121f9b9a2e9cf95cc"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Spectral": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Spectral.lean",
+     "sha256": "22932f2dbcd34bebf958b1b24c099c3aef09dce079f6f3170b570a004d15b439"
+    },
+    "Research.Backfill.Paper8.Proof.Tests.Main": {
+     "path": "work/claude-lean/release-paper8/Research/Backfill/Paper8/Proof/Tests/Main.lean",
+     "sha256": "aec5fa762dea4a0641c59238988b20fc643ee88c7d1195a21ea47a3135c3393e"
+    }
+   }
+  }
+ }
+}

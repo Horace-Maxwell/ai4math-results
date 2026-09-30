@@ -1,0 +1,233 @@
+start 2026-09-29T20:31:13Z
+config <project>/outputs/release/ai4math-results/ci/comparator/paper3.json
+Building Comparator.Paper3
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Comparator.Paper3
+⚠ [8925/8925] Built Comparator.Paper3 (3.2s)
+warning: Comparator/Paper3.lean:21:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:23:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:25:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:27:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:29:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:31:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:33:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:35:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:37:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:39:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:41:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:43:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:45:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:47:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:49:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:51:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:53:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:55:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:57:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:59:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:61:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:63:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:65:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:67:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:69:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:71:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:73:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:75:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:77:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:79:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:81:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:83:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:85:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:87:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:89:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:91:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:93:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:95:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:97:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:99:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:101:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:103:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:105:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:107:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:109:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:111:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:113:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:115:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:117:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:119:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:121:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:123:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:125:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:127:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:129:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:131:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:133:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:135:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:137:8: declaration uses `sorry`
+warning: Comparator/Paper3.lean:139:8: declaration uses `sorry`
+Build completed successfully (8925 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Comparator.Paper3 -- Quot Quot.mk Quot.lift Quot.ind BackfillPaper3.Check.check_IGammaFloor BackfillPaper3.Check.check_IGammaIso BackfillPaper3.Check.check_PolyFacts BackfillPaper3.Check.check_IntegerForm BackfillPaper3.Check.check_Neg_6_3 BackfillPaper3.Check.check_Neg_2d BackfillPaper3.Check.check_Neg_8_2 BackfillPaper3.Check.check_Neg_12_3_bip BackfillPaper3.Check.check_Neg_12_3_top BackfillPaper3.Check.check_Table4Counts BackfillPaper3.Check.check_KddIndependentSets BackfillPaper3.Check.check_Lemma1 BackfillPaper3.Check.check_Proposition2 BackfillPaper3.Check.check_Lemma3 BackfillPaper3.Check.check_TheoremA BackfillPaper3.Check.check_Remark4 BackfillPaper3.Check.check_TheoremB BackfillPaper3.Check.check_Corollary5 BackfillPaper3.Check.check_WSymm BackfillPaper3.Check.check_Lemma6 BackfillPaper3.Check.check_Lemma7 BackfillPaper3.Check.check_TheoremBprime BackfillPaper3.Check.check_Lemma8 BackfillPaper3.Check.check_Lemma8_bddBelow BackfillPaper3.Check.check_PropositionC BackfillPaper3.Check.check_Rho_bddBelow BackfillPaper3.Check.check_TheoremD BackfillPaper3.Check.check_SSSZBound BackfillPaper3.Check.check_CareniniProp21 BackfillPaper3.Check.check_KahnZhao BackfillPaper3.Check.check_QuestionTrueHalf BackfillPaper3.Check.check_QuestionTrueZero BackfillPaper3.Check.check_TrivialCasesUnique BackfillPaper3.Check.check_TrivialCasesTrue BackfillPaper3.Check.check_CompetitorFacts BackfillPaper3.Check.check_NegativeEveryAdmissible BackfillPaper3.Check.check_AnswerNegative BackfillPaper3.Check.check_GammaStarScope BackfillPaper3.Check.check_LowGammaExamples BackfillPaper3.Check.check_S3PrismH2Cycle BackfillPaper3.Check.check_SethDensity BackfillPaper3.Check.check_MaximisersAtGammaStar BackfillPaper3.Check.check_Table1 BackfillPaper3.Check.check_CubicSix BackfillPaper3.Check.check_ExactFailureSix BackfillPaper3.Check.check_SmallestCounterexample BackfillPaper3.Check.check_Remark9 BackfillPaper3.Check.check_Remark10a BackfillPaper3.Check.check_Remark10b BackfillPaper3.Check.check_Remark10c BackfillPaper3.Check.check_Remark10d BackfillPaper3.Check.check_ReadingR6 BackfillPaper3.Check.check_Remark11 BackfillPaper3.Check.check_Remark12 BackfillPaper3.Check.check_RegularOn2dConnected BackfillPaper3.Check.check_HighThresholdTie BackfillPaper3.Check.check_TwoSwitchConnected BackfillPaper3.Check.check_Table2 BackfillPaper3.Check.check_LabelledCounts BackfillPaper3.Check.check_TheoremDNumerics propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, BackfillPaper3.Check.check_IGammaFloor, BackfillPaper3.Check.check_IGammaIso, BackfillPaper3.Check.check_PolyFacts, BackfillPaper3.Check.check_IntegerForm, BackfillPaper3.Check.check_Neg_6_3, BackfillPaper3.Check.check_Neg_2d, BackfillPaper3.Check.check_Neg_8_2, BackfillPaper3.Check.check_Neg_12_3_bip, BackfillPaper3.Check.check_Neg_12_3_top, BackfillPaper3.Check.check_Table4Counts, BackfillPaper3.Check.check_KddIndependentSets, BackfillPaper3.Check.check_Lemma1, BackfillPaper3.Check.check_Proposition2, BackfillPaper3.Check.check_Lemma3, BackfillPaper3.Check.check_TheoremA, BackfillPaper3.Check.check_Remark4, BackfillPaper3.Check.check_TheoremB, BackfillPaper3.Check.check_Corollary5, BackfillPaper3.Check.check_WSymm, BackfillPaper3.Check.check_Lemma6, BackfillPaper3.Check.check_Lemma7, BackfillPaper3.Check.check_TheoremBprime, BackfillPaper3.Check.check_Lemma8, BackfillPaper3.Check.check_Lemma8_bddBelow, BackfillPaper3.Check.check_PropositionC, BackfillPaper3.Check.check_Rho_bddBelow, BackfillPaper3.Check.check_TheoremD, BackfillPaper3.Check.check_SSSZBound, BackfillPaper3.Check.check_CareniniProp21, BackfillPaper3.Check.check_KahnZhao, BackfillPaper3.Check.check_QuestionTrueHalf, BackfillPaper3.Check.check_QuestionTrueZero, BackfillPaper3.Check.check_TrivialCasesUnique, BackfillPaper3.Check.check_TrivialCasesTrue, BackfillPaper3.Check.check_CompetitorFacts, BackfillPaper3.Check.check_NegativeEveryAdmissible, BackfillPaper3.Check.check_AnswerNegative, BackfillPaper3.Check.check_GammaStarScope, BackfillPaper3.Check.check_LowGammaExamples, BackfillPaper3.Check.check_S3PrismH2Cycle, BackfillPaper3.Check.check_SethDensity, BackfillPaper3.Check.check_MaximisersAtGammaStar, BackfillPaper3.Check.check_Table1, BackfillPaper3.Check.check_CubicSix, BackfillPaper3.Check.check_ExactFailureSix, BackfillPaper3.Check.check_SmallestCounterexample, BackfillPaper3.Check.check_Remark9, BackfillPaper3.Check.check_Remark10a, BackfillPaper3.Check.check_Remark10b, BackfillPaper3.Check.check_Remark10c, BackfillPaper3.Check.check_Remark10d, BackfillPaper3.Check.check_ReadingR6, BackfillPaper3.Check.check_Remark11, BackfillPaper3.Check.check_Remark12, BackfillPaper3.Check.check_RegularOn2dConnected, BackfillPaper3.Check.check_HighThresholdTie, BackfillPaper3.Check.check_TwoSwitchConnected, BackfillPaper3.Check.check_Table2, BackfillPaper3.Check.check_LabelledCounts, BackfillPaper3.Check.check_TheoremDNumerics, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Comparator.Paper3
+Building Research.Backfill.Paper3.Check
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Research.Backfill.Paper3.Check
+ℹ [8928/9016] Replayed Research.Backfill.Paper3.Proof.Basic
+info: Research/Backfill/Paper3/Proof/Basic.lean:239:0: 'P3Basic.check_IGammaFloor' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Basic.lean:240:0: 'P3Basic.check_IGammaIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8938/9016] Replayed Research.Backfill.Paper3.Proof.A.Main
+info: Research/Backfill/Paper3/Proof/A/Main.lean:18:0: 'P3A.check_Lemma1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:21:0: 'P3A.check_Proposition2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:24:0: 'P3A.check_Lemma3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:27:0: 'P3A.check_TheoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:30:0: 'P3A.check_Remark4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:33:0: 'P3A.check_CompetitorFacts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:37:0: 'P3A.check_NegativeEveryAdmissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:40:0: 'P3A.check_GammaStarScope' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:44:0: 'P3A.check_MaximisersAtGammaStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:47:0: 'P3A.check_HighThresholdTie' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:51:0: 'P3A.check_RegularOn2dConnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:55:0: 'P3A.check_TrivialCasesUnique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:58:0: 'P3A.check_TrivialCasesTrue' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:61:0: 'P3A.check_Neg_6_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:64:0: 'P3A.check_Neg_12_3_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/A/Main.lean:67:0: 'P3A.check_AnswerNegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8939/9016] Replayed Research.Backfill.Paper3.Proof.Poly
+info: Research/Backfill/Paper3/Proof/Poly.lean:74:0: 'P3Basic.check_PolyFacts' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8940/9016] Replayed Research.Backfill.Paper3.Proof.Tier0
+info: Research/Backfill/Paper3/Proof/Tier0.lean:151:0: 'P3Basic.check_KddIndependentSets' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Tier0.lean:152:0: 'P3Basic.check_IntegerForm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Tier0.lean:153:0: 'P3Basic.check_QuestionTrueHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Tier0.lean:154:0: 'P3Basic.check_LowGammaExamples' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Tier0.lean:155:0: 'P3Basic.check_SethDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8947/9016] Replayed Research.Backfill.Paper3.Proof.B.Main
+info: Research/Backfill/Paper3/Proof/B/Main.lean:17:0: 'P3B.check_TheoremB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/B/Main.lean:21:0: 'P3B.check_Corollary5' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/B/Main.lean:25:0: 'P3B.check_S3PrismH2Cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/B/Main.lean:29:0: 'P3B.check_Neg_2d' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8957/9016] Replayed Research.Backfill.Paper3.Proof.CD.Main
+info: Research/Backfill/Paper3/Proof/CD/Main.lean:22:0: 'P3CD.check_Rho_bddBelow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/CD/Main.lean:26:0: 'P3CD.check_Remark9' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/CD/Main.lean:30:0: 'P3CD.check_PropositionC' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/CD/Main.lean:36:0: 'P3CD.check_TheoremD' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/CD/Main.lean:40:0: 'P3CD.check_Remark10a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/CD/Main.lean:44:0: 'P3CD.check_Remark10c' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/CD/Main.lean:48:0: 'P3CD.check_Remark11' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/CD/Main.lean:52:0: 'P3CD.check_ReadingR6' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8964/9016] Replayed Research.Backfill.Paper3.Proof.L67.Main
+info: Research/Backfill/Paper3/Proof/L67/Main.lean:20:0: 'P3L67.check_WSymm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/L67/Main.lean:24:0: 'P3L67.check_Lemma7' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/L67/Main.lean:29:0: 'P3L67.check_Lemma6' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/L67/Main.lean:33:0: 'P3L67.check_TheoremBprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/L67/Main.lean:37:0: 'P3L67.check_Neg_8_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/L67/Main.lean:41:0: 'P3L67.check_Neg_12_3_bip' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8969/9016] Replayed Research.Backfill.Paper3.Proof.L8.Main
+info: Research/Backfill/Paper3/Proof/L8/Main.lean:73:0: 'P3L8.check_Lemma8' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/L8/Main.lean:74:0: 'P3L8.check_Lemma8_bddBelow' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8983/9016] Replayed Research.Backfill.Paper3.Proof.Num.Main
+info: Research/Backfill/Paper3/Proof/Num/Main.lean:23:0: 'P3Num.check_Remark10b' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Num/Main.lean:27:0: 'P3Num.check_Remark12' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Num/Main.lean:31:0: 'P3Num.check_TheoremDNumerics' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8984/9016] Replayed Research.Backfill.Paper3.Proof.Remark10d
+info: Research/Backfill/Paper3/Proof/Remark10d.lean:325:0: 'P3Basic.check_Remark10d' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8989/9016] Replayed Research.Backfill.Paper3.Proof.SSSZ.Main
+info: Research/Backfill/Paper3/Proof/SSSZ/Main.lean:36:0: 'P3SSSZ.check_SSSZBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/SSSZ/Main.lean:43:0: 'P3SSSZ.check_KahnZhao' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/SSSZ/Main.lean:68:0: 'P3SSSZ.check_CareniniProp21' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/SSSZ/Main.lean:92:0: 'P3SSSZ.check_QuestionTrueZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8996/9016] Replayed Research.Backfill.Paper3.Proof.Small.Main
+info: Research/Backfill/Paper3/Proof/Small/Main.lean:19:0: 'P3Small.check_Table1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Small/Main.lean:22:0: 'P3Small.check_Table4Counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Small/Main.lean:25:0: 'P3Small.check_CubicSix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Small/Main.lean:28:0: 'P3Small.check_ExactFailureSix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Small/Main.lean:32:0: 'P3Small.check_SmallestCounterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/Small/Main.lean:35:0: 'P3Small.check_LabelledCounts' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9015/9016] Replayed Research.Backfill.Paper3.Proof.TS.Main
+info: Research/Backfill/Paper3/Proof/TS/Main.lean:18:0: 'P3TS.check_TwoSwitchConnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Proof/TS/Main.lean:23:0: 'P3TS.check_Table2' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9016/9016] Replayed Research.Backfill.Paper3.Check
+info: Research/Backfill/Paper3/Check.lean:95:0: 'BackfillPaper3.Check.check_IGammaFloor' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:96:0: 'BackfillPaper3.Check.check_IGammaIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:97:0: 'BackfillPaper3.Check.check_PolyFacts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:98:0: 'BackfillPaper3.Check.check_IntegerForm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:99:0: 'BackfillPaper3.Check.check_Neg_6_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:100:0: 'BackfillPaper3.Check.check_Neg_2d' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:101:0: 'BackfillPaper3.Check.check_Neg_8_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:102:0: 'BackfillPaper3.Check.check_Neg_12_3_bip' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:103:0: 'BackfillPaper3.Check.check_Neg_12_3_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:104:0: 'BackfillPaper3.Check.check_Table4Counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:105:0: 'BackfillPaper3.Check.check_KddIndependentSets' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:106:0: 'BackfillPaper3.Check.check_Lemma1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:107:0: 'BackfillPaper3.Check.check_Proposition2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:108:0: 'BackfillPaper3.Check.check_Lemma3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:109:0: 'BackfillPaper3.Check.check_TheoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:110:0: 'BackfillPaper3.Check.check_Remark4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:111:0: 'BackfillPaper3.Check.check_TheoremB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:112:0: 'BackfillPaper3.Check.check_Corollary5' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:113:0: 'BackfillPaper3.Check.check_WSymm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:114:0: 'BackfillPaper3.Check.check_Lemma6' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:115:0: 'BackfillPaper3.Check.check_Lemma7' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:116:0: 'BackfillPaper3.Check.check_TheoremBprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:117:0: 'BackfillPaper3.Check.check_Lemma8' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:118:0: 'BackfillPaper3.Check.check_Lemma8_bddBelow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:119:0: 'BackfillPaper3.Check.check_PropositionC' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:120:0: 'BackfillPaper3.Check.check_Rho_bddBelow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:121:0: 'BackfillPaper3.Check.check_TheoremD' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:122:0: 'BackfillPaper3.Check.check_SSSZBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:123:0: 'BackfillPaper3.Check.check_CareniniProp21' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:124:0: 'BackfillPaper3.Check.check_KahnZhao' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:125:0: 'BackfillPaper3.Check.check_QuestionTrueHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:126:0: 'BackfillPaper3.Check.check_QuestionTrueZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:127:0: 'BackfillPaper3.Check.check_TrivialCasesUnique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:128:0: 'BackfillPaper3.Check.check_TrivialCasesTrue' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:129:0: 'BackfillPaper3.Check.check_CompetitorFacts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:130:0: 'BackfillPaper3.Check.check_NegativeEveryAdmissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:131:0: 'BackfillPaper3.Check.check_AnswerNegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:132:0: 'BackfillPaper3.Check.check_GammaStarScope' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:133:0: 'BackfillPaper3.Check.check_LowGammaExamples' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:134:0: 'BackfillPaper3.Check.check_S3PrismH2Cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:135:0: 'BackfillPaper3.Check.check_SethDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:136:0: 'BackfillPaper3.Check.check_MaximisersAtGammaStar' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:137:0: 'BackfillPaper3.Check.check_Table1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:138:0: 'BackfillPaper3.Check.check_CubicSix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:139:0: 'BackfillPaper3.Check.check_ExactFailureSix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:140:0: 'BackfillPaper3.Check.check_SmallestCounterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:141:0: 'BackfillPaper3.Check.check_Remark9' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:142:0: 'BackfillPaper3.Check.check_Remark10a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:143:0: 'BackfillPaper3.Check.check_Remark10b' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:144:0: 'BackfillPaper3.Check.check_Remark10c' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:145:0: 'BackfillPaper3.Check.check_Remark10d' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:146:0: 'BackfillPaper3.Check.check_ReadingR6' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:147:0: 'BackfillPaper3.Check.check_Remark11' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:148:0: 'BackfillPaper3.Check.check_Remark12' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:149:0: 'BackfillPaper3.Check.check_RegularOn2dConnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:150:0: 'BackfillPaper3.Check.check_HighThresholdTie' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:151:0: 'BackfillPaper3.Check.check_TwoSwitchConnected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:152:0: 'BackfillPaper3.Check.check_Table2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:153:0: 'BackfillPaper3.Check.check_LabelledCounts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper3/Check.lean:154:0: 'BackfillPaper3.Check.check_TheoremDNumerics' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (9016 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Research.Backfill.Paper3.Check -- Quot Quot.mk Quot.lift Quot.ind BackfillPaper3.Check.check_IGammaFloor BackfillPaper3.Check.check_IGammaIso BackfillPaper3.Check.check_PolyFacts BackfillPaper3.Check.check_IntegerForm BackfillPaper3.Check.check_Neg_6_3 BackfillPaper3.Check.check_Neg_2d BackfillPaper3.Check.check_Neg_8_2 BackfillPaper3.Check.check_Neg_12_3_bip BackfillPaper3.Check.check_Neg_12_3_top BackfillPaper3.Check.check_Table4Counts BackfillPaper3.Check.check_KddIndependentSets BackfillPaper3.Check.check_Lemma1 BackfillPaper3.Check.check_Proposition2 BackfillPaper3.Check.check_Lemma3 BackfillPaper3.Check.check_TheoremA BackfillPaper3.Check.check_Remark4 BackfillPaper3.Check.check_TheoremB BackfillPaper3.Check.check_Corollary5 BackfillPaper3.Check.check_WSymm BackfillPaper3.Check.check_Lemma6 BackfillPaper3.Check.check_Lemma7 BackfillPaper3.Check.check_TheoremBprime BackfillPaper3.Check.check_Lemma8 BackfillPaper3.Check.check_Lemma8_bddBelow BackfillPaper3.Check.check_PropositionC BackfillPaper3.Check.check_Rho_bddBelow BackfillPaper3.Check.check_TheoremD BackfillPaper3.Check.check_SSSZBound BackfillPaper3.Check.check_CareniniProp21 BackfillPaper3.Check.check_KahnZhao BackfillPaper3.Check.check_QuestionTrueHalf BackfillPaper3.Check.check_QuestionTrueZero BackfillPaper3.Check.check_TrivialCasesUnique BackfillPaper3.Check.check_TrivialCasesTrue BackfillPaper3.Check.check_CompetitorFacts BackfillPaper3.Check.check_NegativeEveryAdmissible BackfillPaper3.Check.check_AnswerNegative BackfillPaper3.Check.check_GammaStarScope BackfillPaper3.Check.check_LowGammaExamples BackfillPaper3.Check.check_S3PrismH2Cycle BackfillPaper3.Check.check_SethDensity BackfillPaper3.Check.check_MaximisersAtGammaStar BackfillPaper3.Check.check_Table1 BackfillPaper3.Check.check_CubicSix BackfillPaper3.Check.check_ExactFailureSix BackfillPaper3.Check.check_SmallestCounterexample BackfillPaper3.Check.check_Remark9 BackfillPaper3.Check.check_Remark10a BackfillPaper3.Check.check_Remark10b BackfillPaper3.Check.check_Remark10c BackfillPaper3.Check.check_Remark10d BackfillPaper3.Check.check_ReadingR6 BackfillPaper3.Check.check_Remark11 BackfillPaper3.Check.check_Remark12 BackfillPaper3.Check.check_RegularOn2dConnected BackfillPaper3.Check.check_HighThresholdTie BackfillPaper3.Check.check_TwoSwitchConnected BackfillPaper3.Check.check_Table2 BackfillPaper3.Check.check_LabelledCounts BackfillPaper3.Check.check_TheoremDNumerics propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, BackfillPaper3.Check.check_IGammaFloor, BackfillPaper3.Check.check_IGammaIso, BackfillPaper3.Check.check_PolyFacts, BackfillPaper3.Check.check_IntegerForm, BackfillPaper3.Check.check_Neg_6_3, BackfillPaper3.Check.check_Neg_2d, BackfillPaper3.Check.check_Neg_8_2, BackfillPaper3.Check.check_Neg_12_3_bip, BackfillPaper3.Check.check_Neg_12_3_top, BackfillPaper3.Check.check_Table4Counts, BackfillPaper3.Check.check_KddIndependentSets, BackfillPaper3.Check.check_Lemma1, BackfillPaper3.Check.check_Proposition2, BackfillPaper3.Check.check_Lemma3, BackfillPaper3.Check.check_TheoremA, BackfillPaper3.Check.check_Remark4, BackfillPaper3.Check.check_TheoremB, BackfillPaper3.Check.check_Corollary5, BackfillPaper3.Check.check_WSymm, BackfillPaper3.Check.check_Lemma6, BackfillPaper3.Check.check_Lemma7, BackfillPaper3.Check.check_TheoremBprime, BackfillPaper3.Check.check_Lemma8, BackfillPaper3.Check.check_Lemma8_bddBelow, BackfillPaper3.Check.check_PropositionC, BackfillPaper3.Check.check_Rho_bddBelow, BackfillPaper3.Check.check_TheoremD, BackfillPaper3.Check.check_SSSZBound, BackfillPaper3.Check.check_CareniniProp21, BackfillPaper3.Check.check_KahnZhao, BackfillPaper3.Check.check_QuestionTrueHalf, BackfillPaper3.Check.check_QuestionTrueZero, BackfillPaper3.Check.check_TrivialCasesUnique, BackfillPaper3.Check.check_TrivialCasesTrue, BackfillPaper3.Check.check_CompetitorFacts, BackfillPaper3.Check.check_NegativeEveryAdmissible, BackfillPaper3.Check.check_AnswerNegative, BackfillPaper3.Check.check_GammaStarScope, BackfillPaper3.Check.check_LowGammaExamples, BackfillPaper3.Check.check_S3PrismH2Cycle, BackfillPaper3.Check.check_SethDensity, BackfillPaper3.Check.check_MaximisersAtGammaStar, BackfillPaper3.Check.check_Table1, BackfillPaper3.Check.check_CubicSix, BackfillPaper3.Check.check_ExactFailureSix, BackfillPaper3.Check.check_SmallestCounterexample, BackfillPaper3.Check.check_Remark9, BackfillPaper3.Check.check_Remark10a, BackfillPaper3.Check.check_Remark10b, BackfillPaper3.Check.check_Remark10c, BackfillPaper3.Check.check_Remark10d, BackfillPaper3.Check.check_ReadingR6, BackfillPaper3.Check.check_Remark11, BackfillPaper3.Check.check_Remark12, BackfillPaper3.Check.check_RegularOn2dConnected, BackfillPaper3.Check.check_HighThresholdTie, BackfillPaper3.Check.check_TwoSwitchConnected, BackfillPaper3.Check.check_Table2, BackfillPaper3.Check.check_LabelledCounts, BackfillPaper3.Check.check_TheoremDNumerics, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Research.Backfill.Paper3.Check
+Running nanoda kernel on solution
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/nanoda_lib/target/release/nanoda_bin <tmp>
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+      335.05 real       456.29 user        24.37 sys
+          7644119040  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             5787620  page reclaims
+                5422  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               30498  voluntary context switches
+              474260  involuntary context switches
+          3518117752  instructions retired
+          1459916831  cycles elapsed
+           138797928  peak memory footprint
+exit=0
+end 2026-09-29T20:36:48Z

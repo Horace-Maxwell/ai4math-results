@@ -1,0 +1,705 @@
+start 2026-09-29T20:38:07Z
+config <project>/outputs/release/ai4math-results/ci/comparator/paper4.json
+Building Comparator.Paper4
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Comparator.Paper4
+⚠ [8925/8925] Built Comparator.Paper4 (3.1s)
+warning: Comparator/Paper4.lean:21:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:23:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:25:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:27:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:29:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:31:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:33:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:35:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:37:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:39:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:41:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:43:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:45:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:47:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:49:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:51:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:53:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:55:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:57:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:59:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:61:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:63:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:65:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:67:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:69:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:71:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:73:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:75:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:77:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:79:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:81:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:83:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:85:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:87:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:89:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:91:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:93:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:95:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:97:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:99:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:101:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:103:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:105:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:107:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:109:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:111:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:113:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:115:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:117:8: declaration uses `sorry`
+warning: Comparator/Paper4.lean:119:8: declaration uses `sorry`
+Build completed successfully (8925 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Comparator.Paper4 -- Quot Quot.mk Quot.lift Quot.ind BackfillPaper4.Check.check_Sec5_FP_symm BackfillPaper4.Check.check_Sec5_FP_iff_viii BackfillPaper4.Check.check_Lemma2 BackfillPaper4.Check.check_Sec2_bounds BackfillPaper4.Check.check_Proposition3 BackfillPaper4.Check.check_Sec2_peripheral_iff BackfillPaper4.Check.check_Sec2_Q3_imp_Q3' BackfillPaper4.Check.check_Sec2_Q4_imp_Q4' BackfillPaper4.Check.check_Sec2_repeated BackfillPaper4.Check.check_Sec2_readings_Q3 BackfillPaper4.Check.check_Sec2_readings_Q4 BackfillPaper4.Check.check_TheoremC_FP BackfillPaper4.Check.check_Sec4_median_triangleFree BackfillPaper4.Check.check_Sec4_nonCutVertex BackfillPaper4.Check.check_Sec4_reduction BackfillPaper4.Check.check_TheoremA_i BackfillPaper4.Check.check_TheoremA_ii BackfillPaper4.Check.check_TheoremB_ii BackfillPaper4.Check.check_Remark4_ii BackfillPaper4.Check.check_Sec8_open BackfillPaper4.Check.check_Sec2_problem2_altReading BackfillPaper4.Check.check_Remark4_iii BackfillPaper4.Check.check_Remark5_i BackfillPaper4.Check.check_Released_fourPoint_facts BackfillPaper4.Check.check_TheoremB_i BackfillPaper4.Check.check_Sec3_medianDH_noQ4 BackfillPaper4.Check.check_Remark4_i BackfillPaper4.Check.check_Sec2_classReading BackfillPaper4.Check.check_Sec3_MO_notDH BackfillPaper4.Check.check_Remark5_ii BackfillPaper4.Check.check_Remark5_iii BackfillPaper4.Check.check_Sec6_DHtests BackfillPaper4.Check.check_Lemma1 BackfillPaper4.Check.check_TheoremA_grid BackfillPaper4.Check.check_TheoremB_grid BackfillPaper4.Check.check_Sec3_monotonePath BackfillPaper4.Check.check_BandeltMulder_extension BackfillPaper4.Check.check_BandeltMulder_DH_fourPoint BackfillPaper4.Check.check_TheoremC_i BackfillPaper4.Check.check_TheoremC_ii BackfillPaper4.Check.check_Sec3_DH_noQ4_imp_Q3 BackfillPaper4.Check.check_Sec4_aut BackfillPaper4.Check.check_Sec4_count_triangleFree7 BackfillPaper4.Check.check_Sec4_count_candidates BackfillPaper4.Check.check_TheoremA_min BackfillPaper4.Check.check_TheoremB_min BackfillPaper4.Check.check_TheoremA_unique BackfillPaper4.Check.check_TheoremB_unique BackfillPaper4.Check.check_Sec4_count_median BackfillPaper4.Check.check_Sec4_count_labelled propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, BackfillPaper4.Check.check_Sec5_FP_symm, BackfillPaper4.Check.check_Sec5_FP_iff_viii, BackfillPaper4.Check.check_Lemma2, BackfillPaper4.Check.check_Sec2_bounds, BackfillPaper4.Check.check_Proposition3, BackfillPaper4.Check.check_Sec2_peripheral_iff, BackfillPaper4.Check.check_Sec2_Q3_imp_Q3', BackfillPaper4.Check.check_Sec2_Q4_imp_Q4', BackfillPaper4.Check.check_Sec2_repeated, BackfillPaper4.Check.check_Sec2_readings_Q3, BackfillPaper4.Check.check_Sec2_readings_Q4, BackfillPaper4.Check.check_TheoremC_FP, BackfillPaper4.Check.check_Sec4_median_triangleFree, BackfillPaper4.Check.check_Sec4_nonCutVertex, BackfillPaper4.Check.check_Sec4_reduction, BackfillPaper4.Check.check_TheoremA_i, BackfillPaper4.Check.check_TheoremA_ii, BackfillPaper4.Check.check_TheoremB_ii, BackfillPaper4.Check.check_Remark4_ii, BackfillPaper4.Check.check_Sec8_open, BackfillPaper4.Check.check_Sec2_problem2_altReading, BackfillPaper4.Check.check_Remark4_iii, BackfillPaper4.Check.check_Remark5_i, BackfillPaper4.Check.check_Released_fourPoint_facts, BackfillPaper4.Check.check_TheoremB_i, BackfillPaper4.Check.check_Sec3_medianDH_noQ4, BackfillPaper4.Check.check_Remark4_i, BackfillPaper4.Check.check_Sec2_classReading, BackfillPaper4.Check.check_Sec3_MO_notDH, BackfillPaper4.Check.check_Remark5_ii, BackfillPaper4.Check.check_Remark5_iii, BackfillPaper4.Check.check_Sec6_DHtests, BackfillPaper4.Check.check_Lemma1, BackfillPaper4.Check.check_TheoremA_grid, BackfillPaper4.Check.check_TheoremB_grid, BackfillPaper4.Check.check_Sec3_monotonePath, BackfillPaper4.Check.check_BandeltMulder_extension, BackfillPaper4.Check.check_BandeltMulder_DH_fourPoint, BackfillPaper4.Check.check_TheoremC_i, BackfillPaper4.Check.check_TheoremC_ii, BackfillPaper4.Check.check_Sec3_DH_noQ4_imp_Q3, BackfillPaper4.Check.check_Sec4_aut, BackfillPaper4.Check.check_Sec4_count_triangleFree7, BackfillPaper4.Check.check_Sec4_count_candidates, BackfillPaper4.Check.check_TheoremA_min, BackfillPaper4.Check.check_TheoremB_min, BackfillPaper4.Check.check_TheoremA_unique, BackfillPaper4.Check.check_TheoremB_unique, BackfillPaper4.Check.check_Sec4_count_median, BackfillPaper4.Check.check_Sec4_count_labelled, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Comparator.Paper4
+Building Research.Backfill.Paper4.Check
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Research.Backfill.Paper4.Check
+ℹ [8925/9123] Replayed Research.Backfill.Paper4.Proof.MetricBounds
+info: Research/Backfill/Paper4/Proof/MetricBounds.lean:64:0: 'CodexPaper4.check_Sec2_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8926/9123] Replayed Research.Backfill.Paper4.Proof.Readings
+info: Research/Backfill/Paper4/Proof/Readings.lean:262:0: 'CodexPaper4.check_Sec2_repeated' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/Readings.lean:263:0: 'CodexPaper4.check_Sec2_readings_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/Readings.lean:264:0: 'CodexPaper4.check_Sec2_readings_Q4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/Readings.lean:265:0: 'CodexPaper4.check_Sec2_peripheral_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/Readings.lean:266:0: 'CodexPaper4.check_Sec2_Q3_imp_Q3'' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/Readings.lean:267:0: 'CodexPaper4.check_Sec2_Q4_imp_Q4'' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8927/9123] Replayed Research.HKOTriameter
+info: Research/HKOTriameter.lean:503:0: 'HKOTriameter.not_problem1Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:504:0: 'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:505:0: 'HKOTriameter.not_problem2Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:506:0: 'HKOTriameter.not_problem2ClaimWeak' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:507:0: 'HKOTriameter.G1_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:508:0: 'HKOTriameter.G2_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:509:0: 'HKOTriameter.not_question3_G1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:510:0: 'HKOTriameter.isPeripheral_iff_isPeripheralPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:511:0: 'HKOTriameter.dist_eq_of_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:512:0: 'HKOTriameter.C6_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8928/9123] Replayed Research.HKOTriameterDH
+info: Research/HKOTriameterDH.lean:309:0: 'HKOTriameter.core' depends on axioms: [propext, Quot.sound]
+info: Research/HKOTriameterDH.lean:310:0: 'HKOTriameter.extends_of_no_diametral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:311:0: 'HKOTriameter.question3_or_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:312:0: 'HKOTriameter.problem3_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:313:0: 'HKOTriameter.problem3ClaimFP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:314:0: 'HKOTriameter.F1G_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:315:0: 'HKOTriameter.F1G_not_question3'' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:316:0: 'HKOTriameter.F1H_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:317:0: 'HKOTriameter.F1H_not_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:318:0: 'HKOTriameter.G1_not_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:319:0: 'HKOTriameter.G2_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:320:0: 'HKOTriameter.F1G_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8929/9123] Replayed Research.Backfill.Paper4.Proof.BasicCorollaries
+info: Research/Backfill/Paper4/Proof/BasicCorollaries.lean:28:0: 'CodexPaper4.check_Remark5_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/BasicCorollaries.lean:29:0: 'CodexPaper4.check_Released_fourPoint_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8930/9123] Replayed Research.Backfill.Paper4.Proof.ConcreteCore
+info: Research/Backfill/Paper4/Proof/ConcreteCore.lean:152:0: 'CodexPaper4.ConcreteCore.G2_triametral_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/ConcreteCore.lean:153:0: 'CodexPaper4.check_TheoremA_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/ConcreteCore.lean:154:0: 'CodexPaper4.check_TheoremA_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/ConcreteCore.lean:155:0: 'CodexPaper4.check_TheoremB_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8931/9123] Replayed Research.Backfill.Paper4.Proof.ConcreteRemarks
+info: Research/Backfill/Paper4/Proof/ConcreteRemarks.lean:47:0: 'CodexPaper4.check_Remark4_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/ConcreteRemarks.lean:48:0: 'CodexPaper4.check_Sec8_open' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/ConcreteRemarks.lean:49:0: 'CodexPaper4.check_Sec2_problem2_altReading' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8932/9123] Replayed Research.Backfill.Paper4.Proof.DHExtensionCore
+info: Research/Backfill/Paper4/Proof/DHExtensionCore.lean:111:0: 'CodexPaper4.DHExtensionCore.iso_dist_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/DHExtensionCore.lean:112:0: 'CodexPaper4.DHExtensionCore.induce_retract' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/DHExtensionCore.lean:113:0: 'CodexPaper4.DHExtensionCore.embedding_dist_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8933/9123] Replayed Research.Backfill.Paper4.Proof.DHExtension
+info: Research/Backfill/Paper4/Proof/DHExtension.lean:364:0: 'CodexPaper4.check_BandeltMulder_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8934/9123] Replayed Research.Backfill.Paper4.Proof.CutVertexMetric
+info: Research/Backfill/Paper4/Proof/CutVertexMetric.lean:39:0: 'CodexPaper4.CutVertexMetric.dist_eq_add_of_not_reachable_delete' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8935/9123] Replayed Research.Backfill.Paper4.Proof.DHFourPointBase
+info: Research/Backfill/Paper4/Proof/DHFourPointBase.lean:852:0: 'CodexPaper4.DHFourPointBase.fin4_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8936/9123] Replayed Research.Backfill.Paper4.Proof.DHFourPoint
+info: Research/Backfill/Paper4/Proof/DHFourPoint.lean:362:0: 'CodexPaper4.check_BandeltMulder_DH_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8937/9123] Replayed Research.Backfill.Paper4.Proof.Foundation
+info: Research/Backfill/Paper4/Proof/Foundation.lean:41:0: 'CodexPaper4.check_Sec5_FP_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/Foundation.lean:42:0: 'CodexPaper4.check_Sec5_FP_iff_viii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/Foundation.lean:43:0: 'CodexPaper4.check_Lemma2' depends on axioms: [propext, Quot.sound]
+ℹ [8938/9123] Replayed Research.Backfill.Paper4.Proof.FourPointConsequences
+info: Research/Backfill/Paper4/Proof/FourPointConsequences.lean:59:0: 'CodexPaper4.check_Proposition3' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8939/9123] Replayed Research.Backfill.Paper4.Proof.TheoremCFP
+info: Research/Backfill/Paper4/Proof/TheoremCFP.lean:93:0: 'CodexPaper4.check_TheoremC_FP' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8940/9123] Replayed Research.Backfill.Paper4.Proof.DHFourPointConsequences
+info: Research/Backfill/Paper4/Proof/DHFourPointConsequences.lean:27:0: 'CodexPaper4.check_TheoremC_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/DHFourPointConsequences.lean:28:0: 'CodexPaper4.check_TheoremC_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/DHFourPointConsequences.lean:29:0: 'CodexPaper4.check_Sec3_DH_noQ4_imp_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8941/9123] Replayed Research.Backfill.Paper4.Proof.ConcreteDHCertificate
+info: Research/Backfill/Paper4/Proof/ConcreteDHCertificate.lean:103:0: 'CodexPaper4.ConcreteDHCertificate.isDistanceHereditary' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8942/9123] Replayed Research.Backfill.Paper4.Proof.F1GDHData
+info: Research/Backfill/Paper4/Proof/F1GDHData.lean:424:0: 'CodexPaper4.F1GDHData.F1G_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8943/9123] Replayed Research.Backfill.Paper4.Proof.F1HDHData
+info: Research/Backfill/Paper4/Proof/F1HDHData.lean:424:0: 'CodexPaper4.F1HDHData.F1H_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8944/9123] Replayed Research.Backfill.Paper4.Proof.G2DHData
+info: Research/Backfill/Paper4/Proof/G2DHData.lean:1575:0: 'CodexPaper4.G2DHData.G2_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8945/9123] Replayed Research.Backfill.Paper4.Proof.G2DistanceHereditary
+info: Research/Backfill/Paper4/Proof/G2DistanceHereditary.lean:28:0: 'CodexPaper4.G2DistanceHereditary.G2_distanceHereditary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/G2DistanceHereditary.lean:29:0: 'CodexPaper4.check_TheoremB_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/G2DistanceHereditary.lean:30:0: 'CodexPaper4.check_Sec3_medianDH_noQ4' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8946/9123] Replayed Research.Backfill.Paper4.Proof.F1DistanceHereditary
+info: Research/Backfill/Paper4/Proof/F1DistanceHereditary.lean:39:0: 'CodexPaper4.F1DistanceHereditary.F1G_distanceHereditary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/F1DistanceHereditary.lean:40:0: 'CodexPaper4.F1DistanceHereditary.F1H_distanceHereditary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/F1DistanceHereditary.lean:41:0: 'CodexPaper4.check_Remark4_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/F1DistanceHereditary.lean:42:0: 'CodexPaper4.check_Sec2_classReading' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8947/9123] Replayed Research.Backfill.Paper4.Proof.GraphAutomorphisms
+info: Research/Backfill/Paper4/Proof/GraphAutomorphisms.lean:210:0: 'CodexPaper4.check_Sec4_aut' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8948/9123] Replayed Research.Backfill.Paper4.Proof.GridExamples
+info: Research/Backfill/Paper4/Proof/GridExamples.lean:144:0: 'CodexPaper4.check_TheoremA_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/GridExamples.lean:145:0: 'CodexPaper4.check_TheoremB_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8949/9123] Replayed Research.Backfill.Paper4.Proof.GridInterval
+info: Research/Backfill/Paper4/Proof/GridInterval.lean:169:0: 'CodexPaper4.check_Lemma1' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8950/9123] Replayed Research.Backfill.Paper4.Proof.GridMonotone
+info: Research/Backfill/Paper4/Proof/GridMonotone.lean:118:0: 'CodexPaper4.check_Sec3_monotonePath' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8951/9123] Replayed Research.Backfill.Paper4.Proof.H11SubsetCover
+info: Research/Backfill/Paper4/Proof/H11SubsetCover.lean:197:0: 'CodexPaper4.H11SubsetCover.all_block_certificates_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8952/9123] Replayed Research.Backfill.Paper4.Proof.H11Metric
+info: Research/Backfill/Paper4/Proof/H11Metric.lean:119:0: 'CodexPaper4.H11Metric.H11_dist' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/H11Metric.lean:120:0: 'CodexPaper4.H11Metric.H11_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/H11Metric.lean:121:0: 'CodexPaper4.H11Metric.metric_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8953/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock00
+info: Research/Backfill/Paper4/Proof/H11DHBlock00.lean:350:0: 'CodexPaper4.H11DHBlock00.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8954/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock01
+info: Research/Backfill/Paper4/Proof/H11DHBlock01.lean:350:0: 'CodexPaper4.H11DHBlock01.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8955/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock02
+info: Research/Backfill/Paper4/Proof/H11DHBlock02.lean:350:0: 'CodexPaper4.H11DHBlock02.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8956/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock03
+info: Research/Backfill/Paper4/Proof/H11DHBlock03.lean:350:0: 'CodexPaper4.H11DHBlock03.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8957/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock04
+info: Research/Backfill/Paper4/Proof/H11DHBlock04.lean:350:0: 'CodexPaper4.H11DHBlock04.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8958/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock05
+info: Research/Backfill/Paper4/Proof/H11DHBlock05.lean:350:0: 'CodexPaper4.H11DHBlock05.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8959/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock06
+info: Research/Backfill/Paper4/Proof/H11DHBlock06.lean:350:0: 'CodexPaper4.H11DHBlock06.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8960/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock07
+info: Research/Backfill/Paper4/Proof/H11DHBlock07.lean:350:0: 'CodexPaper4.H11DHBlock07.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8961/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock08
+info: Research/Backfill/Paper4/Proof/H11DHBlock08.lean:350:0: 'CodexPaper4.H11DHBlock08.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8962/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock09
+info: Research/Backfill/Paper4/Proof/H11DHBlock09.lean:350:0: 'CodexPaper4.H11DHBlock09.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8963/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock10
+info: Research/Backfill/Paper4/Proof/H11DHBlock10.lean:350:0: 'CodexPaper4.H11DHBlock10.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8964/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock11
+info: Research/Backfill/Paper4/Proof/H11DHBlock11.lean:350:0: 'CodexPaper4.H11DHBlock11.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8965/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock12
+info: Research/Backfill/Paper4/Proof/H11DHBlock12.lean:350:0: 'CodexPaper4.H11DHBlock12.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8966/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock13
+info: Research/Backfill/Paper4/Proof/H11DHBlock13.lean:350:0: 'CodexPaper4.H11DHBlock13.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8967/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock14
+info: Research/Backfill/Paper4/Proof/H11DHBlock14.lean:350:0: 'CodexPaper4.H11DHBlock14.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8968/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock15
+info: Research/Backfill/Paper4/Proof/H11DHBlock15.lean:350:0: 'CodexPaper4.H11DHBlock15.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8969/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock16
+info: Research/Backfill/Paper4/Proof/H11DHBlock16.lean:350:0: 'CodexPaper4.H11DHBlock16.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8970/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock17
+info: Research/Backfill/Paper4/Proof/H11DHBlock17.lean:350:0: 'CodexPaper4.H11DHBlock17.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8971/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock18
+info: Research/Backfill/Paper4/Proof/H11DHBlock18.lean:350:0: 'CodexPaper4.H11DHBlock18.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8972/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock19
+info: Research/Backfill/Paper4/Proof/H11DHBlock19.lean:350:0: 'CodexPaper4.H11DHBlock19.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8973/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock20
+info: Research/Backfill/Paper4/Proof/H11DHBlock20.lean:350:0: 'CodexPaper4.H11DHBlock20.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8974/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock21
+info: Research/Backfill/Paper4/Proof/H11DHBlock21.lean:350:0: 'CodexPaper4.H11DHBlock21.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8975/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock22
+info: Research/Backfill/Paper4/Proof/H11DHBlock22.lean:350:0: 'CodexPaper4.H11DHBlock22.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8976/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock23
+info: Research/Backfill/Paper4/Proof/H11DHBlock23.lean:350:0: 'CodexPaper4.H11DHBlock23.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8977/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock24
+info: Research/Backfill/Paper4/Proof/H11DHBlock24.lean:350:0: 'CodexPaper4.H11DHBlock24.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8978/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock25
+info: Research/Backfill/Paper4/Proof/H11DHBlock25.lean:350:0: 'CodexPaper4.H11DHBlock25.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8979/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock26
+info: Research/Backfill/Paper4/Proof/H11DHBlock26.lean:350:0: 'CodexPaper4.H11DHBlock26.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8980/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock27
+info: Research/Backfill/Paper4/Proof/H11DHBlock27.lean:350:0: 'CodexPaper4.H11DHBlock27.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8981/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock28
+info: Research/Backfill/Paper4/Proof/H11DHBlock28.lean:350:0: 'CodexPaper4.H11DHBlock28.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8982/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock29
+info: Research/Backfill/Paper4/Proof/H11DHBlock29.lean:350:0: 'CodexPaper4.H11DHBlock29.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8983/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock30
+info: Research/Backfill/Paper4/Proof/H11DHBlock30.lean:350:0: 'CodexPaper4.H11DHBlock30.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8984/9123] Replayed Research.Backfill.Paper4.Proof.H11DHBlock31
+info: Research/Backfill/Paper4/Proof/H11DHBlock31.lean:350:0: 'CodexPaper4.H11DHBlock31.block_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8985/9123] Replayed Research.Backfill.Paper4.Proof.HKOFig2Remark
+info: Research/Backfill/Paper4/Proof/HKOFig2Remark.lean:130:0: 'CodexPaper4.check_Remark4_iii' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8986/9123] Replayed Research.Backfill.Paper4.Proof.NonDHExamples
+info: Research/Backfill/Paper4/Proof/NonDHExamples.lean:134:0: 'CodexPaper4.NonDHExamples.G1_not_distanceHereditary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/NonDHExamples.lean:135:0: 'CodexPaper4.NonDHExamples.HKOFig2_not_distanceHereditary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/NonDHExamples.lean:136:0: 'CodexPaper4.check_Sec3_MO_notDH' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8987/9123] Replayed Research.Backfill.Paper4.Proof.H11AssemblyDraft
+info: Research/Backfill/Paper4/Proof/H11AssemblyDraft.lean:86:0: 'CodexPaper4.H11Assembly.H11_distanceHereditary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/H11AssemblyDraft.lean:87:0: 'CodexPaper4.check_Remark5_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/H11AssemblyDraft.lean:88:0: 'CodexPaper4.check_Remark5_iii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/H11AssemblyDraft.lean:89:0: 'CodexPaper4.check_Sec6_DHtests' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8988/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationCore
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationCore.lean:182:0: 'CodexPaper4.TriangleFreeEnumerationCore.covers_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationCore.lean:183:0: 'CodexPaper4.TriangleFreeEnumerationCore.covers_through_seven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8989/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationFamily
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationFamily.lean:64:0: 'CodexPaper4.TriangleFreeEnumerationFamily.connected_of_rank' depends on axioms: [propext, Quot.sound]
+ℹ [8990/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeFingerprint
+info: Research/Backfill/Paper4/Proof/TriangleFreeFingerprint.lean:66:0: 'CodexPaper4.TriangleFreeFingerprint.vertexFingerprint_iso' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeFingerprint.lean:67:0: 'CodexPaper4.TriangleFreeFingerprint.graphFingerprint_iso' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8991/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightReps
+info: Research/Backfill/Paper4/Proof/MedianEightReps.lean:312:0: 'ClaudePaper4.L8_pairwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8992/9123] Replayed Research.Backfill.Paper4.Proof.SmallMetricCertificate
+info: Research/Backfill/Paper4/Proof/SmallMetricCertificate.lean:141:0: 'CodexPaper4.SmallMetricCertificate.dist_eq_of_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMetricCertificate.lean:142:0: 'CodexPaper4.SmallMetricCertificate.connected_of_dist' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMetricCertificate.lean:143:0: 'CodexPaper4.SmallMetricCertificate.diam_eq_of_table' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMetricCertificate.lean:144:0: 'CodexPaper4.SmallMetricCertificate.triameter_eq_of_table' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMetricCertificate.lean:145:0: 'CodexPaper4.SmallMetricCertificate.question3'_of_table' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMetricCertificate.lean:146:0: 'CodexPaper4.SmallMetricCertificate.question4_of_table' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMetricCertificate.lean:147:0: 'CodexPaper4.SmallMetricCertificate.median_of_table' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMetricCertificate.lean:148:0: 'CodexPaper4.SmallMetricCertificate.not_median_of_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9000/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightRepFacts
+info: Research/Backfill/Paper4/Proof/MedianEightRepFacts.lean:161:0: 'ClaudePaper4.L8_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/MedianEightRepFacts.lean:162:0: 'ClaudePaper4.L8_q' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9001/9123] Replayed Research.Backfill.Paper4.Proof.RowDist
+info: Research/Backfill/Paper4/Proof/RowDist.lean:82:0: 'ClaudePaper4.dist_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/RowDist.lean:83:0: 'ClaudePaper4.not_median_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/RowDist.lean:84:0: 'ClaudePaper4.not_median_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9002/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent00
+info: Research/Backfill/Paper4/Proof/MedianEightParent00.lean:624:0: 'ClaudePaper4.MedianEightParent00.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9003/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent01
+info: Research/Backfill/Paper4/Proof/MedianEightParent01.lean:469:0: 'ClaudePaper4.MedianEightParent01.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9004/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent02
+info: Research/Backfill/Paper4/Proof/MedianEightParent02.lean:405:0: 'ClaudePaper4.MedianEightParent02.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9005/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent03
+info: Research/Backfill/Paper4/Proof/MedianEightParent03.lean:363:0: 'ClaudePaper4.MedianEightParent03.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9006/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent04
+info: Research/Backfill/Paper4/Proof/MedianEightParent04.lean:392:0: 'ClaudePaper4.MedianEightParent04.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9007/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent05
+info: Research/Backfill/Paper4/Proof/MedianEightParent05.lean:341:0: 'ClaudePaper4.MedianEightParent05.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9008/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent06
+info: Research/Backfill/Paper4/Proof/MedianEightParent06.lean:370:0: 'ClaudePaper4.MedianEightParent06.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9009/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent07
+info: Research/Backfill/Paper4/Proof/MedianEightParent07.lean:319:0: 'ClaudePaper4.MedianEightParent07.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9010/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent08
+info: Research/Backfill/Paper4/Proof/MedianEightParent08.lean:330:0: 'ClaudePaper4.MedianEightParent08.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9011/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent09
+info: Research/Backfill/Paper4/Proof/MedianEightParent09.lean:303:0: 'ClaudePaper4.MedianEightParent09.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9012/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent10
+info: Research/Backfill/Paper4/Proof/MedianEightParent10.lean:296:0: 'ClaudePaper4.MedianEightParent10.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9013/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent11
+info: Research/Backfill/Paper4/Proof/MedianEightParent11.lean:395:0: 'ClaudePaper4.MedianEightParent11.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9014/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent12
+info: Research/Backfill/Paper4/Proof/MedianEightParent12.lean:333:0: 'ClaudePaper4.MedianEightParent12.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9015/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent13
+info: Research/Backfill/Paper4/Proof/MedianEightParent13.lean:370:0: 'ClaudePaper4.MedianEightParent13.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9016/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent14
+info: Research/Backfill/Paper4/Proof/MedianEightParent14.lean:315:0: 'ClaudePaper4.MedianEightParent14.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9017/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent15
+info: Research/Backfill/Paper4/Proof/MedianEightParent15.lean:320:0: 'ClaudePaper4.MedianEightParent15.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9018/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent16
+info: Research/Backfill/Paper4/Proof/MedianEightParent16.lean:379:0: 'ClaudePaper4.MedianEightParent16.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9019/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent17
+info: Research/Backfill/Paper4/Proof/MedianEightParent17.lean:297:0: 'ClaudePaper4.MedianEightParent17.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9020/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent18
+info: Research/Backfill/Paper4/Proof/MedianEightParent18.lean:342:0: 'ClaudePaper4.MedianEightParent18.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9021/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent19
+info: Research/Backfill/Paper4/Proof/MedianEightParent19.lean:312:0: 'ClaudePaper4.MedianEightParent19.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9022/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent20
+info: Research/Backfill/Paper4/Proof/MedianEightParent20.lean:354:0: 'ClaudePaper4.MedianEightParent20.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9023/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent21
+info: Research/Backfill/Paper4/Proof/MedianEightParent21.lean:315:0: 'ClaudePaper4.MedianEightParent21.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9024/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent22
+info: Research/Backfill/Paper4/Proof/MedianEightParent22.lean:340:0: 'ClaudePaper4.MedianEightParent22.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9025/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent23
+info: Research/Backfill/Paper4/Proof/MedianEightParent23.lean:287:0: 'ClaudePaper4.MedianEightParent23.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9026/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent24
+info: Research/Backfill/Paper4/Proof/MedianEightParent24.lean:321:0: 'ClaudePaper4.MedianEightParent24.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9027/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent25
+info: Research/Backfill/Paper4/Proof/MedianEightParent25.lean:310:0: 'ClaudePaper4.MedianEightParent25.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9028/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent26
+info: Research/Backfill/Paper4/Proof/MedianEightParent26.lean:437:0: 'ClaudePaper4.MedianEightParent26.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9029/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent27
+info: Research/Backfill/Paper4/Proof/MedianEightParent27.lean:426:0: 'ClaudePaper4.MedianEightParent27.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9030/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent28
+info: Research/Backfill/Paper4/Proof/MedianEightParent28.lean:371:0: 'ClaudePaper4.MedianEightParent28.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9031/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent29
+info: Research/Backfill/Paper4/Proof/MedianEightParent29.lean:371:0: 'ClaudePaper4.MedianEightParent29.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9032/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent30
+info: Research/Backfill/Paper4/Proof/MedianEightParent30.lean:349:0: 'ClaudePaper4.MedianEightParent30.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9033/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent31
+info: Research/Backfill/Paper4/Proof/MedianEightParent31.lean:290:0: 'ClaudePaper4.MedianEightParent31.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9034/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent32
+info: Research/Backfill/Paper4/Proof/MedianEightParent32.lean:340:0: 'ClaudePaper4.MedianEightParent32.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9035/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent33
+info: Research/Backfill/Paper4/Proof/MedianEightParent33.lean:360:0: 'ClaudePaper4.MedianEightParent33.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9036/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent34
+info: Research/Backfill/Paper4/Proof/MedianEightParent34.lean:286:0: 'ClaudePaper4.MedianEightParent34.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9037/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent35
+info: Research/Backfill/Paper4/Proof/MedianEightParent35.lean:305:0: 'ClaudePaper4.MedianEightParent35.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9038/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent36
+info: Research/Backfill/Paper4/Proof/MedianEightParent36.lean:319:0: 'ClaudePaper4.MedianEightParent36.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9039/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent37
+info: Research/Backfill/Paper4/Proof/MedianEightParent37.lean:338:0: 'ClaudePaper4.MedianEightParent37.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9040/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent38
+info: Research/Backfill/Paper4/Proof/MedianEightParent38.lean:279:0: 'ClaudePaper4.MedianEightParent38.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9041/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent39
+info: Research/Backfill/Paper4/Proof/MedianEightParent39.lean:296:0: 'ClaudePaper4.MedianEightParent39.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9042/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent40
+info: Research/Backfill/Paper4/Proof/MedianEightParent40.lean:325:0: 'ClaudePaper4.MedianEightParent40.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9043/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent41
+info: Research/Backfill/Paper4/Proof/MedianEightParent41.lean:296:0: 'ClaudePaper4.MedianEightParent41.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9044/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent42
+info: Research/Backfill/Paper4/Proof/MedianEightParent42.lean:415:0: 'ClaudePaper4.MedianEightParent42.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9045/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent43
+info: Research/Backfill/Paper4/Proof/MedianEightParent43.lean:349:0: 'ClaudePaper4.MedianEightParent43.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9046/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent44
+info: Research/Backfill/Paper4/Proof/MedianEightParent44.lean:327:0: 'ClaudePaper4.MedianEightParent44.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9047/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent45
+info: Research/Backfill/Paper4/Proof/MedianEightParent45.lean:316:0: 'ClaudePaper4.MedianEightParent45.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9048/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent46
+info: Research/Backfill/Paper4/Proof/MedianEightParent46.lean:338:0: 'ClaudePaper4.MedianEightParent46.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9049/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent47
+info: Research/Backfill/Paper4/Proof/MedianEightParent47.lean:316:0: 'ClaudePaper4.MedianEightParent47.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9050/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent48
+info: Research/Backfill/Paper4/Proof/MedianEightParent48.lean:301:0: 'ClaudePaper4.MedianEightParent48.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9051/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent49
+info: Research/Backfill/Paper4/Proof/MedianEightParent49.lean:278:0: 'ClaudePaper4.MedianEightParent49.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9052/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent50
+info: Research/Backfill/Paper4/Proof/MedianEightParent50.lean:294:0: 'ClaudePaper4.MedianEightParent50.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9053/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent51
+info: Research/Backfill/Paper4/Proof/MedianEightParent51.lean:290:0: 'ClaudePaper4.MedianEightParent51.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9054/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent52
+info: Research/Backfill/Paper4/Proof/MedianEightParent52.lean:305:0: 'ClaudePaper4.MedianEightParent52.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9055/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent53
+info: Research/Backfill/Paper4/Proof/MedianEightParent53.lean:404:0: 'ClaudePaper4.MedianEightParent53.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9056/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent54
+info: Research/Backfill/Paper4/Proof/MedianEightParent54.lean:305:0: 'ClaudePaper4.MedianEightParent54.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9057/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent55
+info: Research/Backfill/Paper4/Proof/MedianEightParent55.lean:294:0: 'ClaudePaper4.MedianEightParent55.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9058/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent56
+info: Research/Backfill/Paper4/Proof/MedianEightParent56.lean:272:0: 'ClaudePaper4.MedianEightParent56.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9059/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent57
+info: Research/Backfill/Paper4/Proof/MedianEightParent57.lean:283:0: 'ClaudePaper4.MedianEightParent57.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9060/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightParent58
+info: Research/Backfill/Paper4/Proof/MedianEightParent58.lean:272:0: 'ClaudePaper4.MedianEightParent58.parent_prop' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9061/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationSmallLayers
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationSmallLayers.lean:105:0: 'CodexPaper4.TriangleFreeEnumerationSmallLayers.small_representatives_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationSmallLayers.lean:106:0: 'CodexPaper4.TriangleFreeEnumerationSmallLayers.layer_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationSmallLayers.lean:107:0: 'CodexPaper4.TriangleFreeEnumerationSmallLayers.layer_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9062/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent3P00
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent3P00.lean:69:0: 'CodexPaper4.TriangleFreeEnumerationParent3P00.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent3P00.lean:70:0: 'CodexPaper4.TriangleFreeEnumerationParent3P00.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9063/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent4P00
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent4P00.lean:105:0: 'CodexPaper4.TriangleFreeEnumerationParent4P00.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent4P00.lean:106:0: 'CodexPaper4.TriangleFreeEnumerationParent4P00.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9064/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent4P01
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent4P01.lean:96:0: 'CodexPaper4.TriangleFreeEnumerationParent4P01.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent4P01.lean:97:0: 'CodexPaper4.TriangleFreeEnumerationParent4P01.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9065/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent4P02
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent4P02.lean:87:0: 'CodexPaper4.TriangleFreeEnumerationParent4P02.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent4P02.lean:88:0: 'CodexPaper4.TriangleFreeEnumerationParent4P02.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9066/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P00
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P00.lean:177:0: 'CodexPaper4.TriangleFreeEnumerationParent5P00.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P00.lean:178:0: 'CodexPaper4.TriangleFreeEnumerationParent5P00.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9067/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P01
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P01.lean:150:0: 'CodexPaper4.TriangleFreeEnumerationParent5P01.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P01.lean:151:0: 'CodexPaper4.TriangleFreeEnumerationParent5P01.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9068/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P02
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P02.lean:141:0: 'CodexPaper4.TriangleFreeEnumerationParent5P02.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P02.lean:142:0: 'CodexPaper4.TriangleFreeEnumerationParent5P02.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9069/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P03
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P03.lean:132:0: 'CodexPaper4.TriangleFreeEnumerationParent5P03.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P03.lean:133:0: 'CodexPaper4.TriangleFreeEnumerationParent5P03.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9070/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P04
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P04.lean:123:0: 'CodexPaper4.TriangleFreeEnumerationParent5P04.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P04.lean:124:0: 'CodexPaper4.TriangleFreeEnumerationParent5P04.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9071/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent5P05
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P05.lean:123:0: 'CodexPaper4.TriangleFreeEnumerationParent5P05.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent5P05.lean:124:0: 'CodexPaper4.TriangleFreeEnumerationParent5P05.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9072/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P00
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P00.lean:321:0: 'CodexPaper4.TriangleFreeEnumerationParent6P00.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P00.lean:322:0: 'CodexPaper4.TriangleFreeEnumerationParent6P00.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9073/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P01
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P01.lean:258:0: 'CodexPaper4.TriangleFreeEnumerationParent6P01.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P01.lean:259:0: 'CodexPaper4.TriangleFreeEnumerationParent6P01.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9074/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P02
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P02.lean:240:0: 'CodexPaper4.TriangleFreeEnumerationParent6P02.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P02.lean:241:0: 'CodexPaper4.TriangleFreeEnumerationParent6P02.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9075/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P03
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P03.lean:222:0: 'CodexPaper4.TriangleFreeEnumerationParent6P03.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P03.lean:223:0: 'CodexPaper4.TriangleFreeEnumerationParent6P03.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9076/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P04
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P04.lean:231:0: 'CodexPaper4.TriangleFreeEnumerationParent6P04.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P04.lean:232:0: 'CodexPaper4.TriangleFreeEnumerationParent6P04.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9077/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P05
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P05.lean:213:0: 'CodexPaper4.TriangleFreeEnumerationParent6P05.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P05.lean:214:0: 'CodexPaper4.TriangleFreeEnumerationParent6P05.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9078/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P06
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P06.lean:222:0: 'CodexPaper4.TriangleFreeEnumerationParent6P06.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P06.lean:223:0: 'CodexPaper4.TriangleFreeEnumerationParent6P06.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9079/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P07
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P07.lean:204:0: 'CodexPaper4.TriangleFreeEnumerationParent6P07.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P07.lean:205:0: 'CodexPaper4.TriangleFreeEnumerationParent6P07.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9080/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P08
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P08.lean:213:0: 'CodexPaper4.TriangleFreeEnumerationParent6P08.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P08.lean:214:0: 'CodexPaper4.TriangleFreeEnumerationParent6P08.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9081/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P09
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P09.lean:195:0: 'CodexPaper4.TriangleFreeEnumerationParent6P09.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P09.lean:196:0: 'CodexPaper4.TriangleFreeEnumerationParent6P09.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9082/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P10
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P10.lean:195:0: 'CodexPaper4.TriangleFreeEnumerationParent6P10.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P10.lean:196:0: 'CodexPaper4.TriangleFreeEnumerationParent6P10.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9083/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P11
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P11.lean:186:0: 'CodexPaper4.TriangleFreeEnumerationParent6P11.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P11.lean:187:0: 'CodexPaper4.TriangleFreeEnumerationParent6P11.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9084/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P12
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P12.lean:204:0: 'CodexPaper4.TriangleFreeEnumerationParent6P12.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P12.lean:205:0: 'CodexPaper4.TriangleFreeEnumerationParent6P12.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9085/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P13
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P13.lean:186:0: 'CodexPaper4.TriangleFreeEnumerationParent6P13.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P13.lean:187:0: 'CodexPaper4.TriangleFreeEnumerationParent6P13.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9086/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P14
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P14.lean:177:0: 'CodexPaper4.TriangleFreeEnumerationParent6P14.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P14.lean:178:0: 'CodexPaper4.TriangleFreeEnumerationParent6P14.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9087/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P15
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P15.lean:177:0: 'CodexPaper4.TriangleFreeEnumerationParent6P15.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P15.lean:178:0: 'CodexPaper4.TriangleFreeEnumerationParent6P15.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9088/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P16
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P16.lean:195:0: 'CodexPaper4.TriangleFreeEnumerationParent6P16.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P16.lean:196:0: 'CodexPaper4.TriangleFreeEnumerationParent6P16.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9089/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P17
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P17.lean:168:0: 'CodexPaper4.TriangleFreeEnumerationParent6P17.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P17.lean:169:0: 'CodexPaper4.TriangleFreeEnumerationParent6P17.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9090/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationParent6P18
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P18.lean:159:0: 'CodexPaper4.TriangleFreeEnumerationParent6P18.parent_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationParent6P18.lean:160:0: 'CodexPaper4.TriangleFreeEnumerationParent6P18.parent_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9091/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationLayers
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationLayers.lean:96:0: 'CodexPaper4.TriangleFreeEnumerationLayers.layers' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9092/9123] Replayed Research.Backfill.Paper4.Proof.MedianMetricTransport
+info: Research/Backfill/Paper4/Proof/MedianMetricTransport.lean:148:0: 'CodexPaper4.MedianMetricTransport.dist_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/MedianMetricTransport.lean:149:0: 'CodexPaper4.MedianMetricTransport.diam_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/MedianMetricTransport.lean:150:0: 'CodexPaper4.MedianMetricTransport.triameter_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/MedianMetricTransport.lean:151:0: 'CodexPaper4.MedianMetricTransport.isMedian_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/MedianMetricTransport.lean:152:0: 'CodexPaper4.MedianMetricTransport.question3'_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/MedianMetricTransport.lean:153:0: 'CodexPaper4.MedianMetricTransport.question4_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/MedianMetricTransport.lean:154:0: 'CodexPaper4.MedianMetricTransport.question4'_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9093/9123] Replayed Research.Backfill.Paper4.Proof.ReductionBasics
+info: Research/Backfill/Paper4/Proof/ReductionBasics.lean:33:0: 'CodexPaper4.check_Sec4_median_triangleFree' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/ReductionBasics.lean:34:0: 'CodexPaper4.check_Sec4_nonCutVertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9094/9123] Replayed Research.Backfill.Paper4.Proof.MedianEight
+info: Research/Backfill/Paper4/Proof/MedianEight.lean:203:0: 'ClaudePaper4.cover8' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/MedianEight.lean:204:0: 'ClaudePaper4.check_TheoremA_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/MedianEight.lean:205:0: 'ClaudePaper4.check_TheoremB_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9095/9123] Replayed Research.Backfill.Paper4.Proof.AutCount
+info: Research/Backfill/Paper4/Proof/AutCount.lean:250:0: 'ClaudePaper4.AutCount.orbit_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/AutCount.lean:251:0: 'ClaudePaper4.AutCount.card_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/AutCount.lean:252:0: 'ClaudePaper4.AutCount.card_one_of_col' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9103/9123] Replayed Research.Backfill.Paper4.Proof.MedianEightLabelled
+info: Research/Backfill/Paper4/Proof/MedianEightLabelled.lean:185:0: 'ClaudePaper4.check_Sec4_count_labelled' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9104/9123] Replayed Research.Backfill.Paper4.Proof.Reduction
+info: Research/Backfill/Paper4/Proof/Reduction.lean:27:0: 'CodexPaper4.check_Sec4_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9106/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianCounts
+info: Research/Backfill/Paper4/Proof/SmallMedianCounts.lean:381:0: 'ClaudePaper4.check_Sec4_count_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9107/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock00
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:365:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_1_00' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:366:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_2_00' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:367:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_3_00' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:368:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_4_00' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:369:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_4_01' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:370:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_4_02' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:371:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_5_00' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:372:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_5_01' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:373:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_5_02' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:374:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_5_03' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:375:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_5_04' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock00.lean:376:0: 'CodexPaper4.SmallMedianClassificationBlock00.classify_5_05' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9108/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock01
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean:333:0: 'CodexPaper4.SmallMedianClassificationBlock01.classify_6_00' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean:334:0: 'CodexPaper4.SmallMedianClassificationBlock01.classify_6_01' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean:335:0: 'CodexPaper4.SmallMedianClassificationBlock01.classify_6_02' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean:336:0: 'CodexPaper4.SmallMedianClassificationBlock01.classify_6_03' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean:337:0: 'CodexPaper4.SmallMedianClassificationBlock01.classify_6_04' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean:338:0: 'CodexPaper4.SmallMedianClassificationBlock01.classify_6_05' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean:339:0: 'CodexPaper4.SmallMedianClassificationBlock01.classify_6_06' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean:340:0: 'CodexPaper4.SmallMedianClassificationBlock01.classify_6_07' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean:341:0: 'CodexPaper4.SmallMedianClassificationBlock01.classify_6_08' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock01.lean:342:0: 'CodexPaper4.SmallMedianClassificationBlock01.classify_6_09' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9109/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock02
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock02.lean:283:0: 'CodexPaper4.SmallMedianClassificationBlock02.classify_6_10' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock02.lean:284:0: 'CodexPaper4.SmallMedianClassificationBlock02.classify_6_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock02.lean:285:0: 'CodexPaper4.SmallMedianClassificationBlock02.classify_6_12' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock02.lean:286:0: 'CodexPaper4.SmallMedianClassificationBlock02.classify_6_13' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock02.lean:287:0: 'CodexPaper4.SmallMedianClassificationBlock02.classify_6_14' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock02.lean:288:0: 'CodexPaper4.SmallMedianClassificationBlock02.classify_6_15' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock02.lean:289:0: 'CodexPaper4.SmallMedianClassificationBlock02.classify_6_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock02.lean:290:0: 'CodexPaper4.SmallMedianClassificationBlock02.classify_6_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock02.lean:291:0: 'CodexPaper4.SmallMedianClassificationBlock02.classify_6_18' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9110/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock03
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean:343:0: 'CodexPaper4.SmallMedianClassificationBlock03.classify_7_00' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean:344:0: 'CodexPaper4.SmallMedianClassificationBlock03.classify_7_01' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean:345:0: 'CodexPaper4.SmallMedianClassificationBlock03.classify_7_02' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean:346:0: 'CodexPaper4.SmallMedianClassificationBlock03.classify_7_03' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean:347:0: 'CodexPaper4.SmallMedianClassificationBlock03.classify_7_04' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean:348:0: 'CodexPaper4.SmallMedianClassificationBlock03.classify_7_05' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean:349:0: 'CodexPaper4.SmallMedianClassificationBlock03.classify_7_06' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean:350:0: 'CodexPaper4.SmallMedianClassificationBlock03.classify_7_07' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean:351:0: 'CodexPaper4.SmallMedianClassificationBlock03.classify_7_08' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock03.lean:352:0: 'CodexPaper4.SmallMedianClassificationBlock03.classify_7_09' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9111/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock04
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean:341:0: 'CodexPaper4.SmallMedianClassificationBlock04.classify_7_10' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean:342:0: 'CodexPaper4.SmallMedianClassificationBlock04.classify_7_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean:343:0: 'CodexPaper4.SmallMedianClassificationBlock04.classify_7_12' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean:344:0: 'CodexPaper4.SmallMedianClassificationBlock04.classify_7_13' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean:345:0: 'CodexPaper4.SmallMedianClassificationBlock04.classify_7_14' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean:346:0: 'CodexPaper4.SmallMedianClassificationBlock04.classify_7_15' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean:347:0: 'CodexPaper4.SmallMedianClassificationBlock04.classify_7_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean:348:0: 'CodexPaper4.SmallMedianClassificationBlock04.classify_7_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean:349:0: 'CodexPaper4.SmallMedianClassificationBlock04.classify_7_18' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock04.lean:350:0: 'CodexPaper4.SmallMedianClassificationBlock04.classify_7_19' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9112/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock05
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean:343:0: 'CodexPaper4.SmallMedianClassificationBlock05.classify_7_20' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean:344:0: 'CodexPaper4.SmallMedianClassificationBlock05.classify_7_21' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean:345:0: 'CodexPaper4.SmallMedianClassificationBlock05.classify_7_22' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean:346:0: 'CodexPaper4.SmallMedianClassificationBlock05.classify_7_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean:347:0: 'CodexPaper4.SmallMedianClassificationBlock05.classify_7_24' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean:348:0: 'CodexPaper4.SmallMedianClassificationBlock05.classify_7_25' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean:349:0: 'CodexPaper4.SmallMedianClassificationBlock05.classify_7_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean:350:0: 'CodexPaper4.SmallMedianClassificationBlock05.classify_7_27' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean:351:0: 'CodexPaper4.SmallMedianClassificationBlock05.classify_7_28' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock05.lean:352:0: 'CodexPaper4.SmallMedianClassificationBlock05.classify_7_29' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9113/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock06
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean:341:0: 'CodexPaper4.SmallMedianClassificationBlock06.classify_7_30' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean:342:0: 'CodexPaper4.SmallMedianClassificationBlock06.classify_7_31' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean:343:0: 'CodexPaper4.SmallMedianClassificationBlock06.classify_7_32' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean:344:0: 'CodexPaper4.SmallMedianClassificationBlock06.classify_7_33' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean:345:0: 'CodexPaper4.SmallMedianClassificationBlock06.classify_7_34' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean:346:0: 'CodexPaper4.SmallMedianClassificationBlock06.classify_7_35' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean:347:0: 'CodexPaper4.SmallMedianClassificationBlock06.classify_7_36' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean:348:0: 'CodexPaper4.SmallMedianClassificationBlock06.classify_7_37' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean:349:0: 'CodexPaper4.SmallMedianClassificationBlock06.classify_7_38' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock06.lean:350:0: 'CodexPaper4.SmallMedianClassificationBlock06.classify_7_39' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9114/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock07
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean:315:0: 'CodexPaper4.SmallMedianClassificationBlock07.classify_7_40' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean:316:0: 'CodexPaper4.SmallMedianClassificationBlock07.classify_7_41' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean:317:0: 'CodexPaper4.SmallMedianClassificationBlock07.classify_7_42' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean:318:0: 'CodexPaper4.SmallMedianClassificationBlock07.classify_7_43' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean:319:0: 'CodexPaper4.SmallMedianClassificationBlock07.classify_7_44' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean:320:0: 'CodexPaper4.SmallMedianClassificationBlock07.classify_7_45' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean:321:0: 'CodexPaper4.SmallMedianClassificationBlock07.classify_7_46' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean:322:0: 'CodexPaper4.SmallMedianClassificationBlock07.classify_7_47' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean:323:0: 'CodexPaper4.SmallMedianClassificationBlock07.classify_7_48' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock07.lean:324:0: 'CodexPaper4.SmallMedianClassificationBlock07.classify_7_49' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9115/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianClassificationBlock08
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock08.lean:292:0: 'CodexPaper4.SmallMedianClassificationBlock08.classify_7_50' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock08.lean:293:0: 'CodexPaper4.SmallMedianClassificationBlock08.classify_7_51' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock08.lean:294:0: 'CodexPaper4.SmallMedianClassificationBlock08.classify_7_52' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock08.lean:295:0: 'CodexPaper4.SmallMedianClassificationBlock08.classify_7_53' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock08.lean:296:0: 'CodexPaper4.SmallMedianClassificationBlock08.classify_7_54' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock08.lean:297:0: 'CodexPaper4.SmallMedianClassificationBlock08.classify_7_55' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock08.lean:298:0: 'CodexPaper4.SmallMedianClassificationBlock08.classify_7_56' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock08.lean:299:0: 'CodexPaper4.SmallMedianClassificationBlock08.classify_7_57' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianClassificationBlock08.lean:300:0: 'CodexPaper4.SmallMedianClassificationBlock08.classify_7_58' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9116/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianClassification
+info: Research/Backfill/Paper4/Proof/SmallMedianClassification.lean:121:0: 'CodexPaper4.SmallMedianClassification.all_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9117/9123] Replayed Research.Backfill.Paper4.Proof.SmallMedianMinimality
+info: Research/Backfill/Paper4/Proof/SmallMedianMinimality.lean:46:0: 'CodexPaper4.check_TheoremA_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Proof/SmallMedianMinimality.lean:47:0: 'CodexPaper4.check_TheoremB_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9118/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeRepresentativeFingerprint
+info: Research/Backfill/Paper4/Proof/TriangleFreeRepresentativeFingerprint.lean:266:0: 'CodexPaper4.TriangleFreeRepresentativeFingerprint.fingerprints_correct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper4/Proof/TriangleFreeRepresentativeFingerprint.lean:267:0: 'CodexPaper4.TriangleFreeRepresentativeFingerprint.representatives_pairwise' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [9119/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeEnumerationValidity
+info: Research/Backfill/Paper4/Proof/TriangleFreeEnumerationValidity.lean:778:0: 'CodexPaper4.TriangleFreeEnumerationValidity.representatives_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [9120/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeClassification
+info: Research/Backfill/Paper4/Proof/TriangleFreeClassification.lean:24:0: 'CodexPaper4.check_Sec4_count_triangleFree7' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9121/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeIndependentCount
+info: Research/Backfill/Paper4/Proof/TriangleFreeIndependentCount.lean:32:0: 'CodexPaper4.TriangleFreeIndependentCount.actual_set_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9122/9123] Replayed Research.Backfill.Paper4.Proof.TriangleFreeCandidates
+info: Research/Backfill/Paper4/Proof/TriangleFreeCandidates.lean:226:0: 'CodexPaper4.check_Sec4_count_candidates' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [9123/9123] Replayed Research.Backfill.Paper4.Check
+info: Research/Backfill/Paper4/Check.lean:195:0: 'BackfillPaper4.Check.check_Sec5_FP_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:196:0: 'BackfillPaper4.Check.check_Sec5_FP_iff_viii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:197:0: 'BackfillPaper4.Check.check_Lemma2' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:198:0: 'BackfillPaper4.Check.check_Sec2_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:199:0: 'BackfillPaper4.Check.check_Proposition3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:200:0: 'BackfillPaper4.Check.check_Sec2_peripheral_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:201:0: 'BackfillPaper4.Check.check_Sec2_Q3_imp_Q3'' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:202:0: 'BackfillPaper4.Check.check_Sec2_Q4_imp_Q4'' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:203:0: 'BackfillPaper4.Check.check_Sec2_repeated' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:204:0: 'BackfillPaper4.Check.check_Sec2_readings_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:205:0: 'BackfillPaper4.Check.check_Sec2_readings_Q4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:206:0: 'BackfillPaper4.Check.check_TheoremC_FP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:207:0: 'BackfillPaper4.Check.check_Sec4_median_triangleFree' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:208:0: 'BackfillPaper4.Check.check_Sec4_nonCutVertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:209:0: 'BackfillPaper4.Check.check_Sec4_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:210:0: 'BackfillPaper4.Check.check_TheoremA_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:211:0: 'BackfillPaper4.Check.check_TheoremA_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:212:0: 'BackfillPaper4.Check.check_TheoremB_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:213:0: 'BackfillPaper4.Check.check_Remark4_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:214:0: 'BackfillPaper4.Check.check_Sec8_open' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:215:0: 'BackfillPaper4.Check.check_Sec2_problem2_altReading' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:216:0: 'BackfillPaper4.Check.check_Remark4_iii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:217:0: 'BackfillPaper4.Check.check_Remark5_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:218:0: 'BackfillPaper4.Check.check_Released_fourPoint_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:219:0: 'BackfillPaper4.Check.check_TheoremB_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:220:0: 'BackfillPaper4.Check.check_Sec3_medianDH_noQ4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:221:0: 'BackfillPaper4.Check.check_Remark4_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:222:0: 'BackfillPaper4.Check.check_Sec2_classReading' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:223:0: 'BackfillPaper4.Check.check_Sec3_MO_notDH' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:224:0: 'BackfillPaper4.Check.check_Remark5_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:225:0: 'BackfillPaper4.Check.check_Remark5_iii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:226:0: 'BackfillPaper4.Check.check_Sec6_DHtests' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:227:0: 'BackfillPaper4.Check.check_Lemma1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:228:0: 'BackfillPaper4.Check.check_TheoremA_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:229:0: 'BackfillPaper4.Check.check_TheoremB_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:230:0: 'BackfillPaper4.Check.check_Sec3_monotonePath' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:231:0: 'BackfillPaper4.Check.check_BandeltMulder_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:232:0: 'BackfillPaper4.Check.check_BandeltMulder_DH_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:233:0: 'BackfillPaper4.Check.check_TheoremC_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:234:0: 'BackfillPaper4.Check.check_TheoremC_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:235:0: 'BackfillPaper4.Check.check_Sec3_DH_noQ4_imp_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:236:0: 'BackfillPaper4.Check.check_Sec4_aut' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:237:0: 'BackfillPaper4.Check.check_Sec4_count_triangleFree7' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:238:0: 'BackfillPaper4.Check.check_Sec4_count_candidates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:239:0: 'BackfillPaper4.Check.check_TheoremA_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:240:0: 'BackfillPaper4.Check.check_TheoremB_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:241:0: 'BackfillPaper4.Check.check_TheoremA_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:242:0: 'BackfillPaper4.Check.check_TheoremB_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:243:0: 'BackfillPaper4.Check.check_Sec4_count_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper4/Check.lean:244:0: 'BackfillPaper4.Check.check_Sec4_count_labelled' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (9123 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Research.Backfill.Paper4.Check -- Quot Quot.mk Quot.lift Quot.ind BackfillPaper4.Check.check_Sec5_FP_symm BackfillPaper4.Check.check_Sec5_FP_iff_viii BackfillPaper4.Check.check_Lemma2 BackfillPaper4.Check.check_Sec2_bounds BackfillPaper4.Check.check_Proposition3 BackfillPaper4.Check.check_Sec2_peripheral_iff BackfillPaper4.Check.check_Sec2_Q3_imp_Q3' BackfillPaper4.Check.check_Sec2_Q4_imp_Q4' BackfillPaper4.Check.check_Sec2_repeated BackfillPaper4.Check.check_Sec2_readings_Q3 BackfillPaper4.Check.check_Sec2_readings_Q4 BackfillPaper4.Check.check_TheoremC_FP BackfillPaper4.Check.check_Sec4_median_triangleFree BackfillPaper4.Check.check_Sec4_nonCutVertex BackfillPaper4.Check.check_Sec4_reduction BackfillPaper4.Check.check_TheoremA_i BackfillPaper4.Check.check_TheoremA_ii BackfillPaper4.Check.check_TheoremB_ii BackfillPaper4.Check.check_Remark4_ii BackfillPaper4.Check.check_Sec8_open BackfillPaper4.Check.check_Sec2_problem2_altReading BackfillPaper4.Check.check_Remark4_iii BackfillPaper4.Check.check_Remark5_i BackfillPaper4.Check.check_Released_fourPoint_facts BackfillPaper4.Check.check_TheoremB_i BackfillPaper4.Check.check_Sec3_medianDH_noQ4 BackfillPaper4.Check.check_Remark4_i BackfillPaper4.Check.check_Sec2_classReading BackfillPaper4.Check.check_Sec3_MO_notDH BackfillPaper4.Check.check_Remark5_ii BackfillPaper4.Check.check_Remark5_iii BackfillPaper4.Check.check_Sec6_DHtests BackfillPaper4.Check.check_Lemma1 BackfillPaper4.Check.check_TheoremA_grid BackfillPaper4.Check.check_TheoremB_grid BackfillPaper4.Check.check_Sec3_monotonePath BackfillPaper4.Check.check_BandeltMulder_extension BackfillPaper4.Check.check_BandeltMulder_DH_fourPoint BackfillPaper4.Check.check_TheoremC_i BackfillPaper4.Check.check_TheoremC_ii BackfillPaper4.Check.check_Sec3_DH_noQ4_imp_Q3 BackfillPaper4.Check.check_Sec4_aut BackfillPaper4.Check.check_Sec4_count_triangleFree7 BackfillPaper4.Check.check_Sec4_count_candidates BackfillPaper4.Check.check_TheoremA_min BackfillPaper4.Check.check_TheoremB_min BackfillPaper4.Check.check_TheoremA_unique BackfillPaper4.Check.check_TheoremB_unique BackfillPaper4.Check.check_Sec4_count_median BackfillPaper4.Check.check_Sec4_count_labelled propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, BackfillPaper4.Check.check_Sec5_FP_symm, BackfillPaper4.Check.check_Sec5_FP_iff_viii, BackfillPaper4.Check.check_Lemma2, BackfillPaper4.Check.check_Sec2_bounds, BackfillPaper4.Check.check_Proposition3, BackfillPaper4.Check.check_Sec2_peripheral_iff, BackfillPaper4.Check.check_Sec2_Q3_imp_Q3', BackfillPaper4.Check.check_Sec2_Q4_imp_Q4', BackfillPaper4.Check.check_Sec2_repeated, BackfillPaper4.Check.check_Sec2_readings_Q3, BackfillPaper4.Check.check_Sec2_readings_Q4, BackfillPaper4.Check.check_TheoremC_FP, BackfillPaper4.Check.check_Sec4_median_triangleFree, BackfillPaper4.Check.check_Sec4_nonCutVertex, BackfillPaper4.Check.check_Sec4_reduction, BackfillPaper4.Check.check_TheoremA_i, BackfillPaper4.Check.check_TheoremA_ii, BackfillPaper4.Check.check_TheoremB_ii, BackfillPaper4.Check.check_Remark4_ii, BackfillPaper4.Check.check_Sec8_open, BackfillPaper4.Check.check_Sec2_problem2_altReading, BackfillPaper4.Check.check_Remark4_iii, BackfillPaper4.Check.check_Remark5_i, BackfillPaper4.Check.check_Released_fourPoint_facts, BackfillPaper4.Check.check_TheoremB_i, BackfillPaper4.Check.check_Sec3_medianDH_noQ4, BackfillPaper4.Check.check_Remark4_i, BackfillPaper4.Check.check_Sec2_classReading, BackfillPaper4.Check.check_Sec3_MO_notDH, BackfillPaper4.Check.check_Remark5_ii, BackfillPaper4.Check.check_Remark5_iii, BackfillPaper4.Check.check_Sec6_DHtests, BackfillPaper4.Check.check_Lemma1, BackfillPaper4.Check.check_TheoremA_grid, BackfillPaper4.Check.check_TheoremB_grid, BackfillPaper4.Check.check_Sec3_monotonePath, BackfillPaper4.Check.check_BandeltMulder_extension, BackfillPaper4.Check.check_BandeltMulder_DH_fourPoint, BackfillPaper4.Check.check_TheoremC_i, BackfillPaper4.Check.check_TheoremC_ii, BackfillPaper4.Check.check_Sec3_DH_noQ4_imp_Q3, BackfillPaper4.Check.check_Sec4_aut, BackfillPaper4.Check.check_Sec4_count_triangleFree7, BackfillPaper4.Check.check_Sec4_count_candidates, BackfillPaper4.Check.check_TheoremA_min, BackfillPaper4.Check.check_TheoremB_min, BackfillPaper4.Check.check_TheoremA_unique, BackfillPaper4.Check.check_TheoremB_unique, BackfillPaper4.Check.check_Sec4_count_median, BackfillPaper4.Check.check_Sec4_count_labelled, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Research.Backfill.Paper4.Check
+Running nanoda kernel on solution
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/nanoda_lib/target/release/nanoda_bin <tmp>
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+      488.06 real       704.97 user        27.94 sys
+          5955485696  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+            10083268  page reclaims
+                6251  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               12132  voluntary context switches
+              697774  involuntary context switches
+          3423111304  instructions retired
+          1452940501  cycles elapsed
+           138912784  peak memory footprint
+exit=0
+end 2026-09-29T20:46:15Z

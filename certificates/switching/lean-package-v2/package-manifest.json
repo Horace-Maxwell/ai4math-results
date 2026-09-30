@@ -1,0 +1,805 @@
+{
+ "written_utc": "2026-09-29T18:33:36Z",
+ "challenge_sha256": "69332eca957449e7613a6c95fa6bda906ecb2fbf688e0dc6ae4bba59fedec715",
+ "challenge_tests_sha256": "89e7a81b278fe20b80561a801a8d805eba43d83087763c7cbb75776adf8911d4",
+ "lean_toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "external_research_modules": {
+  "Research.SwitchingRowCount": {
+   "path": "lean/Research/SwitchingRowCount.lean",
+   "sha256": "69b57ccfe5e79d16489046fc075d9adb781d38be13a0c851edb7a708cd9e36c4"
+  },
+  "Research.SwitchingThmH": {
+   "path": "lean/Research/SwitchingThmH.lean",
+   "sha256": "f4796e4ff919057dd042dd358b40b79bc5837a716ba4e4aa08867b686b03086f"
+  },
+  "Research.SwitchingWalkProfile": {
+   "path": "lean/Research/SwitchingWalkProfile.lean",
+   "sha256": "cf33cae4f0ec4a21a35fb24c0f851bce94a3ab266490b6a76335b005a6220596"
+  }
+ },
+ "test_modules": [
+  "Research.Backfill.Paper8.Proof.Tests.Cond",
+  "Research.Backfill.Paper8.Proof.Tests.Counts",
+  "Research.Backfill.Paper8.Proof.Tests.Crit",
+  "Research.Backfill.Paper8.Proof.Tests.Main",
+  "Research.Backfill.Paper8.Proof.Tests.Poly",
+  "Research.Backfill.Paper8.Proof.Tests.Spectral",
+  "Research.Backfill.Paper8.Proof.Tests.Switch",
+  "Research.Backfill.Paper8.Proof.Tests.Vec"
+ ],
+ "targets": [
+  {
+   "target": "Lemma_2_1",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_2_1",
+   "proof_declaration": "P8Lin.check_Lemma_2_1",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Lin.Main"
+  },
+  {
+   "target": "Lemma_2_1_good",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_2_1_good",
+   "proof_declaration": "P8Lin.check_Lemma_2_1_good",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Lin.Main"
+  },
+  {
+   "target": "Lemma_2_2",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_2_2",
+   "proof_declaration": "P8Lin.check_Lemma_2_2",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Lin.Main"
+  },
+  {
+   "target": "Secular_monic",
+   "check_declaration": "BackfillPaper8.Check.check_Secular_monic",
+   "proof_declaration": "P8Spec.check_Secular_monic",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Spec.Main"
+  },
+  {
+   "target": "TreeStructure",
+   "check_declaration": "BackfillPaper8.Check.check_TreeStructure",
+   "proof_declaration": "P8Tree.check_TreeStructure",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Tree.Main"
+  },
+  {
+   "target": "Lemma_3_1_i",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_1_i",
+   "proof_declaration": "P8Spec.check_Lemma_3_1_i",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Spec.Main"
+  },
+  {
+   "target": "Lemma_3_1_ii",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_1_ii",
+   "proof_declaration": "P8Spec.check_Lemma_3_1_ii",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Spec.Main"
+  },
+  {
+   "target": "Lemma_3_1_iii",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_1_iii",
+   "proof_declaration": "P8Spec.check_Lemma_3_1_iii",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Spec.Main"
+  },
+  {
+   "target": "Lemma_3_1_iv",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_1_iv",
+   "proof_declaration": "P8Spec.check_Lemma_3_1_iv",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Spec.Main"
+  },
+  {
+   "target": "Lemma_3_2",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_2",
+   "proof_declaration": "P8Main.check_Lemma_3_2",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Main.Main"
+  },
+  {
+   "target": "Lemma_3_3_a",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_3_a",
+   "proof_declaration": "P8Orb.check_Lemma_3_3_a",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Orb.Main"
+  },
+  {
+   "target": "Lemma_3_3_b",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_3_b",
+   "proof_declaration": "P8Orb.check_Lemma_3_3_b",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Orb.Main"
+  },
+  {
+   "target": "Lemma_3_3_c",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_3_c",
+   "proof_declaration": "P8Orb.check_Lemma_3_3_c",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Orb.Main"
+  },
+  {
+   "target": "Lemma_3_3_d",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_3_d",
+   "proof_declaration": "P8Orb.check_Lemma_3_3_d",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Orb.Main"
+  },
+  {
+   "target": "Lemma_3_3_e",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_3_e",
+   "proof_declaration": "P8Orb.check_Lemma_3_3_e",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Orb.Main"
+  },
+  {
+   "target": "Lemma_3_4",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_4",
+   "proof_declaration": "P8Orb.check_Lemma_3_4",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Orb.Main"
+  },
+  {
+   "target": "StdLeafSums",
+   "check_declaration": "BackfillPaper8.Check.check_StdLeafSums",
+   "proof_declaration": "P8Real.check_StdLeafSums",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Real.Main"
+  },
+  {
+   "target": "Lemma_4_1",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_4_1",
+   "proof_declaration": "P8Real.check_Lemma_4_1",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Real.Main"
+  },
+  {
+   "target": "Lemma_4_2",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_4_2",
+   "proof_declaration": "P8Rows.check_Lemma_4_2",
+   "hypotheses": [
+    "Lemma_3_3_a",
+    "Lemma_3_3_b",
+    "Lemma_3_3_e"
+   ],
+   "proof_module": "Research.Backfill.Paper8.Proof.Rows.Main"
+  },
+  {
+   "target": "Lemma_4_3",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_4_3",
+   "proof_declaration": "P8Rows.check_Lemma_4_3",
+   "hypotheses": [
+    "Lemma_3_3_a",
+    "Lemma_3_3_b",
+    "Lemma_3_3_e"
+   ],
+   "proof_module": "Research.Backfill.Paper8.Proof.Rows.Main"
+  },
+  {
+   "target": "Cor_4_4",
+   "check_declaration": "BackfillPaper8.Check.check_Cor_4_4",
+   "proof_declaration": "P8Rows.check_Cor_4_4",
+   "hypotheses": [
+    "Lemma_3_3_a",
+    "Lemma_3_3_b",
+    "Lemma_3_3_e"
+   ],
+   "proof_module": "Research.Backfill.Paper8.Proof.Rows.Main"
+  },
+  {
+   "target": "Prop_5_1",
+   "check_declaration": "BackfillPaper8.Check.check_Prop_5_1",
+   "proof_declaration": "P8Small.check_Prop_5_1",
+   "hypotheses": [
+    "Lemma_3_2"
+   ],
+   "proof_module": "Research.Backfill.Paper8.Proof.Small.Main"
+  },
+  {
+   "target": "Lemma_5_2",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_5_2",
+   "proof_declaration": "P8Real.check_Lemma_5_2",
+   "hypotheses": [
+    "Lemma_3_1_i",
+    "Lemma_3_3_b",
+    "Lemma_3_3_d"
+   ],
+   "proof_module": "Research.Backfill.Paper8.Proof.Real.Main"
+  },
+  {
+   "target": "Prop_5_3",
+   "check_declaration": "BackfillPaper8.Check.check_Prop_5_3",
+   "proof_declaration": "P8Real.check_Prop_5_3",
+   "hypotheses": [
+    "Lemma_3_1_i",
+    "Lemma_3_3_b",
+    "Lemma_3_3_d",
+    "Cor_4_4"
+   ],
+   "proof_module": "Research.Backfill.Paper8.Proof.Real.Main"
+  },
+  {
+   "target": "Lemma_5_4",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_5_4",
+   "proof_declaration": "P8Region.check_Lemma_5_4",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Region.Main"
+  },
+  {
+   "target": "Prop_5_5",
+   "check_declaration": "BackfillPaper8.Check.check_Prop_5_5",
+   "proof_declaration": "P8Region.check_Prop_5_5",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Region.Main"
+  },
+  {
+   "target": "Prop_5_6",
+   "check_declaration": "BackfillPaper8.Check.check_Prop_5_6",
+   "proof_declaration": "P8Main.check_Prop_5_6",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Main.Main"
+  },
+  {
+   "target": "Theorem1",
+   "check_declaration": "BackfillPaper8.Check.check_Theorem1",
+   "proof_declaration": "P8Tree.check_Theorem1",
+   "hypotheses": [
+    "Lemma_2_1_good",
+    "Prop_5_3",
+    "Cor_4_4",
+    "Lemma_5_4",
+    "Prop_5_5"
+   ],
+   "proof_module": "Research.Backfill.Paper8.Proof.Tree.Main"
+  },
+  {
+   "target": "Theorem1_mathlib",
+   "check_declaration": "BackfillPaper8.Check.check_Theorem1_mathlib",
+   "proof_declaration": "P8Tree.check_Theorem1_mathlib",
+   "hypotheses": [
+    "Lemma_2_1_good",
+    "Prop_5_3",
+    "Cor_4_4",
+    "Lemma_5_4",
+    "Prop_5_5"
+   ],
+   "proof_module": "Research.Backfill.Paper8.Proof.Tree.Main"
+  },
+  {
+   "target": "Remark_8_3",
+   "check_declaration": "BackfillPaper8.Check.check_Remark_8_3",
+   "proof_declaration": "P8Lin.check_Remark_8_3",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Lin.Main"
+  },
+  {
+   "target": "GoodNeg",
+   "check_declaration": "BackfillPaper8.Check.check_GoodNeg",
+   "proof_declaration": "P8Lin.check_GoodNeg",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Lin.Main"
+  },
+  {
+   "target": "DiamRadius",
+   "check_declaration": "BackfillPaper8.Check.check_DiamRadius",
+   "proof_declaration": "P8Tree.check_DiamRadius",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Tree.Main"
+  },
+  {
+   "target": "Theorem1_signed",
+   "check_declaration": "BackfillPaper8.Check.check_Theorem1_signed",
+   "proof_declaration": "P8Tree.check_Theorem1_signed",
+   "hypotheses": [
+    "Lemma_2_1_good",
+    "Prop_5_3",
+    "Cor_4_4",
+    "Lemma_5_4",
+    "Prop_5_5"
+   ],
+   "proof_module": "Research.Backfill.Paper8.Proof.Tree.Main"
+  },
+  {
+   "target": "Lemma_U1",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_U1",
+   "proof_declaration": "P8Spec.check_Lemma_U1",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Spec.Main"
+  },
+  {
+   "target": "Lemma_3_2_pointwise",
+   "check_declaration": "BackfillPaper8.Check.check_Lemma_3_2_pointwise",
+   "proof_declaration": "P8Main.check_Lemma_3_2_pointwise",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Main.Main"
+  },
+  {
+   "target": "Sharp_T15",
+   "check_declaration": "BackfillPaper8.Check.check_Sharp_T15",
+   "proof_declaration": "P8Rows.check_Sharp_T15",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Rows.Main"
+  },
+  {
+   "target": "Sharp_T18",
+   "check_declaration": "BackfillPaper8.Check.check_Sharp_T18",
+   "proof_declaration": "P8Rows.check_Sharp_T18",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Rows.Main"
+  },
+  {
+   "target": "Remark_8_2",
+   "check_declaration": "BackfillPaper8.Check.check_Remark_8_2",
+   "proof_declaration": "P8Lin.check_Remark_8_2",
+   "hypotheses": [],
+   "proof_module": "Research.Backfill.Paper8.Proof.Lin.Main"
+  }
+ ],
+ "modules": {
+  "P8.Basic": {
+   "source": "work/claude-lean/p8/src/P8/Basic.lean",
+   "source_sha256": "6829e4b480c8ac464e18ad2a089176ac32c97e9f2d7a60e9179153e1c8dc1c3b",
+   "release_path": "Research/Backfill/Paper8/Proof/Basic.lean",
+   "release_sha256": "6829e4b480c8ac464e18ad2a089176ac32c97e9f2d7a60e9179153e1c8dc1c3b"
+  },
+  "P8.Lin.BaseChange": {
+   "source": "work/claude-lean/p8/src/P8/Lin/BaseChange.lean",
+   "source_sha256": "528f0327d687ef6e2637c7e42437520982b1b90aeb243452e02d455f886d0f42",
+   "release_path": "Research/Backfill/Paper8/Proof/Lin/BaseChange.lean",
+   "release_sha256": "528f0327d687ef6e2637c7e42437520982b1b90aeb243452e02d455f886d0f42"
+  },
+  "P8.Lin.Bipartite": {
+   "source": "work/claude-lean/p8/src/P8/Lin/Bipartite.lean",
+   "source_sha256": "87481caba8dd86caa391d925281509323b69d571c613aacdcdcec5e26cf0c57d",
+   "release_path": "Research/Backfill/Paper8/Proof/Lin/Bipartite.lean",
+   "release_sha256": "67c556fcc4ce221534dccb05bf739c790d85a9e1a3fb3502ea8266fbe6f75cfb"
+  },
+  "P8.Lin.Krylov": {
+   "source": "work/claude-lean/p8/src/P8/Lin/Krylov.lean",
+   "source_sha256": "753cc59b5a1e1e6eb69e21870a74ad55d198650d244fdc8b8b41039efba5c58b",
+   "release_path": "Research/Backfill/Paper8/Proof/Lin/Krylov.lean",
+   "release_sha256": "7f0d19edc541e8deb4b9dec19f75bb45e6dbb6c044dbc5d7e3cf05cc6bb09082"
+  },
+  "P8.Lin.Main": {
+   "source": "work/claude-lean/p8/src/P8/Lin/Main.lean",
+   "source_sha256": "702c875a5310d0cae509ff135c0d16ee0615b0d9774af1f82e18956b23ec2702",
+   "release_path": "Research/Backfill/Paper8/Proof/Lin/Main.lean",
+   "release_sha256": "a8c4413c36008eb33400d496d41886a4ababf10636442e1e7f1129ec44dfc27e"
+  },
+  "P8.Lin.Spectral": {
+   "source": "work/claude-lean/p8/src/P8/Lin/Spectral.lean",
+   "source_sha256": "dbc9312ec6ba006175dc85f76c9477b6b9e0517f5272e206e8eaa6d31b952d71",
+   "release_path": "Research/Backfill/Paper8/Proof/Lin/Spectral.lean",
+   "release_sha256": "00f4658ca90dfac89352b3853a1384191641d8f5ffbb8eb4e4fedf1408dc5a09"
+  },
+  "P8.Lin.Switch": {
+   "source": "work/claude-lean/p8/src/P8/Lin/Switch.lean",
+   "source_sha256": "adc8a98beb5d1f35524613d170a8787327ed28697612020304f0d3eb3f6c904b",
+   "release_path": "Research/Backfill/Paper8/Proof/Lin/Switch.lean",
+   "release_sha256": "164294ce8d56d1a8648532a8f6ede0b7402f7dd603f92c9172230e9c9ac8479d"
+  },
+  "P8.Main.Eigen": {
+   "source": "work/claude-lean/p8/src/P8/Main/Eigen.lean",
+   "source_sha256": "018b02102e80f633a9460e486f20363dbfb341e17024a0867ceba5c0e8a2b6c6",
+   "release_path": "Research/Backfill/Paper8/Proof/Main/Eigen.lean",
+   "release_sha256": "adb50f30684c65d7e72d0296c711f846ac55c0e70c8e15ab01725c577677a5a5"
+  },
+  "P8.Main.Lemma32": {
+   "source": "work/claude-lean/p8/src/P8/Main/Lemma32.lean",
+   "source_sha256": "1ebc22a2553bc8e1ad63176f5ff9c81901557a158a0c1b6915c19a51bed865aa",
+   "release_path": "Research/Backfill/Paper8/Proof/Main/Lemma32.lean",
+   "release_sha256": "94b750b9dc1bf2c027384d72a8afa8cad020e4b850e9f37bfc06f7aa131a7b84"
+  },
+  "P8.Main.Main": {
+   "source": "work/claude-lean/p8/src/P8/Main/Main.lean",
+   "source_sha256": "9f707a6f28ccd36d8226a117efc72185c246a3fc7ef8269d8ff97fd40c0851f0",
+   "release_path": "Research/Backfill/Paper8/Proof/Main/Main.lean",
+   "release_sha256": "10d4f4dc05b2eb73ea7b6e0119d680510099e1e102c1893d9756fd1fdc71d623"
+  },
+  "P8.Main.Pointwise": {
+   "source": "work/claude-lean/p8/src/P8/Main/Pointwise.lean",
+   "source_sha256": "1352ac1b2d6bd5c351b593e749c03f25ff87a250d7f723be60d6107f2f9c2e73",
+   "release_path": "Research/Backfill/Paper8/Proof/Main/Pointwise.lean",
+   "release_sha256": "6a5bfb190cf18f00c0b21007453f2844576d637159cccccbfc3c0d8e6843e968"
+  },
+  "P8.Main.Prop56": {
+   "source": "work/claude-lean/p8/src/P8/Main/Prop56.lean",
+   "source_sha256": "5174df079facde03039fa63d64d334328192f18a5188d55b35fd3b48034e597f",
+   "release_path": "Research/Backfill/Paper8/Proof/Main/Prop56.lean",
+   "release_sha256": "0e326e2611b5697ce9f07330ac140a8bfe6f79dee080d077728e0feb8b34e3cd"
+  },
+  "P8.Main.Setup": {
+   "source": "work/claude-lean/p8/src/P8/Main/Setup.lean",
+   "source_sha256": "162af1a27afa9b14f8cfb4967a1a185326d672356e8e2d62e95d192d166c2129",
+   "release_path": "Research/Backfill/Paper8/Proof/Main/Setup.lean",
+   "release_sha256": "fe9d20ec46ffb9ef421a930637aa460c3aebe741fd172fbc9fc0962ed3cbb918"
+  },
+  "P8.Orb.Counts": {
+   "source": "work/claude-lean/p8/src/P8/Orb/Counts.lean",
+   "source_sha256": "8cb1d15cb95cbbfa07e99ef2450f4dbf61ab1c5d8f652b3acbbc3760773b2f92",
+   "release_path": "Research/Backfill/Paper8/Proof/Orb/Counts.lean",
+   "release_sha256": "7d55c625a93018106c7ecd895ed712443e959c17120ecc45a8cdf9b18e4903c3"
+  },
+  "P8.Orb.Main": {
+   "source": "work/claude-lean/p8/src/P8/Orb/Main.lean",
+   "source_sha256": "6e53ebe28c8ae185ec7492d432615c4c2beac30802f79a036024ab35a4c3c119",
+   "release_path": "Research/Backfill/Paper8/Proof/Orb/Main.lean",
+   "release_sha256": "672d25be9849040692cc64f01a1bfbc6eb4236bbc5d25ec95643b632a3aee28b"
+  },
+  "P8.Orb.Orbits": {
+   "source": "work/claude-lean/p8/src/P8/Orb/Orbits.lean",
+   "source_sha256": "bcdfa0485aeceea0db8da08580cb341ab85c625126e8bb23d3f96f8a5e238800",
+   "release_path": "Research/Backfill/Paper8/Proof/Orb/Orbits.lean",
+   "release_sha256": "a02ec06f87f409077227c8bcd2d86f96d903baeabd1a6fc942b3238f337ed43b"
+  },
+  "P8.Orb.Poly": {
+   "source": "work/claude-lean/p8/src/P8/Orb/Poly.lean",
+   "source_sha256": "b2f92b61c36a21a82136eb15e711f83ae6d83363a9a7f00e5342a714e957b9a6",
+   "release_path": "Research/Backfill/Paper8/Proof/Orb/Poly.lean",
+   "release_sha256": "b2f92b61c36a21a82136eb15e711f83ae6d83363a9a7f00e5342a714e957b9a6"
+  },
+  "P8.Orb.Secular": {
+   "source": "work/claude-lean/p8/src/P8/Orb/Secular.lean",
+   "source_sha256": "ace5b889a8818aac286e993955d806eba38ac13cdf6156a4c72a961d0dc665f9",
+   "release_path": "Research/Backfill/Paper8/Proof/Orb/Secular.lean",
+   "release_sha256": "977fca34a7a73995eec7800757edc13ebaf0713d993a306fcdfaa1bb7725eab9"
+  },
+  "P8.Orb.Switch": {
+   "source": "work/claude-lean/p8/src/P8/Orb/Switch.lean",
+   "source_sha256": "626bf57929980e085f7d980381268849eff7baa77f27aa4cef2cff9a0047c463",
+   "release_path": "Research/Backfill/Paper8/Proof/Orb/Switch.lean",
+   "release_sha256": "48c87ba3200673f4fcb3185f130dfd47cac7531c59fb1305b9c5f6cd2cc32df9"
+  },
+  "P8.Real.Count": {
+   "source": "work/claude-lean/p8/src/P8/Real/Count.lean",
+   "source_sha256": "c79b33875be12667c0094888e00bd95d10716a7848c62b5b713114ffb75e3d6e",
+   "release_path": "Research/Backfill/Paper8/Proof/Real/Count.lean",
+   "release_sha256": "c79b33875be12667c0094888e00bd95d10716a7848c62b5b713114ffb75e3d6e"
+  },
+  "P8.Real.Large": {
+   "source": "work/claude-lean/p8/src/P8/Real/Large.lean",
+   "source_sha256": "471e9010396491c77ad3f3a827f158fe9f1a69a4661f7018b00239f604133d46",
+   "release_path": "Research/Backfill/Paper8/Proof/Real/Large.lean",
+   "release_sha256": "9c399f4758e80d9de2a98ea96980cc18cb823c79f5a6e1c552698927d9c0c573"
+  },
+  "P8.Real.Lset": {
+   "source": "work/claude-lean/p8/src/P8/Real/Lset.lean",
+   "source_sha256": "be5377be5e63e120ae5921184e2a24841859129894a487823809c04794d8e1a0",
+   "release_path": "Research/Backfill/Paper8/Proof/Real/Lset.lean",
+   "release_sha256": "be5377be5e63e120ae5921184e2a24841859129894a487823809c04794d8e1a0"
+  },
+  "P8.Real.Main": {
+   "source": "work/claude-lean/p8/src/P8/Real/Main.lean",
+   "source_sha256": "8f8af054dfa2dac06c91b3f3e6278139dea667323280964f7b0461efa04a8170",
+   "release_path": "Research/Backfill/Paper8/Proof/Real/Main.lean",
+   "release_sha256": "eeecceb8e5db279b512c7b8b31975f42b4f250c58aad5a145bde8cc98f79b18f"
+  },
+  "P8.Real.StdLeaf": {
+   "source": "work/claude-lean/p8/src/P8/Real/StdLeaf.lean",
+   "source_sha256": "29e6a338fe8e357e2c9073551b9dcec7136f030a245db50e5cb69cb9a7245239",
+   "release_path": "Research/Backfill/Paper8/Proof/Real/StdLeaf.lean",
+   "release_sha256": "29e6a338fe8e357e2c9073551b9dcec7136f030a245db50e5cb69cb9a7245239"
+  },
+  "P8.Region.Bridge": {
+   "source": "work/claude-lean/p8/src/P8/Region/Bridge.lean",
+   "source_sha256": "45cc48ceb32c4ed0dd469829b4a59218442e9c5a3c0f3ae643ae6647d7fc8158",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Bridge.lean",
+   "release_sha256": "a9b0a7df9d3fe359d0913e3f77b9521984ef45e4e3f8385ae93f3256e10c69bf"
+  },
+  "P8.Region.Chunk1": {
+   "source": "work/claude-lean/p8/src/P8/Region/Chunk1.lean",
+   "source_sha256": "55176fbaadbbf87095666c7ca63606fec5e861996d5abff58be8dfb562be1df7",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Chunk1.lean",
+   "release_sha256": "498b4b52cff56281304e885a42b442502b742ee75b53353831558d2acb8eb10d"
+  },
+  "P8.Region.Chunk10": {
+   "source": "work/claude-lean/p8/src/P8/Region/Chunk10.lean",
+   "source_sha256": "5cb4a44d7a8ad09df36ad6a3efca9c6d715b947ace24391f25892c06437a087f",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Chunk10.lean",
+   "release_sha256": "33fe946f4d03b9761c529df3371bb7c56cc3bcbad997c32acf0c1e813ec804ed"
+  },
+  "P8.Region.Chunk2": {
+   "source": "work/claude-lean/p8/src/P8/Region/Chunk2.lean",
+   "source_sha256": "dbc02d2a7e77668f76660b4b5979d7d29d31bf01694f201fef0186341927f256",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Chunk2.lean",
+   "release_sha256": "dac8afb5ae85aca4f353861e473449412c0ecceb8c0151b22e9e5af212cfb02b"
+  },
+  "P8.Region.Chunk3": {
+   "source": "work/claude-lean/p8/src/P8/Region/Chunk3.lean",
+   "source_sha256": "13ae59af7ac51bd35b614e13a6c9327f0391af42fc2298b40d4664a5e4ebc8c3",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Chunk3.lean",
+   "release_sha256": "725f3424ea40d7e5ac607c61e776c34a76f2774e10353019633a566de6284aad"
+  },
+  "P8.Region.Chunk4": {
+   "source": "work/claude-lean/p8/src/P8/Region/Chunk4.lean",
+   "source_sha256": "7f9c1da8074a99818e75732a0d523730312f4f249a406aef7266a10554ac30fe",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Chunk4.lean",
+   "release_sha256": "0b11f9099234700fb74bf3339a94c5b4c96806bd8ff708e3aef0497019a4b749"
+  },
+  "P8.Region.Chunk5": {
+   "source": "work/claude-lean/p8/src/P8/Region/Chunk5.lean",
+   "source_sha256": "e51191b602c280491947ec75fc759f5937e3e42d65a06af0baa38054bd0626b9",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Chunk5.lean",
+   "release_sha256": "175df0a6c53cc3713e571f944bb2210289d69c951b141a19cad26a3b0c4a3223"
+  },
+  "P8.Region.Chunk6": {
+   "source": "work/claude-lean/p8/src/P8/Region/Chunk6.lean",
+   "source_sha256": "c7278af86d574fa22172948f402a7063b88ce8b0113adc35501c0a1ebae56f67",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Chunk6.lean",
+   "release_sha256": "7709fcd306761484f891ba3e3746fc94ec3570a54fa88a0ad167c017ed9c2277"
+  },
+  "P8.Region.Chunk7": {
+   "source": "work/claude-lean/p8/src/P8/Region/Chunk7.lean",
+   "source_sha256": "5cc11a54d92fa0525f7da5a43e9df6ea9c5c25d71c72642965f495d483dcfe9d",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Chunk7.lean",
+   "release_sha256": "c73c2180255bf749818e5e153574beb76e4787781bec3a165b7d2a9330d33dd0"
+  },
+  "P8.Region.Chunk8": {
+   "source": "work/claude-lean/p8/src/P8/Region/Chunk8.lean",
+   "source_sha256": "09621430b84ee03d7bc2fb7d5ef86a18aaf933f4889ea58ccf9c47e27393f278",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Chunk8.lean",
+   "release_sha256": "b03ebdad17bf29c6380e6aa787655ece65ac00bc220a2bdd29b3350e47bfd888"
+  },
+  "P8.Region.Chunk9": {
+   "source": "work/claude-lean/p8/src/P8/Region/Chunk9.lean",
+   "source_sha256": "3f21130fc4c83486c08d2fbe0866162848459878485547c0952593423ada2d31",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Chunk9.lean",
+   "release_sha256": "22b77c3ca0c97443f1b046c4d314b367052544e9cb77620ff4ba2912523891b0"
+  },
+  "P8.Region.Crit": {
+   "source": "work/claude-lean/p8/src/P8/Region/Crit.lean",
+   "source_sha256": "eae3d5cbd746119ba52f446e9f1275a437e1fea6794054efd96f44f0f792e7d1",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Crit.lean",
+   "release_sha256": "77c38e58d2186c78a1f2e928720c9ccd05d141b1a4adb7e0f522be216ab19112"
+  },
+  "P8.Region.Defs": {
+   "source": "work/claude-lean/p8/src/P8/Region/Defs.lean",
+   "source_sha256": "9bdc25934110e2fee8aa36049f14d40fc01e4f1acaef699942e1dbe6d5541cbd",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Defs.lean",
+   "release_sha256": "c478d09d8008728436ea1e2eda39b86ca5e697550f4e1563b47d80f1d55791ed"
+  },
+  "P8.Region.Enum": {
+   "source": "work/claude-lean/p8/src/P8/Region/Enum.lean",
+   "source_sha256": "cf633cdb3ffcbe11a97924d16e272126bf3434bd5a9175a3e597fa233b91fe39",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Enum.lean",
+   "release_sha256": "96f39401c065c72b01c8269d93176cfad35a9315114c9310c9c18b423a928560"
+  },
+  "P8.Region.Main": {
+   "source": "work/claude-lean/p8/src/P8/Region/Main.lean",
+   "source_sha256": "c9efc65c10fccca0e7a2624e8d0f0de19798bd3ec8083c8daf6f12bbc3dd063b",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Main.lean",
+   "release_sha256": "d5a6c8e1570741c4ad02d065c26484e338f97a883435ac0b1701cd18f7cf2a1f"
+  },
+  "P8.Region.Search": {
+   "source": "work/claude-lean/p8/src/P8/Region/Search.lean",
+   "source_sha256": "ee3f3e7558a871280f4e2c2daaf06f678f0ce3fe8a5dc86c36f0a791f50afd45",
+   "release_path": "Research/Backfill/Paper8/Proof/Region/Search.lean",
+   "release_sha256": "ad4cf45c7df4e88424c13271594a0e3594c6d1a91c8dcbce01c2b14d4867f161"
+  },
+  "P8.Rows.Cor": {
+   "source": "work/claude-lean/p8/src/P8/Rows/Cor.lean",
+   "source_sha256": "d7f8f1b39c7d594de795b62296d53cfa5cbc004c1cd52e0c31c8801e78576ba3",
+   "release_path": "Research/Backfill/Paper8/Proof/Rows/Cor.lean",
+   "release_sha256": "8e98467830ed2623f3167638388b6b02b7007192a03302f03350079b61b4dcb4"
+  },
+  "P8.Rows.CorMain": {
+   "source": "work/claude-lean/p8/src/P8/Rows/CorMain.lean",
+   "source_sha256": "8d3cac1f8f3acb677cfdb243ae948a4164a2286b34175c2016469fa7250ad39f",
+   "release_path": "Research/Backfill/Paper8/Proof/Rows/CorMain.lean",
+   "release_sha256": "5060dbde047699aa32652ad86cad2c1a4dd62a543125f54c63cdc918f938710d"
+  },
+  "P8.Rows.Count": {
+   "source": "work/claude-lean/p8/src/P8/Rows/Count.lean",
+   "source_sha256": "93bbcaa1eb8a8c6d6df9bd82e53b7392378c322286088748c0931f88349c0076",
+   "release_path": "Research/Backfill/Paper8/Proof/Rows/Count.lean",
+   "release_sha256": "dd53725805b325b0fd1ac323d6fad44bca0b2fc0f99937b82a60d2da4a58231f"
+  },
+  "P8.Rows.CountBare": {
+   "source": "work/claude-lean/p8/src/P8/Rows/CountBare.lean",
+   "source_sha256": "cd0a025f517cf13fe204285e6bc56c2d1f6ecc5f12b70c0e9980cccbb25e1326",
+   "release_path": "Research/Backfill/Paper8/Proof/Rows/CountBare.lean",
+   "release_sha256": "e160609e42e723720d1c25920dd420efced0774b99552079b5c10bbe92c0d44e"
+  },
+  "P8.Rows.GFormula": {
+   "source": "work/claude-lean/p8/src/P8/Rows/GFormula.lean",
+   "source_sha256": "e7b7473f2dc7a474c850f40efd46b4c65ceadd8efd905c9fdb9004722488e9b7",
+   "release_path": "Research/Backfill/Paper8/Proof/Rows/GFormula.lean",
+   "release_sha256": "30dc4476fce3fd8f7bfb43c35c20ea88c9504d75d2d05cdddf7164860f473c56"
+  },
+  "P8.Rows.Lemmas": {
+   "source": "work/claude-lean/p8/src/P8/Rows/Lemmas.lean",
+   "source_sha256": "297611593d5318a475475653bc38056b58f01878517269577d4cfe553a0c7789",
+   "release_path": "Research/Backfill/Paper8/Proof/Rows/Lemmas.lean",
+   "release_sha256": "65a8ec72a6cae85b462c789bc0bcc2bbc178f21526c0c897bd8df19016f6fbbb"
+  },
+  "P8.Rows.Main": {
+   "source": "work/claude-lean/p8/src/P8/Rows/Main.lean",
+   "source_sha256": "efaf6cbb4bba88fac2088696aac9cf49e5bdbce717cc6426d891605d8f037be1",
+   "release_path": "Research/Backfill/Paper8/Proof/Rows/Main.lean",
+   "release_sha256": "62e44108faf9099e238f8b21a7acf2f07e3a1af96774a9074be3618db05a87e0"
+  },
+  "P8.Rows.Members": {
+   "source": "work/claude-lean/p8/src/P8/Rows/Members.lean",
+   "source_sha256": "9783f9f5e70645fad4f20f56f017da802772d4d96665c60ecf98ca4985e3350c",
+   "release_path": "Research/Backfill/Paper8/Proof/Rows/Members.lean",
+   "release_sha256": "81ba91a2a09d94f16e99862c3d312ae61abf7740daa299aed13c1c5c922f7a47"
+  },
+  "P8.Rows.Secular": {
+   "source": "work/claude-lean/p8/src/P8/Rows/Secular.lean",
+   "source_sha256": "4b649d4e2de9ec7ec8f0069d1cb2d7b9136a717c4afce8cea79acfa44214f61d",
+   "release_path": "Research/Backfill/Paper8/Proof/Rows/Secular.lean",
+   "release_sha256": "4b649d4e2de9ec7ec8f0069d1cb2d7b9136a717c4afce8cea79acfa44214f61d"
+  },
+  "P8.Rows.Sharp": {
+   "source": "work/claude-lean/p8/src/P8/Rows/Sharp.lean",
+   "source_sha256": "818a982a44c113255f04276b696b142f9a6eaed10e543c516c777d734779852e",
+   "release_path": "Research/Backfill/Paper8/Proof/Rows/Sharp.lean",
+   "release_sha256": "678bfc0214460d0401ca0b63383235fd273960e4d5f5372c4b2ac5d23a742d8f"
+  },
+  "P8.Small.Alg": {
+   "source": "work/claude-lean/p8/src/P8/Small/Alg.lean",
+   "source_sha256": "cf6f74d770322a26ff2c639ba568bea35ac849a011a4c55560c95510c767e7b7",
+   "release_path": "Research/Backfill/Paper8/Proof/Small/Alg.lean",
+   "release_sha256": "35eb020a245d1e5283669ad603c5c4b13152b6dcd9607a84f6016f02b98e810c"
+  },
+  "P8.Small.CasesABC": {
+   "source": "work/claude-lean/p8/src/P8/Small/CasesABC.lean",
+   "source_sha256": "7c8c38e06df9ebc43eed3f4c20b2ee0cf9989dd78f6f8333f38a831d92374301",
+   "release_path": "Research/Backfill/Paper8/Proof/Small/CasesABC.lean",
+   "release_sha256": "71ec36d3250a53168ed8ba27df8ce8dcac3148ccec98e0a1a0ef2f6c5322d8d7"
+  },
+  "P8.Small.CasesDE": {
+   "source": "work/claude-lean/p8/src/P8/Small/CasesDE.lean",
+   "source_sha256": "f60d2fe9c8fe822f16218b523b8b604e45db210e1c06242932d389227891047b",
+   "release_path": "Research/Backfill/Paper8/Proof/Small/CasesDE.lean",
+   "release_sha256": "52e3171462b20c52a637eb265a79cc11d62b8b0a35a5cec61d79b07c1badff3d"
+  },
+  "P8.Small.Irr": {
+   "source": "work/claude-lean/p8/src/P8/Small/Irr.lean",
+   "source_sha256": "a4e8423883c34098a2384a0c5e8cfc86d309136c8c8b5dac54803e7b9f214a6f",
+   "release_path": "Research/Backfill/Paper8/Proof/Small/Irr.lean",
+   "release_sha256": "a4e8423883c34098a2384a0c5e8cfc86d309136c8c8b5dac54803e7b9f214a6f"
+  },
+  "P8.Small.LamStd": {
+   "source": "work/claude-lean/p8/src/P8/Small/LamStd.lean",
+   "source_sha256": "8d0632d5b3c3eb662dce034148f0495e58328e80c48dbe4d9cca5007ce076ce8",
+   "release_path": "Research/Backfill/Paper8/Proof/Small/LamStd.lean",
+   "release_sha256": "b7a75dfd95687d8e3b6337019e10d7e11ea2af2d326b9c56ac8412f3b2959312"
+  },
+  "P8.Small.Main": {
+   "source": "work/claude-lean/p8/src/P8/Small/Main.lean",
+   "source_sha256": "41545a81ff0f987c5a53cc536cb9563c054f799bf6a1026f652396d33cf0c985",
+   "release_path": "Research/Backfill/Paper8/Proof/Small/Main.lean",
+   "release_sha256": "21c3c47823614e9a62ee51c2794e623468a30097b1b2bd004638578c996a064e"
+  },
+  "P8.Small.Setup": {
+   "source": "work/claude-lean/p8/src/P8/Small/Setup.lean",
+   "source_sha256": "08158d5bec02cc1ec2c51d4ee78074501209174e83a9993fd80d37e69ee9bd3a",
+   "release_path": "Research/Backfill/Paper8/Proof/Small/Setup.lean",
+   "release_sha256": "6a63a4ce23f31c60df9daafc395b84a280c75850abe89b27ec72ddc9b8adde13"
+  },
+  "P8.Spec.Count": {
+   "source": "work/claude-lean/p8/src/P8/Spec/Count.lean",
+   "source_sha256": "d2446aac689fee61e271d3192fa15553e962936a27e4aed4ef044b4cbe713190",
+   "release_path": "Research/Backfill/Paper8/Proof/Spec/Count.lean",
+   "release_sha256": "101559778864ca0b9a5114ef55c52820233cb5c2ae50be6706e07c6c23560636"
+  },
+  "P8.Spec.Eigen": {
+   "source": "work/claude-lean/p8/src/P8/Spec/Eigen.lean",
+   "source_sha256": "e78be782ef5bc5c36731b8d55e8026ca3ede5d5275ba34edfc71a3272393f5f4",
+   "release_path": "Research/Backfill/Paper8/Proof/Spec/Eigen.lean",
+   "release_sha256": "8032f636489ad1b9843d26042d4493987b43598314537f3508f44309644faf11"
+  },
+  "P8.Spec.Kernel": {
+   "source": "work/claude-lean/p8/src/P8/Spec/Kernel.lean",
+   "source_sha256": "6572b0cc2d64e828b618516a9fef20d508842565f2147931764742b0e182b44e",
+   "release_path": "Research/Backfill/Paper8/Proof/Spec/Kernel.lean",
+   "release_sha256": "481f388cdab4d47b94dd7fd64310d379daa9702cb07891838f9b5c3f26c65849"
+  },
+  "P8.Spec.Main": {
+   "source": "work/claude-lean/p8/src/P8/Spec/Main.lean",
+   "source_sha256": "2548cc21971dbba83c5ead2c8ff7008dda795f5d19ce5510e0a4f02a4aa119fb",
+   "release_path": "Research/Backfill/Paper8/Proof/Spec/Main.lean",
+   "release_sha256": "6aea367a12a8f796b442e7d7eab89f55212f14b4fb3e7b6ade4c319d4f8f0064"
+  },
+  "P8.Spec.Roots": {
+   "source": "work/claude-lean/p8/src/P8/Spec/Roots.lean",
+   "source_sha256": "5c55026d68683f476c9894029c6c71ffe870b3a1f5fa067be158c7a415881fe7",
+   "release_path": "Research/Backfill/Paper8/Proof/Spec/Roots.lean",
+   "release_sha256": "eeddf46fbe9f57327c28f0c49fbc39df1a52ee74f715c6914814254b2a813e58"
+  },
+  "P8.Spec.Secular": {
+   "source": "work/claude-lean/p8/src/P8/Spec/Secular.lean",
+   "source_sha256": "7956148d84e0ec38e3f10d7c6b7875aabc0aac9239c3940cacec1d2b4f767dc3",
+   "release_path": "Research/Backfill/Paper8/Proof/Spec/Secular.lean",
+   "release_sha256": "7956148d84e0ec38e3f10d7c6b7875aabc0aac9239c3940cacec1d2b4f767dc3"
+  },
+  "P8.Tests.Cond": {
+   "source": "work/claude-lean/p8/src/P8/Tests/Cond.lean",
+   "source_sha256": "db93c1af1d76c95fc173db0b4cf6ff101a504b957fa3f26885951155f183c8b1",
+   "release_path": "Research/Backfill/Paper8/Proof/Tests/Cond.lean",
+   "release_sha256": "7d054a3a14ba099941625b9df936a037ffc552273d16bb7121f9b9a2e9cf95cc"
+  },
+  "P8.Tests.Counts": {
+   "source": "work/claude-lean/p8/src/P8/Tests/Counts.lean",
+   "source_sha256": "3ed000769e311a7a237a5dc19449f0f4e51ec27f1bb7633d483cde7f905048f4",
+   "release_path": "Research/Backfill/Paper8/Proof/Tests/Counts.lean",
+   "release_sha256": "93354360ea01fa5b493c8d96ccdfcf278ca2e6934e846274578b2fee7e0a292b"
+  },
+  "P8.Tests.Crit": {
+   "source": "work/claude-lean/p8/src/P8/Tests/Crit.lean",
+   "source_sha256": "e6f05192e9d3bd186d59b48c88d06e5af9b074cbf1e864f490eeaff054fd9c5b",
+   "release_path": "Research/Backfill/Paper8/Proof/Tests/Crit.lean",
+   "release_sha256": "ba3314b197ff6f56e2650a10c4ce6face0bf36ca70c5e7de7b57bcbba3318353"
+  },
+  "P8.Tests.Main": {
+   "source": "work/claude-lean/p8/src/P8/Tests/Main.lean",
+   "source_sha256": "8cf351a4e484e75b4aacfcfcc8aad0e526ef1328d0b400f239ed9c9dc88229e0",
+   "release_path": "Research/Backfill/Paper8/Proof/Tests/Main.lean",
+   "release_sha256": "aec5fa762dea4a0641c59238988b20fc643ee88c7d1195a21ea47a3135c3393e"
+  },
+  "P8.Tests.Poly": {
+   "source": "work/claude-lean/p8/src/P8/Tests/Poly.lean",
+   "source_sha256": "7a81f743479fbd775b8c1a31f3887991745525dd64e289b1bbf155ebf265e23b",
+   "release_path": "Research/Backfill/Paper8/Proof/Tests/Poly.lean",
+   "release_sha256": "0b8d91d42322311c5003836f17118e86cc1a638c44c38057b78195326786a93c"
+  },
+  "P8.Tests.Spectral": {
+   "source": "work/claude-lean/p8/src/P8/Tests/Spectral.lean",
+   "source_sha256": "7e5915e91adbf8fda45efe85dfd51057363b56c1906db47f36b9c5c2d0b9b856",
+   "release_path": "Research/Backfill/Paper8/Proof/Tests/Spectral.lean",
+   "release_sha256": "22932f2dbcd34bebf958b1b24c099c3aef09dce079f6f3170b570a004d15b439"
+  },
+  "P8.Tests.Switch": {
+   "source": "work/claude-lean/p8/src/P8/Tests/Switch.lean",
+   "source_sha256": "b4180da5ff3a1be488350335b2ee37beed0e146866e267a9883e863c36f9f53a",
+   "release_path": "Research/Backfill/Paper8/Proof/Tests/Switch.lean",
+   "release_sha256": "4825145a4f044b8af4813468f2bd8c3f1b8d7c285eb25c2c24db58a7fd51cddb"
+  },
+  "P8.Tests.Vec": {
+   "source": "work/claude-lean/p8/src/P8/Tests/Vec.lean",
+   "source_sha256": "da3d8de23300e2fd5c338d8b2fe78e6b7aec9dceec570d87e53480eba8476385",
+   "release_path": "Research/Backfill/Paper8/Proof/Tests/Vec.lean",
+   "release_sha256": "507b71856c0e269815793808728af695b40f81f9da923aae6a5dea706abcc388"
+  },
+  "P8.Tree.Build": {
+   "source": "work/claude-lean/p8/src/P8/Tree/Build.lean",
+   "source_sha256": "426102d39fec974a73619b65faffbf5eb10fa3fca951f11d282b39488669961d",
+   "release_path": "Research/Backfill/Paper8/Proof/Tree/Build.lean",
+   "release_sha256": "22fcc7b2a09277671c120273f8e213f4c903dbd05ced16bc73c4c9553d000eb8"
+  },
+  "P8.Tree.Main": {
+   "source": "work/claude-lean/p8/src/P8/Tree/Main.lean",
+   "source_sha256": "a898b70dcd7814230b43f06dccbed0587235b90b41bb04c30bfbc47e97463817",
+   "release_path": "Research/Backfill/Paper8/Proof/Tree/Main.lean",
+   "release_sha256": "19cbb0f733a7bfbf01b0e09f549cad596b2c9a44a5288478696c4394fe5df351"
+  },
+  "P8.Tree.Metric": {
+   "source": "work/claude-lean/p8/src/P8/Tree/Metric.lean",
+   "source_sha256": "36fa18aa22c101e131ed30ab5970fa87848eb5d1a385039efff4c95f6c96d99d",
+   "release_path": "Research/Backfill/Paper8/Proof/Tree/Metric.lean",
+   "release_sha256": "36fa18aa22c101e131ed30ab5970fa87848eb5d1a385039efff4c95f6c96d99d"
+  },
+  "P8.Tree.Signed": {
+   "source": "work/claude-lean/p8/src/P8/Tree/Signed.lean",
+   "source_sha256": "b750426c6cb5054ba5fb78af9986847a25302ab6e8359ad68882b420d51dffbe",
+   "release_path": "Research/Backfill/Paper8/Proof/Tree/Signed.lean",
+   "release_sha256": "e98c936f776b86509251d82abb395f4363d26fe9d82f1f822118f6df0e5da998"
+  },
+  "P8.Tree.Thm1": {
+   "source": "work/claude-lean/p8/src/P8/Tree/Thm1.lean",
+   "source_sha256": "c67e1d575deae754a99755d6ad0eef670b713da54cef6dabf30cb1496a9daf81",
+   "release_path": "Research/Backfill/Paper8/Proof/Tree/Thm1.lean",
+   "release_sha256": "8720cdf0ab8b9bea76a9c07b759fbbb85ad898fcc11717e6d502c89350cc6c09"
+  },
+  "P8.Tree.Transfer": {
+   "source": "work/claude-lean/p8/src/P8/Tree/Transfer.lean",
+   "source_sha256": "0aaa0301f4f59aa177ba50afacece1f791b583b3b4bafccc58c543295496cea0",
+   "release_path": "Research/Backfill/Paper8/Proof/Tree/Transfer.lean",
+   "release_sha256": "273eafb84ca3ef8f23fe9c0577ecf9629c6a7834c50caf75b5580be19f3c5b78"
+  }
+ },
+ "check_sha256": "b0d9176f90391d30fbdc323fd5c4e39f3f79f70d6e3122eaa61474785321b727"
+}

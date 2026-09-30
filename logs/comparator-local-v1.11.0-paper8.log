@@ -1,0 +1,177 @@
+start 2026-09-29T20:28:13Z
+config <project>/outputs/release/ai4math-results/ci/comparator/paper8.json
+Building Comparator.Paper8
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Comparator.Paper8
+⚠ [8925/8925] Built Comparator.Paper8 (4.5s)
+warning: Comparator/Paper8.lean:21:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:23:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:25:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:27:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:29:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:31:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:33:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:35:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:37:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:39:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:41:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:43:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:45:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:47:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:49:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:51:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:53:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:55:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:57:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:59:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:61:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:63:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:65:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:67:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:69:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:71:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:73:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:75:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:77:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:79:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:81:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:83:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:85:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:87:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:89:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:91:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:93:8: declaration uses `sorry`
+warning: Comparator/Paper8.lean:95:8: declaration uses `sorry`
+Build completed successfully (8925 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Comparator.Paper8 -- Quot Quot.mk Quot.lift Quot.ind BackfillPaper8.Check.check_Lemma_2_1 BackfillPaper8.Check.check_Lemma_2_1_good BackfillPaper8.Check.check_Lemma_2_2 BackfillPaper8.Check.check_Secular_monic BackfillPaper8.Check.check_TreeStructure BackfillPaper8.Check.check_Lemma_3_1_i BackfillPaper8.Check.check_Lemma_3_1_ii BackfillPaper8.Check.check_Lemma_3_1_iii BackfillPaper8.Check.check_Lemma_3_1_iv BackfillPaper8.Check.check_Lemma_3_2 BackfillPaper8.Check.check_Lemma_3_3_a BackfillPaper8.Check.check_Lemma_3_3_b BackfillPaper8.Check.check_Lemma_3_3_c BackfillPaper8.Check.check_Lemma_3_3_d BackfillPaper8.Check.check_Lemma_3_3_e BackfillPaper8.Check.check_Lemma_3_4 BackfillPaper8.Check.check_StdLeafSums BackfillPaper8.Check.check_Lemma_4_1 BackfillPaper8.Check.check_Lemma_4_2 BackfillPaper8.Check.check_Lemma_4_3 BackfillPaper8.Check.check_Cor_4_4 BackfillPaper8.Check.check_Prop_5_1 BackfillPaper8.Check.check_Lemma_5_2 BackfillPaper8.Check.check_Prop_5_3 BackfillPaper8.Check.check_Lemma_5_4 BackfillPaper8.Check.check_Prop_5_5 BackfillPaper8.Check.check_Prop_5_6 BackfillPaper8.Check.check_Theorem1 BackfillPaper8.Check.check_Theorem1_mathlib BackfillPaper8.Check.check_Remark_8_3 BackfillPaper8.Check.check_GoodNeg BackfillPaper8.Check.check_DiamRadius BackfillPaper8.Check.check_Theorem1_signed BackfillPaper8.Check.check_Lemma_U1 BackfillPaper8.Check.check_Lemma_3_2_pointwise BackfillPaper8.Check.check_Sharp_T15 BackfillPaper8.Check.check_Sharp_T18 BackfillPaper8.Check.check_Remark_8_2 propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, BackfillPaper8.Check.check_Lemma_2_1, BackfillPaper8.Check.check_Lemma_2_1_good, BackfillPaper8.Check.check_Lemma_2_2, BackfillPaper8.Check.check_Secular_monic, BackfillPaper8.Check.check_TreeStructure, BackfillPaper8.Check.check_Lemma_3_1_i, BackfillPaper8.Check.check_Lemma_3_1_ii, BackfillPaper8.Check.check_Lemma_3_1_iii, BackfillPaper8.Check.check_Lemma_3_1_iv, BackfillPaper8.Check.check_Lemma_3_2, BackfillPaper8.Check.check_Lemma_3_3_a, BackfillPaper8.Check.check_Lemma_3_3_b, BackfillPaper8.Check.check_Lemma_3_3_c, BackfillPaper8.Check.check_Lemma_3_3_d, BackfillPaper8.Check.check_Lemma_3_3_e, BackfillPaper8.Check.check_Lemma_3_4, BackfillPaper8.Check.check_StdLeafSums, BackfillPaper8.Check.check_Lemma_4_1, BackfillPaper8.Check.check_Lemma_4_2, BackfillPaper8.Check.check_Lemma_4_3, BackfillPaper8.Check.check_Cor_4_4, BackfillPaper8.Check.check_Prop_5_1, BackfillPaper8.Check.check_Lemma_5_2, BackfillPaper8.Check.check_Prop_5_3, BackfillPaper8.Check.check_Lemma_5_4, BackfillPaper8.Check.check_Prop_5_5, BackfillPaper8.Check.check_Prop_5_6, BackfillPaper8.Check.check_Theorem1, BackfillPaper8.Check.check_Theorem1_mathlib, BackfillPaper8.Check.check_Remark_8_3, BackfillPaper8.Check.check_GoodNeg, BackfillPaper8.Check.check_DiamRadius, BackfillPaper8.Check.check_Theorem1_signed, BackfillPaper8.Check.check_Lemma_U1, BackfillPaper8.Check.check_Lemma_3_2_pointwise, BackfillPaper8.Check.check_Sharp_T15, BackfillPaper8.Check.check_Sharp_T18, BackfillPaper8.Check.check_Remark_8_2, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Comparator.Paper8
+Building Research.Backfill.Paper8.Check
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Research.Backfill.Paper8.Check
+ℹ [8925/8997] Replayed Research.SwitchingWalkProfile
+info: Research/SwitchingWalkProfile.lean:274:0: 'SwitchingWalkProfile.annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:275:0: 'SwitchingWalkProfile.eigen_nonorth' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:276:0: 'SwitchingWalkProfile.main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingWalkProfile.lean:277:0: 'SwitchingWalkProfile.walkRegular_main_after_switching' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8927/8997] Replayed Research.SwitchingThmH
+info: Research/SwitchingThmH.lean:70:0: 'SwitchingThmH.two_sqrt_add_seven_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:71:0: 'SwitchingThmH.row_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:72:0: 'SwitchingThmH.sol_subsingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingThmH.lean:73:0: 'SwitchingThmH.indep_of_irrational' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8941/8997] Replayed Research.SwitchingRowCount
+info: Research/SwitchingRowCount.lean:71:0: 'SwitchingRow.card_bad_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/SwitchingRowCount.lean:72:0: 'SwitchingRow.card_bad_le_one_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8950/8997] Replayed Research.Backfill.Paper8.Proof.Lin.Main
+info: Research/Backfill/Paper8/Proof/Lin/Main.lean:20:0: 'P8Lin.check_Lemma_2_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Lin/Main.lean:23:0: 'P8Lin.check_Lemma_2_1_good' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Lin/Main.lean:26:0: 'P8Lin.check_GoodNeg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Lin/Main.lean:29:0: 'P8Lin.check_Remark_8_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Lin/Main.lean:32:0: 'P8Lin.check_Lemma_2_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Lin/Main.lean:35:0: 'P8Lin.check_Remark_8_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8956/8997] Replayed Research.Backfill.Paper8.Proof.Main.Main
+info: Research/Backfill/Paper8/Proof/Main/Main.lean:21:0: 'P8Main.check_Lemma_3_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Main/Main.lean:26:0: 'P8Main.check_Prop_5_6' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Main/Main.lean:31:0: 'P8Main.check_Lemma_3_2_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8963/8997] Replayed Research.Backfill.Paper8.Proof.Orb.Main
+info: Research/Backfill/Paper8/Proof/Orb/Main.lean:34:0: 'P8Orb.check_Lemma_3_3_a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Orb/Main.lean:44:0: 'P8Orb.check_Lemma_3_3_b' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Orb/Main.lean:50:0: 'P8Orb.check_Lemma_3_3_c' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Orb/Main.lean:56:0: 'P8Orb.check_Lemma_3_3_d' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Orb/Main.lean:62:0: 'P8Orb.check_Lemma_3_3_e' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Orb/Main.lean:138:0: 'P8Orb.check_Lemma_3_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8968/8997] Replayed Research.Backfill.Paper8.Proof.Real.Main
+info: Research/Backfill/Paper8/Proof/Real/Main.lean:20:0: 'P8Real.check_StdLeafSums' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Real/Main.lean:24:0: 'P8Real.check_Lemma_4_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Real/Main.lean:31:0: 'P8Real.check_Lemma_5_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Real/Main.lean:38:0: 'P8Real.check_Prop_5_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8975/8997] Replayed Research.Backfill.Paper8.Proof.Spec.Main
+info: Research/Backfill/Paper8/Proof/Spec/Main.lean:24:0: 'P8Spec.check_Secular_monic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Spec/Main.lean:44:0: 'P8Spec.check_Lemma_3_1_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Spec/Main.lean:49:0: 'P8Spec.check_Lemma_3_1_iii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Spec/Main.lean:65:0: 'P8Spec.check_Lemma_3_1_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Spec/Main.lean:70:0: 'P8Spec.check_Lemma_3_1_iv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Spec/Main.lean:82:0: 'P8Spec.lemma_U1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Spec/Main.lean:86:0: 'P8Spec.check_Lemma_U1' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8976/8997] Replayed Research.Backfill.Paper8.Proof.Region.Main
+info: Research/Backfill/Paper8/Proof/Region/Main.lean:58:0: 'P8Region.check_Lemma_5_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Region/Main.lean:75:0: 'P8Region.check_Prop_5_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8986/8997] Replayed Research.Backfill.Paper8.Proof.Rows.Main
+info: Research/Backfill/Paper8/Proof/Rows/Main.lean:25:0: 'P8Rows.check_Lemma_4_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Rows/Main.lean:32:0: 'P8Rows.check_Lemma_4_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Rows/Main.lean:39:0: 'P8Rows.check_Cor_4_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Rows/Main.lean:44:0: 'P8Rows.check_Sharp_T15' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Rows/Main.lean:49:0: 'P8Rows.check_Sharp_T18' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8991/8997] Replayed Research.Backfill.Paper8.Proof.Small.Main
+info: Research/Backfill/Paper8/Proof/Small/Main.lean:34:0: 'P8Small.check_Prop_5_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8996/8997] Replayed Research.Backfill.Paper8.Proof.Tree.Main
+info: Research/Backfill/Paper8/Proof/Tree/Main.lean:20:0: 'P8Tree.check_TreeStructure' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Tree/Main.lean:25:0: 'P8Tree.check_DiamRadius' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Tree/Main.lean:32:0: 'P8Tree.check_Theorem1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Tree/Main.lean:39:0: 'P8Tree.check_Theorem1_mathlib' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Proof/Tree/Main.lean:46:0: 'P8Tree.check_Theorem1_signed' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8997/8997] Replayed Research.Backfill.Paper8.Check
+info: Research/Backfill/Paper8/Check.lean:69:0: 'BackfillPaper8.Check.check_Lemma_2_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:70:0: 'BackfillPaper8.Check.check_Lemma_2_1_good' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:71:0: 'BackfillPaper8.Check.check_Lemma_2_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:72:0: 'BackfillPaper8.Check.check_Secular_monic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:73:0: 'BackfillPaper8.Check.check_TreeStructure' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:74:0: 'BackfillPaper8.Check.check_Lemma_3_1_i' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:75:0: 'BackfillPaper8.Check.check_Lemma_3_1_ii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:76:0: 'BackfillPaper8.Check.check_Lemma_3_1_iii' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:77:0: 'BackfillPaper8.Check.check_Lemma_3_1_iv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:78:0: 'BackfillPaper8.Check.check_Lemma_3_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:79:0: 'BackfillPaper8.Check.check_Lemma_3_3_a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:80:0: 'BackfillPaper8.Check.check_Lemma_3_3_b' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:81:0: 'BackfillPaper8.Check.check_Lemma_3_3_c' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:82:0: 'BackfillPaper8.Check.check_Lemma_3_3_d' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:83:0: 'BackfillPaper8.Check.check_Lemma_3_3_e' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:84:0: 'BackfillPaper8.Check.check_Lemma_3_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:85:0: 'BackfillPaper8.Check.check_StdLeafSums' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:86:0: 'BackfillPaper8.Check.check_Lemma_4_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:87:0: 'BackfillPaper8.Check.check_Lemma_4_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:88:0: 'BackfillPaper8.Check.check_Lemma_4_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:89:0: 'BackfillPaper8.Check.check_Cor_4_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:90:0: 'BackfillPaper8.Check.check_Prop_5_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:91:0: 'BackfillPaper8.Check.check_Lemma_5_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:92:0: 'BackfillPaper8.Check.check_Prop_5_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:93:0: 'BackfillPaper8.Check.check_Lemma_5_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:94:0: 'BackfillPaper8.Check.check_Prop_5_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:95:0: 'BackfillPaper8.Check.check_Prop_5_6' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:96:0: 'BackfillPaper8.Check.check_Theorem1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:97:0: 'BackfillPaper8.Check.check_Theorem1_mathlib' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:98:0: 'BackfillPaper8.Check.check_Remark_8_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:99:0: 'BackfillPaper8.Check.check_GoodNeg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:100:0: 'BackfillPaper8.Check.check_DiamRadius' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:101:0: 'BackfillPaper8.Check.check_Theorem1_signed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:102:0: 'BackfillPaper8.Check.check_Lemma_U1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:103:0: 'BackfillPaper8.Check.check_Lemma_3_2_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:104:0: 'BackfillPaper8.Check.check_Sharp_T15' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:105:0: 'BackfillPaper8.Check.check_Sharp_T18' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper8/Check.lean:106:0: 'BackfillPaper8.Check.check_Remark_8_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8997 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Research.Backfill.Paper8.Check -- Quot Quot.mk Quot.lift Quot.ind BackfillPaper8.Check.check_Lemma_2_1 BackfillPaper8.Check.check_Lemma_2_1_good BackfillPaper8.Check.check_Lemma_2_2 BackfillPaper8.Check.check_Secular_monic BackfillPaper8.Check.check_TreeStructure BackfillPaper8.Check.check_Lemma_3_1_i BackfillPaper8.Check.check_Lemma_3_1_ii BackfillPaper8.Check.check_Lemma_3_1_iii BackfillPaper8.Check.check_Lemma_3_1_iv BackfillPaper8.Check.check_Lemma_3_2 BackfillPaper8.Check.check_Lemma_3_3_a BackfillPaper8.Check.check_Lemma_3_3_b BackfillPaper8.Check.check_Lemma_3_3_c BackfillPaper8.Check.check_Lemma_3_3_d BackfillPaper8.Check.check_Lemma_3_3_e BackfillPaper8.Check.check_Lemma_3_4 BackfillPaper8.Check.check_StdLeafSums BackfillPaper8.Check.check_Lemma_4_1 BackfillPaper8.Check.check_Lemma_4_2 BackfillPaper8.Check.check_Lemma_4_3 BackfillPaper8.Check.check_Cor_4_4 BackfillPaper8.Check.check_Prop_5_1 BackfillPaper8.Check.check_Lemma_5_2 BackfillPaper8.Check.check_Prop_5_3 BackfillPaper8.Check.check_Lemma_5_4 BackfillPaper8.Check.check_Prop_5_5 BackfillPaper8.Check.check_Prop_5_6 BackfillPaper8.Check.check_Theorem1 BackfillPaper8.Check.check_Theorem1_mathlib BackfillPaper8.Check.check_Remark_8_3 BackfillPaper8.Check.check_GoodNeg BackfillPaper8.Check.check_DiamRadius BackfillPaper8.Check.check_Theorem1_signed BackfillPaper8.Check.check_Lemma_U1 BackfillPaper8.Check.check_Lemma_3_2_pointwise BackfillPaper8.Check.check_Sharp_T15 BackfillPaper8.Check.check_Sharp_T18 BackfillPaper8.Check.check_Remark_8_2 propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, BackfillPaper8.Check.check_Lemma_2_1, BackfillPaper8.Check.check_Lemma_2_1_good, BackfillPaper8.Check.check_Lemma_2_2, BackfillPaper8.Check.check_Secular_monic, BackfillPaper8.Check.check_TreeStructure, BackfillPaper8.Check.check_Lemma_3_1_i, BackfillPaper8.Check.check_Lemma_3_1_ii, BackfillPaper8.Check.check_Lemma_3_1_iii, BackfillPaper8.Check.check_Lemma_3_1_iv, BackfillPaper8.Check.check_Lemma_3_2, BackfillPaper8.Check.check_Lemma_3_3_a, BackfillPaper8.Check.check_Lemma_3_3_b, BackfillPaper8.Check.check_Lemma_3_3_c, BackfillPaper8.Check.check_Lemma_3_3_d, BackfillPaper8.Check.check_Lemma_3_3_e, BackfillPaper8.Check.check_Lemma_3_4, BackfillPaper8.Check.check_StdLeafSums, BackfillPaper8.Check.check_Lemma_4_1, BackfillPaper8.Check.check_Lemma_4_2, BackfillPaper8.Check.check_Lemma_4_3, BackfillPaper8.Check.check_Cor_4_4, BackfillPaper8.Check.check_Prop_5_1, BackfillPaper8.Check.check_Lemma_5_2, BackfillPaper8.Check.check_Prop_5_3, BackfillPaper8.Check.check_Lemma_5_4, BackfillPaper8.Check.check_Prop_5_5, BackfillPaper8.Check.check_Prop_5_6, BackfillPaper8.Check.check_Theorem1, BackfillPaper8.Check.check_Theorem1_mathlib, BackfillPaper8.Check.check_Remark_8_3, BackfillPaper8.Check.check_GoodNeg, BackfillPaper8.Check.check_DiamRadius, BackfillPaper8.Check.check_Theorem1_signed, BackfillPaper8.Check.check_Lemma_U1, BackfillPaper8.Check.check_Lemma_3_2_pointwise, BackfillPaper8.Check.check_Sharp_T15, BackfillPaper8.Check.check_Sharp_T18, BackfillPaper8.Check.check_Remark_8_2, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Research.Backfill.Paper8.Check
+Running nanoda kernel on solution
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/nanoda_lib/target/release/nanoda_bin <tmp>
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+      179.58 real       228.86 user        18.90 sys
+         12941754368  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             3299866  page reclaims
+               44710  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              119679  voluntary context switches
+              401732  involuntary context switches
+          4034488781  instructions retired
+          1851020829  cycles elapsed
+           140813232  peak memory footprint
+exit=0
+end 2026-09-29T20:31:13Z

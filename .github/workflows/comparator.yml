@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        paper: [paper9, paper4, wordrep, paper3]
+        paper: [paper9, paper4, wordrep, paper3, paper8]
 
     steps:
       - uses: actions/checkout@v4

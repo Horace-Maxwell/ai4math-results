@@ -407,3 +407,14 @@ The Lean replay and build logs in this folder come from the research agent's run
 Final paper files (after the second review and the final novelty check, 2026-09-27): `papers/switching-diam4/note.tex` SHA-256 c724709599100771ec5044b25fba469e91d92345847799dcd9ed0cdd6a704819, `note.pdf` SHA-256 6ff4f4a056f52ecf1809d48b35f7e6a23ebcb938a0ab061a9dffd6d3890a3f88. Earlier hashes listed above refer to superseded drafts.
 
 Final paper files for version 1.7.0 (the line `The author has read the paper.` added in the disclosure, PDF rebuilt, still 15 pages; nothing else changed): `papers/switching-diam4/note.tex` SHA-256 24c68a9c99a0c3b53db6a7c7b7182262ac6c33851abdda8ede5870fab8033cd8, `note.pdf` SHA-256 103c671e3ad534aa1fe88f3ec29d818537484a37f4f0b352eeb3e1dee6f6f639. The hashes in the previous paragraph refer to the version before that line was added.
+
+## Version 2 of the paper (release v1.11.0)
+
+Version 2 of Paper 8 replaces the paper files: `papers/switching-diam4/note.tex` SHA-256 810f26d18f05bcbfca7951b31de676524af5c9f6b9860898e440f48dc7bcef35, `note.pdf` SHA-256 6b003a00644ff96ac729c28eaf9898e319c942572e668226e5a9939599c91b87 (17 pages). Every result of version 2 is formally verified in Lean (`lean/Research/Backfill/Paper8/`; acceptance receipt in `certificates/switching/lean-package-v2/`). Version 2 deletes the computational claims of version 1 that are not formally verified, among them the counts listed in item 7 above for the trees with up to 24 vertices, for the multisets with up to 44 vertices, the census of non-even pairs and the values of Remark 8.1. The programs and logs in this folder are those of version 1; they remain in the repository as independent cross-checks, and version 2 does not rely on them.
+
+## Codex disclosure update, 2026-09-29T21:28:34Z
+
+Only the version 2 disclosure was updated to record Codex's source and evidence review after Claude's usage credits ran out. The mathematical text and all Lean sources are unchanged. The updated source passed the desktop editor's compiler and three pdflatex runs; the final 17-page PDF was inspected on the affected pages. The old compilation adapter selected TeX Live 2022 and failed on a missing xurl package; export then succeeded with the already installed TeX Live 2026. No new package was installed.
+
+- `papers/switching-diam4/note.tex`: `cd399b6b2344d297e2be6d42715f889a54d4bad374dc848eadee31319f154650`
+- `papers/switching-diam4/note.pdf`: `376072720e813cbb0ada3d9e20c9a6e5910a4de72049f77403f879b8774c2a54`

@@ -14,24 +14,26 @@ their results and computational certificates. It is archived on Zenodo: all vers
 [10.5281/zenodo.23000178](https://doi.org/10.5281/zenodo.23000178); version 1.7.1
 [10.5281/zenodo.23002935](https://doi.org/10.5281/zenodo.23002935); version 1.8.0
 [10.5281/zenodo.23004801](https://doi.org/10.5281/zenodo.23004801); version 1.9.0
-[10.5281/zenodo.23043604](https://doi.org/10.5281/zenodo.23043604).
+[10.5281/zenodo.23043604](https://doi.org/10.5281/zenodo.23043604); version 1.10.0
+[10.5281/zenodo.23045882](https://doi.org/10.5281/zenodo.23045882).
 
-> **Verification status (version 1.10.0, 29 September 2026).** No human
-> mathematician has reviewed these papers. Papers 3 and 4 (in their
+> **Verification status (version 1.11.0, 30 September 2026).** No human
+> mathematician has reviewed these papers. Papers 3, 4 and 8 (in their
 > versions 2), 9 and 10 are formalized completely: every result in them has
-> a Lean proof, checked against statements that were frozen before work on
-> their Lean proofs began. For the other papers only some results are
+> a Lean proof, checked against independently reviewed and frozen statement
+> files. For the other papers only some results are
 > formally verified in Lean 4, and the table "What is verified, and how"
-> lists exactly which. Paper 7 has no Lean proof; Papers 1, 5, 6 and 8 are
+> lists exactly which. Paper 7 has no Lean proof; Papers 1, 5 and 6 are
 > partly formalized; the theorems of Paper 2 are formalized for every
 > power series satisfying the defining equations, while the existence and
 > uniqueness of these series, and their agreement with the OEIS entries,
 > are checked numerically but not yet in Lean. We are formalizing every
-> paper completely: statements are frozen and reviewed independently
-> before the proofs, computations are checked by the Lean kernel, and only
+> paper completely. Our protocol requires independent statement review and
+> freezing before proof development; Paper 8 records an exception to this
+> order in its development timeline. Computations are checked by the Lean kernel, and only
 > the three standard axioms are allowed. Claims that cannot be formalized
 > completely will be removed from the other papers too, as in versions 2
-> of Papers 3 and 4. Problems found so far are listed under
+> of Papers 3, 4 and 8. Problems found so far are listed under
 > [Known issues](#known-issues); every problem we worked on, including the
 > ones we dropped, is listed in [ATTEMPTS.md](ATTEMPTS.md).
 
@@ -46,7 +48,7 @@ their results and computational certificates. It is archived on Zenodo: all vers
 | Paper 5 | Complete mappings of the Brauer and partial Brauer monoids | Problem 15.11 of arXiv:2608.25092 settled in its existence reading; Lean covers only two constructions | `BrauerCMCore.lemmaB`, `BrauerCMCore.lemmaC` | [`papers/brauer-complete-mappings`](papers/brauer-complete-mappings/note.pdf) |
 | Paper 6 | The weight spectrum of the Reed–Muller code RM(7,14) up to four weights | 14 new weights; spectrum determined except for four weights and their complements; Conjecture 2 of Lou and Wang fails for m = 6, which Lou and Wang had already shown (see Known issues) | `RM714.rm714_new_weights` (all 17 weights of Theorem A) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
 | Paper 7 | The minimum order of a counterexample to a conjecture on integral generalized sun graphs | new result (computer-assisted; not formalized) | none | [`papers/sun-graphs`](papers/sun-graphs/note.pdf) |
-| Paper 8 | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem (partly computer-assisted); some steps formalized in Lean | `SwitchingThmH.*`, `SwitchingRow.card_bad_le_two`, `SwitchingDiam4.no_eigenvalue_root_cubic`; `SwitchingWalkProfile.main_after_switching` (a remark not used for Theorem 1) | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
+| Paper 8 (version 2) | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem; completely formalized, including the finite search | `BackfillPaper8.Check.check_Theorem1`, `check_Theorem1_mathlib`, `check_Theorem1_signed` (38 checked statements) | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
 | Paper 9 | A simple primitive axial algebra with a disconnected non-annihilation graph, and a decomposable axial block | new theorems (counterexamples when arbitrary finite symmetric fusion laws are allowed); completely formalized | `AxialMSZ.Check.check_TheoremA`, `check_TheoremB`, `check_TheoremC`, `check_Corollary`, `check_not_Simple_connected` | [`papers/axial-nonannihilation`](papers/axial-nonannihilation/note.pdf) |
 | Paper 10 | Tensor products of Mycielskians of odd cycles with odd wheels are not word-representable | Problem 5.1 of arXiv:2609.20881 answered (we found no earlier answer); completely formalized | `WordRepTensor.Check.check_Problem5_1`, `check_MycielskiOddCycleNotWR`, `check_ExtMycielskiOddCycleNotWR` (11 checked statements) | [`papers/wordrep-tensor`](papers/wordrep-tensor/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
@@ -321,7 +323,7 @@ sun graphs.*
   referee agents. Nothing in Paper 7 is formally verified, in Lean or
   otherwise.
 
-**Paper 8: [`papers/switching-diam4`](papers/switching-diam4/note.pdf).**
+**Paper 8: [`papers/switching-diam4`](papers/switching-diam4/note.pdf) (version 2).**
 *The switching conjecture for main eigenvalues holds for trees of diameter at
 most 4.*
 
@@ -336,21 +338,27 @@ most 4.*
 - **Theorem 1.** Every tree of diameter at most 4 other than K₂ has a
   switching in which all eigenvalues are main. This class contains the stars,
   the double stars and the harmonic trees, for which the conjecture was known.
+  Since every signature of a tree is a switching of the all-positive one, the
+  signature version of the conjecture also holds for these trees.
 - The proof uses the explicit spectrum of these trees, a counting argument
   for the switchings that can fail, a hand proof when the largest branch has
-  at least 13 leaves, a finite search over 13,376 branch multisets (two programs, and a
-  third by a referee agent) that leaves three small trees, and explicit
-  switchings for those three trees and for the trees whose branches have at
-  most one leaf.
-- Supporting computations: every tree with 3 to 24 vertices (63,242,254
-  trees; two programs up to 22 vertices, one for 23 and 24) and every tree of
-  diameter at most 4 with 3 to 44 vertices has such a switching.
-- Lean: three files formalize abstract steps of the proof (the arithmetic for
-  at least 13 leaves, two steps of the counting argument, and a lemma on a
-  cubic); a fourth formalizes a walk-profile criterion (Remark 8.3) that
-  Theorem 1 does not use. Everything else is proved on paper or by computer
-  only, including the spectrum lemma, the criterion for main eigenvalues, the
-  rest of the counting argument, the explicit switchings and the searches.
+  at least 13 leaves, a finite search over 13,376 branch multisets, and
+  explicit switchings for three small trees and for the trees whose branches
+  have at most one leaf.
+- Lean: every result of Paper 8 (version 2) is formalized. The 38 statements
+  of the frozen statement file `lean/Research/Backfill/Paper8/Challenge.lean`
+  (SHA-256 `69332eca…c715`) are proved in `lean/Research/Backfill/Paper8/`
+  (`Check.lean`), including Theorem 1 (also in a form that uses only Mathlib's
+  definitions), its signature version, the spectrum of the trees `T(a)`, the
+  rows of switchings and their counts, and the finite search of
+  Proposition 5.5, which the Lean kernel checks. The statements were written
+  after the paper, reviewed independently and frozen (version 1 on
+  27 September 2026; version 2 on 29 September 2026 at 17:01 UTC); the
+  proofs were written by Claude Code agents while Codex's usage quota had run
+  out. Version 2 deletes the computational claims of version 1 that we could
+  not prove formally: the supporting computations on all trees with up to 24
+  vertices and on the trees of diameter at most 4 with up to 44 vertices, some
+  counts in Section 6, and the computed values in Remark 8.1.
   The problem for all trees, and for regular graphs, remains open.
 
 **Paper 9: [`papers/axial-nonannihilation`](papers/axial-nonannihilation/note.pdf).**
@@ -518,8 +526,9 @@ Problems found after publication by our own re-checks, including an
 independent check of Papers 1–8 by a second AI system (OpenAI Codex),
 completed on 27 September 2026. That check found no error that affects a
 main result; it found the problems below. The papers will be corrected in
-later versions; version 1.9.0 corrected Paper 4, and version 1.10.0
-corrects Paper 3. Until then, read the other papers with these corrections.
+later versions; version 1.9.0 corrected Paper 4, version 1.10.0 corrected
+Paper 3, and version 1.11.0 corrects Paper 8. Until then, read the other
+papers with these corrections.
 
 - **Paper 6, Theorem C is not new.** Lou and Wang proved it earlier, in
   Discrete Appl. Math. 388 (2026) 142–145, Proposition 2 (see Prior work).
@@ -534,12 +543,6 @@ corrects Paper 3. Until then, read the other papers with these corrections.
   not well defined as literally stated (PB₁ is the smallest example). The
   proofs use the intended reading, and no counterexample to any result is
   known.
-- **Paper 8, two points.** The number 13,376 counts branch multisets, not
-  pairwise non-isomorphic trees (for example `(2,0,0,0)` and `(3,0,0)` both
-  give the double star D(2,3)); the search covers all of them. The bound
-  `t_r ≤ b* + k` on the largest root, which fixes the search range, is used
-  but not proved in the paper; it holds because `F(b* + k) ≤ 1` and `F` is
-  decreasing on `(b*, ∞)`.
 - **Paper 1, Proposition 15** covers exactly the eleven exponent pairs
   listed in the paper; earlier versions of this README said "every shape
   with `(a+1)(b+1) ≤ 27`". Corrected in version 1.7.1.
@@ -557,6 +560,15 @@ corrects Paper 3. Until then, read the other papers with these corrections.
   statement for `H₁₁`), and Section 6 of version 1 (computations on
   distance-hereditary graphs), apart from its last sentence, which now ends
   Section 5.
+- **Paper 8 (corrected in version 2 of the paper, in version 1.11.0).**
+  Version 2 removes the computational claims of version 1 that are not
+  formally verified: that every tree with 3 to 24 vertices, and every tree of
+  diameter at most 4 with at most 44 vertices, has such a switching; the
+  counts of non-even pairs and of good switchings in Section 6; and the
+  computed values in Remark 8.1. It states and proves the bound
+  `t_r ≤ b* + k`, which version 1 used without proof, and it speaks of
+  13,376 branch multisets rather than trees (for example `(2,0,0,0)` and
+  `(3,0,0)` both give the double star D(2,3)). The theorems are unchanged.
 - **Paper 3 (corrected in version 2 of the paper, in version 1.10.0).**
   Version 2 removes two claims of version 1 for which we have no formal
   proof: the normal approximation `i_{1/8}(G) = (1/2 + O(n^{-1/4})) 2^n` in
@@ -607,7 +619,7 @@ corrects Paper 3. Until then, read the other papers with these corrections.
 | Paper 6: Theorems B and C, Propositions C′, D, E and F | not formalized | two programs for every computation used in a proof: `verify_witnesses.c` and `verify_all_py.py` for the 7901 codewords of Theorem B; `cert_arith.py` and `cert_arith.c` for Lemma 4.1 and Propositions C′, D and F; `venn_enum_fast.c` and `venn_enum_indep.c` for Proposition E (`certificates/rm714/`) |
 | Paper 7: Theorems 1 and 2 (minimum order 42, uniqueness; classification up to 41 vertices) and Proposition 3 | not formalized | spectral lemmas proved in the paper; exhaustive searches by separately written programs (`sunsearch*`, `sunB*`, and the referee agents' `sunC*` and `sunD*`), with audited versions identified by SHA-256 in the paper (`certificates/sun-graphs/`) |
 | Paper 9: Theorem A (the algebra `S`), Theorem B (`E`), Theorem C (`D`), Corollary 1.1 (the general forms (R1)–(R5) are false when arbitrary finite symmetric fusion laws are allowed), Proposition 4.1 (non-symmetric dominance in the algebra of Peng and of Kaygorodov, Martín González and Páez-Guillán), the facts about the fusion laws, and the two statements about `D` in Remark 5.1 | `AxialMSZ.Check.check_TheoremA`, `check_TheoremB`, `check_TheoremC`, `check_Corollary`, `check_not_MS_Conjecture_3_16`, `check_not_FinestSumDecomposition_connected`, `check_not_Indecomposable_connected`, `check_not_Simple_connected`, `check_RemarkP`, `check_Dominance_nonsymmetric`, `check_Laws_facts`, `check_ExD_axes_in_block`, `check_ExD_block_not_axial_on_contained_axes` (and the aliases `check_ExS_Statement`, `check_ExE_Statement`, `check_ExD_Statement`, `check_ExP_Statement`) | exact rational arithmetic by two separately written programs, recomputation by a reviewing agent and by Codex, and a check of every structure constant and displayed number in the paper against the statement file (`certificates/axial/`) |
-| Paper 8: Theorem 1 (trees of diameter at most 4) | abstract steps only: `SwitchingThmH.two_sqrt_add_seven_le`, `row_budget`, `sol_subsingleton`, `indep_of_irrational`; `SwitchingRow.card_bad_le_two`; `SwitchingDiam4.no_eigenvalue_root_cubic` (`SwitchingWalkProfile.main_after_switching` formalizes Remark 8.3, which Theorem 1 does not use) | exact computations by two programs and a referee agent's program (`certificates/switching/`) |
+| Paper 8 (version 2): every result, the 38 statements of the frozen statement file: Theorem 1 (also with Mathlib's definitions only) and its signature version, Lemmas 2.1–2.2, 3.1–3.4, 4.1–4.3, 5.2 and 5.4, Corollary 4.4, Propositions 5.1, 5.3, 5.5 and 5.6, the bound `t_r ≤ b* + k`, the criterion for a single secular eigenvalue, the structure of the trees of diameter at most 4 and their radius, the sharpness examples `T(15)` and `T(18,0,0)`, and Remarks 8.2 and 8.3 | `BackfillPaper8.Check.check_*`, one theorem for each of the 38 statements of the frozen statement file `lean/Research/Backfill/Paper8/Challenge.lean` (SHA-256 `69332eca…c715`); the version-1 files `SwitchingThmH.lean`, `SwitchingRowCount.lean` and `SwitchingWalkProfile.lean` remain and are used by the proofs, and `SwitchingDiam4Cubic.lean` remains | the finite search and the enumeration of the region (13,376 multisets) are checked by the Lean kernel; the programs of version 1 (`certificates/switching/`) remain independent cross-checks |
 | Paper 10: Theorem 1 (both products, all `n ≥ 1`, `m ≥ 2`); Theorem 2 in its word-representability form (`μ(C_{2t+1})` and `μ′(C_{2t+1})` are not word-representable, `t ≥ 1`); Lemmas 2.1, 2.2, 3.1 and 3.2 | `WordRepTensor.Check.check_Problem1Mu`, `check_Problem1MuExt`, `check_Problem5_1`, `check_MycielskiOddCycleNotWR`, `check_ExtMycielskiOddCycleNotWR`, `check_WordRepresentableOfEmbedding`, `check_EmbeddingOfHom`, `check_Lemma1Mu`, `check_Lemma1MuExt`, `check_Lemma2Mu`, `check_Lemma2MuExt` | no published programs: the finite checks of the proof are carried out by the Lean kernel (small cases were also checked with unpublished programs before the formalization) |
 
 Each OEIS theorem is stated for every integer power series satisfying the
@@ -681,11 +693,36 @@ axioms, and each matches one `#print axioms` command in the sources
 through the Lean kernel with `lake env leanchecker <Module>`, and all passed
 (`logs/clean-replay-v1.10.0-leanchecker.log`,
 `logs/clean-replay-v1.10.0-leanchecker-circulantq3.log`). The source manifest
-`logs/lean-sources-sha256.txt` lists 399 files, and the procedure is
+`logs/lean-sources-sha256.txt` then listed 399 files, and the procedure is
 recorded in `logs/clean-replay-v1.10.0-receipt.json`. Before it was copied
 into the release tree, the Lean package of Paper 3 had been built module by
 module in an empty directory and checked with `leanchecker`, twice
 (`certificates/carenini/lean-package-v2/receipt.json`).
+
+For version 1.11.0, which adds the 80 Lean files of Paper 8, version 2
+(`lean/Research/Backfill/Paper8/`: the statement file, its tests, the 69
+proof modules, 8 modules of further tests and `Check.lean`) and the comparator
+challenge `lean/Comparator/Paper8.lean`, the whole project was again rebuilt
+from a clean directory on 29 September 2026, 19:06–19:36 UTC (`lake build`,
+exit code 0; `logs/clean-replay-v1.11.0-build.log`), the known-answer tests of
+Papers 3, 4, 8, 9 and 10 were built
+(`logs/clean-replay-v1.11.0-build-challenge-tests.log`), as were the further
+tests of Paper 8, which are not imported by `Research.lean`
+(`logs/clean-replay-v1.11.0-build-other.log`), and the twelve audit files were
+run (`logs/clean-replay-v1.11.0-audit-*.log`). Every axiom list printed in
+these logs, 788 in the build logs, 392 in the audit logs, 1 in the tests of
+the statement files and 158 in the further tests of Paper 8 (each command
+counted once), is a subset of the three standard axioms, and each matches one
+`#print axioms` command in the sources
+(`logs/clean-replay-v1.11.0-axiom-audit.log`). All 471 modules were replayed
+through the Lean kernel with `lake env leanchecker <Module>`, and all passed
+(`logs/clean-replay-v1.11.0-leanchecker.log`,
+`logs/clean-replay-v1.11.0-leanchecker-circulantq3.log`). The source manifest
+`logs/lean-sources-sha256.txt` lists 480 files, and the procedure is
+recorded in `logs/clean-replay-v1.11.0-receipt.json`. Before it was copied
+into the release tree, the Lean package of Paper 8 had been built module by
+module in an empty directory and checked with `leanchecker`, twice
+(`certificates/switching/lean-package-v2/receipt.json`).
 
 ### Comparator check of the completely formalized papers
 
@@ -703,21 +740,24 @@ permitted axioms, and replays the proofs in the Lean kernel and in the
 independent kernel [nanoda](https://github.com/ammkrn/nanoda_lib). The
 versions are pinned in the workflow. The files in `lean/Comparator/` contain
 `sorry` on purpose and are not part of the default build. The workflow
-checks Papers 3 and 4 (versions 2), 9 and 10. For version 1.9.0 the check
+checks Papers 3, 4 and 8 (versions 2), 9 and 10. For version 1.9.0 the check
 passed on GitHub for Papers 4, 9 and 10
-([run 36505842920](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/36505842920)).
+([run 36505842920](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/36505842920)),
+and for version 1.10.0 for Papers 3, 4, 9 and 10
+([run 36606648581](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/36606648581)).
 Before this release, the same comparator, lean4export and nanoda versions were
 run locally on macOS, where the landrun sandbox is not available
 (comparator's `scripts/fake-landrun.sh` was used instead), in the directory
-of the clean rebuild for version 1.10.0 described above: for each of Papers
-3, 4, 9 and 10, nanoda and the Lean kernel accepted the solution
-(`logs/comparator-local-v1.10.0-paper3.log`,
-`logs/comparator-local-v1.10.0-paper4.log`,
-`logs/comparator-local-v1.10.0-paper9.log`,
-`logs/comparator-local-v1.10.0-wordrep.log`,
-`logs/comparator-local-v1.10.0-receipts.json`; the logs of version 1.9.0 are
-kept). The run on GitHub for version 1.10.0 takes place after it is pushed;
-its result is shown on the repository's Actions page.
+of the clean rebuild for version 1.11.0 described above: for each of Papers
+3, 4, 8, 9 and 10, nanoda and the Lean kernel accepted the solution
+(`logs/comparator-local-v1.11.0-paper3.log`,
+`logs/comparator-local-v1.11.0-paper4.log`,
+`logs/comparator-local-v1.11.0-paper8.log`,
+`logs/comparator-local-v1.11.0-paper9.log`,
+`logs/comparator-local-v1.11.0-wordrep.log`,
+`logs/comparator-local-v1.11.0-receipts.json`; the logs of versions 1.9.0 and
+1.10.0 are kept). The run on GitHub for version 1.11.0 takes place after it is
+pushed; its result is shown on the repository's Actions page.
 
 ### Reproduce the Lean checks
 
@@ -733,7 +773,7 @@ minutes for version 1.10.0, with at most two build jobs at a time).
 ```sh
 cd lean
 lake exe cache get                               # prebuilt mathlib, pinned in lake-manifest.json
-lake build                                       # builds everything imported by Research.lean; BrauerCMCore (Paper 5) and the Check files of Papers 3 and 4 (versions 2), 9 and 10 print their own axiom audits
+lake build                                       # builds everything imported by Research.lean; BrauerCMCore (Paper 5) and the Check files of Papers 3, 4 and 8 (versions 2), 9 and 10 print their own axiom audits
 lake env lean Research/ICGGeneralAudit.lean      # Paper 1: prints the final statements, definitions and axioms
 lake env lean Research/ICGEqualParityBAudit.lean # Paper 1, Theorem 4: the same
 lake env lean Research/ICGEqualParityBCertAudit.lean # Paper 1, Theorem 4: axioms of the 325 certificate lemmas
@@ -749,6 +789,8 @@ lake build Research.AxialMSZ.ChallengeTests      # Paper 9: known-answer tests o
 lake env lean Research/AxialMSZ/Audit.lean       # Paper 9: prints the definitions, the frozen statements and the types of the 17 checks
 lake build Research.Backfill.Paper3.ChallengeTests  # Paper 3 (version 2): known-answer tests of the statement file
 lake build Research.Backfill.Paper4.ChallengeTests  # Paper 4 (version 2): known-answer tests of the statement file
+lake build Research.Backfill.Paper8.ChallengeTests  # Paper 8 (version 2): known-answer tests of the statement file
+lake build Research.Backfill.Paper8.Proof.Tests.Main  # Paper 8 (version 2): further known-answer tests, written after the proofs
 lake build Research.WordRepTensor.ChallengeTests  # Paper 10: known-answer tests of the statement file
 ```
 
@@ -920,11 +962,11 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 - `certificates/brauer-complete/`: programs, certificates and logs for Paper 5; `review/REVIEW.md` is the referee agent's report.
 - `certificates/rm714/`: programs, data and logs for Paper 6.
 - `certificates/sun-graphs/`: programs, logs and the referee agents' code and reports for Paper 7.
-- `certificates/switching/`: programs and logs for Paper 8, and the referee agent's report and programs (`review/`).
+- `certificates/switching/`: programs and logs for Paper 8, and the referee agent's report and programs (`review/`); `certificates/switching/lean-package-v2/`: the manifest and acceptance receipt of the Lean package of version 2 of Paper 8.
 - `certificates/axial/`: the statement contract, the reviews of the statement file, the programs and logs for Paper 9, and the receipt of the acceptance run of its Lean package (`lean-package/`).
 - `certificates/wordrep-tensor/lean-package/`: the manifest and acceptance receipt of the Lean package of Paper 10.
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
-- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/AxialMSZ/` (Paper 9) and `lean/Research/WordRepTensor/` (Paper 10). `lean/Comparator/` holds the challenge files for the comparator check below.
+- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9) and `lean/Research/WordRepTensor/` (Paper 10). `lean/Comparator/` holds the challenge files for the comparator check below.
 - `.github/workflows/comparator.yml` and `ci/comparator/`: the public comparator check of the completely formalized papers (see below).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
@@ -1068,8 +1110,12 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
   for a class of trees containing them (arXiv, MathDB, GitHub including
   trureturing, MathOverflow and the other sources listed in the paper; we did
   not search Google Scholar or MathSciNet, and dblp could not be queried;
-  last check 27 September 2026, 06:01–06:04 UTC). This reports the coverage
-  of our searches, not a guarantee of priority.
+  last check 27 September 2026, 06:01–06:04 UTC). For version 2 we repeated
+  the searches on 29 September 2026, 18:35–19:35 UTC (arXiv:2609.27046 still
+  had only version 1, and the MathDB entry for the conjecture was still
+  open), and again found no proof or claim of the conjecture for the trees of
+  diameter at most 4 or for a class of trees containing them. This reports the
+  coverage of our searches, not a guarantee of priority.
 - Paper 9: the questions are Problems 3.8, 3.9 and 3.11 of Gorshkov and
   Shpectorov (arXiv:2606.30048v1), Questions 9.2, 9.3 and 9.5 of Mamontov,
   Shpectorov and Zhelyabin (arXiv:2602.11984v1) and Conjecture 3.16 of
@@ -1212,6 +1258,23 @@ and the referees recomputed the finite part with programs they wrote
 themselves. The first referee agent also checked the correspondence between
 the Lean statements and the paper. The author has also read Paper 8.
 
+Version 2 of Paper 8 was produced from 27 to 29 September 2026. A Claude
+Code agent wrote version 1 of its statement file, which an independent
+Claude Code agent reviewed; OpenAI Codex (desktop application; models
+gpt-6-astra and gpt-6-sol) checked version 1 of the paper, recomputing the
+finite region, the exceptions and the sharpness examples with its own
+programs. When Codex's usage quota ran out, Claude Code wrote version 2 of
+the statement file, which an independent Claude Code agent reviewed; on
+29 September 2026 nine Claude Code agents wrote the Lean proofs, working in
+parallel, and Claude Code ran the checks. Independent Claude Code agents
+reviewed the Lean package and refereed a draft of the paper (the referee
+used the model Claude Fable 5.1). Later on 29 September, after Claude's usage
+credits ran out, OpenAI Codex reviewed version 2 of the paper and statement
+file, examined the Lean proof routes, and checked the saved validation
+evidence against the current sources. Codex did not rerun the Lean checks. The author has
+read version 2 of Paper 8 and, using a side-by-side table, compared its Lean
+statements with the results in the paper.
+
 Paper 9 (version 1.8.0) was selected, found and drafted by Claude Code
 agents (model Claude Opus 5.5), which checked the examples with two
 separately written programs and wrote the statement file; an independent
@@ -1257,9 +1320,12 @@ table, compared its Lean statements with the results in the paper.
 For versions 1.9.0 and 1.10.0 the final review before release was done by
 an independent Claude Code agent instead of OpenAI Codex, whose usage quota
 had run out (the author's decision; version 1.4.0 was handled the same way).
-Codex has not reviewed version 2 of Paper 3, version 2 of Paper 4, the text
-of Paper 10 or the Lean proofs written by Claude Code; it will review them
-when it can.
+For version 1.11.0, Codex took over the final review and local release
+preparation after Claude's usage credits ran out. Its Paper 8 review covered
+the paper, the statement file, the proof routes and the saved validation
+evidence; it did not rerun the Lean checks. Codex's re-review of version 2
+of Papers 3 and 4, the text of Paper 10 and the Claude-written proofs for
+those papers remains pending.
 
 AI systems are not authors. The author takes full responsibility for the content.
 
@@ -1286,5 +1352,6 @@ v1.6.0 [10.5281/zenodo.23000177](https://doi.org/10.5281/zenodo.23000177),
 v1.7.0 [10.5281/zenodo.23000178](https://doi.org/10.5281/zenodo.23000178),
 v1.7.1 [10.5281/zenodo.23002935](https://doi.org/10.5281/zenodo.23002935),
 v1.8.0 [10.5281/zenodo.23004801](https://doi.org/10.5281/zenodo.23004801),
-v1.9.0 [10.5281/zenodo.23043604](https://doi.org/10.5281/zenodo.23043604); later
+v1.9.0 [10.5281/zenodo.23043604](https://doi.org/10.5281/zenodo.23043604),
+v1.10.0 [10.5281/zenodo.23045882](https://doi.org/10.5281/zenodo.23045882); later
 versions are listed on the Zenodo record.

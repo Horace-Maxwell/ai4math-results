@@ -11,6 +11,7 @@
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
  pdftitle={The switching conjecture for main eigenvalues holds for trees of diameter at most 4},
  pdfauthor={Horace Dong}}
+\numberwithin{equation}{section}
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{proposition}[lemma]{Proposition}
 \newtheorem{corollary}[lemma]{Corollary}
@@ -34,33 +35,46 @@
 \DeclareMathOperator{\rank}{rank}
 \DeclareUrlCommand\code{\urlstyle{tt}\def\UrlBreaks{\do\_\do\/\do\.}\def\UrlBigBreaks{}}
 \setlength{\emergencystretch}{1.5em}
-\title{The switching conjecture for main eigenvalues\\ holds for trees of diameter at most~4}
+% Repository version that will contain this version of the paper.
+% Release number 1.11.0 confirmed by the user on 2026-09-29T18:31:02Z (paper 8, version 2, released alone).
+\newcommand{\repoversion}{1.11.0}
+\title{The switching conjecture for main eigenvalues\\ holds for trees of diameter at
+most~4\thanks{\emph{Version~2.} Every result of this version is formally verified in Lean~4
+(Section~\ref{sec:lean}), including the finite search that version~1 carried out with three
+programs. Computational claims of version~1 for which we have no formal proof have been deleted:
+the supporting evidence on trees with at most $24$ and $44$ vertices, the computed values in
+Remark~\ref{rem:an}, and some counts in Section~\ref{sec:comp}. A few other sentences have been
+reworded or removed; the theorems are unchanged. The main changes are listed at the end of
+Section~\ref{sec:lean}.}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
-\date{September 2026}
+\date{September 2026 (version 2)}
 \begin{document}
 \maketitle
 \begin{abstract}
 An eigenvalue of a signed graph is main if its eigenspace is not orthogonal
 to the all-ones vector. Akbari, Fran\c{c}a, Ghasemian, Javarsineh and de~Lima
-conjectured that every connected graph other than $K_2$ and $K_4-e$ has a
+conjectured, in the form given by Akbari, Kumar, Mohar and Pragada, that every
+connected graph other than $K_2$ and $K_4-e$ has a
 switching, a choice of a sign $\pm1$ at each vertex, for which all eigenvalues
 of the resulting signed graph are main, and Akbari, Kumar, Mohar and Pragada
 asked for a proof for trees and for connected regular graphs. We prove the
 conjecture for every tree of diameter at most~$4$ other than~$K_2$; this class
 contains the stars, the double stars and the harmonic trees, for which it was
 known. Apart from a few explicit ones, the eigenvalues of such a tree are the
-square roots of the roots of a secular equation. If all neighbours of the
+numbers $\pm\sqrt t$ for the roots $t$ of a secular equation. If all neighbours of the
 centre receive the same sign, each of these whose minimal polynomial is even is
 main; along two explicit families of switchings, each
-remaining pair of Galois orbits $\pm O$ spoils at most four members, and at
-most two when its eigenvalues are irrational. This settles every tree in which a neighbour of the centre has
+remaining pair of Galois orbits $\pm O$ spoils at most four members, at most two
+when its eigenvalues are irrational, and an even orbit spoils at most one. This settles every tree in which a neighbour of the centre has
 at least $13$ leaves; the other cases reduce to explicit switchings and to a
-finite set of $13{,}376$ trees, which three independently written programs
-check. Some abstract steps of the proof are formally verified in Lean~4. The
-results were found by AI coding agents working under the author's direction;
-their role is described at the end of the paper.
+finite set of $13{,}376$ multisets of branch sizes, which the Lean kernel
+checks. Every result of
+the paper, including the signature version of Theorem~1, is formally verified
+in Lean~4. The results were found and formalised by AI coding agents working
+under the author's direction; their role is described at the end of the
+paper.
 \end{abstract}
 
 \section{Introduction}
@@ -72,8 +86,8 @@ $G^{\s}$ has the edges of $G$, the edge $uv$ carrying the sign $s_us_v$, so
 that $A(G^{\s})=D_{\s}AD_{\s}$, where $D_{\s}$ is the diagonal matrix with
 diagonal~$\s$~\cite{akmp}. An eigenvalue of a signed graph is \emph{main} if
 its eigenspace is not orthogonal to the all-ones vector~$\one$
-\cite{cve78,row07}. A regular graph has only one main eigenvalue, whereas almost
-all graphs have only main eigenvalues~\cite{ort}. Akbari, Fran\c{c}a,
+\cite{cve78,row07}. A regular graph has only one main eigenvalue~\cite{row07},
+whereas almost all graphs have only main eigenvalues~\cite{ort}. Akbari, Fran\c{c}a,
 Ghasemian, Javarsineh and de~Lima~\cite{afgjl} asked whether a suitable
 switching always makes all eigenvalues main, and conjectured that it does. We
 state the conjecture in the form of~\cite[Conjecture~1.1]{akmp}.
@@ -114,14 +128,19 @@ Let $T$ be a tree of diameter at most $4$ other than $K_2$. Then some switching
 $\s$ of $T$ makes every eigenvalue of $T^{\s}$ main.
 \end{thmone}
 
-The trees of diameter at most $4$ are the trees of radius at most~$2$. They
-include the stars, the double stars (all trees of diameter~$3$), the paths
-$P_3$, $P_4$, $P_5$, and the harmonic trees of~\cite{sy}, in which a vertex of
-degree $a^2-a+1$ has only neighbours of degree $a$ and all other vertices are
-leaves. So Theorem~1 contains the known cases above of diameter at most~$4$ and
-adds all other trees of diameter~$4$. Since every signature of a tree is a
-switching of the all-positive one, Theorem~1 also gives the signature version
-of the conjecture~\cite[Conjecture~1.7]{akmp} for these trees.
+The trees of diameter at most $4$ are the trees of radius at most~$2$. In the
+notation of Section~\ref{sec:spec} (the identifications are immediate from the
+definitions) they include the stars $T(0,\dots,0)$, the
+double stars $T(b,0,\dots,0)$, the paths $P_3=T(0,0)$, $P_4=T(1,0)$ and
+$P_5=T(1,1)$, and the harmonic trees of~\cite{sy}, in which a vertex of degree
+$a^2-a+1$ has only neighbours of degree $a$ and all other vertices are leaves,
+that is, the trees $T(a-1,\dots,a-1)$ with $a^2-a+1$ branches. So Theorem~1
+contains the known cases above of diameter at most~$4$ and adds all other trees
+of diameter~$4$. Since every signature of a tree is a switching of the
+all-positive one, Theorem~1 also gives the signature version of the
+conjecture~\cite[Conjecture~1.7]{akmp} for these trees: for every tree $T$ of
+diameter at most $4$ other than $K_2$ and every choice of a sign on each edge
+of~$T$, some switching makes every eigenvalue of the signed tree main.
 
 \paragraph{Method.}
 A tree of diameter at most $4$ with at least three vertices is a rooted tree
@@ -132,34 +151,35 @@ once, its eigenvalues are the numbers $\pm\sqrt t$ for the roots $t$ of a
 \emph{secular polynomial} $R$ (Lemma~\ref{lem:spec}). Whether an eigenvalue
 becomes main after a switching is a simple condition (Lemma~\ref{lem:main}),
 which for the secular eigenvalues depends only on the Galois orbit. If all
-neighbours of the centre receive the same sign, every such orbit whose minimal
-polynomial is even is main (Lemma~\ref{lem:equal}); the other orbits form
+neighbours of the centre receive the same sign, every eigenvalue in such an
+orbit whose minimal polynomial is even is main (Lemma~\ref{lem:equal} and the
+criterion after Lemma~\ref{lem:main}); the other orbits form
 \emph{non-even pairs} $\pm O$, with $\theta\in\Q(\theta^2)$ for $\theta\in O$,
 which are \emph{integer} pairs if $O\subseteq\Z$ and \emph{irrational} pairs
 otherwise. Along two explicit families of switchings, the \emph{rows} of
 Section~\ref{sec:rows}, an integer pair spoils at most four members and an
 irrational pair at most two, by a linear-independence argument; so a row that
 is long compared with the number of non-even pairs contains a good switching
-(Corollary~\ref{cor:criteria}). Integer pairs are rare, because they come from
-perfect squares that are roots of $R$, and all roots of $R$ but one are smaller
-than the largest branch size $b^*=\max_ia_i$ (Lemma~\ref{lem:count}). For
+(Corollary~\ref{cor:criteria}). There are at most
+$\lfloor\sqrt{b^*-1}\rfloor+1$ integer pairs, because they come from perfect
+squares that are roots of $R$, and all roots of $R$ but one are smaller than
+the largest branch size $b^*=\max_ia_i$ (Lemma~\ref{lem:count}). For
 $b^*\ge13$ this makes the row of the largest branches long enough
 (Proposition~\ref{prop:large}). For $2\le b^*\le12$ the trees not covered by
-the rows lie in an explicit finite set of $13{,}376$ trees, and a computer
-search leaves three trees with at most seven vertices, for which we give
-switchings (Propositions~\ref{prop:search} and~\ref{prop:three}). Trees with
+the rows are trees $T(\bfa)$ with $\bfa$ in an explicit finite set of
+$13{,}376$ multisets, and a finite search shows that each of them satisfies
+one of the two criteria of Corollary~\ref{cor:criteria}, except possibly three
+trees with at most seven vertices, for which we give switchings
+(Propositions~\ref{prop:search} and~\ref{prop:three}). Trees with
 $b^*\le1$ are treated by explicit switchings (Proposition~\ref{prop:small}).
 
 \paragraph{Scope.}
-One step of the proof, Proposition~\ref{prop:search}, is a finite computation,
-carried out by three independently written programs (Section~\ref{sec:comp});
-all other steps are proved by hand, and some abstract steps are also formally
-verified (Section~\ref{sec:lean}). The problem remains open for trees in
-general and for regular graphs; our argument relies on the explicit spectrum
-of Lemma~\ref{lem:spec}. As supporting evidence, the conclusion of Theorem~1
-holds for all $63{,}242{,}254$ trees with $3$ to $24$ vertices, and direct
-certificates confirm it for every tree of diameter at most $4$ with at most
-$44$ vertices (Section~\ref{sec:comp}).
+One step of the proof, Proposition~\ref{prop:search}, is a finite computation.
+In version~1 it was carried out by three independently written programs
+(Section~\ref{sec:comp}); in version~2 the Lean kernel checks it, and every
+result of the paper is formally verified (Section~\ref{sec:lean}). The problem
+remains open for trees in general and for regular graphs; our argument relies
+on the explicit spectrum of Lemma~\ref{lem:spec}.
 
 \paragraph{Prior work.}
 The full text of~\cite{afgjl} was not accessible to us: the publisher's page
@@ -189,22 +209,30 @@ the work we found are those listed above. According to its abstract, \cite{fbj}
 determines the unsigned trees of diameter~$4$ with exactly three main
 eigenvalues; it does not concern switchings. A final check on 27 September
 2026 between 02:04 and 02:06 UTC (the arXiv, where~\cite{akmp} still had only
-version~1; GitHub; MathDB; and MathOverflow) found nothing new. This reports
-the coverage of our searches, not a guarantee of priority.
+version~1; GitHub; MathDB; and MathOverflow) found nothing new. Before the
+release of version~2 we repeated the searches on 29 September 2026 between
+18:35 and 19:35~UTC (the arXiv, where~\cite{akmp} still had only version~1;
+Semantic Scholar, OpenAlex, Crossref and zbMATH Open, including the works
+citing~\cite{akmp} and~\cite{afgjl}; MathDB, whose entry for the conjecture
+was still open; MathOverflow and Mathematics Stack Exchange; GitHub,
+including~\cite{tru}; Zenodo; and web search) and again found no proof or claim
+of the conjecture for the trees of diameter at most~$4$ or for a class of trees
+containing them. This reports the coverage of our searches, not a guarantee of
+priority.
 
 \section{Switchings and main eigenvalues}\label{sec:prelim}
 Let $A$ be a real symmetric $n\times n$ matrix. For an eigenvalue $\theta$ of
 $A$ let $E_\theta$ be its eigenspace and $P_\theta$ the orthogonal projection
-onto~$E_\theta$. For $\s\in\{\pm1\}^n$ the matrix $D_{\s}AD_{\s}$ has the same
-eigenvalues, with eigenspaces $D_{\s}E_\theta$ and projections
-$D_{\s}P_\theta D_{\s}$.
+onto~$E_\theta$. Let $\s\in\{\pm1\}^n$.
 
 \begin{lemma}\label{lem:good}
 An eigenvalue $\theta$ of $A$ is a main eigenvalue of $D_{\s}AD_{\s}$ if and
 only if $P_\theta\s\ne0$.
 \end{lemma}
 \begin{proof}
-The eigenspace $D_{\s}E_\theta$ is orthogonal to $\one$ if and only if the
+As $D_{\s}^2=I$, the matrix $D_{\s}AD_{\s}$ has the same eigenvalues as~$A$,
+with eigenspaces $D_{\s}E_\theta$ and projections $D_{\s}P_\theta D_{\s}$. The
+eigenspace $D_{\s}E_\theta$ is orthogonal to $\one$ if and only if the
 projection $D_{\s}P_\theta D_{\s}\one=D_{\s}P_\theta\s$ of $\one$ onto it
 vanishes.
 \end{proof}
@@ -226,7 +254,8 @@ We have $A^j\s=\sum_\theta\theta^jP_\theta\s$, the nonzero vectors
 $P_\theta\s$ are orthogonal, and the Vandermonde matrix
 $(\theta^j)_{\theta,\,0\le j<d}$ is invertible. So the column space of $K$ is
 spanned by the vectors $P_\theta\s$, and its dimension is the number of nonzero
-ones. Reduction modulo $p$ does not increase the rank.
+ones; the rank of an integer matrix is the same over $\Q$ and over $\R$.
+Reduction modulo $p$ does not increase the rank.
 \end{proof}
 
 \section{The spectrum of a tree of diameter at most 4}\label{sec:spec}
@@ -245,8 +274,7 @@ A tree with $n\ge3$ vertices and diameter at most $4$ has a vertex of
 eccentricity at most~$2$; rooting the tree at such a vertex shows that it is
 some $T(\bfa)$. Conversely, every $T(\bfa)$ has diameter at most~$4$. The
 results of this section and the next hold for every multiset $\bfa$, so the
-choice of representation does not matter; a double star, for instance, has
-two.
+choice of representation does not matter.
 
 Let
 \[
@@ -308,6 +336,10 @@ and $\sum_{a_i\ge1}(a_i-1)+k_0-1$ if $k_0\ge1$, or $1+\sum_i(a_i-1)$ if
 $k_0=0$, in~(iii); in both cases the total is $1+k+\sum_ia_i$.
 \end{proof}
 
+Moreover $t_r\le b^*+k$: for $t>b^*+k$ all $t-b$ with $b\in B$ are positive,
+so $F(t)\le k/(t-b^*)<1$ and $R(t)>0$. (Version~1 used this bound, without stating it, for the search range
+of a program in Section~\ref{sec:comp}.)
+
 \paragraph{The effect of a switching.}
 For a switching $\s$ of $T(\bfa)$ we write $s_c=s(c)$, $\sigma_i=s(v_i)$ and
 $\lambda_i=\sum_{\ell\in L_i}s(\ell)$, the \emph{leaf sum} of branch~$i$
@@ -352,13 +384,15 @@ $\s\cdot(e_\ell-e_{\ell'})\ne0$. Otherwise $\s\cdot x=x_c(s_c-\sum_i\varepsilon_
 for $x\in\ker A$, and $\ker A$ contains a vector with $x_c=1$.
 \end{proof}
 
+The first step of the proof shows more: a secular eigenvalue $\theta$ is a
+main eigenvalue of $D_{\s}AD_{\s}$ if and only if $G_{\s}(\theta)\ne0$.
+
 \paragraph{Orbits.}
 The polynomial $R(x^2)\in\Z[x]$ is monic and even, and by
 Lemma~\ref{lem:spec}(i) its roots are the $2r$ secular eigenvalues, which are
 distinct. Let $f$ be a monic irreducible factor of $R(x^2)$ in $\Q[x]$; we call
-the set of its roots an \emph{orbit}. We say that $\s$ \emph{fails at} an orbit
-$O$ if $G_{\s}(\theta)=0$ for some $\theta\in O$. A rational number that is a
-root of $R$ is an integer, since $R$ is monic with integer coefficients.
+the set of its roots an \emph{orbit}. We say that a switching $\s$ \emph{fails at} an orbit
+$O$ if $G_{\s}(\theta)=0$ for some $\theta\in O$.
 
 \begin{lemma}[orbits]\label{lem:orbits}
 Let $f$ be as above, $\theta$ a root of $f$, and $t=\theta^2$.
@@ -392,9 +426,12 @@ monic integer polynomial $R(x^2)$, hence an integer. If $\deg f\ge2$, then
 $\deg h=\deg f\ge2$ and $t\notin\Q$. This proves (a) and~(b), and (c) holds
 because $x^2-t$ is irreducible. For~(d), the minimal polynomials of the roots
 of $R$ are distinct irreducible factors of~$R$: each integer pair uses a factor
-$t-q^2$, each irrational pair a factor of degree at least~$2$, and each root
-counted by $\Nei$ a factor $t-m$ with $m$ not a square; their degrees add up to
-at most $\deg R=r$. For~(e), write $G_{\s}(x)=g(x)/\prod_{b\in B}(x^2-b)$ with
+$t-q^2$, each irrational pair a factor $h$ of degree at least~$2$ with
+$h(x^2)=\pm f(x)f(-x)$, and each root counted by $\Nei$ a factor $t-m$ with $m$
+not a square. Distinct pairs give distinct factors, because a common root $t'$
+of the factors of two pairs would put $\pm\sqrt{t'}$ into both pairs, and
+$t-q^2\ne t-m$ since $m$ is not a square; so their degrees add up to at most
+$\deg R=r$. For~(e), write $G_{\s}(x)=g(x)/\prod_{b\in B}(x^2-b)$ with
 $g\in\Q[x]$; the denominator does not vanish at secular eigenvalues, and if
 $g(\theta)=0$ for one root $\theta$ of $f$, then $f\mid g$.
 \end{proof}
@@ -412,8 +449,10 @@ $\theta$ is any root of the pair and $t=\theta^2$.
 \begin{proof}
 Here $S_b=\sigma k_b$, so $\sum_bS_b\theta/(t-b)=\sigma\theta F(t)=\sigma\theta$.
 In an even orbit $\theta\notin\Q(t)$, so $\sigma\theta+P_{\s}(t)\ne0$. The last
-statement holds because $G_{\s}(\theta)=0$ means $P_{\s}(t)=-\sigma\theta$ and
-$G_{\s}(-\theta)=0$ means $P_{\s}(t)=\sigma\theta$.
+statement holds because, by Lemma~\ref{lem:orbits}(e), $\s$ fails at the orbit
+of $\theta$ exactly when $G_{\s}(\theta)=0$, which means
+$P_{\s}(t)=-\sigma\theta$, and at the orbit of $-\theta$ exactly when
+$G_{\s}(-\theta)=0$, which means $P_{\s}(t)=\sigma\theta$.
 \end{proof}
 
 \section{Two rows of switchings}\label{sec:rows}
@@ -442,7 +481,7 @@ I_b}\lambda^\circ_i$ for $b\ge1$ and
  U_\beta(t)=U(t)-\frac{\Lambda^\circ_\beta}{t-\beta}.
 \]
 
-\begin{lemma}[realizable leaf sums]\label{lem:real}
+\begin{lemma}[realisable leaf sums]\label{lem:real}
 Let $\beta\ge1$ and $k\ge1$, and let $\cL_\beta(k)$ be the set of integers
 $\Lambda$ for which there are $\lambda_1,\dots,\lambda_k\in\{-\beta,-\beta+2,
 \dots,\beta\}$ with $\sum_i\lambda_i=\Lambda$, not all equal if $k\ge2$, and,
@@ -454,7 +493,7 @@ $\Lambda\equiv k\pmod 2$ with $|\Lambda|\le k-2$ if $k\ge2$, and
 $\cL_1(1)=\{\pm1\}$; so $|\cL_1(k)|=k-1$ for $k\ge2$ and $|\cL_1(1)|=2$.
 \end{lemma}
 \begin{proof}
-Every realizable $\Lambda$ satisfies the stated parity and $|\Lambda|\le
+Every realisable $\Lambda$ satisfies the stated parity and $|\Lambda|\le
 k\beta$, and $|\Lambda|=k\beta$ would force all $\lambda_i$ to equal $\pm\beta$.
 For $(\beta,k,\Lambda)=(2,2,0)$ the only candidates are $(0,0)$ and
 $(2,-2)$, which are excluded. The case $\beta=1$ is clear. Conversely, let
@@ -516,8 +555,8 @@ row}. Every member satisfies (L) and~(Z), and for every secular $\theta$
 \begin{equation}\label{eq:bareG}
  G_{\s_{\varepsilon,m}}(\theta)=\varepsilon+U(t)+\theta-\frac{2m}{\theta}.
 \end{equation}
-An even orbit makes at most one member fail, and only if its $t=\theta^2$ is
-an even integer. An integer pair makes at most four members fail, and an
+An even orbit makes at most one member fail, and only if $\theta^2$ is the
+same even integer for every $\theta$ in the orbit. An integer pair makes at most four members fail, and an
 irrational pair at most two.
 \end{lemma}
 \begin{proof}
@@ -550,12 +589,12 @@ of the leaf row fail at some orbit, so under (a$'$) some member fails at none.
 It satisfies (S) because every secular eigenvalue lies in an orbit, and (L) and
 (Z) by Lemma~\ref{lem:leafrow}; so it is good by Lemma~\ref{lem:main}. Under
 (b$'$) the same argument applies to the bare row, with at most
-$4\NI+2\NII+\Nei$ failing members by Lemma~\ref{lem:barerow} and
-Lemma~\ref{lem:orbits}(c).
+$4\NI+2\NII+\Nei$ failing members: by Lemma~\ref{lem:barerow} an even orbit
+spoils a member only if $\theta^2$ is the same even integer $t$ for all
+$\theta$ in it; then the orbit is $\{\pm\sqrt t\}$ with $t$ a root of $R$ that
+is not a square (otherwise its factor would have degree~$1$ and would not be
+even, Lemma~\ref{lem:orbits}(b)), so there are at most $\Nei$ such orbits.
 \end{proof}
-
-The primes match the labels printed by our programs, where (a) and (b)
-denote an earlier count with four failing members for every non-even pair.
 
 \section{Proof of Theorem 1}\label{sec:proof}
 
@@ -583,8 +622,8 @@ Section~\ref{sec:rows});
 \begin{proof}
 In all cases we use Lemma~\ref{lem:main}.
 
-(a) Here $R(t)=t-k_0$, so $t=k_0$, and $G=(k_0+E\theta)/t=1+E/\theta$, where
-$E\in\{k_0-2,0\}$ is the sum of the signs of the leaves. $G=0$ would need
+(a) Here $R(t)=t-k_0$, so $t=k_0$; with $A_0=k_0$ and $S_0=E$, where
+$E\in\{k_0-2,0\}$ is the sum of the signs of the leaves, $G=(k_0+E\theta)/t=1+E/\theta$. $G=0$ would need
 $E^2=k_0$, and $(k_0-2)^2=k_0$ only for $k_0\in\{1,4\}$, while $E=0$ for
 $k_0=4$. (L) is void, and (Z)
 holds because the leaf signs are not all equal.
@@ -637,9 +676,8 @@ $\mu=\theta$ and $\mu=-\theta$, and both are eigenvalues. The polynomial
 $x^3-x+2$ has no rational root, so it is irreducible, and its discriminant is
 $-104<0$, so it has only one real root. But every conjugate of an eigenvalue of
 a symmetric rational matrix is again an eigenvalue, hence real; so no
-eigenvalue satisfies $\mu^3-\mu+2=0$. (This step is formalised; see
-Section~\ref{sec:lean}. Directly: $\mu^2=k_1+1$ would give $\mu k_1=-2$, so
-$\mu^2=4/k_1^2<k_1+1$.) (L) holds by (P1). For (Z), each leaf group is a
+eigenvalue satisfies $\mu^3-\mu+2=0$. (Directly: $\mu^2=k_1+1$ would give
+$\mu k_1=-2$, so $\mu^2=4/k_1^2<k_1+1$.) (L) holds by (P1). For (Z), each leaf group is a
 single leaf, and $\sum_i\varepsilon_i=\Lambda^\circ_1\in\{-1,2-k_1\}$ differs
 from $s_c=1$.
 \end{proof}
@@ -684,8 +722,7 @@ member of the leaf row is given by Corollary~\ref{cor:criteria}, that is, by
 the counts of Lemma~\ref{lem:leafrow}.
 \end{proof}
 
-For $b^*=12$ the same estimate gives only $2\NI+\NII\le11=b^*-1$; for this
-reason the smaller values of $b^*$ need a search.
+For $b^*\le12$ we use a finite search instead.
 
 \subsection{Branches with two to twelve leaves}
 
@@ -711,8 +748,8 @@ Failing (b$'$) gives $2(k_0+1)\le4\NI+2\NII+\Nei=3\NI+(\NI+2\NII+\Nei)\le
 3\nu(B)+r$. There are finitely many sets $B$, and for each of them the first
 condition bounds every multiplicity $k_b$ with $b\ge1$, because
 $|\cL_b(k)|\ge k-1$ by Lemma~\ref{lem:real}, and the second bounds~$k_0$.
-The count of $\cR$ and the bound on $n$ were obtained by enumeration
-(Section~\ref{sec:comp}).
+The count of $\cR$ and the bound on $n$ are obtained by an enumeration, which
+the Lean kernel checks (Section~\ref{sec:lean}).
 \end{proof}
 
 \begin{proposition}\label{prop:search}
@@ -720,9 +757,9 @@ Every multiset in $\cR$ except $(2,2)$, $(2,0,0)$ and $(3)$ satisfies (a$'$)
 or~(b$'$).
 \end{proposition}
 
-This is the computer-assisted step of the proof. It was carried out by three
-independently written programs, which evaluate $\NI$, $\NII$ and $\Nei$
-exactly; see Section~\ref{sec:comp}.
+This is the computer-assisted step of the proof. The Lean kernel checks it
+(Section~\ref{sec:lean}); for the programs of version~1 see
+Section~\ref{sec:comp}.
 
 \begin{proposition}\label{prop:three}
 The following switchings are good; the three trees have $7$, $6$ and $5$
@@ -730,7 +767,7 @@ vertices.
 \begin{itemize}
 \item[(a)] $T(2,2)$: $s_c=\sigma_1=\sigma_2=1$; the leaves of $v_1$ get $+1,+1$
  and those of $v_2$ get $-1,-1$.
-\item[(b)] $T(2,0,0)=D(2,2)$, the double star with two leaves at each of its
+\item[(b)] $T(2,0,0)=D(2,2)$ (immediate from the definitions), the double star with two leaves at each of its
  two central vertices: $s_c=1$; $+1$ on the two leaf neighbours of $c$; $-1$ on the
  third neighbour $v$ of $c$, and $+1,-1$ on the two leaves of~$v$.
 \item[(c)] $T(3)=K_{1,4}$, rooted at a leaf $c$: $s_c=1$; $+1$ on the centre $v$
@@ -767,232 +804,336 @@ Proposition~\ref{prop:search}, and Proposition~\ref{prop:three} applies.
 
 
 \section{Computations}\label{sec:comp}
-The programs and logs are in version~1.7.0 of~\cite{repo}, directory
-\code{certificates/switching/}; those of the referee agent (see the
+In version~2 every result of this paper is proved in Lean, and the
+finite search of Proposition~\ref{prop:search} and the enumeration of
+Lemma~\ref{lem:region} are checked by the Lean kernel
+(Section~\ref{sec:lean}). Version~1 relied on programs for these steps; they
+and their logs remain in version~1.7.0 of~\cite{repo}, directory
+\code{certificates/switching/}, as independent cross-checks, and version~2
+does not rely on them. Those of the referee agent of version~1 (see the
 disclosure) begin with \code{rv_}. They are written in Python with
-SymPy~\cite{sympy}, except \code{swtrees.c} and \code{swtrees_print.c} (in C),
-and all ran on one computer (macOS, arm64).
-
-\paragraph{The finite search.}
+SymPy~\cite{sympy}, except \code{swtrees.c} and \code{swtrees_print.c} (in C).
 Proposition~\ref{prop:search} was checked by three separately written
-programs.
-\begin{itemize}
-\item[(1)] \code{final_region.py} enumerates $\cR$ set by set, as in
- Lemma~\ref{lem:region}. For each tree it finds the integer roots of $R$
- exactly, by evaluating $R$ at every integer in the intervals of
- Lemma~\ref{lem:spec}(i), the last one being $(b^*,b^*+k]$; this gives $\NI$,
- $\Nei$ and the number $N_{\mathrm{rat}}$ of rational roots. It then uses
- $\NII\le\lfloor(r-N_{\mathrm{rat}})/2\rfloor$, which is valid because an
- irrational pair uses two irrational roots and because (a$'$) and (b$'$) only
- become harder as $\NII$ grows. All but ten trees pass (a$'$) or (b$'$) this
- way; for these ten, $R(x^2)$ is factored over~$\Q$, which gives the exact
- $\NII$, and the three trees of Proposition~\ref{prop:three} remain. The run
- takes half a second.
-\item[(2)] \code{final_region_indep.py} enumerates a cruder superset of
- $7{,}892{,}382$ multisets, with only the bounds
- $2\NI+\NII\le\lfloor(2\lfloor\sqrt{b^*-1}\rfloor+b^*+4)/2\rfloor$ and
- $2(k_0+1)\le3\lfloor\sqrt{b^*-1}\rfloor+b^*+4$, which follow from
- Lemma~\ref{lem:count} as in the proofs of Proposition~\ref{prop:large} and
- Lemma~\ref{lem:region}, and no pruning by~$B$. It finds the integer
- roots of $R$ by a floating-point screen of $F(t)-1$ at every integer $t$,
- confirming each hit in exact rational arithmetic; a true root gives
- $|F(t)-1|$ far below the threshold. For the trees that fail this cheap test it
- bounds $\NII$ from above: it factors $R(t)$ over $\Q$ and counts an orbit as
- even only if its own Rabin test shows that $h(x^2)$ is irreducible modulo a
- prime not dividing the leading coefficient. It finds the same ten trees and
- the same three survivors.
-\item[(3)] The referee's \code{rv_region.py} shares no code with (1) and (2).
- It enumerates $\cR$ in another way, over all multiplicity vectors under global
- caps, with the bounds of Lemma~\ref{lem:region} computed by brute force over
- the feasible $(\NI,\NII,\Nei)$, and writes the set to
- \code{rv_region_list.txt}; a comparison made separately from the program,
- and repeated when the certificates were packaged, shows that this set equals
- that of~(1). It computes $\NI$,
- $\NII$ and $\Nei$ exactly for every tree and certifies each orbit by its own
- tests: irreducibility by a Rabin test, evenness by a simple root of $h$ modulo
- a prime that is a quadratic non-residue, and non-evenness by an explicit
- factorisation $h(x^2)=\pm g(x)g(-x)$. Over $\cR$, $13{,}199$ trees have no
- non-even pair, $176$ have one and one tree has two. It finds the same three
- survivors.
-\end{itemize}
-Independently of Sections~\ref{sec:spec}--\ref{sec:proof}, the referee's
-\code{rv_certify.py} found for each of the $13{,}376$ trees of $\cR$ a switching
-that is good by Lemma~\ref{lem:krylov}, with ranks modulo $2^{31}-1$ and
-$2147483629$ and with $d$ computed exactly, in agreement with
-Lemma~\ref{lem:spec}(iv); for the $3{,}029$ trees with $n\le40$ it also computed
-the rank over~$\Q$. Our \code{final_region_witness.py} checked that for each of
-the other $13{,}373$ trees of $\cR$ the row given by (a$'$) or (b$'$) contains
-a certified good member and has no more failing members than
-Lemmas~\ref{lem:leafrow} and~\ref{lem:barerow} allow.
+programs: \code{final_region.py}, which enumerates $\cR$ set by set as in
+Lemma~\ref{lem:region}; \code{final_region_indep.py}, which enumerates a larger
+set of multisets; and the referee's \code{rv_region.py}, which shares no code
+with the other two, enumerates $\cR$ in another way and computes $\NI$, $\NII$
+and $\Nei$ exactly. The results of all three agree with
+Proposition~\ref{prop:search}. Independently of
+Sections~\ref{sec:spec}--\ref{sec:proof}, the referee's \code{rv_certify.py}
+searched, for each multiset in $\cR$, for a switching that is good by
+Lemma~\ref{lem:krylov}, and found one in every case. The switchings of
+Propositions~\ref{prop:small} and~\ref{prop:three} were checked for small
+parameters by \code{five_refined.py}, \code{rv_exceptional.py} and
+\code{rv_families.py}, and the lemmas of Sections~\ref{sec:spec}
+and~\ref{sec:rows} were tested on small trees (\code{test_refined_rows.py},
+\code{test_bounds.py}, \code{rv_spectrum.py}, \code{rv_rows.py},
+\code{rv_endtoend.py}).
 
-\paragraph{Explicit switchings.}
-\code{five_refined.py} checked the switchings of Proposition~\ref{prop:three}
-by the rank over~$\Q$ and, independently, by testing $(\mu/p)(A)\s\ne0$ for
-every irreducible factor $p$ of the minimal polynomial $\mu$ of~$A$, which for
-rational $\s$ is equivalent to goodness. The referee's
-\code{rv_exceptional.py} tested all $2^n$ switchings of the three trees: $72$ of
-$128$, $16$ of $64$ and $12$ of $32$ are good, including ours. Its
-\code{rv_families.py} redid the computation in
-Proposition~\ref{prop:small}(c) and certified the switchings of
-Proposition~\ref{prop:small} for $2\le k_0\le40$ and $k_1\le40$, for stars with
-$k_0\le80$, and for $k_0\in\{0,1\}$ with $k_1\le80$.
-
-\paragraph{Checks of the lemmas.}
-These exact checks are not needed for the proof. \code{test_refined_rows.py}
-tested all $41{,}039$ leaf and bare rows ($380{,}520$ switchings) of the
-$11{,}535$ multisets with $5\le n\le27$ and $b^*\ge2$ against
-Lemmas~\ref{lem:leafrow} and~\ref{lem:barerow}; \code{test_bounds.py} confirmed
-Lemma~\ref{lem:count}, (a$'$) at $\beta=b^*$ when $b^*\ge13$, and that only the
-trees of Proposition~\ref{prop:three} fail (a$'$) and (b$'$), for the
-$375{,}820$ multisets with $4\le n\le44$ and $b^*\ge2$. The referee checked
-Lemmas~\ref{lem:spec} and~\ref{lem:main} on $400$ trees against exact ranks
-(\code{rv_spectrum.py}), and the rows of $69$ trees with non-even pairs and of
-the $9{,}114$ multisets with $b^*\ge2$ and $n\le26$ (\code{rv_rows.py},
-\code{rv_endtoend.py}). The bounds of Lemma~\ref{lem:leafrow} are attained, for
-instance by $T(15)$ (four failing members) and by $T(18,0,0)$ (two, from one
-irrational pair).
-
-\paragraph{Supporting evidence.}
-Two programs checked the trees with $3\le n\le24$: both of them for
-$n\le22$, and implementation~B alone for $n=23$ and~$24$. Each of these
-$63{,}242{,}254$ trees has a good switching, certified by
-Lemma~\ref{lem:krylov} with $d$ computed exactly, and the counts for each $n$
-agree with sequence A000055 of~\cite{oeis}. Implementation~B,
-\code{swtrees.c}, generates the trees with the algorithm of Wright, Richmond,
-Odlyzko and McKay~\cite{wrom} (a port of the NetworkX~\cite{nx} generator),
-computes $d$ exactly from $\gcd(\varphi,\varphi')$ (found modulo a $61$-bit
-prime and confirmed by exact division over~$\Z$) and computes ranks modulo
-$2^{31}-1$. Implementation~A, \code{swtrees_A.py}, is independent in every
-component (canonical augmentation, SymPy for $d$, exact rank over $\Q$ by
-fraction-free elimination); it covers $n\le21$, and $n=22$ with trees from the
-NetworkX generator (\code{swtrees_A_nx.py}). Separately,
-\code{verify_diam4.py} certified a good switching for each of the $376{,}324$
-multisets with $3\le n\le44$, which include every tree of diameter at most $4$
-with at most $44$ vertices, with $p=2^{61}-1$ and $d$ from
-Lemma~\ref{lem:spec}; for $n\le30$ it also computed $d$ from
-$\gcd(\varphi,\varphi')$, with no mismatch. The referee's \code{rv_certify.py}
-confirmed the $23{,}023$ multisets with $n\le30$ by the rank over~$\Q$.
-Non-even pairs are rare: of the $376{,}324$ multisets, $373{,}837$ have none,
-$2{,}442$ have one, $44$ have two and one has three
-(\code{noneven_census.py}).
+The bounds of Lemma~\ref{lem:leafrow} are attained: in $T(15)$ the integer
+pair of $x\pm4$ makes four members of the leaf row of $\beta=15$ fail, and in
+$T(18,0,0)$ the irrational pair of $x^2\pm3x-6$ makes two members of the leaf
+row of $\beta=18$ fail, for every choice of the members of these rows. These
+two facts are proved in Lean.
 
 \section{Formal verification}\label{sec:lean}
-Some abstract steps of the proof are formalised in Lean~4 (version 4.33.1)
-with Mathlib~\cite{mathlib} (commit \texttt{0df444a3}), in the files
+All the results are formally verified in Lean~4 (version 4.34.1) with
+Mathlib~\cite{mathlib} (version v4.34.1, commit \texttt{d13f23b7}).
+Version~1 of this paper was released with a partial formalisation, the modules
 \code{SwitchingThmH.lean}, \code{SwitchingRowCount.lean},
 \code{SwitchingDiam4Cubic.lean} and \code{SwitchingWalkProfile.lean} of
-directory \code{lean/Research/} in version~1.7.0 of~\cite{repo}. Each has an
-audit file (\code{...Audit.lean}) that restates or prints the main statements;
-those of the last three files also check small instances. Table~\ref{tab:lean} lists the main
-declarations. There $K$ is any field of characteristic~$0$, and ``$1$ and $w$
-are linearly independent over~$\Q$'' is stated as: $a+cw=0$ with $a,c\in\Q$
-implies $a=c=0$.
+version~1.7.0 of~\cite{repo}, which proved some abstract steps of the proof and
+Remark~\ref{rem:regular}. For version~2 every result of the paper was
+formalised: each of its mathematical claims is a statement of
+Table~\ref{tab:lean}, a definition, a step of a written proof, or an
+observation that is immediate from the definitions, such as the identification
+of a small tree or of a known family in the notation $T(\bfa)$.
+
+\paragraph{Statements before formal proofs.}
+In short: the statements were written from the released paper, reviewed
+independently and frozen by their hash before the formal proofs were accepted,
+and the proofs import the frozen file without modifying it. In detail, the
+statements were written after the written proofs: they formalise a
+paper that had already been released. On 27 September 2026, after version~1
+had been released, an agent wrote a Lean file of definitions and statements,
+the \emph{statement file}, which proves none of its statements. An independent
+agent reviewed it against the paper, checked its definitions with programs of
+its own and recommended freezing it as it was; its SHA-256 hash is
+\texttt{4fe68753c6151791fe601d4d8e5935ae\allowbreak 3e150a21469bb4d9cf4053a706574303}.
+Version~2 of the file keeps its
+$30$ statements and all its definitions unchanged and adds eight statements:
+the signature version of Theorem~1, the equivalence of diameter at most $4$ and
+radius at most $2$ for trees, that $-\s$ is good when $\s$ is, the bound
+$t_r\le b^*+k$, the criterion for a single secular eigenvalue stated after
+Lemma~\ref{lem:main}, the two sharpness examples of Section~\ref{sec:comp}, and
+Remark~\ref{rem:G}. An independent agent reviewed version~2; after two
+additions that the review proposed (the criterion for a single eigenvalue, and
+the existence of the rows in the sharpness examples), which the same agent
+checked, it was frozen
+on 29 September 2026 at 17:01~UTC by recording its SHA-256 hash
+\texttt{69332eca957449e7613a6c95fa6bda90\allowbreak 6ecb2fbf688e0dc6ae4bba59fedec715}.
+The proofs were written in separate files that import the statement file and
+never modify it. Work on them began on 29 September 2026 before version~2 was
+frozen: a module of auxiliary lemmas was compiled at 16:25~UTC, and nine agents
+were launched between 16:27 and 16:29~UTC; until the freeze they compiled
+against version~1, whose $30$ statements version~2 keeps unchanged. Five of the
+eight new statements (\code{GoodNeg}, \code{DiamRadius}, \code{Lemma_U1},
+\code{Theorem1_signed} and \code{Remark_8_2}) were proved, under other names,
+from the draft of version~2 before the freeze; their text did not change at the
+freeze. The three statements that changed at the freeze
+(\code{Lemma_3_2_pointwise}, \code{Sharp_T15} and \code{Sharp_T18}) were
+proved after it,
+and the theorems \texttt{check\_X} of all eight new statements were written
+after it.
+
+\paragraph{What is proved.}
+The statement file states $38$ propositions, listed in Table~\ref{tab:lean};
+the file of checks (\texttt{Research/Backfill/Paper8/Check.lean}) proves each
+of them, by a theorem \texttt{check\_X : X} for every name~\code{X} of the
+table. The statement \code{Theorem1_mathlib} is Theorem~1 written with
+Mathlib's definitions only. In ASCII notation (\verb|forall|,
+\verb|exists|, \verb|->|, \verb|<=|, \verb|/\| and \verb|\/| for $\wedge$ and
+$\vee$, \verb|Real| for $\mathbb R$,
+\verb|SimpleGraph.Iso| for an isomorphism of graphs, \verb|Top| for the
+complete graph, \verb|Membership.mem S x| for $x\in S$, \verb|Ne a b| for
+$a\ne b$ and \verb|Finset.univ.sum x| for $\sum_ix_i$) it reads
+\begin{footnotesize}
+\begin{verbatim}
+def Theorem1_mathlib : Prop :=
+  forall (V : Type) [Fintype V] [DecidableEq V] (T : SimpleGraph V) [DecidableRel T.Adj],
+    T.IsTree -> T.ediam <= 4 -> IsEmpty (SimpleGraph.Iso T (Top : SimpleGraph (Fin 2))) ->
+      exists s : V -> Real, (forall v, s v = 1 \/ s v = -1) /\
+        forall theta : Real,
+          Module.End.HasEigenvalue
+            (Matrix.toLin' (diagonal s * T.adjMatrix Real * diagonal s)) theta ->
+          exists x, Membership.mem (Module.End.eigenspace
+            (Matrix.toLin' (diagonal s * T.adjMatrix Real * diagonal s)) theta) x /\
+            Ne (Finset.univ.sum x) 0
+\end{verbatim}
+\end{footnotesize}
+that is: for every tree $T$ on a finite vertex type whose diameter (Mathlib's
+extended diameter) is at most $4$ and which is not isomorphic to $K_2$, there
+is a vector $\s$ of signs such that every real eigenvalue of
+$D_{\s}A(T)D_{\s}$ has an eigenvector whose coordinates do not sum to~$0$.
 
 \begin{table}[ht]\centering\small
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.3\textwidth}
- >{\raggedright\arraybackslash}p{0.42\textwidth}
- >{\raggedright\arraybackslash}p{0.2\textwidth}@{}}\toprule
-Declaration & Statement & Used in\\\midrule
-\code{SwitchingThmH.two_sqrt_add_seven_le} & for $b\in\mathbb N$: $b\ge13
- \Rightarrow2\lfloor\sqrt{b-1}\rfloor+7\le b$ &
- Proposition~\ref{prop:large}\\\addlinespace
-\code{SwitchingThmH.row_budget} & for $b,\sq,g,N_1,N_2\in\mathbb N$: if
- $b\ge13$, $\sq\le\lfloor\sqrt{b-1}\rfloor$, $\sq\le g$, $N_1\le\sq+1$ and
- $N_1+2N_2+g\le b+1$, then $2N_1+N_2+1\le b-1$ &
- Proposition~\ref{prop:large}\\\addlinespace
-\code{SwitchingThmH.sol_subsingleton} & $w,u\in K$, $1$ and $w$ linearly
- independent over $\Q$ $\Rightarrow$ at most one $(\varepsilon,\Lambda)\in\Z^2$
- has $\varepsilon+\Lambda w=u$ & Lemmas~\ref{lem:leafrow},
- \ref{lem:barerow}, irrational pairs\\\addlinespace
-\code{SwitchingThmH.indep_of_irrational} & $w\in K$ and $w\ne q$ for all
- $q\in\Q$ $\Rightarrow$ $1$ and $w$ linearly independent over $\Q$ & the
- same\\\addlinespace
-\code{SwitchingRow.card_bad_le_two} & $u,w,\theta\in K$, $w\ne0$ $\Rightarrow$
- at most two $\Lambda\in\Z$ have $u+\Lambda w\in\{\theta,-\theta\}$ (a
- bound on \code{Set.ncard}; the set is finite) &
- Lemmas~\ref{lem:leafrow}, \ref{lem:barerow}, integer pairs\\\addlinespace
-\code{SwitchingDiam4.no_eigenvalue_root_cubic} & $A\in\Q^{n\times n}$,
- $A^{\mathsf T}=A$, $\theta\in\R$ a root of the characteristic polynomial of~$A$
- $\Rightarrow\theta^3-\theta+2\ne0$ & Proposition~\ref{prop:small}(e), for
- $\theta$ and~$-\theta$\\\addlinespace
-\code{SwitchingWalkProfile.main_after_switching} & Remark~\ref{rem:regular};
- also \code{annihilator}, \code{eigen_nonorth},
- \code{walkRegular_main_after_switching} & not used for Theorem~1\\\bottomrule
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.44\textwidth}
+ >{\raggedright\arraybackslash}p{0.5\textwidth}@{}}\toprule
+In the paper & Lean statement\\\midrule
+Theorem 1 & \code{Theorem1}, \code{Theorem1_mathlib}\\
+signature version (Section~1) & \code{Theorem1_signed}\\
+diameter at most $4$ iff radius at most $2$ (Section~1) & \code{DiamRadius}\\
+Lemma~\ref{lem:good} and the remark after it; $-\s$ is good if $\s$ is & \code{Lemma_2_1}, \code{Lemma_2_1_good}, \code{GoodNeg}\\
+Lemma~\ref{lem:krylov} & \code{Lemma_2_2}\\
+trees of diameter at most $4$ are the $T(\bfa)$; $R$ is monic of degree $r$ & \code{TreeStructure}, \code{Secular_monic}\\
+Lemma~\ref{lem:spec} (i)--(iv); $t_r\le b^*+k$ & \code{Lemma_3_1_i} \dots\ \code{Lemma_3_1_iv}, \code{Lemma_U1}\\
+Lemma~\ref{lem:main} and the remark after it & \code{Lemma_3_2}, \code{Lemma_3_2_pointwise}\\
+Lemma~\ref{lem:orbits} (a)--(e) & \code{Lemma_3_3_a} \dots\ \code{Lemma_3_3_e}\\
+Lemma~\ref{lem:equal} & \code{Lemma_3_4}\\
+standard leaf sums, (P1), (P2) & \code{StdLeafSums}\\
+Lemmas~\ref{lem:real}, \ref{lem:leafrow}, \ref{lem:barerow}; Corollary~\ref{cor:criteria} & \code{Lemma_4_1}, \code{Lemma_4_2}, \code{Lemma_4_3}, \code{Cor_4_4}\\
+Proposition~\ref{prop:small} & \code{Prop_5_1}\\
+Lemma~\ref{lem:count}, Proposition~\ref{prop:large} & \code{Lemma_5_2}, \code{Prop_5_3}\\
+Lemma~\ref{lem:region}, Proposition~\ref{prop:search} & \code{Lemma_5_4}, \code{Prop_5_5}\\
+Proposition~\ref{prop:three} & \code{Prop_5_6}\\
+the bounds of Lemma~\ref{lem:leafrow} are attained (Section~\ref{sec:comp}) & \code{Sharp_T15}, \code{Sharp_T18}\\
+Remarks~\ref{rem:G} and~\ref{rem:regular} & \code{Remark_8_2}, \code{Remark_8_3}\\\bottomrule
 \end{tabular}
-\caption{The main Lean declarations.}\label{tab:lean}
+\caption{The $38$ statements of the statement file (version~2), in the
+namespace \texttt{BackfillPaper8.Challenge}.}\label{tab:lean}
 \end{table}
 
-The formal statements are abstract. \code{row_budget} is the arithmetic of
-Proposition~\ref{prop:large}; its hypotheses come from Lemma~\ref{lem:count}
-and are proved on paper. Of the counts in Lemmas~\ref{lem:leafrow}
-and~\ref{lem:barerow}, only two abstract steps are formalised:
-\code{card_bad_le_two}, used for a fixed $\varepsilon$ after renaming $u$, $w$
-and the target pair, and the linear-independence step
-\code{sol_subsingleton} with \code{indep_of_irrational}. That a member fails
-at a pair exactly when one of the displayed equations holds, and that the
-relevant $w$, namely $1/(t-\beta)$ or $\mp2/\theta$, is irrational for an
-irrational pair, is proved on paper only. In particular the refined count
-itself, that an irrational pair spoils at most two members of a row, is not
-formalised as a statement about trees. \code{no_eigenvalue_root_cubic} is
-exactly the algebraic step of Proposition~\ref{prop:small}(e), applied to
-$\theta$ and to~$-\theta$. (\code{SwitchingRowCount.lean} also proves
-\code{card_bad_le_one_of_ne}, which we do not use.) Everything else is proved
-on paper only, or by computer (Section~\ref{sec:comp}); in particular
-Lemmas~\ref{lem:good}, \ref{lem:krylov}, \ref{lem:spec}--\ref{lem:equal},
-\ref{lem:real}, \ref{lem:count} and~\ref{lem:region},
-Corollary~\ref{cor:criteria}, the rest of Propositions~\ref{prop:small}
-and~\ref{prop:large}, the finite search of Proposition~\ref{prop:search} and
-the checks of Proposition~\ref{prop:three} are not formalised.
+\paragraph{How the proofs work.}
+The formal proofs follow the written ones, with the following main
+differences. Lemma~\ref{lem:krylov} is proved by decomposing $\s$ in an
+orthonormal basis of eigenvectors of $A$ and interpolating; on the way the
+proofs show that a rational matrix has the same rank over $\Q$ and over $\R$,
+and that a matrix with full column rank modulo a prime has full column rank
+over~$\Q$. The eigenvalues and eigenspaces of $T(\bfa)$
+(Lemma~\ref{lem:spec}), the conditions of Lemma~\ref{lem:main} and the
+criterion after it are read off the equations~\eqref{eq:eigen}; the proof of
+Lemma~\ref{lem:main} does not use Lemma~\ref{lem:spec}. The roots of $R$ are
+located by the signs of $R$ at the points of $B$ and the intermediate value
+theorem, and the estimate $R(t)>0$ for $t>b^*+k$ gives the bound
+$t_r\le b^*+k$. Lemma~\ref{lem:orbits} uses minimal polynomials over~$\Q$, the
+splitting of $f$ into its even and odd parts, $f(x)=E(x^2)+xO(x^2)$ (in place
+of the degree of $\Q(\theta)$ over $\Q(\theta^2)$), and the fact that a
+rational root of a monic integer polynomial is an integer; for~(d), a non-even
+pair $\{f,\pm f(-x)\}$ gives the irreducible factor $h$ of $R$ with
+$h(x^2)=\pm f(x)f(-x)$. In Lemma~\ref{lem:real} the leaves of sign $-1$ are
+distributed by filling the branches in order rather than as evenly as
+possible. The proofs import the modules \code{SwitchingThmH},
+\code{SwitchingRowCount} and \code{SwitchingWalkProfile} of version~1: the
+counts in Lemmas~\ref{lem:leafrow} and~\ref{lem:barerow} use
+\code{sol_subsingleton}, \code{indep_of_irrational} and
+\code{affine_injective}, Proposition~\ref{prop:large} uses \code{row_budget},
+Lemma~\ref{lem:krylov} uses \code{aeval_mulVec_of_eigen}, and
+Remark~\ref{rem:regular} is derived from \code{eigen_nonorth}. In
+Proposition~\ref{prop:small}(c), and in case~(d) with $k_1\ge2$, the formal
+proofs square as in the written proof of~(c) and reduce modulo $R$; this gives
+a relation $c_1t+c_0=0$ with integers $c_1$ and $c_0\ne0$, which contradicts
+the irrationality of~$t$. So the resultant of~(c) is not needed, and in
+case~(d) the formal proof shows that $\s^+$ itself is good (for $k_1=1$ a
+factorisation suffices). Here $t$ is irrational because the discriminant of $R(t)=t^2-mt+c$ lies strictly
+between $(m-2)^2$ and $m^2$ and differs from $(m-1)^2$ in parity. Case~(e) uses
+the direct argument given in its proof. Steps of the written proofs that the
+formal proofs replace, such as the resultant and the sextic in
+Proposition~\ref{prop:small}(c) and the discriminant of the cubic in~(e), are
+not formally verified; the results they prove are.
 
-The recorded axiom audits (\texttt{\#print axioms}) report only
-\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} for every
-declaration in Table~\ref{tab:lean}; the files contain no \texttt{sorry},
-\texttt{admit} or \texttt{native\_decide} and declare no axioms. Each file and its
-audit file were first rebuilt by \texttt{lake build}, with exit code~$0$, in a
-fresh directory that contained only the project configuration, a root file and
-these two sources, the prebuilt Mathlib packages being linked in; this was done
-on 26 September 2026 at 20:12, 22:31, 23:28 and 23:53 UTC for
-\code{SwitchingWalkProfile}, \code{SwitchingDiam4Cubic},
-\code{SwitchingRowCount} and \code{SwitchingThmH}, and these logs are in
-\code{certificates/switching/}. After the last of these rebuilds, one line of
-the module docstring of \code{SwitchingThmH.lean} was reworded; no Lean code
-changed. The files as released are covered by the clean replay of the whole
-repository at version~1.7.0, made on 27 September 2026 between 01:32 and 01:47
-UTC in a fresh directory, with the sources and the configuration copied from
-the release tree and the Mathlib packages of the pinned commit taken from a
-shared cache (logs \code{logs/clean-replay-v1.7.0-*} of~\cite{repo}):
-\texttt{lake build} of all modules completed its $8758$ jobs with exit
-code~$0$; the eleven audit files of the repository report no axioms other than
-the three above; \texttt{leanchecker} checked the four switching modules, with
-exit code~$0$; and the SHA-256 checksums of all $66$ source and configuration
-files, listed in \code{logs/lean-sources-sha256.txt} and including that of the
-released \code{SwitchingThmH.lean}, were confirmed in the replay directory.
+The finite parts of Lemma~\ref{lem:region} and Proposition~\ref{prop:search}
+are a program written in Lean. It lists the multisets of $\cR$; this list is
+proved to contain every element of $\cR$ exactly once, and it has $13{,}376$
+entries. For every entry a test, which is proved sound, checks $n\le124$ and
+$b^*+k\le48$, so that every root $q^2$ of $R$ with $q$ an integer has $q\le6$ by
+the bound $t_r\le b^*+k$. It then checks (a$'$) or (b$'$) with $\NI$ replaced by
+the number of integers $1\le q\le6$ with $R(q^2)=0$ and with the inequality
+$\NI+2\NII+\Nei\le r$. Where this fails, the test uses a second criterion: if
+no integer $1\le q\le6$ satisfies $R(q^2)=0$ (so $\NI=0$) and $|R(0)|$ is not a
+square, then $2\NII<r$, since otherwise $R$ would be the product of the minimal
+polynomials $h$ of the roots $t$ of the irrational pairs, and $|h(0)|$ is a
+square for each of them ($h(0)=\pm f(0)^2$ by $h(x^2)=\pm f(x)f(-x)$, and
+$f(0)$ is an integer by Gauss's lemma); the test then checks (a$'$) with this bound. The Lean
+kernel evaluates the test on ten chunks of the list, and every entry passes
+one of the two criteria or is one of the three exceptions of
+Proposition~\ref{prop:search}.
+
+Theorem~1 finds a vertex of eccentricity at most $2$ as a vertex of minimum
+eccentricity, builds an isomorphism of the tree with some $T(\bfa)$ and
+transfers good switchings along isomorphisms of graphs; the signature version
+writes every signature of a tree as $\sigma_{uv}=t_ut_v$, where $t_u$ is the
+product of the signs on the path from a fixed root to~$u$.
+
+\paragraph{Checks.}
+For every statement of Table~\ref{tab:lean}, the recorded axiom audits
+(\texttt{\#print axioms}) report only the axioms \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. A static scan found no
+\texttt{sorry}, \texttt{admit}, \texttt{native\_decide}, \texttt{bv\_decide},
+\texttt{implemented\_by}, \texttt{extern}, \texttt{unsafe}, and no
+\texttt{axiom} declaration, in the proof files. The Lean package of this paper,
+$80$ modules (the statement file, its tests, the $69$ proof modules, the $8$
+modules of further tests and the check file), together with the three modules
+of version~1 that it imports, was built module by module from an empty
+directory, reusing only the pinned toolchain and the compiled Mathlib and its
+dependencies, and every module was checked with \texttt{leanchecker}, all with
+exit code~$0$, twice (on 29 September 2026, between 18:33 and 19:05~UTC). For
+the release, the whole Lean project of the repository was rebuilt from a clean
+directory and all its modules were checked again with \texttt{leanchecker}
+(29 September 2026, 19:06--20:24~UTC). The statement file, its tests, the
+proofs, the further tests and the check file are in version~\repoversion{} of
+the repository~\cite{repo}, directory \texttt{lean/Research/Backfill/Paper8/};
+the receipt of the two builds is in
+\texttt{certificates/switching/lean-package-v2/}, and the logs of the rebuild
+of the whole project are in \texttt{logs/}.
+
+\paragraph{Definitions the reader must trust.}
+The statement \code{Theorem1_mathlib} uses only Mathlib's definitions. Apart from Mathlib's graphs, trees, diameters, radii, isomorphisms, adjacency
+matrices, matrices, eigenvalues and eigenspaces, orthogonal projections,
+polynomials, minimal polynomials, intermediate fields, ranks, primes and the
+fields $\F_p$, multisets, cardinalities, finite sets, integer square roots,
+parity and squares, the statements use the following definitions, each at
+most a few lines long: \code{IsEigenvalue} (an abbreviation for Mathlib's
+\code{Module.End.HasEigenvalue} of \texttt{Matrix.toLin' M}), \code{IsMainEigenvalue},
+\code{AllEigenvaluesMain},
+\code{IsSwitching}, \code{switchMatrix}, \code{ProjNe} and \code{IsGood} (main
+eigenvalues, switchings, $D_{\s}AD_{\s}$, $P_\theta\s\ne0$ and good
+switchings); \code{TV}, \code{parentB}, \code{treeT} with its decidable
+adjacency, and \code{adjT} (the tree $T(\bfa)$ and its adjacency matrix);
+\code{branchMS}, \code{Bset}, \code{kb}, \code{bstar} and \code{Ib} (the
+multiset of branch sizes, $B$, $k_b$, $b^*$ and $I_b$); \code{secular},
+\code{IsSecular}, \code{secVec}, \code{sc}, \code{sig}, \code{lam}, \code{Sb},
+\code{Lamb}, \code{Ab}, \code{Gs}, \code{Ps}, \code{condS}, \code{condL} and
+\code{condZ} ($R$, secular values, $x^\theta$, the data of a switching,
+$G_{\s}$, $P_{\s}$ and the conditions of Lemma~\ref{lem:main});
+\code{R2}, \code{IsOrbitFactor}, \code{IsEvenPoly}, \code{mirror},
+\code{nonEvenPairs}, \code{NI}, \code{NII}, \code{Nei} and \code{QAdj}
+($R(x^2)$, orbits, even orbits, non-even pairs, $\NI$, $\NII$, $\Nei$ and
+$\Q(t)$); \code{posIn}, \code{lamStd}, \code{LamStdB}, \code{Ufun},
+\code{Ubeta} and \code{Lset} (standard leaf sums, $U$, $U_\beta$ and
+$\cL_\beta(k)$); \code{IsLeafRowMember}, \code{IsBareRowMember},
+\code{FailsAtPair}, \code{FailsAtOrbit}, \code{CritAat}, \code{CritA} and
+\code{CritB} (the rows, failure, and the criteria (a$'$) and (b$'$));
+\code{mkSw}, \code{gapCount}, \code{sqCountB}, \code{nuB}, \code{MB},
+\code{InRegion} and \code{regionR} (switchings of Section~\ref{sec:proof}, $g$,
+$\sq$, $\nu(B)$, $M(B)$ and $\cR$); and \code{sw56a}, \code{sw56b},
+\code{sw56c} (the switchings of Proposition~\ref{prop:three}). Every one of
+them is checked by known-answer tests on small cases from the paper, including
+instances that must come out false. The tests are in two files: the tests of
+the statement file, and a second file written after the proofs, which covers
+the data of switchings, $G_{\s}$ and $P_{\s}$, the conditions of
+Lemma~\ref{lem:main}, $\NI$, $\NII$, $\Nei$, $\Q(t)$, $U$, $U_\beta$, the rows,
+failure, the criteria, the region and the switchings of
+Proposition~\ref{prop:three}; to compute $\NI$ and $\NII$ it uses lemmas of the
+proofs. For instance, it checks that the three exceptions of
+Proposition~\ref{prop:search} satisfy neither (a$'$) nor (b$'$).
+
+\paragraph{Faithfulness and non-claims.}
+All matrices are real (in Lemma~\ref{lem:krylov}, integer matrices and their
+ranks over $\Q$ and~$\F_p$); eigenvalues are real eigenvalues, which suffices
+because the matrices are symmetric. ``Multiplicity'' and ``simple'' refer to the
+dimension of the eigenspace. A multiset $\bfa$ is represented by a tuple
+$(a_1,\dots,a_k)$, and the numerical data are functions of its multiset of
+entries; each set $I_b$ is ordered like $\{1,\dots,k\}$. An orbit is a set of
+real roots of a monic irreducible factor of $R(x^2)$ over~$\Q$, and a non-even
+pair is the set of two such factors $f$ and $\pm f(-x)$. In Lemma~\ref{lem:main}
+the common sign $\varepsilon_i$ of the leaves of a branch is written as
+$\lambda_i/a_i$. ``At most four members fail'' means: for every choice of one
+member for each parameter, the set of parameters whose member fails has at most
+four elements; the sharpness statements say that this set has exactly four,
+respectively two, elements, for every choice, and that such a row exists; the
+other counts of Lemmas~\ref{lem:leafrow} and~\ref{lem:barerow} are read in the
+same way. The signature version is stated
+for every symmetric choice of signs $\pm1$ on the edges of~$T$; Remark~\ref{rem:G}
+is stated for a matrix $C$ with entries $0$ and $1$. The agreement of the Lean
+definitions with those of the paper was checked by the reviewing agents, not by
+a machine.
+
+\paragraph{Changes in version 2.}
+Apart from this section, Section~\ref{sec:comp}, the disclosure and the dates,
+version~2 differs from version~1 as follows. Computational claims for which we
+have no formal proof were deleted: that the conclusion of Theorem~1 holds for
+all $63{,}242{,}254$ trees with $3$ to $24$ vertices and, by direct
+certificates, for every tree of diameter at most $4$ with at most $44$
+vertices; the counts of trees with non-even pairs; counts of good switchings of
+the three trees of Proposition~\ref{prop:three}; and, in
+Remark~\ref{rem:an}, the values of the largest $\tau(T)$ for $n\le24$ and the
+example of a tree with $13$ vertices that needs three switched vertices.
+Section~\ref{sec:comp} now lists the programs of version~1, which remain
+cross-checks, and the two sharpness facts, which are proved in Lean. The bound $t_r\le b^*+k$, which version~1 used without stating
+it, is now stated and proved (Section~\ref{sec:spec}), and so is the criterion
+for a single secular eigenvalue after Lemma~\ref{lem:main}, which the abstract
+and Section~1 use. The abstract and Section~1 now speak of $13{,}376$
+multisets rather than trees (different multisets can give the same tree; for
+example $(3,0,0)$ and $(2,0,0,0)$ both give the double star with two and three
+leaves), and
+Section~1 no longer says that the search leaves exactly three trees. In
+Section~1 the parenthesis ``(all trees of diameter~$3$)'' was removed, the
+known classes are given in the notation $T(\bfa)$, the fact that a regular
+graph has only one main eigenvalue is attributed to~\cite{row07}, and ``Integer
+pairs are rare'' was replaced by the bound of Lemma~\ref{lem:count}. The
+statements on the spectrum of $D_{\s}AD_{\s}$ and on rational roots of $R$ were
+moved into the proofs of Lemmas~\ref{lem:good} and~\ref{lem:orbits}. Some
+sentences were removed: that a double star has two representations
+(Section~\ref{sec:spec}), a remark on the labels printed by our programs
+(Section~\ref{sec:rows}), a remark on the case $b^*=12$
+(Section~\ref{sec:proof}), the last sentence of Remark~\ref{rem:G}, and the
+explanation of Stani\'c's criterion in Remark~\ref{rem:regular}. Section~1 also
+reports the searches for version~2. The theorems are unchanged; the written
+proofs are unchanged apart from the moves and deletions listed above and some
+steps added to the proofs of Lemmas~\ref{lem:krylov}, \ref{lem:orbits}
+and~\ref{lem:equal} and of Corollary~\ref{cor:criteria}, and
+Lemma~\ref{lem:barerow} is worded more precisely.
 
 \section{Further remarks and questions}\label{sec:rem}
 
 \begin{remark}[how many vertices must be switched?]\label{rem:an}
-For a tree $T$ with $n\ge3$ vertices let $\tau(T)$ be the least value of
-$\min(|U|,n-|U|)$ over the sets $U$ of vertices for which the switching that
-is $-1$ exactly on $U$ is good, and let $a(n)$ be the maximum of $\tau(T)$ over
-the trees with $n$ vertices. The computations of Section~\ref{sec:comp} give,
-for $n=3,4,\dots,24$,
-\[
- a(n)=1,1,2,2,2,2,2,2,2,2,3,2,3,3,3,3,3,3,3,3,3,4 .
-\]
-The lower bounds come from explicit trees, checked exactly by the rank over
-$\Q$ and by the test $(\mu/p)(A)\s\ne0$ (\code{lower_bounds.py},
-\code{crosscheck_galois.py}). The upper bounds rest on implementation~B,
-confirmed by implementation~A for $n\le20$ (\code{swtrees_A_tiers.py}). At
-$n=24$, B found $39$ trees without a certified switching of at most three
-vertices; exact checks (\code{swtrees_print.c}, \code{verify_hard24.py}) show
-that none has one and that each has a good switching with $|U|=4$; the checks
-of seven of these trees were completed when the certificates were packaged
-(\code{certificates/switching/checks-addition/}). For
-instance, the tree on the vertices $0,\dots,12$ with edges $0$--$1$, $1$--$2$,
-$2$--$3$, $3$--$4$, $0$--$5$, $5$--$6$, $6$--$7$, $5$--$8$, $0$--$9$,
-$9$--$10$, $9$--$11$ and $0$--$12$ needs three switched vertices. So a proof
-for all trees cannot switch at most three vertices. We do not know whether
-$a(n)$ is bounded.
+For a tree $T$ with $n\ge3$ vertices that has a good switching, let $\tau(T)$
+be the least value of $\min(|U|,n-|U|)$ over the sets $U$ of vertices for which
+the switching that is $-1$ exactly on $U$ is good (as $-\s$ is good when $\s$
+is, $U$ and its complement give the same answer). We do not know whether
+$\tau$ is bounded. Version~1 of this paper reported values of the maximum of
+$\tau$ over the trees with $n\le24$ vertices, computed by programs; they are
+not formally verified, and we do not claim them here.
 \end{remark}
 
 \begin{remark}[pairing in bipartite graphs]\label{rem:G}
@@ -1003,10 +1144,7 @@ $P_\theta\s=0$ if and only if $P_{-\theta}\s=0$. Indeed, $E_{\pm\theta}$
 consists of the vectors $(u,\pm C^{\mathsf T}u/\theta)$ with
 $u\in\ker(CC^{\mathsf T}-\theta^2)$, a space with a basis over $\Q(\theta^2)$,
 and $\s\cdot(u,\pm C^{\mathsf T}u/\theta)=a\pm\theta b$ with
-$a,b\in\Q(\theta^2)$, while $\theta\notin\Q(\theta^2)$. So in a tree only the
-eigenvalues with $\theta\in\Q(\theta^2)$, such as the roots of the factors
-$x\pm1$ and $x^2\pm x-1$ of the characteristic polynomial of the tree in
-Remark~\ref{rem:an}, impose separate conditions for $\theta$ and~$-\theta$.
+$a,b\in\Q(\theta^2)$, while $\theta\notin\Q(\theta^2)$.
 \end{remark}
 
 \begin{remark}[regular graphs]\label{rem:regular}
@@ -1017,59 +1155,81 @@ $(A^j)_{vv}=\sum_uw_u(A^j)_{uu}$ for all $j\ge0$, for an index $v$ and weights
 $w_u>0$. Then $\s=\one-2e_v$ is good for~$A$: if $f(A)\s=0$ for a polynomial $f$,
 then $f(k)\one=2Me_v$ for $M=f(A)$, summing coordinates gives $(n-2)f(k)=0$, so
 $Me_v=0$, and $0=(M^2)_{vv}=\sum_uw_u\|Me_u\|^2$ forces $M=0$; now take
-$f=\mu_A/(x-\theta)$. For walk-regular graphs ($w_u=1/n$) this already follows
-from Stani\'c's criterion \cite[Corollary~4.6]{sta}, since then
-$(P_\theta)_{vv}=m_\theta/n>0$, where $m_\theta$ is the multiplicity. We do not
-claim this case as new.
+$f=\mu_A/(x-\theta)$. We do not claim the case of walk-regular graphs
+($w_u=1/n$) as new; compare Stani\'c's criterion \cite[Corollary~4.6]{sta}.
 \end{remark}
 
 \paragraph{Questions.}
 The problem of~\cite{akmp} remains open for trees in general, beginning with
-the trees of diameter $5$ and~$6$, and so does the question whether the number
-$a(n)$ of Remark~\ref{rem:an} is bounded.
+the trees of diameter $5$ and~$6$, and so does the question whether $\tau$ in
+Remark~\ref{rem:an} is bounded.
 
 \medskip
 \noindent Thanks are due to Saieed Akbari, Hitesh Kumar, Bojan Mohar and
-Shivaramakrishna Pragada for the problem studied here, and to the authors
+Shivaramakrishna Pragada for posing the problem studied here, and to the authors
 of~\cite{afgjl} for the conjecture.
 
 \section*{Tool and computational resource disclosure}
-This work was carried out on 26 and 27 September 2026 (UTC) in a workflow
-directed by the author, using AI coding agents: Anthropic Claude Code, with the
-model Claude Opus~5.5. Claude Code agents selected the problem, found the
-theorem and its proof, wrote the programs and the Lean code, carried out the
-literature searches described in the introduction, and drafted this text.
-Throughout, ``we'' refers to this workflow; the reading, searching and
-computing described in the paper were done by the agents. An adversarial
-checking agent (Claude Code, the same model), launched by the agent that found
-the proof, re-derived Lemmas~\ref{lem:leafrow}, \ref{lem:barerow}
-and~\ref{lem:region} and Proposition~\ref{prop:large} and repeated the finite
-search; it found one sign error in a displayed equation, which did not affect
-the count and has been corrected. Its programs were not kept. An independent
-referee agent (Claude Code, the same model), which had not produced the work,
-then refereed all proofs and the correspondence between the Lean statements and
-the text, recomputed the finite search, the exceptional trees and further
-checks with its own programs (Section~\ref{sec:comp}), and repeated the
-literature search. Its five minor corrections, concerning a cross-reference in
-the case $b^*\ge13$, the description of the Lean coverage, a shorter proof of
-Proposition~\ref{prop:small}(c), the sign $-\theta$ in
-Proposition~\ref{prop:small}(e) and the description of the independent
-computations, have been applied. A second independent agent (Claude Code, the
-same model), which had produced neither the work nor the referee's report,
-then reviewed this paper, re-derived its proofs and recomputed the
-computations of the proof with its own programs; its minor corrections,
-concerning the description of the Lean verification and some wordings, have
-been applied. The programs, logs and Lean code cited in this paper are in
+Version~1 of this paper was produced on 26 and 27 September 2026 (UTC) in a
+workflow directed by the author, using AI coding agents: Anthropic Claude
+Code, with the model Claude Opus~5.5. Claude Code agents selected the problem,
+found the theorem and its proof, wrote the programs and the Lean code of
+version~1, carried out the literature searches described in the introduction,
+and drafted the text. An adversarial checking agent (Claude Code, the same
+model), launched by the agent that found the proof, re-derived
+Lemmas~\ref{lem:leafrow}, \ref{lem:barerow} and~\ref{lem:region} and
+Proposition~\ref{prop:large} and repeated the finite search; it found one sign
+error in a displayed equation, which did not affect the count and was
+corrected. Its programs were not kept. An independent referee agent (Claude
+Code, the same model), which had not produced the work, then refereed all
+proofs and the correspondence between the Lean statements of version~1 and the
+text, recomputed the finite search, the exceptional trees and further checks
+with its own programs (Section~\ref{sec:comp}), and repeated the literature
+search; its five minor corrections were applied. A second independent agent
+(Claude Code, the same model) then reviewed the paper, re-derived its proofs
+and recomputed the computations of the proof with its own programs; its minor
+corrections were applied. The programs, logs and Lean code of version~1 are in
 version~1.7.0 of the repository~\cite{repo} (directories
-\code{certificates/switching/}, \code{lean/Research/} and \code{logs/}). The
-author is not a
-professional mathematician.
-The author has read the paper.
-The correctness of Theorem~1 rests on the written proofs and on the finite
-computation of Proposition~\ref{prop:search}, on which three independently
-written programs agree; the Lean formalisation covers only the steps listed in
-Section~\ref{sec:lean}. AI systems are not authors of this paper; the author
-takes full responsibility for its content.
+\code{certificates/switching/}, \code{lean/Research/} and \code{logs/}).
+
+Version~2 was produced from 27 to 29 September 2026. A Claude Code agent
+(model Claude Opus~5.5) wrote version~1 of the statement file of
+Section~\ref{sec:lean}, and an independent Claude Code agent reviewed it and
+checked its definitions with its own programs. OpenAI Codex (desktop
+application; models \texttt{gpt-6-astra} and \texttt{gpt-6-sol}) checked
+version~1 of the paper independently, re-deriving its proofs and recomputing
+the finite region, the three exceptions and the sharpness examples of
+Section~\ref{sec:comp} with its own programs; it found no error and pointed
+out, among other things, the unstated bound $t_r\le b^*+k$ and the claims that
+version~2 had to formalise or delete. Codex's usage quota then ran out, and
+Claude Code carried out the rest: it wrote version~2 of the statement file,
+which an independent Claude Code agent reviewed; on 29 September 2026 nine
+Claude Code agents wrote the Lean proofs, working in parallel and coordinated by
+a Claude Code session that also wrote a module of auxiliary lemmas, assembled
+the package and ran the checks described in Section~\ref{sec:lean}. An
+independent Claude Code agent reviewed the Lean package and checked the account
+of it in Section~\ref{sec:lean} against the code.
+Another independent Claude Code agent, using the model Claude Fable~5.1,
+refereed a draft of version~2: it checked every proof, compared the $38$ Lean
+statements with the text, and recomputed the region, the exceptions, the
+switchings of Propositions~\ref{prop:small} and~\ref{prop:three} and the
+sharpness examples with its own programs; its corrections, which concern
+wording and steps missing from written proofs, were applied.
+On 29 September 2026, after Claude's usage credits ran out, OpenAI Codex
+reviewed version~2 of the paper and statement file, examined the Lean proof
+routes and checked the recorded validation evidence against the sources.
+This was a source and evidence review; the Lean checks were not rerun by
+Codex. Throughout, ``we'' refers to this workflow. The author is
+not a professional mathematician.
+% Author role chosen by the user on 2026-09-29T18:31:02Z (option A).
+The author has read version~2 of the paper and, using a side-by-side table,
+compared the statements of the Lean theorems with the results stated here.
+No human mathematician has reviewed this paper. The correctness of the results
+rests on the Lean proofs of the statements in Table~\ref{tab:lean} and on the
+agreement of those statements with the paper, which was checked by the
+reviewing agents; the written proofs are given for the reader. AI systems are
+not authors of this paper; the author takes full responsibility for its
+content.
 
 {\footnotesize
 \begin{thebibliography}{99}\setlength{\itemsep}{0pt}
@@ -1087,17 +1247,13 @@ graphs, \emph{Publ.\ Inst.\ Math.\ (Beograd) (N.S.)} \textbf{23(37)} (1978),
 31--38.
 \bibitem{repo}
 H.~Dong, \emph{ai4math-results}, repository,
-\url{https://github.com/Horace-Maxwell/ai4math-results}, version~1.7.0
-(2026); archived at Zenodo under the concept DOI
+\url{https://github.com/Horace-Maxwell/ai4math-results}, versions~1.7.0
+and~\repoversion{} (2026); archived at Zenodo under the concept DOI
 \url{https://doi.org/10.5281/zenodo.22970254}.
 \bibitem{fbj}
 F.~A.~M. Fran\c{c}a, A.~E. Brondani and D.~A. Jaume, Graphs with exactly three
 main eigenvalues, \emph{Discrete Appl.\ Math.} \textbf{378} (2026), 49--64,
 \url{https://doi.org/10.1016/j.dam.2025.07.003}.
-\bibitem{nx}
-A.~A. Hagberg, D.~A. Schult and P.~J. Swart, Exploring network structure,
-dynamics, and function using NetworkX, in \emph{Proceedings of the 7th Python in
-Science Conference} (SciPy 2008), 2008, 11--15.
 \bibitem{mathlib}
 The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
 SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
@@ -1105,9 +1261,6 @@ SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
 \bibitem{sympy}
 A.~Meurer et al., SymPy: symbolic computing in Python, \emph{PeerJ Comput.\
 Sci.} \textbf{3} (2017), e103, \url{https://doi.org/10.7717/peerj-cs.103}.
-\bibitem{oeis}
-OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences},
-\url{https://oeis.org}, sequence A000055, accessed 26 September 2026.
 \bibitem{ort}
 S.~O'Rourke and B.~Touri, On a conjecture of Godsil concerning controllable
 random graphs, \emph{SIAM J.\ Control Optim.} \textbf{54} (2016), 3347--3378.
@@ -1127,8 +1280,5 @@ signed graphs, \emph{Czechoslovak Math.\ J.} \textbf{70(145)} (2020),
 The Omega Institute, \texttt{trureturing} repository,
 \url{https://github.com/the-omega-institute/trureturing}, accessed 26 and 27
 September 2026.
-\bibitem{wrom}
-R.~A. Wright, B.~Richmond, A.~Odlyzko and B.~D. McKay, Constant time generation
-of free trees, \emph{SIAM J.\ Comput.} \textbf{15} (1986), 540--548.
 \end{thebibliography}}
 \end{document}
