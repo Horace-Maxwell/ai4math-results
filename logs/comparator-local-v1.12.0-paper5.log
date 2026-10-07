@@ -1,0 +1,966 @@
+start 2026-10-06T20:19:21Z
+config <project>/outputs/release/ai4math-results/ci/comparator/paper5.json
+Building Comparator.Paper5
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Comparator.Paper5
+ℹ [8925/8928] Replayed Research.Backfill.Paper5.Supplement.AssociativityStatement
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:66:0: 'CodexPaper5.AssociativityStatement.ReachableElimination' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:67:0: 'CodexPaper5.AssociativityStatement.OuterBracketReachability' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:68:0: 'CodexPaper5.AssociativityStatement.PBAssociativity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:69:0: 'CodexPaper5.AssociativityStatement.BAssociativity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:70:0: 'CodexPaper5.AssociativityStatement.PBMonoidAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:71:0: 'CodexPaper5.AssociativityStatement.BMonoidAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8926/8928] Replayed Research.Backfill.Paper5.Supplement.FullPaperStatement
+info: Research/Backfill/Paper5/Supplement/FullPaperStatement.lean:38:0: 'CodexPaper5.FullPaperStatement.AllNClassification' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/FullPaperStatement.lean:39:0: 'CodexPaper5.FullPaperStatement.Corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/FullPaperStatement.lean:40:0: 'CodexPaper5.FullPaperStatement.CornerGroupAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8927/8928] Replayed Research.Backfill.Paper5.Supplement.AlgebraStatementV2
+info: Research/Backfill/Paper5/Supplement/AlgebraStatementV2.lean:39:0: 'CodexPaper5.AlgebraStatement.ReesAssociativity' does not depend on any axioms
+info: Research/Backfill/Paper5/Supplement/AlgebraStatementV2.lean:40:0: 'CodexPaper5.AlgebraStatement.CayleyTransversalIff' does not depend on any axioms
+info: Research/Backfill/Paper5/Supplement/AlgebraStatementV2.lean:41:0: 'CodexPaper5.AlgebraStatement.HalfCount45' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AlgebraStatementV2.lean:42:0: 'CodexPaper5.AlgebraStatement.HalfCount105' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8928/8928] Built Comparator.Paper5 (6.1s)
+warning: Comparator/Paper5.lean:33:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:39:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:59:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:65:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:72:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:94:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:115:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:140:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:165:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:168:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:185:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:204:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:224:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:244:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:263:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:281:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:304:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:327:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:351:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:370:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:391:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:410:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:430:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:449:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:469:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:490:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:509:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:535:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:560:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:583:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:606:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:612:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:633:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:654:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:661:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:668:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:676:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:698:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:720:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:744:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:768:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:796:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:805:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:828:8: declaration uses `sorry`
+warning: Comparator/Paper5.lean:831:8: declaration uses `sorry`
+Build completed successfully (8928 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Comparator.Paper5 -- Quot Quot.mk Quot.lift Quot.ind CodexPaper5.ReesBasicCheck.check_ZeroFixed CodexPaper5.ReesBasicCheck.check_Lemma41 CodexPaper5.CycleRemarksCheck.check_Remark45a CodexPaper5.CycleRemarksCheck.check_Remark45b CodexPaper5.CycleRemarksCheck.check_Remark45c CodexPaper5.Lemma42Check.check_Lemma42 CodexPaper5.ReesEvenCheck.check_Lemma43 CodexPaper5.ReesCycleCheck.check_Lemma44 CodexPaper5.SymmetricClassificationCheck.check_SymCM CodexPaper5.SymmetricClassificationCheck.check_SymCMPerm CodexPaper5.HalfDiagonalCheck.check_Prop31d CodexPaper5.DiagramCoordinatesCheck.check_Prop31a CodexPaper5.GammaCompatibilityCheck.check_Prop31c CodexPaper5.DiagramModelCheck.check_ModelMonoid CodexPaper5.DiagramRankCheck.check_RankMul CodexPaper5.DiagramProductCoordinatesCheck.check_Prop31b CodexPaper5.DiagramPrincipalFactorCheck.check_Prop31iso CodexPaper5.DiagramIdempotentCheck.check_IdempotentE CodexPaper5.DiagramJClassesCheck.check_JClassesAreRankClasses CodexPaper5.DiagramUnitGroupCheck.check_UnitsAreSym CodexPaper5.DiagramRanksOccurringCheck.check_RanksOccurring CodexPaper5.HalfFibreCountingCheck.check_FibreCount CodexPaper5.HalfCountingCheck.check_CountH CodexPaper5.BrauerParityCheck.check_Lemma51 CodexPaper5.PartialBrauerParityCheck.check_Lemma61 CodexPaper5.Prop62Check.check_Prop62 CodexPaper5.BrauerTriangleCheck.check_Lemma52 CodexPaper5.BrauerTriangleProductCheck.check_TriangleProduct CodexPaper5.BrauerJoinCheck.check_Lemma53 CodexPaper5.BrauerMatchingCheck.check_Lemma54 CodexPaper5.MainABCheck.check_Thm11a CodexPaper5.MainABCheck.check_Thm11b CodexPaper5.MainCCheck.check_Thm11c CodexPaper5.AssocMainCheck.check_PBAssociativity CodexPaper5.AssocMainCheck.check_BAssociativity CodexPaper5.AssocMainCheck.check_PBMonoidAligned CodexPaper5.AssocMainCheck.check_BMonoidAligned CodexPaper5.AssocGraphCompressionCheck.check_ReachableElimination CodexPaper5.AssocGeometryCheck.check_OuterBracketReachability CodexPaper5.FullPaperAllNCheck.check_AllNClassification CodexPaper5.FullPaperCornerCheck.check_CornerGroupAligned CodexPaper5.GenericAlgebraCheck.check_ReesAssociativity CodexPaper5.GenericAlgebraCheck.check_CayleyTransversalIff CodexPaper5.NumericHalfCountsCheck.check_HalfCount45 CodexPaper5.NumericHalfCountsCheck.check_HalfCount105 propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, CodexPaper5.ReesBasicCheck.check_ZeroFixed, CodexPaper5.ReesBasicCheck.check_Lemma41, CodexPaper5.CycleRemarksCheck.check_Remark45a, CodexPaper5.CycleRemarksCheck.check_Remark45b, CodexPaper5.CycleRemarksCheck.check_Remark45c, CodexPaper5.Lemma42Check.check_Lemma42, CodexPaper5.ReesEvenCheck.check_Lemma43, CodexPaper5.ReesCycleCheck.check_Lemma44, CodexPaper5.SymmetricClassificationCheck.check_SymCM, CodexPaper5.SymmetricClassificationCheck.check_SymCMPerm, CodexPaper5.HalfDiagonalCheck.check_Prop31d, CodexPaper5.DiagramCoordinatesCheck.check_Prop31a, CodexPaper5.GammaCompatibilityCheck.check_Prop31c, CodexPaper5.DiagramModelCheck.check_ModelMonoid, CodexPaper5.DiagramRankCheck.check_RankMul, CodexPaper5.DiagramProductCoordinatesCheck.check_Prop31b, CodexPaper5.DiagramPrincipalFactorCheck.check_Prop31iso, CodexPaper5.DiagramIdempotentCheck.check_IdempotentE, CodexPaper5.DiagramJClassesCheck.check_JClassesAreRankClasses, CodexPaper5.DiagramUnitGroupCheck.check_UnitsAreSym, CodexPaper5.DiagramRanksOccurringCheck.check_RanksOccurring, CodexPaper5.HalfFibreCountingCheck.check_FibreCount, CodexPaper5.HalfCountingCheck.check_CountH, CodexPaper5.BrauerParityCheck.check_Lemma51, CodexPaper5.PartialBrauerParityCheck.check_Lemma61, CodexPaper5.Prop62Check.check_Prop62, CodexPaper5.BrauerTriangleCheck.check_Lemma52, CodexPaper5.BrauerTriangleProductCheck.check_TriangleProduct, CodexPaper5.BrauerJoinCheck.check_Lemma53, CodexPaper5.BrauerMatchingCheck.check_Lemma54, CodexPaper5.MainABCheck.check_Thm11a, CodexPaper5.MainABCheck.check_Thm11b, CodexPaper5.MainCCheck.check_Thm11c, CodexPaper5.AssocMainCheck.check_PBAssociativity, CodexPaper5.AssocMainCheck.check_BAssociativity, CodexPaper5.AssocMainCheck.check_PBMonoidAligned, CodexPaper5.AssocMainCheck.check_BMonoidAligned, CodexPaper5.AssocGraphCompressionCheck.check_ReachableElimination, CodexPaper5.AssocGeometryCheck.check_OuterBracketReachability, CodexPaper5.FullPaperAllNCheck.check_AllNClassification, CodexPaper5.FullPaperCornerCheck.check_CornerGroupAligned, CodexPaper5.GenericAlgebraCheck.check_ReesAssociativity, CodexPaper5.GenericAlgebraCheck.check_CayleyTransversalIff, CodexPaper5.NumericHalfCountsCheck.check_HalfCount45, CodexPaper5.NumericHalfCountsCheck.check_HalfCount105, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Comparator.Paper5
+Building Research.Backfill.Paper5.Check
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Research.Backfill.Paper5.Check
+ℹ [8925/8992] Replayed Research.Backfill.Paper5.Proof.ReesBasic
+info: Research/Backfill/Paper5/Proof/ReesBasic.lean:89:0: 'CodexPaper5.check_ZeroFixed' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/ReesBasic.lean:90:0: 'CodexPaper5.check_Lemma41' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8926/8992] Replayed Research.Backfill.Paper5.Proof.CycleRemarks
+info: Research/Backfill/Paper5/Proof/CycleRemarks.lean:85:0: 'CodexPaper5.check_Remark45a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CycleRemarks.lean:86:0: 'CodexPaper5.check_Remark45b' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CycleRemarks.lean:87:0: 'CodexPaper5.check_Remark45c' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8927/8992] Replayed Research.Backfill.Paper5.Proof.SignSmall
+info: Research/Backfill/Paper5/Proof/SignSmall.lean:80:0: 'CodexPaper5.SignSmall.sgn_rep' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SignSmall.lean:81:0: 'CodexPaper5.SignSmall.square_injective_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SignSmall.lean:82:0: 'CodexPaper5.SignSmall.sgn_evenPart' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SignSmall.lean:83:0: 'CodexPaper5.SignSmall.rep_mul_evenPart' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8928/8992] Replayed Research.Backfill.Paper5.Proof.LiftRees
+info: Research/Backfill/Paper5/Proof/LiftRees.lean:226:0: 'CodexPaper5.LiftRees.quotient_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/LiftRees.lean:227:0: 'CodexPaper5.LiftRees.project_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/LiftRees.lean:228:0: 'CodexPaper5.LiftRees.liftMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/LiftRees.lean:229:0: 'CodexPaper5.LiftRees.product_liftMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/LiftRees.lean:230:0: 'CodexPaper5.LiftRees.hasCM_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8929/8992] Replayed Research.Backfill.Paper5.Proof.Lemma42
+info: Research/Backfill/Paper5/Proof/Lemma42.lean:17:0: 'CodexPaper5.check_Lemma42' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8930/8992] Replayed Research.Backfill.Paper5.Proof.ReesCoreCompat
+info: Research/Backfill/Paper5/Proof/ReesCoreCompat.lean:315:0: 'CodexPaper5.ReesCoreCompat.lemmaC' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/ReesCoreCompat.lean:316:0: 'CodexPaper5.ReesCoreCompat.lemmaB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/ReesCoreCompat.lean:319:0: @CodexPaper5.ReesCoreCompat.lemmaC : ∀ {H : Type u_1} (P : H → H → Option (ZMod 2)) (L : H → H → H) (ρ : H ≃ H)
+  (c s : H → ZMod 2) [Finite H],
+  (∀ (l : H), P l l = some 0) →
+    (∀ (l : H), P l (ρ l) = some (s l)) →
+      (∀ (l : H), c (ρ l) = c l + 1 + s l) →
+        (∀ (i : H), Function.Injective (L i)) →
+          (∀ (l : H), Function.Injective fun i => L i l) →
+            CodexPaper5.ReesCoreCompat.IsCompleteMapping (CodexPaper5.ReesCoreCompat.mul P)
+              (CodexPaper5.ReesCoreCompat.fC L ρ c)
+info: Research/Backfill/Paper5/Proof/ReesCoreCompat.lean:320:0: @CodexPaper5.ReesCoreCompat.lemmaB : ∀ {H : Type u_1} (P : H → H → Option (ZMod 2)) (L : H → H → H) (δ : H ≃ H)
+  (t : H → ZMod 2) [Finite H],
+  (∀ (l : H), P l l = some 0) →
+    (∀ (μ : H), t (δ μ) = t μ + 1) →
+      (∀ (i : H), Function.Injective (L i)) →
+        (∀ (l : H), Function.Injective fun i => L i l) →
+          CodexPaper5.ReesCoreCompat.IsCompleteMapping (CodexPaper5.ReesCoreCompat.mul P)
+            (CodexPaper5.ReesCoreCompat.fB L δ t)
+info: Research/Backfill/Paper5/Proof/ReesCoreCompat.lean:321:0: def CodexPaper5.ReesCoreCompat.mul.{u_1} : {H : Type u_1} →
+  (H → H → Option (ZMod 2)) →
+    CodexPaper5.ReesCoreCompat.Elt H → CodexPaper5.ReesCoreCompat.Elt H → CodexPaper5.ReesCoreCompat.Elt H :=
+fun {H} P x x_1 =>
+  match x, x_1 with
+  | none, x => none
+  | some val, none => none
+  | some (i, a, l), some (j, b, m) => Option.map (fun p => (i, a + p + b, m)) (P l j)
+info: Research/Backfill/Paper5/Proof/ReesCoreCompat.lean:322:0: def CodexPaper5.ReesCoreCompat.fC.{u_1} : {H : Type u_1} →
+  (H → H → H) → H ≃ H → (H → ZMod 2) → CodexPaper5.ReesCoreCompat.Elt H → CodexPaper5.ReesCoreCompat.Elt H :=
+fun {H} L ρ c x =>
+  match x with
+  | none => none
+  | some (i, a, l) => if a = c l then some (l, 1 + c l, L i l) else some (ρ l, c (ρ l), L i (ρ l))
+info: Research/Backfill/Paper5/Proof/ReesCoreCompat.lean:323:0: def CodexPaper5.ReesCoreCompat.fB.{u_1} : {H : Type u_1} →
+  (H → H → H) → H ≃ H → (H → ZMod 2) → CodexPaper5.ReesCoreCompat.Elt H → CodexPaper5.ReesCoreCompat.Elt H :=
+fun {H} L δ t x =>
+  match x with
+  | none => none
+  | some (i, a, l) => if a = 1 + t (L i l) then some (l, 1, L i l) else some (l, 0, δ (L i l))
+info: Research/Backfill/Paper5/Proof/ReesCoreCompat.lean:324:0: def CodexPaper5.ReesCoreCompat.IsCompleteMapping.{u_2} : {S : Type u_2} → (S → S → S) → (S → S) → Prop :=
+fun {S} op α => Function.Bijective α ∧ Function.Bijective fun x => op x (α x)
+ℹ [8931/8992] Replayed Research.Backfill.Paper5.Proof.ReesEven
+info: Research/Backfill/Paper5/Proof/ReesEven.lean:89:0: 'CodexPaper5.ReesEven.fB_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/ReesEven.lean:90:0: 'CodexPaper5.ReesEven.exists_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/ReesEven.lean:91:0: 'CodexPaper5.ReesEven.exists_latin' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/ReesEven.lean:92:0: 'CodexPaper5.check_Lemma43' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8932/8992] Replayed Research.Backfill.Paper5.Proof.CyclePotential
+info: Research/Backfill/Paper5/Proof/CyclePotential.lean:125:0: 'CodexPaper5.CyclePotential.base_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CyclePotential.lean:126:0: 'CodexPaper5.CyclePotential.coordinate_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CyclePotential.lean:127:0: 'CodexPaper5.CyclePotential.coordinate_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CyclePotential.lean:128:0: 'CodexPaper5.CyclePotential.coordinate_apply_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CyclePotential.lean:129:0: 'CodexPaper5.CyclePotential.coordinate_apply_of_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CyclePotential.lean:130:0: 'CodexPaper5.CyclePotential.potential_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CyclePotential.lean:131:0: 'CodexPaper5.CyclePotential.exists_potential' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8933/8992] Replayed Research.Backfill.Paper5.Proof.ReesCycle
+info: Research/Backfill/Paper5/Proof/ReesCycle.lean:75:0: 'CodexPaper5.ReesCycle.edgeWeight_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/ReesCycle.lean:76:0: 'CodexPaper5.ReesCycle.exists_coefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/ReesCycle.lean:77:0: 'CodexPaper5.ReesCycle.sign_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/ReesCycle.lean:78:0: 'CodexPaper5.ReesCycle.fC_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/ReesCycle.lean:79:0: 'CodexPaper5.check_Lemma44' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8934/8992] Replayed Research.Backfill.Paper5.Proof.CMTransport
+info: Research/Backfill/Paper5/Proof/CMTransport.lean:40:0: 'CodexPaper5.CMTransport.transport_complete' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CMTransport.lean:41:0: 'CodexPaper5.CMTransport.hasCM_iff' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CMTransport.lean:42:0: 'CodexPaper5.CMTransport.hasCM_opposite' depends on axioms: [propext, Quot.sound]
+ℹ [8935/8992] Replayed Research.Backfill.Paper5.Proof.CMTransversal
+info: Research/Backfill/Paper5/Proof/CMTransversal.lean:151:0: 'CodexPaper5.CMTransversal.cross_eq' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CMTransversal.lean:152:0: 'CodexPaper5.CMTransversal.leftPart_injective' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CMTransversal.lean:153:0: 'CodexPaper5.CMTransversal.rightIndex_injective' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CMTransversal.lean:154:0: 'CodexPaper5.CMTransversal.liftMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CMTransversal.lean:155:0: 'CodexPaper5.CMTransversal.product_liftMap_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CMTransversal.lean:156:0: 'CodexPaper5.CMTransversal.product_liftMap_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/CMTransversal.lean:157:0: 'CodexPaper5.CMTransversal.hasCM_of_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8936/8992] Replayed Research.Backfill.Paper5.Proof.SymmetricStep
+info: Research/Backfill/Paper5/Proof/SymmetricStep.lean:163:0: 'CodexPaper5.SymmetricStep.mem_optionSubgroup_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricStep.lean:164:0: 'CodexPaper5.SymmetricStep.leftEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricStep.lean:165:0: 'CodexPaper5.SymmetricStep.rightEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricStep.lean:166:0: 'CodexPaper5.SymmetricStep.rotate_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricStep.lean:167:0: 'CodexPaper5.SymmetricStep.reps_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricStep.lean:168:0: 'CodexPaper5.SymmetricStep.rep_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricStep.lean:169:0: 'CodexPaper5.SymmetricStep.hasCM_option' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricStep.lean:170:0: 'CodexPaper5.SymmetricStep.hasCM_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8937/8992] Replayed Research.Backfill.Paper5.Proof.SymmetricSmall
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:223:0: 'CodexPaper5.SymmetricSmall.hasCM_subsingleton' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:224:0: 'CodexPaper5.SymmetricSmall.sign_sum_eq_zero_of_cm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:225:0: 'CodexPaper5.SymmetricSmall.sign_sum_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:226:0: 'CodexPaper5.SymmetricSmall.sign_sum_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:227:0: 'CodexPaper5.SymmetricSmall.s4_enum_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:228:0: 'CodexPaper5.SymmetricSmall.s4_product_bridge' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:229:0: 'CodexPaper5.SymmetricSmall.s4Mapping_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:230:0: 'CodexPaper5.SymmetricSmall.perm_zero_hasCM' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:231:0: 'CodexPaper5.SymmetricSmall.perm_one_hasCM' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:232:0: 'CodexPaper5.SymmetricSmall.perm_two_noCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:233:0: 'CodexPaper5.SymmetricSmall.perm_three_noCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:234:0: 'CodexPaper5.SymmetricSmall.perm_four_hasCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:235:0: 'CodexPaper5.SymmetricSmall.sym_zero_hasCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:236:0: 'CodexPaper5.SymmetricSmall.sym_one_hasCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:237:0: 'CodexPaper5.SymmetricSmall.sym_two_noCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:238:0: 'CodexPaper5.SymmetricSmall.sym_three_noCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricSmall.lean:239:0: 'CodexPaper5.SymmetricSmall.sym_four_hasCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8938/8992] Replayed Research.Backfill.Paper5.Proof.SymmetricClassification
+info: Research/Backfill/Paper5/Proof/SymmetricClassification.lean:48:0: 'CodexPaper5.perm_hasCM_of_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricClassification.lean:49:0: 'CodexPaper5.check_SymCMPerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/SymmetricClassification.lean:50:0: 'CodexPaper5.check_SymCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8939/8992] Replayed Research.Backfill.Paper5.Proof.HalfDiagonal
+info: Research/Backfill/Paper5/Proof/HalfDiagonal.lean:124:0: 'CodexPaper5.HalfDiagonal.pos_orderIsoOfFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfDiagonal.lean:125:0: 'CodexPaper5.HalfDiagonal.pos_orderIsoOfFin_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfDiagonal.lean:126:0: 'CodexPaper5.HalfDiagonal.exists_mem_pos_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfDiagonal.lean:127:0: 'CodexPaper5.HalfDiagonal.gamma_not_adj_of_same_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfDiagonal.lean:128:0: 'CodexPaper5.HalfDiagonal.eq_of_gamma_reachable_same_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfDiagonal.lean:129:0: 'CodexPaper5.HalfDiagonal.compat_of_same_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfDiagonal.lean:130:0: 'CodexPaper5.HalfDiagonal.repP_one_of_same_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfDiagonal.lean:131:0: 'CodexPaper5.HalfDiagonal.repP_eq_one_of_same_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfDiagonal.lean:132:0: 'CodexPaper5.HalfDiagonal.pSand_eq_one_of_same_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfDiagonal.lean:133:0: 'CodexPaper5.HalfDiagonal.check_Prop31d' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8940/8992] Replayed Research.Backfill.Paper5.Proof.DiagramExtraction
+info: Research/Backfill/Paper5/Proof/DiagramExtraction.lean:230:0: 'CodexPaper5.DiagramExtraction.isPB_of_mem_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramExtraction.lean:231:0: 'CodexPaper5.DiagramExtraction.throughEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramExtraction.lean:232:0: 'CodexPaper5.DiagramExtraction.top_bot_free_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramExtraction.lean:233:0: 'CodexPaper5.DiagramExtraction.topHalf_mem_hr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramExtraction.lean:234:0: 'CodexPaper5.DiagramExtraction.botHalf_mem_hr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramExtraction.lean:235:0: 'CodexPaper5.DiagramExtraction.repG_extractedSym' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramExtraction.lean:236:0: 'CodexPaper5.DiagramExtraction.exists_repG_of_mem_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramExtraction.lean:237:0: 'CodexPaper5.DiagramExtraction.repG_unique_of_mem_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramExtraction.lean:238:0: 'CodexPaper5.DiagramExtraction.repG_gCoord_of_mem_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramExtraction.lean:239:0: 'CodexPaper5.DiagramExtraction.gCoord_eq_of_repG' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8941/8992] Replayed Research.Backfill.Paper5.Proof.DiagramCoordinates
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:288:0: 'CodexPaper5.DiagramCoordinates.glue_isPB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:289:0: 'CodexPaper5.DiagramCoordinates.topHalf_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:290:0: 'CodexPaper5.DiagramCoordinates.botHalf_glue' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:291:0: 'CodexPaper5.DiagramCoordinates.glue_mem_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:292:0: 'CodexPaper5.DiagramCoordinates.assemble_repG' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:293:0: 'CodexPaper5.DiagramCoordinates.repG_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:294:0: 'CodexPaper5.DiagramCoordinates.assemble_gCoord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:295:0: 'CodexPaper5.DiagramCoordinates.eq_of_pos_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:296:0: 'CodexPaper5.DiagramCoordinates.eq_of_top_action_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:297:0: 'CodexPaper5.DiagramCoordinates.assemble_of_mem_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCoordinates.lean:298:0: 'CodexPaper5.DiagramCoordinates.check_Prop31a' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8942/8992] Replayed Research.Backfill.Paper5.Proof.InvolutionEndpoints
+info: Research/Backfill/Paper5/Proof/InvolutionEndpoints.lean:154:0: 'CodexPaper5.InvolutionEndpoints.alpha_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpoints.lean:155:0: 'CodexPaper5.InvolutionEndpoints.beta_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpoints.lean:156:0: 'CodexPaper5.InvolutionEndpoints.adj_cases' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpoints.lean:157:0: 'CodexPaper5.InvolutionEndpoints.sameCycle_of_reachable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpoints.lean:158:0: 'CodexPaper5.InvolutionEndpoints.odd_return_of_beta_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpoints.lean:159:0: 'CodexPaper5.InvolutionEndpoints.difference_return' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpoints.lean:160:0: 'CodexPaper5.InvolutionEndpoints.endpoints_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8943/8992] Replayed Research.Backfill.Paper5.Proof.GammaCompatibility
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:195:0: 'CodexPaper5.GammaCompatibility.gammaGraph_eq_movingGraph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:196:0: 'CodexPaper5.GammaCompatibility.gammaGraph_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:197:0: 'CodexPaper5.GammaCompatibility.endpoint_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:198:0: 'CodexPaper5.GammaCompatibility.matchMap_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:199:0: 'CodexPaper5.GammaCompatibility.compat_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:200:0: 'CodexPaper5.GammaCompatibility.repP_matchingSym' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:201:0: 'CodexPaper5.GammaCompatibility.exists_repP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:202:0: 'CodexPaper5.GammaCompatibility.repP_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:203:0: 'CodexPaper5.GammaCompatibility.repP_pSand' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:204:0: 'CodexPaper5.GammaCompatibility.repP_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:205:0: 'CodexPaper5.GammaCompatibility.pSand_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GammaCompatibility.lean:206:0: 'CodexPaper5.GammaCompatibility.check_Prop31c' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8944/8992] Replayed Research.Backfill.Paper5.Proof.InvolutionEndpointCount
+info: Research/Backfill/Paper5/Proof/InvolutionEndpointCount.lean:229:0: 'CodexPaper5.InvolutionEndpointCount.movingGraph_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpointCount.lean:230:0: 'CodexPaper5.InvolutionEndpointCount.reachable_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpointCount.lean:231:0: 'CodexPaper5.InvolutionEndpointCount.reachable_of_sameCycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpointCount.lean:232:0: 'CodexPaper5.InvolutionEndpointCount.period_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpointCount.lean:233:0: 'CodexPaper5.InvolutionEndpointCount.exists_bounded_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpointCount.lean:234:0: 'CodexPaper5.InvolutionEndpointCount.even_return_of_alpha_fixed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpointCount.lean:235:0: 'CodexPaper5.InvolutionEndpointCount.endpoint_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpointCount.lean:236:0: 'CodexPaper5.InvolutionEndpointCount.endpoints_at_most_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpointCount.lean:237:0: 'CodexPaper5.InvolutionEndpointCount.negative_power_eq_of_return' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionEndpointCount.lean:238:0: 'CodexPaper5.InvolutionEndpointCount.exists_other_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8945/8992] Replayed Research.Backfill.Paper5.Proof.StackGeometry
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:222:0: 'CodexPaper5.StackGeometry.upper_injective' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:223:0: 'CodexPaper5.StackGeometry.lower_injective' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:224:0: 'CodexPaper5.StackGeometry.outer_injective' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:225:0: 'CodexPaper5.StackGeometry.upperMap_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:226:0: 'CodexPaper5.StackGeometry.lowerMap_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:227:0: 'CodexPaper5.StackGeometry.stackEdge_iff_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:228:0: 'CodexPaper5.StackGeometry.stackGraph_eq_movingGraph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:229:0: 'CodexPaper5.StackGeometry.outer_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:230:0: 'CodexPaper5.StackGeometry.outer_partner_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:231:0: 'CodexPaper5.StackGeometry.fixed_iff_outer_of_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:232:0: 'CodexPaper5.StackGeometry.no_common_fixed_of_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGeometry.lean:233:0: 'CodexPaper5.StackGeometry.exists_outer_partner_of_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8946/8992] Replayed Research.Backfill.Paper5.Proof.DiagramProduct
+info: Research/Backfill/Paper5/Proof/DiagramProduct.lean:97:0: 'CodexPaper5.DiagramProduct.mem_ptList' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramProduct.lean:98:0: 'CodexPaper5.DiagramProduct.dmul_eq_self_of_no_partner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramProduct.lean:99:0: 'CodexPaper5.DiagramProduct.dmul_eq_of_partner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramProduct.lean:100:0: 'CodexPaper5.DiagramProduct.dmul_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramProduct.lean:101:0: 'CodexPaper5.DiagramProduct.dmul_isPB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramProduct.lean:102:0: 'CodexPaper5.DiagramProduct.dmul_mem_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8947/8992] Replayed Research.Backfill.Paper5.Proof.DiagramUnits
+info: Research/Backfill/Paper5/Proof/DiagramUnits.lean:217:0: 'CodexPaper5.DiagramUnits.projection_of_reachable' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/DiagramUnits.lean:218:0: 'CodexPaper5.DiagramUnits.reachable_id_left_iff' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnits.lean:219:0: 'CodexPaper5.DiagramUnits.reachable_id_right_iff' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnits.lean:220:0: 'CodexPaper5.DiagramUnits.dmul_id_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnits.lean:221:0: 'CodexPaper5.DiagramUnits.dmul_id_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnits.lean:222:0: 'CodexPaper5.DiagramUnits.idD_mem_B' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/DiagramUnits.lean:223:0: 'CodexPaper5.DiagramUnits.idD_mem_PB' depends on axioms: [propext]
+ℹ [8948/8992] Replayed Research.Backfill.Paper5.Proof.DiagramModel
+info: Research/Backfill/Paper5/Proof/DiagramModel.lean:20:0: 'CodexPaper5.DiagramModel.check_ModelMonoid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8949/8992] Replayed Research.Backfill.Paper5.Proof.DiagramRank
+info: Research/Backfill/Paper5/Proof/DiagramRank.lean:134:0: 'CodexPaper5.DiagramRank.reachable_eq_of_common_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRank.lean:135:0: 'CodexPaper5.DiagramRank.dmul_inl_eq_of_inl' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRank.lean:136:0: 'CodexPaper5.DiagramRank.dmul_inr_eq_of_inr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRank.lean:137:0: 'CodexPaper5.DiagramRank.topFree_dmul_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRank.lean:138:0: 'CodexPaper5.DiagramRank.botFree_dmul_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRank.lean:139:0: 'CodexPaper5.DiagramRank.rank_dmul_le_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRank.lean:140:0: 'CodexPaper5.DiagramRank.rank_dmul_le_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRank.lean:141:0: 'CodexPaper5.DiagramRank.check_RankMul' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8950/8992] Replayed Research.Backfill.Paper5.Proof.StackGammaProjection
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:270:0: 'CodexPaper5.StackGammaProjection.collapse_upper_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:271:0: 'CodexPaper5.StackGammaProjection.collapse_lower_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:272:0: 'CodexPaper5.StackGammaProjection.collapse_stackEdge' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:273:0: 'CodexPaper5.StackGammaProjection.collapse_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:274:0: 'CodexPaper5.StackGammaProjection.collapse_reachable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:275:0: 'CodexPaper5.StackGammaProjection.middle_reachable_of_gammaEdge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:276:0: 'CodexPaper5.StackGammaProjection.middle_reachable_of_gammaAdj' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:277:0: 'CodexPaper5.StackGammaProjection.middle_reachable_of_gamma' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:278:0: 'CodexPaper5.StackGammaProjection.top_through_reachable' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:279:0: 'CodexPaper5.StackGammaProjection.bot_through_reachable' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:280:0: 'CodexPaper5.StackGammaProjection.outer_through_reachable_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/StackGammaProjection.lean:281:0: 'CodexPaper5.StackGammaProjection.dmul_through_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8951/8992] Replayed Research.Backfill.Paper5.Proof.DiagramMultiplication
+info: Research/Backfill/Paper5/Proof/DiagramMultiplication.lean:161:0: 'CodexPaper5.DiagramMultiplication.reverse_edge' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/DiagramMultiplication.lean:162:0: 'CodexPaper5.DiagramMultiplication.topFree_dmul_eq_of_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramMultiplication.lean:163:0: 'CodexPaper5.DiagramMultiplication.rank_dmul_eq_of_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramMultiplication.lean:164:0: 'CodexPaper5.DiagramMultiplication.rank_dmul_eq_iff_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramMultiplication.lean:165:0: 'CodexPaper5.DiagramMultiplication.botFree_dmul_eq_of_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramMultiplication.lean:166:0: 'CodexPaper5.DiagramMultiplication.topHalf_dmul_of_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramMultiplication.lean:167:0: 'CodexPaper5.DiagramMultiplication.botHalf_dmul_of_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramMultiplication.lean:168:0: 'CodexPaper5.DiagramMultiplication.dmul_mem_Jr_of_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8952/8992] Replayed Research.Backfill.Paper5.Proof.DiagramProductCoordinates
+info: Research/Backfill/Paper5/Proof/DiagramProductCoordinates.lean:87:0: 'CodexPaper5.DiagramProductCoordinates.repG_dmul_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramProductCoordinates.lean:88:0: 'CodexPaper5.DiagramProductCoordinates.gCoord_dmul_of_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramProductCoordinates.lean:89:0: 'CodexPaper5.DiagramProductCoordinates.check_Prop31b' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8953/8992] Replayed Research.Backfill.Paper5.Proof.DiagramPrincipalFactor
+info: Research/Backfill/Paper5/Proof/DiagramPrincipalFactor.lean:163:0: 'CodexPaper5.DiagramPrincipalFactor.coordTuple_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramPrincipalFactor.lean:164:0: 'CodexPaper5.DiagramPrincipalFactor.principalEquiv_none' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramPrincipalFactor.lean:165:0: 'CodexPaper5.DiagramPrincipalFactor.principalEquiv_some' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramPrincipalFactor.lean:166:0: 'CodexPaper5.DiagramPrincipalFactor.dmul_mem_Jr_iff_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramPrincipalFactor.lean:167:0: 'CodexPaper5.DiagramPrincipalFactor.sandSub_eq_some_of_compat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramPrincipalFactor.lean:168:0: 'CodexPaper5.DiagramPrincipalFactor.sandSub_eq_none_of_not_compat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramPrincipalFactor.lean:169:0: 'CodexPaper5.DiagramPrincipalFactor.coordTuple_dmul_of_compat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramPrincipalFactor.lean:170:0: 'CodexPaper5.DiagramPrincipalFactor.principalEquiv_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramPrincipalFactor.lean:171:0: 'CodexPaper5.DiagramPrincipalFactor.principalEquiv_coords' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramPrincipalFactor.lean:172:0: 'CodexPaper5.DiagramPrincipalFactor.check_Prop31iso' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8954/8992] Replayed Research.Backfill.Paper5.Proof.DiagramIdempotent
+info: Research/Backfill/Paper5/Proof/DiagramIdempotent.lean:120:0: 'CodexPaper5.DiagramIdempotent.eDiag_eq_glue_refl' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramIdempotent.lean:121:0: 'CodexPaper5.DiagramIdempotent.eDiag_mem_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramIdempotent.lean:122:0: 'CodexPaper5.DiagramIdempotent.topHalf_eDiag' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramIdempotent.lean:123:0: 'CodexPaper5.DiagramIdempotent.botHalf_eDiag' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramIdempotent.lean:124:0: 'CodexPaper5.DiagramIdempotent.repG_eDiag_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramIdempotent.lean:125:0: 'CodexPaper5.DiagramIdempotent.gCoord_eDiag' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramIdempotent.lean:126:0: 'CodexPaper5.DiagramIdempotent.sameHalf_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramIdempotent.lean:127:0: 'CodexPaper5.DiagramIdempotent.eq_of_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramIdempotent.lean:128:0: 'CodexPaper5.DiagramIdempotent.eDiag_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramIdempotent.lean:129:0: 'CodexPaper5.DiagramIdempotent.check_IdempotentE' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8955/8992] Replayed Research.Backfill.Paper5.Proof.DiagramJClasses
+info: Research/Backfill/Paper5/Proof/DiagramJClasses.lean:122:0: 'CodexPaper5.DiagramJClasses.isPB_of_mem_Dset' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramJClasses.lean:123:0: 'CodexPaper5.DiagramJClasses.rank_sandwich_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramJClasses.lean:124:0: 'CodexPaper5.DiagramJClasses.rank_eq_of_JRel' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramJClasses.lean:125:0: 'CodexPaper5.DiagramJClasses.assemble_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramJClasses.lean:126:0: 'CodexPaper5.DiagramJClasses.mul_of_matching_halves' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramJClasses.lean:127:0: 'CodexPaper5.DiagramJClasses.exists_sandwich_factors' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramJClasses.lean:128:0: 'CodexPaper5.DiagramJClasses.JRel_of_rank_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramJClasses.lean:129:0: 'CodexPaper5.DiagramJClasses.check_JClassesAreRankClasses' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8956/8992] Replayed Research.Backfill.Paper5.Proof.DiagramUnitGroup
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:183:0: 'CodexPaper5.DiagramUnitGroup.fullHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:184:0: 'CodexPaper5.DiagramUnitGroup.fullHalf_mem_hr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:185:0: 'CodexPaper5.DiagramUnitGroup.eq_fullHalf_of_mem_hr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:186:0: 'CodexPaper5.DiagramUnitGroup.topHalf_eq_full_of_mem_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:187:0: 'CodexPaper5.DiagramUnitGroup.botHalf_eq_full_of_mem_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:188:0: 'CodexPaper5.DiagramUnitGroup.eDiag_fullHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:189:0: 'CodexPaper5.DiagramUnitGroup.idD_mem_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:190:0: 'CodexPaper5.DiagramUnitGroup.gCoord_idD' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:191:0: 'CodexPaper5.DiagramUnitGroup.rank_idD' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:192:0: 'CodexPaper5.DiagramUnitGroup.rank_le_n' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:193:0: 'CodexPaper5.DiagramUnitGroup.unitDiagram' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:194:0: 'CodexPaper5.DiagramUnitGroup.topHalf_unitDiagram' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:195:0: 'CodexPaper5.DiagramUnitGroup.botHalf_unitDiagram' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:196:0: 'CodexPaper5.DiagramUnitGroup.gCoord_unitDiagram' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:197:0: 'CodexPaper5.DiagramUnitGroup.unitDiagram_gCoord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:198:0: 'CodexPaper5.DiagramUnitGroup.unitEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:199:0: 'CodexPaper5.DiagramUnitGroup.unitDiagram_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:200:0: 'CodexPaper5.DiagramUnitGroup.unitDiagram_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:201:0: 'CodexPaper5.DiagramUnitGroup.rank_eq_of_two_sided_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:202:0: 'CodexPaper5.DiagramUnitGroup.two_sided_inverse_of_rank_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramUnitGroup.lean:203:0: 'CodexPaper5.DiagramUnitGroup.check_UnitsAreSym' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8957/8992] Replayed Research.Backfill.Paper5.Proof.DiagramRanksOccurring
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:178:0: 'CodexPaper5.DiagramRanksOccurring.rankOccurs_iff_exists_half' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:179:0: 'CodexPaper5.DiagramRanksOccurring.half_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:180:0: 'CodexPaper5.DiagramRanksOccurring.halfPerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:181:0: 'CodexPaper5.DiagramRanksOccurring.halfPerm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:182:0: 'CodexPaper5.DiagramRanksOccurring.halfPerm_support_eq_compl' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:183:0: 'CodexPaper5.DiagramRanksOccurring.two_dvd_complement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:184:0: 'CodexPaper5.DiagramRanksOccurring.brauer_half_parity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:185:0: 'CodexPaper5.DiagramRanksOccurring.exists_fixedPointFree_involution' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:186:0: 'CodexPaper5.DiagramRanksOccurring.extendOnComplement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:187:0: 'CodexPaper5.DiagramRanksOccurring.extendOnComplement_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:188:0: 'CodexPaper5.DiagramRanksOccurring.extendOnComplement_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:189:0: 'CodexPaper5.DiagramRanksOccurring.extendOnComplement_involutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:190:0: 'CodexPaper5.DiagramRanksOccurring.extendOnComplement_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:191:0: 'CodexPaper5.DiagramRanksOccurring.exists_pb_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:192:0: 'CodexPaper5.DiagramRanksOccurring.exists_brauer_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:193:0: 'CodexPaper5.DiagramRanksOccurring.rankOccurs_B_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:194:0: 'CodexPaper5.DiagramRanksOccurring.rankOccurs_PB_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramRanksOccurring.lean:195:0: 'CodexPaper5.DiagramRanksOccurring.check_RanksOccurring' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8958/8992] Replayed Research.Backfill.Paper5.Proof.InvolutionCounting
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:299:0: 'CodexPaper5.InvolutionCounting.Inv' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:300:0: 'CodexPaper5.InvolutionCounting.Pairing' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:301:0: 'CodexPaper5.InvolutionCounting.conjugate' depends on axioms: [Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:302:0: 'CodexPaper5.InvolutionCounting.conjugate_involutive' depends on axioms: [Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:303:0: 'CodexPaper5.InvolutionCounting.conjugate_ne' depends on axioms: [Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:304:0: 'CodexPaper5.InvolutionCounting.invCongr' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:305:0: 'CodexPaper5.InvolutionCounting.pairingCongr' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:306:0: 'CodexPaper5.InvolutionCounting.invToPerm' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:307:0: 'CodexPaper5.InvolutionCounting.invToPerm_mul_self' depends on axioms: [Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:308:0: 'CodexPaper5.InvolutionCounting.invPermEquiv' depends on axioms: [Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:309:0: 'CodexPaper5.InvolutionCounting.card_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:310:0: 'CodexPaper5.InvolutionCounting.Partner' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:311:0: 'CodexPaper5.InvolutionCounting.Rest' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:312:0: 'CodexPaper5.InvolutionCounting.PartnerData' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:313:0: 'CodexPaper5.InvolutionCounting.restrictFun' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:314:0: 'CodexPaper5.InvolutionCounting.restrictPairing' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:315:0: 'CodexPaper5.InvolutionCounting.splitPairing' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:316:0: 'CodexPaper5.InvolutionCounting.joinFun' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:317:0: 'CodexPaper5.InvolutionCounting.joinFun_at_a' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:318:0: 'CodexPaper5.InvolutionCounting.joinFun_at_b' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:319:0: 'CodexPaper5.InvolutionCounting.joinFun_at_rest' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:320:0: 'CodexPaper5.InvolutionCounting.joinFun_involutive' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:321:0: 'CodexPaper5.InvolutionCounting.joinFun_ne' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:322:0: 'CodexPaper5.InvolutionCounting.joinPairing' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:323:0: 'CodexPaper5.InvolutionCounting.join_split' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:324:0: 'CodexPaper5.InvolutionCounting.joinPairing_injective' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:325:0: 'CodexPaper5.InvolutionCounting.split_join' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:326:0: 'CodexPaper5.InvolutionCounting.partnerEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:327:0: 'CodexPaper5.InvolutionCounting.card_partner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:328:0: 'CodexPaper5.InvolutionCounting.card_rest' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:329:0: 'CodexPaper5.InvolutionCounting.card_pairing_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:330:0: 'CodexPaper5.InvolutionCounting.card_pairing_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:331:0: 'CodexPaper5.InvolutionCounting.card_pairing_even_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:332:0: 'CodexPaper5.InvolutionCounting.odd_doubleFactorial_even_pred' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:333:0: 'CodexPaper5.InvolutionCounting.card_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/InvolutionCounting.lean:334:0: 'CodexPaper5.InvolutionCounting.odd_doubleFactorial_pred' depends on axioms: [propext, Quot.sound]
+ℹ [8959/8992] Replayed Research.Backfill.Paper5.Proof.HalfFibreCounting
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:157:0: 'CodexPaper5.HalfFibreCounting.Fibre' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:158:0: 'CodexPaper5.HalfFibreCounting.extend' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:159:0: 'CodexPaper5.HalfFibreCounting.extend_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:160:0: 'CodexPaper5.HalfFibreCounting.extend_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:161:0: 'CodexPaper5.HalfFibreCounting.extend_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:162:0: 'CodexPaper5.HalfFibreCounting.extend_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:163:0: 'CodexPaper5.HalfFibreCounting.fibre_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:164:0: 'CodexPaper5.HalfFibreCounting.fibre_maps_complement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:165:0: 'CodexPaper5.HalfFibreCounting.restrict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:166:0: 'CodexPaper5.HalfFibreCounting.extend_restrict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:167:0: 'CodexPaper5.HalfFibreCounting.fromInv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:168:0: 'CodexPaper5.HalfFibreCounting.invEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:169:0: 'CodexPaper5.HalfFibreCounting.restrictPairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:170:0: 'CodexPaper5.HalfFibreCounting.fromPairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:171:0: 'CodexPaper5.HalfFibreCounting.pairingEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:172:0: 'CodexPaper5.HalfFibreCounting.complement_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:173:0: 'CodexPaper5.HalfFibreCounting.card_fibre_PB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:174:0: 'CodexPaper5.HalfFibreCounting.even_complement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:175:0: 'CodexPaper5.HalfFibreCounting.card_fibre_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfFibreCounting.lean:176:0: 'CodexPaper5.HalfFibreCounting.check_FibreCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8960/8992] Replayed Research.Backfill.Paper5.Proof.HalfCounting
+info: Research/Backfill/Paper5/Proof/HalfCounting.lean:64:0: 'CodexPaper5.HalfCounting.FreeSets' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfCounting.lean:65:0: 'CodexPaper5.HalfCounting.halfSigmaEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfCounting.lean:66:0: 'CodexPaper5.HalfCounting.card_freeSets' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfCounting.lean:67:0: 'CodexPaper5.HalfCounting.ncard_Hr_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfCounting.lean:68:0: 'CodexPaper5.HalfCounting.ncard_Hr_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfCounting.lean:69:0: 'CodexPaper5.HalfCounting.ncard_Hr_PB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/HalfCounting.lean:70:0: 'CodexPaper5.HalfCounting.check_CountH' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8961/8992] Replayed Research.Backfill.Paper5.Proof.BrauerParity
+info: Research/Backfill/Paper5/Proof/BrauerParity.lean:70:0: 'CodexPaper5.BrauerParity.choose_two_mod_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerParity.lean:71:0: 'CodexPaper5.BrauerParity.choose_three_mod_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerParity.lean:72:0: 'CodexPaper5.BrauerParity.odd_choose_two_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerParity.lean:73:0: 'CodexPaper5.BrauerParity.odd_choose_three_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerParity.lean:74:0: 'CodexPaper5.BrauerParity.odd_ncard_iff_odd_choose' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerParity.lean:75:0: 'CodexPaper5.BrauerParity.odd_ncard_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerParity.lean:76:0: 'CodexPaper5.BrauerParity.odd_gap_and_choose' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerParity.lean:77:0: 'CodexPaper5.BrauerParity.check_Lemma51' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8962/8992] Replayed Research.Backfill.Paper5.Proof.PartialBrauerParity
+info: Research/Backfill/Paper5/Proof/PartialBrauerParity.lean:74:0: 'CodexPaper5.PartialBrauerParity.even_self_inverse_of_even_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerParity.lean:75:0: 'CodexPaper5.PartialBrauerParity.even_invCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerParity.lean:76:0: 'CodexPaper5.PartialBrauerParity.even_choose_mul_invCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerParity.lean:77:0: 'CodexPaper5.PartialBrauerParity.even_ncard_Hr_PB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerParity.lean:78:0: 'CodexPaper5.PartialBrauerParity.check_Lemma61' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8963/8992] Replayed Research.Backfill.Paper5.Proof.PartialBrauerThree
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:236:0: 'CodexPaper5.PartialBrauerThree.missingHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:237:0: 'CodexPaper5.PartialBrauerThree.missingHalf_isHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:238:0: 'CodexPaper5.PartialBrauerThree.missingSub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:239:0: 'CodexPaper5.PartialBrauerThree.complement_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:240:0: 'CodexPaper5.PartialBrauerThree.half_matching_eq_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:241:0: 'CodexPaper5.PartialBrauerThree.half_eq_missingHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:242:0: 'CodexPaper5.PartialBrauerThree.missingSub_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:243:0: 'CodexPaper5.PartialBrauerThree.missingSub_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:244:0: 'CodexPaper5.PartialBrauerThree.missingSub_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:245:0: 'CodexPaper5.PartialBrauerThree.indexEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:246:0: 'CodexPaper5.PartialBrauerThree.indexEquiv_missingSub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:247:0: 'CodexPaper5.PartialBrauerThree.missingSub_indexEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:248:0: 'CodexPaper5.PartialBrauerThree.indexEquiv_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:249:0: 'CodexPaper5.PartialBrauerThree.half_eq_of_free_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:250:0: 'CodexPaper5.PartialBrauerThree.indexEquiv_eq_iff_free_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:251:0: 'CodexPaper5.PartialBrauerThree.gammaEdge_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:252:0: 'CodexPaper5.PartialBrauerThree.gammaGraph_eq_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:253:0: 'CodexPaper5.PartialBrauerThree.compat_iff_free_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:254:0: 'CodexPaper5.PartialBrauerThree.compat_iff_index_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:255:0: 'CodexPaper5.PartialBrauerThree.sandSub_eq_delta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:256:0: 'CodexPaper5.PartialBrauerThree.rankOccurs' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:257:0: 'CodexPaper5.PartialBrauerThree.coordIndexEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:258:0: 'CodexPaper5.PartialBrauerThree.reesIndexEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:259:0: 'CodexPaper5.PartialBrauerThree.reesIndexEquiv_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:260:0: 'CodexPaper5.PartialBrauerThree.principalBrandtEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:261:0: 'CodexPaper5.PartialBrauerThree.principalBrandtEquiv_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PartialBrauerThree.lean:262:0: 'CodexPaper5.PartialBrauerThree.magmaIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8964/8992] Replayed Research.Backfill.Paper5.Proof.BrandtThreeObstruction
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:162:0: 'CodexPaper5.BrandtThreeObstruction.S' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:163:0: 'CodexPaper5.BrandtThreeObstruction.epsilon' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:164:0: 'CodexPaper5.BrandtThreeObstruction.symTwoFintype' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:165:0: 'CodexPaper5.BrandtThreeObstruction.card_sym_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:166:0: 'CodexPaper5.BrandtThreeObstruction.rep_two_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:167:0: 'CodexPaper5.BrandtThreeObstruction.sum_sgn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:168:0: 'CodexPaper5.BrandtThreeObstruction.sum_epsilon' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:169:0: 'CodexPaper5.BrandtThreeObstruction.alpha_zero' depends on axioms: [Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:170:0: 'CodexPaper5.BrandtThreeObstruction.alpha_ne_zero' depends on axioms: [Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:171:0: 'CodexPaper5.BrandtThreeObstruction.selected_ne_zero' depends on axioms: [Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:172:0: 'CodexPaper5.BrandtThreeObstruction.epsilon_selected_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:173:0: 'CodexPaper5.BrandtThreeObstruction.no_complete_mapping' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrandtThreeObstruction.lean:174:0: 'CodexPaper5.BrandtThreeObstruction.transport_complete_mapping' depends on axioms: [Quot.sound]
+ℹ [8965/8992] Replayed Research.Backfill.Paper5.Proof.Prop62
+info: Research/Backfill/Paper5/Proof/Prop62.lean:22:0: 'CodexPaper5.Prop62.check_Prop62' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8966/8992] Replayed Research.Backfill.Paper5.Proof.BrauerTriangleBasics
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:260:0: 'CodexPaper5.BrauerTriangleBasics.r0_even_step_bound' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:261:0: 'CodexPaper5.BrauerTriangleBasics.r0_of_lt' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:262:0: 'CodexPaper5.BrauerTriangleBasics.r0_val_of_tail_even' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:263:0: 'CodexPaper5.BrauerTriangleBasics.r0_val_of_tail_odd' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:264:0: 'CodexPaper5.BrauerTriangleBasics.r0_preserves_tail' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:265:0: 'CodexPaper5.BrauerTriangleBasics.r0_involutive' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:266:0: 'CodexPaper5.BrauerTriangleBasics.r0_ne_of_tail' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:267:0: 'CodexPaper5.BrauerTriangleBasics.triPartner_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:268:0: 'CodexPaper5.BrauerTriangleBasics.triPartner_le_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:269:0: 'CodexPaper5.BrauerTriangleBasics.triPartner_lt_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:270:0: 'CodexPaper5.BrauerTriangleBasics.triPartner_lt_n' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:271:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_free_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:272:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_match_zero_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:273:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_match_partner_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:274:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_match_other' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:275:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_fixed_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:276:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:277:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_ne_nonfree' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:278:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_free_two_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:279:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_free_two_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:280:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_free_two_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:281:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_free_three_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:282:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_free_three_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:283:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_free_three_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:284:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangleBasics.lean:285:0: 'CodexPaper5.BrauerTriangleBasics.triHalf_mem_hr' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8967/8992] Replayed Research.Backfill.Paper5.Proof.BrauerTriangle
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:229:0: 'CodexPaper5.BrauerTriangle.nextIndex' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:230:0: 'CodexPaper5.BrauerTriangle.freeLabel' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:231:0: 'CodexPaper5.BrauerTriangle.freeLabel_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:232:0: 'CodexPaper5.BrauerTriangle.freePoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:233:0: 'CodexPaper5.BrauerTriangle.freePoint_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:234:0: 'CodexPaper5.BrauerTriangle.pos_freePoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:235:0: 'CodexPaper5.BrauerTriangle.triPartner_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:236:0: 'CodexPaper5.BrauerTriangle.reachable_via_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:237:0: 'CodexPaper5.BrauerTriangle.compat_01' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:238:0: 'CodexPaper5.BrauerTriangle.compat_12' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:239:0: 'CodexPaper5.BrauerTriangle.compat_20' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:240:0: 'CodexPaper5.BrauerTriangle.compat_next' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:241:0: 'CodexPaper5.BrauerTriangle.expectedSand' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:242:0: 'CodexPaper5.BrauerTriangle.freePoint_reachable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:243:0: 'CodexPaper5.BrauerTriangle.pSand_next' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:244:0: 'CodexPaper5.BrauerTriangle.pSand_01' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:245:0: 'CodexPaper5.BrauerTriangle.pSand_12' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:246:0: 'CodexPaper5.BrauerTriangle.pSand_20' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:247:0: 'CodexPaper5.BrauerTriangle.triangle_sign' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerTriangle.lean:248:0: 'CodexPaper5.BrauerTriangle.check_Lemma52' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8968/8992] Replayed Research.Backfill.Paper5.Proof.BrauerTriangleProduct
+info: Research/Backfill/Paper5/Proof/BrauerTriangleProduct.lean:90:0: 'CodexPaper5.BrauerTriangleProduct.check_TriangleProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8969/8992] Replayed Research.Backfill.Paper5.Proof.BrauerJoinSplice
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:125:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:126:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching_on_A' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:127:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching_on_Z' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:128:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching_on_R' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:129:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching_outside' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:130:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:131:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching_ne_on_A' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:132:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching_ne_on_Z' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:133:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching_ne_on_R' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:134:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching_ne_of_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:135:0: 'CodexPaper5.BrauerJoinSplice.spliceMatching_fixed_of_disjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoinSplice.lean:136:0: 'CodexPaper5.BrauerJoinSplice.spliceHalf_mem_hr' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8970/8992] Replayed Research.Backfill.Paper5.Proof.BrauerJoin
+info: Research/Backfill/Paper5/Proof/BrauerJoin.lean:224:0: 'CodexPaper5.BrauerJoin.difference_card_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoin.lean:225:0: 'CodexPaper5.BrauerJoin.union_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoin.lean:226:0: 'CodexPaper5.BrauerJoin.complement_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoin.lean:227:0: 'CodexPaper5.BrauerJoin.bridge_card_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoin.lean:228:0: 'CodexPaper5.BrauerJoin.residual_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoin.lean:229:0: 'CodexPaper5.BrauerJoin.residual_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoin.lean:230:0: 'CodexPaper5.BrauerJoin.nonfree_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoin.lean:231:0: 'CodexPaper5.BrauerJoin.bridge_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoin.lean:232:0: 'CodexPaper5.BrauerJoin.exists_join_halves' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerJoin.lean:233:0: 'CodexPaper5.BrauerJoin.check_Lemma53' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8971/8992] Replayed Research.Backfill.Paper5.Proof.BrauerMatchingLabels
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:258:0: 'CodexPaper5.BrauerMatchingLabels.RemainingLabels' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:259:0: 'CodexPaper5.BrauerMatchingLabels.triPartner_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:260:0: 'CodexPaper5.BrauerMatchingLabels.triHalf_free_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:261:0: 'CodexPaper5.BrauerMatchingLabels.triLabel' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:262:0: 'CodexPaper5.BrauerMatchingLabels.triLabel_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:263:0: 'CodexPaper5.BrauerMatchingLabels.specialLabels' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:264:0: 'CodexPaper5.BrauerMatchingLabels.specialLabels_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:265:0: 'CodexPaper5.BrauerMatchingLabels.mem_specialLabels' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:266:0: 'CodexPaper5.BrauerMatchingLabels.three_le_choose' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:267:0: 'CodexPaper5.BrauerMatchingLabels.card_remainingLabels' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:268:0: 'CodexPaper5.BrauerMatchingLabels.even_remainingLabels' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:269:0: 'CodexPaper5.BrauerMatchingLabels.difference_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:270:0: 'CodexPaper5.BrauerMatchingLabels.difference_bound_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:271:0: 'CodexPaper5.BrauerMatchingLabels.difference_bound_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:272:0: 'CodexPaper5.BrauerMatchingLabels.tableFree' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:273:0: 'CodexPaper5.BrauerMatchingLabels.tableLookup' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:274:0: 'CodexPaper5.BrauerMatchingLabels.tableFree_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:275:0: 'CodexPaper5.BrauerMatchingLabels.tableFree_ne_tri' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:276:0: 'CodexPaper5.BrauerMatchingLabels.tableLookup_tableFree' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:277:0: 'CodexPaper5.BrauerMatchingLabels.tableFree_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:278:0: 'CodexPaper5.BrauerMatchingLabels.tableLabel' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:279:0: 'CodexPaper5.BrauerMatchingLabels.tableLabel_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:280:0: 'CodexPaper5.BrauerMatchingLabels.card_remainingLabels_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:281:0: 'CodexPaper5.BrauerMatchingLabels.tableLabel_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:282:0: 'CodexPaper5.BrauerMatchingLabels.smallLabelEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:283:0: 'CodexPaper5.BrauerMatchingLabels.smallLabelEquiv_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:284:0: 'CodexPaper5.BrauerMatchingLabels.tableFree_pair_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingLabels.lean:285:0: 'CodexPaper5.BrauerMatchingLabels.exists_label_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8972/8992] Replayed Research.Backfill.Paper5.Proof.BrauerMatchingTransport
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:127:0: 'CodexPaper5.BrauerMatchingTransport.Nonspecial' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:128:0: 'CodexPaper5.BrauerMatchingTransport.Remainder' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:129:0: 'CodexPaper5.BrauerMatchingTransport.Allowed' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:130:0: 'CodexPaper5.BrauerMatchingTransport.splitForward' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:131:0: 'CodexPaper5.BrauerMatchingTransport.splitBackward' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:132:0: 'CodexPaper5.BrauerMatchingTransport.splitBackward_forward' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:133:0: 'CodexPaper5.BrauerMatchingTransport.splitForward_backward' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:134:0: 'CodexPaper5.BrauerMatchingTransport.splitEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:135:0: 'CodexPaper5.BrauerMatchingTransport.sumSwap' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:136:0: 'CodexPaper5.BrauerMatchingTransport.sumSwap_involutive' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:137:0: 'CodexPaper5.BrauerMatchingTransport.sumSwap_ne' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingTransport.lean:138:0: 'CodexPaper5.BrauerMatchingTransport.exists_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8973/8992] Replayed Research.Backfill.Paper5.Proof.BrauerMatchingFibres
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:226:0: 'CodexPaper5.BrauerMatchingFibres.Fib' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:227:0: 'CodexPaper5.BrauerMatchingFibres.special' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:228:0: 'CodexPaper5.BrauerMatchingFibres.targetSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:229:0: 'CodexPaper5.BrauerMatchingFibres.Target' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:230:0: 'CodexPaper5.BrauerMatchingFibres.fibreTransport' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:231:0: 'CodexPaper5.BrauerMatchingFibres.remainingEquivNonspecial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:232:0: 'CodexPaper5.BrauerMatchingFibres.exists_pair_representatives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:233:0: 'CodexPaper5.BrauerMatchingFibres.representative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:234:0: 'CodexPaper5.BrauerMatchingFibres.representative_special' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:235:0: 'CodexPaper5.BrauerMatchingFibres.representative_pair_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:236:0: 'CodexPaper5.BrauerMatchingFibres.exists_representatives' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:237:0: 'CodexPaper5.BrauerMatchingFibres.fibre_card_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:238:0: 'CodexPaper5.BrauerMatchingFibres.exists_fibre_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:239:0: 'CodexPaper5.BrauerMatchingFibres.not_tri_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:240:0: 'CodexPaper5.BrauerMatchingFibres.target_mem_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:241:0: 'CodexPaper5.BrauerMatchingFibres.sigma_allowed_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatchingFibres.lean:242:0: 'CodexPaper5.BrauerMatchingFibres.targetEquivAllowed' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8974/8992] Replayed Research.Backfill.Paper5.Proof.BrauerMatching
+info: Research/Backfill/Paper5/Proof/BrauerMatching.lean:133:0: 'CodexPaper5.BrauerMatching.pairFlip' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/BrauerMatching.lean:134:0: 'CodexPaper5.BrauerMatching.pairFlip_involutive' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/BrauerMatching.lean:135:0: 'CodexPaper5.BrauerMatching.pairFlip_ne' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/BrauerMatching.lean:136:0: 'CodexPaper5.BrauerMatching.exists_target_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatching.lean:137:0: 'CodexPaper5.BrauerMatching.extend_target_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerMatching.lean:138:0: 'CodexPaper5.BrauerMatching.check_Lemma54' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8975/8992] Replayed Research.Backfill.Paper5.Proof.PrincipalMapping
+info: Research/Backfill/Paper5/Proof/PrincipalMapping.lean:109:0: 'CodexPaper5.PrincipalMapping.jClass_eq_Jr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PrincipalMapping.lean:110:0: 'CodexPaper5.PrincipalMapping.proper_rank_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PrincipalMapping.lean:111:0: 'CodexPaper5.PrincipalMapping.halfSubtype_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PrincipalMapping.lean:112:0: 'CodexPaper5.PrincipalMapping.sandSub_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PrincipalMapping.lean:113:0: 'CodexPaper5.PrincipalMapping.inverse_preserves_operation' depends on axioms: [Quot.sound]
+info: Research/Backfill/Paper5/Proof/PrincipalMapping.lean:114:0: 'CodexPaper5.PrincipalMapping.exists_complete_mapping_iff' depends on axioms: [Quot.sound]
+info: Research/Backfill/Paper5/Proof/PrincipalMapping.lean:115:0: 'CodexPaper5.PrincipalMapping.principal_hasCM_iff_rees' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PrincipalMapping.lean:116:0: 'CodexPaper5.PrincipalMapping.principal_hasCM_of_group' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/PrincipalMapping.lean:117:0: 'CodexPaper5.PrincipalMapping.principal_hasCM_of_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8976/8992] Replayed Research.Backfill.Paper5.Proof.BrauerCyclePermutation
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:327:0: 'CodexPaper5.BrauerCyclePermutation.triSub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:328:0: 'CodexPaper5.BrauerCyclePermutation.remSub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:329:0: 'CodexPaper5.BrauerCyclePermutation.triHalf_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:330:0: 'CodexPaper5.BrauerCyclePermutation.triSub_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:331:0: 'CodexPaper5.BrauerCyclePermutation.splitForward' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:332:0: 'CodexPaper5.BrauerCyclePermutation.splitBackward' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:333:0: 'CodexPaper5.BrauerCyclePermutation.splitForward_tri' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:334:0: 'CodexPaper5.BrauerCyclePermutation.splitForward_rem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:335:0: 'CodexPaper5.BrauerCyclePermutation.split_left_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:336:0: 'CodexPaper5.BrauerCyclePermutation.split_right_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:337:0: 'CodexPaper5.BrauerCyclePermutation.splitEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:338:0: 'CodexPaper5.BrauerCyclePermutation.prevIndex' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:339:0: 'CodexPaper5.BrauerCyclePermutation.triangleCycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:340:0: 'CodexPaper5.BrauerCyclePermutation.nextIndex_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:341:0: 'CodexPaper5.BrauerCyclePermutation.nextIndex_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:342:0: 'CodexPaper5.BrauerCyclePermutation.pairPermutation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:343:0: 'CodexPaper5.BrauerCyclePermutation.cyclePermutation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:344:0: 'CodexPaper5.BrauerCyclePermutation.cyclePermutation_tri' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:345:0: 'CodexPaper5.BrauerCyclePermutation.cyclePermutation_rem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:346:0: 'CodexPaper5.BrauerCyclePermutation.cyclePermutation_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:347:0: 'CodexPaper5.BrauerCyclePermutation.triangle_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:348:0: 'CodexPaper5.BrauerCyclePermutation.cyclePermutation_compat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:349:0: 'CodexPaper5.BrauerCyclePermutation.sandSub_some' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:350:0: 'CodexPaper5.BrauerCyclePermutation.sandSub_ne_none' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:351:0: 'CodexPaper5.BrauerCyclePermutation.sandSub_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:352:0: 'CodexPaper5.BrauerCyclePermutation.triangle_edge_sign_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:353:0: 'CodexPaper5.BrauerCyclePermutation.triangle_cycle_cond' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:354:0: 'CodexPaper5.BrauerCyclePermutation.cyclePermutation_cycleCond' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/BrauerCyclePermutation.lean:355:0: 'CodexPaper5.BrauerCyclePermutation.exists_cycle_permutation' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8977/8992] Replayed Research.Backfill.Paper5.Proof.MainAB
+info: Research/Backfill/Paper5/Proof/MainAB.lean:96:0: 'CodexPaper5.MainAB.group_hasCM_of_not_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/MainAB.lean:97:0: 'CodexPaper5.MainAB.brauer_proper_principal_hasCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/MainAB.lean:98:0: 'CodexPaper5.MainAB.partial_brauer_proper_principal_hasCM_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/MainAB.lean:99:0: 'CodexPaper5.MainAB.check_Thm11a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/MainAB.lean:100:0: 'CodexPaper5.MainAB.check_Thm11b' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8978/8992] Replayed Research.Backfill.Paper5.Proof.PrincipalNonzero
+info: Research/Backfill/Paper5/Proof/PrincipalNonzero.lean:76:0: 'CodexPaper5.PrincipalNonzero.subsetHasCM_of_pfHasCM' depends on axioms: [propext, Classical.choice]
+ℹ [8979/8992] Replayed Research.Backfill.Paper5.Proof.DiagramCMSufficiency
+info: Research/Backfill/Paper5/Proof/DiagramCMSufficiency.lean:107:0: 'CodexPaper5.DiagramCMSufficiency.rankEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMSufficiency.lean:108:0: 'CodexPaper5.DiagramCMSufficiency.subsetHasCM_of_rank_layers' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMSufficiency.lean:109:0: 'CodexPaper5.DiagramCMSufficiency.subsetHasCM_of_not_rankOccurs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMSufficiency.lean:110:0: 'CodexPaper5.DiagramCMSufficiency.rank_layer_hasCM_of_symHasCM' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMSufficiency.lean:111:0: 'CodexPaper5.DiagramCMSufficiency.subsetHasCM_of_symHasCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8980/8992] Replayed Research.Backfill.Paper5.Proof.DiagramCMNecessity
+info: Research/Backfill/Paper5/Proof/DiagramCMNecessity.lean:142:0: 'CodexPaper5.DiagramCMNecessity.finite_rank_preservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMNecessity.lean:143:0: 'CodexPaper5.DiagramCMNecessity.embed_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMNecessity.lean:144:0: 'CodexPaper5.DiagramCMNecessity.restrict_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMNecessity.lean:145:0: 'CodexPaper5.DiagramCMNecessity.restrict_rank_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMNecessity.lean:146:0: 'CodexPaper5.DiagramCMNecessity.restrict_rank_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMNecessity.lean:147:0: 'CodexPaper5.DiagramCMNecessity.subsetHasCM_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMNecessity.lean:148:0: 'CodexPaper5.DiagramCMNecessity.unit_subsetHasCM_implies_symHasCM' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/DiagramCMNecessity.lean:149:0: 'CodexPaper5.DiagramCMNecessity.subsetHasCM_implies_symHasCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8981/8992] Replayed Research.Backfill.Paper5.Proof.MainC
+info: Research/Backfill/Paper5/Proof/MainC.lean:35:0: 'CodexPaper5.MainC.diagram_subsetHasCM_iff_sym' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/MainC.lean:36:0: 'CodexPaper5.MainC.check_Thm11c' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8982/8992] Replayed Research.Backfill.Paper5.Supplement.AssociativityStatement
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:66:0: 'CodexPaper5.AssociativityStatement.ReachableElimination' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:67:0: 'CodexPaper5.AssociativityStatement.OuterBracketReachability' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:68:0: 'CodexPaper5.AssociativityStatement.PBAssociativity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:69:0: 'CodexPaper5.AssociativityStatement.BAssociativity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:70:0: 'CodexPaper5.AssociativityStatement.PBMonoidAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AssociativityStatement.lean:71:0: 'CodexPaper5.AssociativityStatement.BMonoidAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8983/8992] Replayed Research.Backfill.Paper5.Proof.AssocGraphCompression
+info: Research/Backfill/Paper5/Proof/AssocGraphCompression.lean:113:0: 'CodexPaper5.AssocGraphCompression.reachable_map_embedding_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGraphCompression.lean:114:0: 'CodexPaper5.AssocGraphCompression.reachable_map_outside_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGraphCompression.lean:115:0: 'CodexPaper5.AssocGraphCompression.reachable_sup_map_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGraphCompression.lean:116:0: 'CodexPaper5.AssocGraphCompression.check_ReachableElimination' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8984/8992] Replayed Research.Backfill.Paper5.Proof.AssocGeometry
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:380:0: 'CodexPaper5.AssocGeometry.FourPt' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:381:0: 'CodexPaper5.AssocGeometry.rowEmbedding' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:382:0: 'CodexPaper5.AssocGeometry.embed012' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:383:0: 'CodexPaper5.AssocGeometry.embed123' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:384:0: 'CodexPaper5.AssocGeometry.keepLeft' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:385:0: 'CodexPaper5.AssocGeometry.keepRight' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:386:0: 'CodexPaper5.AssocGeometry.upperEmbedding' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:387:0: 'CodexPaper5.AssocGeometry.lowerEmbedding' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:388:0: 'CodexPaper5.AssocGeometry.xEmbedding' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:389:0: 'CodexPaper5.AssocGeometry.yEmbedding' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:390:0: 'CodexPaper5.AssocGeometry.zEmbedding' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:391:0: 'CodexPaper5.AssocGeometry.outerFour' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:392:0: 'CodexPaper5.AssocGeometry.rawId' does not depend on any axioms
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:393:0: 'CodexPaper5.AssocGeometry.blockGraph' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:394:0: 'CodexPaper5.AssocGeometry.fromRel_edge_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:395:0: 'CodexPaper5.AssocGeometry.fromRel_or' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:396:0: 'CodexPaper5.AssocGeometry.map_sup' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:397:0: 'CodexPaper5.AssocGeometry.map_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:398:0: 'CodexPaper5.AssocGeometry.blockGraph_rawId' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:399:0: 'CodexPaper5.AssocGeometry.stackGraph_eq_sup_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:400:0: 'CodexPaper5.AssocGeometry.raw_right_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:401:0: 'CodexPaper5.AssocGeometry.raw_left_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:402:0: 'CodexPaper5.AssocGeometry.blockGraph_reachable_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:403:0: 'CodexPaper5.AssocGeometry.outer_reachable_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:404:0: 'CodexPaper5.AssocGeometry.keepLeft_upper' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:405:0: 'CodexPaper5.AssocGeometry.keepRight_lower' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:406:0: 'CodexPaper5.AssocGeometry.keepLeft_extra' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:407:0: 'CodexPaper5.AssocGeometry.keepRight_extra' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:408:0: 'CodexPaper5.AssocGeometry.keepLeft_outer' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:409:0: 'CodexPaper5.AssocGeometry.keepRight_outer' depends on axioms: [propext]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:410:0: 'CodexPaper5.AssocGeometry.embed012_no_extra' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:411:0: 'CodexPaper5.AssocGeometry.embed123_no_extra' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:412:0: 'CodexPaper5.AssocGeometry.upper_no_extra' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:413:0: 'CodexPaper5.AssocGeometry.lower_no_extra' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:414:0: 'CodexPaper5.AssocGeometry.upper_or_extra' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:415:0: 'CodexPaper5.AssocGeometry.lower_or_extra' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:416:0: 'CodexPaper5.AssocGeometry.left_extra_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:417:0: 'CodexPaper5.AssocGeometry.right_extra_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:418:0: 'CodexPaper5.AssocGeometry.left_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:419:0: 'CodexPaper5.AssocGeometry.right_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:420:0: 'CodexPaper5.AssocGeometry.embed123_upper' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:421:0: 'CodexPaper5.AssocGeometry.keepLeft_lower' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:422:0: 'CodexPaper5.AssocGeometry.keepRight_upper' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:423:0: 'CodexPaper5.AssocGeometry.fourGraph' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:424:0: 'CodexPaper5.AssocGeometry.fourGraph_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:425:0: 'CodexPaper5.AssocGeometry.fourGraph_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:426:0: 'CodexPaper5.AssocGeometry.left_bracket_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:427:0: 'CodexPaper5.AssocGeometry.right_bracket_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:428:0: 'CodexPaper5.AssocGeometry.outer_bracket_reachable_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocGeometry.lean:429:0: 'CodexPaper5.AssocGeometry.check_OuterBracketReachability' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8985/8992] Replayed Research.Backfill.Paper5.Proof.AssocMain
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:116:0: 'CodexPaper5.AssocMain.dmul_congr_outer' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:117:0: 'CodexPaper5.AssocMain.check_PBAssociativity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:118:0: 'CodexPaper5.AssocMain.check_BAssociativity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:119:0: 'CodexPaper5.AssocMain.pbMonoid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:120:0: 'CodexPaper5.AssocMain.bMonoid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:121:0: 'CodexPaper5.AssocMain.pbMonoid_mul_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:122:0: 'CodexPaper5.AssocMain.pbMonoid_one_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:123:0: 'CodexPaper5.AssocMain.bMonoid_mul_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:124:0: 'CodexPaper5.AssocMain.bMonoid_one_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:125:0: 'CodexPaper5.AssocMain.check_PBMonoidAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/AssocMain.lean:126:0: 'CodexPaper5.AssocMain.check_BMonoidAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8986/8992] Replayed Research.Backfill.Paper5.Supplement.FullPaperStatement
+info: Research/Backfill/Paper5/Supplement/FullPaperStatement.lean:38:0: 'CodexPaper5.FullPaperStatement.AllNClassification' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/FullPaperStatement.lean:39:0: 'CodexPaper5.FullPaperStatement.Corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/FullPaperStatement.lean:40:0: 'CodexPaper5.FullPaperStatement.CornerGroupAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8987/8992] Replayed Research.Backfill.Paper5.Proof.FullPaperAllN
+info: Research/Backfill/Paper5/Proof/FullPaperAllN.lean:22:0: 'CodexPaper5.FullPaperAllN.check_AllNClassification' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8988/8992] Replayed Research.Backfill.Paper5.Proof.FullPaperCorner
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:128:0: 'CodexPaper5.FullPaperCorner.assembleCorner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:129:0: 'CodexPaper5.FullPaperCorner.assembleCorner_gCoord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:130:0: 'CodexPaper5.FullPaperCorner.coordinateEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:131:0: 'CodexPaper5.FullPaperCorner.coordinateEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:132:0: 'CodexPaper5.FullPaperCorner.actualMul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:133:0: 'CodexPaper5.FullPaperCorner.coordinateEquiv_actualMul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:134:0: 'CodexPaper5.FullPaperCorner.diagonalCorner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:135:0: 'CodexPaper5.FullPaperCorner.coordinateEquiv_diagonalCorner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:136:0: 'CodexPaper5.FullPaperCorner.cornerGroup' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:137:0: 'CodexPaper5.FullPaperCorner.cornerMulEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:138:0: 'CodexPaper5.FullPaperCorner.cornerGroup_mul_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:139:0: 'CodexPaper5.FullPaperCorner.cornerGroup_one_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:140:0: 'CodexPaper5.FullPaperCorner.cornerMulEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/FullPaperCorner.lean:141:0: 'CodexPaper5.FullPaperCorner.check_CornerGroupAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8989/8992] Replayed Research.Backfill.Paper5.Supplement.AlgebraStatementV2
+info: Research/Backfill/Paper5/Supplement/AlgebraStatementV2.lean:39:0: 'CodexPaper5.AlgebraStatement.ReesAssociativity' does not depend on any axioms
+info: Research/Backfill/Paper5/Supplement/AlgebraStatementV2.lean:40:0: 'CodexPaper5.AlgebraStatement.CayleyTransversalIff' does not depend on any axioms
+info: Research/Backfill/Paper5/Supplement/AlgebraStatementV2.lean:41:0: 'CodexPaper5.AlgebraStatement.HalfCount45' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Supplement/AlgebraStatementV2.lean:42:0: 'CodexPaper5.AlgebraStatement.HalfCount105' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8990/8992] Replayed Research.Backfill.Paper5.Proof.GenericAlgebra
+info: Research/Backfill/Paper5/Proof/GenericAlgebra.lean:88:0: 'CodexPaper5.GenericAlgebra.rees0Mul_assoc' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GenericAlgebra.lean:89:0: 'CodexPaper5.GenericAlgebra.cayley_transversal_iff' depends on axioms: [Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GenericAlgebra.lean:90:0: 'CodexPaper5.GenericAlgebra.check_ReesAssociativity' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Proof/GenericAlgebra.lean:91:0: 'CodexPaper5.GenericAlgebra.check_CayleyTransversalIff' depends on axioms: [Classical.choice, Quot.sound]
+ℹ [8991/8992] Replayed Research.Backfill.Paper5.Proof.NumericHalfCounts
+info: Research/Backfill/Paper5/Proof/NumericHalfCounts.lean:22:0: 'CodexPaper5.NumericHalfCounts.check_HalfCount45' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Proof/NumericHalfCounts.lean:23:0: 'CodexPaper5.NumericHalfCounts.check_HalfCount105' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8992/8992] Replayed Research.Backfill.Paper5.Check
+info: Research/Backfill/Paper5/Check.lean:853:0: 'CodexPaper5.ReesBasicCheck.check_ZeroFixed' does not depend on any axioms
+info: Research/Backfill/Paper5/Check.lean:854:0: 'CodexPaper5.ReesBasicCheck.check_Lemma41' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:855:0: 'CodexPaper5.CycleRemarksCheck.check_Remark45a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:856:0: 'CodexPaper5.CycleRemarksCheck.check_Remark45b' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:857:0: 'CodexPaper5.CycleRemarksCheck.check_Remark45c' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:858:0: 'CodexPaper5.Lemma42Check.check_Lemma42' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:859:0: 'CodexPaper5.ReesEvenCheck.check_Lemma43' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:860:0: 'CodexPaper5.ReesCycleCheck.check_Lemma44' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:861:0: 'CodexPaper5.SymmetricClassificationCheck.check_SymCM' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:862:0: 'CodexPaper5.SymmetricClassificationCheck.check_SymCMPerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:863:0: 'CodexPaper5.HalfDiagonalCheck.check_Prop31d' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:864:0: 'CodexPaper5.DiagramCoordinatesCheck.check_Prop31a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:865:0: 'CodexPaper5.GammaCompatibilityCheck.check_Prop31c' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:866:0: 'CodexPaper5.DiagramModelCheck.check_ModelMonoid' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:867:0: 'CodexPaper5.DiagramRankCheck.check_RankMul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:868:0: 'CodexPaper5.DiagramProductCoordinatesCheck.check_Prop31b' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:869:0: 'CodexPaper5.DiagramPrincipalFactorCheck.check_Prop31iso' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:870:0: 'CodexPaper5.DiagramIdempotentCheck.check_IdempotentE' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:871:0: 'CodexPaper5.DiagramJClassesCheck.check_JClassesAreRankClasses' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:872:0: 'CodexPaper5.DiagramUnitGroupCheck.check_UnitsAreSym' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:873:0: 'CodexPaper5.DiagramRanksOccurringCheck.check_RanksOccurring' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:874:0: 'CodexPaper5.HalfFibreCountingCheck.check_FibreCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:875:0: 'CodexPaper5.HalfCountingCheck.check_CountH' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:876:0: 'CodexPaper5.BrauerParityCheck.check_Lemma51' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:877:0: 'CodexPaper5.PartialBrauerParityCheck.check_Lemma61' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:878:0: 'CodexPaper5.Prop62Check.check_Prop62' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:879:0: 'CodexPaper5.BrauerTriangleCheck.check_Lemma52' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:880:0: 'CodexPaper5.BrauerTriangleProductCheck.check_TriangleProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:881:0: 'CodexPaper5.BrauerJoinCheck.check_Lemma53' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:882:0: 'CodexPaper5.BrauerMatchingCheck.check_Lemma54' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:883:0: 'CodexPaper5.MainABCheck.check_Thm11a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:884:0: 'CodexPaper5.MainABCheck.check_Thm11b' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:885:0: 'CodexPaper5.MainCCheck.check_Thm11c' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:886:0: 'CodexPaper5.AssocMainCheck.check_PBAssociativity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:887:0: 'CodexPaper5.AssocMainCheck.check_BAssociativity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:888:0: 'CodexPaper5.AssocMainCheck.check_PBMonoidAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:889:0: 'CodexPaper5.AssocMainCheck.check_BMonoidAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:890:0: 'CodexPaper5.AssocGraphCompressionCheck.check_ReachableElimination' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:891:0: 'CodexPaper5.AssocGeometryCheck.check_OuterBracketReachability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:892:0: 'CodexPaper5.FullPaperAllNCheck.check_AllNClassification' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:893:0: 'CodexPaper5.FullPaperCornerCheck.check_CornerGroupAligned' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:894:0: 'CodexPaper5.GenericAlgebraCheck.check_ReesAssociativity' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:895:0: 'CodexPaper5.GenericAlgebraCheck.check_CayleyTransversalIff' depends on axioms: [Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:896:0: 'CodexPaper5.NumericHalfCountsCheck.check_HalfCount45' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/Check.lean:897:0: 'CodexPaper5.NumericHalfCountsCheck.check_HalfCount105' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8992 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Research.Backfill.Paper5.Check -- Quot Quot.mk Quot.lift Quot.ind CodexPaper5.ReesBasicCheck.check_ZeroFixed CodexPaper5.ReesBasicCheck.check_Lemma41 CodexPaper5.CycleRemarksCheck.check_Remark45a CodexPaper5.CycleRemarksCheck.check_Remark45b CodexPaper5.CycleRemarksCheck.check_Remark45c CodexPaper5.Lemma42Check.check_Lemma42 CodexPaper5.ReesEvenCheck.check_Lemma43 CodexPaper5.ReesCycleCheck.check_Lemma44 CodexPaper5.SymmetricClassificationCheck.check_SymCM CodexPaper5.SymmetricClassificationCheck.check_SymCMPerm CodexPaper5.HalfDiagonalCheck.check_Prop31d CodexPaper5.DiagramCoordinatesCheck.check_Prop31a CodexPaper5.GammaCompatibilityCheck.check_Prop31c CodexPaper5.DiagramModelCheck.check_ModelMonoid CodexPaper5.DiagramRankCheck.check_RankMul CodexPaper5.DiagramProductCoordinatesCheck.check_Prop31b CodexPaper5.DiagramPrincipalFactorCheck.check_Prop31iso CodexPaper5.DiagramIdempotentCheck.check_IdempotentE CodexPaper5.DiagramJClassesCheck.check_JClassesAreRankClasses CodexPaper5.DiagramUnitGroupCheck.check_UnitsAreSym CodexPaper5.DiagramRanksOccurringCheck.check_RanksOccurring CodexPaper5.HalfFibreCountingCheck.check_FibreCount CodexPaper5.HalfCountingCheck.check_CountH CodexPaper5.BrauerParityCheck.check_Lemma51 CodexPaper5.PartialBrauerParityCheck.check_Lemma61 CodexPaper5.Prop62Check.check_Prop62 CodexPaper5.BrauerTriangleCheck.check_Lemma52 CodexPaper5.BrauerTriangleProductCheck.check_TriangleProduct CodexPaper5.BrauerJoinCheck.check_Lemma53 CodexPaper5.BrauerMatchingCheck.check_Lemma54 CodexPaper5.MainABCheck.check_Thm11a CodexPaper5.MainABCheck.check_Thm11b CodexPaper5.MainCCheck.check_Thm11c CodexPaper5.AssocMainCheck.check_PBAssociativity CodexPaper5.AssocMainCheck.check_BAssociativity CodexPaper5.AssocMainCheck.check_PBMonoidAligned CodexPaper5.AssocMainCheck.check_BMonoidAligned CodexPaper5.AssocGraphCompressionCheck.check_ReachableElimination CodexPaper5.AssocGeometryCheck.check_OuterBracketReachability CodexPaper5.FullPaperAllNCheck.check_AllNClassification CodexPaper5.FullPaperCornerCheck.check_CornerGroupAligned CodexPaper5.GenericAlgebraCheck.check_ReesAssociativity CodexPaper5.GenericAlgebraCheck.check_CayleyTransversalIff CodexPaper5.NumericHalfCountsCheck.check_HalfCount45 CodexPaper5.NumericHalfCountsCheck.check_HalfCount105 propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, CodexPaper5.ReesBasicCheck.check_ZeroFixed, CodexPaper5.ReesBasicCheck.check_Lemma41, CodexPaper5.CycleRemarksCheck.check_Remark45a, CodexPaper5.CycleRemarksCheck.check_Remark45b, CodexPaper5.CycleRemarksCheck.check_Remark45c, CodexPaper5.Lemma42Check.check_Lemma42, CodexPaper5.ReesEvenCheck.check_Lemma43, CodexPaper5.ReesCycleCheck.check_Lemma44, CodexPaper5.SymmetricClassificationCheck.check_SymCM, CodexPaper5.SymmetricClassificationCheck.check_SymCMPerm, CodexPaper5.HalfDiagonalCheck.check_Prop31d, CodexPaper5.DiagramCoordinatesCheck.check_Prop31a, CodexPaper5.GammaCompatibilityCheck.check_Prop31c, CodexPaper5.DiagramModelCheck.check_ModelMonoid, CodexPaper5.DiagramRankCheck.check_RankMul, CodexPaper5.DiagramProductCoordinatesCheck.check_Prop31b, CodexPaper5.DiagramPrincipalFactorCheck.check_Prop31iso, CodexPaper5.DiagramIdempotentCheck.check_IdempotentE, CodexPaper5.DiagramJClassesCheck.check_JClassesAreRankClasses, CodexPaper5.DiagramUnitGroupCheck.check_UnitsAreSym, CodexPaper5.DiagramRanksOccurringCheck.check_RanksOccurring, CodexPaper5.HalfFibreCountingCheck.check_FibreCount, CodexPaper5.HalfCountingCheck.check_CountH, CodexPaper5.BrauerParityCheck.check_Lemma51, CodexPaper5.PartialBrauerParityCheck.check_Lemma61, CodexPaper5.Prop62Check.check_Prop62, CodexPaper5.BrauerTriangleCheck.check_Lemma52, CodexPaper5.BrauerTriangleProductCheck.check_TriangleProduct, CodexPaper5.BrauerJoinCheck.check_Lemma53, CodexPaper5.BrauerMatchingCheck.check_Lemma54, CodexPaper5.MainABCheck.check_Thm11a, CodexPaper5.MainABCheck.check_Thm11b, CodexPaper5.MainCCheck.check_Thm11c, CodexPaper5.AssocMainCheck.check_PBAssociativity, CodexPaper5.AssocMainCheck.check_BAssociativity, CodexPaper5.AssocMainCheck.check_PBMonoidAligned, CodexPaper5.AssocMainCheck.check_BMonoidAligned, CodexPaper5.AssocGraphCompressionCheck.check_ReachableElimination, CodexPaper5.AssocGeometryCheck.check_OuterBracketReachability, CodexPaper5.FullPaperAllNCheck.check_AllNClassification, CodexPaper5.FullPaperCornerCheck.check_CornerGroupAligned, CodexPaper5.GenericAlgebraCheck.check_ReesAssociativity, CodexPaper5.GenericAlgebraCheck.check_CayleyTransversalIff, CodexPaper5.NumericHalfCountsCheck.check_HalfCount45, CodexPaper5.NumericHalfCountsCheck.check_HalfCount105, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Research.Backfill.Paper5.Check
+Running nanoda kernel on solution
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/nanoda_lib/target/release/nanoda_bin <tmp>
+nanoda kernel accepts the solution
+Running Lean default kernel on solution.
+Lean default kernel accepts the solution
+Your solution is okay!
+       33.22 real        22.31 user        14.94 sys
+          5981683712  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1396816  page reclaims
+               42831  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               93712  voluntary context switches
+              249277  involuntary context switches
+          3708099048  instructions retired
+          1500766545  cycles elapsed
+           138683240  peak memory footprint
+exit=0
+end 2026-10-06T20:19:55Z

@@ -7,8 +7,8 @@ problems that were dropped without a result. It gives the denominator behind
 the results in this repository: how many problems were tried, and what
 became of each.
 
-Status: 30 September 2026, covering the work of 25–29 September 2026 up to version
-1.11.0. All dates are UTC.
+Status: 7 October 2026, covering the work of 25 September to 7 October 2026
+up to version 1.12.0. All dates are UTC.
 
 ## How to read this file
 
@@ -48,7 +48,7 @@ README has the details.
 | 19 | A376230: a parity comment | OEIS (P. D. Hanna) | v1.2.0 | The comment is false as stated (`a(4) = 8`). The corrected pattern follows from a theorem of Gawron and Ulas (Discrete Math. 339 (2016)): known result, formalized only | yes |
 | 20 | Carenini's Question 1.3 on almost independent sets in regular graphs | arXiv:2609.28527 | v1.3.0 (Paper 3); version 2 in v1.10.0 | Answer: no. Smallest counterexample `(n, d, γ) = (6, 3, 1/18)`; counterexamples for every `(n, d)` with `2d ∣ n` apart from trivial cases, and further families; a positive result at the exponential scale. Some cases remain open | all results (version 2) |
 | 21 | Problems 1–3 of Hak, Kozerenko and Oliynyk on the triameter of graphs (3 problems) | Discrete Appl. Math. 309 (2022); arXiv:2103.10806 | v1.4.0 (Paper 4); version 2 in v1.9.0 | Problem 1: no (an 8-vertex median graph). Problem 2: no, but this had already been answered on MathOverflow by rgvalenciaalbornoz ([answer 506536](https://mathoverflow.net/a/506536), 2025-12-31; found by us on 2026-09-26); we add only the smallest counterexample. Problem 3: yes, in a stronger form | all results (version 2) |
-| 22 | Problem 15.11 of Araújo, Bentz, Cameron, Hendrey and Kinyon: complete mappings of the Brauer and partial Brauer monoids | arXiv:2608.25092 | v1.4.0 (Paper 5) | Settled in its existence reading: `B_n` and `PB_n` have a complete mapping if and only if `n ∉ {2, 3}`, with the answer for every proper principal factor. The set of all complete mappings is not described | two constructions only |
+| 22 | Problem 15.11 of Araújo, Bentz, Cameron, Hendrey and Kinyon: complete mappings of the Brauer and partial Brauer monoids | arXiv:2608.25092 | v1.4.0 (Paper 5); version 2 in v1.12.0 | Settled in its existence reading: `B_n` and `PB_n` have a complete mapping if and only if `n ∉ {2, 3}`, with the answer for every proper principal factor. The set of all complete mappings is not described | all results (version 2) |
 | 23 | Weights of the Reed–Muller code RM(7,14) (Carlet's question; 22 undecided values listed by Leuenberger and Albrizzio) | C. Carlet, IEEE Trans. Inf. Theory 70 (2024); arXiv:2606.21425 | v1.4.0 (Paper 6) | Partial answer: 14 new weights (17 found, 3 of them already known); the spectrum is determined except for 322, 326, 330, 334 and their complements (this step cites a 1976 theorem we could not consult); Conjecture 2 of Lou and Wang fails for `m = 6` (Theorem C), but this was not new: Lou and Wang had proved it in Discrete Appl. Math. 388 (2026) 142–145, a note we read only after publication (see Corrections) | the 17 weights |
 | 24 | Minimum order of a counterexample to the conjecture of Braga, Del-Vecchio and Rodrigues on integral generalized sun graphs | arXiv:2609.28754 (Braga, Moraes and Santos) | v1.6.0 (Paper 7) | The minimum order is 42, and the 42-vertex counterexample is unique (computer-assisted); also a constraint on odd cycles in integral unicyclic graphs | none |
 | 25 | The switching conjecture for main eigenvalues, for trees (Problem 1.6 of Akbari, Kumar, Mohar and Pragada) | arXiv:2609.27046 | v1.7.0 (Paper 8); version 2 in v1.11.0 | Partial answer: the conjecture holds for every tree of diameter at most 4 other than K₂, and so does its signature version. Open for all trees and for regular graphs | all results (version 2) |
@@ -98,9 +98,9 @@ items is claimed as a result in this repository.
     them (rows 4–7) our own work was small: screening checks, a numerical
     check or a statement contract.
   - Dropped without a result: 6 items (section c).
-- Under active work and not listed here: none. The parts of Papers 1, 2
-  and 5–7 that are not yet formalized in Lean are being formalized.
-- Scouted but not attempted: 49 candidates. This counts the candidates that
+- Under active work and not listed here: none. The parts of Papers 1, 2,
+  6 and 7 that are not yet formalized in Lean are being formalized.
+- Scouted but not attempted: 54 candidates. This counts the candidates that
   scouting agents wrote up and ranked in their reports but on which no
   research was done. Problems rejected during bulk screening (for example,
   of arXiv listings and of several hundred OEIS conjectures) are not counted.
@@ -167,3 +167,10 @@ Published corrections so far:
    branch multisets rather than trees (the two points listed under Known
    issues since v1.7.1). Every result of version 2 is formalized in Lean. The
    theorems are unchanged.
+9. **Paper 5, version 2 (v1.12.0).** Corrects the definition of `top(x)` and
+   `bot(x)` in Section 3 (listed under Known issues since v1.7.1) and removes
+   the claims of version 1 for which we have no formal proof: the results of
+   the computer checks of its Section 8, Remark 4.5(4) (a comparison of
+   Lemma 4.4 with a criterion of Araújo et al.), and several side
+   statements, among them the identifications with Green's relations. Every
+   result of version 2 is formalized in Lean. The theorems are unchanged.

@@ -1,0 +1,22 @@
+{
+ "axiom_output_lines": 2123,
+ "distinct_declarations": 2072,
+ "files_with_output": 542,
+ "expected_commands": 2123,
+ "violations": 0,
+ "missing": 0,
+ "duplicates": 0,
+ "unexpected": 0,
+ "unparsed": 0,
+ "source_files_declared": 542,
+ "files_with_print_axioms": 350,
+ "axiom_set_histogram": {
+  "{Classical.choice, Quot.sound, propext}": 1990,
+  "{}": 35,
+  "{Quot.sound, propext}": 57,
+  "{Quot.sound}": 11,
+  "{propext}": 26,
+  "{Classical.choice, Quot.sound}": 3,
+  "{Classical.choice, propext}": 1
+ }
+}

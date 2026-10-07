@@ -1,0 +1,225 @@
+{
+ "purpose": "Whole-tree clean replay of the Lean project of release v1.12.0 (adds Paper 5 version 2).",
+ "start_utc": "2026-10-06T18:56:45Z",
+ "end_utc": "2026-10-06T20:19:21Z",
+ "result": "R1=0 R2=0 R3=0 audit=0",
+ "toolchain": "leanprover/lean4:v4.34.1 (commit 5045d0056413266e57c625dcd7c365b10e377c52)",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.11.0-receipt.json",
+ "procedure": [
+  "Fresh directory; only sources and configuration copied from the release tree lean/ (Research.lean, Research/**/*.lean, Comparator/*.lean, lakefile.toml, lake-manifest.json, lean-toolchain); .lake/packages is a symlink to the shared Lake package cache of Mathlib and its dependencies at the pinned revisions (every package HEAD equal to lake-manifest.json, no tracked changes); fresh .lake/build (absent before the first build). No download.",
+  "Environment for every Lake and Lean run: PATH starts with the toolchain bin; LEAN_NUM_THREADS=2 (the rule to reduce it to 1 for later Lake commands after a sampled job RSS above 32 GB was not triggered); LAKE_NO_CACHE=true, LAKE_ARTIFACT_CACHE=false, LAKE_RESTORE_ARTIFACTS=false.",
+  "One job holding both Lean lock slots from setup to the end of the comparator rehearsal, in its own process group, under `caffeinate -i -s`, with the resource stops of the user's directive of 6 October 2026 (memory pressure critical for 60 s, more than 40 GB resident in the job, less than 20 GB free disk; none was reached; see resources and job_guard).",
+  "R1: read-only deps guard (`lake --no-build build +Research.AxialMSZ.Challenge:deps +Research.CirculantQ3:deps`); `lake build Research.CirculantQ3` alone; `lake build` (default target Research, which imports the Check modules of Papers 3, 4, 5, 8, 9 and 10); `lake build` of the twelve audit modules; `lake build` of the six ChallengeTests modules (Papers 3, 4, 5, 8, 9 and 10); `lake build` of the modules not reached from Research.lean (listed in build_other).",
+  "R2: the twelve audit files run with `lake env lean --threads=2` (plain text and --json); `lake env leanchecker <Module>` for every module except CirculantQ3 and the root module, two at a time (the rule to drain to one after a sampled job RSS above 32 GB was not triggered); forbidden-token scan of every .lean file under Research/ and Research.lean; `shasum -a 256 -c` of the replay manifest against the release tree lean/.",
+  "R3: `lake env leanchecker Research.CirculantQ3`.",
+  "Axiom audit: every `#print axioms` output of the build logs (CirculantQ3, default target, ChallengeTests, other modules) and of the JSON output of the audit files, position-matched to the `#print axioms` commands in the .lean files."
+ ],
+ "source_manifest": {
+  "file": "logs/lean-sources-sha256.txt",
+  "entries": 551,
+  "sha256": "794afd16af31aefd6c8e9490b5de33406b1ef4bb9a21b57cc42bb066b25a956c"
+ },
+ "packages_check": {
+  "build_dir_absent_before": true,
+  "all_match": true,
+  "packages": 9
+ },
+ "deps_guard": {
+  "exit_code": 0,
+  "all_up_to_date": true
+ },
+ "build_circulantq3_alone": {
+  "log": "clean-replay-v1.12.0-build-circulantq3.log",
+  "start_utc": "2026-10-06T18:56:50Z",
+  "end_utc": "2026-10-06T18:58:50Z",
+  "exit_code": 0,
+  "real_seconds": 120.2,
+  "max_rss_bytes": 27731755008,
+  "modules_built": 1,
+  "jobs": 8924,
+  "warnings": 1,
+  "errors": 0
+ },
+ "build": {
+  "log": "clean-replay-v1.12.0-build.log",
+  "start_utc": "2026-10-06T18:58:50Z",
+  "end_utc": "2026-10-06T19:21:02Z",
+  "exit_code": 0,
+  "real_seconds": 1331.27,
+  "max_rss_bytes": 12744196096,
+  "modules_built": 514,
+  "jobs": 3141,
+  "warnings": 258,
+  "errors": 0
+ },
+ "build_audit_modules": {
+  "log": "clean-replay-v1.12.0-build-audit-modules.log",
+  "start_utc": "2026-10-06T19:21:02Z",
+  "end_utc": "2026-10-06T19:21:31Z",
+  "exit_code": 0,
+  "real_seconds": 28.81,
+  "max_rss_bytes": 6692552704,
+  "modules_built": 12,
+  "jobs": 8991,
+  "warnings": 168,
+  "errors": 0
+ },
+ "build_challenge_tests": {
+  "log": "clean-replay-v1.12.0-build-challenge-tests.log",
+  "start_utc": "2026-10-06T19:21:31Z",
+  "end_utc": "2026-10-06T19:22:27Z",
+  "exit_code": 0,
+  "real_seconds": 55.98,
+  "max_rss_bytes": 10562486272,
+  "modules_built": 6,
+  "jobs": 8937,
+  "warnings": 0,
+  "errors": 0
+ },
+ "build_other": {
+  "log": "clean-replay-v1.12.0-build-other.log",
+  "start_utc": "2026-10-06T19:22:27Z",
+  "end_utc": "2026-10-06T19:22:59Z",
+  "exit_code": 0,
+  "real_seconds": 32.11,
+  "max_rss_bytes": 6024577024,
+  "modules_built": 8,
+  "jobs": 8941,
+  "warnings": 0,
+  "errors": 0,
+  "modules": [
+   "Research.Backfill.Paper8.Proof.Tests.Cond",
+   "Research.Backfill.Paper8.Proof.Tests.Counts",
+   "Research.Backfill.Paper8.Proof.Tests.Crit",
+   "Research.Backfill.Paper8.Proof.Tests.Main",
+   "Research.Backfill.Paper8.Proof.Tests.Poly",
+   "Research.Backfill.Paper8.Proof.Tests.Spectral",
+   "Research.Backfill.Paper8.Proof.Tests.Switch",
+   "Research.Backfill.Paper8.Proof.Tests.Vec"
+  ]
+ },
+ "audit_files": [
+  [
+   "Research.AxialMSZ.Audit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.CareniniAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.HKOTriameterAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.ICGBridgeAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.ICGEqualParityBAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.ICGEqualParityBCertAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.ICGGeneralAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.RM714WeightsAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.SwitchingDiam4CubicAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.SwitchingRowCountAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.SwitchingThmHAudit",
+   "exit=0 json-exit=0"
+  ],
+  [
+   "Research.SwitchingWalkProfileAudit",
+   "exit=0 json-exit=0"
+  ]
+ ],
+ "leanchecker": {
+  "modules_ok": 540,
+  "failures": 0,
+  "parallelism": 2,
+  "circulantq3": {
+   "exit_code": 0,
+   "max_rss_bytes": 25222135808,
+   "real_seconds": 201.43
+  }
+ },
+ "axiom_audit": {
+  "axiom_output_lines": 2123,
+  "distinct_declarations": 2072,
+  "files_with_output": 542,
+  "expected_commands": 2123,
+  "violations": 0,
+  "missing": 0,
+  "duplicates": 0,
+  "unexpected": 0,
+  "unparsed": 0,
+  "source_files_declared": 542,
+  "files_with_print_axioms": 350,
+  "axiom_set_histogram": {
+   "{Classical.choice, Quot.sound, propext}": 1990,
+   "{}": 35,
+   "{Quot.sound, propext}": 57,
+   "{Quot.sound}": 11,
+   "{propext}": 26,
+   "{Classical.choice, Quot.sound}": 3,
+   "{Classical.choice, propext}": 1
+  }
+ },
+ "forbidden_tokens": {
+  "code_hits": 0,
+  "summary_lines": [
+   "#   axiom\tCOMMENT\t3",
+   "#   native_decide\tCOMMENT\t2",
+   "#   sorry\tCOMMENT\t1"
+  ]
+ },
+ "source_check": {
+  "shasum_ok": 551,
+  "shasum_failed": 0
+ },
+ "resources": {
+  "samples": 5280,
+  "pressure_levels_seen": [
+   1,
+   2
+  ],
+  "max_job_rss_bytes": 28365717504,
+  "min_free_disk_bytes": 1015906410496,
+  "stops": []
+ },
+ "notes": "Written by make_receipt.py from the logs listed above; paths are logical names. Public summary of the original receipt (SHA-256 7f2146e88d3abb6e1e07867429afef1bd6d86ccab5cbdcae217c0be05ff1ca52): the resource samples of job_guard, with their process lists, process ids and machine paths, are omitted (their count is kept), and the procedure text says which conditional resource rules were not triggered; nothing else is changed.",
+ "job_guard": {
+  "status": "PASS_JOB",
+  "exit_code": 0,
+  "started_utc": "2026-10-06T18:56:45Z",
+  "finished_utc": "2026-10-06T20:38:14Z",
+  "elapsed_with_cleanup_seconds": 6088.952090666,
+  "command_deadline_seconds": 1800,
+  "critical_stop_seconds": 60,
+  "rss_stop_bytes": 40000000000,
+  "disk_stop_bytes": 20000000000,
+  "sampling_target_seconds": 1,
+  "cleanup_confirmed": true,
+  "controller_nice": 0,
+  "samples": 5280,
+  "cleanup_events": 0,
+  "script_changes_during_run": 0,
+  "max_lean_processes_in_a_sample": 2
+ }
+}
