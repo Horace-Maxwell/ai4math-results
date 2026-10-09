@@ -1,0 +1,17 @@
+# forbidden-token scan over 916 files
+# summary (token, class): count
+#   admit	COMMENT	1
+#   axiom	COMMENT	6
+#   native_decide	COMMENT	2
+#   sorry	COMMENT	1
+# hits
+COMMENT	sorry	Research/Backfill/Paper3/ChallengeTests.lean:8	instances that must come out **false**. Not part of the frozen challenge file. No `sorry`.
+COMMENT	axiom	Research/Backfill/Paper4/Proof/Foundation.lean:6	that compilation, axiom audit, checker or clean replay has passed.
+COMMENT	axiom	Research/Backfill/Paper4/Proof/MetricBounds.lean:6	must establish the complete target checks, axiom audit, checker and fresh replay.
+COMMENT	axiom	Research/Backfill/Paper6/CalibBasic.lean:11	No unproved old Challenge proposition is used as a hypothesis or axiom.
+COMMENT	axiom	Research/Backfill/Paper6/PropEMathlibV4.lean:13	or replace any pending dependency with an axiom. No validation is claimed.
+COMMENT	axiom	Research/Backfill/Paper6/PropERemark.lean:15	No missing dependency is replaced by an axiom, placeholder, or added hypothesis.
+COMMENT	admit	Research/Backfill/Paper6/S0Comparison.lean:9	admit spurious values greater than 16384.
+COMMENT	native_decide	Research/Carenini.lean:29	All finite counts are checked by `decide` / `decide +kernel` (kernel reduction); no `native_decide`.
+COMMENT	native_decide	Research/HKOTriameter.lean:29	done by `decide` / `decide +kernel` (kernel reduction, no `native_decide`).
+COMMENT	axiom	Research/ICGEqualParityBAudit.lean:5	/-! Statement and axiom audit for Theorem B (round 6, `work/round6/equal-parity-a2/PROOF.md`). -/

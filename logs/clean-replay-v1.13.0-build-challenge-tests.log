@@ -1,0 +1,136 @@
+2026-10-09T01:35:58Z cmd: lake build Research.AxialMSZ.ChallengeTests Research.Backfill.Paper3.ChallengeTests Research.Backfill.Paper4.ChallengeTests Research.Backfill.Paper5.ChallengeTests Research.Backfill.Paper8.ChallengeTests Research.WordRepTensor.ChallengeTests
+TOPO_BATCH 1/2 Research.AxialMSZ.Challenge Research.AxialMSZ.ChallengeTests Research.Backfill.Paper3.Challenge Research.Backfill.Paper3.ChallengeTests Research.Backfill.Paper4.Challenge Research.HKOTriameter Research.HKOTriameterDH Research.Backfill.Paper4.ChallengeTests
+ℹ [8927/8931] Replayed Research.HKOTriameter
+info: Research/HKOTriameter.lean:503:0: 'HKOTriameter.not_problem1Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:504:0: 'HKOTriameter.not_problem1ClaimPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:505:0: 'HKOTriameter.not_problem2Claim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:506:0: 'HKOTriameter.not_problem2ClaimWeak' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:507:0: 'HKOTriameter.G1_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:508:0: 'HKOTriameter.G2_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:509:0: 'HKOTriameter.not_question3_G1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:510:0: 'HKOTriameter.isPeripheral_iff_isPeripheralPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:511:0: 'HKOTriameter.dist_eq_of_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameter.lean:512:0: 'HKOTriameter.C6_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8928/8931] Replayed Research.HKOTriameterDH
+info: Research/HKOTriameterDH.lean:309:0: 'HKOTriameter.core' depends on axioms: [propext, Quot.sound]
+info: Research/HKOTriameterDH.lean:310:0: 'HKOTriameter.extends_of_no_diametral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:311:0: 'HKOTriameter.question3_or_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:312:0: 'HKOTriameter.problem3_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:313:0: 'HKOTriameter.problem3ClaimFP' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:314:0: 'HKOTriameter.F1G_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:315:0: 'HKOTriameter.F1G_not_question3'' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:316:0: 'HKOTriameter.F1H_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:317:0: 'HKOTriameter.F1H_not_question4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:318:0: 'HKOTriameter.G1_not_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:319:0: 'HKOTriameter.G2_fourPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/HKOTriameterDH.lean:320:0: 'HKOTriameter.F1G_not_median' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8929/8931] Built Research.AxialMSZ.ChallengeTests (12s)
+info: Research/AxialMSZ/ChallengeTests.lean:376:0: MS_Conjecture_3_16 : Prop
+info: Research/AxialMSZ/ChallengeTests.lean:377:0: Corollary : Prop
+info: Research/AxialMSZ/ChallengeTests.lean:378:0: 'AxialMSZ.Challenge.structProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8930/8931] Built Research.Backfill.Paper4.ChallengeTests (4.6s)
+✔ [8931/8931] Built Research.Backfill.Paper3.ChallengeTests (36s)
+Build completed successfully (8931 jobs).
+TOPO_BATCH 2/2 Research.Backfill.Paper5.Challenge Research.Backfill.Paper5.ChallengeTests Research.Backfill.Paper8.Challenge Research.Backfill.Paper8.ChallengeTests Research.WordRepTensor.Challenge Research.WordRepTensor.ChallengeTests
+✔ [8927/8929] Built Research.Backfill.Paper8.ChallengeTests (5.1s)
+✔ [8928/8929] Built Research.WordRepTensor.ChallengeTests (7.5s)
+ℹ [8929/8929] Built Research.Backfill.Paper5.ChallengeTests (20s)
+info: Research/Backfill/Paper5/ChallengeTests.lean:258:0: 'BackfillPaper5.ChallengeTests.instFintypeSym' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:259:0: 'BackfillPaper5.ChallengeTests.instDecPB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:260:0: 'BackfillPaper5.ChallengeTests.instDecB' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:261:0: 'BackfillPaper5.ChallengeTests.instDecJr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:262:0: 'BackfillPaper5.ChallengeTests.instDecHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:263:0: 'BackfillPaper5.ChallengeTests.cross' does not depend on any axioms
+info: Research/Backfill/Paper5/ChallengeTests.lean:264:0: 'BackfillPaper5.ChallengeTests.cup' does not depend on any axioms
+info: Research/Backfill/Paper5/ChallengeTests.lean:265:0: 'BackfillPaper5.ChallengeTests.single1' does not depend on any axioms
+info: Research/Backfill/Paper5/ChallengeTests.lean:266:0: 'BackfillPaper5.ChallengeTests.Pex' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:267:0: 'BackfillPaper5.ChallengeTests.test_001' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:268:0: 'BackfillPaper5.ChallengeTests.test_002' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:269:0: 'BackfillPaper5.ChallengeTests.test_003' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:270:0: 'BackfillPaper5.ChallengeTests.test_004' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:271:0: 'BackfillPaper5.ChallengeTests.test_005' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:272:0: 'BackfillPaper5.ChallengeTests.test_006' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:273:0: 'BackfillPaper5.ChallengeTests.test_007' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:274:0: 'BackfillPaper5.ChallengeTests.test_008' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:275:0: 'BackfillPaper5.ChallengeTests.test_009' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:276:0: 'BackfillPaper5.ChallengeTests.test_010' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:277:0: 'BackfillPaper5.ChallengeTests.test_011' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:278:0: 'BackfillPaper5.ChallengeTests.test_012' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:279:0: 'BackfillPaper5.ChallengeTests.test_013' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:280:0: 'BackfillPaper5.ChallengeTests.test_014' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:281:0: 'BackfillPaper5.ChallengeTests.test_015' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:282:0: 'BackfillPaper5.ChallengeTests.test_016' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:283:0: 'BackfillPaper5.ChallengeTests.test_017' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:284:0: 'BackfillPaper5.ChallengeTests.test_018' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:285:0: 'BackfillPaper5.ChallengeTests.test_019' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:286:0: 'BackfillPaper5.ChallengeTests.test_020' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:287:0: 'BackfillPaper5.ChallengeTests.test_021' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:288:0: 'BackfillPaper5.ChallengeTests.test_022' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:289:0: 'BackfillPaper5.ChallengeTests.test_023' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:290:0: 'BackfillPaper5.ChallengeTests.test_024' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:291:0: 'BackfillPaper5.ChallengeTests.test_025' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:292:0: 'BackfillPaper5.ChallengeTests.test_026' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:293:0: 'BackfillPaper5.ChallengeTests.test_027' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:294:0: 'BackfillPaper5.ChallengeTests.test_028' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:295:0: 'BackfillPaper5.ChallengeTests.test_029' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:296:0: 'BackfillPaper5.ChallengeTests.test_030' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:297:0: 'BackfillPaper5.ChallengeTests.test_031' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:298:0: 'BackfillPaper5.ChallengeTests.test_032' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:299:0: 'BackfillPaper5.ChallengeTests.test_033' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:300:0: 'BackfillPaper5.ChallengeTests.test_034' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:301:0: 'BackfillPaper5.ChallengeTests.test_035' depends on axioms: [propext, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:302:0: 'BackfillPaper5.ChallengeTests.test_036' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:303:0: 'BackfillPaper5.ChallengeTests.test_037' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:304:0: 'BackfillPaper5.ChallengeTests.test_038' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:305:0: 'BackfillPaper5.ChallengeTests.test_039' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:306:0: 'BackfillPaper5.ChallengeTests.test_040' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:307:0: 'BackfillPaper5.ChallengeTests.test_041' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:308:0: 'BackfillPaper5.ChallengeTests.test_042' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:309:0: 'BackfillPaper5.ChallengeTests.test_043' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:310:0: 'BackfillPaper5.ChallengeTests.test_044' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:311:0: 'BackfillPaper5.ChallengeTests.test_045' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:312:0: 'BackfillPaper5.ChallengeTests.test_046' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:313:0: 'BackfillPaper5.ChallengeTests.test_047' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:314:0: 'BackfillPaper5.ChallengeTests.test_048' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:315:0: 'BackfillPaper5.ChallengeTests.test_049' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:316:0: 'BackfillPaper5.ChallengeTests.test_050' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:317:0: 'BackfillPaper5.ChallengeTests.test_051' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:318:0: 'BackfillPaper5.ChallengeTests.test_052' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:319:0: 'BackfillPaper5.ChallengeTests.test_053' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:320:0: 'BackfillPaper5.ChallengeTests.test_054' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:321:0: 'BackfillPaper5.ChallengeTests.test_055' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:322:0: 'BackfillPaper5.ChallengeTests.test_056' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:323:0: 'BackfillPaper5.ChallengeTests.test_057' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:324:0: 'BackfillPaper5.ChallengeTests.test_058' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:325:0: 'BackfillPaper5.ChallengeTests.test_059' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:326:0: 'BackfillPaper5.ChallengeTests.test_060' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:327:0: 'BackfillPaper5.ChallengeTests.test_061' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:328:0: 'BackfillPaper5.ChallengeTests.test_062' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:329:0: 'BackfillPaper5.ChallengeTests.test_063' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:330:0: 'BackfillPaper5.ChallengeTests.test_064' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:331:0: 'BackfillPaper5.ChallengeTests.test_065' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:332:0: 'BackfillPaper5.ChallengeTests.test_066' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:333:0: 'BackfillPaper5.ChallengeTests.test_067' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/Backfill/Paper5/ChallengeTests.lean:334:0: 'BackfillPaper5.ChallengeTests.test_068' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8929 jobs).
+TOPO_COMPLETE modules=14 batches=2
+       69.01 real        80.22 user        23.14 sys
+         10544005120  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             3458880  page reclaims
+                 382  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  97  voluntary context switches
+              281660  involuntary context switches
+         69119089177  instructions retired
+         10402950159  cycles elapsed
+            12124472  peak memory footprint
+exit=0
+2026-10-09T01:37:07Z

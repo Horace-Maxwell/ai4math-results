@@ -1,0 +1,163 @@
+====================================================================================================
+staged run, step 1: build, export, comparison with the challenge and axiom check (PropE, PropE_remark_2mod4, PropE_mathlib)
+====================================================================================================
+2026-10-09T08:20:46Z
+Building Comparator.Paper6
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Comparator.Paper6
+⚠ [8925/8927] Replayed Research.RM714Weights
+warning: Research/RM714Weights.lean:93:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Research/RM714Weights.lean:100:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+info: Research/RM714Weights.lean:300:0: 'RM714.rm714_new_weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Research/RM714Weights.lean:301:0: 'RM714.weight_map_maskSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8927/8927] Replayed Comparator.Paper6
+warning: Comparator/Paper6.lean:25:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:27:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:29:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:31:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:33:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:35:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:37:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:39:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:41:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:43:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:45:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:47:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:49:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:51:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:53:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:55:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:57:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:59:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:61:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:63:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:65:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:67:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:69:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:71:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:73:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:75:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:77:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:79:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:81:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:83:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:85:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:87:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:89:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:91:8: declaration uses `sorry`
+warning: Comparator/Paper6.lean:93:8: declaration uses `sorry`
+Build completed successfully (8927 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Comparator.Paper6 -- Quot Quot.mk Quot.lift Quot.ind Paper6FinalPackageV4.check_PropE Paper6FinalPackageV4.check_PropE_remark_2mod4 Paper6FinalPackageV4.check_PropE_mathlib propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, Paper6FinalPackageV4.check_PropE, Paper6FinalPackageV4.check_PropE_remark_2mod4, Paper6FinalPackageV4.check_PropE_mathlib, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Comparator.Paper6
+Building Research.Backfill.Paper6.CheckPaper6
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec lake build Research.Backfill.Paper6.CheckPaper6
+[24749 lines omitted: Lake replayed the stored messages of 372 modules built before (no module was built and no error was printed); the receipts give the SHA-256 of the full log]
+Build completed successfully (9298 jobs).
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Research.Backfill.Paper6.CheckPaper6 -- Quot Quot.mk Quot.lift Quot.ind Paper6FinalPackageV4.check_PropE Paper6FinalPackageV4.check_PropE_remark_2mod4 Paper6FinalPackageV4.check_PropE_mathlib propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, Paper6FinalPackageV4.check_PropE, Paper6FinalPackageV4.check_PropE_remark_2mod4, Paper6FinalPackageV4.check_PropE_mathlib, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Research.Backfill.Paper6.CheckPaper6
+STAGE_BUNDLE_SHA256 2c02cd5bb613b1787ea0d4abeee4d45e9664bcf8e0ded2c4081451848a4e8787
+STAGE_CONFIG_SHA256 4eb91dc62245de2444915759361ae326774a34526d215464f4f766791848d6d4
+STAGE_CHALLENGE_SHA256 076f3f98740cddce86fdc99f5a7b85de53a9a1b41309e3b3dede40073463896e
+STAGE_SOLUTION_SHA256 cb9922bef92a7ed34f652a79159e380a4ab407aba44531983c7c366bbabbf978
+STAGE_PREPARE_ACCEPTED
+       25.06 real        10.31 user        10.97 sys
+          5805719552  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              890294  page reclaims
+               37120  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              180382  voluntary context switches
+              166321  involuntary context switches
+          3270989561  instructions retired
+          1373348653  cycles elapsed
+           138584888  peak memory footprint
+exit=0
+2026-10-09T08:21:11Z
+====================================================================================================
+staged run, step 2: nanoda on the same export
+====================================================================================================
+2026-10-09T08:21:40Z
+STAGE_BUNDLE_SHA256 2c02cd5bb613b1787ea0d4abeee4d45e9664bcf8e0ded2c4081451848a4e8787
+STAGE_CONFIG_SHA256 4eb91dc62245de2444915759361ae326774a34526d215464f4f766791848d6d4
+STAGE_CHALLENGE_SHA256 076f3f98740cddce86fdc99f5a7b85de53a9a1b41309e3b3dede40073463896e
+STAGE_SOLUTION_SHA256 cb9922bef92a7ed34f652a79159e380a4ab407aba44531983c7c366bbabbf978
+Running nanoda kernel on solution
+WARNING: THIS IS NOT REAL LANDRUN! UNSAFELY RUNNING exec <project>/work/ci/nanoda_lib/target/release/nanoda_bin <tmp>
+nanoda kernel accepts the solution
+STAGE_EXTERNAL_ACCEPTED
+      540.87 real      2056.21 user        95.66 sys
+          7073759232  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+            56200209  page reclaims
+                 292  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 106  voluntary context switches
+              690571  involuntary context switches
+          3262489333  instructions retired
+          1417356220  cycles elapsed
+           138715936  peak memory footprint
+exit=0
+2026-10-09T08:30:41Z
+====================================================================================================
+staged run, step 3: the Lean kernel on the same export, in 47 checkpointed steps (one line per step)
+====================================================================================================
+step 00 bootstrap 2026-10-09T08:38:27Z 2026-10-09T08:38:32Z     5.288 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=bootstrap step=0
+step 01 advance   2026-10-09T08:38:33Z 2026-10-09T08:38:43Z     9.391 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=1
+step 02 advance   2026-10-09T08:38:44Z 2026-10-09T08:39:00Z    15.639 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=2
+step 03 advance   2026-10-09T08:39:01Z 2026-10-09T08:39:33Z    32.299 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=3
+step 04 advance   2026-10-09T08:39:34Z 2026-10-09T08:39:51Z    16.693 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=4
+step 05 advance   2026-10-09T08:39:52Z 2026-10-09T08:40:31Z    38.503 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=5
+step 06 advance   2026-10-09T08:40:32Z 2026-10-09T08:41:12Z    39.544 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=6
+step 07 advance   2026-10-09T08:41:13Z 2026-10-09T08:42:10Z    57.218 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=7
+step 08 advance   2026-10-09T08:42:12Z 2026-10-09T08:43:10Z    58.219 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=8
+step 09 advance   2026-10-09T08:43:11Z 2026-10-09T08:43:36Z    25.078 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=9
+step 10 advance   2026-10-09T08:43:38Z 2026-10-09T08:44:21Z    43.717 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=10
+step 11 advance   2026-10-09T08:44:23Z 2026-10-09T08:45:19Z    56.149 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=11
+step 12 advance   2026-10-09T08:45:20Z 2026-10-09T08:46:23Z    62.474 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=12
+step 13 advance   2026-10-09T08:46:24Z 2026-10-09T08:47:34Z    69.774 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=13
+step 14 advance   2026-10-09T08:47:35Z 2026-10-09T08:48:44Z    68.689 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=14
+step 15 advance   2026-10-09T08:48:45Z 2026-10-09T08:49:59Z    73.863 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=15
+step 16 advance   2026-10-09T08:50:00Z 2026-10-09T08:51:30Z    89.485 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=16
+step 17 advance   2026-10-09T08:51:31Z 2026-10-09T08:52:52Z    81.135 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=17
+step 18 advance   2026-10-09T08:52:54Z 2026-10-09T08:54:17Z    83.260 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=18
+step 19 advance   2026-10-09T08:54:18Z 2026-10-09T08:55:46Z    87.373 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=19
+step 20 advance   2026-10-09T08:55:47Z 2026-10-09T08:57:02Z    74.881 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=20
+step 21 advance   2026-10-09T08:57:04Z 2026-10-09T08:57:57Z    53.072 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=21
+step 22 advance   2026-10-09T08:57:58Z 2026-10-09T08:59:03Z    64.511 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=22
+step 23 advance   2026-10-09T08:59:04Z 2026-10-09T09:00:19Z    74.926 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=23
+step 24 advance   2026-10-09T09:00:20Z 2026-10-09T09:01:46Z    85.357 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=24
+step 25 advance   2026-10-09T09:01:47Z 2026-10-09T09:03:10Z    83.251 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=25
+step 26 advance   2026-10-09T09:03:12Z 2026-10-09T09:04:51Z    98.875 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=26
+step 27 advance   2026-10-09T09:04:52Z 2026-10-09T09:06:35Z   103.003 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=27
+step 28 advance   2026-10-09T09:06:37Z 2026-10-09T09:08:21Z   104.059 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=28
+step 29 advance   2026-10-09T09:08:22Z 2026-10-09T09:10:10Z   108.227 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=29
+step 30 advance   2026-10-09T09:10:12Z 2026-10-09T09:12:08Z   115.516 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=30
+step 31 advance   2026-10-09T09:12:09Z 2026-10-09T09:14:00Z   111.373 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=31
+step 32 advance   2026-10-09T09:14:02Z 2026-10-09T09:15:56Z   114.440 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=32
+step 33 advance   2026-10-09T09:15:58Z 2026-10-09T09:18:10Z   132.136 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=33
+step 34 advance   2026-10-09T09:18:12Z 2026-10-09T09:20:25Z   133.124 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=34
+step 35 advance   2026-10-09T09:20:26Z 2026-10-09T09:22:46Z   139.508 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=35
+step 36 advance   2026-10-09T09:22:47Z 2026-10-09T09:25:08Z   140.492 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=36
+step 37 advance   2026-10-09T09:25:09Z 2026-10-09T09:27:40Z   150.949 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=37
+step 38 advance   2026-10-09T09:27:42Z 2026-10-09T09:30:07Z   144.619 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=38
+step 39 advance   2026-10-09T09:30:08Z 2026-10-09T09:32:43Z   155.135 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=39
+step 40 advance   2026-10-09T09:32:45Z 2026-10-09T09:35:18Z   152.910 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=40
+step 41 advance   2026-10-09T09:35:20Z 2026-10-09T09:38:11Z   171.720 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=41
+step 42 advance   2026-10-09T09:38:13Z 2026-10-09T09:40:47Z   154.117 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=42
+step 43 advance   2026-10-09T09:40:49Z 2026-10-09T09:43:39Z   170.652 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=43
+step 44 advance   2026-10-09T09:43:41Z 2026-10-09T09:46:43Z   182.195 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=44
+step 45 advance   2026-10-09T09:46:45Z 2026-10-09T09:49:17Z   151.905 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=advance step=45
+step 46 final     2026-10-09T09:49:19Z 2026-10-09T09:51:10Z   111.337 s exit=0 CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=final step=46

@@ -7,8 +7,8 @@ problems that were dropped without a result. It gives the denominator behind
 the results in this repository: how many problems were tried, and what
 became of each.
 
-Status: 7 October 2026, covering the work of 25 September to 7 October 2026
-up to version 1.12.0. All dates are UTC.
+Status: 9 October 2026, covering the work of 25 September to 9 October 2026 up to version
+1.13.0. All dates are UTC.
 
 ## How to read this file
 
@@ -28,7 +28,7 @@ up to version 1.12.0. All dates are UTC.
 
 ## (a) Published
 
-The column "Lean" describes the formal verification in version 1.11.0; the
+The column "Lean" describes the formal verification in version 1.13.0; the
 README has the details.
 
 | # | Problem | Source | Published in | What was proved | Lean |
@@ -49,7 +49,7 @@ README has the details.
 | 20 | Carenini's Question 1.3 on almost independent sets in regular graphs | arXiv:2609.28527 | v1.3.0 (Paper 3); version 2 in v1.10.0 | Answer: no. Smallest counterexample `(n, d, γ) = (6, 3, 1/18)`; counterexamples for every `(n, d)` with `2d ∣ n` apart from trivial cases, and further families; a positive result at the exponential scale. Some cases remain open | all results (version 2) |
 | 21 | Problems 1–3 of Hak, Kozerenko and Oliynyk on the triameter of graphs (3 problems) | Discrete Appl. Math. 309 (2022); arXiv:2103.10806 | v1.4.0 (Paper 4); version 2 in v1.9.0 | Problem 1: no (an 8-vertex median graph). Problem 2: no, but this had already been answered on MathOverflow by rgvalenciaalbornoz ([answer 506536](https://mathoverflow.net/a/506536), 2025-12-31; found by us on 2026-09-26); we add only the smallest counterexample. Problem 3: yes, in a stronger form | all results (version 2) |
 | 22 | Problem 15.11 of Araújo, Bentz, Cameron, Hendrey and Kinyon: complete mappings of the Brauer and partial Brauer monoids | arXiv:2608.25092 | v1.4.0 (Paper 5); version 2 in v1.12.0 | Settled in its existence reading: `B_n` and `PB_n` have a complete mapping if and only if `n ∉ {2, 3}`, with the answer for every proper principal factor. The set of all complete mappings is not described | all results (version 2) |
-| 23 | Weights of the Reed–Muller code RM(7,14) (Carlet's question; 22 undecided values listed by Leuenberger and Albrizzio) | C. Carlet, IEEE Trans. Inf. Theory 70 (2024); arXiv:2606.21425 | v1.4.0 (Paper 6) | Partial answer: 14 new weights (17 found, 3 of them already known); the spectrum is determined except for 322, 326, 330, 334 and their complements (this step cites a 1976 theorem we could not consult); Conjecture 2 of Lou and Wang fails for `m = 6` (Theorem C), but this was not new: Lou and Wang had proved it in Discrete Appl. Math. 388 (2026) 142–145, a note we read only after publication (see Corrections) | the 17 weights |
+| 23 | Weights of the Reed–Muller code RM(7,14) (Carlet's question; 22 undecided values listed by Leuenberger and Albrizzio) | C. Carlet, IEEE Trans. Inf. Theory 70 (2024); arXiv:2606.21425 | v1.4.0 (Paper 6); version 2 in v1.13.0 | Partial answer: 14 new weights (17 found, 3 of them already known); explicit codewords for every even number from 320 to 2^14 − 320 except 322, 326, 330, 334 and their complements, so, in the middle-interval reading of Carlet's question, the question for (7,14) is equivalent to these four being weights (version 1 also claimed the whole spectrum up to these four, citing a 1976 theorem we could not consult; version 2 deletes that claim); Conjecture 2 of Lou and Wang fails for `m = 6` (Theorem C), but this was not new: Lou and Wang had proved it in Discrete Appl. Math. 388 (2026) 142–145, a note we read only after publication (see Corrections) | all results (version 2) |
 | 24 | Minimum order of a counterexample to the conjecture of Braga, Del-Vecchio and Rodrigues on integral generalized sun graphs | arXiv:2609.28754 (Braga, Moraes and Santos) | v1.6.0 (Paper 7) | The minimum order is 42, and the 42-vertex counterexample is unique (computer-assisted); also a constraint on odd cycles in integral unicyclic graphs | none |
 | 25 | The switching conjecture for main eigenvalues, for trees (Problem 1.6 of Akbari, Kumar, Mohar and Pragada) | arXiv:2609.27046 | v1.7.0 (Paper 8); version 2 in v1.11.0 | Partial answer: the conjecture holds for every tree of diameter at most 4 other than K₂, and so does its signature version. Open for all trees and for regular graphs | all results (version 2) |
 | 26 | Conjecture 3.16 of McInroy and Shpectorov, and Problem 3.11 of Gorshkov and Shpectorov (= Question 9.5 of Mamontov, Shpectorov and Zhelyabin): the finest sum decomposition of an axial algebra and the connected components of its non-annihilation graph | arXiv:2209.08043; arXiv:2606.30048; arXiv:2602.11984 | v1.8.0 (Paper 9, Theorem A and Corollary 1.1) | Answer: no, when arbitrary finite symmetric fusion laws are allowed: a four-dimensional simple primitive axial algebra over ℚ whose non-annihilation graph is disconnected. Not about the Monster-type case (row 5 of section c) | all results |
@@ -98,8 +98,8 @@ items is claimed as a result in this repository.
     them (rows 4–7) our own work was small: screening checks, a numerical
     check or a statement contract.
   - Dropped without a result: 6 items (section c).
-- Under active work and not listed here: none. The parts of Papers 1, 2,
-  6 and 7 that are not yet formalized in Lean are being formalized.
+- Under active work and not listed here: none. The parts of Papers 1, 2
+  and 7 that are not yet formalized in Lean are being formalized.
 - Scouted but not attempted: 54 candidates. This counts the candidates that
   scouting agents wrote up and ranked in their reports but on which no
   research was done. Problems rejected during bulk screening (for example,
@@ -174,3 +174,17 @@ Published corrections so far:
    Lemma 4.4 with a criterion of Araújo et al.), and several side
    statements, among them the identifications with Green's relations. Every
    result of version 2 is formalized in Lean. The theorems are unchanged.
+
+10. **Paper 6, version 2 (v1.13.0).** Deletes every claim of version 1 that
+   rests on the theorems of Kasami and Tokura (1970) or Kasami, Tokura and
+   Azumi (1976), which we could not consult and have not formalized: the
+   determination of the whole weight spectrum up to four values (the title of
+   version 1 is changed to "Fourteen new weights of the Reed–Muller code
+   RM(7,14)"), (P4a), (P4b), Lemma 4.1, Proposition C′, the extension of
+   Theorem C to arbitrary `g₁, g₂ ∈ RM(6,12)`, and the remark that the
+   weights below 320 of sums of five monomials are exactly the known list;
+   the computations and heuristic searches of version 1 are no longer
+   reported. Theorem C is attributed to Lou and Wang (listed under Known
+   issues since v1.7.1), and (P2) states the hypothesis `r ≥ 1`. Every
+   result of version 2 is formalized in Lean. Theorems A and B (its explicit
+   codewords), the Corollary and Propositions D, E and F are unchanged.

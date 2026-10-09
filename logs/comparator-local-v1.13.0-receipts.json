@@ -1,0 +1,721 @@
+{
+ "purpose": "Local comparator check before release v1.13.0, on macOS: the landrun sandbox is replaced by comparator's scripts/fake-landrun.sh (NOT sandboxed). The test directory is the v1.13.0 replay directory, whose 926 sources match logs/lean-sources-sha256.txt. Each command was subject to a limit of 1800 s; one run (PropE alone) exceeded it during a gap in supervision and is not counted (see runs.paper6).",
+ "tools": {
+  "lean_toolchain": "leanprover/lean4:v4.34.1 (commit 5045d0056413266e57c625dcd7c365b10e377c52)",
+  "comparator_commit": "d03acab154d269c06e60e4de7e4cc85deebff94b",
+  "comparator_toolchain_file_changed_to": "leanprover/lean4:v4.34.1",
+  "comparator_bin_sha256": "7321ede8b82226a69fddcf03d9204d63677050aded6c3cf141410204e133f891",
+  "lean4export_commit": "076e8e57707e813375e8f9da8bf989799ace9680",
+  "lean4export_bin_sha256": "17da1e168bf5d41484c940e41c1f68230798ebb38d09174b564e955895279d0f",
+  "nanoda_lib_commit": "3a2407216ee84a75f9e1aead6803d0578be06ae7",
+  "nanoda_bin_sha256": "7a1bfb8ddebbc22a483e4d39ce177d7de9dcd8e198dfae6396f87f1460c59e97",
+  "landrun": "fake-landrun.sh from the comparator checkout (no sandbox)"
+ },
+ "environment": "PATH starts with the toolchain bin and nanoda's target/release; LEAN_NUM_THREADS=2; LAKE_NO_CACHE=true, LAKE_ARTIFACT_CACHE=false, LAKE_RESTORE_ARTIFACTS=false; .lake/packages is the shared Mathlib cache at the pinned revisions.",
+ "approval": {
+  "by": "a Codex agent that had written none of the proofs or tools",
+  "result": "APPROVED",
+  "review_utc": [
+   "2026-10-09T09:56:00Z",
+   "2026-10-09T10:11:48Z"
+  ],
+  "review_md_sha256": "9b82fe484ea2a7de42abb45b168a6e33d43c10417de1c8574287a20334332f6f"
+ },
+ "runs": {
+  "paper3": {
+   "config": "ci/comparator/paper3.json",
+   "config_sha256": "4404275c0a3087c78e80e0355232a6eae2bc40d5de1c34493c176fda451ee0ad",
+   "theorems": 60,
+   "start_utc": "2026-10-09T04:11:51Z",
+   "end_utc": "2026-10-09T04:16:57Z",
+   "seconds": 306.8,
+   "exit_code": 0,
+   "verdict": [
+    "nanoda kernel accepts the solution",
+    "Lean default kernel accepts the solution",
+    "Your solution is okay!"
+   ],
+   "log": {
+    "original_sha256": "0b8413113bbd85b0a0ce5cd13d4da47c08ca5393220552e3daf43f1a5ee4bbbb",
+    "published": "logs/comparator-local-v1.13.0-paper3.log",
+    "published_sha256": "86ced36454a51a69bbe6874b8302b7212f557f0a5f3c8945b56492c29b11a530",
+    "note": "project path replaced by <project>, macOS temporary paths by <tmp>; nothing else changed"
+   }
+  },
+  "paper4": {
+   "config": "ci/comparator/paper4.json",
+   "config_sha256": "8d11ec5c2cc170837e440b4bb9254fad59544be684d742118b90083f2ffbbe8d",
+   "theorems": 50,
+   "start_utc": "2026-10-09T04:16:58Z",
+   "end_utc": "2026-10-09T04:23:58Z",
+   "seconds": 419.9,
+   "exit_code": 0,
+   "verdict": [
+    "nanoda kernel accepts the solution",
+    "Lean default kernel accepts the solution",
+    "Your solution is okay!"
+   ],
+   "log": {
+    "original_sha256": "4aa813867829f44d68365fc86f78e5d7a45a3ca9b6bb69f6cba3da2cc17a4bb8",
+    "published": "logs/comparator-local-v1.13.0-paper4.log",
+    "published_sha256": "c492a25282310a701f103f54806f829fa1ea15f0cc4c88ba1b5add5b67b0f1f2",
+    "note": "project path replaced by <project>, macOS temporary paths by <tmp>; nothing else changed"
+   }
+  },
+  "paper5": {
+   "config": "ci/comparator/paper5.json",
+   "config_sha256": "114af8a5d57e7f1386db2ecde1b5a09840979c73b61f6e6ea57deb8c94987652",
+   "theorems": 45,
+   "start_utc": "2026-10-09T04:10:59Z",
+   "end_utc": "2026-10-09T04:11:50Z",
+   "seconds": 51.3,
+   "exit_code": 0,
+   "verdict": [
+    "nanoda kernel accepts the solution",
+    "Lean default kernel accepts the solution",
+    "Your solution is okay!"
+   ],
+   "log": {
+    "original_sha256": "e6ad85967f9cf453aab8d00bf6ca18c20d9ecf531a2d47b873a2391f70fc330f",
+    "published": "logs/comparator-local-v1.13.0-paper5.log",
+    "published_sha256": "072a987d9b4bfa69fac5202ad9514899b0bb989ffe71b4f2b69d6222412c3af8",
+    "note": "project path replaced by <project>, macOS temporary paths by <tmp>; nothing else changed"
+   }
+  },
+  "paper8": {
+   "config": "ci/comparator/paper8.json",
+   "config_sha256": "d1264327e7bb57e21738decf1f7c2164036e490d71fde5d29d532f20757a6d1f",
+   "theorems": 38,
+   "start_utc": "2026-10-09T04:23:58Z",
+   "end_utc": "2026-10-09T04:26:30Z",
+   "seconds": 152.4,
+   "exit_code": 0,
+   "verdict": [
+    "nanoda kernel accepts the solution",
+    "Lean default kernel accepts the solution",
+    "Your solution is okay!"
+   ],
+   "log": {
+    "original_sha256": "eb77384665b7a038e8869dbafa404243253bb75e7e9b305aea0fa8d51c06a14a",
+    "published": "logs/comparator-local-v1.13.0-paper8.log",
+    "published_sha256": "903f0d436aecba6a13da6c16537a84bc4ef8f1cd374416b8955c3773a229f384",
+    "note": "project path replaced by <project>, macOS temporary paths by <tmp>; nothing else changed"
+   }
+  },
+  "paper9": {
+   "config": "ci/comparator/paper9.json",
+   "config_sha256": "a34440ab3a7a98b894165d1f1a3db2f297afb8dace1ea898ea1bc52cd48cc02e",
+   "theorems": 17,
+   "start_utc": "2026-10-09T04:26:31Z",
+   "end_utc": "2026-10-09T04:27:23Z",
+   "seconds": 51.7,
+   "exit_code": 0,
+   "verdict": [
+    "nanoda kernel accepts the solution",
+    "Lean default kernel accepts the solution",
+    "Your solution is okay!"
+   ],
+   "log": {
+    "original_sha256": "1f624087a085d8e2054670ebb842fee47a950707e38068e1a4aa6e978add878a",
+    "published": "logs/comparator-local-v1.13.0-paper9.log",
+    "published_sha256": "f61cc31b820a45be87266e3d339d42049ade03b4e9824e68f649668ad61c1e90",
+    "note": "project path replaced by <project>, macOS temporary paths by <tmp>; nothing else changed"
+   }
+  },
+  "wordrep": {
+   "config": "ci/comparator/wordrep.json",
+   "config_sha256": "3267e71828813f361c72a95f5dcca81b23a28d1176b94d0c33bf02f10bcb2b1a",
+   "theorems": 11,
+   "start_utc": "2026-10-09T04:27:23Z",
+   "end_utc": "2026-10-09T04:28:01Z",
+   "seconds": 38.3,
+   "exit_code": 0,
+   "verdict": [
+    "nanoda kernel accepts the solution",
+    "Lean default kernel accepts the solution",
+    "Your solution is okay!"
+   ],
+   "log": {
+    "original_sha256": "1ea828fcc79940d306f5da281ce8e76f498f378ee6c44f8463bfbe9771218ea9",
+    "published": "logs/comparator-local-v1.13.0-wordrep.log",
+    "published_sha256": "41ee2975f06117bc69f4d32436843c43beacdb4e0009e41293d5378bce69bc08",
+    "note": "project path replaced by <project>, macOS temporary paths by <tmp>; nothing else changed"
+   }
+  },
+  "paper6": {
+   "config": "ci/comparator/paper6.json",
+   "config_sha256": "901e709dd06d5da66a0a7b80991a055b1c4f9618c0b394472c5180337f3b1a5c",
+   "note": "One run of all 35 theorems takes longer than 1800 s, so comparator was run once for each theorem, with configurations equal to ci/comparator/paper6.json except that theorem_names lists one name. The 32 runs marked counted ended within the limit. A run for PropE_remark_2mod4 alone was stopped at the limit (original log SHA-256 96e7a592ba9fd4f233943f688c1564b88a34955e360c7a1a8fb6df012c87e754, not published), and PropE_mathlib alone was not run. For PropE, PropE_remark_2mod4 and PropE_mathlib, Codex ran comparator's steps separately, with a version of comparator modified to keep one export of the three theorems between the steps (the modified tools are not published): the build, the export, the comparison with the challenge and the axiom check; nanoda; and the Lean kernel replaying the same export in 47 steps, each under the limit, the kernel's state being saved and checked between steps.",
+   "published": {
+    "separate_runs": "logs/comparator-local-v1.13.0-paper6.log",
+    "separate_runs_sha256": "0204d9131e3b8968bb0217b7cdf4eca4dbe8101980eb85b9d34d77114ad68b46",
+    "staged_run": "logs/comparator-local-v1.13.0-paper6-prope.log",
+    "staged_run_sha256": "febf2f1926ae1c68464c3c1e4afbb02b1120abd6b82851d5a6b2d08ccfc53688",
+    "trimming": "In each log the lines in which Lake replays the stored messages of the already built modules of the solution (their #print axioms outputs and the two known deprecation warnings of RM714Weights) are replaced by one line giving their number; nothing else is changed except the paths."
+   },
+   "separate_runs": {
+    "paper6-001": {
+     "theorem": "Paper6FinalPackageV4.check_P1",
+     "start_utc": "2026-10-09T04:28:13Z",
+     "end_utc": "2026-10-09T04:28:27Z",
+     "seconds": 14.7,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "e534f492355dd2192b8cd2979a41006e31ac61e788029b180e9970a22f750c72",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-002": {
+     "theorem": "Paper6FinalPackageV4.check_P2",
+     "start_utc": "2026-10-09T04:28:28Z",
+     "end_utc": "2026-10-09T04:28:42Z",
+     "seconds": 14.5,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "f80c863caf1b624a93d838c815c59976acfa540e51987e2319ed258caa887934",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-003": {
+     "theorem": "Paper6FinalPackageV4.check_P3_minWeight",
+     "start_utc": "2026-10-09T04:28:42Z",
+     "end_utc": "2026-10-09T04:29:20Z",
+     "seconds": 38.1,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "a25760f96ebceb09acfb8bb2cc51f63ce2deaaee8800cbfa11b064a78653d823",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-004": {
+     "theorem": "Paper6FinalPackageV4.check_Lem21",
+     "start_utc": "2026-10-09T04:29:21Z",
+     "end_utc": "2026-10-09T04:29:35Z",
+     "seconds": 14.0,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "0985cb7430c574180c33a5a7caaf7d9c49db626b140702987a3c32903bde52ad",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-005": {
+     "theorem": "Paper6FinalPackageV4.check_Lem21_venn",
+     "start_utc": "2026-10-09T04:29:35Z",
+     "end_utc": "2026-10-09T04:29:49Z",
+     "seconds": 13.8,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "3899052efeb428e4eb48a9cc07a5708717ad6c65c9c0d8c570074b8a719ab433",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-006": {
+     "theorem": "Paper6FinalPackageV4.check_Lem22",
+     "start_utc": "2026-10-09T04:29:49Z",
+     "end_utc": "2026-10-09T04:30:05Z",
+     "seconds": 15.5,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "1d46e1bfcd385c18bc56e36631a7e8d270a027ad59e381c31e0b8351a43c1ccd",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-007": {
+     "theorem": "Paper6FinalPackageV4.check_ThmA",
+     "start_utc": "2026-10-09T04:30:05Z",
+     "end_utc": "2026-10-09T04:31:50Z",
+     "seconds": 104.8,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "8f79b69a45706f7ed59abc4e6e2670cca3a62639c82d03da45f1e73fc9c77515",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-008": {
+     "theorem": "Paper6FinalPackageV4.check_Table1",
+     "start_utc": "2026-10-09T04:31:50Z",
+     "end_utc": "2026-10-09T04:36:02Z",
+     "seconds": 251.6,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "c6616f3a7e2a09694fb3f1afe9652586823f7d1919b05c04339970a98f188f4f",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-009": {
+     "theorem": "Paper6FinalPackageV4.check_Rem31",
+     "start_utc": "2026-10-09T04:36:02Z",
+     "end_utc": "2026-10-09T04:36:35Z",
+     "seconds": 32.2,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "150a2cda9a39f6ec74ccda53becd20347aa4e57dd4e3eff108c239a564f3ed9b",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-010": {
+     "theorem": "Paper6FinalPackageV4.check_ThmB_witnesses",
+     "start_utc": "2026-10-09T04:36:35Z",
+     "end_utc": "2026-10-09T04:41:59Z",
+     "seconds": 323.9,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "020154c952cb7b7034da1bc3df41e1e54bd93cc9566851b3f315cbd1b22a591f",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-011": {
+     "theorem": "Paper6FinalPackageV4.check_S0_card",
+     "start_utc": "2026-10-09T04:41:59Z",
+     "end_utc": "2026-10-09T04:42:12Z",
+     "seconds": 12.5,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "ac96a2b10a09cce36ed6abdb9ff95d9042d2d91e732c112ccc3dc577bff09526",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-012": {
+     "theorem": "Paper6FinalPackageV4.check_CarletEquiv",
+     "start_utc": "2026-10-09T04:42:12Z",
+     "end_utc": "2026-10-09T04:47:37Z",
+     "seconds": 325.1,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "bb826e6407cb5ebfcd3f26fe32470c6385fda8fd1a9361fa60bfc0d995d0ce94",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-013": {
+     "theorem": "Paper6FinalPackageV4.check_IntroMU",
+     "start_utc": "2026-10-09T04:47:37Z",
+     "end_utc": "2026-10-09T04:47:49Z",
+     "seconds": 11.5,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "4903ccbea1128f984f2141c5db028c4d9b5598c347833b7f2e3cffd1a043bf40",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-014": {
+     "theorem": "Paper6FinalPackageV4.check_LAProp4",
+     "start_utc": "2026-10-09T04:47:49Z",
+     "end_utc": "2026-10-09T04:53:13Z",
+     "seconds": 324.1,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "77a14024a9de64afa5980c4e0b0c70ad171323d8884da3847c857aecfc59409e",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-015": {
+     "theorem": "Paper6FinalPackageV4.check_LWConstrInRM",
+     "start_utc": "2026-10-09T04:53:14Z",
+     "end_utc": "2026-10-09T04:53:28Z",
+     "seconds": 14.1,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "9305b60fd095df9fe56e771ecc26bc7f70aa2f50d3e8e2378a98f1a78a7494be",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-016": {
+     "theorem": "Paper6FinalPackageV4.check_LWConj2_gives",
+     "start_utc": "2026-10-09T04:53:28Z",
+     "end_utc": "2026-10-09T04:53:42Z",
+     "seconds": 14.2,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "b951727f4ebe111fd843d067e76992572f58a75174a4d5b03760c6e1834c4ba1",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-017": {
+     "theorem": "Paper6FinalPackageV4.check_ThmC_literal",
+     "start_utc": "2026-10-09T04:53:43Z",
+     "end_utc": "2026-10-09T05:13:45Z",
+     "seconds": 1202.9,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "51a9992ded9e2fd19695535f2e30b138df2bea5384445121cc4172bea8ca7b95",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-018": {
+     "theorem": "Paper6FinalPackageV4.check_Sec4Concat",
+     "start_utc": "2026-10-09T05:13:46Z",
+     "end_utc": "2026-10-09T05:14:00Z",
+     "seconds": 14.1,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "831a043a144b4a2af3eb1f52e9d2059a6e32ccd9e3ce54df6309a709733b47cb",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-019": {
+     "theorem": "Paper6FinalPackageV4.check_FactStar",
+     "start_utc": "2026-10-09T05:14:00Z",
+     "end_utc": "2026-10-09T05:14:38Z",
+     "seconds": 37.8,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "157613d1801ceff750e689846602fcb87f517936706936417e32d30d6fd58535",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-020": {
+     "theorem": "Paper6FinalPackageV4.check_TransversalDim",
+     "start_utc": "2026-10-09T05:14:38Z",
+     "end_utc": "2026-10-09T05:14:59Z",
+     "seconds": 20.3,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "e22301b741553fdb64e2570a08730121221fda53518c4be191ed64872422619e",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-021": {
+     "theorem": "Paper6FinalPackageV4.check_PropD",
+     "start_utc": "2026-10-09T05:14:59Z",
+     "end_utc": "2026-10-09T05:15:21Z",
+     "seconds": 21.9,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "6c97863f7be425806e272781bbf5388889831e312dd7298f1112e27c7c236cfd",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-022": {
+     "theorem": "Paper6FinalPackageV4.check_RemD162",
+     "start_utc": "2026-10-09T05:15:21Z",
+     "end_utc": "2026-10-09T05:15:36Z",
+     "seconds": 15.0,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "0ea1a6205d474361df53abb56e0a9dae5854e8b3fa5d9d7de2774dd9f8ad2706",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-025": {
+     "theorem": "Paper6FinalPackageV4.check_Lem51",
+     "start_utc": "2026-10-09T06:28:38Z",
+     "end_utc": "2026-10-09T06:29:23Z",
+     "seconds": 44.8,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "3a86416e83ff8710c47e11b95a5ce9df04cac57694ece7938acf550e46d76615",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-026": {
+     "theorem": "Paper6FinalPackageV4.check_PropF",
+     "start_utc": "2026-10-09T06:29:23Z",
+     "end_utc": "2026-10-09T06:30:05Z",
+     "seconds": 41.6,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "46b8d5ffcf71c6d2b737cf725a67e7df5416430976c1a8fb0ea8e8c9ac5ffafc",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-027": {
+     "theorem": "Paper6FinalPackageV4.check_MinDist",
+     "start_utc": "2026-10-09T06:30:05Z",
+     "end_utc": "2026-10-09T06:30:21Z",
+     "seconds": 16.1,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "4479d0d447d2aa27b2f6c653dd0c1cc879b737c5653a2fecc2055eacadc53084",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-028": {
+     "theorem": "Paper6FinalPackageV4.check_FlatBasics",
+     "start_utc": "2026-10-09T06:30:21Z",
+     "end_utc": "2026-10-09T06:30:44Z",
+     "seconds": 23.1,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "50bf6eb98dfd39217e0798f15addb830eca2cf90ecb69ce6e675ac6760789360",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-029": {
+     "theorem": "Paper6FinalPackageV4.check_AffineInvariance",
+     "start_utc": "2026-10-09T06:30:45Z",
+     "end_utc": "2026-10-09T06:31:01Z",
+     "seconds": 16.2,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "78267ccaa9a04d84077235c5b3e82ef9ac9137f1015b08b9ba4fe64bb35d5f4d",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-030": {
+     "theorem": "Paper6FinalPackageV4.check_Cat4Weight",
+     "start_utc": "2026-10-09T06:31:01Z",
+     "end_utc": "2026-10-09T06:31:15Z",
+     "seconds": 13.8,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "e5a62c26f3228bc9636f5b1c3211bc0cab36a8dd8e495fa8f9521bcc37c04d0a",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-031": {
+     "theorem": "Paper6FinalPackageV4.check_Calib612",
+     "start_utc": "2026-10-09T06:31:15Z",
+     "end_utc": "2026-10-09T06:34:34Z",
+     "seconds": 198.5,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "e9569218cfb9b2fef17e03f0a3337468a3c997c7e10dbb8b09c5c898f8fe02e0",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-032": {
+     "theorem": "Paper6FinalPackageV4.check_S0_eq_LA",
+     "start_utc": "2026-10-09T06:34:34Z",
+     "end_utc": "2026-10-09T06:34:47Z",
+     "seconds": 13.1,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "2d6eea0471ccfe83bb5629c447a6c66725bf3716b7ab39aa9555e58c8fa0fa03",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-033": {
+     "theorem": "Paper6FinalPackageV4.check_ThmA_mathlib",
+     "start_utc": "2026-10-09T06:34:48Z",
+     "end_utc": "2026-10-09T06:36:45Z",
+     "seconds": 117.2,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "0fb72b1243b8462489a9d5a9064f8c6c14b4842fa04f58dde35f59b49985aa45",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-035": {
+     "theorem": "Paper6FinalPackageV4.check_Sec7Bridge",
+     "start_utc": "2026-10-09T06:36:45Z",
+     "end_utc": "2026-10-09T06:37:06Z",
+     "seconds": 20.7,
+     "exit_code": 0,
+     "counted": true,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "b50b68e06f4e620236d4de0b5a5d3c74ff84ca34eca97aab8ce9ca645d4055db",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    },
+    "paper6-023": {
+     "theorem": "Paper6FinalPackageV4.check_PropE",
+     "start_utc": "2026-10-09T05:15:36Z",
+     "end_utc": "2026-10-09T05:57:23Z",
+     "seconds": 2506.3,
+     "exit_code": 0,
+     "counted": false,
+     "verdict": [
+      "nanoda kernel accepts the solution",
+      "Lean default kernel accepts the solution",
+      "Your solution is okay!"
+     ],
+     "original_log_sha256": "dd3e82d4212658d52f23f934f2717ae92426379f3e8bda966ad184203a647881",
+     "omitted_lines": 24749,
+     "replayed_modules": 372
+    }
+   },
+   "staged_run": {
+    "theorems": [
+     "Paper6FinalPackageV4.check_PropE",
+     "Paper6FinalPackageV4.check_PropE_remark_2mod4",
+     "Paper6FinalPackageV4.check_PropE_mathlib"
+    ],
+    "config_sha256": "4eb91dc62245de2444915759361ae326774a34526d215464f4f766791848d6d4",
+    "export_bundle_sha256": "2c02cd5bb613b1787ea0d4abeee4d45e9664bcf8e0ded2c4081451848a4e8787",
+    "step1": {
+     "original_log_sha256": "46e8be22b9d1a69a34dd166686fa8f3ee5d6f8cc0fc7b18f8c7fcc985957ae6e",
+     "omitted_lines": 24749,
+     "replayed_modules": 372,
+     "result": "STAGE_PREPARE_ACCEPTED"
+    },
+    "step2": {
+     "original_log_sha256": "79b4c28cd1b4e05a6d6c8acd3e2f0167d700cf835487bf513bc3884c2e5e11f8",
+     "result": "nanoda kernel accepts the solution"
+    },
+    "step3": {
+     "steps": 47,
+     "start_utc": "2026-10-09T08:38:27Z",
+     "end_utc": "2026-10-09T09:51:10Z",
+     "max_step_seconds": 182.195,
+     "all_exit_0": true,
+     "final_marker": "CHECKPOINT_BATCH_CANDIDATE_WRITTEN mode=final step=46",
+     "declarations_checked_in_final_step": 16174
+    }
+   },
+   "coverage": {
+    "theorems": 35,
+    "separate_runs_counted": 32,
+    "staged_run": 3
+   }
+  }
+ }
+}
