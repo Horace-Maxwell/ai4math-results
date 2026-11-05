@@ -1,0 +1,948 @@
+import Research.Backfill.Paper7.SparseRowCertificate
+import Research.Backfill.Paper7.MomentB4PrefixBlocks
+
+/-! Generated UNTRUSTED proof-source candidate for the complete B4 prefix (0,0).
+No native candidate flag, declared count, or data-file coverage is a hypothesis.
+Each finite row/DP-cell proof must be accepted by the Lean kernel. -/
+set_option autoImplicit false
+noncomputable section
+namespace Paper7MomentBlock00
+open Paper7MomentCertificate Paper7MomentCounts Paper7MomentDP
+open scoped BigOperators
+
+theorem row_09_00 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨0, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨0, by decide⟩⟩) = (![0, 0, 9, 0] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 0] : Fin 4 → ℕ) i) = 9 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 0 = 9
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 0] : Fin 4 → ℕ) i : ℤ)^2)) = 81 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 0^2 = 81
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_00
+
+theorem row_09_01 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨1, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨1, by decide⟩⟩) = (![0, 0, 9, 1] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 1] : Fin 4 → ℕ) i) = 10 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 1 = 10
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 1] : Fin 4 → ℕ) i : ℤ)^2)) = 82 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 1^2 = 82
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_01
+
+theorem row_09_02 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨2, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨2, by decide⟩⟩) = (![0, 0, 9, 2] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 2] : Fin 4 → ℕ) i) = 11 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 2 = 11
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 2] : Fin 4 → ℕ) i : ℤ)^2)) = 85 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 2^2 = 85
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_02
+
+theorem row_09_03 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨3, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨3, by decide⟩⟩) = (![0, 0, 9, 3] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 3] : Fin 4 → ℕ) i) = 12 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 3 = 12
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 3] : Fin 4 → ℕ) i : ℤ)^2)) = 90 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 3^2 = 90
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_03
+
+theorem row_09_04 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨4, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨4, by decide⟩⟩) = (![0, 0, 9, 4] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 4] : Fin 4 → ℕ) i) = 13 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 4 = 13
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 4] : Fin 4 → ℕ) i : ℤ)^2)) = 97 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 4^2 = 97
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_04
+
+theorem row_09_05 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨5, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨5, by decide⟩⟩) = (![0, 0, 9, 5] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 5] : Fin 4 → ℕ) i) = 14 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 5 = 14
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 5] : Fin 4 → ℕ) i : ℤ)^2)) = 106 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 5^2 = 106
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_05
+
+theorem row_09_06 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨6, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨6, by decide⟩⟩) = (![0, 0, 9, 6] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 6] : Fin 4 → ℕ) i) = 15 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 6 = 15
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 6] : Fin 4 → ℕ) i : ℤ)^2)) = 117 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 6^2 = 117
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_06
+
+theorem row_09_07 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨7, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨7, by decide⟩⟩) = (![0, 0, 9, 7] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 7] : Fin 4 → ℕ) i) = 16 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 7 = 16
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 7] : Fin 4 → ℕ) i : ℤ)^2)) = 130 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 7^2 = 130
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_07
+
+theorem row_09_08 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨8, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨8, by decide⟩⟩) = (![0, 0, 9, 8] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 8] : Fin 4 → ℕ) i) = 17 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 8 = 17
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 8] : Fin 4 → ℕ) i : ℤ)^2)) = 145 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 8^2 = 145
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_08
+
+def layers_09_09 : Fin 5 → Fin 19 → ℕ := ![![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]
+#print axioms Paper7MomentBlock00.layers_09_09
+
+theorem cells_09_09 : QTableValid (![0, 0, 9, 9] : Fin 4 → ℕ) layers_09_09 := by
+  unfold QTableValid
+  constructor
+  · intro t
+    fin_cases t <;> decide
+  · intro k t
+    fin_cases k <;> fin_cases t <;> decide
+#print axioms Paper7MomentBlock00.cells_09_09
+
+theorem valid_09_09 :
+    SparseRowValid (![0, 0, 9, 9] : Fin 4 → ℕ) ({18} : Finset (Fin 19)) (fun _ => layers_09_09) := by
+  constructor
+  · intro Q
+    have hzsum : (∑ i, (![0, 0, 9, 9] : Fin 4 → ℕ) i) = 18 := by
+      rw [Fin.sum_univ_four]
+      change 0 + 0 + 9 + 9 = 18
+      decide
+    have hzsq : (∑ i, (((![0, 0, 9, 9] : Fin 4 → ℕ) i : ℤ)^2)) = 162 := by
+      rw [Fin.sum_univ_four]
+      change (0 : ℤ)^2 + 0^2 + 9^2 + 9^2 = 162
+      decide
+    unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+    simp only [hzsum, hzsq]
+    fin_cases Q <;> norm_num
+  · intro _Q
+    exact cells_09_09
+#print axioms Paper7MomentBlock00.valid_09_09
+
+def qvalues_09_09 : Fin 19 → ℕ := ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+#print axioms Paper7MomentBlock00.qvalues_09_09
+
+theorem row_09_09 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨9, by decide⟩⟩) = 1 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨9, by decide⟩⟩) = (![0, 0, 9, 9] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  calc
+    b4RowContribution (![0, 0, 9, 9] : Fin 4 → ℕ) =
+        sparseRowValue ({18} : Finset (Fin 19)) (fun _ => layers_09_09) :=
+      sparseRow_sound (![0, 0, 9, 9] : Fin 4 → ℕ) ({18} : Finset (Fin 19)) (fun _ => layers_09_09) valid_09_09
+    _ = 1 := by
+      unfold sparseRowValue
+      calc
+        _ = ∑ Q : Fin 19, qvalues_09_09 Q := by
+          apply Finset.sum_congr rfl
+          intro Q _
+          fin_cases Q
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_left (by norm_num)).trans (by rfl)
+        _ = 1 := by decide
+#print axioms Paper7MomentBlock00.row_09_09
+
+def layers_09_10 : Fin 5 → Fin 19 → ℕ := ![![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 9, 8, 7, 6, 5, 4, 3, 2]]
+#print axioms Paper7MomentBlock00.layers_09_10
+
+theorem cells_09_10 : QTableValid (![0, 0, 9, 10] : Fin 4 → ℕ) layers_09_10 := by
+  unfold QTableValid
+  constructor
+  · intro t
+    fin_cases t <;> decide
+  · intro k t
+    fin_cases k <;> fin_cases t <;> decide
+#print axioms Paper7MomentBlock00.cells_09_10
+
+theorem valid_09_10 :
+    SparseRowValid (![0, 0, 9, 10] : Fin 4 → ℕ) ({7} : Finset (Fin 19)) (fun _ => layers_09_10) := by
+  constructor
+  · intro Q
+    have hzsum : (∑ i, (![0, 0, 9, 10] : Fin 4 → ℕ) i) = 19 := by
+      rw [Fin.sum_univ_four]
+      change 0 + 0 + 9 + 10 = 19
+      decide
+    have hzsq : (∑ i, (((![0, 0, 9, 10] : Fin 4 → ℕ) i : ℤ)^2)) = 181 := by
+      rw [Fin.sum_univ_four]
+      change (0 : ℤ)^2 + 0^2 + 9^2 + 10^2 = 181
+      decide
+    unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+    simp only [hzsum, hzsq]
+    fin_cases Q <;> norm_num
+  · intro _Q
+    exact cells_09_10
+#print axioms Paper7MomentBlock00.valid_09_10
+
+def qvalues_09_10 : Fin 19 → ℕ := ![0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+#print axioms Paper7MomentBlock00.qvalues_09_10
+
+theorem row_09_10 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨10, by decide⟩⟩) = 8 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨10, by decide⟩⟩) = (![0, 0, 9, 10] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  calc
+    b4RowContribution (![0, 0, 9, 10] : Fin 4 → ℕ) =
+        sparseRowValue ({7} : Finset (Fin 19)) (fun _ => layers_09_10) :=
+      sparseRow_sound (![0, 0, 9, 10] : Fin 4 → ℕ) ({7} : Finset (Fin 19)) (fun _ => layers_09_10) valid_09_10
+    _ = 8 := by
+      unfold sparseRowValue
+      calc
+        _ = ∑ Q : Fin 19, qvalues_09_10 Q := by
+          apply Finset.sum_congr rfl
+          intro Q _
+          fin_cases Q
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_left (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+        _ = 8 := by decide
+#print axioms Paper7MomentBlock00.row_09_10
+
+theorem row_09_11 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨11, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨11, by decide⟩⟩) = (![0, 0, 9, 11] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 11] : Fin 4 → ℕ) i) = 20 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 11 = 20
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 11] : Fin 4 → ℕ) i : ℤ)^2)) = 202 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 11^2 = 202
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_11
+
+def layers_09_12 : Fin 5 → Fin 19 → ℕ := ![![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 9, 8, 7, 6, 5, 4]]
+#print axioms Paper7MomentBlock00.layers_09_12
+
+theorem cells_09_12 : QTableValid (![0, 0, 9, 12] : Fin 4 → ℕ) layers_09_12 := by
+  unfold QTableValid
+  constructor
+  · intro t
+    fin_cases t <;> decide
+  · intro k t
+    fin_cases k <;> fin_cases t <;> decide
+#print axioms Paper7MomentBlock00.cells_09_12
+
+theorem valid_09_12 :
+    SparseRowValid (![0, 0, 9, 12] : Fin 4 → ℕ) ({6, 12} : Finset (Fin 19)) (fun _ => layers_09_12) := by
+  constructor
+  · intro Q
+    have hzsum : (∑ i, (![0, 0, 9, 12] : Fin 4 → ℕ) i) = 21 := by
+      rw [Fin.sum_univ_four]
+      change 0 + 0 + 9 + 12 = 21
+      decide
+    have hzsq : (∑ i, (((![0, 0, 9, 12] : Fin 4 → ℕ) i : ℤ)^2)) = 225 := by
+      rw [Fin.sum_univ_four]
+      change (0 : ℤ)^2 + 0^2 + 9^2 + 12^2 = 225
+      decide
+    unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+    simp only [hzsum, hzsq]
+    fin_cases Q <;> norm_num
+  · intro _Q
+    exact cells_09_12
+#print axioms Paper7MomentBlock00.valid_09_12
+
+def qvalues_09_12 : Fin 19 → ℕ := ![0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0]
+#print axioms Paper7MomentBlock00.qvalues_09_12
+
+theorem row_09_12 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨12, by decide⟩⟩) = 17 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨12, by decide⟩⟩) = (![0, 0, 9, 12] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  calc
+    b4RowContribution (![0, 0, 9, 12] : Fin 4 → ℕ) =
+        sparseRowValue ({6, 12} : Finset (Fin 19)) (fun _ => layers_09_12) :=
+      sparseRow_sound (![0, 0, 9, 12] : Fin 4 → ℕ) ({6, 12} : Finset (Fin 19)) (fun _ => layers_09_12) valid_09_12
+    _ = 17 := by
+      unfold sparseRowValue
+      calc
+        _ = ∑ Q : Fin 19, qvalues_09_12 Q := by
+          apply Finset.sum_congr rfl
+          intro Q _
+          fin_cases Q
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_left (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_left (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+        _ = 17 := by decide
+#print axioms Paper7MomentBlock00.row_09_12
+
+theorem row_09_13 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨13, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨13, by decide⟩⟩) = (![0, 0, 9, 13] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 13] : Fin 4 → ℕ) i) = 22 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 13 = 22
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 13] : Fin 4 → ℕ) i : ℤ)^2)) = 250 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 13^2 = 250
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_13
+
+def layers_09_14 : Fin 5 → Fin 19 → ℕ := ![![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 10, 10, 9, 8, 7, 6]]
+#print axioms Paper7MomentBlock00.layers_09_14
+
+theorem cells_09_14 : QTableValid (![0, 0, 9, 14] : Fin 4 → ℕ) layers_09_14 := by
+  unfold QTableValid
+  constructor
+  · intro t
+    fin_cases t <;> decide
+  · intro k t
+    fin_cases k <;> fin_cases t <;> decide
+#print axioms Paper7MomentBlock00.cells_09_14
+
+theorem valid_09_14 :
+    SparseRowValid (![0, 0, 9, 14] : Fin 4 → ℕ) ({13} : Finset (Fin 19)) (fun _ => layers_09_14) := by
+  constructor
+  · intro Q
+    have hzsum : (∑ i, (![0, 0, 9, 14] : Fin 4 → ℕ) i) = 23 := by
+      rw [Fin.sum_univ_four]
+      change 0 + 0 + 9 + 14 = 23
+      decide
+    have hzsq : (∑ i, (((![0, 0, 9, 14] : Fin 4 → ℕ) i : ℤ)^2)) = 277 := by
+      rw [Fin.sum_univ_four]
+      change (0 : ℤ)^2 + 0^2 + 9^2 + 14^2 = 277
+      decide
+    unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+    simp only [hzsum, hzsq]
+    fin_cases Q <;> norm_num
+  · intro _Q
+    exact cells_09_14
+#print axioms Paper7MomentBlock00.valid_09_14
+
+def qvalues_09_14 : Fin 19 → ℕ := ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0]
+#print axioms Paper7MomentBlock00.qvalues_09_14
+
+theorem row_09_14 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨14, by decide⟩⟩) = 10 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨14, by decide⟩⟩) = (![0, 0, 9, 14] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  calc
+    b4RowContribution (![0, 0, 9, 14] : Fin 4 → ℕ) =
+        sparseRowValue ({13} : Finset (Fin 19)) (fun _ => layers_09_14) :=
+      sparseRow_sound (![0, 0, 9, 14] : Fin 4 → ℕ) ({13} : Finset (Fin 19)) (fun _ => layers_09_14) valid_09_14
+    _ = 10 := by
+      unfold sparseRowValue
+      calc
+        _ = ∑ Q : Fin 19, qvalues_09_14 Q := by
+          apply Finset.sum_congr rfl
+          intro Q _
+          fin_cases Q
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_left (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+        _ = 10 := by decide
+#print axioms Paper7MomentBlock00.row_09_14
+
+theorem row_09_15 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨15, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨15, by decide⟩⟩) = (![0, 0, 9, 15] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 15] : Fin 4 → ℕ) i) = 24 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 15 = 24
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 15] : Fin 4 → ℕ) i : ℤ)^2)) = 306 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 15^2 = 306
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_15
+
+theorem row_09_16 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨16, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨16, by decide⟩⟩) = (![0, 0, 9, 16] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 16] : Fin 4 → ℕ) i) = 25 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 16 = 25
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 16] : Fin 4 → ℕ) i : ℤ)^2)) = 337 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 16^2 = 337
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_16
+
+theorem row_09_17 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨17, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨17, by decide⟩⟩) = (![0, 0, 9, 17] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 17] : Fin 4 → ℕ) i) = 26 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 17 = 26
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 17] : Fin 4 → ℕ) i : ℤ)^2)) = 370 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 17^2 = 370
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_17
+
+theorem row_09_18 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨18, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨18, by decide⟩⟩) = (![0, 0, 9, 18] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 18] : Fin 4 → ℕ) i) = 27 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 18 = 27
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 18] : Fin 4 → ℕ) i : ℤ)^2)) = 405 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 18^2 = 405
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_18
+
+theorem row_09_19 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨19, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨19, by decide⟩⟩) = (![0, 0, 9, 19] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 19] : Fin 4 → ℕ) i) = 28 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 19 = 28
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 19] : Fin 4 → ℕ) i : ℤ)^2)) = 442 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 19^2 = 442
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_19
+
+theorem row_09_20 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨20, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨20, by decide⟩⟩) = (![0, 0, 9, 20] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 20] : Fin 4 → ℕ) i) = 29 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 20 = 29
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 20] : Fin 4 → ℕ) i : ℤ)^2)) = 481 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 20^2 = 481
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_20
+
+def layers_09_21 : Fin 5 → Fin 19 → ℕ := ![![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]]
+#print axioms Paper7MomentBlock00.layers_09_21
+
+theorem cells_09_21 : QTableValid (![0, 0, 9, 21] : Fin 4 → ℕ) layers_09_21 := by
+  unfold QTableValid
+  constructor
+  · intro t
+    fin_cases t <;> decide
+  · intro k t
+    fin_cases k <;> fin_cases t <;> decide
+#print axioms Paper7MomentBlock00.cells_09_21
+
+theorem valid_09_21 :
+    SparseRowValid (![0, 0, 9, 21] : Fin 4 → ℕ) ({0} : Finset (Fin 19)) (fun _ => layers_09_21) := by
+  constructor
+  · intro Q
+    have hzsum : (∑ i, (![0, 0, 9, 21] : Fin 4 → ℕ) i) = 30 := by
+      rw [Fin.sum_univ_four]
+      change 0 + 0 + 9 + 21 = 30
+      decide
+    have hzsq : (∑ i, (((![0, 0, 9, 21] : Fin 4 → ℕ) i : ℤ)^2)) = 522 := by
+      rw [Fin.sum_univ_four]
+      change (0 : ℤ)^2 + 0^2 + 9^2 + 21^2 = 522
+      decide
+    unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+    simp only [hzsum, hzsq]
+    fin_cases Q <;> norm_num
+  · intro _Q
+    exact cells_09_21
+#print axioms Paper7MomentBlock00.valid_09_21
+
+def qvalues_09_21 : Fin 19 → ℕ := ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+#print axioms Paper7MomentBlock00.qvalues_09_21
+
+theorem row_09_21 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨21, by decide⟩⟩) = 1 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨21, by decide⟩⟩) = (![0, 0, 9, 21] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  calc
+    b4RowContribution (![0, 0, 9, 21] : Fin 4 → ℕ) =
+        sparseRowValue ({0} : Finset (Fin 19)) (fun _ => layers_09_21) :=
+      sparseRow_sound (![0, 0, 9, 21] : Fin 4 → ℕ) ({0} : Finset (Fin 19)) (fun _ => layers_09_21) valid_09_21
+    _ = 1 := by
+      unfold sparseRowValue
+      calc
+        _ = ∑ Q : Fin 19, qvalues_09_21 Q := by
+          apply Finset.sum_congr rfl
+          intro Q _
+          fin_cases Q
+          · exact (dite_eq_left (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+        _ = 1 := by decide
+#print axioms Paper7MomentBlock00.row_09_21
+
+def layers_09_22 : Fin 5 → Fin 19 → ℕ := ![![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], ![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]]
+#print axioms Paper7MomentBlock00.layers_09_22
+
+theorem cells_09_22 : QTableValid (![0, 0, 9, 22] : Fin 4 → ℕ) layers_09_22 := by
+  unfold QTableValid
+  constructor
+  · intro t
+    fin_cases t <;> decide
+  · intro k t
+    fin_cases k <;> fin_cases t <;> decide
+#print axioms Paper7MomentBlock00.cells_09_22
+
+theorem valid_09_22 :
+    SparseRowValid (![0, 0, 9, 22] : Fin 4 → ℕ) ({1} : Finset (Fin 19)) (fun _ => layers_09_22) := by
+  constructor
+  · intro Q
+    have hzsum : (∑ i, (![0, 0, 9, 22] : Fin 4 → ℕ) i) = 31 := by
+      rw [Fin.sum_univ_four]
+      change 0 + 0 + 9 + 22 = 31
+      decide
+    have hzsq : (∑ i, (((![0, 0, 9, 22] : Fin 4 → ℕ) i : ℤ)^2)) = 565 := by
+      rw [Fin.sum_univ_four]
+      change (0 : ℤ)^2 + 0^2 + 9^2 + 22^2 = 565
+      decide
+    unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+    simp only [hzsum, hzsq]
+    fin_cases Q <;> norm_num
+  · intro _Q
+    exact cells_09_22
+#print axioms Paper7MomentBlock00.valid_09_22
+
+def qvalues_09_22 : Fin 19 → ℕ := ![0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+#print axioms Paper7MomentBlock00.qvalues_09_22
+
+theorem row_09_22 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨22, by decide⟩⟩) = 2 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨22, by decide⟩⟩) = (![0, 0, 9, 22] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  calc
+    b4RowContribution (![0, 0, 9, 22] : Fin 4 → ℕ) =
+        sparseRowValue ({1} : Finset (Fin 19)) (fun _ => layers_09_22) :=
+      sparseRow_sound (![0, 0, 9, 22] : Fin 4 → ℕ) ({1} : Finset (Fin 19)) (fun _ => layers_09_22) valid_09_22
+    _ = 2 := by
+      unfold sparseRowValue
+      calc
+        _ = ∑ Q : Fin 19, qvalues_09_22 Q := by
+          apply Finset.sum_congr rfl
+          intro Q _
+          fin_cases Q
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_left (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+          · exact (dite_eq_right (by norm_num)).trans (by rfl)
+        _ = 2 := by decide
+#print axioms Paper7MomentBlock00.row_09_22
+
+theorem row_09_23 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨23, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨23, by decide⟩⟩) = (![0, 0, 9, 23] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 23] : Fin 4 → ℕ) i) = 32 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 23 = 32
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 23] : Fin 4 → ℕ) i : ℤ)^2)) = 610 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 23^2 = 610
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_23
+
+theorem row_09_24 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨24, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨24, by decide⟩⟩) = (![0, 0, 9, 24] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 24] : Fin 4 → ℕ) i) = 33 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 24 = 33
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 24] : Fin 4 → ℕ) i : ℤ)^2)) = 657 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 24^2 = 657
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_24
+
+theorem row_09_25 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨25, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨25, by decide⟩⟩) = (![0, 0, 9, 25] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 25] : Fin 4 → ℕ) i) = 34 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 25 = 34
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 25] : Fin 4 → ℕ) i : ℤ)^2)) = 706 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 25^2 = 706
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_25
+
+theorem row_09_26 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨26, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨26, by decide⟩⟩) = (![0, 0, 9, 26] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 26] : Fin 4 → ℕ) i) = 35 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 26 = 35
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 26] : Fin 4 → ℕ) i : ℤ)^2)) = 757 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 26^2 = 757
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_26
+
+theorem row_09_27 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨27, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨27, by decide⟩⟩) = (![0, 0, 9, 27] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 27] : Fin 4 → ℕ) i) = 36 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 27 = 36
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 27] : Fin 4 → ℕ) i : ℤ)^2)) = 810 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 27^2 = 810
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_27
+
+theorem row_09_28 : b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨28, by decide⟩⟩) = 0 := by
+  have hz : (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, ⟨28, by decide⟩⟩) = (![0, 0, 9, 28] : Fin 4 → ℕ) := by
+    funext i
+    fin_cases i <;> rfl
+  rw [hz]
+  apply rowContribution_zero_of_rejected
+  intro Q
+  have hzsum : (∑ i, (![0, 0, 9, 28] : Fin 4 → ℕ) i) = 37 := by
+    rw [Fin.sum_univ_four]
+    change 0 + 0 + 9 + 28 = 37
+    decide
+  have hzsq : (∑ i, (((![0, 0, 9, 28] : Fin 4 → ℕ) i : ℤ)^2)) = 865 := by
+    rw [Fin.sum_univ_four]
+    change (0 : ℤ)^2 + 0^2 + 9^2 + 28^2 = 865
+    decide
+  unfold B4CatalogRowAccept b4Theta b4FeatureCatalog
+  simp only [hzsum, hzsq]
+  fin_cases Q <;> norm_num
+#print axioms Paper7MomentBlock00.row_09_28
+
+def values_09 : Fin 29 → ℕ := ![0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 8, 0, 17, 0, 10, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0]
+#print axioms Paper7MomentBlock00.values_09
+
+theorem column_09 :
+    (∑ d : Fin 29, b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, d⟩)) = 39 := by
+  calc
+    (∑ d : Fin 29, b4RowContribution (b4IndexZ ⟨⟨0, by decide⟩, ⟨0, by decide⟩, ⟨9, by decide⟩, d⟩)) =
+        ∑ d : Fin 29, values_09 d := by
+      apply Finset.sum_congr rfl
+      intro d _
+      fin_cases d
+      · exact row_09_00
+      · exact row_09_01
+      · exact row_09_02
+      · exact row_09_03
+      · exact row_09_04
+      · exact row_09_05
+      · exact row_09_06
+      · exact row_09_07
+      · exact row_09_08
+      · exact row_09_09
+      · exact row_09_10
+      · exact row_09_11
+      · exact row_09_12
+      · exact row_09_13
+      · exact row_09_14
+      · exact row_09_15
+      · exact row_09_16
+      · exact row_09_17
+      · exact row_09_18
+      · exact row_09_19
+      · exact row_09_20
+      · exact row_09_21
+      · exact row_09_22
+      · exact row_09_23
+      · exact row_09_24
+      · exact row_09_25
+      · exact row_09_26
+      · exact row_09_27
+      · exact row_09_28
+    _ = 39 := by decide
+#print axioms Paper7MomentBlock00.column_09
+
+end Paper7MomentBlock00

@@ -1,5 +1,7 @@
 # Packaging notes: certificates for the paper on integral generalized sun graphs
 
+These notes describe version 1 of the paper (release v1.6.0) and its programs. Version 2 does not rest on these programs; it is formalized in Lean, see `lean-package-v2/README.md`.
+
 Staged on 2026-09-26 (UTC), 22:45–23:16, for release v1.6.0 by an AI agent (Claude Code) that finalised the paper and did the release packaging.
 
 - Paper: `papers/sun-graphs/note.tex` and `note.pdf` (12 pages), *The minimum order of a counterexample to a conjecture on integral generalized sun graphs*. It cites this directory as "version 1.6.0 of ai4math-results, directory `certificates/sun-graphs/`".
@@ -522,3 +524,5 @@ The paper (`papers/sun-graphs/`):
 ```
 
 Final paper files of version 1.6.0: `papers/sun-graphs/note.tex` SHA-256 61117e451ceb4b2e45f32a39a1f4ee65ea77da9a49a7bb3854ac04a9a04ce89d, `note.pdf` SHA-256 38a1c9a790e21e3e6bcca9a1f0fd58a44a54f25144edc49f81a9b01dbe4e2b64 (12 pages). The two paper hashes in the table above are those of an earlier draft, recorded when this folder was staged; the paper was edited after that, last by adding the author's sentence to the disclosure. This paragraph was added in version 1.7.0.
+
+Paper files of version 1.14.0 (version 2 of the paper): `papers/sun-graphs/note.tex` SHA-256 170a6792b709e127207cef0ceabb46b8f2e53928c66e499f8f35cbf9770b2f62, `papers/sun-graphs/note.pdf` SHA-256 40208497f595e0d75f36cebdf860f96958aacb99bf965c3b269f7a7cb9b85fe2. The file list above gives the files of version 1.6.0 and does not cover `lean-package-v2/`.

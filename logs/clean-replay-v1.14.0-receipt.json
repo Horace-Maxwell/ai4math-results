@@ -1,0 +1,65 @@
+{
+ "purpose": "Whole-project clean rebuild of the Lean project of release v1.14.0 (adds Paper 7 version 2).",
+ "start_utc": "2026-11-04T22:08:44Z",
+ "end_utc": "2026-11-05T08:57:12Z",
+ "result": "2841 of 2841 modules compiled; 2840 of 2841 replayed with leanchecker; the module Research has no constants and was not replayed; 0 audit problems.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.13.0-receipt.json",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs)",
+ "procedure": [
+  "New empty output directory; sources copied from the release tree lean/ (Research.lean and Research/, 2843 files). After the build their SHA-256 hashes were compared with the release tree: no difference. The directory Comparator/ was not built here; it is unchanged since version 1.13.0, and the CI workflow checks it.",
+  "Each module compiled with lean -DautoImplicit=false -DrelaxedAutoImplicit=false and replayed with leanchecker, in import order, by work/claude-p7/build4.py. This is not a lake build.",
+  "Warnings are recorded and do not fail a module; an error, sorry or non-zero exit code does.",
+  "The driver wrote only status.json and the module logs; its own output files run*.log are empty."
+ ],
+ "runs": [
+  {
+   "start_utc": "2026-11-04T22:00:15Z",
+   "note": "Stopped by hand after about a minute: the free commit charge had fallen to 3.4 GiB. Its output was deleted; the counted build started afterwards in an empty directory."
+  },
+  {
+   "start_utc": "2026-11-04T22:08:44Z",
+   "note": "6 jobs; stopped by hand at about 23:04Z to raise the limits, modules already done kept."
+  },
+  {
+   "start_utc": "2026-11-04T23:04:30Z",
+   "note": "12 jobs; stopped by hand at about 23:09Z to raise the limits."
+  },
+  {
+   "start_utc": "2026-11-04T23:09:58Z",
+   "note": "Up to 12 jobs, ended 2026-11-05T08:41:09Z. Two modules were retried automatically after failing to read a compiled file. At 03:59:21Z seven modules ended with std::bad_alloc and were not retried, and 16 dependent modules were skipped."
+  },
+  {
+   "start_utc": "2026-11-05T08:42:00Z",
+   "note": "6 jobs: these 23 modules compiled and passed leanchecker at the first attempt. The check of the module Research started at 08:57:13Z; the computer crashed at 10:24:40Z (bug check 0x10E), with that check not finished."
+  },
+  {
+   "start_utc": "2026-11-05T17:51:46Z",
+   "note": "The check of Research alone. Stopped by hand at about 17:54Z, at 69 GB of private memory and 0.9 GiB of free commit charge."
+  }
+ ],
+ "failed_attempts": "Logs with the suffix .attemptN: 7 std::bad_alloc, 4 failed to read a compiled file, 7 interrupted (6 by the hand stops, 1 by the crash, the module Research); no attempt ended in a Lean error.",
+ "module_Research": {
+  "lines": "only import lines",
+  "constants": 0,
+  "extra_constants": 0,
+  "how_counted": "readModuleData on Research.olean (research-olean-constants.txt in the log archive)",
+  "consequence": "leanchecker has nothing to replay in this module.",
+  "status_file": "status.json records this check as RUNNING, because the process was stopped by hand and did not write a final state."
+ },
+ "audit": {
+  "modules": 2841,
+  "compile_ok": 2841,
+  "check_ok": 2840,
+  "check_exempt": 1,
+  "axiom_lists": 112106,
+  "axiom_lists_empty": 8450,
+  "warnings": 260,
+  "problem_count": 0
+ },
+ "warnings": "260 lines in 28 older modules: 257 deprecations, 2 unused simp arguments, 1 linter suggestion.",
+ "axioms": "every printed axiom list is a subset of propext, Classical.choice and Quot.sound.",
+ "forbidden_tokens": "logs/clean-replay-v1.14.0-forbidden-tokens.log: outside comments, only the intentional sorry statements of the comparator challenge files lean/Comparator/.",
+ "logs": "logs/clean-replay-v1.14.0-logs.tar.gz"
+}

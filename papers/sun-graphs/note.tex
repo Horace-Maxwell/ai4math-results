@@ -6,6 +6,7 @@
 \usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{upquote}
 \usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
@@ -13,24 +14,48 @@
  pdfauthor={Horace Dong}}
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{corollary}[lemma]{Corollary}
+\newtheorem{proposition}[lemma]{Proposition}
 \newtheorem*{thmone}{Theorem 1}
 \newtheorem*{thmtwo}{Theorem 2}
 \newtheorem*{propthree}{Proposition 3}
 \newtheorem*{conjtwo}{Conjecture 2}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
 \theoremstyle{remark}
 \newtheorem{remark}[lemma]{Remark}
 \DeclareMathOperator{\mult}{mult}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\nul}{null}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
 \DeclareUrlCommand\code{\urlstyle{tt}\def\UrlBreaks{\do\_\do\/\do\.}\def\UrlBigBreaks{}}
-\setlength{\emergencystretch}{1.5em}
-\title{The minimum order of a counterexample to a conjecture\\ on integral generalized sun graphs}
+\setlength{\emergencystretch}{2em}
+\interfootnotelinepenalty=10000
+% Repository version that will contain this version of the paper.
+\newcommand{\repoversion}{1.14.0}
+\title{The minimum order of a counterexample to a conjecture\\ on integral
+generalized sun graphs\thanks{\emph{Version~2.} Every result of this version
+is formally verified in Lean~4 (Section~\ref{sec:lean}); version~1 had no
+formal verification. The theorems are unchanged. Version~1 settled the cycle
+lengths $3$, $6$ and $10$ by computer searches; version~2 no longer uses them.
+The cycle lengths $3$ and $6$ are now settled by two classifications that
+version~1 obtained only as search results and that are now stated and proved
+in Lean (Propositions~\ref{prop:three} and~\ref{prop:six}), and the cycle
+length $10$ inside the formal proof of Theorem~1; the written proofs of
+Theorems~1 and~2 were rewritten accordingly. Claims of version~1 that have no
+formal proof have been deleted, among them the counts of search-tree nodes and
+leaf tests of its Table~1, its tables of program versions and of confirmations,
+its random tests, and the statement that two programs produced the same set
+of $52{,}652$ sequences at cycle length $10$, none of them integral. The
+search rules of version~1 are kept only through Lean-proved statements about
+formally defined sets of sequences (Section~\ref{sec:comp}). The main changes
+are listed at the end of Section~\ref{sec:lean}.}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
-\date{September 2026}
+\date{November 2026 (version 2)}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -42,18 +67,21 @@ divisible by $4$. Braga, Moraes and Santos disproved this with the graph
 $C_{6,1}(0,6,6,12,6,6)$ on $42$ vertices, and remarked that their computer
 search does not show that no smaller counterexample exists. We show that
 none exists: up to isomorphism, $C_{6,1}(0,6,6,12,6,6)$ is the only
-counterexample with at most $42$ vertices, also when pendant paths of both
-admissible lengths share a vertex. Every integral generalized sun graph with
+counterexample with at most $42$ vertices, also when pendant paths of
+different lengths share a vertex. Every integral generalized sun graph with
 at most $41$ vertices that is not a cycle has a cycle of length $4$ and is one
 of the three graphs found by Braga, Rodrigues and Trevisan in 2017. Up to $42$
-vertices, spectral lemmas exclude every cycle length $b\not\equiv0\pmod 4$ except $3$, $6$ and
-$10$, which are settled by exhaustive searches with separately written programs,
-two of them by independent referee agents. We
-also note that if an integral unicyclic graph has a cycle of
-odd length $b$, then every prime $q$ with $(q-1)\mid(b-1)$ divides $2b$;
-hence $3\mid b$, and $b=3$ or $b\ge15$. Nothing in this paper is formally
-verified. The results were found by AI coding agents working under the
-author's direction; their role is described at the end of the paper.
+vertices, spectral lemmas exclude every cycle length $b\not\equiv0\pmod 4$
+except $3$, $6$ and $10$. The lengths $3$ and $6$ are settled by two
+classifications, and the length $10$ inside the proof of the main theorem;
+for these three cases we give no written proof, and they rest on the formal
+proofs. We also note that if an integral unicyclic graph has a cycle of odd
+length $b$, then every prime $q$ with $(q-1)\mid(b-1)$ divides $2b$; hence
+$3\mid b$, and $b=3$ or $b\ge15$ (after version~1 of this note, Braga, Moraes
+and Santos proved that only $C_3$ occurs). Every result of the paper is formally
+verified in Lean~4. The results were found and formalised by AI coding agents
+working under the author's direction; their role is described at the end of
+the paper.
 \end{abstract}
 
 \section{Introduction}
@@ -62,9 +90,11 @@ A graph is \emph{integral} if all eigenvalues of its adjacency matrix are
 integers, a notion that goes back to Harary and Schwenk~\cite{hs}. A search of
 Braga, Rodrigues and Trevisan~\cite{brt} showed that, besides the cycles $C_3$,
 $C_4$ and $C_6$, exactly three unicyclic graphs with at most $21$ vertices are
-integral. Braga, Del-Vecchio and Rodrigues~\cite{bdr} constructed infinite
-families of integral unicyclic graphs by attaching pendant paths to the
-vertices of a cycle; such graphs are called \emph{generalized sun graphs}.
+integral (the three graphs of Theorem~2 below; this classification is also
+verified in Lean, Section~\ref{sec:lean}). Braga, Del-Vecchio and
+Rodrigues~\cite{bdr} constructed infinite families of integral unicyclic
+graphs by attaching pendant paths to the vertices of a cycle; such graphs are
+called \emph{generalized sun graphs}.
 Following~\cite{bms}, $C_b(n_1P_{t_1},\dots,n_bP_{t_b})$ is obtained from the
 cycle $v_1\cdots v_bv_1$ by attaching $n_k$ copies of the path $P_{t_k}$ on
 $t_k$ vertices to $v_k$ (joining $v_k$ to an end of each copy), and
@@ -78,11 +108,13 @@ cycle of $G$ has length divisible by $4$.
 
 Braga, Moraes and Santos~\cite{bms} proved the first conjecture of~\cite{bdr}
 in a strong form: a graph with a pendant path of at least three edges has an
-eigenvalue in $(1,2\cos(\pi/9)]$, so it is not integral~\cite[Theorem~2.1]{bms}.
+eigenvalue in $(1,2\cos(\pi/9)]$ (and one in $[-2\cos(\pi/9),-1)$), so it is
+not integral~\cite[Theorem~2.1]{bms}.
 They disproved Conjecture~2: $C_{6,1}(0,6,6,12,6,6)$ has $42$ vertices and
-spectrum $\{0^{[32]},\pm2^{[2]},\pm3^{[2]},\pm4\}$~\cite[Proposition~3.2]{bms},
-and it is the smallest member of an infinite
-family~\cite[Corollary~3.6 and the remark after it]{bms}.
+spectrum $\{0^{[32]},\pm2^{[2]},\pm3^{[2]},\pm4\}$~\cite[Proposition~3.2]{bms}.
+It is the smallest integral member, with $a=6$, of the family
+$C_{6,1}(0,a,a,2a,a,a)$, $a\ge1$, which contains counterexamples with
+arbitrarily many vertices~\cite[Corollary~3.6 and the remark after it]{bms}.
 Their search over boxes of parameter vectors, for graphs with pendant vertices
 only, found no other integral graph whose cycle length is not divisible by
 $4$. As they point out~\cite[Section~4]{bms}, it ``does not prove that the
@@ -114,12 +146,13 @@ vertices each.
 These three graphs are the three integral unicyclic graphs found by Braga,
 Rodrigues and Trevisan~\cite[Section~5, p.~296, and Table~1, p.~297]{brt}, with
 spectra $\{0^{[9]},\pm2,\pm3\}$ and, for the two cospectral graphs,
-$\{0^{[2]},\pm1^{[7]},\pm2,\pm3\}$. Theorem~2 adds that there is no other
-integral generalized sun graph up to $41$ vertices. The one-page abstract of
+$\{0^{[2]},\pm1^{[7]},\pm2,\pm3\}$; they are pairwise non-isomorphic.
+Theorem~2 adds that there is no other integral generalized sun graph up to
+$41$ vertices that is not a cycle. The one-page abstract of
 Veras~\cite{ver} reports a computer search for integral unicyclic graphs. It
-names $C_{4,1}(0,16,32,16)$, on $68$ vertices, and the family
-$C_{4,1}(0,a,2a,a)$, whose integral members have at least $68$
-vertices~\cite{bms}. It does not state the range of the search and names no
+names $C_{4,1}(0,16,32,16)$, which has $68$ vertices and is integral, and the
+family $C_{4,1}(0,a,2a,a)$, whose integral members with $a\ge1$ have at least
+$68$ vertices~\cite{bms}. It does not state the range of the search and names no
 graph with at most $41$ vertices, so nothing it reports overlaps Theorem~2,
 although the search may have covered part of that range. Write $\mult(\lambda)$ for
 the multiplicity of an eigenvalue $\lambda$. The proofs use the following
@@ -138,38 +171,49 @@ $3\mid b$, and $b=3$ or $b\ge15$, with at least $102$ vertices in the latter
 case (Corollary~\ref{cor:odd}).
 
 \paragraph{Method.}
-Up to $42$ vertices, hand proofs exclude odd $b\ge5$ (Proposition~3),
-$b\in\{14,18\}$ (Corollary~\ref{cor:1418}) and even $b\ge22$
-(Lemma~\ref{lem:cycle}), and a bound due to the first referee agent (see the
-disclosure; Lemma~\ref{lem:rank}) excludes every $b\ge14$ again; exhaustive
-searches settle $b=3,6,10$ (Section~\ref{sec:comp}). Every case is confirmed at
-least twice, by hand proofs or by separately written programs
-(Table~\ref{tab:cases}); two of the programs, C and D, were written from
-scratch by referee agents that had not produced the results. Nothing here is
-formally verified, in Lean or otherwise; the results rest on the written proofs
-and the computations.
+Up to $42$ vertices, hand proofs exclude odd $b\ge5$
+(Corollary~\ref{cor:odd}), $b\in\{14,18\}$ (Corollary~\ref{cor:1418}) and even
+$b\ge22$ (Lemma~\ref{lem:cycle}), and a bound due to the first referee agent of
+version~1 (see the disclosure; Lemma~\ref{lem:rank}) excludes every $b\ge14$
+again. The cycle length $3$ is excluded by Proposition~\ref{prop:three}, the
+cycle length $6$ is settled by Proposition~\ref{prop:six}, and the cycle length
+$10$ is excluded inside the formal proof of Theorem~1
+(Section~\ref{sec:proofs}). For these three cases we give no written proof.
+Version~1 of this note settled them by exhaustive computer searches with
+separately written programs; version~2 does not use these searches, and every
+result stated here is proved in Lean~4 (Section~\ref{sec:lean}).
+Section~\ref{sec:comp} keeps the mathematics behind the search rules of
+version~1, as Lean-proved statements about formally defined sets of
+sequences.
 
 \paragraph{Prior work.}
 The question was raised in version~1 of~\cite{bms}, submitted to the arXiv on
-23 September 2026. We found no earlier answer to it and no discussion of it.
-Our searches on 26 September 2026, 18:58--19:43 UTC, covered the arXiv listing
-of~\cite{bms} (version~1 only); Crossref; MathDB
-(\url{https://mathdb.com}); GitHub issues, pull requests, commits, code and
-repositories, including the \texttt{trureturing} repository~\cite{tru} of
-AI-assisted work on open problems (as a positive control, the same search for
-the versioned identifier of another recent arXiv paper found the expected
-issue); MathOverflow and Mathematics Stack Exchange; and web search. The
-OpenAlex search and citation queries failed with HTTP error 429 (rate limit), and several GitHub
-searches were rate-limited and repeated later. From 19:59 to 20:32 UTC the
-first referee agent repeated part of these searches and added arXiv API queries and
-full-text searches (Remark~\ref{rem:novelty}). We did not search Google
-Scholar, zbMATH or MathSciNet. The earlier computer searches for integral
-unicyclic graphs of~\cite{brt} and~\cite{ver} are discussed after Theorem~2;
-we read the abstract~\cite{ver}, which~\cite{bms} cite, on 26 September 2026 at
-22:48 UTC, and at 22:56 UTC the arXiv still listed only version~1
-of~\cite{bms}. A final check on 26 September 2026 between 23:15 and 23:17 UTC
-(the arXiv, GitHub, MathDB and MathOverflow) found nothing new. This reports
-the coverage of our searches, not a guarantee of priority.
+23 September 2026. For version~1 of this note, searches on 26 September 2026
+(the arXiv listing of~\cite{bms}, Crossref, MathDB, GitHub, MathOverflow,
+Mathematics Stack Exchange and web search; not Google Scholar, zbMATH or
+MathSciNet) found no earlier answer to it and no discussion of it.
+After version~1 of this note was made public (release v1.6.0 of~\cite{repo},
+27 September 2026), Braga, Moraes and Santos~\cite{bms2} (arXiv:2610.22773v1,
+submitted 16 October 2026) proved that $C_3$ is the only integral unicyclic
+graph whose cycle has odd length, and that $(g-1)!$ divides $2c_g$ for every
+integral graph of odd girth $g$ with $c_g$ shortest odd cycles. Their first
+result supersedes Corollary~\ref{cor:odd}, and their second implies the first
+part of Proposition~3 (a prime $q$ with $(q-1)\mid(g-1)$
+satisfies $q\le g$). The other parts of Proposition~3, on the
+eigenvalues $v\ge2$ with $\mult(v)\ne\mult(-v)$, do not appear there. That paper
+does not address the minimum order of a counterexample to the conjecture or the
+integral generalized sun graphs with at most $41$ vertices, so Theorems~1
+and~2 are not affected. Our searches on 4 November 2026, 12:00--12:17~UTC (the
+arXiv API and listings since 26 September 2026, Semantic Scholar, OpenAlex,
+Crossref, DataCite, zbMATH Open, MathDB, MathOverflow and Mathematics Stack
+Exchange, web search, and public GitHub repositories of AI-assisted
+mathematics, including \texttt{trureturing}, \texttt{openai/math} and
+\texttt{formal-conjectures}) found no other work on these questions; the arXiv
+still lists only version~1 of~\cite{bms}, and Semantic Scholar lists~\cite{bms2}
+as the only paper citing it.
+The earlier computer searches for integral unicyclic graphs of~\cite{brt}
+and~\cite{ver} are discussed after Theorem~2. This reports the coverage of
+our searches, not a guarantee of priority.
 
 \section{Notation and spectral lemmas}\label{sec:lemmas}
 
@@ -381,6 +425,11 @@ $99$, $123$, $135$, $147$, $159$, $183$ and $195$. If $b\ne3$, then $b\ge15$ and
 $n\ge102$.
 \end{corollary}
 
+After version~1 was released, Braga, Moraes and Santos~\cite{bms2} proved
+that $C_3$ is the only integral unicyclic graph with a cycle of odd length,
+which supersedes Corollary~\ref{cor:odd}; we keep it with its proof, which is
+formalized.
+
 \begin{proof}
 Here $g=b$, $c_g=1$ and $e=n$, so $\kappa_b\mid2b$ by Proposition~3. For
 $b=5,7,9,11,13$, $\kappa_b=30,42,30,66,2730$ does not divide $2b$; the list is a
@@ -389,15 +438,15 @@ direct computation. If $b\ge15$, then $2n\ge\sum_{v=2}^8v^2=203$.
 
 \begin{remark}\label{rem:novelty}
 By the theorem of von Staudt and Clausen, $\kappa_b$ is the denominator of the
-Bernoulli number $B_{b-1}$. The first part of Proposition~3 uses integrality;
-for an arbitrary integer matrix one only has the classical congruence
-$\tr A^q\equiv\tr A\pmod q$ for primes $q$. The second part is a variant of the
-odd-polynomial argument of van Dam and Haemers~\cite[Section~2]{vdh}. We found
-no earlier statement of Proposition~3, even for unicyclic graphs ($20$ web
-searches, $9$ arXiv API queries and full-text searches of related papers), but
-the paper of Omidi~\cite{om} on necessary conditions for integral unicyclic
-graphs and~\cite{bdr} could not be read in full (paywalled). As the argument is
-elementary, its novelty is uncertain; we present it as an observation.
+Bernoulli number $B_{b-1}$ for odd $b\ge3$. The first part of
+Proposition~3 uses integrality; for an arbitrary integer matrix $A$ and a
+prime $q$ one has the classical congruence $\tr A^q\equiv\tr A\pmod q$. The
+second part is a variant of the odd-polynomial argument of van Dam and
+Haemers~\cite[Section~2]{vdh}. Version~1 reported that searches on
+26 September 2026 found no earlier statement of Proposition~3, even for
+unicyclic graphs, but that the paper of Omidi~\cite{om} on necessary
+conditions for integral unicyclic graphs and~\cite{bdr} could not be read in
+full. As the argument is elementary, we present it as an observation.
 \end{remark}
 
 \section{Restricting the cycle length}\label{sec:cycle}
@@ -437,14 +486,19 @@ No integral generalized sun graph with cycle length $14$ or $18$ has at most
 $42$ vertices.
 \end{corollary}
 
+
 \begin{proof}
-By Lemma~\ref{lem:cycle}, $s=5$ and $S_2=42$. By Lemma~\ref{lem:count},
-$42\le n\le42$, so $\mult(1)=0$ and $\mult(0)=84-42-10=32\le\max(P,2)$. Then
-$n\ge b+P\ge46$, a contradiction.
+The cycles $C_{14}$ and $C_{18}$ are not integral, as $2\cos(2\pi/b)$ is not an
+integer for these $b$. Otherwise, by~\cite[Theorem~2.1]{bms} the graph carries
+only copies of $P_1$ and $P_2$, so it is a graph $G$ as in
+Section~\ref{sec:lemmas} (see the remark before the proof of Theorem~1). By Lemma~\ref{lem:cycle}, $s=5$ and $S_2=42$. By
+Lemma~\ref{lem:count}, $42\le n\le42$, so $\mult(1)=0$ and
+$\mult(0)=84-42-10=32\le\max(P,2)$. Then $n\ge b+P\ge46$, a contradiction.
 \end{proof}
 
-The next bound is due to the first referee agent (see the disclosure) and is the
-pruning rule of implementation~C in Section~\ref{sec:comp}. For $t\ge1$ let
+The next bound is due to the first referee agent of version~1 (see the
+disclosure); it was the pruning rule of implementation~C of version~1
+(Section~\ref{sec:comp}). For $t\ge1$ let
 $\sigma(t)$ be the sum of the first $t$ terms of $4,4,4,4,9,9,9,9,16,\dots$, in
 which each $v^2$, $v\ge2$, appears four times, and let $\sigma(t)=0$ for
 $t\le0$. Thus $\sigma(9)=68$, $\sigma(10)=84$, $\sigma(11)=100$, $\sigma(14)=166$.
@@ -481,81 +535,23 @@ Let $n\le42$. If $b\ge15$, (a) and (b) give $100=\sigma(11)\le84$. If $b=14$,
 then $r_0\ge14$ (as $4\nmid14$), and (c) gives $166\le82$ or $84\le80$.
 \end{proof}
 
-\section{Computations}\label{sec:comp}
+\section{The search rules of version 1}\label{sec:comp}
+Version~1 settled the cycle lengths $3$, $6$ and $10$, and confirmed the other
+cases, by exhaustive computer searches with four separately written programs,
+called A, B (with a variant B2), C and D there; C and D were written by referee
+agents. As described in version~1, each program ran through the sequences $((p_k,q_k))_{k\in\Z_b}$ with
+$n\le N$, discarded sequences by spectral necessary conditions, and tested the
+remaining graphs exactly for integrality. Version~2 does not use these
+searches, and we make no claim about the programs or their runs; the programs,
+logs and referee reports remain in the directory
+\texttt{certificates/sun-graphs} of version~1.6.0 of~\cite{repo}. This section
+keeps the mathematics behind their rules: the bounds used for discarding
+partial assignments (Section~\ref{sec:prune}), the exact tests for
+integrality (Section~\ref{sec:tests}), and properties of the sets of
+sequences that the rules define, stated for formal definitions of these sets
+(Section~\ref{sec:sets}). Everything stated in this section is proved in Lean.
 
-\subsection{The programs}
-Each program takes $b$ and $N$, runs through the sequences $((p_k,q_k))_k$, not
-all zero, with $n\le N$, allowing $p_k,q_k>0$ at the same vertex, and decides
-exactly which graphs are integral. Graphs reported as integral were confirmed
-by factoring the characteristic polynomial with SymPy~\cite{sympy}.
-
-\emph{Implementation A} (\code{sunsearch.c}) lists the admissible spectra
-(Lemma~\ref{lem:adm} and, for odd $b$, \eqref{eq:odd}; version~5 adds
-Lemma~\ref{lem:cycle}, version~6 optionally Lemma~\ref{lem:count}) and assigns
-$(p_k,q_k)$ to $v_0,v_1,\dots$ by depth-first search, with a lexicographically
-largest pair at $v_0$. A node is discarded if no admissible spectrum is
-compatible with the bounds of Lemma~\ref{lem:prune}, \eqref{eq:m4} and
-Lemma~\ref{lem:adm}(c); as these bounds are monotone, the loops over $p_k$ and
-$q_k$ stop at the first discarded value. With Lemma~\ref{lem:count} switched on,
-version~6 also uses its inequalities in this test, with $n\ge b+P+2Q$ for the
-partial sums $P$ and $Q$; they are monotone as well. The window of Lemma~\ref{lem:window}
-only skips a node, and the last pair is solved from~\eqref{eq:m4}. At a leaf,
-A computes $\mult(m)$ for all $|m|\le9$ by Lemma~\ref{lem:mult}, for $|m|\ge2$
-with the integer matrices $hT_k$, $h=m(m^2-1)$, modulo four primes near
-$2^{62}$ and with an a priori bound below $2^{240}$ that makes the tests exact;
-$G$ is integral if and only if these multiplicities add up to $n$, as
-$|\lambda|\le\sqrt{2n}<10$.
-
-\emph{Implementation B} (\code{sunB.c}) was written separately, by the same
-agent. Version~1 prunes
-only by the largest admissible value of $\Theta(G)$, tests~\eqref{eq:m4} at the
-leaves (using $\mult(\pm1)\le\max(Q,2)$), and then tests the dihedrally
-canonical sequences (least image) exactly, via
-\[
- F(x)=\det\bigl(x(x^2-1)(xI-A(C_b))-\diag(p_k(x^2-1)+q_kx^2)\bigr)
- =x^{b-P}(x^2-1)^{b-Q}\det(xI-A),
-\]
-the equality following from the proof of Lemma~\ref{lem:schur}. $F$ is monic of
-degree $4b$, and if $G$ is integral its roots are integers in $[-9,9]$. B
-computes $F$ modulo three primes by interpolation; if the multiplicities of
-the roots $m\in[-9,9]$ modulo some prime add up to less than $4b$, then $G$ is
-not integral. Version~2 adds Lemma~\ref{lem:cycle} and the window of
-Lemma~\ref{lem:window}; version~3 adds Lemma~\ref{lem:count}, the rotation rule
-of A and the greatest image as canonical form. \emph{B2} (\code{sunB2.c}) is B
-(version~1) with the rotation rule of A, the greatest image as canonical form
-and a floating-point interlacing test (LAPACK's \texttt{dsyev}, margin
-$10^{-6}$) on an induced subgraph of every completion; version~2 adds
-Lemma~\ref{lem:cycle} and takes a larger induced subgraph. B2 serves only as a
-cross-check. (The header comments of \code{sunB.c}, version~3, and of both
-versions of B2 still describe the least image.)
-
-\emph{Implementation C} (\code{sunC.c}, \code{sunC2.c}) was written from scratch
-by the first referee agent. It enumerates support patterns (whether $p_k>0$, whether
-$q_k>0$) up to dihedral symmetry and then all values on each pattern. It
-discards patterns by Lemma~\ref{lem:rank}(a),(b) (C), also by
-Lemma~\ref{lem:rank}(c) (C2), or not at all. Its exact test computes
-$\phi(G)=\det(xI-A)$ modulo two primes by Schwenk's formula~\cite{sch} for the
-edge $e=v_{b-1}v_0$, $\phi(G)=\phi(G-e)-\phi(G-v_{b-1}-v_0)-2\phi(G-V(C_b))$,
-and, as B does, adds up the root multiplicities of the integers in $[-10,10]$
-modulo each prime, which must give $n$ if $G$ is integral.
-
-\emph{Implementation D} (\code{sunD_v1.c}, \code{sunD2.c}, \code{sunD3.c}) was
-written from scratch by a second referee agent (see the disclosure). It runs through all sequences,
-with no rotation rule, or only through those that are canonical for the
-greatest image under the key $64(p_k+2q_k)+p_k$. Its only pruning, for even
-$b$, is exact reachability, computed by dynamic programming: some completion
-and some multiset $B^+$ with a simple largest element $\rho\ge3$ and other
-elements in $[2,\rho-1]$, each at most twice, must satisfy the second identity
-of~\eqref{eq:m4} and $S_2\le n\le\min(N,S_2+\max(Q,2))$ (version~1 omits the
-bound $S_2+\max(Q,2)$). Version~3 can switch the pruning off, and then also
-accepts odd $b$. For each integer $k\in[-9,9]$, D bounds $\mult(k)$
-from above by the nullity modulo $2^{31}-1$ of a $b\times b$ integer matrix:
-$k(k^2-1)S(k)$ for $|k|\ge2$ (Lemma~\ref{lem:schur}), and the systems of
-Lemma~\ref{lem:mult}(b),(c) for $k\in\{0,\pm1\}$. If these bounds add up to
-less than $n$, then $G$ is not integral. The runs of D used no inertia bound and none of
-Lemmas~\ref{lem:cycle}--\ref{lem:rank} or~\ref{lem:window}.
-
-\subsection{Soundness of the pruning}
+\subsection{Soundness of the pruning}\label{sec:prune}
 Let $X=\{0,\dots,b-2\}$. Below, a tridiagonal matrix indexed by $Y\subseteq X$
 has off-diagonal entry $1$ in the positions $(k,k+1)$ and $(k+1,k)$ for which
 both $k$ and $k+1$ lie in $Y$, and $0$ elsewhere.
@@ -582,13 +578,17 @@ $n_+(R_{Z\cap X})\ge n_+(T')-|U|$, while $|K_q|\ge|Y|+|U|$. The negative side
 is the same with $R'$ and $\Delta$.
 \end{proof}
 
-At a node of A with $v_0,\dots,v_{d-1}$ assigned ($d\le b-1$), $T$ and $T'$ use
-the assigned values and, elsewhere, those of a bare vertex ($t_k=-m$,
-$t'_k=-1$), with $Y=K_q\cap\{0,\dots,d-1\}$. Raising $p_k$ or $q_k$ raises
-$t_k,t'_k$ or moves $k$ into $Y$, which does not decrease $|Y|+n_+(T')$; so the
-bounds are monotone. Inertias are computed by the pivot recurrence $d_1=t_1$,
-$d_k=t_k-1/d_{k-1}$, restarted after each index missing from the index set, in
-exact rational arithmetic (no overflow occurred).
+
+The node test of A (in its formal model, Section~\ref{sec:sets}) applies these
+bounds to partial assignments. With $v_0,\dots,v_{d-1}$ assigned ($d\le b-1$), $T$ and $T'$ use the assigned
+values and, elsewhere, those of a bare vertex ($t_k=-m$, $t'_k=-1$), with
+$Y=K_q\cap\{0,\dots,d-1\}$. Raising $p_k$ or $q_k$ raises $t_k,t'_k$ or moves
+$k$ into $Y$, which does not decrease $|Y|+n_+(T')$; so the bounds are
+monotone (Proposition~\ref{prop:pruning}(d)). According to version~1, A
+computed the inertias by the pivot recurrence $d_1=t_1$,
+$d_k=t_k-1/d_{k-1}$, restarted after each index missing from the index set (a
+tridiagonal matrix on an index set with gaps is block diagonal); the next
+lemma shows that this recurrence gives the inertia.
 
 \begin{lemma}\label{lem:pivot}
 Let $T$ be symmetric tridiagonal with nonzero off-diagonal entries. If an exact
@@ -622,164 +622,325 @@ $g(t)-g(t-1)=2t+2$, and at least $g(0)=2$. As $g$ is convex,
 $g(a)+g(c)\le g(a+c)+g(0)$, and $g$ is increasing.
 \end{proof}
 
-A node is skipped if no admissible value of $\Theta(G)$ from~\eqref{eq:m4} lies
-in this window. The window is not monotone in $p_k$, so it never ends a loop.
+A partial assignment is discarded by this test if no admissible value of
+$\Theta(G)$ from~\eqref{eq:m4} lies in the window. The formal model of version~6 of A also uses the following
+consequence of Lemma~\ref{lem:count}.
 
-\subsection{Results, controls and versions}
-Table~\ref{tab:runs} lists the searches; runs split into parts are summed.
-Besides these, A (version~4, $15{,}678$ nodes), C (no pruning, $1{,}601{,}329$
-sequences) and D (no pruning, all $3{,}031{,}469$ sequences) found no integral
-generalized sun graph with cycle length $3$ and at most $49$ vertices.
+\begin{lemma}\label{lem:partial}
+Let $b$ be even, $G$ integral with $n\le N$, $s=|B^+|$ and
+$n_{\max}=\min(N,2S_2-2s)$. Let $d\le b$, and let $P_d$ and $Q_d$ be the sums
+of $p_k$ and $q_k$ over $k<d$. If $P_d\ge2$, then
+$2Q_d\le2n_{\max}-b-2S_2+2s$.
+\end{lemma}
 
-\begin{table}[ht]\centering\footnotesize
-\begin{tabular}{@{}cc>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.3\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}@{}}\toprule
-$N$ & $b$ & A & B, B2 & C; D\\\midrule
-41 & 3 & v4: 5{,}033 / 1{,}357 & v1: 10{,}269 / 1{,}754 & 521{,}056 (np)\\
- & 4 & v4: 398{,}136 / 85{,}505 & v1: 410{,}544 / 52{,}641 & 5{,}683{,}267 (np);\newline D: 410{,}544 (all)\\
- & 5, 7, 9 & v4: no spectrum & v1: no spectrum & 20{,}292{,}905; 82{,}161{,}850;\newline 4{,}716{,}966\\
- & 8 & v4: 70{,}518{,}560 / 576{,}976 & & 57{,}561{,}471;\newline D: 2{,}156{,}331\\
- & 10 & v4: 50{,}716{,}095 / 52{,}652 & B2 v1: 52{,}652 / 14{,}662 & 3{,}814{,}116;\newline D: 2{,}124{,}182\\
- & 11, 13, 15 & & v1: no spectrum & $b=11$: 1{,}239{,}693; $b=13$: 0\\
- & 12 & v4: 5{,}860{,}901 / 902 & & 677{,}237;\newline D: 618{,}755\\\midrule
-42 & 3 & v4: 5{,}334 / 1{,}381 & v1: 11{,}895 / 2{,}030;\newline v3: 3{,}991 / 2{,}030 & 606{,}367 (np);\newline D: 1{,}246{,}783 (np)\\
- & 6 & v4: 35{,}443{,}626 / 1{,}128{,}560;\newline v6: 11{,}623{,}493 / 572{,}032 & v1: 14{,}215{,}675 / 1{,}187{,}991;\newline v3: 1{,}046{,}629 / 520{,}217;\newline B2 v2: 1{,}128{,}560 / 449{,}500 & 201{,}673{,}369;\newline D: 153{,}225{,}129 (all)\\
- & 10 & v5: 465{,}028{,}393 / 461{,}049;\newline v6: 19{,}679{,}948 / 71{,}680 & v3: 401{,}175 / 200{,}579 & C2: 4{,}601{,}920;\newline D: 119{,}245{,}995 (all)\\
- & 14 & v5: 904{,}115 / 850 & v3: 0 & 1{,}951{,}786;\newline D: 1{,}128{,}742\\
- & 18 & v5: 18 / 0 & v2: 2{,}048{,}976 / 56{,}952;\newline v3 and B2 v2: 0 & D: 67{,}817\\
- & 5--15 odd & v4 ($b\le9$): no spectrum & v1, v3: no spectrum & \\
- & 22, 26 & v6: no spectrum & & D: 0\\\bottomrule
-\end{tabular}
-\caption{The searches with $n\le N$. For A: search-tree nodes / exact leaf
-tests; for B and B2: sequences passing the moment tests / canonical sequences
-tested exactly; for C and D: sequences tested exactly, (np) meaning without
-pruning and (all) without symmetry reduction. The runs of D marked (np) have no
-symmetry reduction either, and its other runs test canonical sequences only.
-``No spectrum'': no admissible spectrum exists; for D, ``0'': no sequence passes
-its pruning. Every run found nothing, except at $b=4$
-(A, B, C and D: the three graphs of Theorem~2) and at $b=6$, $N=42$ (every run:
-$C_{6,1}(0,6,6,12,6,6)$ only). Version~6 of A used Lemma~\ref{lem:count}.}
-\label{tab:runs}
-\end{table}
+\begin{proof}
+By Lemma~\ref{lem:count}, $n\le2S_2-2s$, so $n\le n_{\max}$, and
+$2S_2-n-2s\le\max(P,2)=P$, as $P\ge P_d\ge2$. Hence
+$n=b+P+2Q\ge b+2S_2-n-2s+2Q$, that is, $2Q\le2n-b-2S_2+2s$, and $Q_d\le Q$.
+\end{proof}
 
-\paragraph{Controls and cross-checks.}
-A and B also agree at $b=4$, $N=36$. Version~2 of B2 ran to completion at
-$b=6$, $N=42$ and found only $C_{6,1}(0,6,6,12,6,6)$; the $1{,}128{,}560$
-sequences passing its moment tests are as many as the exact leaf tests of A
-(version~4). A note appended to its log says that this run was stopped, but
-the log also has the final line, which B2 prints only on completion, and a
-rerun gave the same final line. A run of B2 at $b=10$, $N=42$ was stopped
-unfinished and is not used. Version~6 of A at $b=4$, $N=49$ gives the same list
-with and without Lemma~\ref{lem:count}, including $C_{4,2}(10,10,0,0)$ with $44$
-vertices and $\mult(\pm1)=19$, and so does D. The first referee reran
-version~4 of A and version~1 of B2 at $b=10$, $N=41$: the sequences passing
-their moment tests form the same set of $52{,}652$, none of them integral under
-the exact test of C. Without symmetry reduction, D found at $b=6$, $N=42$
-exactly the six sequences of the dihedral orbit of $C_{6,1}(0,6,6,12,6,6)$, and
-nothing at $b=10$, $N=42$. The numbers of sequences passing its pruning and of
-canonical sequences equal those of B (version~1) at $b=4$, $N=41$
-($410{,}544$ and $52{,}641$) and at $b=6$, $N=42$ ($14{,}215{,}675$ and
-$1{,}187{,}991$). Against exact characteristic polynomials (SymPy),
-Lemma~\ref{lem:mult}, Lemma~\ref{lem:trace}(a) and the bound of
-Lemma~\ref{lem:rank}(a) hold on $2{,}968$ random graphs ($b\le14$, $n\le60$;
-$1{,}551$ with $\delta_0>0$, $953$ with $\delta_1+\delta_{-1}>0$), and the
-polynomials of C agree modulo $2^{61}-1$ on $400$ graphs; the multiplicities of
-A agree with floating-point eigenvalues on $3{,}877$ graphs, and the bounds of
-D equal the exact multiplicities (nullities over $\mathbb Q$) on $3{,}250$
-random graphs ($b\le12$, $n\le60$). The second referee also rebuilt versions~5
-and~6 of A and version~3 of B from their hashed sources and reproduced the
-logged counters of five of their runs. Two errors in earlier versions of A were found
-by these controls and by self-review, and corrected before the runs of
-Table~\ref{tab:runs}: the first version used the path on all $b$ cycle
-vertices, not a principal submatrix, and missed $C_{6,1}(0,6,6,12,6,6)$;
-version~3 ended loops when the window of Lemma~\ref{lem:window} failed. The
-superseded logs are kept.
+\subsection{Exact tests}\label{sec:tests}
+Version~1 describes exact tests for integrality at the leaves of the searches;
+they rest on the following facts. For a prime $\ell$ and a
+finite set $S\subset\Z$ whose elements have distinct residues modulo $\ell$, and
+a monic $f\in\Z[x]$, let $\mu_\ell(S,f)$ be the sum over $s\in S$ of the
+multiplicity of the root $s$ of $f$ modulo $\ell$. Put
+\[
+ F(x)=\det\bigl(x(x^2-1)(xI-A(C_b))-\diag(p_k(x^2-1)+q_kx^2)\bigr).
+\]
+For an integer $m$ let $\beta_\ell(m)$ be the nullity modulo $\ell$ of the
+following integer $b\times b$ matrix, plus an offset: for $m\notin\{0,\pm1\}$
+the matrix $m(m^2-1)S(m)=m(m^2-1)(A(C_b)-mI)+\diag(p_k(m^2-1)+q_km^2)$ with no
+offset; for $m=0$ the matrix of the system of Lemma~\ref{lem:mult}(b) ($y_k=0$
+for $k\in K_p$, $y_{k-1}+y_{k+1}=0$ otherwise) with the offset $P-|K_p|$; for
+$m=\varepsilon=\pm1$ that of the system of Lemma~\ref{lem:mult}(c) with the
+offset $Q-|K_q|$.
 
-\paragraph{Versions.}
-The programs, logs, test scripts and both referee reports are in
-version~1.6.0 of~\cite{repo}, directory \code{certificates/sun-graphs/}, with
-A and B in \code{code/}, C in \code{review/code/} and D in
-\code{review/paper7/code/}; Table~\ref{tab:versions} lists the versions. The
-first referee agent audited versions~4 of A and~1 of B and B2, which produced
-all their runs with $N\le41$ and the runs of A and B with $N=42$ for
-$b=3,5,6,7,9$ (A) and $b\le15$ (B). The later versions,
-Lemma~\ref{lem:count} and Corollary~\ref{cor:1418} were written after its
-report. The second referee agent then checked the two proofs line by line, read
-the sources of versions~5 and~6 of A, versions~2 and~3 of B and version~2 of
-B2, reproduced counters of the later versions as described above, and
-recomputed the cases of Table~\ref{tab:cases} marked D with implementation~D.
+\begin{proposition}\label{prop:tests}
+\begin{itemize}
+\item[(a)] For every finite graph $H$, $A(H)$ has $|V(H)|$ real eigenvalues
+ counted with multiplicity; $\mult(m)$ is the nullity over $\Q$ of $A(H)-mI$
+ for every integer $m$; $H$ is integral if and only if $\det(xI-A(H))$ is a
+ product of factors $x-z$, $z\in\Z$; and if $H$ is integral with all
+ eigenvalues in a finite set $S\subset\Z$, then $\sum_{m\in S}\mult(m)=|V(H)|$.
+\item[(b)] If $n\le49$, every eigenvalue $\lambda$ of $G$ satisfies
+ $\lambda^2\le2n$ and $|\lambda|<10$. If moreover $G$ is integral, then
+ $\det(xI-A)$ and $F$ are products of factors $x-z$ with $z\in[-9,9]$, and
+ $\sum_{m=-9}^{9}\mult(m)=n$.
+\item[(c)] $x^P(x^2-1)^QF(x)=x^b(x^2-1)^b\det(xI-A)$, and $F$ is monic of degree
+ $4b$.
+\item[(d)] $\mult(m)$ is the nullity over $\Q$ of $m(m^2-1)S(m)$ for every
+ integer $m\notin\{0,\pm1\}$, and $\mult(0)$ and $\mult(\pm1)$ are the
+ nullities over $\Q$ of the systems of Lemma~\ref{lem:mult}(b),(c) plus the
+ offsets $P-|K_p|$ and $Q-|K_q|$. For every integer square matrix and every
+ prime $\ell$, the rank modulo $\ell$ is at most the rank over $\Q$, and ranks
+ and nullities over $\Q$ and over $\R$ agree. Hence
+ $\mult(m)\le\beta_\ell(m)$ for every prime $\ell$ and every integer $m$.
+\item[(e)] Let $\ell$ be prime, $f\in\Z[x]$ monic and $S\subset\Z$ finite with
+ distinct residues modulo $\ell$. Then $f$ modulo $\ell$ is monic of the same
+ degree, the multiplicity of a root $z\in\Z$ of $f$ does not drop modulo
+ $\ell$, and if $f$ is a product of factors $x-s$ with $s\in S$, then
+ $\mu_\ell(S,f)=\deg f$. If $\ell>2R$, the integers in $[-R,R]$ have distinct
+ residues modulo $\ell$.
+\item[(f)] The numbers $10^9+7$, $998244353$, $2^{61}-1$, $10^{18}+3$ and
+ $2^{31}-1$ are primes greater than $216$. Let $n\le49$ and let $G$ be
+ integral. Then $\mu_\ell([-9,9],F)=4b$ for $\ell\in\{10^9+7,998244353,
+ 2^{61}-1\}$, $\mu_\ell([-10,10],\det(xI-A))=n$ for $\ell\in\{2^{61}-1,
+ 10^{18}+3\}$, and $n\le\sum_{m=-9}^{9}\beta_\ell(m)$ for $\ell=2^{31}-1$. So if
+ one of these equalities or this inequality fails, $G$ is not integral.
+\item[(g)] For a prime $\ell$ and $d<\ell$, the nodes $20,21,\dots,20+d$ are
+ distinct modulo $\ell$, and Newton's divided differences on these nodes
+ recover every polynomial of degree at most $d$ over $\Z/\ell$ from its values.
+ For $\ell\in\{10^9+7,998244353,2^{61}-1\}$ and $3\le b\le49$, the
+ determinants of the matrix defining $F$, evaluated modulo $\ell$ at these
+ nodes, are the values of $F$ modulo $\ell$, and the reconstruction of degree
+ $4b$ is $F$ modulo $\ell$.
+\item[(h)] For every finite unicyclic graph $H$ and every edge $e=uv$ on its
+ cycle $C$, $\det(xI-A(H))=\phi(H-e)-\phi(H-u-v)-2\phi(H-V(C))$, where
+ $\phi(K)=\det(xI-A(K))$~\cite{sch}. For $G$ and $e=v_0v_{b-1}$,
+ $\phi(G-V(C_b))=\prod_kx^{p_k}(x^2-1)^{q_k}$, and $\phi(G-e)$ and
+ $\phi(G-v_0-v_{b-1})$ are given by an explicit two-term recurrence over the
+ pairs $(p_k,q_k)$.
+\end{itemize}
+\end{proposition}
 
-\begin{table}[ht]\centering\footnotesize
-\begin{tabular}{@{}ll>{\raggedright\arraybackslash}p{0.46\textwidth}@{}}\toprule
-file & SHA-256, first 16 digits & runs\\\midrule
-\code{sunsearch_v4_f5a38c28.c} & \texttt{f5a38c28cf395886} & A v4: $N\le41$; $N=42$, $b=3,5,6,7,9$; $N=49$, $b=3$\\
-\code{sunsearch_v5_bfcca593.c} & \texttt{bfcca593dc3ea0b2} & A v5: $N=42$, $b=10,14,18$\\
-\code{sunsearch_v6_39a87195.c} & \texttt{39a871959d2b3d92} & A v6: $N=42$, $b=6,10,22,26$; $N=49$, $b=4$\\
-\code{sunB_v1_4d92eb48.c} & \texttt{4d92eb484cefea14} & B v1: $N\le42$, $b\le15$\\
-\code{sunB_v2_8311d32e.c} & \texttt{8311d32e74f0cfbd} & B v2: $N=42$, $b=18$\\
-\code{sunB.c} (version 3) & \texttt{f0eb3d9ca506a3f7} & B v3: $N=42$\\
-\code{sunB2_v1_54531ad0.c} & \texttt{54531ad075d1015f} & B2 v1: $N=41$, $b=10$\\
-\code{sunB2.c} (version 2) & \texttt{c80538f9d4359954} & B2 v2: $N=42$, $b=6,18$\\
-\code{sunC.c} & \texttt{9401061cc17eff93} & C\\
-\code{sunC2.c} & \texttt{b3e35c7bc97529ac} & C2: $N=42$, $b=10$\\
-\code{sunD_v1.c} & \texttt{167d5a43514c4ef9} & D v1: $N=41$, $b=4$; $N=42$, $b=6$\\
-\code{sunD2.c} & \texttt{5d913b626f9dc685} & D v2: $N=41$, $b=4,8$; $N=42$, $b=6,10$; $N=49$, $b=4$\\
-\code{sunD3.c} & \texttt{e1a42832a46bd85d} & D v3: $N=41$, $b=10,12$; $N=42$, $b=14,18,22,26,30$\\
-\code{sunD3_maxb16.c} & \texttt{18a172d9cb9e42da} & D v3, smaller arrays: $N=42,49$, $b=3$\\\bottomrule
-\end{tabular}
-\caption{Program versions. The full SHA-256 values are recorded with the logs.}
-\label{tab:versions}
-\end{table}
+The identity (c) follows from the proof of Lemma~\ref{lem:schur}. According
+to version~1, B computed $F$ modulo the three primes of (f) by interpolation, as
+in (g), C computed $\det(xI-A)$ modulo its two primes by the formula (h), and D
+computed the bounds $\beta_\ell(m)$ for $\ell=2^{31}-1$; each discarded a graph
+when the corresponding test of (f) failed. Passing these tests does not imply
+integrality, and nothing here says that it does.
 
-\section{Proofs of Theorems 1 and 2}\label{sec:proofs}
+According to version~1, implementation~A decided integrality with
+Lemma~\ref{lem:mult}(a), in integer arithmetic modulo four primes. For an integer $m$ with $|m|\ge2$ put
+$h=m(m^2-1)$, $S_k=hc_k=m^2(m^2-1)-p_k(m^2-1)-q_km^2$ and
+$\tilde T_k=hT_k=\bigl(\begin{smallmatrix}S_k&-h\\h&0\end{smallmatrix}\bigr)$,
+so that $\tilde M=\tilde T_{b-1}\cdots\tilde T_0=h^bM$, and let
+$E=\prod_k(|S_k|+|h|)$. By Lemma~\ref{lem:mult}(a), $\mult(m)=2$ if
+$\tilde M=h^bI$, $\mult(m)=1$ if $\tilde M\ne h^bI$ and $\tr\tilde M=2h^b$, and
+$\mult(m)=0$ otherwise.
+
+\begin{proposition}\label{prop:crt}
+\begin{itemize}
+\item[(a)] The numbers $\ell_1=2^{62}-57$, $\ell_2=2^{62}-87$,
+ $\ell_3=2^{62}-117$ and $\ell_4=2^{62}-143$ are pairwise distinct primes, and
+ $\ell_1\ell_2\ell_3\ell_4>2^{240}$. An integer $z$ with
+ $|z|<\ell_1\ell_2\ell_3\ell_4$ is $0$ if and only if $\ell_i\mid z$ for
+ $i=1,\dots,4$.
+\item[(b)] For all $b$, $p$, $q$ and $|m|\ge2$, $\tilde M$ is $h^b$ times the real
+ matrix $M$ of Lemma~\ref{lem:mult}(a), every entry of $\tilde M$ has absolute
+ value at most $E$, $|\tr\tilde M-2h^b|\le2E+2|h|^b$, and every entry of
+ $\tilde M-h^bI$ has absolute value at most $E+|h|^b$.
+\item[(c)] For each of the $23$ runs of A reported in version~1 (a version of A
+ and a pair $(b,N)$), every sequence in the formal leaf set of that version at
+ $(b,N)$ (Section~\ref{sec:sets}) and every $m$ with $2\le|m|\le9$, we have
+ $2E+2|h|^b<2^{240}$. Hence $\tr\tilde M=2h^b$ if and only if
+ $\tr\tilde M\equiv2h^b\pmod{\ell_i}$ for all $i$, $\tilde M=h^bI$ if and only if
+ $\tilde M\equiv h^bI\pmod{\ell_i}$ for all $i$, and the multiplicity computed
+ from these residues as above equals $\mult(m)$.
+\end{itemize}
+\end{proposition}
+
+\subsection{Formal search sets}\label{sec:sets}
+The following definitions model the rules of the programs of version~1. They
+are the definitions of the Lean statement files, which state them in full; we
+make no claim that the programs implement them. A \emph{sequence} for $(b,N)$
+is a pair $(p,q)$ of maps $\Z_b\to\mathbb N$ with $P+2Q>0$ and
+$n=b+P+2Q\le N$, so that $G=G(p,q)$ is a graph of Section~\ref{sec:lemmas} that
+is not a cycle.
+
+\begin{definition}
+A \emph{feature vector} is a pair $s=(s^+,s^-)$ of maps
+$\{2,\dots,9\}\to\{0,1,2\}$, standing for $v\mapsto\mult(v)$ and
+$v\mapsto\mult(-v)$. Put $\epsilon_b=0$ for even $b$ and $\epsilon_b=1$ for odd
+$b$, $s_v=s^+(v)+\epsilon_bs^-(v)$, $S_2(s)=\sum_vs_vv^2$ and
+$M_4(s)=\sum_vs_vv^2(v^2-1)$. The vector $s$ is \emph{admissible} for $(b,N)$
+if some $\rho\ge3$ has $s^+(\rho)=1$ and $s^+(v)=0$ for $v>\rho$; $s^-=0$ if $b$
+is even, and $s^-(v)=0$ for $v\ge\rho$ if $b$ is odd; $S_2(s)\le(1+\epsilon_b)N$;
+and, if $b$ is odd, $\sum_v(s^+(v)-s^-(v))(v^L-v)$ is $0$ for odd $L$ with
+$3\le L<b$ and $2b$ for $L=b$ (compare Lemma~\ref{lem:adm}
+and~\eqref{eq:odd}). With the \emph{cycle filter}, also $\sum_vs^+(v)$ is at
+least the number $2\lceil b/6\rceil-1$ of eigenvalues of $C_b$ greater than
+$1$, and for odd $b$, $\sum_vs^-(v)$ is at least the number of eigenvalues of
+$C_b$ less than $-1$ (compare Lemma~\ref{lem:cycle}).
+
+A sequence passes the \emph{moment test} if some feature vector $s$,
+admissible for $(b,N)$, has $M_4(s)=\Theta(G)+4[b=4]$ and
+$S_2(s)\le n$ if $b$ is even, and $M_4(s)=2\Theta(G)$ and $S_2(s)\le2n$ if $b$
+is odd; with the \emph{load bound}, also $n-\max(Q,2)\le S_2(s)$ (for odd $b$,
+$2n-2\max(Q,2)\le S_2(s)$), compare~\eqref{eq:m4} and
+Lemma~\ref{lem:adm}(c).
+
+$\mathrm{Cand}_B(b,N)$ is the set of sequences for $(b,N)$ that pass the moment
+test with the load bound and without the cycle filter (the formal model of the
+moment test of B, version~1, and, for even $b$, of D, version~2). Its subset
+$\mathrm{Can}_B(b,N)$ consists of the sequences that are lexicographically
+least among their images under the dihedral group of $\Z_b$, comparing the
+keys $1000p_k+q_k$ for $k=0,1,\dots$ in turn, and $\mathrm{Can}_D(b,N)$ of
+those that are greatest, for the keys $64(p_k+2q_k)+p_k$.
+
+$\mathrm{Cand}_{B3}(b,N)$ (the formal model of version~3 of B) is the set of sequences that pass
+the moment test with the cycle filter, the load bound and, for even $b$, the
+inequalities $0\le2S_2(s)-n-2\sum_vs^+(v)\le\max(P,2)$ of
+Lemma~\ref{lem:count}; whose key $1000p_0+q_0$ is at least that of every
+other vertex; and that pass, for every $d$ with $1\le d\le b$, the window of
+Lemma~\ref{lem:window} with some feature vector $s$ admissible with the cycle
+filter (for $d=b$ the upper end of the window is $\Theta_d$ itself; for even $b$, $s$ must also satisfy
+$\max(b+P_d+2Q_d,S_2(s))\le n_{\max}$ and the inequality of
+Lemma~\ref{lem:partial}, with $S_2(s)$ and $\sum_vs^+(v)$ in place of $S_2$ and
+$s$). The leaf set of C at $(b,N)$, with the rank bound, consists of
+the sequences with $\sigma\bigl(r_0-4[K_q=\emptyset]\bigr)\le2N$, in the
+notation of Lemma~\ref{lem:rank}, that are least among their dihedral images
+for the keys $[p_k>0]+2[q_k>0]$.
+\end{definition}
+
+For each modelled version of each program (A, versions~4 to~6; B, versions~1
+to~3; C and C2; D, versions~1 to~3), the statement files define in the same
+way the leaf set at $(b,N)$, from the node test of A (Lemma~\ref{lem:prune}
+with the bounds described after it, Lemma~\ref{lem:adm}(c) and~\eqref{eq:m4},
+and optionally Lemma~\ref{lem:partial}), the window of
+Lemma~\ref{lem:window}, the rotation rules, canonical forms and moment tests
+of B and D, and the rules of C. D's pruning is modelled by recursively defined
+tables $\mathrm{reach}_1(r,w,t)$ and $\mathrm{reach}_2(r,w,Q,t)$ for $t<3072$
+and a predicate $\mathrm{Reach}_D$ on partial assignments, which is true if
+some multiset of eigenvalues of the required shape is compatible with some
+completion.
+
+\begin{proposition}\label{prop:pruning}
+\begin{itemize}
+\item[(a)] Every admissible feature vector is dominated, in $M_4$, $S_2$ and
+ the numbers of values greater than $m$ and at least $m$ for $1\le m\le9$, by
+ one that is maximal for this order. (For odd $b$ these numbers are the
+ smaller of the counts on the positive and on the negative side, and the
+ number of values at least $m$ is taken to be $0$ for $m=1$.)
+\item[(b)] For $b\le N$, the recursive enumeration of the statement files
+ produces exactly the sequences for $(b,N)$.
+\item[(c)] Let $3\le b\le N\le49$ and let $G=G(p,q)$ be integral, with $(p,q)$ a
+ sequence for $(b,N)$. Then $s^+(v)=\mult(v)$ and, for odd $b$,
+ $s^-(v)=\mult(-v)$ (for even $b$, $s^-=0$) define a feature vector that
+ satisfies all conditions of admissibility except possibly the cycle filter.
+\item[(d)] For $N\le49$, the node test of A is monotone: if it holds at depth
+ $d<b$ for
+ $(p',q')$ and $p\le p'$, $q\le q'$ componentwise, it holds for $(p,q)$.
+\item[(e)] Let $3\le b$ and $N\le49$. If $(p,q)$ is a sequence for $(b,N)$ and
+ $G$ is integral, then $(p,q)$ passes the window test with the cycle filter at
+ every depth $d\le b$.
+\item[(f)] For $t<3072$, $\mathrm{reach}_1(r,w,t)$ holds if and only if some
+ pair of maps $\Z_r\to\mathbb N$ has weight $P+2Q=w$ and $\Theta$-sum $t$, and
+ likewise $\mathrm{reach}_2$ with $Q$ prescribed; and, for even $b$ and
+ $b\le N\le49$, $\mathrm{Reach}_D$ at a partial assignment of
+ $v_0,\dots,v_{d-1}$ whose assigned weight is at most $N-b$ holds if and only if some completion with $n\le N$ passes
+ the moment test.
+\item[(g)] For every modelled version and every $(b,N)$ in its domain
+ ($3\le b\le N\le49$, with bounds on $b$ for each version), every integral $G$
+ with $(p,q)$ a sequence for $(b,N)$ has a dihedral image in the leaf set of
+ that version.
+\item[(h)] For every modelled version and $(b,N)$ in its domain, a sequence in
+ the leaf set has a factorisation of $\det(xI-A)$ into
+ factors $x-z$, $z\in\Z$, if and only if $G$ is integral; and, for a sequence
+ $(p,q)$ for $(b,N)$, $G$ is integral if and only if some dihedral image of
+ $(p,q)$ is such a leaf.
+\end{itemize}
+\end{proposition}
+
+\begin{proposition}\label{prop:empty}
+\begin{itemize}
+\item[(a)] For odd $b$ with $5\le b\le15$ and $N\in\{41,42\}$, no feature
+ vector is admissible for $(b,N)$.
+\item[(b)] For $b\in\{22,26\}$ and $N=42$, no feature vector is admissible with
+ the cycle filter, and $\mathrm{Reach}_D$ (with the load bound, without the cycle
+ filter) is false for the empty assignment; so, by
+ Proposition~\ref{prop:pruning}(f), no sequence with $n\le42$ passes the moment
+ test with the load bound.
+\item[(c)] $\mathrm{Cand}_{B3}(14,42)$ and $\mathrm{Cand}_{B3}(18,42)$ are
+ empty, and so is the leaf set of C with the rank bound at $(13,41)$.
+\end{itemize}
+\end{proposition}
+
+\begin{proposition}\label{prop:counts}
+\begin{itemize}
+\item[(a)] $\mathrm{Cand}_B(4,41)$ has $410{,}544$ elements, and
+ $\mathrm{Can}_B(4,41)$ and $\mathrm{Can}_D(4,41)$ have $52{,}641$ each.
+ $\mathrm{Cand}_B(6,42)$ has $14{,}215{,}675$ elements, and
+ $\mathrm{Can}_B(6,42)$ and $\mathrm{Can}_D(6,42)$ have $1{,}187{,}991$ each.
+\item[(b)] There are $3{,}031{,}469$ sequences for $(3,49)$ and $1{,}246{,}783$
+ for $(3,42)$.
+\end{itemize}
+\end{proposition}
+
+Proposition~\ref{prop:counts}(b) counts all labelled sequences, without
+symmetry reduction or pruning. In version~1 the numbers of
+Proposition~\ref{prop:counts} were reported as numbers of sequences passing
+the moment tests of B and D and tested by them; here they are only the sizes of
+the formal sets.
+
+\section{Small cycle lengths and the proofs of Theorems 1 and 2}\label{sec:proofs}
+
+The following three classifications were obtained in version~1 only as results
+of the computer searches. We have no written proofs of them; they are proved
+in Lean (Section~\ref{sec:lean}, where the routes of the formal proofs are
+outlined).
+
+\begin{proposition}\label{prop:three}
+Every integral generalized sun graph with cycle length $3$ that is not a cycle
+has at least $50$ vertices.
+\end{proposition}
+
+\begin{proposition}\label{prop:six}
+The images of $(0,6,6,12,6,6)$ under the dihedral group of $\Z_6$ are its six
+rotations, which are distinct. Let $b=6$ and let $p,q\colon\Z_6\to\mathbb N$,
+not both zero, with $n\le42$. Then $G(p,q)$ is integral if and only if $q=0$
+and $p$ is one of these six rotations.
+\end{proposition}
+
+\begin{proposition}\label{prop:four}
+An integral generalized sun graph with cycle length $4$ that is not a cycle
+and has at most $49$ vertices is isomorphic to $C_{4,1}(6,0,3,0)$,
+$C_4(5P_2,P_1,2P_2,P_1)$, $C_{4,2}(4,4,0,0)$ or $C_{4,2}(10,10,0,0)$, and these
+four graphs are integral. The last one has $44$ vertices, characteristic
+polynomial $x^2(x^2-1)^{19}(x^2-9)(x^2-16)$ and spectrum
+$\{0^{[2]},\pm1^{[19]},\pm3,\pm4\}$.
+\end{proposition}
+
+Let $H$ be a generalized sun graph with cycle length $b$ whose pendant paths
+have at most two vertices. Reordering the paths at each cycle vertex shows that
+$H$ is isomorphic to a graph $G(p,q)$ of Section~\ref{sec:lemmas}, and $H$ is
+connected, with $n$ vertices and $n$ edges, so it is unicyclic and its cycle
+has length $b$.
 
 \begin{proof}[Proof of Theorem~1]
-Let $G$ be a counterexample with $n\le42$; by~\cite[Theorem~2.1]{bms} it carries
-only copies of $P_1$ and $P_2$. Odd $b\ge5$ is excluded by
-Corollary~\ref{cor:odd}. If $b\equiv2\pmod4$, then $b\in\{6,10,14,18\}$ by
-Lemma~\ref{lem:cycle}, and $b\notin\{14,18\}$ by Corollary~\ref{cor:1418}. So
-$b\in\{3,6,10\}$, and the searches with $N=42$ give
-$G\cong C_{6,1}(0,6,6,12,6,6)$, a counterexample by~\cite{bms}.
+Let $G$ be a counterexample with $n\le42$; by~\cite[Theorem~2.1]{bms} it
+carries only copies of $P_1$ and $P_2$, so we may assume $G=G(p,q)$. If
+$b=3$, then $n\ge50$ by Proposition~\ref{prop:three}. Odd $b\ge5$ is excluded
+by Corollary~\ref{cor:odd}, as it would give $n\ge102$. If
+$b\equiv2\pmod4$, then $b\in\{6,10,14,18\}$ by Lemma~\ref{lem:cycle}, and
+$b\notin\{14,18\}$ by Corollary~\ref{cor:1418}. If $b=6$,
+Proposition~\ref{prop:six} gives $q=0$ and a rotation $p$ of
+$(0,6,6,12,6,6)$; the rotation of the indices is an isomorphism
+$G\cong C_{6,1}(0,6,6,12,6,6)$. This graph is a counterexample: it is integral
+by~\cite[Proposition~3.2]{bms}, has $42$ vertices, and $4\nmid6$. The
+remaining case $b=10$ is excluded only in the formal proof of Theorem~1; we
+give no written proof of it. As isomorphic graphs have the same number of
+vertices, every counterexample has at least $42$ vertices.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~2]
-Let $G$ be integral, not a cycle, with $n\le41$; by~\cite[Theorem~2.1]{bms} it
-carries only copies of $P_1$ and $P_2$. By Corollary~\ref{cor:odd} and
-Lemma~\ref{lem:cycle}, $b\in\{3,4,6,8,10,12\}$. The searches find nothing for
-$b\in\{3,8,10,12\}$, only the graph on $42$ vertices for $b=6$, and exactly the
-three graphs for $b=4$.
+Let $G$ be integral, not a cycle, with $n\le41$ and cycle length $b$. If
+$4\nmid b$, then $G$ is a counterexample with $n\le42$, so by Theorem~1 it is
+isomorphic to $C_{6,1}(0,6,6,12,6,6)$, which has $42$ vertices; this is
+impossible. So $4\mid b$, and by~\cite[Theorem~2.1]{bms} and
+Lemma~\ref{lem:cycle}, $b\le12$. If $b=4$, Proposition~\ref{prop:four} gives
+one of four graphs, and the one with $44$ vertices is excluded. The remaining
+cases $b=8$ and $b=12$ are excluded only in the formal proof of Theorem~2; we
+give no written proof of them.
 \end{proof}
-
-\begin{table}[ht]\centering\footnotesize
-\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.4\textwidth}@{}}\toprule
-case & by hand & by computation\\\midrule
-\multicolumn{3}{@{}l}{\emph{Theorem~1: $n\le42$, $b\not\equiv0\pmod4$}}\\
-$b=3$ & & A v4; B v1, v3; C and D (no pruning)\\
-$b=6$ & & A v4, v6; B v1, v3; B2 v2; C; D\\
-$b=10$ & & A v5 (without Lemma~\ref{lem:count}), v6; B v3; C2; D\\
-$b=14$ & Corollary~\ref{cor:1418}; Lemma~\ref{lem:rank}(c) & A v5; C; D\\
-$b=18$ & Corollary~\ref{cor:1418}; Lemma~\ref{lem:rank}(a),(b) & A v5; B v2; D\\
-odd $b\ge5$ & Corollary~\ref{cor:odd}; for $b\ge15$ also Lemma~\ref{lem:rank}(a),(b) & A v4 ($b\le9$), B ($b\le15$): no spectrum\\
-even $b\ge22$ & Lemma~\ref{lem:cycle}; Lemma~\ref{lem:rank}(a),(b) & A v6 ($b=22,26$): no spectrum; D ($b=22,26,30$): none\\\midrule
-\multicolumn{3}{@{}l}{\emph{Theorem~2: $n\le41$}}\\
-$b=4$ & & A v4; B v1; C (no pruning); D\\
-$b=8,12$ & & A v4; C; D\\
-$b=10$ & & also A v4; B2 v1; C and D at $N=41$\\
-even $b\ge14$ & Lemma~\ref{lem:cycle}; Lemma~\ref{lem:rank}(a),(b) & \\
-odd $b\ge5$ & Corollary~\ref{cor:odd}; for $b\ge15$ also Lemma~\ref{lem:rank}(a),(b) & C for $b\le13$, without Corollary~\ref{cor:odd}\\\bottomrule
-\end{tabular}
-\caption{Confirmations of each case. A and B, with B2, were written separately
-by the agent that found the results; C, with C2, and D were written from
-scratch by two referee agents. The cases $b=3,6,10$ of Theorem~2 are covered
-by those of Theorem~1.}
-\label{tab:cases}
-\end{table}
 
 \section{Open questions}\label{sec:open}
 The questions of~\cite[Section~5]{bms}, whether the cycle length $b$ of an
 integral generalized sun graph other than a cycle must be even, and whether $4$
-and $6$ are the only possible values, remain open. By Corollary~\ref{cor:odd},
-an odd $b$ is $3$, or at least $15$ with $n\ge102$; and $b=3$ needs $n\ge50$
-(by the searches of Section~\ref{sec:comp}).
+and $6$ are the only possible values, are not answered here. By
+Corollary~\ref{cor:odd}, an odd $b$ is $3$, or at least $15$ with $n\ge102$;
+and $b=3$ needs $n\ge50$ (Proposition~\ref{prop:three}).
 Lemma~\ref{lem:rank} bounds $b$ for either parity: if $r_{\max}(n)$ is the
 largest $t$ with $\sigma(t)\le2n$, then $b\le r_{\max}(n)+4$; writing
 $r_{\max}(n)=4k+j$ with $0\le j\le3$, we have
@@ -788,29 +949,389 @@ $2n\ge\sigma(4k)\ge4\sum_{v=1}^kv^2\ge\frac43k^3$, so $b\le(96n)^{1/3}+7$.
 Thanks are due to Rodrigo O.\ Braga, Jean Carlo Moraes and Matheus C.\ Santos
 for the question answered here.
 
+\section{Formal verification}\label{sec:lean}
+All the results are formally verified in Lean~4 (version 4.34.1) with
+Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}). Version~1 of this paper had
+no formal verification. For version~2 every result of the paper was
+formalised: each of its mathematical claims is a statement of
+Table~\ref{tab:lean}, a definition, a step of a written proof of one of them,
+or an observation that is immediate from the definitions. Where the paper
+gives no written proof (Propositions~\ref{prop:tests}--\ref{prop:four}, the
+case $b=10$ of Theorem~1 and the cases $b\in\{8,12\}$ of Theorem~2), the
+result rests on the formal proof alone.
+
+\paragraph{Statements before formal proofs.}
+The statements were written from version~1 of the paper and reviewed
+independently before the formal proofs were accepted. On 27 September 2026 a
+Claude Code agent wrote a first Lean statement file for version~1, with $25$
+statements and $73$ known-answer tests of its definitions, and an independent
+Claude Code agent reviewed it. OpenAI Codex then wrote the present statement
+files, which keep those $25$ statements word for word and add $35$, among
+them the statements on the search rules of version~1 in
+Section~\ref{sec:comp}; $120$ named known-answer tests check their
+definitions. A Codex agent that had not written the files reviewed them, the files
+were compiled in two new empty directories, and they were frozen on
+8 October 2026 at 10:43~UTC. On 9 October 2026 a Lean proof showed that one of
+the $60$ statements, \texttt{LegacyTransferCRTExactness}
+(Proposition~\ref{prop:crt}), was false as frozen: in the definition of the
+bound $E$ a missing pair of parentheses made it $\prod_k|S_k|+|h|$ instead of
+$\prod_k(|S_k|+|h|)$, and $b=3$, $p=(4,4,4)$, $q=0$, $m=2$ is a
+counterexample. On 18 October 2026 the author approved adding exactly this
+pair of parentheses; the corrected files, identical to the frozen ones apart
+from these two characters and with seven added regression tests, were
+reviewed and validated in the same way and frozen again on 18 October 2026 at
+22:28~UTC. The earlier files and the counterexample are kept.
+
+Two of the $60$ statements, \texttt{LegacyDump52652} and
+\texttt{LegacyA4DumpCompleteness}, are not part of version~2. They concern
+two fixed files of $52{,}652$ sequences each, written at $b=10$, $N=41$ by
+version~4 of A and version~1 of B2, and assert that the two files are equal
+as sets, that one of them is the formal leaf set of A at $(10,41)$, and that
+none of the $52{,}652$ graphs is integral. Their proofs were not completed (in
+five attempts the Lean kernel could not read in the two data files, of about
+$2.5$\,MB each), and on 3 November 2026 the author decided to delete them,
+together with every claim of version~1 that only they would support. They
+remain in the frozen files, unproved; nothing in this paper depends on them or
+claims them.
+
+\paragraph{Formal proofs.}
+The proofs are in separate files that import the statement files and do not
+modify them. From 8 to 18 October 2026 OpenAI Codex proved $57$ of the
+statements, in $31$ groups; each group was accepted after builds in two new
+empty directories and a review of the evidence by a Codex agent that had not
+written it. For the remaining statement, \texttt{LegacyMomentCounts}
+(Proposition~\ref{prop:counts}(a)), Codex proved the numbers at $(b,N)=(4,41)$
+in October 2026, and by 3 November 2026 it had written the reduction of the
+numbers at $(6,42)$ to the size of $\mathrm{Cand}_B(6,42)$, and the sizes of
+eleven of the $21$ fibres of that set described below and part of a
+twelfth. On 3 and 4 November 2026 Claude
+Code (model Claude Opus~5.5) wrote the remaining $190$ slice modules and $10$
+fibre modules, the module that assembles \texttt{LegacyMomentCounts}, and the
+final package.
+
+\paragraph{What is proved.}
+The final package (module \texttt{ClaudePaper7FinalPackage}, namespace
+\texttt{Paper7FinalPackage}) restates each of the $58$ statements of
+Table~\ref{tab:lean} with its exact frozen type, as a theorem
+\texttt{final\_X} of type \texttt{X}, proved by the theorem of the proof
+files that proves \texttt{X}, and prints its axioms.
+
+\begin{table}[ht]\centering\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.47\textwidth}
+ >{\raggedright\arraybackslash}p{0.47\textwidth}@{}}\toprule
+In the paper & Lean statement\\\midrule
+Theorem~1 & \texttt{Theorem1}, \texttt{Theorem1MinOrder}\\
+Theorem~2; orders and spectra of its three graphs, and that they are pairwise
+ non-isomorphic (Section~1) & \texttt{Theorem2}, \texttt{Theorem2Graphs},
+ \texttt{Theorem2GraphsDistinct}\\
+Proposition~3 & \texttt{Proposition3}\\
+Corollary~\ref{cor:odd}, Remark~\ref{rem:novelty} & \texttt{Corollary31},
+ \texttt{Remark32}, \texttt{TracePowerPrime}\\
+\cite[Theorem~2.1]{bms} and its consequence for generalized sun graphs &
+ \texttt{BMSTheorem21General}, \texttt{BMSTheorem21}, \texttt{OnlyP1P2}\\
+\cite[Proposition~3.2]{bms}: the spectrum of $C_{6,1}(0,6,6,12,6,6)$ &
+ \texttt{BMSProposition32}\\
+Section~1: unicyclic graphs with at most $21$ vertices &
+ \texttt{IntroUnicyclic21}\\
+Section~1: infinite families; $C_{6,1}(0,a,a,2a,a,a)$;
+ $C_{4,1}(0,a,2a,a)$ & \texttt{IntroInfiniteFamilies},
+ \texttt{IntroHexagonInfiniteFamily}, \texttt{IntroVeras68}\\
+Section~\ref{sec:lemmas}: $n$, edges, $\Theta(G)$, isomorphism classes &
+ \texttt{SetupFacts}\\
+Lemmas~\ref{lem:schur}--\ref{lem:adm}, \eqref{eq:m4} and~\eqref{eq:odd} &
+ \texttt{Lemma21}, \texttt{Lemma22}, \texttt{Lemma23}, \texttt{Lemma24},
+ \texttt{Identities12}\\
+Lemmas~\ref{lem:cycle}, \ref{lem:count}, Corollary~\ref{cor:1418},
+ Lemma~\ref{lem:rank} & \texttt{Lemma41}, \texttt{Lemma42},
+ \texttt{Corollary43}, \texttt{Lemma44}\\
+the constants in the proofs of Lemma~\ref{lem:adm}, Corollary~\ref{cor:odd}
+ and Lemma~\ref{lem:rank}, and $\sigma(9),\sigma(10),\sigma(11),\sigma(14)$ &
+ \texttt{ArithmeticConstants}\\
+Lemmas~\ref{lem:prune}--\ref{lem:partial} & \texttt{Lemma51},
+ \texttt{Lemma52}, \texttt{Lemma53}, \texttt{PartialAssignmentCounting}\\
+Proposition~\ref{prop:tests}(a), (b) & \texttt{SpectrumMultiplicityBridge},
+ \texttt{SunSpectralWindowAndFactorization},
+ \texttt{IntegralMultiplicitySum}\\
+Proposition~\ref{prop:tests}(c), (e), (f), (g) &
+ \texttt{ClearedCharacteristicPolynomial},
+ \texttt{ModularPolynomialRejectSound}, \texttt{LegacyModuliAndWindows},
+ \texttt{LegacyPolynomialSieveSoundness},
+ \texttt{ModularInterpolationExactness}\\
+Proposition~\ref{prop:tests}(d), (f) &
+ \texttt{ReducedMultiplicityExactness}, \texttt{RankReductionAndNullity},
+ \texttt{ModularNullityUpperBounds}, \texttt{LegacyNullitySieveSoundness}\\
+Proposition~\ref{prop:tests}(h) & \texttt{UnicyclicSchwenkIdentity},
+ \texttt{SunSchwenkIdentity}, \texttt{SchwenkRecurrenceExactness}\\
+Proposition~\ref{prop:crt} & \texttt{LegacyTransferCRTExactness}\\
+Proposition~\ref{prop:pruning} & \texttt{PruningAndEnumerationCompleteness}\\
+Proposition~\ref{prop:empty} & \texttt{LegacySpectrumEmptyCells},
+ \texttt{LegacyPruningEmptyCells}\\
+Proposition~\ref{prop:counts} & \texttt{LegacyMomentCounts},
+ \texttt{LabeledBudgetCounts}\\
+Propositions~\ref{prop:three}, \ref{prop:six}, \ref{prop:four} &
+ \texttt{Section6CycleThree}, \texttt{C61OrbitSix}, \texttt{ControlB4N49},
+ \texttt{ControlC42Ten}\\
+the bound of Section~\ref{sec:open} & \texttt{Section6Bound}\\
+\bottomrule
+\end{tabular}
+\caption{The $58$ statements of version~2. The statements of Sections~1--4,
+Lemmas~\ref{lem:prune}--\ref{lem:partial}, Section~\ref{sec:proofs} and
+Section~\ref{sec:open} are in the namespace \texttt{BackfillPaper7.Challenge};
+those of Propositions~\ref{prop:crt}--\ref{prop:counts}(a) in
+\texttt{BackfillPaper7.Challenge.Legacy}, \texttt{LabeledBudgetCounts}
+(Proposition~\ref{prop:counts}(b)) in \texttt{BackfillPaper7.Challenge}, and those of
+Proposition~\ref{prop:tests} in \texttt{BackfillPaper7.Challenge.Legacy.Algebra}.
+The names \texttt{Section6Bound} and \texttt{Section6CycleThree} refer to the
+section numbering of an early draft.}\label{tab:lean}
+\end{table}
+
+\paragraph{Routes of the formal proofs.}
+We outline the formal proofs only where the paper gives no written proof;
+elsewhere the formal proofs may follow other routes than the written ones.
+\emph{Theorem~1.} The formal proof reduces a counterexample with $n\le42$ to the
+cycle lengths $6$ and $10$, settles $b=6$ by Proposition~\ref{prop:six}, and
+excludes $b=10$, after showing by Lemma~\ref{lem:rank} that no pendant path $P_2$ occurs, by a case analysis of the multiplicities of the eigenvalues
+$2,\dots,6$ allowed by the lemmas of Sections~\ref{sec:lemmas}
+and~\ref{sec:cycle}, combined with congruences modulo~$4$ obtained from the
+transfer matrices of Lemma~\ref{lem:mult}(a).
+\emph{Theorem~2.} The formal proof excludes $b=8$ and $b=12$ by case analyses
+of the possible spectra, using transfer-matrix identities, rank bounds and
+parity arguments on the supports of $p$ and $q$.
+\emph{Proposition~\ref{prop:three}.} The formal proof reduces the case $b=3$ to
+three residual configurations, and for each shows, by a kernel-checked search over
+the possible integer root patterns of a polynomial attached to the graph (a table
+of candidate rows whose completeness is itself proved in Lean), that every pattern
+is rejected by an explicit identity.
+\emph{Propositions~\ref{prop:six} and~\ref{prop:four}.} After the reduction to
+pendant paths with at most two vertices, the formal proofs exclude or
+identify the graphs by case analyses of the possible spectra (for
+Proposition~\ref{prop:six}, the largest eigenvalue $\rho\in\{3,4,5,6\}$) and
+of the positions of the pendant vertices and paths; the integrality of the
+graphs found is proved from their characteristic polynomials.
+\emph{The classification of unicyclic graphs with at most $21$ vertices}
+(Section~1) is proved for arbitrary unicyclic graphs: the formal proof shows
+that in an integral one with at most $21$ vertices every vertex off the cycle
+has degree at most~$2$, so that it is a generalized sun graph, and then uses
+the results on generalized sun graphs.
+\emph{Proposition~\ref{prop:counts}(a).} At $(6,42)$, Burnside's lemma for the
+dihedral group of order $12$ reduces the sizes of $\mathrm{Can}_B$ and
+$\mathrm{Can}_D$ to the size of $\mathrm{Cand}_B(6,42)$ and to the numbers of
+sequences fixed by the reflections and rotations, which are proved separately.
+The set $\mathrm{Cand}_B(6,42)$ is split into $21$ fibres by the value of
+$\Theta(G)$; the ten fibres completed by Claude Code were split into slices by the value of $Q$, and the size of each
+slice was computed by closed reduction in Lean's metaprogramming layer, and
+the value is checked by \texttt{rfl} in the kernel.
+
+\paragraph{Checks.}
+The Lean package of version~2 has $1925$ modules: the frozen statement and
+test files, the proofs and the final package. It was built module by module
+from an empty directory on the author's Windows computer, and every module was
+checked with \texttt{leanchecker} (4 November 2026, 04:09--11:39~UTC); all
+$3850$ compile and \texttt{leanchecker} commands ended with exit code~$0$,
+with no error, no warning and no \texttt{sorry}. In a first pass, run
+with $13$ parallel jobs, seven modules failed within the same second after
+about $13$ seconds, and the $25$ modules that depend on them were skipped; for
+one of the seven, the log read at the time showed that Lean could not read the
+compiled file of a dependency that had been built three hours earlier. The
+$32$ modules were then rebuilt from the same sources with $8$ parallel jobs,
+and all passed; the logs of the failed attempt were overwritten by the
+rebuild. All $85{,}707$ axiom lists
+printed by \texttt{\#print axioms} are subsets of \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. A static scan of the
+sources, outside comments, found no \texttt{sorry}, \texttt{admit},
+\texttt{native\_decide}, \texttt{bv\_decide}, \texttt{implemented\_by},
+\texttt{extern} or \texttt{unsafe}, and no \texttt{axiom} declaration.
+A second build from another empty directory followed on the same computer,
+with the same sources (4 November 2026, compilation 11:39--16:52~UTC,
+\texttt{leanchecker} 16:52--22:08~UTC). All $1925$ modules compiled with no
+error, no warning and no \texttt{sorry}. The \texttt{leanchecker} pass did not
+run in one piece. Its driver script stopped at 17:31~UTC after $425$ modules,
+for a reason we did not establish, and was resumed at 19:42~UTC from the
+modules not yet checked. Then, at about 21:41~UTC, ten modules failed within
+four seconds because Lean could not read the compiled file of a dependency,
+and the $25$ modules that depend on them were skipped. No module was rejected
+by the kernel. The Windows system log reports low virtual memory in the same
+seconds, and a later run with ten parallel jobs was seen to use up almost all
+of the memory that Windows can commit, so we attribute these failures to the
+$12$ parallel jobs, although the memory was not measured at the time. The
+$35$ modules were checked again with $6$ parallel jobs, from the same compiled
+files, and all passed; the logs of the failed attempts are kept. This build
+also gives $85{,}707$ axiom lists, all subsets of the same three axioms, and
+its $1925$ compiled \texttt{.olean} files are byte for byte identical to those
+of the first build.
+The whole project, with the other papers of the repository, was then rebuilt
+from a third empty directory, with $260$ warning lines in older modules, most of
+them deprecations (22:08~UTC on 4 November to 08:57~UTC on 5 November 2026).
+All $2841$ modules compiled and $2840$ passed \texttt{leanchecker}. The
+remaining module consists of \texttt{import} lines and has no constants, so
+there is nothing to replay in it; \texttt{leanchecker} on it was not completed.
+The first attempt ended when the computer crashed, after about an hour and a
+half, for a reason we did not establish, and we stopped the second at $69$~GB
+of memory. Seven modules ran out of memory during this rebuild, the $16$ modules
+that depend on them were skipped, and these $23$ were built again and passed.
+No Lean check rejected a module in any of the three builds.
+
+Lean bounds the work of each elaboration step by a number of ``heartbeats''.
+In the $190$ slice modules and the module that assembles
+\texttt{LegacyMomentCounts}, written by Claude Code, this limit is removed
+(\texttt{set\_option maxHeartbeats 0}) for the computation of the counts and
+their checks in the kernel (the values were found by reduction in the
+metaprogramming layer and are only trusted after the kernel has re-derived them
+by \texttt{rfl}). It is raised to $800{,}000$ in eight proof modules
+written by Codex (prime certificates used for Propositions~\ref{prop:tests}(f)
+and~\ref{prop:crt}(a)), and set explicitly, to $200{,}000$ or $1{,}000{,}000$,
+in three test files of the frozen statements. The limit only bounds how long
+Lean may work on a step; it does not change what is accepted. The soundness of
+the proofs rests on the Lean kernel, which checks every proof term, as
+\texttt{leanchecker} did again for every module.
+
+The statement files, the tests, the proofs and the final package are in
+version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/Research/Backfill/Paper7/} (the copies of the frozen files differ
+from them only in their \texttt{import} lines), and the receipts of the builds in
+\texttt{certificates/sun-graphs/lean-package-v2/}.
+
+\paragraph{Definitions the reader must trust.}
+From Mathlib the statements use finite simple graphs, their adjacency matrices
+over $\Z$, $\Q$, $\R$ and $\mathbb C$, graph isomorphisms, walks and cycles,
+the cycle graph $C_b$, characteristic polynomials, real roots of polynomials
+with multiplicity, determinants, traces, ranks and kernels of matrices over
+$\Q$, $\R$ and $\Z/\ell$, integer polynomials and their reductions modulo a
+prime, primes, Bernoulli numbers, finite sets and cardinalities. The statement
+files define: integral graphs (all complex eigenvalues are integers), the
+spectrum as the multiset of real roots of the characteristic polynomial,
+$\mult$, $N_{>t}$, $N_{\ge t}$, $N_{<t}$, $N_{\le t}$, $n_+$, $n_-$, $n_0$,
+$B^+$, $S_2$, numbers of cycles of a given length, the odd girth, unicyclic
+graphs with a cycle of length $b$, $\kappa_b$ and $\sigma(t)$; generalized sun
+graphs $C_b(L)$ for an arbitrary list $L(k)$ of path orders at each vertex,
+their order, their number of pendant vertices and counterexamples; the graphs
+$G(p,q)$, $P$, $Q$, $K_p$, $K_q$, $\Theta$, $f_k$, $S(\lambda)$, $R$, $R'$,
+$T_k$, $M$, gaps, $\delta_0$, $\delta_{\pm1}$, $X$, tridiagonal matrices, the
+pivot count of Lemma~\ref{lem:pivot} and $g(w)$; the named graphs of the paper
+and the two families of Section~1; the polynomial $F$, the systems and offsets
+of Section~\ref{sec:tests}, the interpolation nodes, divided differences and
+Newton reconstruction, the chain recurrence of Proposition~\ref{prop:tests}(h),
+the primes of Propositions~\ref{prop:tests} and~\ref{prop:crt}, the integer
+transfer matrices, $E$ and the residue tests of A; and the formal search
+rules of Section~\ref{sec:sets}: feature vectors, admissibility, the moment
+tests, the window, the node test of A, rotation rules, canonical forms, the
+rules of C, the tables of D, the enumeration, the domains and leaf sets of all
+modelled versions, the list of the $23$ runs of A of
+Proposition~\ref{prop:crt}(c), and the sets of Propositions~\ref{prop:empty}
+and~\ref{prop:counts}. The $120$ known-answer tests check these definitions on
+examples.
+
+\paragraph{Faithfulness and non-claims.}
+In the formal statements a generalized sun graph is given by $b$ and, for each
+cycle vertex, a list of the numbers of vertices of the paths attached to it;
+the results stated for arbitrary generalized sun graphs (Theorems~1 and~2,
+\cite[Theorem~2.1]{bms}, Corollary~\ref{cor:1418} and
+Propositions~\ref{prop:three} and~\ref{prop:four}) are formalised in this
+generality, and the others for the graphs $G(p,q)$. Corollary~\ref{cor:1418}
+is formalised also for the cycles $C_{14}$ and $C_{18}$. The statements of
+Section~\ref{sec:comp} concern formally defined sets and predicates modelled on
+the rules of the programs of version~1; no statement says that the programs
+implement them, that their runs were complete, or what they printed. B2, which
+used floating-point arithmetic, is not modelled. Passing a test of
+Proposition~\ref{prop:tests}(f) is not claimed to imply integrality. The $23$
+runs of Proposition~\ref{prop:crt}(c) are a list of data taken from version~1.
+The identifications of the families of Section~1 with those of~\cite{bms}
+and~\cite{ver}, and of the graphs of Theorem~2 with those of~\cite{brt}, are
+bibliographic and not formalised; so are Conjecture~2 as a conjecture of
+\cite{bdr} and the questions of Section~\ref{sec:open}. That a generalized
+sun graph whose paths have at most two vertices is unicyclic and isomorphic to
+some $G(p,q)$, used in the written proofs of Section~\ref{sec:proofs}, is not
+a separate formal statement; the formal proofs of the results that use it
+prove what they need. The agreement of the Lean definitions with those of the
+paper was checked by the reviewing agents, not by a machine.
+
+\paragraph{Changes in version 2.}
+Apart from this section, Section~\ref{sec:comp}, Section~\ref{sec:proofs}, the
+abstract, the disclosure and the dates, version~2 differs from version~1 as
+follows. The method paragraph of Section~1 no longer says that every case is
+confirmed twice by hand proofs or programs, and the paragraph on prior work is
+shortened. Section~1 now says that the classification of~\cite{brt} up to
+$21$ vertices is verified in Lean, and adds that the three graphs of Theorem~2 are pairwise
+non-isomorphic, that the graph named by Veras is integral, the second interval
+of~\cite[Theorem~2.1]{bms}, and the restriction $a\ge1$ for both families
+(for $a=0$ they are the cycles $C_6$ and $C_4$); Theorem~2 is now said to
+exclude other integral generalized sun graphs up to $41$ vertices that are not
+cycles. The written proof of Corollary~\ref{cor:1418} now treats the cycles
+$C_{14}$ and $C_{18}$ and the reduction to pendant paths with at most two
+vertices. In Remark~\ref{rem:novelty} the word ``only'' before the classical
+congruence and the numbers of searches are dropped. In Section~\ref{sec:comp},
+the descriptions of the programs, Table~1 (the searches), Table~2 (program
+versions and hashes), the controls and cross-checks, and the statement that the
+programs decide integrality exactly are deleted; the cells of Table~1 that
+said ``no spectrum'' or ``0'' and five of its numbers (and one number of its Section~5.3) are restated as
+Propositions~\ref{prop:empty} and~\ref{prop:counts} about the formal sets; the
+remark that no overflow occurred and the remark that the window is not
+monotone are deleted; D's bounds at $0$ and $\pm1$ now include the offsets
+$P-|K_p|$ and $Q-|K_q|$, which version~1 omitted; and the statements about
+spectral windows and sieves now carry the hypothesis $n\le49$. Deleted for lack
+of a formal proof: the statement that versions~4 of A and~1 of B2 produce the
+same set of $52{,}652$ sequences at $b=10$, $N=41$, none of them integral, and
+the numbers $52{,}652$ and $14{,}662$ of Table~1; the agreement of the
+numbers of B2 and A at $b=6$, $N=42$; the counts of search-tree nodes, leaf
+tests and tested sequences of Table~1 and of Section~5.3 of version~1; the
+random tests on $2{,}968$, $400$, $3{,}877$ and $3{,}250$ graphs; the run of D at
+$b=30$ in Table~3; and the run times. Table~3 (confirmations of each case) is
+replaced by the written proofs of Section~\ref{sec:proofs}, which now cite
+Propositions~\ref{prop:three}--\ref{prop:four} and Theorem~1 instead of the
+searches; Lemma~\ref{lem:partial} and Propositions~\ref{prop:tests},
+\ref{prop:crt} and~\ref{prop:pruning} state explicitly what version~1 used
+informally. Section~\ref{sec:open} cites Proposition~\ref{prop:three} instead
+of the searches, and no longer says that the questions of~\cite{bms} remain
+open. Apart from the deletions and additions listed here, the
+statements of the remaining results are unchanged.
+
 \section*{Tool and computational resource disclosure}
-This work was carried out on 26 September 2026 (UTC) in a workflow directed by
-the author, using AI coding agents: Anthropic Claude Code, with the model
-Claude Opus~5.5. Claude Code agents selected the problem, found the results and
-their proofs, wrote the programs, carried out the literature searches
-described in the introduction, and drafted this text. An independent Claude
-Code agent, which had not produced the results, refereed the proofs line by
-line, checked the lemmas of Section~\ref{sec:lemmas} against exact
-computations, compared the leaf sets of two programs, and reran the searches
-with its own program (implementation~C), written from scratch; its corrections
-have been applied. A second referee agent, which had produced neither the
-results nor implementation~C, later checked Lemma~\ref{lem:count},
-Corollary~\ref{cor:1418} and the later program versions, and recomputed the
-cases $b=3,4,6,8,10,12,14,18$ with a program of its own (implementation~D),
-written from scratch (Section~\ref{sec:comp}); its corrections have been
-applied as well. Throughout, ``we'' refers to this workflow; the
-reading and searching described in the paper were done by the agents. The
-searches ran on one computer (macOS, arm64), one core per run; no completed run
-took more than an hour. The author is not a professional mathematician.
-The author has read the paper.
-Nothing in this paper is formally verified: the results rest on the written
-proofs and on the computations of Section~\ref{sec:comp}. AI systems are not
-authors of this paper; the author takes full responsibility for its content.
+Version~1 of this paper was produced on 26 September 2026 (UTC) in a workflow
+directed by the author, using AI coding agents: Anthropic Claude Code, with
+the model Claude Opus~5.5. Claude Code agents selected the problem, found the
+results and their proofs, wrote the programs A and B, carried out the
+literature searches described in the introduction, and drafted the text. Two
+independent Claude Code agents, which had not produced the results, refereed
+version~1; each wrote a search program of its own (C and D), and their
+corrections were applied. Version~1 rested on the written proofs and on these
+computations; it had no formal verification.
+
+Version~2 was produced from 27 September to
+5 November 2026.
+On 27 September 2026 a Claude Code agent (model Claude Opus~5.5)
+wrote the first statement file of Section~\ref{sec:lean}, and an independent
+Claude Code agent (model Claude Opus~5.5) reviewed it. OpenAI Codex (desktop
+application; its main session used the model \texttt{gpt-6-astra}) wrote the
+present statement files, which a Codex agent that had not written them
+reviewed before they were frozen on 8 October 2026, and the corrected files
+frozen on 18 October 2026; from 8 to 18 October 2026 Codex wrote the Lean
+proofs of $57$ statements, and until 3 November 2026 part of the proof of the
+remaining statement, \texttt{LegacyMomentCounts}. Each group of proofs was
+accepted after two builds from empty directories and a review of the evidence
+by a Codex agent that had not written it. On 3 and 4 November 2026 Claude Code
+(model Claude Opus~5.5) wrote the rest of the proof of
+\texttt{LegacyMomentCounts} and the final package, which was built and checked
+on the author's Windows computer (Section~\ref{sec:lean}). Claude Code (model
+Claude Opus~5.5) compared version~1 claim by claim with the statement files
+and drafted the text of version~2.
+An independent Claude Code agent (model Claude Fable~5.1), which had written
+none of the files, reviewed the draft against the statement files and the
+evidence of the first build on 4 November 2026. On 5 November 2026 a second
+independent agent (same model) compared the final package with the frozen
+statements, read the proof of \texttt{LegacyMomentCounts} for steps that avoid
+the kernel, recounted the evidence of the three builds and reviewed the paper;
+neither ran Lean. The corrections of both reviews were applied.
+Throughout, ``we'' refers to this workflow; the reading and searching
+described in the paper were done by the agents. The author is not a
+professional mathematician.
+The author has read version~2 of this paper, but did not check its proofs and
+did not compare its Lean statements with the paper.
+No human mathematician has reviewed this paper. The correctness of the results
+rests on the Lean proofs of the statements in Table~\ref{tab:lean} and on the
+agreement of those statements with the paper, which was checked by the
+reviewing agents; the written proofs are given for the reader. AI systems are
+not authors of this paper; the author takes full responsibility for its
+content.
 
 {\footnotesize
 \begin{thebibliography}{99}\setlength{\itemsep}{1pt}
@@ -821,6 +1342,9 @@ R.~O. Braga, R.~R. Del-Vecchio and V.~M. Rodrigues, Integral unicyclic graphs,
 \bibitem{bms}
 R.~O. Braga, J.~C. Moraes and M.~C. Santos, Pendant paths and integral
 generalized sun graphs, arXiv:2609.28754v1, 23 September 2026.
+\bibitem{bms2}
+R.~O. Braga, J.~C. Moraes and M.~C. Santos, Spectral asymmetry and odd cycles
+in integral graphs, arXiv:2610.22773v1, 16 October 2026.
 \bibitem{brt}
 R.~O. Braga, V.~M. Rodrigues and V.~Trevisan, Locating eigenvalues of
 unicyclic graphs, \emph{Appl.\ Anal.\ Discrete Math.} \textbf{11} (2017),
@@ -830,8 +1354,8 @@ A.~E. Brouwer and W.~H. Haemers, \emph{Spectra of Graphs}, Universitext,
 Springer, New York, 2012, \url{https://doi.org/10.1007/978-1-4614-1939-6}.
 \bibitem{repo}
 H.~Dong, \emph{ai4math-results}, repository,
-\url{https://github.com/Horace-Maxwell/ai4math-results}, version~1.6.0
-(2026); archived at Zenodo under the concept DOI
+\url{https://github.com/Horace-Maxwell/ai4math-results}, versions~1.6.0
+and~\repoversion{} (2026); archived at Zenodo under the concept DOI
 \url{https://doi.org/10.5281/zenodo.22970254}.
 \bibitem{hs}
 F.~Harary and A.~J. Schwenk, Which graphs have integral spectra?, in
@@ -841,9 +1365,9 @@ F.~Harary and A.~J. Schwenk, Which graphs have integral spectra?, in
 E.~V. Haynsworth, Determination of the inertia of a partitioned Hermitian
 matrix, \emph{Linear Algebra Appl.} \textbf{1} (1968), 73--81,
 \url{https://doi.org/10.1016/0024-3795(68)90050-5}.
-\bibitem{sympy}
-A.~Meurer et al., SymPy: symbolic computing in Python, \emph{PeerJ Comput.\
-Sci.} \textbf{3} (2017), e103, \url{https://doi.org/10.7717/peerj-cs.103}.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{CPP 2020},
+ACM, 2020, \url{https://doi.org/10.1145/3372885.3373824}.
 \bibitem{om}
 G.~R. Omidi, On integral graphs with few cycles, \emph{Graphs Combin.}
 \textbf{25} (2009), 841--849,
@@ -852,10 +1376,6 @@ G.~R. Omidi, On integral graphs with few cycles, \emph{Graphs Combin.}
 A.~J. Schwenk, Computing the characteristic polynomial of a graph, in
 \emph{Graphs and Combinatorics}, Lecture Notes in Math.~406, Springer, Berlin,
 1974, 153--172, \url{https://doi.org/10.1007/BFb0066438}.
-\bibitem{tru}
-The Omega Institute, \texttt{trureturing} repository,
-\url{https://github.com/the-omega-institute/trureturing}, accessed 26
-September 2026.
 \bibitem{vdh}
 E.~R. van Dam and W.~H. Haemers, An odd characterization of the generalized
 odd graphs, \emph{J. Combin.\ Theory Ser.~B} \textbf{101} (2011), 486--489,

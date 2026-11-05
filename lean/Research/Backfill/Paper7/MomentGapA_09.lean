@@ -1,0 +1,29 @@
+import Research.Backfill.Paper7.B4GapBlockAssembly
+import Research.Backfill.Paper7.MomentGapC_09_00
+
+/-! Generated UNTRUSTED proof-source candidate. Fixed-file flags, native
+totals, table completeness and a representative count are not hypotheses.
+Every actual row, Q decision, DP cell and complete finite range is checked
+by the eventual Lean proofs. Generation alone confers no credit. -/
+set_option autoImplicit false
+noncomputable section
+namespace Paper7MomentGapNumeric
+open Paper7MomentCertificate Paper7MomentCounts Paper7MomentDP
+open Paper7MomentReduction Paper7SortedGaps
+open BackfillPaper7.Challenge BackfillPaper7.Challenge.Legacy
+open scoped BigOperators
+
+def avalues_09 : Fin 1 → ℕ := ![0]
+#print axioms Paper7MomentGapNumeric.avalues_09
+
+theorem ablock_09 : b4GapABlock 9 = 0 := by
+  calc
+    b4GapABlock 9 = ∑ i : Fin 1, avalues_09 i := by
+      apply b4GapABlock_of_cblocks 9 avalues_09
+      intro i
+      fin_cases i
+      · exact cblock_09_00
+    _ = 0 := by decide
+#print axioms Paper7MomentGapNumeric.ablock_09
+
+end Paper7MomentGapNumeric

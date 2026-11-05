@@ -17,15 +17,16 @@ their results and computational certificates. It is archived on Zenodo: all vers
 [10.5281/zenodo.23043604](https://doi.org/10.5281/zenodo.23043604); version 1.10.0
 [10.5281/zenodo.23045882](https://doi.org/10.5281/zenodo.23045882); version 1.11.0
 [10.5281/zenodo.23070713](https://doi.org/10.5281/zenodo.23070713); version 1.12.0
-[10.5281/zenodo.23200924](https://doi.org/10.5281/zenodo.23200924).
+[10.5281/zenodo.23200924](https://doi.org/10.5281/zenodo.23200924); version 1.13.0
+[10.5281/zenodo.23272267](https://doi.org/10.5281/zenodo.23272267).
 
-> **Verification status (version 1.13.0, 9 October 2026).** No human
-> mathematician has reviewed these papers. Papers 3, 4, 5, 6 and 8 (in
+> **Verification status (version 1.14.0, 5 November 2026).** No human
+> mathematician has reviewed these papers. Papers 3, 4, 5, 6, 7 and 8 (in
 > their versions 2), 9 and 10 are formalized completely: every result in them has
 > a Lean proof, checked against independently reviewed and frozen statement
 > files. For the other papers only some results are
 > formally verified in Lean 4, and the table "What is verified, and how"
-> lists exactly which. Paper 7 has no Lean proof; Paper 1 is partly
+> lists exactly which. Paper 1 is partly
 > formalized; the theorems of Paper 2 are formalized for every
 > power series satisfying the defining equations, while the existence and
 > uniqueness of these series, and their agreement with the OEIS entries,
@@ -34,11 +35,14 @@ their results and computational certificates. It is archived on Zenodo: all vers
 > freezing before proof development; Paper 8 records an exception to this
 > order in its development timeline, and versions 2 of Papers 5 and 6 reuse
 > Lean code of version 1 that was written before their statement files (for
-> two lemmas of Paper 5 and for the codewords of Theorem A of Paper 6).
+> two lemmas of Paper 5 and for the codewords of Theorem A of Paper 6). In
+> Paper 7, one frozen statement turned out to be false because of a missing
+> pair of parentheses; the author approved this one correction, and the
+> statement files were reviewed and frozen again.
 > Computations are checked by the Lean kernel, and only
 > the three standard axioms are allowed. Claims that cannot be formalized
 > completely will be removed from the other papers too, as in versions 2
-> of Papers 3, 4, 5, 6 and 8. Problems found so far are listed under
+> of Papers 3, 4, 5, 6, 7 and 8. Problems found so far are listed under
 > [Known issues](#known-issues); every problem we worked on, including the
 > ones we dropped, is listed in [ATTEMPTS.md](ATTEMPTS.md).
 
@@ -52,7 +56,7 @@ their results and computational certificates. It is archived on Zenodo: all vers
 | Paper 4 (version 2) | Answers to three problems of Hak, Kozerenko and Oliynyk on the triameter of graphs | Problems 1 and 3 answered (we found no earlier answer); Problem 2 was first answered on MathOverflow, and we add its smallest counterexample; completely formalized | `BackfillPaper4.Check.check_TheoremA_i`, `check_TheoremA_unique`, `check_TheoremB_unique`, `check_TheoremC_ii` (50 checked statements) | [`papers/hko-triameter`](papers/hko-triameter/note.pdf) |
 | Paper 5 (version 2) | Complete mappings of the Brauer and partial Brauer monoids | Problem 15.11 of arXiv:2608.25092 settled in its existence reading; completely formalized | `CodexPaper5.MainABCheck.check_Thm11a`, `check_Thm11b`, `CodexPaper5.MainCCheck.check_Thm11c`, `CodexPaper5.FullPaperAllNCheck.check_AllNClassification` (45 checked statements) | [`papers/brauer-complete-mappings`](papers/brauer-complete-mappings/note.pdf) |
 | Paper 6 (version 2) | Fourteen new weights of the Reed–Muller code RM(7,14) | 14 new weights by explicit codewords; explicit codewords for every even number from 320 to 2^14 − 320 except 322, 326, 330, 334 and their complements, so, in the middle-interval reading of Carlet's question, the question for (7,14) is equivalent to these four numbers being weights; Theorem C (Conjecture 2 of Lou and Wang fails for m = 6) was proved earlier by Lou and Wang; completely formalized | `Paper6FinalPackageV4.check_ThmA`, `check_ThmB_witnesses`, `check_CarletEquiv`, `check_ThmC_literal` (35 checked statements) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
-| Paper 7 | The minimum order of a counterexample to a conjecture on integral generalized sun graphs | new result (computer-assisted; not formalized) | none | [`papers/sun-graphs`](papers/sun-graphs/note.pdf) |
+| Paper 7 (version 2) | The minimum order of a counterexample to a conjecture on integral generalized sun graphs | new result: the minimum order is 42, and the counterexample with 42 vertices is unique; completely formalized (not checked with comparator, see below) | `Paper7FinalPackage.final_Theorem1`, `final_Theorem1MinOrder`, `final_Theorem2`, `final_Proposition3` (58 checked statements) | [`papers/sun-graphs`](papers/sun-graphs/note.pdf) |
 | Paper 8 (version 2) | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem; completely formalized, including the finite search | `BackfillPaper8.Check.check_Theorem1`, `check_Theorem1_mathlib`, `check_Theorem1_signed` (38 checked statements) | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
 | Paper 9 | A simple primitive axial algebra with a disconnected non-annihilation graph, and a decomposable axial block | new theorems (counterexamples when arbitrary finite symmetric fusion laws are allowed); completely formalized | `AxialMSZ.Check.check_TheoremA`, `check_TheoremB`, `check_TheoremC`, `check_Corollary`, `check_not_Simple_connected` | [`papers/axial-nonannihilation`](papers/axial-nonannihilation/note.pdf) |
 | Paper 10 | Tensor products of Mycielskians of odd cycles with odd wheels are not word-representable | Problem 5.1 of arXiv:2609.20881 answered (we found no earlier answer); completely formalized | `WordRepTensor.Check.check_Problem5_1`, `check_MycielskiOddCycleNotWR`, `check_ExtMycielskiOddCycleNotWR` (11 checked statements) | [`papers/wordrep-tensor`](papers/wordrep-tensor/note.pdf) |
@@ -344,7 +348,7 @@ graphs.*
   definitions and checks their weights again in the kernel (that module was
   written before the statement files).
 
-**Paper 7: [`papers/sun-graphs`](papers/sun-graphs/note.pdf).**
+**Paper 7: [`papers/sun-graphs`](papers/sun-graphs/note.pdf) (version 2).**
 *The minimum order of a counterexample to a conjecture on integral generalized
 sun graphs.*
 
@@ -356,8 +360,8 @@ sun graphs.*
   `C_{6,1}(0,6,6,12,6,6)` on 42 vertices and remarked that their search does
   not show that no smaller counterexample exists.
 - **Theorem 1.** Up to isomorphism, `C_{6,1}(0,6,6,12,6,6)` is the only
-  counterexample with at most 42 vertices, also when pendant paths of both
-  admissible lengths share a vertex. So 42 is the minimum order.
+  counterexample with at most 42 vertices, also when pendant paths of
+  different lengths share a vertex. So 42 is the minimum order.
 - **Theorem 2.** Every integral generalized sun graph with at most 41
   vertices that is not a cycle has a 4-cycle and is one of the three integral
   unicyclic graphs that Braga, Rodrigues and Trevisan (2017) found in a
@@ -365,14 +369,50 @@ sun graphs.*
   vertices.
 - **Proposition 3** (presented in the paper as an observation). In an
   integral graph whose shortest odd cycles have length `g` and number `c_g`,
-  every prime `q` with `(q − 1) | (g − 1)` divides `2g·c_g`. Hence
-  (Corollary 3.1), if an integral unicyclic graph has a cycle of odd length
-  `b`, then `3 | b`, and `b = 3` or `b ≥ 15`.
-- Method: spectral lemmas exclude every cycle length `b ≢ 0 (mod 4)` except
-  3, 6 and 10 up to 42 vertices, and exhaustive searches settle those, each
-  with separately written programs, two of them written by independent
-  referee agents. Nothing in Paper 7 is formally verified, in Lean or
-  otherwise.
+  every prime `q` with `(q − 1) | (g − 1)` divides `2g·c_g`, and at least
+  `(g − 1)/2` integers `v ≥ 2` have different multiplicities as eigenvalues
+  `v` and `−v`. Hence (Corollary 3.1), if an integral unicyclic graph has a
+  cycle of odd length `b`, then `3 | b`, and `b = 3` or `b ≥ 15`.
+- **Later work.** After version 1 was made public, Braga, Moraes and Santos
+  (arXiv:2610.22773v1, 16 October 2026) proved that `C_3` is the only
+  integral unicyclic graph with a cycle of odd length, and that `(g − 1)!`
+  divides `2c_g`. The first result supersedes Corollary 3.1, and the second
+  implies the first part of Proposition 3. That paper does not address
+  Theorems 1 and 2.
+- Method: up to 42 vertices, hand proofs exclude every cycle length
+  `b ≢ 0 (mod 4)` except 3, 6 and 10. Version 1 settled these three by
+  exhaustive computer searches; version 2 does not use the searches. The
+  cycle lengths 3 and 6 are settled by Propositions 6.1 and 6.2, and 10 inside
+  the proof of Theorem 1. For these three cases the proofs are formal only:
+  the paper gives no written proof of them.
+- Lean: every result of Paper 7 (version 2) is formalized. The 58 statements
+  of the frozen statement files in `lean/Research/Backfill/Paper7/` (the copies
+  there differ from the files frozen on 18 October 2026 only in their `import`
+  lines; hashes in `certificates/sun-graphs/lean-package-v2/package-manifest.json`)
+  are proved in that directory and restated in `ClaudePaper7FinalPackage.lean`: Theorems
+  1 and 2, Proposition 3, all numbered lemmas and corollaries, the results of
+  Section 6, the classification of the integral unicyclic graphs with at most
+  21 vertices of Braga, Rodrigues and Trevisan, Theorem 2.1 and Proposition
+  3.2 of Braga, Moraes and Santos, and the statements of Section 5 on the
+  mathematics behind the search rules of version 1. The statements are about
+  formally defined sets of sequences, not about the programs of version 1. The
+  files were reviewed independently and frozen on 8 October 2026. One
+  statement proved false as frozen (a missing pair of parentheses in a bound,
+  shown by a Lean proof of its negation on 9 October); the author approved
+  adding this pair, and the corrected files were reviewed and frozen again on
+  18 October. OpenAI Codex proved 57 statements; Codex and Claude Code proved
+  the last one, `LegacyMomentCounts`, which needed large computations in the
+  kernel. Two of the 60 frozen statements, on two data files of 52,652
+  sequences each, were not proved (the kernel could not read in the files),
+  and the author deleted them, with every claim of version 1 that only they
+  would support. They remain in the frozen files; nothing depends on them.
+- Deleted from version 1 for lack of a formal proof: the search tables and
+  counters, the program versions, the controls and random tests, and the
+  statement that two programs produced the same 52,652 sequences at cycle
+  length 10. The programs and logs remain in `certificates/sun-graphs/` as
+  the record of version 1. Lean's limit on the work of one step (heartbeats)
+  is removed in 191 modules and raised in 10 (Section 8 of the paper); this
+  changes how long Lean may work, not what it accepts.
 
 **Paper 8: [`papers/switching-diam4`](papers/switching-diam4/note.pdf) (version 2).**
 *The switching conjecture for main eigenvalues holds for trees of diameter at
@@ -579,8 +619,8 @@ completed on 27 September 2026. That check found no error that affects a
 main result; it found the problems below. The papers will be corrected in
 later versions; version 1.9.0 corrected Paper 4, version 1.10.0 corrected
 Paper 3, version 1.11.0 corrected Paper 8, version 1.12.0 corrected
-Paper 5, and version 1.13.0 corrects Paper 6. Until then, read the other
-papers with these corrections.
+Paper 5, version 1.13.0 corrected Paper 6, and version 1.14.0 corrects
+Paper 7. Until then, read the other papers with these corrections.
 
 - **Paper 6, Theorem C is not new (corrected in version 2 of the paper, in
   version 1.13.0).** Lou and Wang proved it earlier, in Discrete Appl. Math.
@@ -643,6 +683,12 @@ papers with these corrections.
 - **Paper 6, property (P2) (corrected in version 2)** divides by `r`, so it
   needs `r ≥ 1`, while the introduction of version 1 allows `r = 0`. The
   paper uses (P2) only with `r = 6`.
+- **Paper 7 (corrected in version 2).** Version 1 omitted the offsets
+  `P − |K_p|` and `Q − |K_q|` from the bounds of program D at 0 and ±1. It
+  said that the families `C_{6,1}(0,a,a,2a,a,a)` and `C_{4,1}(0,a,2a,a)` start
+  at 42 and 68 vertices, which needs `a ≥ 1`: for `a = 0` they are the cycles
+  `C_6` and `C_4`. Corollary 3.1 is superseded by later work of Braga, Moraes
+  and Santos (see the section on Paper 7). The theorems are unchanged.
 - **Paper 2, implicit normalizations.** For A240998, "minus 1" refers to the
   solution with constant term 1, as in the OEIS entry; its equation also has
   a solution with constant term 0. The equation `F = x/(1+FF′)` determines
@@ -678,7 +724,7 @@ papers with these corrections.
 | Paper 4 (version 2): every result, the 50 statements of the frozen statement file: Theorems A, B and C, including the minimality and uniqueness statements; Lemmas 1 and 2, Proposition 3, Remarks 4 and 5; the counts of Section 4 (59 connected triangle-free graphs with 7 vertices, 1,857 candidates, 1, 1, 1, 3, 4, 11, 23, 69 median graphs, 1,008,904 labelled median graphs with 8 vertices, 20,160 lacking (Q3′), 20,160 lacking (Q4), two automorphisms of `G1` and of `G2`); the two facts from Bandelt and Mulder used in the proofs | `BackfillPaper4.Check.check_*`, one theorem for each of the 50 statements of the frozen statement file `lean/Research/Backfill/Paper4/Challenge.lean` (SHA-256 `9f1b0c95…0785`); the version-1 declarations `HKOTriameter.not_problem1Claim`, `not_problem2Claim`, `problem3ClaimFP` and others remain | for version 1, two independent exhaustive enumerations of the median graphs with at most 8 vertices (`median_enum.c`, `median8_second_impl.py`) and a check over all 8! bijections (`iso_check.py`) (`certificates/hko-triameter/`); the computations on distance-hereditary graphs of version 1 (`dh_exhaustive.py`) are kept there but are no longer claimed |
 | Paper 5 (version 2): every result, the 45 statements of the frozen statement files: Theorem 1.1 (a)–(c), and (c) also for `n = 0`; Proposition 3.1 (a)–(d) and the isomorphism of the principal factors with Rees 0-matrix semigroups; the facts on ranks, `J`-classes, the ranks that occur and the group of units (Section 2); Lemmas 4.1–4.4, 5.1–5.4 and 6.1; Proposition 6.2; Remark 4.5 (1)–(3); the special cases (R1) and (R2) of results of Araújo et al. ((R3) and (R4) are proved inside the proof of Theorem 1.1(c)); the number of half-diagrams and the idempotents `e_λ` (Section 3); the closure of `B_n` and `PB_n` under the product, with the identity diagram as identity; the fibres and the triangle product (Section 5); and the 12 supplementary statements (associativity of the product of diagrams and of Rees 0-matrix multiplication, the monoid structure of `B_n` and `PB_n`, the groups `{(λ, g, λ)}` and `S_r`, Cayley tables, the counts 45 and 105, and two auxiliary statements about reachability) | `CodexPaper5.*Check.check_*` in `lean/Research/Backfill/Paper5/Check.lean`, one theorem for each of the 45 statements: the 33 of the frozen statement file `lean/Research/Backfill/Paper5/Challenge.lean` (SHA-256 `ca2ff711…c373`) and the 12 of three supplementary statement files (`lean/Research/Backfill/Paper5/Supplement/`); the version-1 file `BrauerCMCore.lean` remains | the programs and certificates of version 1 (`certificates/brauer-complete/`) remain independent cross-checks; version 2 does not rely on them |
 | Paper 6 (version 2): every result, the 35 statements of the frozen statement files: Theorem A and Table 1; the 7901 explicit codewords of Theorem B, and the size 7901 of S₀; the Corollary (in the middle-interval reading, Carlet's question for (7,14) is equivalent to 322, 326, 330, 334 being weights); Theorem C; Propositions D, E and F; Lemmas 2.1, 2.2 and 5.1; Remark 3.1; the remark after Proposition E; (P1), (P2), (P3), the minimum distance, flats and affine invariance; the other facts the proofs use (the 14 elements of M \ U, S₀ and Proposition 4 of Leuenberger and Albrizzio, Construction 2 of Lou and Wang for m = 6 and the concatenations, transversal flats, the example 162); the weights 162, 166, 170, 174 of RM(6,12); the identity of the weight predicate of version 1 with the one defined here; the fact (∗) of version 1, kept and proved although no proof of version 2 uses it | `Paper6FinalPackageV4.check_*` in `lean/Research/Backfill/Paper6/CheckPaper6.lean`, one theorem for each of the 35 statements of `lean/Research/Backfill/Paper6/ChallengeV3.lean` (SHA-256 `83ea2291…b6d78`) and `BridgeChallenge.lean`; the version-1 module `RM714Weights.lean` remains | the programs of version 1 (`certificates/rm714/`) remain independent cross-checks; version 2 does not rely on them |
-| Paper 7: Theorems 1 and 2 (minimum order 42, uniqueness; classification up to 41 vertices) and Proposition 3 | not formalized | spectral lemmas proved in the paper; exhaustive searches by separately written programs (`sunsearch*`, `sunB*`, and the referee agents' `sunC*` and `sunD*`), with audited versions identified by SHA-256 in the paper (`certificates/sun-graphs/`) |
+| Paper 7 (version 2): every result, the 58 statements of the frozen statement files: Theorems 1 and 2 (minimum order 42, uniqueness; classification up to 41 vertices), orders and spectra of the graphs of Theorem 2 and that they are pairwise non-isomorphic; Proposition 3; Corollaries 3.1 and 4.3; Remark 3.2; Lemmas 2.1–2.4, 4.1, 4.2, 4.4 and 5.1–5.4; equations (1) and (2); Propositions 5.5–5.9 and 6.1–6.3; the bound of Section 7; the classification of the integral unicyclic graphs with at most 21 vertices; Theorem 2.1 and Proposition 3.2 of Braga, Moraes and Santos; the infinite families of the introduction | `Paper7FinalPackage.final_*`, one theorem for each of the 58 statements of `lean/Research/Backfill/Paper7/`, whose types are the frozen statements (`ClaudePaper7FinalPackage.lean`) | every module built and checked with `leanchecker` in two new empty directories and again in a clean rebuild of the whole project (`certificates/sun-graphs/lean-package-v2/`); only the three standard axioms; 120 known-answer tests of the statement files; not checked with comparator or nanoda (see below). The programs of version 1 are no longer used |
 | Paper 9: Theorem A (the algebra `S`), Theorem B (`E`), Theorem C (`D`), Corollary 1.1 (the general forms (R1)–(R5) are false when arbitrary finite symmetric fusion laws are allowed), Proposition 4.1 (non-symmetric dominance in the algebra of Peng and of Kaygorodov, Martín González and Páez-Guillán), the facts about the fusion laws, and the two statements about `D` in Remark 5.1 | `AxialMSZ.Check.check_TheoremA`, `check_TheoremB`, `check_TheoremC`, `check_Corollary`, `check_not_MS_Conjecture_3_16`, `check_not_FinestSumDecomposition_connected`, `check_not_Indecomposable_connected`, `check_not_Simple_connected`, `check_RemarkP`, `check_Dominance_nonsymmetric`, `check_Laws_facts`, `check_ExD_axes_in_block`, `check_ExD_block_not_axial_on_contained_axes` (and the aliases `check_ExS_Statement`, `check_ExE_Statement`, `check_ExD_Statement`, `check_ExP_Statement`) | exact rational arithmetic by two separately written programs, recomputation by a reviewing agent and by Codex, and a check of every structure constant and displayed number in the paper against the statement file (`certificates/axial/`) |
 | Paper 8 (version 2): every result, the 38 statements of the frozen statement file: Theorem 1 (also with Mathlib's definitions only) and its signature version, Lemmas 2.1–2.2, 3.1–3.4, 4.1–4.3, 5.2 and 5.4, Corollary 4.4, Propositions 5.1, 5.3, 5.5 and 5.6, the bound `t_r ≤ b* + k`, the criterion for a single secular eigenvalue, the structure of the trees of diameter at most 4 and their radius, the sharpness examples `T(15)` and `T(18,0,0)`, and Remarks 8.2 and 8.3 | `BackfillPaper8.Check.check_*`, one theorem for each of the 38 statements of the frozen statement file `lean/Research/Backfill/Paper8/Challenge.lean` (SHA-256 `69332eca…c715`); the version-1 files `SwitchingThmH.lean`, `SwitchingRowCount.lean` and `SwitchingWalkProfile.lean` remain and are used by the proofs, and `SwitchingDiam4Cubic.lean` remains | the finite search and the enumeration of the region (13,376 multisets) are checked by the Lean kernel; the programs of version 1 (`certificates/switching/`) remain independent cross-checks |
 | Paper 10: Theorem 1 (both products, all `n ≥ 1`, `m ≥ 2`); Theorem 2 in its word-representability form (`μ(C_{2t+1})` and `μ′(C_{2t+1})` are not word-representable, `t ≥ 1`); Lemmas 2.1, 2.2, 3.1 and 3.2 | `WordRepTensor.Check.check_Problem1Mu`, `check_Problem1MuExt`, `check_Problem5_1`, `check_MycielskiOddCycleNotWR`, `check_ExtMycielskiOddCycleNotWR`, `check_WordRepresentableOfEmbedding`, `check_EmbeddingOfHom`, `check_Lemma1Mu`, `check_Lemma1MuExt`, `check_Lemma2Mu`, `check_Lemma2MuExt` | no published programs: the finite checks of the proof are carried out by the Lean kernel (small cases were also checked with unpublished programs before the formalization) |
@@ -833,16 +879,41 @@ axioms, and each matches one `#print axioms` command in the sources
 through the Lean kernel with `lake env leanchecker <Module>`, and all passed
 (`logs/clean-replay-v1.13.0-leanchecker.log`,
 `logs/clean-replay-v1.13.0-leanchecker-circulantq3.log`). The source manifest
-`logs/lean-sources-sha256.txt` lists 926 files, and the procedure is
+of that version listed 926 files, and the procedure is
 recorded in `logs/clean-replay-v1.13.0-receipt.json`. Before it was copied
 into the release tree, the Lean package of Paper 6 had been built module by
 module in two new empty directories, side by side, and every module checked
 with `leanchecker`, twice: once with root-level module names and once in the
 directory layout of the repository (`certificates/rm714/lean-package-v2/receipt.json`).
 
+For version 1.14.0, which adds the 1925 Lean files of Paper 7, version 2
+(`lean/Research/Backfill/Paper7/`), the whole project was rebuilt from a new
+empty directory on the author's Windows computer (63 GB of memory), from
+22:08 UTC on 4 November to 08:57 UTC on 5 November 2026, with `lean` and
+`leanchecker` run on one module at a time rather than with `lake`. The rebuilt
+sources agree byte for byte with `lean/Research.lean` and `lean/Research/`; the
+directory `lean/Comparator/` was not rebuilt here. All 2841 modules compiled,
+with 260 warning lines in 28 older modules (257 deprecations), no error and no
+`sorry`. 2840 modules passed `leanchecker`. The remaining module is
+`Research`, which consists of `import` lines and has no constants, so there is
+nothing to replay in it; we read this from its compiled file. `leanchecker` on
+this module was not completed: the first attempt ended when the computer
+crashed, after about an hour and a half, and we stopped the second attempt at
+69 GB of memory. We do not know the cause of the crash (Windows bug check
+0x10E); memory is a likely one. All 112,106 printed axiom lists are subsets of
+the three axioms above. Outside comments, the forbidden tokens occur only as the
+intentional `sorry`s of the comparator challenge files
+(`logs/clean-replay-v1.14.0-forbidden-tokens.log`). The rebuild did not run in
+one piece: we stopped and restarted it, 2 modules twice failed to read a compiled
+Mathlib file and passed at the third, automatic attempt, and 7 modules ran out
+of memory (and 16 dependent modules were skipped) and were built again; no Lean
+check rejected a module. `logs/lean-sources-sha256.txt` lists 2851 files. The full record is in
+`logs/clean-replay-v1.14.0-receipt.json`, and the logs of every module are in
+`logs/clean-replay-v1.14.0-logs.tar.gz`.
+
 ### Comparator check of the completely formalized papers
 
-The completely formalized papers are also checked with
+The completely formalized papers other than Paper 7 are also checked with
 [comparator](https://github.com/leanprover/comparator). For each such paper,
 a challenge file in `lean/Comparator/` states the
 checked theorems with `sorry` proofs and imports only the paper's frozen
@@ -872,17 +943,27 @@ for version 1.10.0 for Papers 3, 4, 9 and 10
 ([run 36606648581](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/36606648581)),
 for version 1.11.0 for Papers 3, 4, 8, 9 and 10
 ([run 36777454459](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/36777454459)),
-and for version 1.12.0 for Papers 3, 4, 5, 8, 9 and 10
-([run 37558138194](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/37558138194)).
+for version 1.12.0 for Papers 3, 4, 5, 8, 9 and 10
+([run 37558138194](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/37558138194)),
+and for version 1.13.0 for the same papers
+([run 38003526255](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/38003526255)).
 Paper 6 is not in the workflow: a comparator run of its 35 theorems takes much
 longer than those of the other papers (more than 30 minutes on the computer
-used for this release), and we have not tried it on GitHub's machines. It was
+used for version 1.13.0), and we have not tried it on GitHub's machines. It was
 checked locally, as described next.
 
-Before this release, the same comparator, lean4export and nanoda versions were
+**Paper 7 has not been checked with comparator or nanoda.** Its package has
+1925 modules, a run would take far longer than those of the other papers, and
+we have not attempted one. Its proofs have been replayed by the Lean kernel
+with `leanchecker` in the three builds described above, but not by an
+independent kernel, and no comparator run has compared its theorems with a
+challenge file; instead, `ClaudePaper7FinalPackage.lean` restates each of the
+58 statements with its frozen type.
+
+For version 1.13.0, the same comparator, lean4export and nanoda versions were
 run locally by OpenAI Codex on 9 October 2026, on macOS, where the landrun
 sandbox is not available (comparator's `scripts/fake-landrun.sh` was used
-instead), in the directory of the clean rebuild for version 1.13.0 described
+instead), in the directory of the clean rebuild for that version described
 above, with a limit of 30 minutes per command. For each of Papers 3, 4, 5, 8,
 9 and 10, nanoda and the Lean kernel accepted the solution
 (`logs/comparator-local-v1.13.0-paper3.log`,
@@ -911,8 +992,10 @@ including those of these three theorems, also passed `leanchecker` in the clean
 rebuild. A Codex agent that had written none of the proofs or tools reviewed
 this evidence and approved it. The receipts are in
 `logs/comparator-local-v1.13.0-receipts.json`; the logs of versions 1.9.0 to
-1.12.0 are kept. The run on GitHub for version 1.13.0 takes place after it is
-pushed; its result is shown on the repository's Actions page.
+1.12.0 are kept. The Lean sources of these papers are unchanged in version
+1.14.0, and comparator was not run locally for it. The run on GitHub for
+version 1.14.0 takes place after it is pushed; its result is shown on the
+repository's Actions page.
 
 ### Reproduce the Lean checks
 
@@ -921,10 +1004,16 @@ root.
 
 Requirements: [elan](https://github.com/leanprover/elan), about 30 GB of free
 RAM for `CirculantQ3.lean` (with Lean 4.34.1 its build peaked at 18–28 GB and
-its `leanchecker` run at 21–25 GB), and about an hour and a half (the clean
-rebuilds took about 46 minutes for version 1.9.0, about 24 minutes for
-version 1.10.0 and, with Paper 6, about 92 minutes for version 1.13.0, with
-at most two build jobs at a time).
+its `leanchecker` run at 21–25 GB), and, without Paper 7, about an hour and a
+half (the clean rebuilds took about 46 minutes for version 1.9.0, about 24
+minutes for version 1.10.0 and, with Paper 6, about 92 minutes for version
+1.13.0, with at most two build jobs at a time). With Paper 7 a plain `lake
+build` takes far longer: our module-by-module build took about 11 hours with 3 to 12 Lean processes at a
+time, each of which commits 8 to 12 GB of memory on Windows, and the
+most demanding modules ran out of memory with too many running together. To skip Paper 7, remove its `import` line from
+`lean/Research.lean`. The commands below were last run with `lake` for version
+1.13.0; for version 1.14.0 the same modules were compiled directly with `lean`
+(see above).
 
 ```sh
 cd lean
@@ -947,6 +1036,7 @@ lake build Research.Backfill.Paper3.ChallengeTests  # Paper 3 (version 2): known
 lake build Research.Backfill.Paper4.ChallengeTests  # Paper 4 (version 2): known-answer tests of the statement file
 lake build Research.Backfill.Paper5.ChallengeTests  # Paper 5 (version 2): known-answer tests of the statement file
 lake build Research.Backfill.Paper6.ChallengeV3Tests  # Paper 6 (version 2): known-answer tests of the statement file
+lake build Research.Backfill.Paper7.ClaudePaper7FinalPackage  # Paper 7 (version 2): the 58 statements; imports the statement files and their 120 known-answer tests, and prints the axioms
 lake build Research.Backfill.Paper8.ChallengeTests  # Paper 8 (version 2): known-answer tests of the statement file
 lake build Research.Backfill.Paper8.Proof.Tests.Main  # Paper 8 (version 2): further known-answer tests, written after the proofs
 lake build Research.WordRepTensor.ChallengeTests  # Paper 10: known-answer tests of the statement file
@@ -1069,7 +1159,7 @@ python3 code/cert_arith.py > arith_py.txt && cc -O2 -o cert_arith code/cert_arit
 cc -O2 -o venn_enum_fast code/venn_enum_fast.c && ./venn_enum_fast 4   # Proposition E for up to four monomials (five monomials took 23 minutes)
 ```
 
-Paper 7 (requires a C compiler; `sunB2` needs LAPACK, e.g. `-framework Accelerate` on macOS):
+Paper 7, the programs of version 1 (requires a C compiler; `sunB2` needs LAPACK, e.g. `-framework Accelerate` on macOS); version 2 of the paper does not rely on them:
 
 ```sh
 cd certificates/sun-graphs
@@ -1079,8 +1169,8 @@ cc -O2 -o sunB2 code/sunB2.c -framework Accelerate && ./sunB2 6 42              
 cc -O2 -o sunC review/code/sunC.c && ./sunC 4 41 noprune 1 0 1                 # the first referee agent's program (implementation C), without pruning (about a minute)
 ```
 
-`certificates/sun-graphs/PACKAGING-NOTES.md` maps each claim of the paper to its
-programs and logs.
+`certificates/sun-graphs/PACKAGING-NOTES.md` maps each claim of version 1 of the
+paper to its programs and logs.
 
 Paper 8 (requires Python 3 with SymPy):
 
@@ -1119,13 +1209,13 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 - `certificates/hko-triameter/`: programs (`code/`) and logs (`logs/`) for version 1 of Paper 4, and the manifest and acceptance receipt of the Lean package of version 2 (`lean-package-v2/`).
 - `certificates/brauer-complete/`: programs, certificates and logs for version 1 of Paper 5; `review/REVIEW.md` is the referee agent's report; `certificates/brauer-complete/lean-package-v2/`: the manifest and acceptance receipt of the Lean package of version 2 of Paper 5.
 - `certificates/rm714/`: programs, data and logs for version 1 of Paper 6; `certificates/rm714/lean-package-v2/`: the manifest and acceptance receipt of the Lean package of version 2 of Paper 6.
-- `certificates/sun-graphs/`: programs, logs and the referee agents' code and reports for Paper 7.
+- `certificates/sun-graphs/`: programs, logs and the referee agents' code and reports for version 1 of Paper 7; `certificates/sun-graphs/lean-package-v2/`: the manifest, acceptance receipt and build logs of the Lean package of version 2 of Paper 7.
 - `certificates/switching/`: programs and logs for Paper 8, and the referee agent's report and programs (`review/`); `certificates/switching/lean-package-v2/`: the manifest and acceptance receipt of the Lean package of version 2 of Paper 8.
 - `certificates/axial/`: the statement contract, the reviews of the statement file, the programs and logs for Paper 9, and the receipt of the acceptance run of its Lean package (`lean-package/`).
 - `certificates/wordrep-tensor/lean-package/`: the manifest and acceptance receipt of the Lean package of Paper 10.
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
-- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9) and `lean/Research/WordRepTensor/` (Paper 10). `lean/Comparator/` holds the challenge files for the comparator check below.
-- `.github/workflows/comparator.yml` and `ci/comparator/`: the comparator check of the completely formalized papers (see below; the workflow does not include Paper 6, whose configuration `ci/comparator/paper6.json` was used locally).
+- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9) and `lean/Research/WordRepTensor/` (Paper 10). `lean/Comparator/` holds the challenge files for the comparator check below.
+- `.github/workflows/comparator.yml` and `ci/comparator/`: the comparator check of the completely formalized papers (see below; the workflow does not include Paper 6, whose configuration `ci/comparator/paper6.json` was used locally, and Paper 7 has no configuration).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
   rebuilds. `roldan-q3-lean-build-receipt.json` predates the formalization of
@@ -1283,8 +1373,18 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
   integral unicyclic graphs were not accessible to us, and we did not search
   Google Scholar, zbMATH or MathSciNet. The arXiv, GitHub,
   MathDB and MathOverflow searches were repeated on 27 September 2026,
-  06:01–06:04 UTC, with the same result. This reports the coverage of our
-  searches, not a guarantee of priority.
+  06:01–06:04 UTC, with the same result. After version 1 was made public,
+  Braga, Moraes and Santos (arXiv:2610.22773v1, 16 October 2026) proved that
+  `C_3` is the only integral unicyclic graph with a cycle of odd length,
+  which supersedes Corollary 3.1, and that `(g − 1)!` divides `2c_g`, which
+  implies the first part of Proposition 3. Searches for version 2 on 4
+  November 2026, 12:00–12:17 UTC (the arXiv API, Semantic Scholar, OpenAlex,
+  Crossref, DataCite, zbMATH Open, MathDB, MathOverflow, Mathematics Stack
+  Exchange, web search and public GitHub repositories of AI-assisted
+  mathematics) found no other work on these questions. Web search did not
+  find that paper by its exact title, so web search misses recent work.
+  A last check of arXiv and of GitHub on 5 November 2026 found nothing new. This reports the coverage of our searches, not a guarantee of
+  priority.
 - Paper 8: the problem is Problem 1.6 of Akbari, Kumar, Mohar and Pragada
   (arXiv:2609.27046v1, still the only version on 27 September 2026); the
   conjecture is from Linear Algebra Appl. 614 (2021), whose full text was not
@@ -1369,7 +1469,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Tool and computational resource disclosure
 
-This work was carried out from 25 September to 9 October 2026 (UTC) in a
+This work was carried out from 25 September to 5 November 2026 (UTC) in a
 workflow directed by the author, using two AI coding agents:
 
 - OpenAI Codex (desktop app; models `gpt-6-astra`, `gpt-6-sol`, `gpt-6.1-sol`);
@@ -1492,6 +1592,31 @@ one later checked Lemma 4.2, Corollary 4.3 and the later program versions
 and recomputed the cases with its own program (implementation D). The author
 has also read Paper 7.
 
+Version 2 of Paper 7 (version 1.14.0): on 27 September 2026 a Claude Code
+agent (model Claude Opus 5.5) wrote a first statement file, and an independent
+Claude Code agent reviewed it. OpenAI Codex (its main session used the model
+gpt-6-astra) wrote the present statement files, which a Codex agent that had
+not written them reviewed before they were frozen on 8 October 2026 and again
+on 18 October 2026, and from 8 to 18 October it wrote the Lean proofs of 57
+statements; each group of proofs was accepted after two builds from empty
+directories and a review of the evidence by a Codex agent that had not
+written it. Until 3 November Codex also wrote part of the proof of the last
+statement. On 3 and 4 November 2026 Claude Code (model Claude Opus 5.5) wrote
+the rest of that proof, of which 190 modules were generated by a script, and
+the final package, and on 4 and 5 November built and checked the package and
+the whole project on the author's Windows computer. Claude Code (model Claude Opus 5.5) compared
+version 1 claim by claim with the statement files and drafted version 2. An
+independent Claude Code agent (model Claude Fable 5.1), which had written
+none of the files, reviewed the draft against the statement files and the
+evidence of the first build on 4 November 2026. On 5 November 2026 a second independent Claude Code
+agent (model Claude Fable 5.1), which had written none of the files, compared
+the final package with the frozen statements, read the proof of
+`LegacyMomentCounts` for steps that avoid the kernel, recounted the evidence of
+the three builds and reviewed the paper; it did not run Lean. The corrections of
+both reviews were applied.
+The author has read version 2 of Paper 7, but did not check its proofs and did
+not compare its Lean statements with the paper.
+
 Paper 8 (version 1.7.0) was selected, proved, partly formalized in Lean and
 drafted by Claude Code agents (model Claude Opus 5.5); an adversarial
 checking agent and two independent Claude referee agents checked the proof,
@@ -1583,7 +1708,13 @@ Fable 5.1), which had written none of the files, reviewed the changes to the
 README and ATTEMPTS.md, the paper, the Lean package of Paper 6 against
 Codex's receipts, the comparator files, and the published logs and receipts
 of the clean rebuild and of the local comparator check against their
-originals (9 October 2026).
+originals (9 October 2026). For version 1.14.0, Claude Code (model Claude Opus
+5.5) rebuilt the whole Lean project from a new empty directory, as described
+above. Before the release of version 1.14.0, the second
+independent agent named in the disclosure of Paper 7 reviewed the changes to the
+README and ATTEMPTS.md, the certificates, the receipts and the release notes
+(5 November 2026). OpenAI Codex took no part in the work on version 1.14.0 after
+3 November 2026.
 
 AI systems are not authors. The author takes full responsibility for the content.
 
