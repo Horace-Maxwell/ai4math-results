@@ -19,19 +19,18 @@
 \newcommand{\ord}{\operatorname{ord}}
 \newcommand{\dsarxiv}{arXiv:\allowbreak math/\allowbreak0407326v1}
 \title{Proofs of eleven congruence conjectures of Hanna\\
-from the OEIS, and the resolution of three more\thanks{\emph{Correction.}
-This version corrects version~1 (released 2026-09-26), which did not cite
-the connections with classical results and with identities stated in the
-OEIS entries described in Section~\ref{sec:intro}
-under ``Relation to classical results'' and in Sections~\ref{sec:tools},
-\ref{sec:explicit} and~\ref{sec:additive}. Several of the
-conjectures proved here are quick consequences of classical results, whereas
-version~1 implied that all the proofs were new. The theorems, their proofs
-and the Lean formalisation are unchanged.}}
+from the OEIS, and the resolution of three more\thanks{\emph{Version 2.} All the mathematics of this paper is now formally
+verified in Lean~4, including the existence and uniqueness of the normalised
+solutions, which version~1 asserted without formalisation; see
+Sections~\ref{sec:intro} and~\ref{sec:lean}. The theorems are unchanged. Some
+remarks are made more precise; the changes are listed under Corrections in \texttt{ATTEMPTS.md} of the repository. An
+earlier corrected version (1.2.1) added the connections with classical results
+and with identities stated in the OEIS entries, which version~1 (released
+2026-09-26) did not cite.}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
-\date{September 2026}
+\date{Version 2, 7 November 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -57,21 +56,26 @@ We also resolve three more:
 Several of these results are quick consequences of classical results, which
 we point out. Modulo~$2$, the series of A240998, A295762, A301933, A338633 and
 A338634 reduce, up to an additive constant, to the Catalan series, and that
-of A273958, multiplied by~$x$, to a composition of two Catalan series, so these parity patterns
+of A273958, multiplied by~$x$, to $C(C(x^2))$, where $C$ is the Catalan series, so these parity patterns
 follow from the classical parity of the Catalan numbers. The results for
 A184894 follow quickly from the classical correspondence for linearised
 polynomials over~$\F_3$. For A120566, A274479 and A388734, identities stated
 in the entries themselves give short proofs. For A107099 and A361047 the
 reduced series are classical series, identified by a routine uniqueness
 argument. Only for the modulo-three conjecture of A389472 and for A377100 did
-we find neither an earlier proof nor a classical derivation.
+we find neither a proof dated before version~1 of this note (26 September 2026)
+nor a classical derivation; later proofs of both have appeared, see
+Section~\ref{sec:intro}.
 The proofs reduce the functional equations modulo a prime and use the
 Frobenius identity, formal derivatives, explicit solutions with an $x$-adic
-uniqueness argument, and Lucas's theorem. Every theorem is stated for every
-integer power series satisfying the defining equation, and every theorem is
-formally verified in Lean~4. The proofs were found by AI coding agents
-working under the author's direction; their role is described at the end of
-the paper.
+uniqueness argument, and Lucas's theorem. Every theorem on a defining equation
+is stated for every integer power series satisfying it, under the hypotheses
+given there. All the mathematics of this paper, including the existence and
+uniqueness of the normalised solutions and their first terms, is formally
+verified in Lean~4; statements about the OEIS entries and the literature are
+not. The proofs were found by AI coding agents working under the author's
+direction; their role is described at the end of the paper. No human
+mathematician has reviewed this paper.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -80,15 +84,24 @@ derivative, and for a series $h$ with $h(0)=0$ we write $A(h)$ or $A\circ h$
 for the composition $\sum_n a(n)h^n$. The results are summarised in
 Table~\ref{tab:summary}; each conjecture is stated in the corresponding
 entry~\cite{oeis}. The theorems hold for every integer solution of the
-defining equation, together with the normalisation of the first terms fixed
-by the entry where the equation alone does not determine it. The equation and
-these initial terms determine the sequence by a triangular recursion with
-integer solutions. There, the new coefficient appears with coefficient $1$
-or~$2$. Where it appears with~$2$, the required divisibility holds: for A274479
-by Lemma~\ref{lem:frob} modulo~$2$, and for A107099 by writing $A=x+2B$. For
-the continued fractions, the tails exist as $x$-adic limits. Hence the
-theorems apply to the sequences in the OEIS. These existence arguments are
-not formalised; the Lean theorems hold for every integer solution.
+defining equation, under the hypotheses stated in each theorem.
+
+With the normalisations of Table~\ref{tab:norm}, the equation of each of the
+thirteen series entries has exactly one solution in $\Z[[x]]$; for A273958 this
+is one pair $(C,A)$, and for A338633 and A338634 one series $A$ admitting tails
+as in Theorem~\ref{thm:parity}(4). The equation of A389472 does not determine
+$a(2)$ ($A=x$ is also a solution: both sides are then $x^2+x^3$), and the entry takes $a(2)=1$; the equation
+of A240998 forces $a(0)\in\{0,1\}$ (the constant terms give $a(0)^2=a(0)$), and the entry takes $a(0)=1$. In the Lean
+proofs, integrality for A274479 comes from Lemma~\ref{lem:frob} modulo~$2$, and
+for A107099 from writing $A=x+2B$. For the continued fractions, the tails exist as $x$-adic limits. So the theorems are not vacuous, and they apply
+to these solutions. Table~\ref{tab:norm} also lists the first terms of each
+solution.
+
+Existence, uniqueness and these first terms are verified in Lean. That the
+solution is the sequence of the entry rests on the entry's definition of the
+sequence by the same equation; no Lean statement mentions the OEIS. The agreement
+with further terms of the b-files rests on the numerical checks of
+Section~\ref{sec:lean}, not on Lean.
 
 \begin{table}[ht]\centering\small
 \begin{tabular}{@{}lll@{}}\toprule
@@ -97,7 +110,7 @@ A389472 & $A(x^2+x^3)=x^2(1+A)$ & $3\mid a(3n-1)$, $n>1$\\
 A240998 & $A^2=x+A(x+2x^2)$ & $a(n)$ odd $\iff n=2^k$ ($n\ge1$)\\
 A295762 & $A(x-2A(x^2))=x+A(x^2)$ & $a(n)$ odd $\iff n=2^k$ ($n\ge1$)\\
 A273958 & $xA+x^2A^2=C^2$, $C=x+C^2$ & $a(n)$ odd $\iff n=2\cdot4^k-1$\\
-A301933 & $A=x(1+4AA')/(1+AA')$ & $a(n)$ odd $\iff n=2^k$\\
+A301933 & $A=x(1+4AA')/(1+AA')$ & $a(n)$ odd $\iff n=2^k$ ($n\ge1$)\\
 A338633 & $1=A-x/(A-2^3x/(A-3^3x/\cdots))$ & $a(n)$ odd $\iff n=2^k$ ($n\ge1$)\\
 A338634 & $1=A-x/(A-2^4x/(A-3^4x/\cdots))$ & $a(n)$ odd $\iff n=2^k$ ($n\ge1$)\\
 A388734 & $A=1+xA^2+x^2(1-x)A^3$ & all $a(n)$ odd\\
@@ -114,27 +127,54 @@ results or of identities stated in the entries; see ``Relation to classical
 results'' below.}\label{tab:summary}
 \end{table}
 
+\begin{table}[ht]\centering\small
+\begin{tabular}{@{}lll@{}}\toprule
+Entry & Normalisation & First terms\\\midrule
+A389472 & $a(2)=1$ & $a(0..6)=0,1,1,2,3,6,9$\\
+A240998 & $a(0)=1$ & $a(0..5)=1,1,1,2,11,86$\\
+A295762 & $a(0)=0$ & $a(1..5)=1,3,12,69,444$\\
+A301933 & $a(0)=0$ & $a(1..5)=1,3,24,291,4596$\\
+A338633 & none & $a(0..4)=1,1,7,250,21867$\\
+A338634 & none & $a(0..4)=1,1,15,1490,472475$\\
+A273958 & none & $a(0..5)=0,1,2,4,10,30$\\
+A388734 & none & $a(0..5)=1,1,3,9,33,127$\\
+A377100 & $a(0)=0$, $a(1)=1$ & $a(2..6)=1,1,4,10,28$\\
+A274479 & $a(0)=0$, $a(1)=1$ & $a(2..6)=1,4,10,34,106$\\
+A120566 & $a(0)=0$, $a(1)=1$ & $a(2..6)=1,1,3,7,33$\\
+A361047 & $a(0)=0$ & $[x^1,\dots,x^5,x^7]=1,0,1,0,9,159$\\
+A107099 & $a(0)=0$, $[x^1]A=1$ & $[x^2,x^3,x^5,x^7,x^9]=0,2,-6,36,-266$\\
+A184894 & not applicable & $a(1..5)=1,2,9,78,1045$\\\bottomrule
+\end{tabular}
+\caption{Normalisations and first terms of the solutions, in the coefficient
+indexing of this paper (statements \texttt{EX\_*} and \texttt{DATA\_*} of
+Table~\ref{tab:lean}). In A361047 and A107099 the listed coefficients are those
+of $x^n$, not the indexing of the entry. That these values agree with the data
+of the OEIS was compared outside Lean. A184894 is defined by a recursion, so
+there is nothing to normalise.}\label{tab:norm}
+\end{table}
+
 \paragraph{Prior work.} The modulo-two conjecture of A389472 was proved
 earlier by Perez Fontelles~\cite{pf389472} and, independently, in the
-\texttt{trureturing} repository~\cite{tru389472}; both leave the modulo-three
-conjecture open.
+\texttt{trureturing} repository~\cite{tru389472}; those two proofs do not treat
+the modulo-three conjecture.
 
 \paragraph{Relation to classical results.} Several of the conjectures proved
 here are quick consequences of classical results. Write
 $C_n=\binom{2n}{n}/(n+1)$ for the Catalan numbers and
 $C=\sum_{n\ge1}C_{n-1}x^n$ for the Catalan series, so that $C=x+C^2$.
-Modulo~$2$, the series of A295762 and A301933, and those of A240998, A338633
-and A338634 minus~$1$, all equal~$C$; this is how the proof of
+Modulo~$2$, the series of A295762 and A301933, and those of A240998 (with
+$a(0)=1$, as in the entry), A338633 and A338634 minus~$1$, all equal~$C$; this is how the proof of
 Theorem~\ref{thm:parity} proceeds. For A301933 it can also be read off from
 the remark in the entry that $C=x(1+2CC')/(1+CC')$: since
-$2\equiv4\equiv0\pmod2$, both equations reduce to $F=x/(1+FF')$, which
-determines~$F$. Hence $a(n)\equiv C_{n-1}\pmod2$ for $n\ge1$, and these five
+$2\equiv4\equiv0\pmod2$, both equations reduce to $F=x/(1+FF')$, which, with
+$F(0)=0$, determines~$F$. Hence $a(n)\equiv C_{n-1}\pmod2$ for $n\ge1$, and these five
 patterns follow from the classical fact that $C_n$ is odd if and only if
 $n=2^k-1$, a corollary of $\nu_2(C_n)=s_2(n+1)-1$, where $\nu_2$ is the
 $2$-adic valuation and $s_2$ the binary digit
 sum~\cite[Theorem~2.1 in \dsarxiv]{ds}. Lemma~\ref{lem:dyadic} is this fact.
 The continued fractions of A338633 and A338634 are the cases $e=3,4$ of a
-family whose cases $e=1,2$ are A000699 and A158119. All of them reduce to
+family whose cases $e=1,2$ give, according to those entries, A000699 and
+A158119. All of them reduce to
 $A(A-1)=x$ modulo~$2$, and the parity of A000699 is recorded in A036987
 (J.~M.~Campbell, 2016). For A273958, formula~(1) of the entry, which solves
 the defining equation as a quadratic in $xA$, gives $xA=-C(-C^2)$, hence
@@ -143,8 +183,8 @@ $C(C(x))\equiv\sum_{k\ge0}x^{4^k}\pmod2$ is also the key step of the proof of
 Hanna's conjecture for A374568 in the \texttt{trureturing}
 repository~\cite{tru374568}. Parts~(1) and~(2) of Theorem~\ref{thm:184894}
 are an instance of the classical correspondence for linearised polynomials
-over~$\F_3$, and the residues at the exceptional indices of A184894 and
-A107099 are, up to sign, Catalan numbers modulo~$3$; see the remark at the
+over~$\F_3$, and the residues at the exceptional indices with $j\ge1$ of
+A184894 and A107099 are, up to sign, Catalan numbers modulo~$3$; see the remark at the
 end of Section~\ref{sec:additive}. For A361047 the reduced series coincides with that of the
 ternary numbers A001764, whose residues modulo~$3$ are known; see
 Remark~\ref{rem:361047}. For A120566, A274479 and A388734 we found no
@@ -153,11 +193,28 @@ short proofs; see the remarks after Theorems~\ref{thm:388734},
 \ref{thm:274479} and~\ref{thm:120566}.
 
 Apart from the connections with classical results noted above, we found no
-earlier proof of any of the results in this paper in the OEIS entries and
-their histories, in the literature, or in the public repositories of proofs
-of OEIS conjectures that we searched (among them~\cite{pfrepo,trurepo}). For
-the modulo-three conjecture of A389472 and for A377100 we also found no
-classical connection. This reports the coverage of our searches, not a
+proof of any of the results in this paper dated before version~1 (26 September
+2026) in the OEIS entries and their histories, in the literature, or in the
+public repositories of proofs of OEIS conjectures that we searched (among
+them~\cite{pfrepo,trurepo}). For the modulo-three conjecture of A389472 and for
+A377100 we also found no classical connection. This reports the coverage of our
+searches, not a guarantee of priority.
+
+\paragraph{Later work.} After version~1 was released, the following proofs
+appeared. In the \texttt{trureturing} repository, with Lean formalisations:
+A274479 and A377100~\cite{tru19207} (merged 19 October 2026), the vanishing part
+of A107099~\cite{tru19258} (merged 19 October 2026), and the modulo-three
+conjecture of A389472~\cite{tru26856} (merged 6 November 2026). The proof for
+A389472 there uses the coefficient recurrence, Lucas's theorem and strong
+induction, and treats the sequence with $a(2)=1$; our
+Theorem~\ref{thm:389472} uses the second derivative and holds for every integer
+solution. The proofs for A274479 and A377100 there use the same reduction to
+$x/(1-x)$ modulo~$3$ as ours. Without formalisation: a report in the
+\texttt{ProveIt} repository~\cite{proveit} (7 October 2026) proves the parity
+statement of A338634, and Su~\cite{su} (21 October 2026) proves those of A338633
+and A338634, in both cases by reducing to $A^2+A=x$ modulo~$2$. Our searches on
+6 November 2026 found no other work on the fourteen entries, and the OEIS entries
+were unchanged since version~1. This reports the coverage of our searches, not a
 guarantee of priority.
 
 \section{Tools}\label{sec:tools}
@@ -326,8 +383,8 @@ $F=E$.
 
 \begin{remark*}
 Formula~(2) of the entry, $A(-A(-x))=x$, gives a shorter proof. It follows
-from the defining equation: both $-A(-x)$ and the compositional inverse
-of~$A$ satisfy $B=B\circ B+x\,B\circ B\circ B$, and this equation has only
+from the defining equation: both $-A(-x)$ and any compositional inverse of~$A$
+with zero constant term satisfy $B=B\circ B+x\,B\circ B\circ B$, and this equation has only
 one solution $B=x+O(x^2)$. Modulo~$2$ we have $-A(-x)\equiv A$, so
 formula~(2) gives $F\circ F=x$, and the defining equation becomes $F=x-xF$,
 that is, $F=x/(1+x)$.
@@ -352,7 +409,7 @@ The entry A361047 writes $A=\sum_{n\ge1}a(n)x^{2n-1}$ and conjectures
 $a(n)\equiv1\pmod3$ exactly for $n=(3^k-1)/2$. With this indexing the
 statement is contradicted by the data ($a(2)=1$). It is correct for the
 index $i=n-1$, since $x^{2i+1}$ with $i=(3^k-1)/2$ is $x^{3^k}$.
-Theorem~\ref{thm:361047} is this intended statement.
+Theorem~\ref{thm:361047} contains this intended statement.
 
 Over~$\Z$ the reversion of $x-x^3$ is $V=\sum_{k\ge0}t(k)x^{2k+1}$, where
 $t(k)=\binom{3k}{k}/(2k+1)$ are the ternary numbers (A001764), since
@@ -392,7 +449,7 @@ Part~(1) proves this statement as written, namely vanishing outside the
 exceptional indices. Part~(3) shows that the stronger reading, that $a(m)$ is
 nonzero modulo~$3$ at every exceptional index, is false; the first failure is
 at $n=6$. By Lucas's theorem, $a((3^n+1)/2)\not\equiv0$
-exactly when every base-$3$ digit of $n$ except the last is at most~$1$.
+exactly when every base-$3$ digit of $n$ except the units digit is at most~$1$.
 
 \begin{theorem}[A107099]\label{thm:107099}
 Let $A(0)=0$, $[x^1]A=1$ and $A\circ A=x+4x^3$. Then $3\mid[x^n]A$ whenever
@@ -413,7 +470,7 @@ The entry writes $A=\sum_{n\ge0}a(n)x^{2n+1}$ and conjectures that
 $[x^n]A\equiv0\pmod3$ except at $n=3^k$. Theorem~\ref{thm:107099} proves this
 statement as written. It also shows that the stronger reading, non-vanishing
 at every power of~$3$, is false: $[x^{729}]A=a(364)\equiv0\pmod3$. The OEIS
-b-file of A107099 already shows this zero.
+b-file of A107099 already shows $a(364)\equiv0\pmod3$.
 
 \begin{remark*}
 Parts~(1) and~(2) of Theorem~\ref{thm:184894} are an instance of the
@@ -424,45 +481,118 @@ multiplication~\cite{ore},~\cite[Lemma~3.59]{ln}: since $x+x^3$ corresponds
 to $1+t$, we get $P_m\equiv\sum_j\binom mjx^{3^j}\pmod3$. Likewise, the
 correspondence, which extends to series, shows that the additive series
 $\sum_j\binom{1/2}{j}x^{3^j}$, which corresponds to $(1+t)^{1/2}$, composes
-with itself to $x+x^3$ modulo~$3$. For $m\ge2$ the coefficient of $x^m$ in
-$F\circ F$ is $2f(m)$ plus terms in lower coefficients, so by a routine
-uniqueness argument the reduction $F$ in Theorem~\ref{thm:107099} is this
-series. For $j\ge1$ we have
+with itself to $x+x^3$ modulo~$3$. By a routine uniqueness argument the
+reduction $F$ in Theorem~\ref{thm:107099} is this series. For $j\ge1$ we have
 $\binom{1/2}{j}=2(-1)^{j-1}C_{j-1}/4^j\equiv(-1)^jC_{j-1}\pmod3$, and
-$\binom{(3^j+1)/2}{j}\equiv\binom{1/2}{j}\pmod3$ by Lucas's theorem, because
-$(3^j+1)/2\equiv1/2\pmod{3^j}$ and $j<3^j$. So in both entries the residue at
+$\binom{(3^j+1)/2}{j}\equiv\binom{1/2}{j}\pmod3$, because modulo~$3$ the series
+$(1+t)^{(3^j+1)/2}$ and $(1+t)^{1/2}$ both have constant term~$1$ and both square
+to $1+t$ modulo~$t^{3^j}$, so they agree below degree~$3^j$, and $j<3^j$. So in both entries the residue at
 an exceptional index with $j\ge1$ is $(-1)^jC_{j-1}$ modulo~$3$.
 By~\cite[Theorem~5.2 in \dsarxiv]{ds}, it is nonzero exactly when every
-base-$3$ digit of $j$ except the last is $0$ or~$1$. Both failures come from
+base-$3$ digit of $j$ except the units digit is $0$ or~$1$. Both failures come from
 $3\mid C_5=42$.
 \end{remark*}
 
-\section{Verification}
+\section{Verification}\label{sec:lean}
 \paragraph{Numerical checks.} For each entry, one of two checks was made.
 Either a prefix of the sequence was recomputed from the defining equation and
 compared with the b-file of the entry, or the b-file was substituted into the
 defining equation and checked modulo two primes. The lengths and moduli vary
 between entries and are recorded with the verification programs~\cite{repo}.
-All checks agree with the theorems. They are cross-checks only; the theorems
-rest on the proofs and on the Lean verification.
+All checks agree with the theorems. They are cross-checks only, and they are not
+Lean statements. Beyond the terms of Table~\ref{tab:norm}, they are the only
+comparison with the data of the entries.
 
-\paragraph{Formal verification.} All theorems are verified in Lean~4
-(version 4.33.1, Mathlib~\cite{mathlib} commit \texttt{0df444a3}) for every
-integer power series satisfying the stated hypotheses. The Lean files are
-\texttt{Oeis389472Mod3} (Theorem~\ref{thm:389472}) and, for the other
-entries, \texttt{HannaA}\emph{nnnnnn} with the A-number of the entry (the file
-\texttt{HannaA338633} treats both continued fractions). A separate check confirms
-that \texttt{A.subst h} denotes the composition $A(h)$. For example,
-Theorem~\ref{thm:parity} for A273958 reads, in ASCII notation,
+\paragraph{Formal verification.} All the mathematics of this paper is formally
+verified in Lean~4 (version 4.34.1) with Mathlib~\cite{mathlib} (commit
+\texttt{d13f23b7}): each claim is one of the $84$ statements of
+Table~\ref{tab:lean}, a definition, a step of a written proof of one of them, or
+a statement about a cited source or an OEIS entry, which is marked as such. The
+statements are in \nolinkurl{lean/Research/Backfill/Paper2/Challenge.lean} of the
+repository~\cite{repo}, the proofs in the same folder, and \texttt{Check.lean} there
+closes each statement with its proof; the logs are in the repository too. Tests in the repository confirm that \texttt{A.subst h} denotes the
+composition $A(h)$. For example, Theorem~\ref{thm:parity} for A273958 is, in the
+form of the statement \texttt{Sec7\_quotedA273958}, in ASCII notation,
 \begin{verbatim}
-theorem hanna_a273958 (C A : PowerSeries Int) (hC : C = X + C ^ 2)
-    (hA : X * A + X ^ 2 * A ^ 2 = C ^ 2) (n : Nat) :
-    Odd (coeff n A) <-> exists k, n + 1 = 2 * 4 ^ k
+forall (Cs A : PowerSeries Int), Cs = X + Cs ^ 2 ->
+  X * A + X ^ 2 * A ^ 2 = Cs ^ 2 -> forall n : Nat,
+    (Odd (coeff n A) <-> exists k : Nat, n + 1 = 2 * 4 ^ k)
 \end{verbatim}
-The project was rebuilt from a clean directory. The recorded axiom audits of
-the main results (\texttt{\#print axioms}) report only the standard axioms
-\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}; no native
-evaluation is used. The code and logs are available at~\cite{repo}.
+
+\begin{table}[ht]\centering\footnotesize
+\begin{tabular}{@{}p{0.27\textwidth}p{0.69\textwidth}@{}}\toprule
+Place in the paper & Lean statements\\\midrule
+Section~\ref{sec:intro}, existence and uniqueness & \texttt{EX\_} followed by
+A389472, A240998, A295762, A301933, A338633, A338634, A273958, A388734, A377100,
+A274479, A120566, A361047, A107099\\
+Section~\ref{sec:intro}, first terms & \texttt{DATA\_} followed by the same
+thirteen entries and A184894\\
+Section~\ref{sec:intro}, classical results & \texttt{RC\_abstractMod2},
+\texttt{RC\_seriesMod2}, \texttt{RC\_coeffMod2}, \texttt{RC\_catalanParity},
+\texttt{RC\_DS21}, \texttt{RC\_A301933\_catalanIdentity},
+\texttt{RC\_A301933\_determines}, \texttt{RC\_CFfamilyMod2},
+\texttt{RC\_A273958\_closedForm}, \texttt{RC\_A273958\_mod2},
+\texttt{RC\_CCmod2}\\
+Section~\ref{sec:tools} & \texttt{Sec2\_reduction}, \texttt{Lemma1},
+\texttt{Lemma2}, \texttt{Lemma3}, \texttt{ObsXadic}, \texttt{CatalanEq}\\
+Theorems~\ref{thm:389472}, \ref{thm:parity} & \texttt{Thm4}, \texttt{Thm5\_1},
+\texttt{Thm5\_2}, \texttt{Thm5\_3}, \texttt{Thm5\_4\_A338633},
+\texttt{Thm5\_4\_A338634}, \texttt{Thm5\_A273958}\\
+Theorems~\ref{thm:388734}--\ref{thm:361047} and remarks & \texttt{Thm6},
+\texttt{Rem6}, \texttt{Thm7}, \texttt{Thm8}, \texttt{Rem8}, \texttt{Thm9},
+\texttt{Rem9}, \texttt{Thm10}\\
+Remark~\ref{rem:361047} & \texttt{Rem11\_intended},
+\texttt{Rem11\_literalFalse}, \texttt{Rem11\_ternaryReversion},
+\texttt{Rem11\_mod3}, \texttt{Rem11\_A113047}, \texttt{Rem11\_remainingStep}\\
+Section~\ref{sec:additive} & \texttt{Sec6\_additiveComp}, \texttt{Thm12\_1},
+\texttt{Thm12\_2}, \texttt{Thm12\_3}, \texttt{Thm12\_entryLiteral},
+\texttt{Thm12\_firstFailure}, \texttt{Thm12\_digits}, \texttt{Thm13\_1},
+\texttt{Thm13\_2}, \texttt{Thm13\_values}\\
+Remark on additive series & \texttt{Rem13\_correspondence},
+\texttt{Rem13\_PmMod3}, \texttt{Rem13\_sqrtSeries}, \texttt{Rem13\_binomHalf},
+\texttt{Rem13\_lucasHalf}, \texttt{Rem13\_residues}, \texttt{Rem13\_DS52},
+\texttt{Rem13\_C5}\\
+Section~\ref{sec:lean} & \texttt{Sec7\_quotedA273958}\\\bottomrule
+\end{tabular}
+\caption{The $84$ Lean statements, by place in the paper.}\label{tab:lean}
+\end{table}
+
+\paragraph{What the formalisation does not claim.} The Lean statements say
+nothing about priority, about the contents of the OEIS entries or of other
+repositories, or about the numerical checks. They do not identify the series in
+Lean with the infinite sequences of the entries (Section~\ref{sec:intro}), and
+they do not state that the entry's finite truncations of a continued fraction
+converge to the tails of Theorem~\ref{thm:parity}(4). The attributions to
+Campbell, Barry, Ryde and the \texttt{trureturing} repository, and the route
+through formula~(1) of A273958, are not formalised.
+
+\paragraph{Statements before formal proofs.} Version~1 had a Lean proof of each
+theorem, written with the proofs. The statements of version~2 were written later
+than the paper and its proofs. On 27 September 2026 a Claude Code agent wrote
+them from version~1.2.1, and an independent Claude Code agent reviewed them
+($83$ accepted, one to be changed). On 5 November 2026 OpenAI Codex ported them
+to Lean~4.34.1 and made the change, to \texttt{Rem11\_remainingStep}, which now
+states the step $F=S$ of Remark~\ref{rem:361047}. A Codex agent that had not
+written the files reviewed them, and they were frozen on 5 November 2026 at
+21:15~UTC with $43$ tests and $7$ regression tests.
+
+\paragraph{Formal proofs.} The proofs are in files that import the statement
+file and do not modify it. On 5 and 6 November 2026 Codex proved the $84$
+statements in ten groups; each group was accepted after builds in two new empty
+directories, a check of each module with \texttt{leanchecker}, and a review by a
+Codex agent that had not written it, and the last group was accepted on
+6 November 2026 at 03:48~UTC. The builds of the last group rebuilt all $59$ modules
+and gave byte-identical \texttt{.olean} files and $332$ axiom listings, each within \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. No \texttt{sorry} and no native
+evaluation are used. Mathlib and the toolchain were not rebuilt.
+The statements are restated in \texttt{Check.lean}, which Claude Code generated from the
+list of accepted statements. From 6 to 7 November 2026 the whole Lean project of the
+repository, with these $59$ modules and \texttt{Check.lean}, was rebuilt from an empty
+directory, one module at a time and not with \texttt{lake}: all $2901$ modules compiled, and
+$2900$ passed \texttt{leanchecker}. The remaining module is the root of the project, which
+has only imports and no constants, so it was not replayed. The $84$ axiom lists printed by
+\texttt{Check.lean} consist of exactly the three axioms above. This part of the repository
+has not been checked with comparator or with an independent kernel.
 
 \section*{Tool and computational resource disclosure}
 This work was carried out between 25 and 26 September 2026 in a workflow
@@ -478,16 +608,30 @@ check, which compared the reduced series with classical sequences, found the
 connections with classical results and with identities stated in the OEIS
 entries described in Section~\ref{sec:intro}; Claude Code drafted the
 corresponding changes, which an independent Claude agent checked.
-The author is not a professional mathematician. The author has read
-version~1 of the paper and, using a side-by-side table, compared the
-statements of the Lean theorems with the theorems stated here, which are
-unchanged in this version. The correctness of the results rests on the written proofs and on the Lean
-formalisation; the numerical checks described in the previous section are
-additional cross-checks. In addition,
-each proof was checked by an AI agent other than the one that found it, and
-the formal statements were compared with the OEIS entries by a second
-agent. AI systems are not authors of this paper; the author takes full
-responsibility for its content.
+Each proof was checked by an AI agent other than the one that found it, and the
+formal statements were compared with the OEIS entries by a second agent.
+
+Version~2 was produced from 27 September to 7 November 2026. On
+27 September 2026 a Claude Code agent (model Claude Opus~5.5) wrote the statements
+of Section~\ref{sec:lean}, and an independent Claude Code agent (same model)
+reviewed them; Codex reviewed them on the same day. In November 2026 OpenAI Codex
+(desktop application; its main session used the model \texttt{gpt-6.1-sol}) ported them to the current Lean, wrote all
+the formal proofs and had them reviewed as described in Section~\ref{sec:lean}.
+Claude Code (model Claude Opus~5.5) compared version~1.2.1 claim by claim with the
+statements, drafted the text of version~2 and wrote \texttt{Check.lean}.
+On 6 and 7 November 2026 Claude Code rebuilt the whole Lean project of the repository on the author's Windows computer. Claude Code agents searched the literature again on
+6 November 2026. An independent Claude Code agent (model Claude Fable~5.1), which had written
+none of the files, reviewed a draft of this paper against the statements and the
+evidence on 6 November 2026, and before the release a second such agent (same model)
+reviewed the paper, the Lean package and the receipts; neither ran Lean. The corrections
+of both reviews were applied.
+Throughout, ``we'' refers to this workflow; the reading and searching described in
+the paper were done by the agents. The author is not a professional mathematician.
+The author has read version~2 of this paper, but did not check its proofs and did not compare its Lean statements with the paper.
+No human mathematician has reviewed this paper. The correctness of the results
+rests on the Lean proofs of the statements in Table~\ref{tab:lean} and on the
+written proofs; the numerical checks are additional cross-checks. AI systems are
+not authors of this paper; the author takes full responsibility for its content.
 
 \begin{thebibliography}{99}
 \bibitem{ds}
@@ -508,7 +652,7 @@ OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences},
 \url{https://oeis.org}, entries A107099, A120566, A184894, A240998, A273958,
 A274479, A295762, A301933, A338633, A338634, A361047, A377100, A388734 and
 A389472 (P.~D.~Hanna), and the related entries A000699, A001764, A036987,
-A113047, A158119 and A374568, accessed 25--26 September 2026.
+A113047, A158119 and A374568, accessed 25--26 September and 6 November 2026.
 \bibitem{ore}
 O.~Ore, On a special class of polynomials, \emph{Trans. Amer. Math. Soc.} 35
 (1933) 559--584, \url{https://doi.org/10.1090/S0002-9947-1933-1501703-0}.
@@ -528,6 +672,29 @@ H.~Dong, \emph{ai4math-results}, repository,
 K.~Ryde, \emph{Proof of characteristic function of the ternary repunits},
 file \texttt{a113047.txt} in entry A113047 of~\cite{oeis}, June 2021,
 \url{https://oeis.org/A113047/a113047.txt}.
+\bibitem{proveit}
+\emph{Power weighted Dyck moments}, unsigned report in the \texttt{ProveIt}
+repository of V.~Reshetnikov, added on 7 October 2026, read at commit \texttt{9d37f54},
+\url{https://github.com/VladimirReshetnikov/ProveIt/blob/9d37f549c5f69e032403f3be0c55aa0e6e8ac848/SetTheory/Cardinals/docs/reports/generating-functions-and-asymptotics/oeis-sequence-asymptotics/a290569-power-weighted-dyck-moments/article.tex}.
+\bibitem{su}
+L.-H. Su, \emph{Integral Square Roots and Digital Congruences of Formal
+Generating Functions}, Zenodo, 21 October 2026,
+\url{https://doi.org/10.5281/zenodo.23520531}.
+\bibitem{tru19207}
+The Omega Institute, \emph{Prove Hanna's mod-3 conjectures for OEIS A274479 and
+A377100 and record \#18850 and \#18851}, \texttt{trureturing} repository, pull request 19207, merge commit
+\texttt{c255cf4}, 19 October 2026,
+\url{https://github.com/the-omega-institute/trureturing/pull/19207}.
+\bibitem{tru19258}
+The Omega Institute, \emph{Prove Hanna's mod-3 conjecture for OEIS A107099 and record \#18858},
+\texttt{trureturing} repository, pull request 19258, merge commit
+\texttt{2601fc3}, 19 October 2026,
+\url{https://github.com/the-omega-institute/trureturing/pull/19258}.
+\bibitem{tru26856}
+The Omega Institute, \emph{Hanna Oct 2025 congruence conjectures A389472, A389474,
+A389475}, \texttt{trureturing} repository, pull request 26856, merge commit
+\texttt{7ea046b}, 6 November 2026,
+\url{https://github.com/the-omega-institute/trureturing/pull/26856}.
 \bibitem{tru374568}
 The Omega Institute, \emph{Double Catalan Composition and Powers of Four}
 (proof of Hanna's conjecture for A374568), \texttt{trureturing} repository,

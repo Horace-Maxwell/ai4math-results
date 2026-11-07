@@ -7,8 +7,8 @@ problems that were dropped without a result. It gives the denominator behind
 the results in this repository: how many problems were tried, and what
 became of each.
 
-Status: 5 November 2026, covering the work of 25 September to 5 November 2026 up to version
-1.14.0. All dates are UTC.
+Status: 7 November 2026, covering the work of 25 September to 7 November 2026 up to version
+1.15.0. All dates are UTC.
 
 ## How to read this file
 
@@ -28,19 +28,19 @@ Status: 5 November 2026, covering the work of 25 September to 5 November 2026 up
 
 ## (a) Published
 
-The column "Lean" describes the formal verification in version 1.14.0; the
+The column "Lean" describes the formal verification in version 1.15.0; the
 README has the details.
 
 | # | Problem | Source | Published in | What was proved | Lean |
 | --- | --- | --- | --- | --- | --- |
-| 1 | A389472: `3 ∣ a(3n − 1)` for `n > 1` | OEIS (P. D. Hanna) | v1.0.0 (Lean), v1.1.0 (Paper 2), corrected in v1.2.1 | Proved. The modulo-2 part of the entry had been proved earlier by others (A. Perez Fontelles, astrafala/Conjectures paper 1042; the trureturing repository); we claim only the modulo-3 part | yes |
-| 2 | A377100: `a(n) ≡ 1 (mod 3)` for `n ≥ 1` | OEIS (P. D. Hanna) | same as row 1 | Proved; we found no earlier proof and no derivation from classical results | yes |
-| 3–7 | A240998, A295762, A301933, A338633, A338634 (5 entries): `a(n)` is odd if and only if `n` is a power of 2 | OEIS (P. D. Hanna) | same as row 1 | Proved. Modulo 2 each series reduces to the Catalan series, so the patterns follow quickly from the parity of the Catalan numbers; stated in the corrected Paper 2 (v1.2.1) | yes |
-| 8 | A273958: `a(n)` is odd if and only if `n = 2·4^k − 1` | OEIS (P. D. Hanna) | same as row 1 | Proved; a quick consequence of `xA ≡ C(C(x²)) (mod 2)` (stated since v1.2.1) | yes |
-| 9–11 | A274479, A388734, A120566 (3 entries): congruences modulo 3 or 2 | OEIS (P. D. Hanna) | same as row 1 | Proved; short proofs from identities stated in the entries themselves (stated since v1.2.1) | yes |
-| 12 | A184894: vanishing modulo 3 outside `m = (3^n + 1)/2` | OEIS (P. D. Hanna) | same as row 1 | The statement as written holds; a stronger reading fails at OEIS index 365. Follows from the classical theory of linearised polynomials over F₃ (stated since v1.2.1) | yes |
-| 13 | A107099: vanishing modulo 3 except at `n = 3^k` | OEIS (P. D. Hanna) | same as row 1 | The statement as written holds; a stronger reading fails at `x^729`. No novelty claimed since v1.2.1 | yes |
-| 14 | A361047: residues modulo 3 | OEIS (P. D. Hanna) | same as row 1 | The intended statement holds (the entry has an index slip). No novelty claimed since v1.2.1 | yes |
+| 1 | A389472: `3 ∣ a(3n − 1)` for `n > 1` | OEIS (P. D. Hanna) | v1.0.0 (Lean), v1.1.0 (Paper 2), corrected in v1.2.1; version 2 in v1.15.0 | Proved. The modulo-2 part of the entry had been proved earlier by others (A. Perez Fontelles, astrafala/Conjectures paper 1042; the trureturing repository); we claim only the modulo-3 part | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
+| 2 | A377100: `a(n) ≡ 1 (mod 3)` for `n ≥ 1` | OEIS (P. D. Hanna) | same as row 1 | Proved; we found no earlier proof and no derivation from classical results | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
+| 3–7 | A240998, A295762, A301933, A338633, A338634 (5 entries): `a(n)` is odd if and only if `n` is a power of 2 | OEIS (P. D. Hanna) | same as row 1 | Proved. Modulo 2 each series reduces to the Catalan series, so the patterns follow quickly from the parity of the Catalan numbers; stated in the corrected Paper 2 (v1.2.1) | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
+| 8 | A273958: `a(n)` is odd if and only if `n = 2·4^k − 1` | OEIS (P. D. Hanna) | same as row 1 | Proved; a quick consequence of `xA ≡ C(C(x²)) (mod 2)` (stated since v1.2.1) | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
+| 9–11 | A274479, A388734, A120566 (3 entries): congruences modulo 3 or 2 | OEIS (P. D. Hanna) | same as row 1 | Proved; short proofs from identities stated in the entries themselves (stated since v1.2.1) | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
+| 12 | A184894: vanishing modulo 3 outside `m = (3^n + 1)/2` | OEIS (P. D. Hanna) | same as row 1 | The statement as written holds; a stronger reading fails at OEIS index 365. Follows from the classical theory of linearised polynomials over F₃ (stated since v1.2.1) | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
+| 13 | A107099: vanishing modulo 3 except at `n = 3^k` | OEIS (P. D. Hanna) | same as row 1 | The statement as written holds; a stronger reading fails at `x^729`. No novelty claimed since v1.2.1 | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
+| 14 | A361047: residues modulo 3 | OEIS (P. D. Hanna) | same as row 1 | The intended statement holds (the entry has an index slip). No novelty claimed since v1.2.1 | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
 | 15 | Roldán's Conjecture 1.3, case `q = 3` (order `27p²`) | arXiv:2604.09491 | v1.0.0 | Known result, formalized only. Proved earlier by S. Park (2026-08-21, github.com/coshaman/papers, who claims the whole conjecture) and J. A. Schreib (2026-09-05, github.com/jamesschreib/roldan-universality-conjecture); a certificate was announced in [trureturing issue #8338](https://github.com/the-omega-institute/trureturing/issues/8338) (2026-09-16). We add a complete Lean formalization and the second-largest energy | yes |
 | 16 | Maximal energy of integral circulant graphs of order `p^(2r)·3^(2s+1)`: the case `q = 3`, which Theorem A of Jiang and Yang does not cover | arXiv:2608.29523 | v1.1.0 (Paper 1, Theorem 2) | Proved for every prime `p ≥ 5`: the checkerboard set is the unique maximiser, and the maximal energy is given by their formula | main theorem |
 | 17 | Equal-parity conjecture on the maximal energy of integral circulant graphs of order `p^a q^b` | our Paper 1 (conjecture stated in v1.1.0) | v1.2.0 (Theorem 3), v1.4.0 (Theorems 4 and 5), v1.5.0 (Theorem 5 extended) | Proved for orders `pq^m` and `p^m q` with `m` odd (Theorem 3) and `p²q^b` and `p^b q²` with `b` even (Theorem 4), and, with computer assistance, for every order `p^a q^b` with `a + b` even and `min(a, b) ≤ 8` (Theorem 5). The case `n = pq` follows from earlier formulas of Ilić and Ilić–Bašić. Open for `min(a, b) ≥ 9` | Theorems 3 and 4; not Theorem 5 |
@@ -98,8 +98,8 @@ items is claimed as a result in this repository.
     them (rows 4–7) our own work was small: screening checks, a numerical
     check or a statement contract.
   - Dropped without a result: 6 items (section c).
-- Under active work and not listed here: none. The parts of Papers 1, 2
-  and 7 that are not yet formalized in Lean are being formalized.
+- Under active work and not listed here: none. The parts of Paper 1 that are
+  not yet formalized in Lean are being formalized or will be removed from it.
 - Scouted but not attempted: 54 candidates. This counts the candidates that
   scouting agents wrote up and ranked in their reports but on which no
   research was done. Problems rejected during bulk screening (for example,
@@ -201,3 +201,22 @@ Published corrections so far:
    program D at 0 and ±1 and the families of the introduction (`a ≥ 1`) are
    corrected, and Corollary 3.1 is marked as superseded by arXiv:2610.22773.
    The theorems are unchanged.
+12. **Paper 2, version 2 (v1.15.0).** All the mathematics is formalized in Lean,
+   including the existence and uniqueness of the normalized solutions and their
+   first terms, which are new statements in the paper (Table 2). The
+   normalizations are separated from the hypotheses of the theorems: the
+   equation of A389472 does not determine `a(2)`, that of A240998 forces
+   `a(0)` to be 0 or 1, and `F = x/(1+FF′)` determines `F` only with
+   `F(0) = 0`. The sentence that new coefficients appear as 1 or 2 is deleted
+   (for A120566 the coefficient is −1), as is a remark in Section 6 on `2f(m)`
+   and lower-order terms; the reason given in a remark there, Lucas's theorem,
+   is replaced by the argument the proof uses. The composition in the abstract
+   is written as `C(C(x²))`. Remark 11 says that Theorem 10 contains the intended
+   statement, rather than that it is that statement. The statements about
+   earlier work are dated, and later proofs are cited. Several qualifiers are
+   added (`n ≥ 1` for A301933 in Table 1; `a(0) = 1` for A240998 and "according to
+   those entries" in the paragraph on classical results; `j ≥ 1`; "any
+   compositional inverse with zero constant term"; "units digit"). Section 7 is
+   rewritten around the 84 statements, and the sentence that the author compared
+   the Lean statements with the paper, which described version 1, is replaced by
+   the author statement of version 2. The theorems are unchanged.

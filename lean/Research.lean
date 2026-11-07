@@ -36,6 +36,7 @@ import Research.SwitchingDiam4Cubic
 import Research.SwitchingWalkProfile
 import Research.SwitchingRowCount
 import Research.AxialMSZ.Check
+import Research.Backfill.Paper2.Check
 import Research.Backfill.Paper3.Check
 import Research.Backfill.Paper4.Check
 import Research.Backfill.Paper5.Check

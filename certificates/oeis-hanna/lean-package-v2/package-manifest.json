@@ -1,0 +1,348 @@
+{
+ "module_count": 60,
+ "statement_count": 84,
+ "original_tests": 43,
+ "regression_tests": 7,
+ "entrypoint": "Research.Backfill.Paper2.Check",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "frozen_statements_utc": "2026-11-05T21:15:19Z",
+ "frozen_manifest_sha256": "870edd7a241f182d104a61d08c05ac1f7172039475cf932c5a1bd7a82beb322e",
+ "frozen_files": {
+  "Challenge.lean": "9ee68640f6f52d446312975e53616b4a795e44f1636c6aa46b8ecf85b1ef8caf",
+  "ChallengeTests.lean": "b57f22ba71fd7237a545726458e3a7ff804a8f9bd7c951df1fad9e122c764f5e",
+  "ReviewRegressionTests.lean": "4595067addae160cab21c2aec8267242003c342d49f95ebae6b370fcf0577d80",
+  "StatementTypeAudit.lean": "e8ee70776288ad42082510f82e9ad32c62a82b9205fd886f6f2a887c403930d8"
+ },
+ "codex_acceptance": {
+  "inventory_sha256": "b7352538e312b794504b090cea37e910380960489b0d54ee475c0ac78337234f",
+  "manifest_sha256": "d2662661e354c7e126f5dcd7a5be837a92d24c8b606241cbde7e26e72f5f94d0",
+  "final_review_sha256": "b99fa1a2b0cb6b0e10c170bc9668ec38eec2bafbbedb287413b7ce52e8c1e9c4",
+  "accepted_utc": "2026-11-06T03:48:17Z"
+ },
+ "files": {
+  "AdditiveCore.lean": "5b7378c16ca568be443fb1869a313fa31bab6bb21c73a1c481c4ae3dd2df4bde",
+  "BinomialHalf.lean": "a4b8dd1ce693180442fbaca6c19e5f032659fe5f885f6c6152510adbcbb43bd9",
+  "CFFamily.lean": "26c251871fa31823fd3c11f482402180b7087b879cd3dd3295798b0e36f656a4",
+  "CatalanComposition.lean": "e8664eb157a9f5ebba12740db0337c42f9cdf1de3f812b263c8bb4ba7927cb39",
+  "CatalanCore.lean": "9cbc433864396683ac80e7065fe85d06fba473e763326329c1ad1ea84a5a96d6",
+  "CatalanParity.lean": "a64f075045ed0b1a28d8b35549f94d64d09166652d5a1cd89342e41561247154",
+  "CatalanTheorems.lean": "00037476ad51fe17964a4f08064c7589a72b5f9d85001c5565022e68b2e01d9a",
+  "CatalanTransport.lean": "07091987cec05a93e5a5b5263a6c3d2ea9f702c84e847f25426b3c4c59857d1c",
+  "CatalanValuation.lean": "43b5aa0b52a536fd69ea1592ec31ef2632ddcbf166ca214dae68835d3f61db16",
+  "Challenge.lean": "9ee68640f6f52d446312975e53616b4a795e44f1636c6aa46b8ecf85b1ef8caf",
+  "ChallengeTests.lean": "b57f22ba71fd7237a545726458e3a7ff804a8f9bd7c951df1fad9e122c764f5e",
+  "Check.lean": "6a6df48e2b5801be08acdddfe72cebfd5648c73e6b8e9bf4a7a901946dabb573",
+  "CompositionLinearization.lean": "327abe7b71086452aed2daa44df76144df62ab6798634e99eb45cb321f9662e4",
+  "DataAlgebraic.lean": "1e07fc190ce1af8fd02cddefc4c28a87d2219e673d657ab4db604a77b1edf808",
+  "DataCFFamily.lean": "98a052d23249893fda7208dce12fc2a3f4dd0cb63b2a53617d3d1e0de037972f",
+  "DataEquations.lean": "98f868d3fbc4267acb3a98a46a693467039872259f5c19daa88a6c334d18caba",
+  "DataIteration184894.lean": "8ed02cf35087b0173052731d5d4cb6b79680b1c91d3865cbeb86ca35f264da36",
+  "DataQuotient377100.lean": "00e332b88ed0580c08c5ba3ba343cd70d35de62e3a1a7f43675c1a851e27dde4",
+  "DataRational274479.lean": "1ff844c05a242362195bbcbfbfd701996f58233ebfbb53148268cfe8d0c4b06e",
+  "DataSelf107099.lean": "fbbf9e158b1c836b15f3e266c2da1ccbda322d8a50b81b77ae23b05879874158",
+  "DataSubstitution295762.lean": "c0ce861d32cc508cb5c895a2a1b9805f40d72f03db753e66c07e61d985f87b01",
+  "DataSubstitution361047.lean": "204ebf7f390a10f2fa9e107388d9598f2ce514487be6d1b2ee9e353ede1a939b",
+  "DataTriple120566.lean": "2cc8db710eb4cd96d5d7518c91b5967a00aded29da5977afd1bddc42f7065366",
+  "Entry389472Mod3.lean": "6c1c88e0040bc2f44df2f220d37457c95e38829fd41631016f3b25de37338241",
+  "EntryA120566.lean": "a092ee7e0e89649ee420270a6023356fcb288037347a1797c0cb0cd0d816217a",
+  "EntryA274479.lean": "45f7de83bda2c7262078c506028e0919dd9fa8e7b00c8af85a6f11de6aa9e21f",
+  "EntryA361047.lean": "d38e3a1aeae0e00aabbec4725dea3ffbc0ea43b22b7b4ac025ce6a0329b4789c",
+  "EntryA377100.lean": "2d8e5f2590e4cea13543ec9a2ec4d2bd154dedc6d165c422448a9724b74decde",
+  "EntryA388734.lean": "9e0c9d663dae2abfd0566696fc5e4977bb15875a6a6cfededba8d58c6d84d01c",
+  "EntryRemark6.lean": "6d29f9e827d05480679948746af66300a65b7f62fb4e6941d5949f860c54505c",
+  "EntryRemark8.lean": "5b8981a0799009179228f9d8a3d6a07ff58d4efa0c6224909155b79c3f157933",
+  "EntryRemark9.lean": "efd028e4a46fe10a83c238377b5c4c4b82365cfb831113f8bcf5baf2e07594c9",
+  "EntryTheorems.lean": "d2c70f249ef32f5bd17933331475e71512e7e60a27e734a5657dafc4ecd5763d",
+  "ExistenceA107099.lean": "f5653bdd0c29528b7af658b1339c483d15c400d2fed138afef08f0157e8d8a99",
+  "ExistenceA120566.lean": "af40851e278398fd63ecb02689010bfd93b5a72c93acd3f86f14d3857823ddfd",
+  "ExistenceA240998.lean": "2704d6df5d073834785a3297657459f8927e0005a63ea44473648e17d79d1579",
+  "ExistenceA274479.lean": "961080da5800a4813c2cb7203bff0d2853b7d3b0027097c2e21b979299829146",
+  "ExistenceA295762.lean": "ba0199b7aa7deb0a5f348bdc073d48103128f5d5aa0ecf6f9c2d04b1e3d0a306",
+  "ExistenceA301933.lean": "962eaa95086af941a78805ed4b187ce7084494427ac1f32c480d2469c4e395e5",
+  "ExistenceA361047.lean": "23f37e81a4c60da61e9552a9e6cc44a304f0058d4c1c2f269850122e5158713e",
+  "ExistenceA377100.lean": "84900c2713390cc26ab322ac0aa5c7af3e2acb2fbceec3606732b63429cd2f24",
+  "ExistenceA389472.lean": "0124984f55daaa121bccaac2bfcecb2974bdf732ce09a94e7045fa4f22d2ab34",
+  "ExistenceCFFamily.lean": "b5f70f1a1742b1fb1991325dad59ecb1783686b6866a4aaf7458f45b4bdc335a",
+  "ExistenceExplicit.lean": "eeb7d46435569f589a8cdbbaffd67d87a9f0475ef14528c0a58d93f856d209a0",
+  "FiniteCoefficients.lean": "764e162f057a3deebfcfc397dc81be074daea4720040b24bf2e66f4dd8b586f0",
+  "IntegerHalf.lean": "6e91d9b00ab6e5cfa1f491c849fc657b16c0e614f13d5d21f01de55d8b1c184f",
+  "Rem11Bridges.lean": "3cf6af66864a31e1c2a3be437901d826d8fc53f0f6c81650e76a5b27c0e79e0a",
+  "Rem11Indexing.lean": "8eb85777fbcffcc5492a6f74ecaa403e0c5e79cdcc5f1c656340cde8cc6035a9",
+  "ReviewRegressionTests.lean": "4595067addae160cab21c2aec8267242003c342d49f95ebae6b370fcf0577d80",
+  "SquareRoot.lean": "99fac1fc63d85a8af692c7c0053dcaa8d55248b887407223e2604bda713e5cee",
+  "StatementTypeAudit.lean": "e8ee70776288ad42082510f82e9ad32c62a82b9205fd886f6f2a887c403930d8",
+  "TernaryAlgebra.lean": "290fbdcb3c87f0389fa1b02c2809e268519496c9bd5526f85add9c3d9af4e73c",
+  "TernaryBinomial.lean": "687c854eed7d74869f59a98b9c69a76f218585aef41b66194941947a55303f1b",
+  "TernaryDigits.lean": "b8cc746860ec3220ffc2ec0488c1d4ec3d97adb7f6f1018e5b0837fbf7a7508d",
+  "TernaryIdentification.lean": "9d07fa155f369aafc203299ea4f146efc11aefc1eca30fe1f7112fcf91dd3e31",
+  "TernaryIterate.lean": "046f6456cd0b5aa3da5989159b30c6d32acc8f65faf999d175f78e7961a9708b",
+  "TernaryPolynomial.lean": "a63bcecda2c2c87243d024da153489aedad2773f7379204acea8a151c469f5a2",
+  "Tools.lean": "ea29ad2ff70e86a1a8e4257f8514e3aff8c531b948f1bb80fb232925e6540a83",
+  "XadicAlgebra.lean": "dc3657fbb04e5d7a168f96a3d14c12efdeb428c80ee0583032190dc7d436c5cc",
+  "XadicFixedPoint.lean": "fb0e378441cc93e95a504349a9f4754da9674ba531f882dbef02c34046850747"
+ },
+ "imports": {
+  "AdditiveCore": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "BinomialHalf": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "CFFamily": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "CatalanComposition": [
+   "Research.Backfill.Paper2.Tools",
+   "Research.Backfill.Paper2.CatalanCore"
+  ],
+  "CatalanCore": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "CatalanParity": [
+   "Research.Backfill.Paper2.Tools",
+   "Research.Backfill.Paper2.CatalanCore"
+  ],
+  "CatalanTheorems": [
+   "Research.Backfill.Paper2.CatalanTransport",
+   "Research.Backfill.Paper2.CatalanParity"
+  ],
+  "CatalanTransport": [
+   "Research.Backfill.Paper2.Tools",
+   "Research.Backfill.Paper2.CatalanCore",
+   "Research.Backfill.Paper2.CFFamily"
+  ],
+  "CatalanValuation": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "Challenge": [
+   "Mathlib"
+  ],
+  "ChallengeTests": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "Check": [
+   "Research.Backfill.Paper2.AdditiveCore",
+   "Research.Backfill.Paper2.BinomialHalf",
+   "Research.Backfill.Paper2.CFFamily",
+   "Research.Backfill.Paper2.CatalanComposition",
+   "Research.Backfill.Paper2.CatalanCore",
+   "Research.Backfill.Paper2.CatalanParity",
+   "Research.Backfill.Paper2.CatalanTheorems",
+   "Research.Backfill.Paper2.CatalanTransport",
+   "Research.Backfill.Paper2.CatalanValuation",
+   "Research.Backfill.Paper2.Challenge",
+   "Research.Backfill.Paper2.DataAlgebraic",
+   "Research.Backfill.Paper2.DataCFFamily",
+   "Research.Backfill.Paper2.DataEquations",
+   "Research.Backfill.Paper2.DataIteration184894",
+   "Research.Backfill.Paper2.DataQuotient377100",
+   "Research.Backfill.Paper2.DataRational274479",
+   "Research.Backfill.Paper2.DataSelf107099",
+   "Research.Backfill.Paper2.DataSubstitution295762",
+   "Research.Backfill.Paper2.DataSubstitution361047",
+   "Research.Backfill.Paper2.DataTriple120566",
+   "Research.Backfill.Paper2.EntryRemark6",
+   "Research.Backfill.Paper2.EntryRemark8",
+   "Research.Backfill.Paper2.EntryRemark9",
+   "Research.Backfill.Paper2.EntryTheorems",
+   "Research.Backfill.Paper2.ExistenceA107099",
+   "Research.Backfill.Paper2.ExistenceA120566",
+   "Research.Backfill.Paper2.ExistenceA240998",
+   "Research.Backfill.Paper2.ExistenceA274479",
+   "Research.Backfill.Paper2.ExistenceA295762",
+   "Research.Backfill.Paper2.ExistenceA301933",
+   "Research.Backfill.Paper2.ExistenceA361047",
+   "Research.Backfill.Paper2.ExistenceA377100",
+   "Research.Backfill.Paper2.ExistenceA389472",
+   "Research.Backfill.Paper2.ExistenceCFFamily",
+   "Research.Backfill.Paper2.ExistenceExplicit",
+   "Research.Backfill.Paper2.Rem11Bridges",
+   "Research.Backfill.Paper2.Rem11Indexing",
+   "Research.Backfill.Paper2.SquareRoot",
+   "Research.Backfill.Paper2.TernaryDigits",
+   "Research.Backfill.Paper2.TernaryIdentification",
+   "Research.Backfill.Paper2.TernaryIterate",
+   "Research.Backfill.Paper2.TernaryPolynomial",
+   "Research.Backfill.Paper2.Tools"
+  ],
+  "CompositionLinearization": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "DataAlgebraic": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "DataCFFamily": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "DataEquations": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "DataIteration184894": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "DataQuotient377100": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "DataRational274479": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "DataSelf107099": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "DataSubstitution295762": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "DataSubstitution361047": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "DataTriple120566": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "Entry389472Mod3": [
+   "Mathlib.RingTheory.PowerSeries.Derivative",
+   "Mathlib.Data.ZMod.Basic",
+   "Mathlib.Tactic"
+  ],
+  "EntryA120566": [
+   "Mathlib.RingTheory.PowerSeries.Substitution",
+   "Mathlib.RingTheory.PowerSeries.Inverse",
+   "Mathlib.Data.ZMod.Basic",
+   "Mathlib.Tactic"
+  ],
+  "EntryA274479": [
+   "Mathlib.RingTheory.PowerSeries.Substitution",
+   "Mathlib.RingTheory.PowerSeries.Inverse",
+   "Mathlib.Data.ZMod.Basic",
+   "Mathlib.Tactic"
+  ],
+  "EntryA361047": [
+   "Mathlib.RingTheory.PowerSeries.Substitution",
+   "Mathlib.RingTheory.PowerSeries.Derivative",
+   "Mathlib.RingTheory.PowerSeries.Expand",
+   "Mathlib.FieldTheory.Finite.Basic",
+   "Mathlib.Tactic"
+  ],
+  "EntryA377100": [
+   "Mathlib.RingTheory.PowerSeries.Substitution",
+   "Mathlib.RingTheory.PowerSeries.Inverse",
+   "Mathlib.Data.ZMod.Basic",
+   "Mathlib.Tactic"
+  ],
+  "EntryA388734": [
+   "Mathlib.RingTheory.PowerSeries.Inverse",
+   "Mathlib.Data.ZMod.Basic",
+   "Mathlib.Tactic"
+  ],
+  "EntryRemark6": [
+   "Research.Backfill.Paper2.Challenge",
+   "Research.Backfill.Paper2.EntryA388734"
+  ],
+  "EntryRemark8": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "EntryRemark9": [
+   "Research.Backfill.Paper2.Challenge",
+   "Research.Backfill.Paper2.EntryA120566"
+  ],
+  "EntryTheorems": [
+   "Research.Backfill.Paper2.Challenge",
+   "Research.Backfill.Paper2.Entry389472Mod3",
+   "Research.Backfill.Paper2.EntryA388734",
+   "Research.Backfill.Paper2.EntryA377100",
+   "Research.Backfill.Paper2.EntryA274479",
+   "Research.Backfill.Paper2.EntryA120566",
+   "Research.Backfill.Paper2.EntryA361047"
+  ],
+  "ExistenceA107099": [
+   "Research.Backfill.Paper2.CompositionLinearization",
+   "Research.Backfill.Paper2.IntegerHalf"
+  ],
+  "ExistenceA120566": [
+   "Research.Backfill.Paper2.CompositionLinearization"
+  ],
+  "ExistenceA240998": [
+   "Research.Backfill.Paper2.XadicAlgebra"
+  ],
+  "ExistenceA274479": [
+   "Research.Backfill.Paper2.IntegerHalf",
+   "Research.Backfill.Paper2.Tools"
+  ],
+  "ExistenceA295762": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "ExistenceA301933": [
+   "Research.Backfill.Paper2.XadicAlgebra"
+  ],
+  "ExistenceA361047": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "ExistenceA377100": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "ExistenceA389472": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "ExistenceCFFamily": [
+   "Research.Backfill.Paper2.XadicFixedPoint"
+  ],
+  "ExistenceExplicit": [
+   "Research.Backfill.Paper2.CatalanComposition",
+   "Research.Backfill.Paper2.EntryRemark6"
+  ],
+  "FiniteCoefficients": [
+   "Research.Backfill.Paper2.XadicAlgebra"
+  ],
+  "IntegerHalf": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "Rem11Bridges": [
+   "Research.Backfill.Paper2.TernaryIdentification",
+   "Research.Backfill.Paper2.Rem11Indexing"
+  ],
+  "Rem11Indexing": [
+   "Research.Backfill.Paper2.EntryTheorems",
+   "Research.Backfill.Paper2.DataSubstitution361047"
+  ],
+  "ReviewRegressionTests": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "SquareRoot": [
+   "Research.Backfill.Paper2.AdditiveCore",
+   "Research.Backfill.Paper2.BinomialHalf",
+   "Research.Backfill.Paper2.CatalanCore",
+   "Research.Backfill.Paper2.TernaryDigits"
+  ],
+  "StatementTypeAudit": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "TernaryAlgebra": [
+   "Research.Backfill.Paper2.FiniteCoefficients"
+  ],
+  "TernaryBinomial": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "TernaryDigits": [
+   "Research.Backfill.Paper2.TernaryIterate"
+  ],
+  "TernaryIdentification": [
+   "Research.Backfill.Paper2.TernaryAlgebra",
+   "Research.Backfill.Paper2.TernaryBinomial"
+  ],
+  "TernaryIterate": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "TernaryPolynomial": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "Tools": [
+   "Research.Backfill.Paper2.Challenge"
+  ],
+  "XadicAlgebra": [
+   "Research.Backfill.Paper2.XadicFixedPoint"
+  ],
+  "XadicFixedPoint": [
+   "Research.Backfill.Paper2.Challenge"
+  ]
+ }
+}

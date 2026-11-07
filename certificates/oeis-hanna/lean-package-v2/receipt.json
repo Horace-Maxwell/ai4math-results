@@ -1,0 +1,55 @@
+{
+ "name": "paper2-lean-package-v2",
+ "tool": "OpenAI Codex, driver build4.py (SHA-256 f6ed46b86683a2517b688c5b41bbe2720f8bd70dc28b94fb7b654954cfeb86f1)",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs)",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "lean_version": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "builds": {
+  "A": {
+   "directory": "new and empty",
+   "modules": 59,
+   "unique_axiom_prints": 332,
+   "diagnostics": 0,
+   "logs": {
+    "file": "build-A-logs.tar.gz",
+    "sha256": "6384896baba562a2933a5a7aff672ba2f3783a86a05b030bd47cae5a6e4ca3dd",
+    "bytes": 7224
+   }
+  },
+  "B": {
+   "directory": "new and empty",
+   "modules": 59,
+   "unique_axiom_prints": 332,
+   "diagnostics": 0,
+   "logs": {
+    "file": "build-B-logs.tar.gz",
+    "sha256": "dc2f943c786c589699ebf175174c67f620339c9482f5489c76b322e1857aed5a",
+    "bytes": 7217
+   }
+  },
+  "whole_project": {
+   "directory": "new and empty; module names of the repository",
+   "modules": 2901,
+   "compile_ok": 2901,
+   "check_ok": 2900,
+   "check_exempt": 1,
+   "axiom_lists": 112522,
+   "axiom_lists_empty": 8452,
+   "first_start": "2026-11-06T15:15:20Z",
+   "last_end": "2026-11-07T02:31:33Z",
+   "warnings": 260,
+   "problem_count": 0,
+   "logs": {
+    "file": "logs/clean-replay-v1.15.0-logs.tar.gz",
+    "sha256": "b59811ccaadee43d7cc090b2db7995dc886e568f5f7ecf6a104a519893ac7392"
+   }
+  }
+ },
+ "elapsed_seconds_A_then_B": 1983,
+ "all_ok": true,
+ "reading_of_the_review": "Of the 332 unique printed axiom lists of a build, 330 are subsets of propext, Classical.choice and Quot.sound and 2 are empty; every module passed at the first attempt, with no warnings (INDEPENDENT-FINAL-REVIEW of Codex, SHA-256 in package-manifest.json; that file is not published here).",
+ "Check_lean": "The 60th module, Check.lean, was written by Claude Code after these builds. It is not part of builds A and B; it was first compiled in a test build, of which only its own log with the 84 axiom lists is kept, and was compiled and checked in the whole-project build.",
+ "logs_note": "In the published logs the two local directories are replaced by <workspace> and <worker>; nothing else is changed.",
+ "statements_in_final_package": 84
+}
