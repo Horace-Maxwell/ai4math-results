@@ -1,0 +1,40 @@
+{
+ "name": "paper1-lean-package-v2",
+ "tool": "OpenAI Codex, driver build16.py (SHA-256 fabf4f41fb396667ed25b0973e1b28ffb842c87391c7f1747235909b7370db78)",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs)",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "builds": {
+  "A": {
+   "directory": "new and empty",
+   "modules": 70,
+   "commands": 140,
+   "started_utc": "2026-11-07T04:50:07Z",
+   "ended_utc": "2026-11-07T05:05:57Z",
+   "all_ok": true,
+   "driver_rc": 0,
+   "logs": {
+    "file": "build-A-logs.tar.gz",
+    "sha256": "17ea336778add9296166a1a814d4cb715b2b76ae29e0cf7eed66f4afaf14b17d",
+    "bytes": 13246
+   }
+  },
+  "B": {
+   "directory": "new and empty",
+   "modules": 70,
+   "commands": 140,
+   "started_utc": "2026-11-07T05:05:57Z",
+   "ended_utc": "2026-11-07T05:21:48Z",
+   "all_ok": true,
+   "driver_rc": 0,
+   "logs": {
+    "file": "build-B-logs.tar.gz",
+    "sha256": "62163f16904cfead17c27bc1670d324df731bc22129f423bb40c4443c80a2225",
+    "bytes": 13251
+   }
+  }
+ },
+ "reading_of_the_reviews": "In each build every one of the 140 commands ended with exit code 0 at its first attempt, with no error, warning or sorry; the 70 .olean files of the two builds are byte for byte identical; 200 printed axiom lists per build cover 144 distinct declarations, each exactly propext, Classical.choice and Quot.sound (Codex's independent machine review, review/INDEPENDENT-MACHINE-FINAL-01.md; not published here).",
+ "whole_project": "These 70 modules were also compiled and checked in the whole-project rebuild of version 1.16.0 (logs/clean-replay-v1.16.0-receipt.json), where FinalContractAudit printed 56 axiom lists, each exactly the three axioms.",
+ "logs_note": "In the published logs the local directories are replaced by <workspace> and <worker>; nothing else is changed."
+}

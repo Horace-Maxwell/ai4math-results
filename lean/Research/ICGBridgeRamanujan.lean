@@ -213,18 +213,18 @@ lemma dft_ind (hp : p.Prime) (hp3 : p ≠ 3) (hN : N = p ^ 2 * 3 ^ 3) (k : ZMod 
     have hiff := dvd_iff_of_gcd hp hp3 N hN (x := 2 - x) (y := 3 - y) (by omega) (by omega) hk
     unfold Sval
     by_cases hc : 2 - x ≤ a ∧ 3 - y ≤ b
-    · rw [if_pos (hiff.mpr hc), if_pos ⟨hxy.1, hxy.2, hc⟩]
+    · rw [ite_eq_left (hiff.mpr hc), ite_eq_left ⟨hxy.1, hxy.2, hc⟩]
       push_cast
       ring
-    · rw [if_neg (fun h => hc (hiff.mp h)), if_neg (fun h => hc ⟨h.2.2.1, h.2.2.2⟩)]
+    · rw [ite_eq_right (fun h => hc (hiff.mp h)), ite_eq_right (fun h => hc ⟨h.2.2.1, h.2.2.2⟩)]
       simp
   · have h0 : ∀ s : ZMod N, (ind p s.val x y) = 0 := by
       intro s
       unfold ind
-      rw [if_neg (fun h => hxy ⟨h.1, h.2.1⟩)]
+      rw [ite_eq_right (fun h => hxy ⟨h.1, h.2.1⟩)]
     simp only [h0, Int.cast_zero, mul_zero, Finset.sum_const_zero]
     unfold Sval
-    rw [if_neg (fun h => hxy ⟨h.1, h.2.1⟩)]
+    rw [ite_eq_right (fun h => hxy ⟨h.1, h.2.1⟩)]
     simp
 
 /-- DFT of the gcd-class indicator: a Ramanujan sum, in closed form. -/

@@ -292,9 +292,9 @@ theorem local_ineq {q P μ : ℝ} (hq : 3 ≤ q) (hP : 4 ≤ P) (hμ0 : 3 / 5 �
     rw [Finset.mem_range] at hj
     have ht := local_term hq hP hμ0 hμ1 hy hζ hj
     by_cases hyj : y j = y (j + 1)
-    · rw [if_pos hyj]
+    · rw [ite_eq_left hyj]
       linarith [ht.2 hyj]
-    · rw [if_neg hyj, mul_zero]
+    · rw [ite_eq_right hyj, mul_zero]
       linarith [ht.1 hyj]
   linarith [mul_nonneg (pow_pos hq0 b).le hs, mul_nonneg (pow_pos hq0 b).le (neg_nonneg.mpr h0)]
 
@@ -316,13 +316,13 @@ theorem local_ineq_strict {q P μ : ℝ} (hq : 3 ≤ q) (hP : 4 ≤ P) (hμ0 : 3
       rw [Finset.mem_range] at hj
       have ht := local_term hq hP hμ0 hμ1 hy hζ hj
       by_cases hyj : y j = y (j + 1)
-      · rw [if_pos hyj]
+      · rw [ite_eq_left hyj]
         linarith [ht.2 hyj]
-      · rw [if_neg hyj, mul_zero]
+      · rw [ite_eq_right hyj, mul_zero]
         linarith [ht.1 hyj]
     · refine ⟨j0, Finset.mem_range.mpr hj0, ?_⟩
       have ht := local_term hq hP hμ0 hμ1 hy hζ hj0
-      rw [if_pos hyj0]
+      rw [ite_eq_left hyj0]
       linarith [ht.2 hyj0]
   linarith [mul_pos (pow_pos hq0 b) hs, mul_nonneg (pow_pos hq0 b).le (neg_nonneg.mpr h0)]
 

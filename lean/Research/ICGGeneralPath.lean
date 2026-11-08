@@ -117,12 +117,12 @@ lemma Tv_row {x : ℝ} (hx : x ≠ 0) (k u : ℕ) (w : ℕ → ℝ) :
     rw [Finset.mem_range] at hj
     have : ramX x (k + u + 1 - j) u = 0 := by
       unfold ramX
-      rw [if_neg (by omega), if_neg (by omega), if_neg (by omega)]
+      rw [ite_eq_right (by omega), ite_eq_right (by omega), ite_eq_right (by omega)]
     rw [this]
     ring
   have hk : ramX x (k + u + 1 - k) u = -(x ^ u) := by
     unfold ramX
-    rw [if_neg (by omega), if_neg (by omega), if_pos (by omega)]
+    rw [ite_eq_right (by omega), ite_eq_right (by omega), ite_eq_left (by omega)]
   have hI : ∑ j ∈ Ico (k + 1) (k + u + 1 + 1), phiX x (k + 1) * ramX x (k + u + 1 - j) u * w j =
       phiX x (k + 1) * Wp x (k + u + 1) w (k + 1) := by
     unfold Wp
@@ -133,8 +133,8 @@ lemma Tv_row {x : ℝ} (hx : x ≠ 0) (k u : ℕ) (w : ℕ → ℝ) :
     have : ramX x (k + u + 1 - j) u = phiX x (k + u + 1 - j) := by
       unfold ramX
       by_cases h : k + u + 1 - j = 0
-      · rw [if_pos h, h, phiX_zero]
-      · rw [if_neg h, if_pos (by omega)]
+      · rw [ite_eq_left h, h, phiX_zero]
+      · rw [ite_eq_right h, ite_eq_left (by omega)]
     rw [this]
     ring
   rw [h0, hk, hI, zero_add]
@@ -155,8 +155,8 @@ lemma Tv_last {x : ℝ} (hx : x ≠ 0) (m : ℕ) (w : ℕ → ℝ) : Tv x m w m 
   congr 1
   unfold ramX
   by_cases h : m - j = 0
-  · rw [if_pos h, h, phiX_zero]
-  · rw [if_neg h, if_pos (by omega)]
+  · rw [ite_eq_left h, h, phiX_zero]
+  · rw [ite_eq_right h, ite_eq_left (by omega)]
 
 /-- **Lemma 1 (path identity).** -/
 theorem L1_path {x : ℝ} (hx : 0 < x) (m : ℕ) (w : ℕ → ℝ) :
@@ -259,8 +259,8 @@ lemma Tv_one {x : ℝ} (hx : x ≠ 0) (m u : ℕ) (hu : u ≤ m) :
     Tv x m (fun _ => 1) u = if u = m then x ^ m else 0 := by
   by_cases h : u = m
   · subst h
-    rw [if_pos rfl, Tv_last hx, Zp_one hx u 0 (Nat.zero_le _), mul_one]
-  · rw [if_neg h]
+    rw [ite_eq_left rfl, Tv_last hx, Zp_one hx u 0 (Nat.zero_le _), mul_one]
+  · rw [ite_eq_right h]
     obtain ⟨k, rfl⟩ : ∃ k, m = k + u + 1 := ⟨m - u - 1, by omega⟩
     rw [Tv_row hx, Zp_one hx _ (k + 1) (by omega), Zp_one hx _ k (by omega)]
     ring
@@ -381,7 +381,7 @@ lemma fk_eq {x : ℝ} (hx : 2 < x) {m : ℕ} {y : ℕ → ℝ} (hy : IsSign m y)
     have e2 : 0 < (Z + (x - 1) * y k) / x := by
       rw [h0]; apply div_pos _ hx0; linarith
     rw [e1, abs_of_nonneg (div_nonneg (mul_nonneg (by linarith) (by linarith)) hx0.le),
-      abs_of_pos e2, abs_of_pos hZpos, if_pos (by rw [h0, h1]), h0]
+      abs_of_pos e2, abs_of_pos hZpos, ite_eq_left (by rw [h0, h1]), h0]
     field_simp
     ring
   · -- y_k = 1, y_{k+1} = -1
@@ -392,7 +392,7 @@ lemma fk_eq {x : ℝ} (hx : 2 < x) {m : ℕ} {y : ℕ → ℝ} (hy : IsSign m y)
     have e2 : 0 < (Z + (x - 1) * y k) / x := by
       rw [h0]; apply div_pos _ hx0; linarith
     rw [e1, abs_of_nonneg (div_nonneg (mul_nonneg (by linarith) (by linarith)) hx0.le),
-      abs_of_pos e2, abs_of_neg hZneg, if_neg (by rw [h0, h1]; norm_num), h0]
+      abs_of_pos e2, abs_of_neg hZneg, ite_eq_right (by rw [h0, h1]; norm_num), h0]
     field_simp
     ring
   · -- y_k = -1, y_{k+1} = 1
@@ -403,7 +403,7 @@ lemma fk_eq {x : ℝ} (hx : 2 < x) {m : ℕ} {y : ℕ → ℝ} (hy : IsSign m y)
     have e2 : (Z + (x - 1) * y k) / x < 0 := by
       rw [h0]; apply div_neg_of_neg_of_pos _ hx0; linarith
     rw [e1, abs_neg, abs_of_nonneg (div_nonneg (mul_nonneg (by linarith) (by linarith)) hx0.le),
-      abs_of_neg e2, abs_of_pos hZpos, if_neg (by rw [h0, h1]; norm_num), h0]
+      abs_of_neg e2, abs_of_pos hZpos, ite_eq_right (by rw [h0, h1]; norm_num), h0]
     field_simp
     ring
   · -- y_k = -1, y_{k+1} = -1
@@ -414,7 +414,7 @@ lemma fk_eq {x : ℝ} (hx : 2 < x) {m : ℕ} {y : ℕ → ℝ} (hy : IsSign m y)
     have e2 : (Z + (x - 1) * y k) / x < 0 := by
       rw [h0]; apply div_neg_of_neg_of_pos _ hx0; linarith
     rw [e1, abs_neg, abs_of_nonneg (div_nonneg (mul_nonneg (by linarith) (by linarith)) hx0.le),
-      abs_of_neg e2, abs_of_neg hZneg, if_pos (by rw [h0, h1]), h0]
+      abs_of_neg e2, abs_of_neg hZneg, ite_eq_left (by rw [h0, h1]), h0]
     field_simp
     ring
 
@@ -453,7 +453,7 @@ lemma slack_sgnv (x : ℝ) (m : ℕ) : slack x m sgnv = 0 := by
   unfold slack
   apply Finset.sum_eq_zero
   intro k _
-  rw [if_neg]
+  rw [ite_eq_right]
   rw [sgnv_succ]
   intro h
   have h0 : sgnv k ≠ 0 := by simp [sgnv]
@@ -483,7 +483,7 @@ lemma slack_pos {x : ℝ} (hx : 2 < x) {m : ℕ} {y : ℕ → ℝ} (hy : IsSign 
     · exact mul_nonneg (mul_nonneg (by norm_num) (nu_pos hx _).le) (abs_nonneg _)
     · exact le_rfl
   · refine ⟨k, Finset.mem_range.mpr hk, ?_⟩
-    rw [if_pos hyk]
+    rw [ite_eq_left hyk]
     have hx0 : 0 < x := by linarith
     have h1 : 0 < |Zp x m y (k + 1)| := by
       rw [Zp_abs_eq hx.le hy hk]

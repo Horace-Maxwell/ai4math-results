@@ -1,0 +1,55 @@
+{
+ "purpose": "Whole-project clean rebuild of the Lean project of release v1.16.0 (adds Paper 1 version 2).",
+ "start_utc": "2026-11-07T06:10:12Z",
+ "end_utc": "2026-11-07T17:27:11Z",
+ "result": "2954 of 2954 modules compiled; 2953 of 2954 replayed with leanchecker; the module Research has no constants and was exempted; 0 audit problems.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.15.0-receipt.json",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs)",
+ "procedure": [
+  "New empty output directory; sources copied from the release tree lean/ (Research.lean and Research/, 2956 files). After the build their SHA-256 hashes were compared with the release tree: no difference. The directory Comparator/ was not built here; it is unchanged since version 1.13.0, and the CI workflow checks it.",
+  "Each module compiled with lean -DautoImplicit=false -DrelaxedAutoImplicit=false, then each module replayed with leanchecker, by the driver build6.py (build5.py of version 1.15.0, except that in the leanchecker phase a module no longer waits for the leanchecker runs of its imports, which leanchecker does not need). This is not a lake build.",
+  "Warnings are recorded and do not fail a module; an error, sorry or non-zero exit code does."
+ ],
+ "runs": [
+  {
+   "start_utc": "2026-11-07T06:10:12Z",
+   "end_utc": "2026-11-07T16:23:05Z",
+   "note": "Up to 16 jobs. Compile phase until 12:40:40Z, leanchecker phase from 12:40:41Z. The computer ran out of commit memory: 4 modules failed to compile (3 could not read a compiled Mathlib file, 1 stopped with Windows exit code 0xC0000005), so 102 modules that import them were skipped, and 14 leanchecker runs failed to read a compiled file. Status at the end: status-pass1.json."
+  },
+  {
+   "start_utc": "2026-11-07T16:24:46Z",
+   "end_utc": "2026-11-07T17:20:50Z",
+   "note": "The same driver with up to 8 jobs and the option --retry-failed, which reruns only modules marked failed or skipped. All 106 modules compiled; 16 leanchecker runs, of modules that import many large Paper 7 modules, still failed to read a compiled file. Status at the end: status-pass2.json."
+  },
+  {
+   "start_utc": "2026-11-07T17:23:22Z",
+   "end_utc": "2026-11-07T17:27:11Z",
+   "note": "The leanchecker phase only, for those 16 modules, 2 jobs at a time: all passed. Final status: status.json."
+  }
+ ],
+ "failed_attempts": "Logs with the suffix .attemptN (174 logs, in 39 modules, all of Paper 7): 167 failed to read a compiled file, 3 std::bad_alloc, 2 out of memory, 1 empty log, and 1 compile stopped with exit code 0xC0000005 (Research.Backfill.Paper7.MomentGapD_00_04_05, which compiled in the second run). No attempt ended in a Lean error. The same modules passed at the first attempt in the rebuild of version 1.15.0.",
+ "module_Research": {
+  "lines": "only import lines",
+  "constants": 0,
+  "extra_constants": 0,
+  "how_counted": "readModuleData on Research.olean (research-olean-constants.txt in the log archive)",
+  "consequence": "leanchecker has nothing to replay in this module. It was exempted before the run, as for version 1.15.0."
+ },
+ "audit": {
+  "modules": 2954,
+  "compile_ok": 2954,
+  "check_ok": 2953,
+  "check_exempt": 1,
+  "axiom_lists": 112694,
+  "axiom_lists_empty": 8452,
+  "warnings": 97,
+  "problem_count": 0
+ },
+ "warnings": "97 lines in 15 older modules; none in Paper 1. Fewer than for version 1.15.0 (260 lines in 28 modules) because 13 modules Research/ICG*.lean were replaced by versions that use the current names of three Mathlib lemmas (if_pos, if_neg, if_true replaced by ite_eq_left, ite_eq_right, ite_true); nothing else in them changed.",
+ "axioms": "every printed axiom list is a subset of propext, Classical.choice and Quot.sound. The 56 lists printed by Research.Backfill.Paper1.FinalContractAudit (the 51 statements, one calibration and four internal lemmas) are each exactly these three axioms.",
+ "forbidden_tokens": "logs/clean-replay-v1.16.0-forbidden-tokens.log: outside comments, only the intentional sorry statements of the comparator challenge files lean/Comparator/.",
+ "logs": "logs/clean-replay-v1.16.0-logs.tar.gz",
+ "logs_note": "In the published logs the two local directories are replaced by <workspace> and <worker>; nothing else is changed."
+}

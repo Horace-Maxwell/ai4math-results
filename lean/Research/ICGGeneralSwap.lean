@@ -95,10 +95,10 @@ theorem checkerboard_unique_max_of (p q a b : ℕ) (hp : p.Prime) (hq : q.Prime)
     intro hmem
     exact lt_irrefl _ (Nat.mem_properDivisors.mp (hD hmem)).2
   have hcorner : 2 * X a b - 1 = -1 := by
-    simp only [hX, if_neg hNotN]
+    simp only [hX, ite_eq_right hNotN]
     norm_num
   have hsab : sgnv a * sgnv b = -1 := by
-    rw [sgnv_mul, if_neg (Nat.not_even_iff_odd.mpr hab)]
+    rw [sgnv_mul, ite_eq_right (Nat.not_even_iff_odd.mpr hab)]
   rcases hTeq _ hYsign hge with hY | hY
   · apply hne
     have hiff : ∀ c ≤ a, ∀ e ≤ b, p ^ c * q ^ e ∈ D ↔ Even (c + e) := by
@@ -108,14 +108,14 @@ theorem checkerboard_unique_max_of (p q a b : ℕ) (hp : p.Prime) (hq : q.Prime)
       rw [sgnv_mul] at h
       constructor
       · intro hm
-        rw [if_pos hm] at h
+        rw [ite_eq_left hm] at h
         by_contra hev
-        rw [if_neg hev] at h
+        rw [ite_eq_right hev] at h
         norm_num at h
       · intro hev
-        rw [if_pos hev] at h
+        rw [ite_eq_left hev] at h
         by_contra hm
-        rw [if_neg hm] at h
+        rw [ite_eq_right hm] at h
         norm_num at h
     ext x
     constructor

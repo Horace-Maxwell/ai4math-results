@@ -119,7 +119,7 @@ theorem two_L1mat_rows {p q : ℝ} (hp : 1 ≤ p) (hq : 1 < q) (m : ℕ) (X : �
     apply Finset.sum_congr rfl
     intro v hv
     rw [Finset.mem_range] at hv
-    rw [Mentry_ones hp0.ne' hq0.ne' 1 m (by norm_num) (by omega), if_neg (by omega), add_zero,
+    rw [Mentry_ones hp0.ne' hq0.ne' 1 m (by norm_num) (by omega), ite_eq_right (by omega), add_zero,
       Mentry_row0, abs_neg, abs_mul, abs_of_nonneg (by linarith : (0:ℝ) ≤ p - 1)]
   -- row 1
   have hw2bound : ∀ l ≤ m, |w2 (p - 1) (Y 0) (Y 1) l| ≤ p := by
@@ -140,9 +140,9 @@ theorem two_L1mat_rows {p q : ℝ} (hp : 1 ≤ p) (hq : 1 < q) (m : ℕ) (X : �
       apply Finset.sum_congr rfl
       intro v hv
       rw [Finset.mem_range] at hv
-      rw [Mentry_ones hp0.ne' hq0.ne' 1 m le_rfl (by omega), if_neg (by omega), add_zero,
+      rw [Mentry_ones hp0.ne' hq0.ne' 1 m le_rfl (by omega), ite_eq_right (by omega), add_zero,
         Mentry_row1]
-    rw [hrest, Mentry_ones hp0.ne' hq0.ne' 1 m le_rfl le_rfl, if_pos ⟨rfl, rfl⟩, Mentry_row1,
+    rw [hrest, Mentry_ones hp0.ne' hq0.ne' 1 m le_rfl le_rfl, ite_eq_left ⟨rfl, rfl⟩, Mentry_row1,
       Tv_last hq0.ne', pow_one]
     set Z := Zp q m (w2 (p - 1) (Y 0) (Y 1)) 0 with hZ
     have hqm := pow_pos hq0 m
@@ -192,19 +192,19 @@ lemma anti_rows (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) {m : ℕ} :
   · intro l hl
     unfold sgnv
     rcases Nat.even_or_odd l with he | ho
-    · rw [if_neg (fun h => (Nat.not_odd_iff_even.mpr (by simpa using he))
+    · rw [ite_eq_right (fun h => (Nat.not_odd_iff_even.mpr (by simpa using he))
         ((pq_mem_DantiPQ hp hq hpq (by norm_num) hl).mp h)), he.neg_one_pow]
       norm_num
-    · rw [if_pos ((pq_mem_DantiPQ hp hq hpq (by norm_num) hl).mpr (by simpa using ho)),
+    · rw [ite_eq_left ((pq_mem_DantiPQ hp hq hpq (by norm_num) hl).mpr (by simpa using ho)),
         ho.neg_one_pow]
       norm_num
   · intro l hl
     unfold sgnv
     rcases Nat.even_or_odd l with he | ho
-    · rw [if_pos ((pq_mem_DantiPQ hp hq hpq le_rfl hl).mpr (by rw [add_comm]; exact he.add_one)),
+    · rw [ite_eq_left ((pq_mem_DantiPQ hp hq hpq le_rfl hl).mpr (by rw [add_comm]; exact he.add_one)),
         he.neg_one_pow]
       norm_num
-    · rw [if_neg (fun h => (Nat.not_odd_iff_even.mpr (by rw [add_comm]; exact ho.add_one))
+    · rw [ite_eq_right (fun h => (Nat.not_odd_iff_even.mpr (by rw [add_comm]; exact ho.add_one))
         ((pq_mem_DantiPQ hp hq hpq le_rfl hl).mp h)), ho.neg_one_pow]
       norm_num
 
@@ -277,7 +277,7 @@ theorem energy_le_anti (p q m : ℕ) (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ 
     have hnot : p ^ 1 * q ^ m ∉ D := by
       intro hmem
       exact lt_irrefl _ (Nat.mem_properDivisors.mp (hD hmem)).2
-    rw [if_neg hnot]
+    rw [ite_eq_right hnot]
     norm_num
   have hA := thmA_le (paramOK_of_primes hp hq hpq hp3 hq3) hm hu hv hvm
   have e1 : (3 * ((p : ℝ) - 1) - 1) = 3 * (p : ℝ) - 4 := by ring

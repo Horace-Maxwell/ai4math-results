@@ -86,17 +86,17 @@ lemma sign_cases {m : ℕ} {u : ℕ → ℝ} (hu : IsSign m u) {i : ℕ} (hi : i
 lemma budget_eq {R : ℝ} (hR : 1 ≤ R) {a b : ℝ} (ha : a = 1 ∨ a = -1) (hb : b = 1 ∨ b = -1) :
     R * |a - b| + |R * a + b| = if a = b then R + 1 else 3 * R - 1 := by
   rcases ha with rfl | rfl <;> rcases hb with rfl | rfl
-  · rw [if_pos rfl, sub_self, abs_zero, mul_zero, zero_add, mul_one,
+  · rw [ite_eq_left rfl, sub_self, abs_zero, mul_zero, zero_add, mul_one,
       abs_of_pos (by linarith : (0:ℝ) < R + 1)]
-  · rw [if_neg (by norm_num)]
+  · rw [ite_eq_right (by norm_num)]
     rw [show (1 : ℝ) - -1 = 2 by norm_num, show R * 1 + -1 = R - 1 by ring,
       abs_of_pos (by norm_num : (0:ℝ) < 2), abs_of_nonneg (by linarith : (0:ℝ) ≤ R - 1)]
     ring
-  · rw [if_neg (by norm_num)]
+  · rw [ite_eq_right (by norm_num)]
     rw [show (-1 : ℝ) - 1 = -2 by norm_num, show R * -1 + 1 = -(R - 1) by ring, abs_neg, abs_neg,
       abs_of_pos (by norm_num : (0:ℝ) < 2), abs_of_nonneg (by linarith : (0:ℝ) ≤ R - 1)]
     ring
-  · rw [if_pos rfl]
+  · rw [ite_eq_left rfl]
     rw [show (-1 : ℝ) - -1 = 0 by norm_num, show R * -1 + -1 = -(R + 1) by ring, abs_neg,
       abs_zero, abs_of_pos (by linarith : (0:ℝ) < R + 1)]
     ring
@@ -176,7 +176,7 @@ lemma slk_D {x R : ℝ} (hp : ParamOK x R) {m : ℕ} {u v : ℕ → ℝ} (hu : I
   have hnb := nu_bounds (by linarith : (2 : ℝ) ≤ x) k
   have hnu0 : 0 ≤ nu x k := nu_nonneg' (x := x) (by linarith) k
   have hbud := budget_eq (by linarith : (1:ℝ) ≤ R) (hu k hk.le) (hv k hk.le)
-  rw [if_neg hne] at hbud
+  rw [ite_eq_right hne] at hbud
   have h2 := h2_nonpos hp hu hv hk
   have h1 : hcell (x - 1) (nu x k) (u k - v k) (Zp x m (w1 u v) (k + 1)) ≤ 0 := by
     apply hcell_nonpos hnu0 hnb.2 (by linarith [hnb.2] : nu x k ≤ x - 1)
@@ -208,7 +208,7 @@ lemma slk_E {x R : ℝ} (hp : ParamOK x R) {m : ℕ} {u v : ℕ → ℝ} (hu : I
   obtain ⟨hx, hR, hxR⟩ := hp.basic
   have hx0 : 0 < x := by linarith
   have hbud := budget_eq (by linarith : (1:ℝ) ≤ R) (hu k hk.le) (hv k hk.le)
-  rw [if_pos heq] at hbud
+  rw [ite_eq_left heq] at hbud
   have h2 := h2_nonpos hp hu hv hk
   have hw : u k - v k = 0 := by rw [heq]; ring
   set H2 := hcell (x - 1) (nu x k) (R * u k + v k) (Zp x m (w2 R u v) (k + 1)) with hH2
@@ -466,12 +466,12 @@ theorem thmA_le {x R : ℝ} (hp : ParamOK x R) {m : ℕ} (hm : Odd m) {u v : ℕ
     have hbudm := budget_eq (by linarith : (1:ℝ) ≤ R) (hu m le_rfl) (hv m le_rfl)
     by_cases hEm : u m = v m
     · -- Case I
-      rw [hbudm, if_pos hEm]
+      rw [hbudm, ite_eq_left hEm]
       have h1 := mul_nonneg hxm.le hsum0
       have h2 := mul_nonneg hxm.le hM0
       nlinarith
     · -- Case II
-      rw [hbudm, if_neg hEm]
+      rw [hbudm, ite_eq_right hEm]
       have hk0lt : k0 < m := lt_of_le_of_ne hk0m (fun h => hEm (h ▸ hk0))
       -- it suffices to show  ∑ slk ≥ 2 (R-1) ν_m
       suffices hS : 2 * (R - 1) * nu x m ≤ ∑ k ∈ range m, slk x R m u v k by

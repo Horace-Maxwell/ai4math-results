@@ -390,7 +390,7 @@ theorem thmA_lt {x R : ℝ} (hp : ParamOK x R) {m : ℕ} (hm : Odd m) {u v : ℕ
     have hbudm := budget_eq (by linarith : (1:ℝ) ≤ R) (hu m le_rfl) (hv m le_rfl)
     by_cases hEm : u m = v m
     · -- Case I: need ∑ slk + 2M > 0
-      rw [hbudm, if_pos hEm]
+      rw [hbudm, ite_eq_left hEm]
       suffices hpos : 0 < ∑ k ∈ range m, slk x R m u v k + 2 * max 0 (-(Zp x m (w2 R u v) 0)) by
         have := mul_pos hxm hpos
         nlinarith
@@ -437,7 +437,7 @@ theorem thmA_lt {x R : ℝ} (hp : ParamOK x R) {m : ℕ} (hm : Odd m) {u v : ℕ
           have : 0 < max 0 (-(Zp x m (w2 R u v) 0)) := lt_max_of_lt_right (by linarith)
           linarith
     · -- Case II: strict
-      rw [hbudm, if_neg hEm]
+      rw [hbudm, ite_eq_right hEm]
       have hk0lt : k0 < m := lt_of_le_of_ne hk0m (fun h => hEm (h ▸ hk0))
       suffices hS : 2 * (R - 1) * nu x m < ∑ k ∈ range m, slk x R m u v k by
         have h1 := mul_lt_mul_of_pos_left hS hxm
@@ -546,7 +546,7 @@ theorem energy_lt_anti (p q m : ℕ) (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ 
     exact lt_irrefl _ (Nat.mem_properDivisors.mp (hD hmem)).2
   have hvm : (fun l => 2 * X 1 l - 1) m = -1 := by
     simp only [hX]
-    rw [if_neg hnot_n]
+    rw [ite_eq_right hnot_n]
     norm_num
   -- elements of D are divisors p^c q^e with c ≤ 1, e ≤ m
   have hrep : ∀ x ∈ D, ∃ c ≤ 1, ∃ e ≤ m, x = p ^ c * q ^ e := fun x hx =>
@@ -556,10 +556,10 @@ theorem energy_lt_anti (p q m : ℕ) (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ 
     intro c _ e _
     simp only [hX]
     constructor
-    · intro h; rw [if_pos h]; norm_num
+    · intro h; rw [ite_eq_left h]; norm_num
     · intro h
       by_contra hn
-      rw [if_neg hn] at h
+      rw [ite_eq_right hn] at h
       norm_num at h
   have hnot : ¬ (IsAnti m (fun l => 2 * X 0 l - 1) (fun l => 2 * X 1 l - 1) ∨
       IsTrunc m (fun l => 2 * X 0 l - 1) (fun l => 2 * X 1 l - 1)) := by
@@ -711,12 +711,12 @@ lemma w1tr_cell {x : ℝ} (hx : 3 ≤ x) {m : ℕ} (hm : Odd m) {k : ℕ} (hk : 
     hcell (x - 1) (nu x k) (sgnv k - vtr m k) (Zp x m (w1 sgnv (vtr m)) (k + 1)) = 0 := by
   have hx0 : 0 < x := by linarith
   have hsm : sgnv m = -1 := by unfold sgnv; rw [hm.neg_one_pow]
-  have hvk : vtr m k = -sgnv k := by unfold vtr; rw [if_pos hk]
+  have hvk : vtr m k = -sgnv k := by unfold vtr; rw [ite_eq_left hk]
   rw [hvk]
   by_cases hkm : k + 1 = m
   · rw [hkm, Zp_self]
     have h0 : w1 sgnv (vtr m) m = 0 := by
-      unfold w1 vtr; rw [if_neg (lt_irrefl m), hsm]; ring
+      unfold w1 vtr; rw [ite_eq_right (lt_irrefl m), hsm]; ring
     rw [h0]
     rcases sgnv_isSign m k hk.le with h | h <;> rw [h]
     · exact hcell_opp (by norm_num) le_rfl (by linarith)
@@ -730,7 +730,7 @@ lemma w1tr_cell {x : ℝ} (hx : 3 ≤ x) {m : ℕ} (hm : Odd m) {k : ℕ} (hk : 
         (Zp x m (w1 sgnv (vtr m)) (k + 2) + (x - 1) * (2 * sgnv (k + 1))) / x := by
       rw [Zp_rec hx0.ne' m _ hk1]
       unfold w1 vtr
-      rw [if_pos hk1]
+      rw [ite_eq_left hk1]
       ring_nf
     have hlo := neg_abs_le (Zp x m (w1 sgnv (vtr m)) (k + 2))
     have hhi := le_abs_self (Zp x m (w1 sgnv (vtr m)) (k + 2))
@@ -756,12 +756,12 @@ lemma w2tr_cell {x R : ℝ} (hp : ParamOK x R) {m : ℕ} (hm : Odd m) {k : ℕ} 
   have hs := hp.strict
   have hx0 : 0 < x := by linarith
   have hsm : sgnv m = -1 := by unfold sgnv; rw [hm.neg_one_pow]
-  have hvk : vtr m k = -sgnv k := by unfold vtr; rw [if_pos hk]
+  have hvk : vtr m k = -sgnv k := by unfold vtr; rw [ite_eq_left hk]
   rw [hvk, show R * sgnv k + -sgnv k = (R - 1) * sgnv k by ring]
   by_cases hkm : k + 1 = m
   · rw [hkm, Zp_self]
     have hw : w2 R sgnv (vtr m) m = -(R + 1) := by
-      unfold w2 vtr; rw [if_neg (lt_irrefl m), hsm]; ring
+      unfold w2 vtr; rw [ite_eq_right (lt_irrefl m), hsm]; ring
     rw [hw]
     have hsk : sgnv k = 1 := by
       have h1 : sgnv (k + 1) = -1 := by rw [hkm, hsm]
@@ -778,7 +778,7 @@ lemma w2tr_cell {x R : ℝ} (hp : ParamOK x R) {m : ℕ} (hm : Odd m) {k : ℕ} 
         (Zp x m (w2 R sgnv (vtr m)) (k + 2) + (x - 1) * ((R - 1) * sgnv (k + 1))) / x := by
       rw [Zp_rec hx0.ne' m _ hk1]
       unfold w2 vtr
-      rw [if_pos hk1]
+      rw [ite_eq_left hk1]
       ring_nf
     have hlo := neg_abs_le (Zp x m (w2 R sgnv (vtr m)) (k + 2))
     have hhi := le_abs_self (Zp x m (w2 R sgnv (vtr m)) (k + 2))
@@ -821,7 +821,7 @@ theorem trunc_value {x R : ℝ} (hp : ParamOK x R) {m : ℕ} (hm : Odd m) :
     rw [Zp_rec hx0.ne' m _ hm0]
     have hw0 : w2 R sgnv (vtr m) 0 = R - 1 := by
       unfold w2 vtr
-      rw [if_pos hm0, sgnv_zero]
+      rw [ite_eq_left hm0, sgnv_zero]
       ring
     rw [hw0]
     apply div_pos _ hx0
@@ -830,10 +830,10 @@ theorem trunc_value {x R : ℝ} (hp : ParamOK x R) {m : ℕ} (hm : Odd m) :
   rw [hmax, phi_identity (by linarith) m sgnv (vtr m), hTs, hLs]
   have hslk0 : ∀ k < m, slk x R m sgnv (vtr m) k = 0 := by
     intro k hk
-    have hvk : vtr m k = -sgnv k := by unfold vtr; rw [if_pos hk]
+    have hvk : vtr m k = -sgnv k := by unfold vtr; rw [ite_eq_left hk]
     have hbud : R * |sgnv k - vtr m k| + |R * sgnv k + vtr m k| = 3 * R - 1 := by
       have := budget_eq (by linarith : (1:ℝ) ≤ R) (sgnv_isSign m k hk.le) (vtr_isSign m k hk.le)
-      rw [if_neg (by rw [hvk]; rcases sgnv_isSign m k hk.le with h | h <;> rw [h] <;> norm_num)]
+      rw [ite_eq_right (by rw [hvk]; rcases sgnv_isSign m k hk.le with h | h <;> rw [h] <;> norm_num)]
         at this
       exact this
     unfold slk
@@ -841,7 +841,7 @@ theorem trunc_value {x R : ℝ} (hp : ParamOK x R) {m : ℕ} (hm : Odd m) :
     ring
   rw [Finset.sum_eq_zero (fun k hk => hslk0 k (Finset.mem_range.mp hk))]
   have hbm : R * |sgnv m - vtr m m| + |R * sgnv m + vtr m m| = R + 1 := by
-    have hv : vtr m m = -1 := by unfold vtr; rw [if_neg (lt_irrefl m)]
+    have hv : vtr m m = -1 := by unfold vtr; rw [ite_eq_right (lt_irrefl m)]
     rw [hsm, hv, show (-1:ℝ) - -1 = 0 by norm_num, abs_zero, mul_zero, zero_add,
       show R * -1 + -1 = -(R + 1) by ring, abs_neg, abs_of_pos (by linarith)]
   rw [hbm]
@@ -878,9 +878,9 @@ theorem energy_trunc (p q m : ℕ) (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q)
     simp only [hX]
     unfold sgnv
     rcases Nat.even_or_odd l with hev | hod
-    · rw [if_pos ((hmem 0 (by norm_num) l hl).mpr ⟨by simpa using hev, by omega⟩), hev.neg_one_pow]
+    · rw [ite_eq_left ((hmem 0 (by norm_num) l hl).mpr ⟨by simpa using hev, by omega⟩), hev.neg_one_pow]
       norm_num
-    · rw [if_neg (fun h => (Nat.not_even_iff_odd.mpr hod) (by simpa using ((hmem 0 (by norm_num) l hl).mp h).1)),
+    · rw [ite_eq_right (fun h => (Nat.not_even_iff_odd.mpr hod) (by simpa using ((hmem 0 (by norm_num) l hl).mp h).1)),
         hod.neg_one_pow]
       norm_num
   have hrow1 : ∀ l ≤ m, 2 * X 1 l - 1 = vtr m l := by
@@ -888,18 +888,18 @@ theorem energy_trunc (p q m : ℕ) (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q)
     simp only [hX]
     unfold vtr
     by_cases hlm : l < m
-    · rw [if_pos hlm]
+    · rw [ite_eq_left hlm]
       unfold sgnv
       rcases Nat.even_or_odd l with hev | hod
-      · rw [if_neg (fun h => (Nat.not_even_iff_odd.mpr (by rw [add_comm]; exact hev.add_one))
+      · rw [ite_eq_right (fun h => (Nat.not_even_iff_odd.mpr (by rw [add_comm]; exact hev.add_one))
           ((hmem 1 le_rfl l hl).mp h).1), hev.neg_one_pow]
         norm_num
-      · rw [if_pos ((hmem 1 le_rfl l hl).mpr ⟨by rw [add_comm]; exact hod.add_one, by omega⟩),
+      · rw [ite_eq_left ((hmem 1 le_rfl l hl).mpr ⟨by rw [add_comm]; exact hod.add_one, by omega⟩),
           hod.neg_one_pow]
         norm_num
-    · rw [if_neg hlm]
+    · rw [ite_eq_right hlm]
       have hl' : l = m := by omega
-      rw [if_neg (fun h => ((hmem 1 le_rfl l hl).mp h).2 ⟨rfl, hl'⟩)]
+      rw [ite_eq_right (fun h => ((hmem 1 le_rfl l hl).mp h).2 ⟨rfl, hl'⟩)]
       norm_num
   have hw1 : L1 q m (w1 (fun l => 2 * X 0 l - 1) (fun l => 2 * X 1 l - 1)) =
       L1 q m (w1 sgnv (vtr m)) :=

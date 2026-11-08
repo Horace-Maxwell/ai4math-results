@@ -763,7 +763,7 @@ theorem thmB'_main {p q : ℝ} (hPQ : PQok (p - 1) (q - 1)) {b : ℕ} (hb : Even
         intro i hi l hl
         unfold Yp
         rcases Nat.lt_or_ge l b with hlb | hlb
-        · rw [if_neg (by omega)]
+        · rw [ite_eq_right (by omega)]
           obtain ⟨a0, a1, a2⟩ := hplus l hlb
           interval_cases i
           · rw [a0, sgnv_zero']; ring
@@ -772,9 +772,9 @@ theorem thmB'_main {p q : ℝ} (hPQ : PQok (p - 1) (q - 1)) {b : ℕ} (hb : Even
         · have hlb' : l = b := by omega
           subst hlb'
           interval_cases i
-          · rw [if_neg (by omega), y0, sgnv_zero', sgnv_of_even hb]; ring
-          · rw [if_neg (by omega), y1, sgnv_one', sgnv_of_even hb]; ring
-          · rw [if_pos ⟨rfl, rfl⟩, hc]
+          · rw [ite_eq_right (by omega), y0, sgnv_zero', sgnv_of_even hb]; ring
+          · rw [ite_eq_right (by omega), y1, sgnv_one', sgnv_of_even hb]; ring
+          · rw [ite_eq_left ⟨rfl, rfl⟩, hc]
       · exfalso
         apply hJnot
         refine ⟨by rw [y0, sgnv_of_even hb], by rw [y1, sgnv_of_even hb], by

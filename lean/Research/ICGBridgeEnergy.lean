@@ -76,7 +76,7 @@ lemma conn_decomp (hp : p.Prime) (hp3 : p ≠ 3) (N : ℕ) (hN : N = p ^ 2 * 3 ^
     have ha2 : a = 2 := by omega
     have hb3 : b = 3 := by omega
     have hNmem : p ^ a * 3 ^ b ∉ D := by rw [ha2, hb3, ← hN]; exact hND
-    rw [if_neg hNmem]
+    rw [ite_eq_right hNmem]
     symm
     apply Finset.sum_eq_zero
     intro j _
@@ -107,7 +107,7 @@ theorem dft_connFun (hp : p.Prime) (hp3 : p ≠ 3) {N : ℕ} [NeZero N] (hN : N 
   have hj := j.isLt
   by_cases hjD : ej p j ∈ D
   · have hb : bitsOf p D j = true := by simp [bitsOf, hjD]
-    simp only [hjD, if_true, hb]
+    simp only [hjD, ite_true, hb]
     exact dft_gcd_class hp hp3 hN k hk (j.val / 4) (j.val % 4) (by omega) (by omega)
   · have hb : bitsOf p D j = false := by simp [bitsOf, hjD]
     simp [hjD, hb]
@@ -148,7 +148,7 @@ theorem sum_norm_dft_connFun (hp : p.Prime) (hp3 : p ≠ 3) {N : ℕ} [NeZero N]
         simp [this, hr]
     simp only [hΦ]
     rw [Finset.sum_congr rfl (fun r _ => h1 r), Finset.sum_ite_eq]
-    simp only [Finset.mem_univ, if_true, hΛ, hr0]
+    simp only [Finset.mem_univ, ite_true, hΛ, hr0]
     have e1 : (4 * a + b) / 4 = a := by omega
     have e2 : (4 * a + b) % 4 = b := by omega
     simp [e1, e2]

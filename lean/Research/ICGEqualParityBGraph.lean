@@ -111,19 +111,19 @@ theorem G_Yp {p q : ℝ} (hPQ : PQok (p - 1) (q - 1)) {b : ℕ} (hb : Even b) (h
       rw1 p (Yp b) l = sgnv l * (-(2 * (p - 1) ^ 2)) ∧
       rw2 p (Yp b) l = sgnv l * ((p - 1) ^ 2 + 1) := by
     intro l hl
-    have h0 : Yp b 0 l = sgnv l := by unfold Yp; rw [if_neg (by omega), sgnv_zero']; ring
-    have h1 : Yp b 1 l = -sgnv l := by unfold Yp; rw [if_neg (by omega), sgnv_one']; ring
-    have h2 : Yp b 2 l = sgnv l := by unfold Yp; rw [if_neg (by omega), sgnv_two']; ring
+    have h0 : Yp b 0 l = sgnv l := by unfold Yp; rw [ite_eq_right (by omega), sgnv_zero']; ring
+    have h1 : Yp b 1 l = -sgnv l := by unfold Yp; rw [ite_eq_right (by omega), sgnv_one']; ring
+    have h2 : Yp b 2 l = sgnv l := by unfold Yp; rw [ite_eq_right (by omega), sgnv_two']; ring
     simp only [rw0, rw1, rw2, Mc0, Mc1, Mc2]
     rw [h0, h1, h2]
     exact ⟨by ring, by ring, by ring⟩
   have hlast : rw0 p (Yp b) b = 0 ∧ rw1 p (Yp b) b = -(2 * (p - 1) * (p - 1 + 1)) ∧
       rw2 p (Yp b) b = (p - 1) ^ 2 - 1 := by
     have h0 : Yp b 0 b = 1 := by
-      unfold Yp; rw [if_neg (by omega), sgnv_zero', sgnv_of_even hb]; ring
+      unfold Yp; rw [ite_eq_right (by omega), sgnv_zero', sgnv_of_even hb]; ring
     have h1 : Yp b 1 b = -1 := by
-      unfold Yp; rw [if_neg (by omega), sgnv_one', sgnv_of_even hb]; ring
-    have h2 : Yp b 2 b = -1 := by unfold Yp; rw [if_pos ⟨rfl, rfl⟩]
+      unfold Yp; rw [ite_eq_right (by omega), sgnv_one', sgnv_of_even hb]; ring
+    have h2 : Yp b 2 b = -1 := by unfold Yp; rw [ite_eq_left ⟨rfl, rfl⟩]
     simp only [rw0, rw1, rw2]
     rw [h0, h1, h2]
     exact col_C (p - 1)
@@ -295,7 +295,7 @@ theorem two_L1mat_rows2 {p q : ℝ} (hp : 1 ≤ p) (hq : 1 < q) (b : ℕ) (X : �
     apply Finset.sum_congr rfl
     intro v hv
     rw [Finset.mem_range] at hv
-    rw [Mentry_ones hp0.ne' hq0.ne' 2 b (by omega) (by omega), if_neg (by omega), add_zero, hw]
+    rw [Mentry_ones hp0.ne' hq0.ne' 2 b (by omega) (by omega), ite_eq_right (by omega), add_zero, hw]
   rw [hrow 0 (by norm_num) (rw0 p Y) (fun v => (Mentry_rows2 p q b Y v).1),
     hrow 1 (by norm_num) (rw1 p Y) (fun v => (Mentry_rows2 p q b Y v).2.1)]
   -- row 2
@@ -310,9 +310,9 @@ theorem two_L1mat_rows2 {p q : ℝ} (hp : 1 ≤ p) (hq : 1 < q) (b : ℕ) (X : �
       apply Finset.sum_congr rfl
       intro v hv
       rw [Finset.mem_range] at hv
-      rw [Mentry_ones hp0.ne' hq0.ne' 2 b le_rfl (by omega), if_neg (by omega), add_zero,
+      rw [Mentry_ones hp0.ne' hq0.ne' 2 b le_rfl (by omega), ite_eq_right (by omega), add_zero,
         (Mentry_rows2 p q b Y v).2.2]
-    rw [hrest, Mentry_ones hp0.ne' hq0.ne' 2 b le_rfl le_rfl, if_pos ⟨rfl, rfl⟩,
+    rw [hrest, Mentry_ones hp0.ne' hq0.ne' 2 b le_rfl le_rfl, ite_eq_left ⟨rfl, rfl⟩,
       (Mentry_rows2 p q b Y b).2.2, Tv_last hq0.ne']
     set Z := Zp q b (rw2 p Y) 0 with hZ
     have hqm := pow_pos hq0 b
@@ -362,19 +362,19 @@ lemma Ym_eq (c e : ℕ) : Ym c e = if Odd (c + e) then 1 else -1 := by
   unfold Ym
   rw [sgnv_mul]
   by_cases h : Even (c + e)
-  · rw [if_pos h, if_neg (Nat.not_odd_iff_even.mpr h)]
-  · rw [if_neg h, if_pos (Nat.not_even_iff_odd.mp h)]
+  · rw [ite_eq_left h, ite_eq_right (Nat.not_odd_iff_even.mpr h)]
+  · rw [ite_eq_right h, ite_eq_left (Nat.not_even_iff_odd.mp h)]
     norm_num
 
 lemma Yp_eq {b : ℕ} (c e : ℕ) :
     Yp b c e = if (Even (c + e) ∧ ¬ (c = 2 ∧ e = b)) then 1 else -1 := by
   unfold Yp
   by_cases h2 : c = 2 ∧ e = b
-  · rw [if_pos h2, if_neg (fun h => h.2 h2)]
-  · rw [if_neg h2, sgnv_mul]
+  · rw [ite_eq_left h2, ite_eq_right (fun h => h.2 h2)]
+  · rw [ite_eq_right h2, sgnv_mul]
     by_cases h : Even (c + e)
-    · rw [if_pos h, if_pos ⟨h, h2⟩]
-    · rw [if_neg h, if_neg (fun h' => h h'.1)]
+    · rw [ite_eq_left h, ite_eq_left ⟨h, h2⟩]
+    · rw [ite_eq_right h, ite_eq_right (fun h' => h h'.1)]
 
 lemma anti_sign (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) {b : ℕ} :
     ∀ i ≤ 2, ∀ l ≤ b,
@@ -382,8 +382,8 @@ lemma anti_sign (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) {b : ℕ} :
   intro i hi l hl
   rw [sign_of_mem, Ym_eq]
   by_cases h : Odd (i + l)
-  · rw [if_pos ((pq_mem_DantiPQ hp hq hpq hi hl).mpr h), if_pos h]
-  · rw [if_neg (fun h' => h ((pq_mem_DantiPQ hp hq hpq hi hl).mp h')), if_neg h]
+  · rw [ite_eq_left ((pq_mem_DantiPQ hp hq hpq hi hl).mpr h), ite_eq_left h]
+  · rw [ite_eq_right (fun h' => h ((pq_mem_DantiPQ hp hq hpq hi hl).mp h')), ite_eq_right h]
 
 lemma trunc_sign (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) {b : ℕ} :
     ∀ i ≤ 2, ∀ l ≤ b,
@@ -399,8 +399,8 @@ lemma trunc_sign (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) {b : ℕ} :
       exact ⟨fun h => hce ((pq_inj hp hq hpq).mp h), hev⟩
   rw [sign_of_mem, Yp_eq]
   by_cases h : Even (i + l) ∧ ¬ (i = 2 ∧ l = b)
-  · rw [if_pos (hmem.mpr h), if_pos h]
-  · rw [if_neg (fun h' => h (hmem.mp h')), if_neg h]
+  · rw [ite_eq_left (hmem.mpr h), ite_eq_left h]
+  · rw [ite_eq_right (fun h' => h (hmem.mp h')), ite_eq_right h]
 
 lemma paramB_of_primes (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) (hp3 : 3 ≤ p) (hq3 : 3 ≤ q) :
     ParamB (p : ℝ) (q : ℝ) := by
@@ -470,7 +470,7 @@ theorem theoremB (p q b : ℕ) (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) (hp
     exact lt_irrefl _ (Nat.mem_properDivisors.mp (hD hmem)).2
   have hc : Y 2 b = -1 := by
     simp only [hYdef]
-    rw [if_neg hnot]
+    rw [ite_eq_right hnot]
     norm_num
   obtain ⟨hle, hiff⟩ := thmB' hpq' hb hb2 (sign_mat_of b D) hc
   have hTheta : Theta p q b = (5 * (p : ℝ) ^ 2 - 8 * p + 4) * L1 q b sgnv -
@@ -484,10 +484,10 @@ theorem theoremB (p q b : ℕ) (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) (hp
     intro c _ e _
     simp only [hYdef]
     constructor
-    · intro h; rw [if_pos h]; norm_num
+    · intro h; rw [ite_eq_left h]; norm_num
     · intro h
       by_contra hn
-      rw [if_neg hn] at h
+      rw [ite_eq_right hn] at h
       norm_num at h
   refine ⟨by linarith, ?_⟩
   constructor

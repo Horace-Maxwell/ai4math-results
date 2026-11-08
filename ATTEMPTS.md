@@ -8,7 +8,7 @@ the results in this repository: how many problems were tried, and what
 became of each.
 
 Status: 7 November 2026, covering the work of 25 September to 7 November 2026 up to version
-1.15.0. All dates are UTC.
+1.16.0. All dates are UTC.
 
 ## How to read this file
 
@@ -28,7 +28,7 @@ Status: 7 November 2026, covering the work of 25 September to 7 November 2026 up
 
 ## (a) Published
 
-The column "Lean" describes the formal verification in version 1.15.0; the
+The column "Lean" describes the formal verification in version 1.16.0; the
 README has the details.
 
 | # | Problem | Source | Published in | What was proved | Lean |
@@ -42,8 +42,8 @@ README has the details.
 | 13 | A107099: vanishing modulo 3 except at `n = 3^k` | OEIS (P. D. Hanna) | same as row 1 | The statement as written holds; a stronger reading fails at `x^729`. No novelty claimed since v1.2.1 | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
 | 14 | A361047: residues modulo 3 | OEIS (P. D. Hanna) | same as row 1 | The intended statement holds (the entry has an index slip). No novelty claimed since v1.2.1 | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
 | 15 | Roldán's Conjecture 1.3, case `q = 3` (order `27p²`) | arXiv:2604.09491 | v1.0.0 | Known result, formalized only. Proved earlier by S. Park (2026-08-21, github.com/coshaman/papers, who claims the whole conjecture) and J. A. Schreib (2026-09-05, github.com/jamesschreib/roldan-universality-conjecture); a certificate was announced in [trureturing issue #8338](https://github.com/the-omega-institute/trureturing/issues/8338) (2026-09-16). We add a complete Lean formalization and the second-largest energy | yes |
-| 16 | Maximal energy of integral circulant graphs of order `p^(2r)·3^(2s+1)`: the case `q = 3`, which Theorem A of Jiang and Yang does not cover | arXiv:2608.29523 | v1.1.0 (Paper 1, Theorem 2) | Proved for every prime `p ≥ 5`: the checkerboard set is the unique maximiser, and the maximal energy is given by their formula | main theorem |
-| 17 | Equal-parity conjecture on the maximal energy of integral circulant graphs of order `p^a q^b` | our Paper 1 (conjecture stated in v1.1.0) | v1.2.0 (Theorem 3), v1.4.0 (Theorems 4 and 5), v1.5.0 (Theorem 5 extended) | Proved for orders `pq^m` and `p^m q` with `m` odd (Theorem 3) and `p²q^b` and `p^b q²` with `b` even (Theorem 4), and, with computer assistance, for every order `p^a q^b` with `a + b` even and `min(a, b) ≤ 8` (Theorem 5). The case `n = pq` follows from earlier formulas of Ilić and Ilić–Bašić. Open for `min(a, b) ≥ 9` | Theorems 3 and 4; not Theorem 5 |
+| 16 | Maximal energy of integral circulant graphs of order `p^(2r)·3^(2s+1)`: the case `q = 3`, which Theorem A of Jiang and Yang does not cover | arXiv:2608.29523 | v1.1.0 (Paper 1, Theorem 2); version 2 in v1.16.0 | Proved for every prime `p ≥ 5`: the checkerboard set is the unique maximiser, and the maximal energy is given by their formula. The case `r = s = 1` (order `27p²`) is row 15; a Lean proof of it for all distinct odd primes was later merged in trureturing (pull request #19390, 2026-10-20) | all results (version 2, v1.16.0), not checked with comparator |
+| 17 | Equal-parity conjecture on the maximal energy of integral circulant graphs of order `p^a q^b` | our Paper 1 (conjecture stated in v1.1.0) | v1.2.0 (Theorem 3), v1.4.0 (Theorems 4 and 5), v1.5.0 (Theorem 5 extended); version 2 in v1.16.0 | Proved for orders `pq^m` and `p^m q` with `m` odd (Theorem 3) and `p²q^b` and `p^b q²` with `b` even (Theorem 4), that is, for every order `p^a q^b` with `a + b` even and `min(a, b) ≤ 2`, the prime 3 included (Theorem 5 of version 2). The case `n = pq` follows from earlier formulas of Ilić and Ilić–Bašić. Version 1.5 also claimed `3 ≤ min(a, b) ≤ 8` with computer assistance; version 2 withdraws this, because it has no formal proof, not because an error was found. Later work: Jiang and Yang (arXiv:2610.36883v1, 2026-10-27) state the formula for all distinct primes `p, q ≥ 5`; their statement does not include the prime 3. We make no claim about the orders with `min(a, b) ≥ 3` in which one of the primes is 3 | all results (version 2, v1.16.0), not checked with comparator; Proposition 31 only as an implication; the conjecture itself is not proved |
 | 18 | A246056: the pattern of `a(n) mod 3` | OEIS (P. D. Hanna) | v1.2.0 | Known result, formalized only: it follows from a theorem of Deutsch and Sagan (J. Number Theory 117 (2006)) | yes |
 | 19 | A376230: a parity comment | OEIS (P. D. Hanna) | v1.2.0 | The comment is false as stated (`a(4) = 8`). The corrected pattern follows from a theorem of Gawron and Ulas (Discrete Math. 339 (2016)): known result, formalized only | yes |
 | 20 | Carenini's Question 1.3 on almost independent sets in regular graphs | arXiv:2609.28527 | v1.3.0 (Paper 3); version 2 in v1.10.0 | Answer: no. Smallest counterexample `(n, d, γ) = (6, 3, 1/18)`; counterexamples for every `(n, d)` with `2d ∣ n` apart from trivial cases, and further families; a positive result at the exponential scale. Some cases remain open | all results (version 2) |
@@ -98,8 +98,8 @@ items is claimed as a result in this repository.
     them (rows 4–7) our own work was small: screening checks, a numerical
     check or a statement contract.
   - Dropped without a result: 6 items (section c).
-- Under active work and not listed here: none. The parts of Paper 1 that are
-  not yet formalized in Lean are being formalized or will be removed from it.
+- Under active work and not listed here: none. With version 2 of Paper 1
+  (v1.16.0), all ten papers are formalized completely in Lean.
 - Scouted but not attempted: 54 candidates. This counts the candidates that
   scouting agents wrote up and ranked in their reports but on which no
   research was done. Problems rejected during bulk screening (for example,
@@ -220,3 +220,22 @@ Published corrections so far:
    rewritten around the 84 statements, and the sentence that the author compared
    the Lean statements with the paper, which described version 1, is replaced by
    the author statement of version 2. The theorems are unchanged.
+13. **Paper 1, version 2 (v1.16.0).** Every result of version 2 is formalized
+   in Lean, including the closed forms of `d_k` and `δ_k`. Theorem 5 is narrowed
+   from `min(a, b) ≤ 8` to `min(a, b) ≤ 2`, the other exponent being arbitrary.
+   Withdrawn because they have no formal proof, not because an error was found
+   in the computations: the case `3 ≤ min(a, b) ≤ 8` of Theorem 5, Proposition 15
+   (certificates for eleven exponent pairs; the number 15 is no longer used), and
+   the certificates of Section 12 that the conditions of Proposition 31 hold for
+   `3 ≤ a ≤ 8`, with their counts, programs and negative controls. Proposition 31
+   is kept as a conditional statement, of which no instance is claimed, and
+   Section 12 is renamed accordingly. Also deleted: the list of computational
+   cross-checks (exhaustive searches, tests of lemmas, floating-point spectra,
+   the 325 inequalities of an earlier proof of Theorem 25), a paragraph after
+   Lemma 27 on its Lean proof, the restatement of the general results of Le and
+   Sander in Remark 16, and the opening and last sentence of Remark 30. Section 1
+   no longer says that Conjecture 14 is open for `min(a, b) ≥ 9`; the conjecture
+   is kept only as a historical statement, and the section reports the later work
+   arXiv:2610.36883 and trureturing pull request #19390 and the revision of
+   arXiv:2608.29523. Theorems 1–4 are unchanged. The programs and logs of
+   version 1.5 remain in `certificates/` as its records.

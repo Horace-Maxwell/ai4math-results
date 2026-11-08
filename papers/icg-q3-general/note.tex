@@ -2,6 +2,10 @@
 \usepackage[a4paper,margin=26mm]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
 \usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
@@ -17,22 +21,33 @@
 \newcommand{\ICG}{\operatorname{ICG}}
 \newcommand{\E}{\mathcal E}
 \newcommand{\NA}{\operatorname{NA}}
+\setlength{\emergencystretch}{2em}
+\interfootnotelinepenalty=10000
+% Repository version that will contain this version of the paper (provisional).
+\newcommand{\repoversion}{1.16.0}
+% Visible marker for what is not done yet; every use must be gone before release.
+\newcommand{\placeholder}[1]{\textbf{[#1]}}
 \title{The maximal energy of integral circulant graphs\\ of orders
-$p^{2r}3^{2s+1}$, $pq^m$ and $p^2q^b$\thanks{Version~1.5 extends
-Theorem~\ref{thm:minfour} to $\min\{a,b\}\le8$; the other results and the
-numbering of version~1.4 are unchanged. Version~1.4, released as
-version~1.4.0 of~\cite{repo}, added Theorems~\ref{thm:ptwo}
-and~\ref{thm:minfour} (exponents of equal parity, one of them at most~$4$)
-and Sections~\ref{sec:column}--\ref{sec:minfour} to version~1.2
-(release~1.2.0). It renumbered the statements after Theorem~\ref{thm:onem}
-and moved the section on verification to Section~\ref{sec:verif};
-Theorem~10, Conjecture~12 and Proposition~13 of version~1.2 are now
-Theorem~\ref{thm:sign}, Conjecture~\ref{conj:equal} and
-Proposition~\ref{prop:cert}. The results of version~1.2 are unchanged.}}
+$p^{2r}3^{2s+1}$, $pq^m$ and $p^2q^b$\thanks{\emph{Version~2.} Every result of
+this version is formally verified in Lean~4 (Section~\ref{sec:verif});
+version~1.5, the previous one, was only partly formalised. Version~2 narrows
+the results on exponents of equal parity: Theorem~\ref{thm:minfour} is now
+stated for $\min\{a,b\}\le2$, the other exponent being arbitrary, instead of
+$\min\{a,b\}\le8$. The case $3\le\min\{a,b\}\le8$ of that theorem and
+Proposition~15 of version~1.5 rested on computer calculations and have no
+formal proof, so they are withdrawn; the withdrawal does not report an error in
+those calculations. Other claims without a formal proof, mainly the
+computational cross-checks of version~1.5, are deleted. The numbers of the
+remaining statements are unchanged, and the number~15 is not used. The main
+changes are listed at the end of Section~\ref{sec:verif}. Earlier versions
+remain available in the releases of~\cite{repo}: version~1.5 in~1.5.0,
+version~1.4 in~1.4.0 and version~1.2 in~1.2.0. Theorem~10, Conjecture~12 and
+Proposition~13 of version~1.2 are Theorem~\ref{thm:sign},
+Conjecture~\ref{conj:equal} and the withdrawn Proposition~15.}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
-\date{September 2026}
+\date{Version~2, 8 November 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -49,24 +64,26 @@ sign matrices under weighted Ramanujan transforms. We prove it with a path
 identity and an explicit potential function, and the same argument gives a
 semidefinite-free proof of the theorem of Jiang and Yang. For exponents of
 equal parity the checkerboard set contains $n$ and is not admissible. We
-conjecture the maximal energy in this case, with two maximisers, and prove
-the conjecture when one of the exponents is $1$ or $2$ and $p,q$ are any
-distinct odd primes; for $n=pq$ it also follows from known energy formulas.
+determine the maximal energy, and its two maximisers, when one of the exponents
+is $1$ or $2$, for all distinct odd primes $p,q$, including $3$, the other
+exponent being arbitrary; for $n=pq$ it also follows from known energy formulas.
 For example, for $n=p^2q^b$ with $b$ even the maximal energy is
 $\frac12[n+(5p^2-8p+4)\,d_b(q)]-(p^2-2p+2)\,\delta_b(q)$, where $d_b$ and
 $\delta_b$ are explicit polynomials, and it is attained exactly by
 $\{p^iq^j: i+j\text{ odd}\}$ and $\{p^iq^j: i+j\text{ even}\}\setminus\{n\}$.
 With the opposite-parity case, this determines the maximal energy for every
-order $p^aq^b$ with $\min\{a,b\}\le2$. A computer-assisted extension of the
-argument, whose certificates were checked by three independently written
-programs, proves the conjecture also when one of the exponents is at
-most~$8$. The main
-theorem, the two sign-matrix inequalities, the energy formula for these
-graphs and the theorems for exponents $1$ and $2$ are formally verified in
-Lean~4; the closed-form evaluation of the maximal energies and the
-computer-assisted results are not formalised. The proofs were found by AI
-coding agents working under the author's direction; their role is described
-at the end of the paper.
+order $p^aq^b$ with $\min\{a,b\}\le2$. Version~1.5 of this paper also claimed
+the range $3\le\min\{a,b\}\le8$ by a computer-assisted argument; version~2
+withdraws that claim, because it has no formal proof, and keeps only a
+conditional reduction (Proposition~\ref{prop:reduction}). Jiang and
+Yang~\cite{jy2} have since stated the corresponding formula,
+$\frac12[n+d_a(p)d_b(q)]-\delta_a(p)\delta_b(q)$, and the same description of the
+two maximisers, for all exponents of equal parity and distinct primes $p,q\ge5$; their
+statement does not include the prime~$3$. All the mathematics of this paper,
+including the closed forms of $d_k$ and $\delta_k$, is formally verified in
+Lean~4; statements about the literature are not. The proofs were found by AI
+coding agents working under the author's direction; their role is described at
+the end of the paper. No human mathematician has reviewed this paper.
 \end{abstract}
 
 \section{Introduction}
@@ -112,18 +129,18 @@ Rold\'an's conjecture for all distinct odd primes. Schreib~\cite{schreib}
 gives a written proof of the case $q=3$ and combines it with~\cite{jy} to
 obtain the conjecture.
 An arithmetic certificate for $n=27p^2$ was announced in~\cite{tru}. These
-works concern only the exponents $(2,3)$, and we are not aware of any earlier
-treatment of the case $q=3$ for general $r$ and $s$.
+works concern only the exponents $(2,3)$, and, when Theorem~\ref{thm:main} was
+released in version~1.1.0 of~\cite{repo} on 26 September 2026, we were not aware
+of any earlier treatment of the case $q=3$ for general $r$ and $s$.
 
 If the two exponents have the same parity, the checkerboard set contains $n$
-itself and is not a set of proper divisors, and the maximiser changes. For
-this case we state a conjecture (Conjecture~\ref{conj:equal}), with two
-maximisers and an explicit maximal energy. We prove it when one of the
-exponents equals~$1$ or~$2$, and, with computer assistance, when one of them
-is between $3$ and~$8$. For $n=p^aq^b$, a set written as $\{p^iq^j:\ \dots\}$
-consists of the divisors $p^iq^j$ of $n$ ($0\le i\le a$, $0\le j\le b$) with
-the stated property, and $\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)$
-(Remark~\ref{rem:closed}).
+itself and is not a set of proper divisors, and the maximiser changes.
+Conjecture~\ref{conj:equal}, stated in earlier versions of this paper, gives two
+maximisers and an explicit maximal energy for this case. We prove it when one of
+the exponents equals~$1$ or~$2$. For $n=p^aq^b$, a set written as
+$\{p^iq^j:\ \dots\}$ consists of the divisors $p^iq^j$ of $n$ ($0\le i\le a$,
+$0\le j\le b$) with the stated property, and
+$\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)$ (Remark~\ref{rem:closed}).
 
 \begin{theorem}\label{thm:onem}
 Let $p,q$ be distinct odd primes, let $m\ge1$ be odd, and let $n=pq^m$. The
@@ -157,54 +174,82 @@ $\tfrac12\bigl[n+(5q^2-8q+4)\,d_b(p)\bigr]-(q^2-2q+2)\,\delta_b(p)$, attained
 exactly by the two sets with the same description.
 \end{theorem}
 
-Here $5x^2-8x+4=d_2(x)$ and $x^2-2x+2=\delta_2(x)$, so
-Theorems~\ref{thm:onem} and~\ref{thm:ptwo} are the cases $\min\{a,b\}=1$
-and $\min\{a,b\}=2$ of Conjecture~\ref{conj:equal}. Theorem~\ref{thm:ptwo}
-contains the exponent pairs $(2,2)$, $(2,4)$, $(2,6)$, $(2,8)$ and their
-transposes, which were previously covered only by the computer-assisted
-certificates of Proposition~\ref{prop:cert}. Its proof gives a sign-matrix
-inequality for all real $p\ge5$, $q\ge3$ and for $p=3$, $q\ge5$
-(Theorem~\ref{thm:signB}). The same method, with a computer-assisted step,
-gives the following.
+Here $5x^2-8x+4=d_2(x)$ and $x^2-2x+2=\delta_2(x)$. The proof of
+Theorem~\ref{thm:ptwo} gives a sign-matrix inequality for all real $p\ge5$,
+$q\ge3$ and for $p=3$, $q\ge5$ (Theorem~\ref{thm:signB}). Since also
+$3x-4=d_1(x)$ and $x-2=\delta_1(x)$, Theorems~\ref{thm:onem} and~\ref{thm:ptwo}
+together give the following.
 
 \begin{theorem}\label{thm:minfour}
 Let $p,q$ be distinct odd primes, let $a,b\ge1$ with $a+b$ even and
-$\min\{a,b\}\le8$, and let $n=p^aq^b$. The maximal energy of an integral
+$\min\{a,b\}\le2$, and let $n=p^aq^b$. The maximal energy of an integral
 circulant graph of order $n$ is
 $\tfrac12\bigl[n+d_a(p)\,d_b(q)\bigr]-\delta_a(p)\,\delta_b(q)$, and it is
 attained exactly by the sets $\{p^iq^j:\ i+j\ \text{odd}\}$ and
-$\{p^iq^j:\ i+j\ \text{even}\}\setminus\{n\}$. For $3\le\min\{a,b\}\le8$
-the proof is computer-assisted, and it is not formalised in Lean.
+$\{p^iq^j:\ i+j\ \text{even}\}\setminus\{n\}$.
 \end{theorem}
 
-For $\min\{a,b\}\le2$ this is Theorem~\ref{thm:onem} or
-Theorem~\ref{thm:ptwo}. For $3\le\min\{a,b\}\le8$, the method of
-Theorem~\ref{thm:ptwo} reduces the claim, separately for each of these
-exponents and for all values of the other exponent at once, to a finite list
-of inequalities between explicit rational functions of $p$ and $q$. We
-verified these lists by exact computer calculation with three independently
-written programs, two of them written by referee agents
-(Section~\ref{sec:minfour}). Proposition~\ref{prop:cert} gives an
-independent check of eleven of the exponent pairs.
+This is Theorem~\ref{thm:onem} if $\min\{a,b\}=1$ and Theorem~\ref{thm:ptwo} if
+$\min\{a,b\}=2$; the other exponent is arbitrary, and the prime~$3$ is allowed.
+Version~1.5 stated this theorem for $\min\{a,b\}\le8$; see the footnote on the
+title page.
 
 Theorems~\ref{thm:jy} and~\ref{thm:main} cover every order whose exponents
 have opposite parity. So Theorems~\ref{thm:jy}--\ref{thm:minfour} determine
 the maximal energy, and all maximisers, for every order $p^aq^b$ with
-$\min\{a,b\}\le8$, where $p,q$ are distinct odd primes; for
-$\min\{a,b\}\le2$ the proof does not depend on a computer. The conjecture
-remains open when $\min\{a,b\}\ge9$. Our searches for earlier work on
-exponents of equal parity were made on 26 September 2026, between 03:37 and
-04:32 UTC, in arXiv, OpenAlex, Semantic Scholar, Google Scholar, web search
-engines, and GitHub code, issues, pull requests and commits, including the
-repositories of~\cite{park,schreib,tru}; an incremental search of arXiv,
-OpenAlex and GitHub followed between 05:53 and 05:58 UTC. They found no
-earlier determination of the maximal energy for such orders; for $n=pq$ it
-can be derived from known energy formulas (Remark~\ref{rem:pq}). A final
-check on 26 September 2026 between 15:49 and 15:52 UTC, repeated for
-version~1.5 between 19:04 and 19:06 UTC (the arXiv, including
-the versions of~\cite{jy}; GitHub, including the issues of~\cite{tru}; MathDB;
-and MathOverflow, through the Stack Exchange API) found nothing new. This
-reports the coverage of our searches, not a guarantee of priority.
+$\min\{a,b\}\le2$, and for every order whose exponents have opposite parity,
+where $p,q$ are distinct odd primes.
+
+\paragraph{Earlier searches.} Our searches for earlier work on exponents of
+equal parity were made on 26 September 2026, between 03:37 and 04:32 UTC, in
+arXiv, OpenAlex, Semantic Scholar, Google Scholar, web search engines, and
+GitHub code, issues, pull requests and commits, including the repositories
+of~\cite{park,schreib,tru}; an incremental search of arXiv, OpenAlex and GitHub
+followed between 05:53 and 05:58 UTC. They found no earlier determination of the
+maximal energy for such orders; for $n=pq$ it can be derived from known energy
+formulas (Remark~\ref{rem:pq}). A further check on 26 September 2026 between
+15:49 and 15:52 UTC, repeated for version~1.5 between 19:04 and 19:06 UTC (the
+arXiv, including the versions of~\cite{jy}; GitHub, including the issues
+of~\cite{tru}; MathDB; and MathOverflow, through the Stack Exchange API) found
+nothing new. This reports the coverage of those searches at that time, not a
+guarantee of priority.
+
+\paragraph{Later work.} After version~1.5 was released, Jiang and
+Yang~\cite{jy2} (27 October 2026) stated in their Theorem~A that for distinct
+primes $p,q\ge5$ and $a,b\ge1$ with $a+b$ even, the maximal energy of an integral
+circulant graph of order $n=p^aq^b$ is
+$\frac12[n+d_a(p)d_b(q)-2g_a(p)g_b(q)]$, attained exactly by the two sets of
+Theorem~\ref{thm:minfour}; their $g_k$ is our $\delta_k$. So for $p,q\ge5$
+Theorem~\ref{thm:minfour} is a special case of their statement, while their
+statement does not include the prime~$3$. They add that, together with~\cite{jy},
+this determines the maximal energy and all maximisers for every order $p^aq^b$ with
+distinct primes $p,q\ge5$. We have compared the statements only.
+We have not reviewed their proof, and nothing in this paper or in its Lean
+proofs uses it. The orders of equal parity with $\min\{a,b\}\ge3$ for which one of the primes
+is~$3$ are covered neither by Theorem~\ref{thm:minfour} nor by that statement; we
+make no claim about whether they have been treated elsewhere. The earlier
+paper~\cite{jy} of Jiang and Yang was revised on 30 October 2026, with a new title
+and an extension to several odd primes; according to its abstract and its Theorem~A
+the primes with odd exponent are still required to be at least~$5$, and its
+Remark~4.2 still says that $q=3$ is not covered, so it does not include the case of
+Theorem~\ref{thm:main}. All our references to the numbering of~\cite{jy} are to its
+version~v1. A formal proof in Lean of Rold\'an's conjecture for all distinct odd
+primes, including $q=3$, was merged into the \texttt{trureturing} repository on
+20 October 2026~\cite{tru2}. It concerns only the exponents $(2,3)$, that is, the
+case $r=s=1$ of Theorems~\ref{thm:jy} and~\ref{thm:main}; we read its description,
+not its Lean code.
+
+We searched again for this version on 7 November 2026, between 06:11 and 06:43 UTC:
+the arXiv (API, and the listings of math.CO, math.NT and math.SP up to those of
+6 November 2026); Semantic Scholar, OpenAlex, Crossref, DataCite, Zenodo and zbMATH
+Open; MathDB; MathOverflow and Mathematics Stack Exchange, through the Stack Exchange
+API; GitHub commits, issues, pull requests, repositories and code; the file trees of
+29 repositories of AI-assisted mathematics, and a text search of 28 clones of such
+repositories, dated up to 6 November 2026; and web search. Apart from the works above
+we found no other work on the maximal energy of these graphs since 25 September 2026,
+and in particular no treatment of the orders of equal parity with $\min\{a,b\}\ge3$
+in which one of the primes is~$3$. These paragraphs report what we read and the
+coverage of our searches, not a guarantee of priority.
 
 Our proof replaces the semidefinite part of~\cite{jy} by
 Theorem~\ref{thm:sign} below, an inequality for sign matrices that holds for
@@ -216,8 +261,10 @@ the path identity and the potential of Sections~\ref{sec:path}
 and~\ref{sec:potential} to the two rows of the sign matrix.
 Section~\ref{sec:column} applies them to all rows of $T_a(p)Y$ at once, so
 that the states of the path are vectors built from the columns of the sign
-matrix~$Y$. With this, Section~\ref{sec:ptwo} proves Theorem~\ref{thm:ptwo}
-and Section~\ref{sec:minfour} proves Theorem~\ref{thm:minfour}.
+matrix~$Y$. With this, Section~\ref{sec:ptwo} proves Theorem~\ref{thm:ptwo},
+and Section~\ref{sec:minfour} gives a conditional reduction for larger
+exponents, of which we claim no instance. Section~\ref{sec:verif} describes the
+formal verification.
 
 \section{Weighted Ramanujan transforms}
 We use the notation of~\cite{jy}. For real $x>1$, an integer $k\ge1$ and
@@ -306,7 +353,8 @@ $(T_k(x)s_k)_k=x^kz_{-1}$ and $\operatorname{sgn}z_{-1}=(s_k)_0=1$.
 
 \begin{remark}\label{rem:closed}
 Put $\delta_k(x)=x^k\mu_{k-1}$. Solving the recursion for $\mu$ gives
-$\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)$. For $y=s_k$, every step in
+$\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)
+=x^k+2\sum_{i<k}(-1)^{k-i}x^i$. For $y=s_k$, every step in
 the proof of Lemma~\ref{lem:potential} has $y_j=-\operatorname{sgn}z_j$, so
 $|z_{j-1}|=(x-1-|z_j|)/x$; starting from $|z_{k-1}|=1=\mu_{-1}$ this gives
 $|z_j|=\mu_{k-2-j}$, and in particular
@@ -462,7 +510,7 @@ $\tfrac12[n+d_a(p)\,d_b(q)]$ is not attained, and the maximiser changes.
 By~\eqref{eq:G}, the set $\{p^iq^j: i+j\text{ odd}\}$ has energy
 $\tfrac12[n+d_a(p)\,d_b(q)]-\delta_a(p)\,\delta_b(q)$.
 
-\begin{conjecture}\label{conj:equal}
+\begin{conjecture}[stated in earlier versions; proved here only for $\min\{a,b\}\le2$]\label{conj:equal}
 Let $p,q$ be distinct odd primes, $a,b\ge1$ with $a+b$ even, and
 $n=p^aq^b$. The maximal energy of an integral circulant graph of order $n$ is
 \[
@@ -472,58 +520,24 @@ attained exactly by the sets $\{p^iq^j: i+j\text{ odd}\}$ and
 $\{p^iq^j: i+j\text{ even}\}\setminus\{n\}$.
 \end{conjecture}
 
+
 By the computation above, the first of the two sets always attains the
 conjectured value. Since $d_1(x)=3x-4$, $\delta_1(x)=x-2$,
 $d_2(x)=5x^2-8x+4$ and $\delta_2(x)=x^2-2x+2$, Theorems~\ref{thm:onem}
 and~\ref{thm:ptwo} are the cases $\min\{a,b\}=1$ and $\min\{a,b\}=2$ of the
-conjecture, and Theorem~\ref{thm:minfour} is the case $\min\{a,b\}\le8$; they
-are proved in Sections~\ref{sec:onem}, \ref{sec:ptwo}
-and~\ref{sec:minfour}. The next result is computer-assisted.
+conjecture, proved in Sections~\ref{sec:onem} and~\ref{sec:ptwo}, and
+Theorem~\ref{thm:minfour} is the case $\min\{a,b\}\le2$. We prove the conjecture
+in no other case and keep it here as a historical statement. For $p,q\ge5$ it is
+the statement of~\cite[Theorem~A]{jy2}, whose proof we have not reviewed. For orders of
+equal parity with $\min\{a,b\}\ge3$ in which one of the primes is~$3$ we make no
+claim (Section~1).
 
-\begin{proposition}\label{prop:cert}
-Conjecture~\ref{conj:equal} holds for the exponent pairs $(a,b)=(2,2)$,
-$(2,4)$, $(4,2)$, $(2,6)$, $(6,2)$, $(2,8)$, $(8,2)$, $(3,3)$, $(3,5)$, $(5,3)$
-and $(4,4)$, and all pairs of distinct odd primes $p,q$.
-\end{proposition}
-
-\begin{proof}[Proof (computer-assisted)]
-Exchanging the names of the primes transposes $X$ and does not change the
-energy, and the list of exponent pairs is closed under transposition. As one
-of two distinct odd primes is at least $5$, it therefore suffices to show,
-for each listed $(a,b)$ and all real $p\ge5$, $q\ge3$, that every
-$Y\in\{\pm1\}^{(a+1)\times(b+1)}$ with $y_{ab}=-1$ satisfies
-$G(Y)\le\Theta_{ab}:=d_a(p)\,d_b(q)-2\delta_a(p)\,\delta_b(q)$, with equality
-exactly for $Y=-s_as_b^{\mathsf T}$ and $Y=s_as_b^{\mathsf T}-2e_ae_b^{\mathsf
-T}$, the sign matrices of the two sets in the conjecture; for real $p,q$,
-$G(Y)$ is defined by the middle expression in~\eqref{eq:G}.
-
-Substitute $p=5+s$ and $q=3+t$ with $s,t\ge0$. Then every entry of $Z$ is a
-polynomial in $s$ and $t$ with integer coefficients, and so is $\Theta_{ab}$,
-because $d_k(x)$ and $\delta_k(x)=x^k+2\sum_{i<k}(-1)^{k-i}x^i$ have integer
-coefficients (Remark~\ref{rem:closed}). An entry whose coefficients are all
-$\ge0$, or all $\le0$, has a known sign on the whole region. Choose a sign
-$\varepsilon_{ij}$ for each of the other entries with $(i,j)\ne(a,b)$, and
-let $L$ be the sum of $Z_{ab}$, of the entries of known sign multiplied by
-their signs, and of the $\varepsilon_{ij}Z_{ij}$. At every point of the
-region, $G(Y)$ is the largest of these linear forms $L$. Hence, if for every
-choice of signs $\Theta_{ab}-L$ either vanishes identically or has
-nonnegative coefficients and a positive constant term, then
-$G(Y)\le\Theta_{ab}$ on the region; equality holds identically if some choice
-gives $\Theta_{ab}-L=0$, and $G(Y)<\Theta_{ab}$ everywhere otherwise. For
-each listed $(a,b)$, a computer calculation in exact integer arithmetic over
-all $2^{(a+1)(b+1)-1}$ admissible sign matrices (up to $2^{26}$) shows that
-this condition holds for every $Y$, and that some choice gives
-$\Theta_{ab}-L=0$ exactly when $Y$ is one of the two matrices above. The
-programs are described in Section~\ref{sec:verif}.
-\end{proof}
-
-Every exponent pair in Proposition~\ref{prop:cert} has $\min\{a,b\}\le4$, so
-the proposition is contained in Theorem~\ref{thm:minfour}, and for the pairs
-$(2,b)$ and $(b,2)$ in Theorem~\ref{thm:ptwo}. Its proof treats each sign
-matrix separately and does not use Sections~\ref{sec:column}
-to~\ref{sec:minfour}, so it is an independent check of these cases.
-Conjecture~\ref{conj:equal} remains open when $\min\{a,b\}\ge9$; the
-smallest open exponent pairs are $(9,9)$, $(9,11)$, $(11,9)$ and $(10,10)$.
+\addtocounter{theorem}{1}% Proposition 15 of version 1.5 is withdrawn; later numbers are kept.
+\noindent The number~15 is not used in this version. Proposition~15 of
+version~1.5 stated the conjecture, by computer-assisted certificates, for eleven
+exponent pairs. It is withdrawn. Its pairs with $\min\{a,b\}=2$ are covered by
+Theorem~\ref{thm:ptwo}; the pairs $(3,3)$, $(3,5)$, $(5,3)$ and $(4,4)$ are no
+longer claimed.
 
 \begin{remark}\label{rem:pq}
 For $n=pq$, Theorem~\ref{thm:onem} gives the maximal energy $4(p-1)(q-1)$,
@@ -536,14 +550,22 @@ $K_q$ and the complete $q$-partite graph with parts of size~$p$
 (see also~\cite[Theorem~4.1]{ilicbasic}); both have energy $2p(q-1)$, and
 symmetrically for $\{q\}$ and $\{1,q\}$. Finally $\ICG_{pq}(\{1,p,q\})$ is the
 complete graph $K_{pq}$, of energy $2(pq-1)$. We have not found the maximal
-energy for $n=pq$ stated explicitly in the literature. Le and
-Sander~\cite[Theorem~2.1 and Corollary~2.1]{lesander} determined the maximum
-$\tilde E_{\max}(n)$ of the energy over \emph{multiplicative} divisor sets and
-showed $E_{\max}(n)\ge\tilde E_{\max}(n)$. For $n=pq$ equality holds, but for
-$n=pq^3$ it fails: by direct computation, $E_{\max}(5\cdot3^3)=584>512=\tilde
+energy for $n=pq$ stated explicitly in the literature, in the searches described
+in Section~1. Le and Sander~\cite{lesander} study the maximum
+$\tilde E_{\max}(n)$ of the energy over \emph{multiplicative} divisor sets; for
+their results for general~$n$ see~\cite[Theorem~2.1 and Corollary~2.1]{lesander},
+which we neither restate nor formalise. We use this only for $n=p^aq^b$: a set $\mathcal D$ is multiplicative if
+$\mathcal D=\{p^iq^j:\ i\in A,\ j\in B\}$ for some $A\subseteq\{0,\dots,a\}$ and
+$B\subseteq\{0,\dots,b\}$, which for a nonempty set of proper divisors means
+that $\mathcal D$ is a product of a set of divisors of $p^a$ and a set of
+divisors of $q^b$, and $\tilde E_{\max}(n)$ is the maximum over the
+multiplicative nonempty sets of proper divisors of~$n$. These are admissible sets,
+so $\tilde E_{\max}(n)\le E_{\max}(n)$, the maximum over all of them. For $n=pq$
+equality holds, but for $n=pq^3$ it fails: $E_{\max}(5\cdot3^3)=584>512=\tilde
 E_{\max}(5\cdot3^3)$ and $E_{\max}(3\cdot5^3)=1632>1472=\tilde
 E_{\max}(3\cdot5^3)$, and in both cases the maximisers are the
-non-multiplicative sets of Theorem~\ref{thm:onem}.
+non-multiplicative sets of Theorem~\ref{thm:onem}. The values $512$ and $1472$
+are proved in Lean; we give no written proof of them.
 \end{remark}
 
 \begin{remark}\label{rem:near}
@@ -1087,14 +1109,6 @@ $PR(PR-4)+P^2(R^2-2)+(4PR^2-2R^2-4R-2)$, where $PR\ge8$, $R\ge2$ and
 $4PR^2-2R^2-4R-2\ge2(3R+1)(R-1)>0$.
 \end{proof}
 
-Each of these inequalities also follows from the substitutions $R=4+s$,
-$P=2+t$ and $R=2$, $P=4+t$ with $s,t\ge0$: in both cases the left side minus
-the right side is a polynomial in $s$ and $t$ with nonnegative coefficients
-and a positive constant term. This is how they are proved in the Lean
-formalisation (Section~\ref{sec:verif}), where $R$ and $P$ are named $P$
-and $Q$, respectively, $s$ and $t$ are written as squares, and (iii)--(vi)
-and (viii) appear multiplied by~$2$.
-
 \begin{lemma}\label{lem:fd1}
 Let $b$ be even, $0\le J<b$, $\mu=\mu_{J-1}$ and $m=\mu_{b-2-J}$. For every
 $c\in\{\pm1\}^3$ other than $-s_2$, $\psi_\mu(c,ms_2)>2x\delta_2(p)\rho$.
@@ -1256,31 +1270,25 @@ $G(Y^+)=\Theta$ by Lemma~\ref{lem:eqgen}.
 \end{proof}
 
 \begin{remark}\label{rem:tightB}
-The argument has little room in two families. For $b=2$, $q=3$ and
+Two families have explicit gaps. For $b=2$, $q=3$ and
 $Y=s_2(1,1,-1)^{\mathsf T}$, which is case~(a) of Lemma~\ref{lem:fd1} with
 $J=0$, we have $\Theta-G(Y)=4(p-3)$ (Remark~\ref{rem:near}). For $p=3$ and
 $Y=(1,1,-1)^{\mathsf T}s_b^{\mathsf T}$, whose columns are $\pm g_2$, we have
 $\Theta-G(Y)=2\bigl(d_b(q)-5\delta_b(q)\bigr)$, which is $4(q-3)$ for $b=2$.
-Both differences are small compared with $\Theta$ when $p$, respectively $q$,
-is large.
 \end{remark}
 
-\section{Proof of Theorem~\ref{thm:minfour}}\label{sec:minfour}
-For $\min\{a,b\}\le2$, Theorem~\ref{thm:minfour} is Theorem~\ref{thm:onem}
-or Theorem~\ref{thm:ptwo}, after exchanging the names of the primes if
-necessary. Let $3\le\min\{a,b\}\le8$; exchanging the names of the primes if
-necessary, we may assume that the exponent $a$ of~$p$ satisfies
-$3\le a\le8$. As in the
-proof of Theorem~\ref{thm:ptwo}, it suffices to show, for all real $p,q$
-satisfying~\eqref{eq:regions} and all $b\ge1$ with $b\equiv a\pmod2$, that
-every $Y\in\{\pm1\}^{(a+1)\times(b+1)}$ with $y_{ab}=-1$ satisfies
-$G(Y)\le\Theta$, with equality exactly for $Y^-$ and $Y^+$. We use the
-notation of Section~\ref{sec:column}. The proof of Theorem~\ref{thm:signB}
-used $a=2$ only in Lemmas~\ref{lem:colS}, \ref{lem:fd1} and~\ref{lem:fd2}
-and in the list~\eqref{eq:Deltas} of the possible last columns.
-Proposition~\ref{prop:reduction} below replaces them by finitely many
-inequalities that do not depend on~$b$; for $3\le a\le8$ these were
-verified by computer.
+\section{A conditional reduction for larger exponents}\label{sec:minfour}
+This section proves no case of Conjecture~\ref{conj:equal} beyond
+Theorem~\ref{thm:minfour}. We use the notation of Section~\ref{sec:column}.
+For a fixed exponent $a\ge2$ of~$p$, and for all real $p,q$
+satisfying~\eqref{eq:regions} in one of its two regions,
+Proposition~\ref{prop:reduction} deduces the following conclusion from the
+conditions (S$_a$), (F$_a$) and (C$_a$), which do not depend on~$b$: for all
+$b\ge1$ with $b\equiv a\pmod2$, every $Y\in\{\pm1\}^{(a+1)\times(b+1)}$ with
+$y_{ab}=-1$ satisfies $G(Y)\le\Theta$, with equality exactly for $Y^-$ and~$Y^+$.
+The proposition is conditional. We do not claim that its conditions hold for
+any $a\ge3$; version~1.5 verified them for $3\le a\le8$ by computer, and that
+verification is not part of this version.
 
 Let $\mathcal R_1$ and $\mathcal R_2$ be the two sets of pairs $(p,q)$
 in~\eqref{eq:regions}, and put $P_{\min}=2$ on $\mathcal R_1$ and
@@ -1398,375 +1406,319 @@ $1\le i\le k$.
 \end{itemize}
 \end{proof}
 
-\paragraph{The certificates.} For $3\le a\le8$ we verified (S$_a$),
-(F$_a$) and (C$_a$) on both regions by exact computer calculation. The
-entries of $M$, $Mc$, $\alpha$ and $Mg$ are polynomials in $p$, while
-$\mu_0$, $\mu_\infty$, $\mu_1$ and the maps $\eta_n$ are rational in $q$.
-Consider (F$_a$) for a fixed $c$ and one of the families of triples in
-$\mathcal F_a$. The programs first certify the sign of every entry of $Mc$
-and of $\alpha$ on the region, and they stop if a sign is not constant. By
-the values of $h_\mu$ in Section~\ref{sec:onem} and~\eqref{eq:hmore}, minus
-the cell $h_\mu((Mc)_i,m\alpha_i)$ then equals $-2\mu m|\alpha_i|$ if
-$(Mc)_i=0$; $0$ if $\alpha_i=0\ne(Mc)_i$;
-$2\min\{(P-\mu)m|\alpha_i|,\ P|(Mc)_i|-\mu m|\alpha_i|\}$ if
-$(Mc)_i\alpha_i>0$; and $-2\mu\max\{0,\ m|\alpha_i|-P|(Mc)_i|\}$ if
-$(Mc)_i\alpha_i<0$. So $\psi_\mu(c,ms_a)-2x\delta_a(p)r$ is a minimum of
-finitely many functions, each affine in $\mu$ for fixed $m$ and affine in $m$
-for fixed $\mu$; it is therefore concave in each variable, and its minimum
-over each family is attained at a corner, where $\mu$ and $m$ take values
-among $\mu_0$, $\mu_\infty$, $\mu_1$ and $1$. At a corner it is positive
-exactly when each of the finitely many branches, obtained by choosing one
-term in every minimum, is positive. Each branch is a rational function of $p$
-and $q$ whose denominator is a product of powers of $x$ and $x+1$. It is
-certified positive by substituting $p=5+s$, $q=3+t$ on $\mathcal R_1$, or
-$p=3$, $q=5+t$ on $\mathcal R_2$, and checking that the numerator is a
-polynomial in $s,t$ with nonnegative coefficients and a positive constant
-term. Condition (C1) is treated in the same way, with the parameter $y$, on
-which the sum over the chain and $\eta_{k+1}(y)$ depend affinely. Conditions
-(S$_a$), (C2) and (C3), and the sign of $\Delta(g)-2\delta_a(p)$ for each
-last column $g$, are certified directly by the same coefficient test; as
-(C2) is affine in $y$, it is checked at the endpoints of its interval.
+\section{Formal verification}\label{sec:verif}
+All the results are formally verified in Lean~4 (version 4.34.1) with
+Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}). Each mathematical claim of
+version~2 is a statement of Table~\ref{tab:lean}, a definition, a step of a
+written proof of one of them, or an observation that is immediate from the
+definitions. Statements about the literature are marked by their citations and
+are not formal. Where the paper gives no written proof, the result rests on the
+formal proof alone: Proposition~\ref{prop:model} and the Ramanujan-sum formula and
+row sums of Section~2, which it cites from~\cite{jy}; and, in
+Remark~\ref{rem:pq}, the energies of the graphs for $n=pq$, the identification of
+these graphs, the values $512$ and $1472$ and the fact that the maximisers are not
+multiplicative.
 
-The last columns that need (C$_a$) are $(-1,1,1,-1)$ and $(-1,-1,1,-1)$ for
-$a=3$, together with $(1,1,1,-1)$ on $\mathcal R_2$, and $(1,1,-1,1,-1)$,
-$(1,-1,1,1,-1)$ and $(1,-1,-1,1,-1)$ for $a=4$, together with
-$(-1,-1,1,1,-1)$ on $\mathcal R_2$; every other last column $g$ with
-$g_a=-1$, other than $-(-1)^as_a$ and $g_+$, has $\Delta(g)>2\delta_a(p)$ on
-the region. The program
-\texttt{generic\_prover.py}, with the parallel driver
-\texttt{generic\_prover\_fast.py}, generates the branches for (F$_a$) and
-(C1) and certifies them with SymPy: for $a=3$ there are $4\,056$ for
-(F$_3$) and $10\,140$ for (C1), $14\,196$ in all, and for $a=4$ there are
-$15\,648$ and $54\,768$, $70\,416$ in all. It checks (S$_a$), (C2) and (C3)
-directly. All certificates succeed. The program \texttt{generic\_fast2.py}
-repeats the computation with its own exact integer arithmetic for
-polynomials over the denominators $x^k(x+1)^l$, and obtains the same lists,
-again without failures. Independently, a referee agent wrote
-\texttt{c3\_certify.py} (with \texttt{r2poly.py}). It does not use the
-formula for the cells above, but expands every cell from the definition of
-$h_\mu$, splitting each absolute value whose sign is not constant on the
-region into its two branches, and it evaluates every certified expression at
-a random rational point as a check. It certifies the complete conditions for
-$a=3$ and $a=4$ without failures. As negative controls, it rejects them when
-the right-hand side of (F$_a$) is multiplied by $\frac54$, and on regions
-enlarged to contain $p=q=3$.
+\paragraph{Statements before formal proofs.}
+On 27 September 2026 a Claude Code agent (model Claude Opus~5.5) wrote a first
+Lean statement file from version~1.5, with known-answer tests of its definitions,
+and an independent Claude Code agent (same model) reviewed it. The second version
+of the file, with $33$ statements and $84$ known-answer tests, was reviewed by a
+Codex agent that had not written it, and it was frozen on 27 September 2026 at
+21:35~UTC. By 28 September 2026 Codex had proved $29$ of them. The other four
+were \texttt{Theorem5} ($\min\{a,b\}\le8$), \texttt{Proposition15},
+\texttt{Proposition31} and \texttt{Certificates} (that the conditions of
+Proposition~\ref{prop:reduction} hold for $3\le a\le8$). That file and the record of
+the $29$ accepted statements are kept.
 
-The SymPy program \texttt{generic\_prover.py} was run only for $a\le4$. For
-$a=5$, $6$, $7$ and~$8$ the lists were generated and certified by
-\texttt{generic\_fast2.py}, with $69\,368$, $259\,104$, $1\,129\,336$ and
-$4\,182\,048$ branches for (F$_a$) and $381\,524$, $2\,202\,384$,
-$11\,858\,028$ and $54\,366\,624$ for (C1), and independently by
-\texttt{c3\_certify.py}, all without failures.
-The last columns that need (C$_a$) number $4$, $5$, $6$ and~$7$ on
-$\mathcal R_1$ and $7$, $12$, $15$ and~$19$ on $\mathcal R_2$; they are
-listed in the logs of \texttt{c3\_certify.py} and \texttt{rv3\_certify.py}
-(directories \texttt{review2/logs} and \texttt{review3/logs} of~\cite{repo}), and every other last column $g$ with $g_a=-1$, other
-than $-(-1)^as_a$ and $g_+$, satisfies $\Delta(g)>2\delta_a(p)$ on the
-region. A third program, \texttt{rv3\_certify.py}, was written by another
-referee agent. It builds $T_a(p)$ from the Ramanujan-sum definition,
-enumerates the conditions of Proposition~\ref{prop:reduction} from its
-statement, evaluates each cell by the case analysis in the proof of
-Lemma~\ref{lem:cell}, and checks a sample of the certified expressions
-against a direct evaluation from the definitions at random exact points. It
-certifies (S$_a$), (F$_a$) and (C$_a$) for $2\le a\le8$ on both regions
-without failures. For $5\le a\le8$ this referee also checked, item by item,
-that \texttt{generic\_fast2.py} certifies every instance of (F$_a$) and (C1)
-that Proposition~\ref{prop:reduction} requires, and that the three programs
-select the same last columns. As negative controls for $5\le a\le8$, the
-certificates of \texttt{rv3\_certify.py} fail when $2\delta_a(p)$ is
-replaced by $2.002\,\delta_a(p)$, exactly at the conditions that correspond
-to~$Y^+$; they also fail for $b$ of the other parity, and on regions
-containing $p=q=3$ or, for $a\le7$, $q=2$.
+On 6 November 2026 the author decided to narrow the paper to
+$\min\{a,b\}\le2$ rather than formalise the certificates. OpenAI Codex then wrote
+the present statement files. Compared with the frozen file, apart from comments,
+they replace \texttt{Theorem5} by \texttt{Theorem5MinTwo} and delete
+\texttt{Proposition15} and \texttt{Certificates}; every other definition and
+statement is unchanged, including \texttt{Proposition31} for general~$a$. They add
+$20$ statements on details of the text. Two Codex agents that had not written the
+files reviewed the statements and the scope, a third review followed after the
+files had been compiled, and the $51$ statements were frozen on 7 November 2026 at
+03:05~UTC, with the $84$ tests (their statements word for word; six lines of their
+proofs were changed to remove warnings) and $10$ regression tests. The order was
+not strict: the proofs of the $29$ statements, and the older Lean modules they use,
+were written before these files, and the $20$ added statements were written after
+those proofs.
 
-These programs and their logs are in the directory
-\texttt{certificates/\allowbreak icg-equal-parity/\allowbreak theorems-b-c}
-of~\cite{repo}, the referee agents' programs in its subdirectories
-\texttt{review2} and \texttt{review3}. The proof of
-Theorem~\ref{thm:minfour} for $3\le\min\{a,b\}\le8$ rests on these
-computations; it is not formalised.
+\paragraph{Formal proofs.}
+The proofs are in files that import the statement files and do not modify them.
+The modules \texttt{Research/ICG*} go back to the Lean formalisation of the earlier
+versions of this paper, written, according to the disclosure of those versions, by
+Claude Code agents. On 27 and 28 September 2026
+Codex proved $29$ of the $33$ statements in further modules that use them. On
+6 and 7 November 2026 Codex moved these proofs to Lean modules under
+\texttt{Research/Backfill/Paper1/}, with small compatibility changes (import paths
+and the names of deprecated lemmas), and proved \texttt{Theorem5MinTwo}, the $20$
+added statements and \texttt{Proposition31}. For Proposition~\ref{prop:reduction} it
+started from drafts written in September 2026. A review of the coverage
+of the text then found that two formulas of written proofs had no named Lean
+statement: the path, signs and last entry for $Y^+$ in the proof of
+Lemma~\ref{lem:eqgen}, and the monotonicity of $f$ in the proof of
+Lemma~\ref{lem:ineq}. Four lemmas (\texttt{plus\_zeta\_closed},
+\texttt{plus\_signed\_cell\_closed}, \texttt{plus\_terminal\_closed} and
+\texttt{ratio\_monotonicity}) were added for them; their statements were reviewed
+before they were proved. They are not counted among the $51$ statements.
 
-\paragraph{Checks.} For $a=3$ and $a=4$ the conclusion of
-Proposition~\ref{prop:reduction} was also checked directly from
-$Z=MYN^{\mathsf T}$, by complete enumeration of the sign matrices of the
-shapes $(3,7)$ at $(p,q)=(5,3)$, $(3,5)$ and $(7,3)$, with $2^{31}$ matrices
-each, and $(4,6)$ at $(5,3)$ and $(3,5)$, with $2^{34}$ matrices each
-(\texttt{t7\_brute\_numpy.py}). For larger $b$ we used an exact
-branch-and-bound search (\texttt{bnb.py}). It bounds $G$ with
-Lemmas~\ref{lem:colid} and~\ref{lem:onecol}, checks (S$_a$) exactly at the
-given parameters, and recomputes every sign matrix it reports from the matrix
-model. It agreed with complete enumeration in all $41$ comparisons made
-(\texttt{t5\_bnb\_validate.py}). In $786$ runs at integer and rational points
-of both regions (\texttt{t6\_bnb\_runs.py}, \texttt{t9\_bnb\_random.py}), for
-the shapes $(3,b)$ with odd $b\le21$ or $b\in\{25,31,41\}$ and $(4,b)$ with
-even $b\le16$ or $b\in\{20,30,40\}$, it found the maximum $\Theta$, attained
-exactly at $Y^-$ and $Y^+$.
+\paragraph{What is proved.}
+The module \texttt{FinalContractAudit} states each of the $51$ statements of
+Table~\ref{tab:lean} with its exact frozen type, proves it by the theorem
+\texttt{CodexPaper1.check\_X} of the proof files, where \texttt{X} is the name of the
+statement, and prints its axioms. It does the same for the four lemmas above and
+for the calibration $\E(\ICG_3(\{1\}))=4$, which is computed from the actual graph
+and checks that the formal energy is not a trivial function.
 
-For $5\le a\le8$ the conclusion of Proposition~\ref{prop:reduction} was
-checked by an exact branch-and-bound search (\texttt{rv3\_bnb.py}, written
-independently of \texttt{bnb.py}) in $208$ runs on the shapes $(5,5)$,
-$(5,7)$, $(7,5)$, $(5,9)$, $(5,11)$, $(6,6)$, $(6,8)$, $(8,6)$, $(6,10)$,
-$(7,7)$, $(7,9)$, $(8,8)$, $(8,10)$, $(5,25)$, $(6,20)$, $(7,15)$
-and~$(8,16)$, at prime and rational points of both regions. In every run the
-maximum is $\Theta$, attained exactly at $Y^-$ and $Y^+$. The search was
-validated against complete enumeration (\texttt{rv3\_brute.py}) for the
-shapes $(5,1)$, $(5,3)$, $(6,2)$, $(7,1)$, $(7,3)$ and $(8,2)$, with up
-to~$2^{31}$ matrices. The case analysis in the proof of
-Proposition~\ref{prop:reduction} was also replayed in exact arithmetic
-(\texttt{rv3\_replay.py}) on $1\,600$ random sign matrices with
-$5\le a\le8$ and $b\le13$, at rational points of both regions, and every
-step held.
+\begin{table}[ht]\centering\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.47\textwidth}
+ >{\raggedright\arraybackslash}p{0.47\textwidth}@{}}\toprule
+In the paper & Lean statement\\\midrule
+Theorems~\ref{thm:jy}, \ref{thm:main} & \texttt{Theorem1}, \texttt{Theorem2}\\
+Section~1: opposite parity, all distinct odd primes &
+ \texttt{SummaryOppositeParity}\\
+Theorems~\ref{thm:onem}, \ref{thm:ptwo} & \texttt{Theorem3}, \texttt{Theorem4}\\
+Theorem~\ref{thm:minfour} & \texttt{Theorem5MinTwo}\\
+Section~1: every order with $\min\{a,b\}\le2$ & \texttt{CompleteMinTwo}\\
+Section~2: Ramanujan sums; symmetry and row sums & \texttt{RamanujanEntry},
+ \texttt{TransformRows}\\
+Proposition~\ref{prop:model} & \texttt{Proposition6}\\
+Section~3: the path is linear and convex & \texttt{PathLinear},
+ \texttt{PathConvex}\\
+Lemma~\ref{lem:path} and its proof & \texttt{Lemma7}, \texttt{PathCoordinates}\\
+Section~4 and~\eqref{eq:murange}: bounds on $\mu_j$ & \texttt{MuBounds}\\
+Lemma~\ref{lem:potential} & \texttt{Lemma8}\\
+Remark~\ref{rem:closed} & \texttt{Remark9}, \texttt{AlternatingPath}\\
+Lemmas~\ref{lem:cell}, \ref{lem:local} & \texttt{Lemma10}, \texttt{Lemma11}\\
+Theorem~\ref{thm:sign}, Remark~\ref{rem:swap} & \texttt{Theorem12},
+ \texttt{Remark13}\\
+Section~\ref{sec:equal}: formula~\eqref{eq:G} & \texttt{GeneralGNorm},
+ \texttt{GeneralEqG}\\
+Section~\ref{sec:equal}: the value of the first set; the bound is not attained &
+ \texttt{Section8OddSet}\\
+Remark~\ref{rem:pq} & \texttt{Remark16}, \texttt{PQGraphModels},
+ \texttt{MultiplicativeBridge}, \texttt{MultiplicativeMaxComparison}\\
+Remark~\ref{rem:near} & \texttt{Remark17}, \texttt{NearExampleDetails}\\
+Sections~\ref{sec:onem}, \ref{sec:column}: \eqref{eq:RP}, \eqref{eq:regions} and
+ consequences & \texttt{ParameterRegions}\\
+Section~\ref{sec:onem}: \eqref{eq:muinf} & \texttt{MuClosedParity} (and \texttt{MuBounds} above)\\
+Lemmas~\ref{lem:realpot}, \ref{lem:noncorner}, \ref{lem:paritydefect} &
+ \texttt{Lemma18}, \texttt{Lemma19}, \texttt{Lemma20}\\
+Sections~\ref{sec:onem}, \ref{sec:column}: values of $h_\mu$, \eqref{eq:hmore},
+ \eqref{eq:hneg} & \texttt{CellValues}, \texttt{CellStrictBoundary}\\
+Section~\ref{sec:column}: \eqref{eq:Mfacts}, \eqref{eq:Afacts} &
+ \texttt{MatrixFacts}, \texttt{MatrixBounds}\\
+Lemmas~\ref{lem:colid}, \ref{lem:onecol}, \ref{lem:chain}, \ref{lem:eqgen} &
+ \texttt{Lemma21}, \texttt{Lemma22}, \texttt{Lemma23}, \texttt{Lemma24}\\
+Theorem~\ref{thm:signB} & \texttt{Theorem25}\\
+Lemmas~\ref{lem:colS}, \ref{lem:ineq}, \ref{lem:fd1}, \ref{lem:fd2} &
+ \texttt{Lemma26}, \texttt{Lemma27}, \texttt{Lemma28}, \texttt{Lemma29}\\
+Remark~\ref{rem:tightB} & \texttt{Remark30}\\
+Proposition~\ref{prop:reduction} & \texttt{Proposition31}\\
+\bottomrule
+\end{tabular}
+\caption{The $51$ statements of version~2. The $29$ whose names begin with
+\texttt{Theorem}, \texttt{Lemma}, \texttt{Remark} or \texttt{Proposition}, together
+with \texttt{SummaryOppositeParity} and \texttt{Section8OddSet} ($31$ in all), are in the namespace
+\texttt{BackfillPaper1.Challenge}; the other $20$ are in
+\texttt{BackfillPaper1.NarrowSupplement}.}\label{tab:lean}
+\end{table}
 
-\section{Verification}\label{sec:verif}
-The proofs above are complete, except that the proofs of
-Proposition~\ref{prop:cert} and of the case $3\le\min\{a,b\}\le8$ of
-Theorem~\ref{thm:minfour} rest on computer calculations, described in the
-paragraph on certificates below and in Section~\ref{sec:minfour}. The
-programs and logs for Theorems~\ref{thm:ptwo} and~\ref{thm:minfour},
-including those of the three referee agents, are in the directory
-\texttt{certificates/\allowbreak icg-equal-parity/\allowbreak theorems-b-c} of~\cite{repo}. The
-following computations are independent cross-checks.
-\begin{itemize}
-\item An exhaustive search over all divisor sets, in exact integer
- arithmetic, confirms Theorem~\ref{thm:main}, including the value of the
- maximum, in the following cases:
- \begin{itemize}
- \item exponent pairs $(4,1)$, $(6,1)$, $(8,1)$, $(2,5)$, $(4,3)$, for the
-  primes $5\le p\le31$;
- \item $(10,1)$, $(12,1)$, $(2,7)$, $(6,3)$, for $p\in\{5,7,11,13,17\}$;
- \item $(14,1)$, $(4,5)$, $(2,9)$, for $p\in\{5,7,11\}$ (the largest case has
-  $2^{29}$ divisor sets).
- \end{itemize}
-\item Theorem~\ref{thm:sign} was checked in exact arithmetic over all sign
- matrices of every shape with $(a+1)(b+1)\le25$, for $(p,q)=(5,3)$, $(7,3)$
- and $(5,4)$.
-\item Each lemma was tested separately in exact arithmetic: by adversarial
- searches for small $b$, and by structured random tests of
- Lemma~\ref{lem:local} up to $b=20$.
-\item Proposition~\ref{prop:model} was compared, in floating-point
- arithmetic, with spectra of the actual circulant matrices. The fast Fourier
- transform was used for all divisor sets of the orders $n=75$, $147$, $363$,
- $675$, $1323$, $1875$ and $6075$. Dense diagonalisation was used for all
- divisor sets when $n\le675$ and for samples of them when $n=1323$, $1875$ and
- $6075$.
-\item Theorem~\ref{thm:onem} was confirmed by exhaustive searches over all
- divisor sets: in exact arithmetic, with the eigenvalues computed from
- Ramanujan sums and independently of Proposition~\ref{prop:model}, for $35$
- orders $pq^m$ with $m\in\{1,3,5,7\}$ up to $n=234375$; and with
- floating-point spectra from the fast Fourier transform for ten orders up to
- $n=9375$.
-\item The inequality $\Phi\le\Theta$ of Section~\ref{sec:onem}, with its
- equality cases, was checked in exact arithmetic over all pairs of sign
- vectors for $m\le11$ at several parameter pairs $(x,R)$. Each intermediate
- claim of its proof was checked separately for $m\le7$, including
- non-integer parameters.
-\item An exhaustive search over all divisor sets confirms
- Conjecture~\ref{conj:equal} for ten ordered pairs of odd primes and each of
- the exponent pairs $(1,1)$, $(2,2)$, $(1,3)$, $(3,1)$, $(3,3)$, $(2,4)$,
- $(4,2)$, $(4,4)$, $(1,5)$ and $(3,5)$. These cases are now covered by
- Theorems~\ref{thm:onem}, \ref{thm:ptwo} and~\ref{thm:minfour} and by
- Proposition~\ref{prop:cert}.
-\item Theorem~\ref{thm:signB} was confirmed by exhaustive maximisation of $G$
- over all sign matrices, in exact arithmetic, in $69$ runs with
- $b\in\{2,4,6,8\}$ at prime and at non-integer parameters. The main steps of
- its proof in Sections~\ref{sec:column} and~\ref{sec:ptwo} were replayed in
- exact arithmetic on all sign matrices with $b\in\{2,4\}$ at ten parameter pairs,
- including non-integer ones, and on random sign matrices with $b\in\{6,8\}$;
- the bounds in the proofs of Lemmas~\ref{lem:colS}, \ref{lem:fd1}
- and~\ref{lem:fd2} were tested at $40\,000$ random rational points of the
- parameter ranges used there.
-\item Theorem~\ref{thm:ptwo} was confirmed by exhaustive searches over all
- divisor sets of $21$ orders $p^2q^b$ with $b\in\{2,4,6\}$, up to
- $n=3^2\cdot7^6=1\,058\,841$, with the eigenvalues computed in exact
- arithmetic from Ramanujan sums, independently of
- Proposition~\ref{prop:model}.
-\item The first proof of Theorem~\ref{thm:signB} that we found treated
- Lemmas~\ref{lem:fd1} and~\ref{lem:fd2} by a finer case analysis of the
- parameters, which reduced them to $137$ corners of parameter boxes and
- $325$ polynomial inequalities with nonnegative coefficients, certified by
- computer. A referee agent re-derived and re-certified these inequalities
- independently, and all $325$ are also proved in Lean. They are not needed
- for the proof in Section~\ref{sec:ptwo}.
-\end{itemize}
+\paragraph{Checks.}
+The Lean package of version~2 has $70$ modules: the statement and test files, the
+proofs and the final audit. On 7 November 2026 (04:50--05:21~UTC) it was built from
+source in two new empty directories, one after the other, on the author's Windows
+computer. Each module was compiled and checked with \texttt{leanchecker}. All $280$
+commands, $140$ in each directory, ended with exit code~$0$ on their first attempt,
+with no error, no warning and no \texttt{sorry}. The $70$ compiled \texttt{.olean}
+files of the two directories are byte for byte identical. Mathlib and the toolchain
+were not rebuilt. In each directory, $200$ axiom listings printed by
+\texttt{\#print axioms} cover $144$ distinct declarations, and each consists of
+exactly \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. A static
+scan of the sources, outside comments, found no \texttt{sorry}, \texttt{admit},
+\texttt{native\_decide}, \texttt{bv\_decide}, \texttt{implemented\_by},
+\texttt{extern} or \texttt{unsafe}, no \texttt{axiom} declaration and no import of
+the deleted statements. Two modules keep three local options, all from the proofs of September 2026:
+\texttt{linter.unnecessarySeqFocus false} once in \texttt{ICGEqualParityBGraph} and
+\texttt{maxHeartbeats 2000000} twice in \texttt{RemarkPQFinite}. They limit how long
+Lean may work or what it warns about, and they do not change what the kernel
+accepts.
 
-\paragraph{Certificates for Proposition~\ref{prop:cert}.}
-The certificate is implemented in Python, in exact integer arithmetic, in two
-versions that share the routines building the polynomial matrices. A
-vectorised version uses $64$-bit integers, with an asserted bound that
-excludes overflow; it first applies the cheaper sufficient test in which the
-absolute value of each entry of undetermined sign is bounded by the
-polynomial with the absolute values of its coefficients, and branches over
-signs only when this test fails. A pure-Python version branches over the
-signs of the undetermined entries for every sign matrix. The vectorised
-version certified all eleven exponent pairs; the pure-Python version gave the
-same result for $(2,2)$, $(2,4)$, $(4,2)$ and $(3,3)$. An independent
-re-implementation in SymPy, which builds $T_k(x)$ from the Ramanujan-sum
-formula and recomputes the target as $G(-s_as_b^{\mathsf T})$, checking it
-against the closed form, confirmed $(2,2)$, $(2,4)$, $(4,2)$ and $(3,3)$.
-The seven larger exponent pairs were run only with the vectorised version.
-The polynomial matrices were compared with the exact matrices $T_k(x)$,
-$k\le8$, at sample points. As negative controls, the certificate is rejected
-when the target is lowered by~$1$, and, for $(a,b)=(1,1)$ and $(2,2)$, when
-the region is enlarged to $p,q\ge3$: at $p=q=3$ further sign matrices attain
-the target. Proposition~\ref{prop:cert} is not formalised.
+After both builds had ended, two Codex agents that had not written the current
+package reviewed it; neither ran Lean. One recomputed the hashes of the $656$ files
+of the evidence archive, including the $568$ build artefacts, read all $280$ logs and
+approved the machine evidence (7 November 2026, 05:28~UTC). The other read the
+statements and the central proofs, compared the statements with the frozen types and
+the text of version~1.5, checked a map from $15$ groups of paragraphs of the written
+proofs to $100$ named Lean declarations, and approved the mathematics, the statements
+and this coverage (05:34~UTC). Both had taken part in read-only reviews of earlier
+stages, and the older proofs contain earlier work by Codex, so these reviews are not
+a review by another model family.
 
-\paragraph{Formal verification.}
-Theorems~\ref{thm:sign} and~\ref{thm:signB}, and Theorems~\ref{thm:main},
-\ref{thm:onem} and~\ref{thm:ptwo} with $d_k(x)$ taken as $\|T_k(x)s_k\|_1$
-and $\delta_k(x)$ as $(T_k(x)s_k)_k$, are verified in Lean~4 (version
-4.33.1, Mathlib commit \texttt{0df444a3}). The development starts from the
-definition of the graph and of its energy:
-\begin{itemize}
-\item the adjacency matrix of $\ICG_n(\mathcal D)$ has entry~$1$ exactly when
- $\gcd((j-i)\bmod n,n)\in\mathcal D$;
-\item the energy is the sum of the absolute values of its eigenvalues, as
- given by Mathlib's spectral theorem.
-\end{itemize}
-It proves:
-\begin{itemize}
-\item Lemmas~\ref{lem:path}, \ref{lem:potential}, \ref{lem:cell}
- and~\ref{lem:local}, and Theorem~\ref{thm:sign}, for
- real $p\ge5$, $q\ge3$ and all $a,b\ge1$, together with the exchanged form of
- Remark~\ref{rem:swap};
-\item Proposition~\ref{prop:model} for all distinct primes $p,q$ and all
- exponents, from the eigenvalues of circulant matrices;
-\item the conclusion of Theorem~\ref{thm:main} and the value of the maximal
- energy, with $d_k(x)$ defined as $\|T_k(x)s_k\|_1$;
-\item the conclusion of Theorem~\ref{thm:jy} for all pairs of distinct odd
- primes, which includes Theorem~\ref{thm:main} and the case $q\ge5$;
-\item Theorem~\ref{thm:onem}, as the theorem
- \texttt{ICGEqualParity.corollaryA}. For distinct primes $p,q\ge3$ and odd
- $m$, with $n=pq^m$, $\mathcal D^-=\{p^iq^j: i+j\text{ odd}\}$ and
- $\mathcal D^+=\{p^iq^j: i+j\text{ even}\}$, it states that $\mathcal D^-$ and
- $\mathcal D^+\setminus\{n\}$ are sets of proper divisors of $n$; that
- $2\E(\ICG_n(\mathcal D^-))=n+(3p-4)\|T_m(q)s_m\|_1-2(p-2)(T_m(q)s_m)_m$;
- that $\E(\ICG_n(\mathcal D^+\setminus\{n\}))=\E(\ICG_n(\mathcal D^-))$; and
- that every set $\mathcal D$ of proper divisors of $n$ satisfies
- $\E(\ICG_n(\mathcal D))\le\E(\ICG_n(\mathcal D^-))$, with equality only if
- $\mathcal D=\mathcal D^-$ or $\mathcal D=\mathcal D^+\setminus\{n\}$. The case
- $n=p^mq$ is the same statement with the primes exchanged. The inequality
- $\Phi\le\Theta$ of Section~\ref{sec:onem}, strict except for the two
- extremal sign matrices, is proved for all real $x,R$ with $x\ge5$, $R\ge2$
- or $x=3$, $R\ge4$.
-\item Theorem~\ref{thm:ptwo}, as the theorems \texttt{theoremB} and
- \texttt{theoremB\_swap}. These names, and those in the next item, are in
- the namespace \texttt{ICGEqualParityB}. For distinct primes $p,q\ge3$,
- even $b\ge2$ and $n=p^2q^b$,
- \texttt{theoremB} states that every set $\mathcal D$ of proper divisors of
- $n$ satisfies
- \[
- \E(\ICG_n(\mathcal D))\le\tfrac12\bigl[n+(5p^2-8p+4)\|T_b(q)s_b\|_1\bigr]
- -(p^2-2p+2)\,(T_b(q)s_b)_b,
- \]
- with equality if and only if $\mathcal D=\mathcal D^-$ or
- $\mathcal D=\mathcal D^+\setminus\{n\}$, where
- $\mathcal D^-=\{p^iq^j: i+j\text{ odd}\}$ and
- $\mathcal D^+=\{p^iq^j: i+j\text{ even}\}$. The theorem
- \texttt{theoremB\_swap} is the same statement for $n=p^bq^2$, with the roles
- of $p$ and $q$ in the bound exchanged, and
- \texttt{corollaryB} restates \texttt{theoremB} in the format of the
- theorem for Theorem~\ref{thm:onem}.
-\item Theorem~\ref{thm:signB}, with its equality cases, as
- \texttt{thmB\textquotesingle}, for real $p\ge5$, $q\ge3$ or $p=3$,
- $q\ge5$. There $G(Y)$ is written as
- $\sum_{i=0}^2\|T_b(q)r_i\|_1-2\bigl((T_b(q)r_2)_b\bigr)^-$, where
- $r_0,r_1,r_2$ are the rows of $T_2(p)Y$; this is the middle expression
- in~\eqref{eq:G}. The Lean proof follows Sections~\ref{sec:column}
- and~\ref{sec:ptwo} with $a=2$. Its main steps are \texttt{prop1}
- (Lemma~\ref{lem:colid}) and \texttt{eq\_all} (the converse part of
- Lemma~\ref{lem:eqgen}) in the module \texttt{ICGEqualParityBMain};
- \texttt{lemS} (Lemmas~\ref{lem:onecol} and~\ref{lem:colS}) in the module
- \texttt{ICGEqualParityBCol}; \texttt{fd1} (Lemma~\ref{lem:fd1}) and
- \texttt{fd2a}, \texttt{fd2dom} and \texttt{two\_col}
- (Lemma~\ref{lem:fd2}) in the module \texttt{ICGEqualParityBFD}; and
- \texttt{G\_Yp} (the rest of Lemma~\ref{lem:eqgen}) in the module
- \texttt{ICGEqualParityBGraph}, which also contains \texttt{thmB\textquotesingle},
- \texttt{theoremB}, \texttt{theoremB\_swap} and \texttt{corollaryB}. In
- addition, the $325$ polynomial inequalities of the first proof mentioned
- above are proved in the modules \texttt{ICGEqualParityBCert1} to
- \texttt{ICGEqualParityBCert6}.
-\end{itemize}
-The closed forms of $d_k(x)$ and $\delta_k(x)$ in Remark~\ref{rem:closed} are
-proved above but not formalised. In the Lean statements, $d_m(q)$ and
-$\delta_m(q)$ appear as \texttt{L1 q m sgnv} and \texttt{Tv q m sgnv m},
-that is, as $\|T_m(q)s_m\|_1$ and $(T_m(q)s_m)_m$; in the theorems for
-$n=p^2q^b$, $d_b(q)$ and $\delta_b(q)$ appear in the same way, as
-\texttt{L1 q b sgnv} and \texttt{Tv q b sgnv b}. Theorem~\ref{thm:minfour}
-for $3\le\min\{a,b\}\le8$ and Proposition~\ref{prop:cert} are not
-formalised. The whole development, including the files for
-Theorems~\ref{thm:onem} and~\ref{thm:ptwo}, was rebuilt from a clean
-directory. The recorded axiom audits of
-the main results (the command \texttt{\#print axioms}) report only
-\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}; no native
-evaluation is used, and the modules were also checked with the kernel replay
-tool \texttt{leanchecker}. The code and logs are available at~\cite{repo}.
+In all, on 6 and 7 November 2026 the statement files, the development of the proofs, an earlier build of $68$
+modules in two new directories ($272$ commands) and the final build ended $713$ compile
+and check commands, of which $690$ succeeded and $23$ failed, counting warnings as
+failures; the $161$ commands outside the two builds had $138$ successes and $23$
+failures. Their logs are kept. One early run of the statement files on Windows ended with a console
+interrupt, for a reason we did not establish.
+On 7 November 2026 (06:10--17:27~UTC) Claude Code rebuilt the whole Lean project of
+the repository with these $70$ modules on the author's Windows computer, from an empty
+directory, one module at a time and not with \texttt{lake}: all $2954$ modules
+compiled, and $2953$ passed \texttt{leanchecker}. The remaining module is the root of
+the project, which has only imports and no constants, so it was not replayed. The
+computer ran out of memory during the first run: some modules of Paper~7 of the
+repository could not read compiled files, and they and the modules importing them were
+run again, with fewer modules at a time, in two further runs. No run ended in a Lean
+error, and no module of this paper was among them. The $56$ axiom lists printed by the
+final audit (the $51$ statements, one calibration and four internal lemmas) consist
+of exactly the three axioms above. This paper has not been checked with comparator or
+with an independent kernel. The statement files, the tests, the proofs and the final
+audit are in version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/Research/Backfill/Paper1/} and the modules \texttt{lean/Research/ICG*};
+the receipts of the builds are in
+\texttt{certificates/\allowbreak icg-q3-general/\allowbreak lean-package-v2/} and
+\texttt{logs/\allowbreak clean-replay-v\repoversion-receipt.json}.
+
+\paragraph{Definitions the reader must trust.}
+From Mathlib the statements use finite simple graphs and their real adjacency
+matrices, the eigenvalues of a Hermitian matrix given by the spectral theorem, graph
+isomorphisms and the complete graph, subtraction on \texttt{Fin n}, $\gcd$, proper
+divisors, divisors, primes, Euler's function, the real cosine and~$\pi$, and finite
+sets and sums. The statement files define: the relation $\gcd(u-v,n)\in\mathcal D$ on
+\texttt{Fin n} and the graph it generates (\texttt{SimpleGraph.fromRel} adds $u\ne v$
+and symmetrises); the energy as the sum of the absolute values of the eigenvalues;
+admissible sets (nonempty sets of proper divisors, \texttt{IsConnSet}, which does not
+ask the graph to be connected); \texttt{MaxEnergy} (all the listed sets are admissible,
+every admissible set has energy at most the value, with equality exactly for the
+listed sets); the sets \texttt{evenSet} and \texttt{oddSet}; distinct odd primes; the
+closed forms $d_k$ (\texttt{dClosed}) and $\delta_k$ (\texttt{deltaK}), and the norm
+$\|T_k(x)s_k\|_1$ (\texttt{dNorm}); $T_k(x)$, vectors and matrices as functions on
+$\mathbb N$ of which only the coordinates up to $k$, $a$ and $b$ are used; $\|\cdot\|_1$,
+$s_k$, the triple product $T_a(p)YT_b(q)^{\mathsf T}$ and the divisor matrix; the path
+$z_j$ and the potential $\mu_j$, with integer indices from $-1$ on, $c_j$, $\NA$ and
+$h$; $G$, $\Theta$, $Y^-$, $Y^+$ and the regions of~\eqref{eq:regions}; $\Delta$,
+$\omega_i$, $\psi_\mu$, $\zeta_j$, $\psi_j$, $g_+$ and $t^-$; $\mu_\infty$, $\eta_n$,
+$\mathcal F_a$, $I_k$, $\hat D_1$, $\hat D_2$ and the conditions (S$_a$), (F$_a$),
+(C$_a$) of Section~\ref{sec:minfour}; the finite cosine sum for $c_m(u)$
+(\texttt{ramanujanReal}); multiplicative sets and $\tilde E_{\max}$; the parameter
+ranges of Section~\ref{sec:onem}; the vectors $g_2$, $g_3$, $g_4$; and the three
+graphs on \texttt{Fin p $\times$ Fin q} of \texttt{PQGraphModels}. They also define the
+simple predicates \texttt{IsSignVec}, \texttt{IsPmAlt}, \texttt{IsSignMat},
+\texttt{IsPmCheckerboard}, \texttt{IsPm3}, \texttt{MatEq} and \texttt{col}, and name the
+statements \texttt{EqualParityClaim}, \texttt{CondAll}, \texttt{SignConclusion} and
+\texttt{Conjecture14}, the last of which is not claimed. The $84$ known-answer
+tests check these definitions on examples.
+
+\paragraph{Faithfulness and non-claims.}
+Some statements are more general than the text: \texttt{Proposition6} holds for all
+distinct primes and all sets of proper divisors, and \texttt{Lemma18} and
+\texttt{Lemma19} hold for all real $x$ above $1$ and~$2$, respectively, and for all
+$m\ge1$. \texttt{Conjecture14} is only a definition in the statement file; nothing
+proves or assumes it. \texttt{Proposition31} is the implication of
+Proposition~\ref{prop:reduction}, and no Lean statement says that its conditions hold
+for any~$a$. No Lean statement depends on~\cite{jy}, \cite{jy2}, \cite{ilic},
+\cite{ilicbasic} or~\cite{lesander}, and attributions to them occur only in comments
+of the statement file. The attributions, and the general results of Le
+and Sander for arbitrary~$n$, are not formalised, and the comparison
+\texttt{MultiplicativeMaxComparison} is only for orders $p^aq^b$. The statements say
+nothing about priority or about the searches of Section~1. The agreement of the Lean
+definitions with those of the paper was checked by the reviewing agents, not by a
+machine. Formal proofs may follow other routes than the written ones.
+
+\paragraph{Changes in version 2.}
+The title and the numbers of the remaining statements are unchanged. Apart from the
+footnote, the abstract, this section, the disclosure and the dates, version~2 differs
+from version~1.5 mainly as follows. Theorem~\ref{thm:minfour} is stated for
+$\min\{a,b\}\le2$. Section~1 no longer says that Conjecture~\ref{conj:equal} is open
+for $\min\{a,b\}\ge9$, and it reports the later work~\cite{jy2,tru2} and the revision
+of~\cite{jy}; the conjecture is kept only as a historical statement. In
+Remark~\ref{rem:closed} the polynomial form of $\delta_k$ is added, and in
+Remark~\ref{rem:pq} the definition of multiplicative sets for $n=p^aq^b$; the
+restatement of the general results of Le and Sander and the words ``by direct
+computation'' are removed. In Remark~\ref{rem:tightB} the opening and the last
+sentence, which compared the two differences with $\Theta$ without a precise bound,
+are removed; its exact formulas are kept. Section~\ref{sec:minfour} now contains only
+Proposition~\ref{prop:reduction} and its proof, which are unchanged, with a new
+heading and introduction. Deleted for lack of a formal proof: the case
+$3\le\min\{a,b\}\le8$ of Theorem~\ref{thm:minfour}; Proposition~15; the
+certificates of Section~\ref{sec:minfour} with all their counts, programs, negative
+controls and checks; and the list of cross-checks of the section on verification with
+its paragraph on certificates, including the exhaustive searches, the tests of
+lemmas, the comparison with floating-point spectra and the $325$ inequalities of an
+earlier proof of Theorem~\ref{thm:signB}. Also deleted is the paragraph after
+Lemma~\ref{lem:ineq} that described its Lean proof. The programs and logs of those
+computations remain in the earlier releases of~\cite{repo}; they are not evidence for
+this version. Version~1.5 said that the closed forms of $d_k$ and $\delta_k$ were not
+formalised; they now are (\texttt{Remark9}), and the statements of the main theorems
+use them.
 
 \section*{Tool and computational resource disclosure}
-This work was carried out between 25 and 26 September 2026 in a workflow
-directed by the author, using the AI coding agents Anthropic Claude Code
+Versions~1.1 to~1.5 of this paper were produced on 25 and 26 September 2026 in a
+workflow directed by the author, using the AI coding agents Anthropic Claude Code
 (model Claude Opus~5.5) and OpenAI Codex (desktop application; models
 \texttt{gpt-6-astra} and \texttt{gpt-6-sol}). The author chose the research
 programme and directed the agents.
 \begin{itemize}
 \item A Claude Code agent found the proof of Theorem~\ref{thm:sign} and of
  Theorem~\ref{thm:main}, formulated Conjecture~\ref{conj:equal}, and wrote
- the verification programs.
-\item Another Claude Code agent wrote the Lean formalisation.
+ verification programs.
+\item Another Claude Code agent wrote the Lean formalisation of those versions.
 \item The proof was checked line by line by a second Claude Code agent and by
  Codex, and the agents searched the literature.
 \item The results on exponents of equal parity in version~1.2,
- Theorem~\ref{thm:onem} and Proposition~\ref{prop:cert}, were found by a
+ Theorem~\ref{thm:onem} and the now withdrawn Proposition~15, were found by a
  Claude Code research agent, and Theorem~\ref{thm:onem} was checked by an
  independent Claude referee agent.
-\item The material added in version~1.4, namely
- Theorems~\ref{thm:ptwo}, \ref{thm:minfour} and~\ref{thm:signB} and
- Sections~\ref{sec:column}--\ref{sec:minfour}, was found, formalised in Lean
- (Theorems~\ref{thm:ptwo} and~\ref{thm:signB}) and drafted by Claude Code
- agents (model Claude Opus~5.5). Theorems~\ref{thm:ptwo}
- and~\ref{thm:signB} were checked by the Lean formalisation, which does not
- cover the case $3\le\min\{a,b\}\le8$ of Theorem~\ref{thm:minfour}.
- Earlier write-ups of the new proofs were checked by two independent Claude
- Code referee agents. One of them checked an earlier write-up of the proof
- of Theorem~\ref{thm:ptwo}, which used the $325$ certified inequalities
- mentioned in Section~\ref{sec:verif}; the written proof given here follows
- the Lean formalisation instead. The other referee agent checked the
- certificates for the exponents $3$ and~$4$ and an earlier write-up of the
- computer-assisted proof of Theorem~\ref{thm:minfour}, and wrote the second
- certification program.
-\item Version~1.5 extends Theorem~\ref{thm:minfour} to
- $\min\{a,b\}\le8$. The certification runs for the exponents $5$ to~$8$
- were made, and the new text was drafted, by Claude Code agents. A third
- Claude Code referee agent checked the extension to exponents $5$ to~$8$
- and wrote a third certification program.
-\end{itemize} Claude Code drafted this text. The programs and logs are
-available at~\cite{repo}.
-The author is not a professional mathematician. The author has read
-version~1.4 of the paper, including Theorems~\ref{thm:ptwo}
-and~\ref{thm:minfour} (the latter then stated for $\min\{a,b\}\le4$) and
-Sections~\ref{sec:column}--\ref{sec:minfour}, and, using a side-by-side
-table, compared the statements of the Lean theorems with the theorems stated
-there; the Lean theorems and the statements they formalise are unchanged in
-version~1.5.
-The author has also read the changes of version~1.5.
-The correctness of Theorems~\ref{thm:main}, \ref{thm:onem}, \ref{thm:ptwo},
-\ref{thm:sign} and~\ref{thm:signB} rests on the written proofs and on the
-Lean formalisation described in Section~\ref{sec:verif};
-Proposition~\ref{prop:cert} and the case $3\le\min\{a,b\}\le8$ of
-Theorem~\ref{thm:minfour} rest on the computer calculations described in
-Sections~\ref{sec:minfour} and~\ref{sec:verif}; the other independent checks
-are additional cross-checks. In addition, the arguments for
-Theorems~\ref{thm:main} and~\ref{thm:sign} were checked by AI agents of two
-different model families, the argument for Theorem~\ref{thm:onem} was checked
-by an independent Claude agent, the earlier write-ups of the proofs of
-Theorems~\ref{thm:ptwo} and~\ref{thm:minfour} were checked by two further
-independent Claude agents and the extension of Theorem~\ref{thm:minfour} to
-$\min\{a,b\}\le8$ by a third, and the formal statements of version~1.2 were
-reviewed by an agent that did not write them. AI systems are not authors
-of this paper; the author takes full responsibility for its content.
+\item The material added in version~1.4, namely Theorems~\ref{thm:ptwo},
+ \ref{thm:minfour} (then for $\min\{a,b\}\le4$) and~\ref{thm:signB} and
+ Sections~\ref{sec:column}--\ref{sec:minfour}, was found, partly formalised in Lean
+ and drafted by Claude Code agents, and earlier write-ups of the new proofs were
+ checked by two independent Claude Code referee agents.
+\item Version~1.5 extended Theorem~\ref{thm:minfour} to $\min\{a,b\}\le8$ by
+ certification runs made by Claude Code agents, and a third Claude Code referee agent
+ checked the extension. Version~2 withdraws this extension.
+\end{itemize}
+For versions~1.4 and~1.5 the author read the paper and its changes and, using a
+side-by-side table, compared the statements of the Lean theorems of that time with
+the theorems stated there.
+
+Version~2 was produced from 27 September 2026 to 8 November 2026. On
+27 September 2026 a Claude Code agent (model Claude Opus~5.5) wrote the first
+statement file of Section~\ref{sec:verif}, and an independent Claude Code agent (same
+model) reviewed it. OpenAI Codex (desktop application) reviewed its second version,
+wrote the Lean proofs of $29$ statements on 27 and 28 September 2026 and, on 6 and
+7 November 2026, the present statement files, the remaining proofs and the final
+audit, and had them reviewed as described in Section~\ref{sec:verif}. Codex's session
+records name the model \texttt{gpt-6-astra} for its work of 27 and 28 September 2026
+and \texttt{gpt-6.1-sol} for that of 6 and 7 November 2026; they do not name a
+separate model for the Codex review agents. Claude Code (model
+Claude Opus~5.5) compared version~1.5 claim by claim with the
+statements and drafted the text of version~2.
+On 7 November 2026 Claude Code rebuilt the whole Lean project of the repository on
+the author's Windows computer, and a Claude Code agent searched the literature again.
+An independent Claude Code agent (model Claude Fable~5.1), which had written none of
+the files, reviewed a draft of this paper against the statements and the evidence on
+7 November 2026, and before the release a second such agent (same model) reviewed the
+paper, the Lean package and the receipts; neither ran Lean. The corrections of both
+reviews were applied.
+Throughout, ``we'' refers to this workflow; the reading and searching described in
+the paper were done by the agents. The author is not a professional mathematician.
+The author has read version~2 of this paper and, using a side-by-side table, compared
+the statements of the Lean theorems with the results stated here.
+No human mathematician has reviewed this paper. The correctness of the results rests
+on the Lean proofs of the statements in Table~\ref{tab:lean} and on the agreement of
+those statements with the paper, which was checked by the reviewing agents; the
+written proofs are given for the reader. AI systems are not authors of this paper; the
+author takes full responsibility for its content.
 
 \begin{thebibliography}{99}
 \bibitem{repo}
 H.~Dong, \emph{ai4math-results}, repository,
-\url{https://github.com/Horace-Maxwell/ai4math-results}; archived at Zenodo,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, versions~1.1.0, 1.2.0,
+1.4.0, 1.5.0 and~\repoversion{} (2026); archived at Zenodo under the concept DOI
 \url{https://doi.org/10.5281/zenodo.22970254}.
 \bibitem{gutman}
 I.~Gutman, The energy of a graph, \emph{Ber.\ Math.-Statist.\ Sekt.\
@@ -1783,7 +1735,16 @@ multiplicativity, \emph{Linear Algebra Appl.} \textbf{437} (2012), 1408--1421,
 \url{https://doi.org/10.1016/j.laa.2012.04.012}.
 \bibitem{jy}
 J.~Jiang and C.~Yang, Energy maximisation for integral circulant graphs with
-opposite-parity exponents, arXiv:2608.29523v1, 30 August 2026.
+opposite-parity exponents, arXiv:2608.29523v1, 30 August 2026; revised as
+arXiv:2608.29523v2, 30 October 2026, with the title \emph{Ramanujan transforms and
+maximum energy of odd-total-exponent integral circulants}. The numbers of
+theorems, remarks and equations cited in this paper are those of~v1.
+\bibitem{jy2}
+J.~Jiang and C.~Yang, Maximum energy of integral circulant graphs with
+same-parity exponents, arXiv:2610.36883v1, 27 October 2026.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{CPP 2020},
+ACM, 2020, \url{https://doi.org/10.1145/3372885.3373824}.
 \bibitem{park}
 S.~Park, \emph{Exact energy maximisation for integral circulant graphs of
 order $p^2q^3$}, manuscript posted 21 August 2026,
@@ -1807,5 +1768,10 @@ The Omega Institute, \emph{Rold\'an integral-circulant energy: exceptional
 $q=3$ case}, issue \#8338 of the \texttt{trureturing} repository, opened 16
 September 2026,
 \url{https://github.com/the-omega-institute/trureturing/issues/8338}.
+\bibitem{tru2}
+The Omega Institute, \emph{Prove Rold\'an Conjecture 1.3 for integral circulant
+energy at order $p^2q^3$}, pull request \#19390 of the \texttt{trureturing}
+repository, merged 20 October 2026, merge commit \texttt{210ccfe5},
+\url{https://github.com/the-omega-institute/trureturing/pull/19390}.
 \end{thebibliography}
 \end{document}

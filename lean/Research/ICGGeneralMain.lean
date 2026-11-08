@@ -72,8 +72,8 @@ lemma sgnv_mul (c e : ℕ) : sgnv c * sgnv e = if Even (c + e) then 1 else -1 :=
   unfold sgnv
   rw [← pow_add]
   rcases Nat.even_or_odd (c + e) with h | h
-  · rw [if_pos h, h.neg_one_pow]
-  · rw [if_neg (Nat.not_even_iff_odd.mpr h), h.neg_one_pow]
+  · rw [ite_eq_left h, h.neg_one_pow]
+  · rw [ite_eq_right (Nat.not_even_iff_odd.mpr h), h.neg_one_pow]
 
 lemma Mentry_lin (p q : ℝ) (a b : ℕ) (X : ℕ → ℕ → ℝ) (α β : ℝ) (u v : ℕ) :
     Mentry p q a b (fun c e => α * X c e + β) u v =
@@ -94,10 +94,10 @@ lemma Mentry_ones {p q : ℝ} (hp : p ≠ 0) (hq : q ≠ 0) (a b : ℕ) {u v : �
     Tv_one hp a u hu, Tv_one hq b v hv]
   by_cases h1 : u = a
   · by_cases h2 : v = b
-    · rw [if_pos h1, if_pos h2, if_pos (show a = u ∧ b = v from ⟨h1.symm, h2.symm⟩)]
-    · rw [if_pos h1, if_neg h2, if_neg (show ¬ (a = u ∧ b = v) from fun h => h2 h.2.symm),
+    · rw [ite_eq_left h1, ite_eq_left h2, ite_eq_left (show a = u ∧ b = v from ⟨h1.symm, h2.symm⟩)]
+    · rw [ite_eq_left h1, ite_eq_right h2, ite_eq_right (show ¬ (a = u ∧ b = v) from fun h => h2 h.2.symm),
         mul_zero]
-  · rw [if_neg h1, if_neg (show ¬ (a = u ∧ b = v) from fun h => h1 h.1.symm), zero_mul]
+  · rw [ite_eq_right h1, ite_eq_right (show ¬ (a = u ∧ b = v) from fun h => h1 h.1.symm), zero_mul]
 
 lemma two_L1mat (p q : ℝ) (a b : ℕ) (X : ℕ → ℕ → ℝ) :
     2 * L1mat p q a b X = ∑ u ∈ range (a + 1), ∑ v ∈ range (b + 1),
@@ -157,9 +157,9 @@ lemma Xstar_sign (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) {a b : ℕ} :
   intro c hc e he
   rw [sgnv_mul]
   by_cases h : Even (c + e)
-  · rw [if_pos ((pq_mem_DstarPQ hp hq hpq hc he).mpr h), if_pos h]
+  · rw [ite_eq_left ((pq_mem_DstarPQ hp hq hpq hc he).mpr h), ite_eq_left h]
     norm_num
-  · rw [if_neg (fun h' => h ((pq_mem_DstarPQ hp hq hpq hc he).mp h')), if_neg h]
+  · rw [ite_eq_right (fun h' => h ((pq_mem_DstarPQ hp hq hpq hc he).mp h')), ite_eq_right h]
     norm_num
 
 /-- **Energy of the checkerboard**: `2 E(D*) = p^a q^b + d_a(p) d_b(q)`. -/
@@ -244,10 +244,10 @@ theorem checkerboard_unique_max (p q a b : ℕ) (hp : p.Prime) (hq : q.Prime) (h
     intro hmem
     exact lt_irrefl _ (Nat.mem_properDivisors.mp (hD hmem)).2
   have hcorner : 2 * X a b - 1 = -1 := by
-    simp only [hX, if_neg hNotN]
+    simp only [hX, ite_eq_right hNotN]
     norm_num
   have hsab : sgnv a * sgnv b = -1 := by
-    rw [sgnv_mul, if_neg (Nat.not_even_iff_odd.mpr hab)]
+    rw [sgnv_mul, ite_eq_right (Nat.not_even_iff_odd.mpr hab)]
   rcases thm5_eq hpR hqR hYsign hge with hY | hY
   · apply hne
     have hiff : ∀ c ≤ a, ∀ e ≤ b, p ^ c * q ^ e ∈ D ↔ Even (c + e) := by
@@ -257,14 +257,14 @@ theorem checkerboard_unique_max (p q a b : ℕ) (hp : p.Prime) (hq : q.Prime) (h
       rw [sgnv_mul] at h
       constructor
       · intro hm
-        rw [if_pos hm] at h
+        rw [ite_eq_left hm] at h
         by_contra hev
-        rw [if_neg hev] at h
+        rw [ite_eq_right hev] at h
         norm_num at h
       · intro hev
-        rw [if_pos hev] at h
+        rw [ite_eq_left hev] at h
         by_contra hm
-        rw [if_neg hm] at h
+        rw [ite_eq_right hm] at h
         norm_num at h
     ext x
     constructor

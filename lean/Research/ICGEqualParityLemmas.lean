@@ -212,7 +212,7 @@ lemma step_sign_c {x : ℝ} (hx : 2 < x) (c : ℝ) {m : ℕ} {y : ℕ → ℝ} (
     have e2 : 0 < (Z + (x - 1) * y k) / x := by
       rw [h0]; apply div_pos _ hx0; linarith
     rw [e1, abs_of_nonneg (div_nonneg (mul_nonneg (by linarith) (by linarith)) hx0.le),
-      abs_of_pos e2, abs_of_pos hZpos, if_pos (by rw [h0, h1]), h0]
+      abs_of_pos e2, abs_of_pos hZpos, ite_eq_left (by rw [h0, h1]), h0]
     field_simp
     ring
   · rw [h1] at hs1
@@ -222,7 +222,7 @@ lemma step_sign_c {x : ℝ} (hx : 2 < x) (c : ℝ) {m : ℕ} {y : ℕ → ℝ} (
     have e2 : 0 < (Z + (x - 1) * y k) / x := by
       rw [h0]; apply div_pos _ hx0; linarith
     rw [e1, abs_of_nonneg (div_nonneg (mul_nonneg (by linarith) (by linarith)) hx0.le),
-      abs_of_pos e2, abs_of_neg hZneg, if_neg (by rw [h0, h1]; norm_num), h0]
+      abs_of_pos e2, abs_of_neg hZneg, ite_eq_right (by rw [h0, h1]; norm_num), h0]
     field_simp
     ring
   · rw [h1, one_mul] at hs1
@@ -232,7 +232,7 @@ lemma step_sign_c {x : ℝ} (hx : 2 < x) (c : ℝ) {m : ℕ} {y : ℕ → ℝ} (
     have e2 : (Z + (x - 1) * y k) / x < 0 := by
       rw [h0]; apply div_neg_of_neg_of_pos _ hx0; linarith
     rw [e1, abs_neg, abs_of_nonneg (div_nonneg (mul_nonneg (by linarith) (by linarith)) hx0.le),
-      abs_of_neg e2, abs_of_pos hZpos, if_neg (by rw [h0, h1]; norm_num), h0]
+      abs_of_neg e2, abs_of_pos hZpos, ite_eq_right (by rw [h0, h1]; norm_num), h0]
     field_simp
     ring
   · rw [h1] at hs1
@@ -242,7 +242,7 @@ lemma step_sign_c {x : ℝ} (hx : 2 < x) (c : ℝ) {m : ℕ} {y : ℕ → ℝ} (
     have e2 : (Z + (x - 1) * y k) / x < 0 := by
       rw [h0]; apply div_neg_of_neg_of_pos _ hx0; linarith
     rw [e1, abs_neg, abs_of_nonneg (div_nonneg (mul_nonneg (by linarith) (by linarith)) hx0.le),
-      abs_of_neg e2, abs_of_neg hZneg, if_pos (by rw [h0, h1]), h0]
+      abs_of_neg e2, abs_of_neg hZneg, ite_eq_left (by rw [h0, h1]), h0]
     field_simp
     ring
 
@@ -282,7 +282,7 @@ theorem noncorner_le {x : ℝ} (hx : 2 < x) {m : ℕ} {y : ℕ → ℝ} (hy : Is
       (if sgnv k = sgnv (k + 1) then 2 * nuc x 0 (k + 1) * |Zp x m sgnv (k + 1)| else 0) = 0 := by
     apply Finset.sum_eq_zero
     intro k _
-    rw [if_neg]
+    rw [ite_eq_right]
     rw [sgnv_succ]
     intro h
     have h0 : sgnv k ≠ 0 := by simp [sgnv]
@@ -352,7 +352,7 @@ theorem lemmaB {x R : ℝ} (hx : 3 ≤ x) (hR : 1 ≤ R) {m : ℕ} (hm : Odd m) 
     unfold slack
     have hterm : (if y J = y (J + 1) then 2 * nu x (J + 1) * |Zp x m y (J + 1)| else 0) =
         2 * nu x (J + 1) * nu x (m - (J + 1)) := by
-      rw [if_pos hJeq, htail]
+      rw [ite_eq_left hJeq, htail]
     rw [← hterm]
     apply Finset.single_le_sum (f := fun k =>
       if y k = y (k + 1) then 2 * nu x (k + 1) * |Zp x m y (k + 1)| else 0)

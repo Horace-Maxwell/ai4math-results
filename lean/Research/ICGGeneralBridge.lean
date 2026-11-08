@@ -128,26 +128,26 @@ lemma dft_indG (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) {a b N : ℕ} [NeZe
     have hiff := pq_dvd_iff_of_gcd hp hq hpq N hN (x := a - x) (y := b - y) (by omega) (by omega) hk
     unfold Spow
     by_cases hc : a - x ≤ u ∧ b - y ≤ v
-    · rw [if_pos (hiff.mpr hc), if_pos ⟨hxy.1, hc.1⟩, if_pos ⟨hxy.2, hc.2⟩]
+    · rw [ite_eq_left (hiff.mpr hc), ite_eq_left ⟨hxy.1, hc.1⟩, ite_eq_left ⟨hxy.2, hc.2⟩]
       push_cast
       ring
-    · rw [if_neg (fun h => hc (hiff.mp h))]
+    · rw [ite_eq_right (fun h => hc (hiff.mp h))]
       by_cases hc1 : a - x ≤ u
-      · rw [if_neg (fun h => hc ⟨hc1, h.2⟩ : ¬ (y ≤ b ∧ b - y ≤ v))]
+      · rw [ite_eq_right (fun h => hc ⟨hc1, h.2⟩ : ¬ (y ≤ b ∧ b - y ≤ v))]
         simp
-      · rw [if_neg (fun h => hc1 h.2 : ¬ (x ≤ a ∧ a - x ≤ u))]
+      · rw [ite_eq_right (fun h => hc1 h.2 : ¬ (x ≤ a ∧ a - x ≤ u))]
         simp
   · have h0 : ∀ s : ZMod N, indG p q a b s.val x y = 0 := by
       intro s
       unfold indG
-      rw [if_neg (fun h => hxy ⟨h.1, h.2.1⟩)]
+      rw [ite_eq_right (fun h => hxy ⟨h.1, h.2.1⟩)]
     simp only [h0, Int.cast_zero, mul_zero, Finset.sum_const_zero]
     unfold Spow
     by_cases hx : x ≤ a
     · have hy : ¬ y ≤ b := fun hy => hxy ⟨hx, hy⟩
-      rw [if_neg (fun h => hy h.1 : ¬ (y ≤ b ∧ b - y ≤ v))]
+      rw [ite_eq_right (fun h => hy h.1 : ¬ (y ≤ b ∧ b - y ≤ v))]
       simp
-    · rw [if_neg (fun h => hx h.1 : ¬ (x ≤ a ∧ a - x ≤ u))]
+    · rw [ite_eq_right (fun h => hx h.1 : ¬ (x ≤ a ∧ a - x ≤ u))]
       simp
 
 /-- DFT of a gcd-class indicator: a product of two prime-power Ramanujan sums. -/
@@ -177,11 +177,11 @@ lemma double_sum_ite {M : Type*} [AddCommMonoid M] {A B u0 v0 : ℕ} (hu : u0 < 
     ∑ u ∈ range A, ∑ v ∈ range B, (if u0 = u ∧ v0 = v then F u v else 0) = F u0 v0 := by
   rw [Finset.sum_eq_single_of_mem u0 (Finset.mem_range.mpr hu)]
   · simp only [true_and]
-    rw [Finset.sum_ite_eq, if_pos (Finset.mem_range.mpr hv)]
+    rw [Finset.sum_ite_eq, ite_eq_left (Finset.mem_range.mpr hv)]
   · intro u _ hu'
     apply Finset.sum_eq_zero
     intro v _
-    rw [if_neg (fun h => hu' h.1.symm)]
+    rw [ite_eq_right (fun h => hu' h.1.symm)]
 
 lemma conn_decompG (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) {a b : ℕ} (N : ℕ)
     (hN : N = p ^ a * q ^ b) (D : Finset ℕ) (w : ℕ) :
@@ -198,7 +198,7 @@ lemma conn_decompG (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) {a b : ℕ} (N 
     by_cases h : c0 = c ∧ e0 = e
     · obtain ⟨rfl, rfl⟩ := h
       simp
-    · rw [if_neg h, if_neg (fun h' => h ((pq_inj hp hq hpq).mp h'))]
+    · rw [ite_eq_right h, ite_eq_right (fun h' => h ((pq_inj hp hq hpq).mp h'))]
       simp
   simp_rw [h]
   rw [double_sum_ite (by omega) (by omega)]
@@ -233,7 +233,7 @@ theorem dft_connFunG (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) {a b N : ℕ}
   intro e he
   rw [Finset.mem_range] at hc he
   by_cases hD : p ^ c * q ^ e ∈ D
-  · simp only [hD, if_true]
+  · simp only [hD, ite_true]
     have := dft_gcd_classG hp hq hpq hN k hk c e (by omega) (by omega)
     push_cast at this
     exact this
@@ -321,21 +321,21 @@ lemma ramX_eq_Spow (p : ℕ) {a c : ℕ} (hc : c ≤ a) (u : ℕ) :
     simp
   · have h1 : c + 1 ≤ a := by omega
     have h2 : a - (c + 1) = a - c - 1 := by omega
-    rw [if_neg h0]
+    rw [ite_eq_right h0]
     by_cases h3 : a - c ≤ u
-    · rw [if_pos h3, if_pos (show c ≤ a ∧ a - c ≤ u from ⟨hc, h3⟩),
-        if_pos (show c + 1 ≤ a ∧ a - (c + 1) ≤ u from ⟨h1, by omega⟩), h2]
+    · rw [ite_eq_left h3, ite_eq_left (show c ≤ a ∧ a - c ≤ u from ⟨hc, h3⟩),
+        ite_eq_left (show c + 1 ≤ a ∧ a - (c + 1) ≤ u from ⟨h1, by omega⟩), h2]
       obtain ⟨k, hk⟩ : ∃ k, a - c = k + 1 := ⟨a - c - 1, by omega⟩
       rw [hk, phiX_succ, show k + 1 - 1 = k by omega]
       push_cast
       ring
-    · rw [if_neg h3, if_neg (show ¬ (c ≤ a ∧ a - c ≤ u) from fun h => h3 h.2)]
+    · rw [ite_eq_right h3, ite_eq_right (show ¬ (c ≤ a ∧ a - c ≤ u) from fun h => h3 h.2)]
       by_cases h4 : a - c = u + 1
-      · rw [if_pos h4, if_pos (show c + 1 ≤ a ∧ a - (c + 1) ≤ u from ⟨h1, by omega⟩), h2, h4,
+      · rw [ite_eq_left h4, ite_eq_left (show c + 1 ≤ a ∧ a - (c + 1) ≤ u from ⟨h1, by omega⟩), h2, h4,
           show u + 1 - 1 = u by omega]
         push_cast
         ring
-      · rw [if_neg h4, if_neg (show ¬ (c + 1 ≤ a ∧ a - (c + 1) ≤ u) from fun h => by omega)]
+      · rw [ite_eq_right h4, ite_eq_right (show ¬ (c + 1 ≤ a ∧ a - (c + 1) ≤ u) from fun h => by omega)]
         simp
 
 lemma phiX_nonneg {x : ℝ} (hx : 1 ≤ x) (e : ℕ) : 0 ≤ phiX x e := by
