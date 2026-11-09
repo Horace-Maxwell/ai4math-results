@@ -20,21 +20,28 @@ computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.23200924](https://doi.org/10.5281/zenodo.23200924); version 1.13.0
 [10.5281/zenodo.23272267](https://doi.org/10.5281/zenodo.23272267); version 1.14.0
 [10.5281/zenodo.23989248](https://doi.org/10.5281/zenodo.23989248); version 1.15.0
-[10.5281/zenodo.24039349](https://doi.org/10.5281/zenodo.24039349).
+[10.5281/zenodo.24039349](https://doi.org/10.5281/zenodo.24039349); version 1.16.0
+[10.5281/zenodo.24048983](https://doi.org/10.5281/zenodo.24048983).
 
-> **Verification status (version 1.16.0, 8 November 2026).** No human
+> **Verification status (version 1.17.0, 9 November 2026).** No human
 > mathematician has reviewed these papers. All ten papers are formalized
-> completely: Papers 1, 2, 3, 4, 5, 6, 7 and 8 in their versions 2, and
-> Papers 9 and 10. Every mathematical result in them has a Lean proof, checked
-> against independently reviewed and frozen statement files. For Paper 2 this
-> includes the existence and uniqueness of the normalized series and their
-> first terms. It does not include what the paper says about the OEIS entries
-> and the literature: no Lean statement mentions the OEIS, and the agreement
-> with further terms of the b-files is checked numerically. In Paper 1,
-> Proposition 31 is proved only as an implication: no Lean statement says that
-> its conditions hold for any exponent. The equal-parity conjecture of Paper 1
-> (Conjecture 14) is proved only when `min(a, b) ≤ 2`; for `min(a, b) ≥ 3` the
-> paper makes no claim either way. Our protocol requires independent statement
+> completely: Paper 1 in its version 3, Papers 2, 3, 4, 5, 6, 7 and 8 in their
+> versions 2, and Papers 9 and 10. Every mathematical result in them has a Lean
+> proof, checked against independently reviewed and frozen statement files. For
+> Paper 2 this includes the existence and uniqueness of the normalized series
+> and their first terms. It does not include what the paper says about the OEIS
+> entries and the literature: no Lean statement mentions the OEIS, and the
+> agreement with further terms of the b-files is checked numerically. In
+> Paper 1, Proposition 31 is proved as an implication, and its three conditions
+> are proved, for every exponent `a ≥ 3` of the prime 3, at the points `(3, q)`
+> with `q` an odd prime other than 3; the statement that they hold at every point
+> of both of its regions for every `a ≥ 3` is not proved. The equal-parity
+> conjecture of Paper 1 (Conjecture 14) is proved, with Lean proofs, when
+> `min(a, b) ≤ 2` or one of the primes is 3. For the remaining orders (primes
+> `p, q ≥ 5` and `min(a, b) ≥ 3`) it follows from Theorem A of Jiang and Yang
+> (arXiv:2610.36883), whose proof we have not reviewed and which is not
+> formalized; only on that condition does it hold for all distinct odd primes.
+> Our protocol requires independent statement
 > review and freezing before proof development; Paper 8 records an exception
 > to this order in its development timeline, versions 2 of Papers 5 and 6
 > reuse Lean code of version 1 that was written before their statement files
@@ -42,9 +49,12 @@ computational certificates. It is archived on Zenodo: all versions
 > the statements of version 2 of Paper 2 were written after that paper
 > and its version 1 Lean proofs, and version 2 of Paper 1 reuses the proofs of
 > 29 of its 51 statements, written in September 2026 against an earlier frozen
-> statement file (these statements are unchanged in the present files), and
+> statement file (these statements are unchanged in the files of version 2), and
 > older Lean modules (`lean/Research/ICG*.lean`), which were written in
-> September 2026 before any statement file. In
+> September 2026 before any statement file. The proofs of version 3 of Paper 1
+> were found after its main statement had been frozen; we do not claim this order
+> for its six auxiliary statement files, which are not hypotheses of the main
+> statement. In
 > Paper 7, one frozen statement turned out to be false because of a missing
 > pair of parentheses; the author approved this one correction, and the
 > statement files were reviewed and frozen again.
@@ -59,12 +69,12 @@ computational certificates. It is archived on Zenodo: all versions
 
 | | What | Status | Main Lean declarations | Where |
 | --- | --- | --- | --- | --- |
-| Paper 1 (version 2) | Maximal energy of integral circulant graphs of orders `p^(2r)·3^(2s+1)`, `pq^m` and `p²q^b`; for exponents of equal parity, every order `p^a q^b` with `min(a,b) ≤ 2` | new theorems; the computer-assisted results of version 1.5 (Theorem 5 for `3 ≤ min(a,b) ≤ 8`, Proposition 15) are withdrawn; completely formalized (not checked with comparator, see below) | `CodexPaper1.check_Theorem2`, `check_Theorem4`, `check_Theorem5MinTwo`, `check_Proposition31` (51 checked statements) | [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) |
+| Paper 1 (version 3) | Maximal energy of integral circulant graphs of order `p^a q^b` when one prime is 3 or one exponent is at most 2: the orders `p^(2r)·3^(2s+1)`, `pq^m` and `p²q^b`; for exponents of equal parity, every order `p^a q^b` with `min(a,b) ≤ 2`, and every order in which one of the primes is 3 | new theorems; version 3 adds the orders of equal parity in which one of the primes is 3 (no bound on the exponents or on the other prime); the computer-assisted results of version 1.5 (Theorem 5 for `3 ≤ min(a,b) ≤ 8`, Proposition 15) were withdrawn in version 2; completely formalized (not checked with comparator, see below) | `CodexPaper1.check_Theorem2`, `check_Theorem4`, `check_Theorem5MinTwo`, `check_Proposition31` (51 checked statements of version 2); `CodexPaper1.TaskE.check_SameParityThree` (version 3) | [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) |
 | Paper 2 (version 2) | Hanna's OEIS congruence conjectures: eleven proved, three more resolved | proofs; several follow quickly from classical results (stated since version 1.2.1); completely formalized, without the identification with the OEIS entries (not checked with comparator, see below) | `BackfillPaper2.Check.check_Thm4`, `check_Thm5_1`, `check_Thm12_firstFailure`, `check_EX_A389472` (84 checked statements) | [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) |
 | Paper 3 (version 2) | A negative answer to a question of Carenini on almost independent sets in regular graphs | new theorems (counterexamples and an asymptotic result); completely formalized | `BackfillPaper3.Check.check_AnswerNegative`, `check_TheoremA`, `check_TheoremD`, `check_PropositionC` (60 checked statements) | [`papers/carenini-almost-independent`](papers/carenini-almost-independent/note.pdf) |
 | Paper 4 (version 2) | Answers to three problems of Hak, Kozerenko and Oliynyk on the triameter of graphs | Problems 1 and 3 answered (we found no earlier answer); Problem 2 was first answered on MathOverflow, and we add its smallest counterexample; completely formalized | `BackfillPaper4.Check.check_TheoremA_i`, `check_TheoremA_unique`, `check_TheoremB_unique`, `check_TheoremC_ii` (50 checked statements) | [`papers/hko-triameter`](papers/hko-triameter/note.pdf) |
 | Paper 5 (version 2) | Complete mappings of the Brauer and partial Brauer monoids | Problem 15.11 of arXiv:2608.25092 settled in its existence reading; completely formalized | `CodexPaper5.MainABCheck.check_Thm11a`, `check_Thm11b`, `CodexPaper5.MainCCheck.check_Thm11c`, `CodexPaper5.FullPaperAllNCheck.check_AllNClassification` (45 checked statements) | [`papers/brauer-complete-mappings`](papers/brauer-complete-mappings/note.pdf) |
-| Paper 6 (version 2) | Fourteen new weights of the Reed–Muller code RM(7,14) | 14 new weights by explicit codewords; explicit codewords for every even number from 320 to 2^14 − 320 except 322, 326, 330, 334 and their complements, so, in the middle-interval reading of Carlet's question, the question for (7,14) is equivalent to these four numbers being weights; Theorem C (Conjecture 2 of Lou and Wang fails for m = 6) was proved earlier by Lou and Wang; completely formalized | `Paper6FinalPackageV4.check_ThmA`, `check_ThmB_witnesses`, `check_CarletEquiv`, `check_ThmC_literal` (35 checked statements) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
+| Paper 6 (version 2) | Fourteen new weights of the Reed–Muller code RM(7,14) | 14 new weights by explicit codewords; explicit codewords for every even number from 320 to 2^14 − 320 except 322, 326, 330, 334 and their complements, so, in the middle-interval reading of Carlet's question, the question for (7,14) is equivalent to these four numbers being weights (later, Lou and Wang, arXiv:2610.36687, state that they are not); Theorem C (Conjecture 2 of Lou and Wang fails for m = 6) was proved earlier by Lou and Wang; completely formalized | `Paper6FinalPackageV4.check_ThmA`, `check_ThmB_witnesses`, `check_CarletEquiv`, `check_ThmC_literal` (35 checked statements) | [`papers/rm714-weights`](papers/rm714-weights/note.pdf) |
 | Paper 7 (version 2) | The minimum order of a counterexample to a conjecture on integral generalized sun graphs | new result: the minimum order is 42, and the counterexample with 42 vertices is unique; completely formalized (not checked with comparator, see below) | `Paper7FinalPackage.final_Theorem1`, `final_Theorem1MinOrder`, `final_Theorem2`, `final_Proposition3` (58 checked statements) | [`papers/sun-graphs`](papers/sun-graphs/note.pdf) |
 | Paper 8 (version 2) | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem; completely formalized, including the finite search | `BackfillPaper8.Check.check_Theorem1`, `check_Theorem1_mathlib`, `check_Theorem1_signed` (38 checked statements) | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
 | Paper 9 | A simple primitive axial algebra with a disconnected non-annihilation graph, and a decomposable axial block | new theorems (counterexamples when arbitrary finite symmetric fusion laws are allowed); completely formalized | `AxialMSZ.Check.check_TheoremA`, `check_TheoremB`, `check_TheoremC`, `check_Corollary`, `check_not_Simple_connected` | [`papers/axial-nonannihilation`](papers/axial-nonannihilation/note.pdf) |
@@ -72,9 +82,23 @@ computational certificates. It is archived on Zenodo: all versions
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
-**Paper 1: [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) (version 2).**
-*The maximal energy of integral circulant graphs of orders p^(2r)·3^(2s+1), pq^m and p²q^b.*
+**Paper 1: [`papers/icg-q3-general`](papers/icg-q3-general/note.pdf) (version 3).**
+*The maximal energy of integral circulant graphs of order p^a q^b when one prime is 3 or one exponent is at most 2.* (Until version 2 the title was *The maximal energy of integral circulant graphs of orders p^(2r)·3^(2s+1), pq^m and p²q^b*.)
 
+> **Version 3 (version 1.17.0).** Version 3 extends Theorem 5 to every order
+> `p^a q^b` of equal parity in which one of the primes is 3, with no bound on
+> the exponents or on the other prime. The new Section 13 (statements 32–43)
+> proves this case by verifying, for the prime 3, every exponent and every
+> other odd prime, the conditions (S_a), (F_a) and (C_a) of Proposition 31,
+> the conditional reduction of version 2, and applying it at each such point.
+> The main statement, `SameParityThree`, was frozen on 8 November 2026 after
+> an independent review, and its Lean proof was written after that. The
+> statements of version 2 keep their numbers, and their proofs are unchanged;
+> the section on formal verification is now Section 14. The title is
+> unchanged. Version 2 remains available in release v1.16.0 and on Zenodo.
+> The changes are listed at the end of Section 14 of the paper and in
+> [ATTEMPTS.md](ATTEMPTS.md).
+>
 > **Version 2 (version 1.16.0).** All the mathematics of this paper is proved in
 > Lean 4: the 51 statements (31 main and 20 supplementary) of statement files
 > frozen on 7 November 2026, including the closed forms of `d_k` and `δ_k`,
@@ -114,39 +138,58 @@ computational certificates. It is archived on Zenodo: all versions
   `{p^i q^j : i + j even} \ {n}`; the same holds for `p^b q²` with the roles
   of the primes exchanged. The proof gives a sign-matrix inequality for the
   exponent 2 (Theorem 25).
-- **Theorem 5 (version 2).** For distinct odd primes `p, q` and `a, b ≥ 1`
-  with `a + b` even and `min(a, b) ≤ 2`, the maximal energy for order
-  `n = p^a q^b` is `½[n + d_a(p) d_b(q)] − δ_a(p) δ_b(q)`, attained exactly by
-  the same two sets. This is Theorem 3 or 4; the other exponent is arbitrary,
-  and the prime 3 is allowed. With Theorems 1 and 2, the maximal energy and
-  all maximisers are known for every order `p^a q^b` with `min(a, b) ≤ 2` and
-  for every order whose exponents have opposite parity. Version 1.5 stated
-  Theorem 5 for `min(a, b) ≤ 8`, the case `3 ≤ min(a, b) ≤ 8` with computer
-  assistance; version 2 withdraws that case.
+- **Theorem 5 (version 3).** For distinct odd primes `p, q` and `a, b ≥ 1`
+  with `a + b` even, if `min(a, b) ≤ 2` or one of `p, q` equals 3, the maximal
+  energy for order `n = p^a q^b` is `½[n + d_a(p) d_b(q)] − δ_a(p) δ_b(q)`,
+  attained exactly by the same two sets. For `min(a, b) ≤ 2` this is Theorem 3
+  or 4 (version 2); the other exponent is arbitrary, and the prime 3 is
+  allowed. New in version 3 is the case in which one of the primes is 3 and
+  `min(a, b) ≥ 3`, proved in Section 13 with no bound on the other prime or on
+  the exponents. With Theorems 1 and 2, the maximal energy and all maximisers
+  are known for every order `p^a q^b` with `min(a, b) ≤ 2`, for every order
+  `3^a q^b`, and for every order whose exponents have opposite parity.
+  Version 1.5 stated Theorem 5 for `min(a, b) ≤ 8`, the case
+  `3 ≤ min(a, b) ≤ 8` with computer assistance; version 2 withdrew that case
+  and stated the theorem for `min(a, b) ≤ 2`.
 - **Conjecture 14** (the equal-parity conjecture, stated in earlier
-  versions) is kept only as a historical statement. It is proved for
-  `min(a, b) ≤ 2` and in no other case, and no Lean statement depends on it.
+  versions) is proved in the paper, with Lean proofs, when `min(a, b) ≤ 2` or
+  one of the primes is 3. The remaining orders, with `p, q ≥ 5` and
+  `min(a, b) ≥ 3`, are covered by the statement of Theorem A of Jiang and Yang
+  (arXiv:2610.36883v1). We have not reviewed its proof, it is not formalized,
+  and nothing in the paper or its Lean proofs uses it. Only if it is correct
+  does the conjecture hold for all pairs of distinct odd primes. No Lean
+  statement depends on the conjecture.
 - **Proposition 31** is a conditional reduction for larger exponents: if
   conditions (S_a), (F_a) and (C_a) hold, the inequality that the method of
   Theorem 4 needs follows for that exponent `a` and every `b` of the same
-  parity. It is proved in Lean as an
-  implication. Version 2 claims no instance: we do not claim that the
-  conditions hold for any `a ≥ 3` (version 1.5 verified them for
-  `3 ≤ a ≤ 8` by computer; that verification is withdrawn).
+  parity. It is proved in Lean as an implication; its proof also gives the
+  conclusion at each single point at which the conditions hold. Version 3
+  proves, for every `a ≥ 3` of the prime 3: (S_a) on both regions of the
+  proposition (`p ≥ 5, q ≥ 3` and `p = 3, q ≥ 5`, for real `p, q`), (C_a) at
+  every point of the region `p = 3, q ≥ 5`, and (F_a) at the points `(3, q)`
+  with `q = 5`, `q = 7` or real `q ≥ 8`, which covers every odd prime `q ≠ 3`.
+  It does not claim (F_a) or (C_a) at any point of the region `p ≥ 5`, so the case
+  `p, q ≥ 5`, `min(a, b) ≥ 3` is not proved; the statement that the three
+  conditions hold at every point of both regions for every `a ≥ 3`
+  (`UniformConditionsBothRegions` in Lean) is not proved and not claimed.
+  Version 1.5 verified the conditions for `3 ≤ a ≤ 8` by computer; version 2
+  withdrew that verification, and version 3 does not use it.
 - **Later work.** After version 1.5, Jiang and Yang (arXiv:2610.36883v1,
   27 October 2026) stated the equal-parity formula and the same two
   maximisers for all distinct primes `p, q ≥ 5`, which contains Theorem 5 for
-  those primes; their statement does not include the prime 3. We have not
+  those primes and `min(a, b) ≤ 2`; their statement does not include the
+  prime 3, and the orders of equal parity with `min(a, b) ≥ 3` in which one of
+  the primes is 3 are not covered by it. Theorem 5, in the form extended in
+  version 3, treats them. We have compared the statements only; we have not
   reviewed their proof, and nothing in the paper or its Lean proofs uses it.
   The revision arXiv:2608.29523v2 (30 October 2026) still requires the primes
   with odd exponent to be at least 5. A Lean proof of Roldán's conjecture for
   the exponents (2,3), including `q = 3`, was merged in the trureturing
   repository on 20 October 2026
   ([pull request #19390](https://github.com/the-omega-institute/trureturing/pull/19390));
-  it concerns only the case `r = s = 1` of Theorem 2. We make no claim about
-  orders of equal parity with `min(a, b) ≥ 3` in which one of the primes is 3.
-- **Lean:** `lean/Research/Backfill/Paper1/` holds the four frozen statement
-  and test files (`Challenge.lean`, `SupplementStatements.lean`,
+  it concerns only the case `r = s = 1` of Theorem 2.
+- **Lean (version 2):** `lean/Research/Backfill/Paper1/` holds the four frozen
+  statement and test files (`Challenge.lean`, `SupplementStatements.lean`,
   `ChallengeTests.lean`, `NarrowContractTests.lean`), the proofs and
   `FinalContractAudit.lean`, which restates each of the 51 statements with its
   frozen type, proves it by a theorem `CodexPaper1.check_X` and prints its
@@ -154,7 +197,23 @@ computational certificates. It is archived on Zenodo: all versions
   written in September 2026 (13 of them differ from version 1.15.0 only in the
   names of three Mathlib lemmas). The declarations of version 1.5
   (`ICGGeneral.jiang_yang_q3`, `ICGEqualParity.corollaryA`,
-  `ICGEqualParityB.theoremB` and others) remain.
+  `ICGEqualParityB.theoremB` and others) remain. These 70 modules are
+  unchanged in version 3, byte for byte.
+- **Lean (version 3):** `lean/Research/TaskE/` holds 45 new modules (3356
+  lines): the frozen main statement file `Challenge.lean` (`SameParityThree`),
+  six frozen auxiliary statement files (`ChallengeS.lean`, `ChallengeF.lean`,
+  `ChallengeFC.lean`, `ChallengeC0.lean`, `ChallengeC1.lean`,
+  `ChallengeC1Alt.lean`; 20 intermediate steps of Section 13, which are not
+  hypotheses of the main statement), seven tests (`StatementTests.lean`), 36
+  proof modules and `FinalTaskEAudit.lean`. The main theorem is
+  `CodexPaper1.TaskE.check_SameParityThree` (in `Main.lean`).
+  `FinalTaskEAudit.lean` restates `SameParityThree`, the condition (C_a) at
+  `(3, q)` for real `q ≥ 5`, (F_a) at the points above and (S_a) on both
+  regions, checks two instances of the main statement and prints the axioms of
+  the main theorem and its main lemmas. `C1High.lean` proves an auxiliary
+  statement that the main theorem does not use. The statement files of version
+  3 use only definitions of the statement file of version 2. Comments inside
+  the proof modules are development notes of Codex and may be out of date.
 
 **Paper 2: [`papers/oeis-hanna`](papers/oeis-hanna/note.pdf) (version 2).**
 *Proofs of eleven congruence conjectures of Hanna from the OEIS, and the
@@ -367,8 +426,18 @@ graphs.*
   reduces each of 322, 326, 330 and 334 to a question about RM(6,13) and
   RM(7,13). Proposition C′ of version 1 and the heuristic searches of version
   1 are deleted.
-- Still open: are 322, 326, 330 and 334 weights of RM(7,14)? For 322 this is
-  Open problem 1 of the note of Lou and Wang.
+- Later work (after version 1.13.0 of 9 October 2026): Y. Lou and Q. Wang
+  (arXiv:2610.36687v1, 27 October 2026) state in their abstract that they
+  exclude the eight conjectured weights of RM(7,14), which we read as 322,
+  326, 330, 334 and their complements (the abstract does not list them), and
+  determine the weight spectrum of RM(m − 7, m) for all m ≥ 14. With the Corollary, their
+  result answers Carlet's question for (7,14), in the middle-interval reading,
+  in the negative. Z. Wei, B. Zhou, X. Zhang and H. Chen (arXiv:2610.29807v1,
+  21 October 2026) show that for all m ≥ 14 every even number in
+  [336, 2^m − 336] is a weight of RM(m − 7, m), and study the four values in
+  restricted families of codewords. We have not reviewed these proofs, and
+  they are not formalized here; the paper (version 2) still describes the four
+  values as open.
 - Lean: every result of Paper 6 (version 2) is formalized. The 35 statements
   of the frozen statement files `lean/Research/Backfill/Paper6/ChallengeV3.lean`
   (SHA-256 `83ea2291…b6d78`) and `BridgeChallenge.lean` are proved in
@@ -669,7 +738,9 @@ main result; it found the problems below. The papers have since been
 corrected in their versions 2: version 1.9.0 corrected Paper 4, version
 1.10.0 corrected Paper 3, version 1.11.0 corrected Paper 8, version 1.12.0
 corrected Paper 5, version 1.13.0 corrected Paper 6, version 1.14.0 corrected
-Paper 7, version 1.15.0 corrected Paper 2, and version 1.16.0 corrects Paper 1.
+Paper 7, version 1.15.0 corrected Paper 2, and version 1.16.0 corrected Paper 1.
+Version 1.17.0 adds version 3 of Paper 1, which extends Theorem 5 and corrects
+no error of version 2.
 
 - **Paper 6, Theorem C is not new (corrected in version 2 of the paper, in
   version 1.13.0).** Lou and Wang proved it earlier, in Discrete Appl. Math.
@@ -681,6 +752,11 @@ Paper 7, version 1.15.0 corrected Paper 2, and version 1.16.0 corrects Paper 1.
   weight spectrum of the Reed–Muller code RM(7,14) up to four weights", is
   changed). Theorems A and B (its explicit codewords), the Corollary and
   Propositions D, E and F are unchanged.
+- **Paper 6, the four values left open (later work, not a correction).** The
+  paper (version 2) still describes 322, 326, 330 and 334 as open. According
+  to later work of Lou and Wang (arXiv:2610.36687v1), whose abstract excludes
+  the eight conjectured weights without listing them, they are not weights;
+  we have not reviewed that proof. See the section on Paper 6.
 - **Paper 5, a definition (corrected in version 2 of the paper, in version
   1.12.0).** In Section 3 of version 1, `top(x)` and `bot(x)` include the
   singleton blocks of partial Brauer diagrams, which contradicts the
@@ -708,7 +784,12 @@ Paper 7, version 1.15.0 corrected Paper 2, and version 1.16.0 corrects Paper 1.
   `Θ` without a precise bound. Theorems 1–4 are unchanged, and Theorem 5 is
   kept for `min(a, b) ≤ 2`. Earlier, the README had said until version 1.7.1
   that Proposition 15 covered "every shape with `(a+1)(b+1) ≤ 27`"; it
-  covered exactly the eleven exponent pairs listed in the paper.
+  covered exactly the eleven exponent pairs listed in the paper. Version 3 of
+  the paper (in version 1.17.0) proves, by a new argument with a Lean proof,
+  Theorem 5 for every order of equal parity in which one of the primes is 3;
+  this includes the orders with a prime 3 among those that version 1.5 had
+  claimed with computer assistance. The orders with `p, q ≥ 5` and
+  `min(a, b) ≥ 3` remain withdrawn and are not claimed.
 - **Paper 4, three missing hypotheses (corrected in version 2 of the
   paper, in version 1.9.0).** Lemma 1 needs `S` to be nonempty: for
   `S = ∅` conditions (a) and (b) hold, but the empty graph is not connected
@@ -768,7 +849,8 @@ Paper 7, version 1.15.0 corrected Paper 2, and version 1.16.0 corrects Paper 1.
 
 | Claim | Lean 4 declarations | Independent computation |
 | --- | --- | --- |
-| Paper 1 (version 2): every result, the 51 statements of the frozen statement files (31 main and 20 supplementary): Theorems 1–4, Theorem 5 for `min(a,b) ≤ 2`, the summaries for opposite parity and for `min(a,b) ≤ 2`, Proposition 6, Lemmas 7, 8, 10, 11, 18–24 and 26–29, Remarks 9 (with the closed forms of `d_k` and `δ_k`), 13, 16, 17 and 30, Theorems 12 and 25 (the sign-matrix inequalities), Proposition 31 as an implication, and the facts of the text listed in Table 1 of the paper (Ramanujan sums, the path and the potential, the parameter regions, the cell values and matrix bounds, the graphs for `n = pq`, multiplicative sets) | `CodexPaper1.check_*` in `lean/Research/Backfill/Paper1/FinalContractAudit.lean`, one theorem for each of the 51 statements of the frozen statement files `Challenge.lean` (SHA-256 `e2823ed9…bff1`) and `SupplementStatements.lean` (SHA-256 `6cb1815c…a4da`) in `lean/Research/Backfill/Paper1/`; the version-1.5 declarations in the rows below remain | the 70 modules built and checked with `leanchecker` in two new empty directories, and again in a clean rebuild of the whole project (`certificates/icg-q3-general/lean-package-v2/`); only the three standard axioms; 84 known-answer tests and 10 regression tests of the statement files; not checked with comparator or nanoda (see below). No Lean statement says that the conditions of Proposition 31 hold for any `a`; Conjecture 14 is only a definition, and nothing proves or assumes it. The programs of version 1.5 are no longer used |
+| Paper 1 (version 3): Theorem 5 when one of the primes is 3 and `min(a,b) ≥ 3` (every exponent, every other odd prime), and the steps of its proof in Section 13: conditions (S_a) on both regions, (C_a) at `(3, q)` for real `q ≥ 5`, (F_a) at `(3, q)` for `q = 5`, `q = 7` and real `q ≥ 8`, and the statements of Lemmas and Propositions 32–43 that Table 1 of the paper lists; with the row below, every result of version 3 | `CodexPaper1.TaskE.check_SameParityThree` (in `lean/Research/TaskE/Main.lean`) for the main statement `SameParityThree` of the frozen statement file `lean/Research/TaskE/Challenge.lean` (SHA-256 `24b59fb5…e009f`), and the theorems restated in `lean/Research/TaskE/FinalTaskEAudit.lean`; the 20 auxiliary statements of six further frozen statement files in the same directory (`ChallengeS.lean`, `ChallengeF.lean`, `ChallengeFC.lean`, `ChallengeC0.lean`, `ChallengeC1.lean`, `ChallengeC1Alt.lean`) are proved in its proof modules | the 115 modules of the package (the 70 of version 2, unchanged, and 45 new) built and checked with `leanchecker` in two new empty directories, and again in a clean rebuild of the whole project (`certificates/icg-q3-general/lean-package-v3/`); 273 axiom listings in each build, covering 210 declarations, of which 209 use exactly the three standard axioms and one uses none; seven tests of the statement file; not checked with comparator or nanoda (see below). `UniformConditionsBothRegions` (the three conditions at every point of both regions for every `a ≥ 3`) is only a definition and is not proved; (F_a) and (C_a) are not claimed at any point of the region `p ≥ 5, q ≥ 3`, so nothing here concerns `p, q ≥ 5` with `min(a,b) ≥ 3`. No Lean statement depends on Jiang–Yang |
+| Paper 1 (version 2): every result, the 51 statements of the frozen statement files (31 main and 20 supplementary): Theorems 1–4, Theorem 5 for `min(a,b) ≤ 2`, the summaries for opposite parity and for `min(a,b) ≤ 2`, Proposition 6, Lemmas 7, 8, 10, 11, 18–24 and 26–29, Remarks 9 (with the closed forms of `d_k` and `δ_k`), 13, 16, 17 and 30, Theorems 12 and 25 (the sign-matrix inequalities), Proposition 31 as an implication, and the facts of the text listed in Table 1 of the paper (Ramanujan sums, the path and the potential, the parameter regions, the cell values and matrix bounds, the graphs for `n = pq`, multiplicative sets) | `CodexPaper1.check_*` in `lean/Research/Backfill/Paper1/FinalContractAudit.lean`, one theorem for each of the 51 statements of the frozen statement files `Challenge.lean` (SHA-256 `e2823ed9…bff1`) and `SupplementStatements.lean` (SHA-256 `6cb1815c…a4da`) in `lean/Research/Backfill/Paper1/`; the version-1.5 declarations in the rows below remain | the 70 modules built and checked with `leanchecker` in two new empty directories, and again in a clean rebuild of the whole project (`certificates/icg-q3-general/lean-package-v2/`); only the three standard axioms; 84 known-answer tests and 10 regression tests of the statement files; not checked with comparator or nanoda (see below). No Lean statement of version 2 says that the conditions of Proposition 31 hold for any `a` (version 3 proves them at the points of the row above); Conjecture 14 is only a definition, and nothing proves or assumes it. The programs of version 1.5 are no longer used |
 | Paper 1 (version 1.5): unique maximiser for `p^(2r)·3^(2s+1)`, `p ≥ 5`; value of the maximum, expressed through the norms `d_k(x) = ‖T_k(x) s_k‖₁` (their closed form was not formalized in version 1.5; it is in version 2); the sign-matrix inequality (all real `p ≥ 5`, `q ≥ 3`, all exponents); energy formula for all `p^a q^b`; Jiang–Yang Theorem A for all distinct odd primes | `ICGGeneral.jiang_yang_q3`, `jiang_yang_q3_value`, `energy_DstarPQ`, `thm5_le`, `thm5_eq`, `energy_icgAdj_pq`, `jiang_yang_thmA`, `checkerboard_unique_max_odd` | exhaustive exact searches over all divisor sets (shapes and primes listed in the paper); sign-matrix enumeration for `(a+1)(b+1) ≤ 25`; floating-point spectra of the actual graphs (`certificates/icg-q3-general/`) |
 | Paper 1 (version 1.5), Theorem 3: maximal energy for `pq^m` and `p^m q`, `m` odd; both maximisers; uniqueness | `ICGEqualParity.corollaryA` | exact arithmetic for every step (`verify_1m.py`); graph spectra by FFT and dense eigenvalues (`certificates/icg-equal-parity/`) |
 | Paper 1 (version 1.5), Theorem 4: maximal energy for `p²q^b` and `p^b q²`, `b` even; both maximisers; uniqueness; the sign-matrix inequality for the exponent 2 (Theorem 25) | `ICGEqualParityB.theoremB`, `theoremB_swap`, `corollaryB`, `thmB'`; the 325 inequalities of a first proof, not needed for the paper's proof, in `ICGEqualParityBCert1`–`6` | exhaustive searches over all divisor sets of 21 orders `p²q^b`, `b ∈ {2, 4, 6}`, up to `n = 1 058 841`, with exact eigenvalues from Ramanujan sums (`review/rv_graph.py`); exact replays of the steps of the proof (`paper-checks/`); both in `certificates/icg-equal-parity/theorems-b-c/` |
@@ -1032,9 +1114,32 @@ processes, ran `leanchecker` on these 16 modules, and all passed. The failed
 attempts are kept as 174 logs in 39 modules of Paper 7; none ended in a Lean
 error, and the same modules passed at the first attempt in the rebuild of
 version 1.15.0. No module of Paper 1 had to be run again.
-`logs/lean-sources-sha256.txt` lists 2964 files. The full record is in
+`logs/lean-sources-sha256.txt` listed 2964 files. The full record is in
 `logs/clean-replay-v1.16.0-receipt.json`, and the logs of every module are in
 `logs/clean-replay-v1.16.0-logs.tar.gz`.
+
+For version 1.17.0, which adds the 45 Lean files of Paper 1, version 3
+(`lean/Research/TaskE/`), and two `import` lines in `lean/Research.lean`
+(`Research.TaskE.FinalTaskEAudit` and `Research.TaskE.C1High`), the whole
+project was rebuilt from a new empty directory on the author's Windows computer
+(63 GB of memory), from 21:09 UTC on 8 November 2026 to 08:20 UTC on 9 November
+2026, again with `lean` and `leanchecker` run on one module at a time, with up
+to 14 jobs at a time, rather than with `lake`. The rebuilt sources agree byte for
+byte with `lean/Research.lean` and `lean/Research/`; the directory
+`lean/Comparator/` was not rebuilt here. All 2999 modules (the 2954 of version
+1.16.0 and the 45 new ones) compiled, with 97 warning lines in 15 older modules,
+none in Paper 1, no error and no `sorry`. 2998 modules passed `leanchecker`; the
+remaining one is the module `Research`, which has only imports and no constants
+and was exempted, as before. All 112767 printed axiom lists are subsets of the
+three axioms above, and the 7 lists printed by
+`Research.TaskE.FinalTaskEAudit` consist of exactly these three. Outside
+comments, the forbidden tokens occur only as the intentional `sorry`s of the
+comparator challenge files (`logs/clean-replay-v1.17.0-forbidden-tokens.log`).
+This time the computer did not run out of memory: every module passed at the
+first attempt, in one run, and no module was run again.
+`logs/lean-sources-sha256.txt` lists 3009 files. The full record is in
+`logs/clean-replay-v1.17.0-receipt.json`, and the logs of every module are in
+`logs/clean-replay-v1.17.0-logs.tar.gz`.
 
 ### Comparator check of the completely formalized papers
 
@@ -1074,8 +1179,10 @@ for version 1.13.0 for the same papers
 ([run 38003526255](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/38003526255)),
 for version 1.14.0 for the same papers
 ([run 42103194322](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/42103194322)),
-and for version 1.15.0 for the same papers
-([run 42344646991](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/42344646991)).
+for version 1.15.0 for the same papers
+([run 42344646991](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/42344646991)),
+and for version 1.16.0 for the same papers
+([run 42454366396](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/42454366396)).
 Paper 6 is not in the workflow: a comparator run of its 35 theorems takes much
 longer than those of the other papers (more than 30 minutes on the computer
 used for version 1.13.0), and we have not tried it on GitHub's machines. It was
@@ -1099,7 +1206,9 @@ of the 84 statements with its frozen type.
 file in `lean/Comparator/` and no configuration in `ci/comparator/`. Its proofs
 have been replayed by the Lean kernel with `leanchecker` in the builds
 described above, but not by an independent kernel; `FinalContractAudit.lean`
-restates each of the 51 statements with its frozen type.
+restates each of the 51 statements of version 2 with its frozen type, and
+`lean/Research/TaskE/FinalTaskEAudit.lean` restates the main statement of
+version 3, `SameParityThree`, and the conditions proved for it.
 
 For version 1.13.0, the same comparator, lean4export and nanoda versions were
 run locally by OpenAI Codex on 9 October 2026, on macOS, where the landrun
@@ -1134,8 +1243,8 @@ rebuild. A Codex agent that had written none of the proofs or tools reviewed
 this evidence and approved it. The receipts are in
 `logs/comparator-local-v1.13.0-receipts.json`; the logs of versions 1.9.0 to
 1.12.0 are kept. The Lean sources of these papers are unchanged in versions
-1.14.0 to 1.16.0, and comparator was not run locally for them. The run on GitHub
-for version 1.16.0 takes place after it is pushed; its result is shown on the
+1.14.0 to 1.17.0, and comparator was not run locally for them. The run on GitHub
+for version 1.17.0 takes place after it is pushed; its result is shown on the
 repository's Actions page.
 
 ### Reproduce the Lean checks
@@ -1153,7 +1262,7 @@ build` takes far longer: our module-by-module build took about 11 hours with 3 t
 time, each of which commits 8 to 12 GB of memory on Windows, and the
 most demanding modules ran out of memory with too many running together. To skip Paper 7, remove its `import` line from
 `lean/Research.lean`. The commands below were last run with `lake` for version
-1.13.0; for versions 1.14.0 to 1.16.0 the same modules were compiled directly with `lean`
+1.13.0; for versions 1.14.0 to 1.17.0 the same modules were compiled directly with `lean`
 (see above).
 
 ```sh
@@ -1177,6 +1286,7 @@ lake build Research.Backfill.Paper3.ChallengeTests  # Paper 3 (version 2): known
 lake build Research.Backfill.Paper4.ChallengeTests  # Paper 4 (version 2): known-answer tests of the statement file
 lake build Research.Backfill.Paper1.FinalContractAudit  # Paper 1 (version 2): the 51 statements, printing the axioms
 lake build Research.Backfill.Paper1.ChallengeTests Research.Backfill.Paper1.NarrowContractTests  # Paper 1 (version 2): tests of the statement files
+lake build Research.TaskE.FinalTaskEAudit  # Paper 1 (version 3): restates SameParityThree and the conditions, checks two instances and the seven tests, printing the axioms
 lake build Research.Backfill.Paper2.Check  # Paper 2 (version 2): the 84 statements, printing the axioms
 lake build Research.Backfill.Paper2.ChallengeTests  # Paper 2 (version 2): tests of the statement file
 lake build Research.Backfill.Paper5.ChallengeTests  # Paper 5 (version 2): known-answer tests of the statement file
@@ -1231,7 +1341,7 @@ cd ../paper-check && python3 check_paper.py    # every structure constant and di
 
 These programs belong to versions 1.1 to 1.5 of Paper 1. Version 2 withdraws
 the results that rested on them (Theorem 5 for `3 ≤ min(a, b) ≤ 8` and
-Proposition 15) and deletes the cross-checks; no result of version 2 uses them.
+Proposition 15) and deletes the cross-checks; no result of versions 2 and 3 uses them.
 They are kept as the records of version 1.5. Requires a C compiler and Python 3
 with SymPy and NumPy.
 
@@ -1351,7 +1461,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 - `papers/`: LaTeX sources and PDFs of the ten papers.
 - `ATTEMPTS.md`: every problem we worked on, and what became of it.
-- `certificates/icg-q3-general/`: programs, logs and reviews for versions 1.1 to 1.5 of Paper 1, kept as records and not used by version 2; `certificates/icg-q3-general/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 1, version 2.
+- `certificates/icg-q3-general/`: programs, logs and reviews for versions 1.1 to 1.5 of Paper 1, kept as records and not used by versions 2 and 3; `certificates/icg-q3-general/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 1, version 2; `certificates/icg-q3-general/lean-package-v3/`: the same for version 3 (115 modules: the 70 of version 2 and the 45 of `lean/Research/TaskE/`).
 - `certificates/icg-equal-parity/`: programs, logs and a negative control for Theorem 3 and Proposition 15 of Paper 1, version 1.5 (Proposition 15 is withdrawn in version 2); `PROOF-working-note.md` is the working note.
 - `certificates/icg-equal-parity/theorems-b-c/`: programs and logs for Theorems 4 and 5 of Paper 1, version 1.5 (Theorem 5 for `3 ≤ min(a, b) ≤ 8` is withdrawn in version 2), including those of the three referee agents (`review/`, `review2/`, `review3/`); its `README.md` lists the commands.
 - `certificates/oeis-hanna/round5/`: checks for A246056 and A376230.
@@ -1365,7 +1475,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 - `certificates/wordrep-tensor/lean-package/`: the manifest and acceptance receipt of the Lean package of Paper 10.
 - `certificates/oeis-hanna/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 2, version 2.
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
-- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper1/` (Paper 1, version 2; statement files `Challenge.lean` and `SupplementStatements.lean`, tests `ChallengeTests.lean` and `NarrowContractTests.lean`, the proof modules in the same directory, with no `Proof/` folder, and the check file `FinalContractAudit.lean`; the proofs also use the older modules `lean/Research/ICG*.lean`), `lean/Research/Backfill/Paper2/` (Paper 2, version 2; the proof modules are in the same directory, with no `Proof/` folder), `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9) and `lean/Research/WordRepTensor/` (Paper 10). `lean/Comparator/` holds the challenge files for the comparator check below.
+- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper1/` (Paper 1, version 2; statement files `Challenge.lean` and `SupplementStatements.lean`, tests `ChallengeTests.lean` and `NarrowContractTests.lean`, the proof modules in the same directory, with no `Proof/` folder, and the check file `FinalContractAudit.lean`; the proofs also use the older modules `lean/Research/ICG*.lean`), `lean/Research/TaskE/` (Paper 1, version 3; the main statement file `Challenge.lean`, six auxiliary statement files `Challenge*.lean`, the tests `StatementTests.lean`, the proof modules in the same directory, with no `Proof/` folder, `Main.lean` with the main theorem, and the check file `FinalTaskEAudit.lean`; the proofs also use the modules of version 2), `lean/Research/Backfill/Paper2/` (Paper 2, version 2; the proof modules are in the same directory, with no `Proof/` folder), `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9) and `lean/Research/WordRepTensor/` (Paper 10). `lean/Comparator/` holds the challenge files for the comparator check below.
 - `.github/workflows/comparator.yml` and `ci/comparator/`: the comparator check of the completely formalized papers (see below; the workflow does not include Paper 6, whose configuration `ci/comparator/paper6.json` was used locally, and Papers 1, 2 and 7 have no configuration).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
@@ -1399,10 +1509,29 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
     prime 3. A Lean proof of Roldán's conjecture for the exponents (2,3), including
     `q = 3`, was merged in trureturing on 20 October 2026
     ([PR #19390](https://github.com/the-omega-institute/trureturing/pull/19390)).
-    A search on 7 November 2026 (06:11–06:43 UTC) found no other work on this
-    problem since 25 September, and we make no claim about equal-parity orders with
-    `min(a, b) ≥ 3` involving the prime 3.
-  This reports the coverage of our searches, not a guarantee of priority.
+    A search on 7 November 2026 (06:11–06:43 UTC), for version 2, found no other
+    work on this problem since 25 September, and in particular no treatment of the
+    equal-parity orders with `min(a, b) ≥ 3` involving the prime 3;
+  - version 3 (equal parity, one of the primes equal to 3, `min(a, b) ≥ 3`): a
+    Codex agent searched the literature on 8 November 2026 (17:17 UTC), before the
+    proofs, and a Claude Code agent searched again on
+    8 November 2026, 21:07–21:22 UTC: the arXiv (API, the versions of
+    arXiv:2608.29523 and arXiv:2610.36883, and the listings of math.CO, math.NT
+    and math.SP up to those of 6 November 2026), Semantic Scholar, OpenAlex,
+    DataCite, zbMATH Open, MathDB, MathOverflow and Mathematics Stack Exchange,
+    GitHub (commits, issues, pull requests, repositories and code, and the commits
+    since 6 November 2026 of 27 repositories of AI-assisted mathematics, including
+    trureturing), and web search. Apart from version 1.5 of Paper 1, we found no
+    proof, claim or announcement for these orders, and no announcement that the
+    whole of Conjecture 14 is proved. arXiv:2610.36883 still had only version 1,
+    which requires `p, q ≥ 5`, and arXiv:2608.29523 still had version 2 as its
+    latest version. On 9 November 2026, 08:24–08:35 UTC, a Claude Code agent
+    repeated the parts of this search that could have changed (the arXiv, with
+    the listings of math.CO, math.NT and math.SP of 9 November 2026, Semantic
+    Scholar, OpenAlex, GitHub and web search) and found nothing new; the versions
+    of the two arXiv papers had not changed.
+  This reports the coverage of our searches, not a guarantee of priority or that
+  they were complete.
 - Paper 3: Carenini's question was posted on 22 September 2026. We found no
   earlier answer to it or discussion of it (arXiv listing and API, Semantic
   Scholar, MathDB, GitHub code, commits, issues, pull requests and
@@ -1518,6 +1647,10 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
     last check of the arXiv (including the announcement of 9 October 2026 in
     cs.IT and math.CO), GitHub and MathDB on 9 October 2026, 14:51–14:53 UTC,
     found nothing new.
+  - Later work: Lou and Wang (arXiv:2610.36687v1, 27 October 2026) and Wei,
+    Zhou, Zhang and Chen (arXiv:2610.29807v1, 21 October 2026); see the
+    section on Paper 6 above. We found them on 8 November 2026 and checked
+    their arXiv abstract pages (only version 1 of each) on that day.
   This reports the coverage of our searches, not a guarantee of priority.
 - Paper 7: the question is from Braga, Moraes and Santos (arXiv:2609.28754v1,
   23 September 2026, still the only version on 27 September 2026). The three
@@ -1641,7 +1774,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Tool and computational resource disclosure
 
-This work was carried out from 25 September to 8 November 2026 (UTC) in a
+This work was carried out from 25 September to 9 November 2026 (UTC) in a
 workflow directed by the author, using two AI coding agents:
 
 - OpenAI Codex (desktop app; models `gpt-6-astra`, `gpt-6-sol`, `gpt-6.1-sol`);
@@ -1817,7 +1950,7 @@ and on 27 and 28 September wrote the Lean proofs of 29 of its 33 statements; its
 session records name the model gpt-6-astra for this work. On 6 November 2026 the
 author decided to narrow the paper to `min(a, b) ≤ 2` rather than formalize the
 certificates. On 6 and 7 November Codex (model gpt-6.1-sol in its session
-records) wrote the present statement files, which Codex agents that had not
+records) wrote the statement files of version 2, which Codex agents that had not
 written them reviewed before they were frozen on 7 November; moved the earlier
 proofs into the package; proved the remaining statements, including
 `Proposition31` and `Theorem5MinTwo`; and built the package twice from empty
@@ -1837,6 +1970,34 @@ model) reviewed the paper, the Lean package and the receipts; neither ran Lean.
 The corrections of both reviews were applied.
 The author has read version 2 of Paper 1 and, using a side-by-side table,
 compared the statements of the Lean theorems with the results stated there.
+
+Version 3 of Paper 1 (version 1.17.0) was produced on 8 November 2026. OpenAI
+Codex (desktop application; its session records name the model gpt-6.1-sol)
+found the proofs of the conditions of Proposition 31 for the prime 3, wrote the
+statement files and the Lean proofs of version 3, and built the package twice
+from empty directories. A Codex agent that had not written the statement files
+reviewed them before they were frozen. After both builds had ended, a Codex
+agent that had written no statement, proof or build script of version 3
+reviewed the sources, the logs of both builds and the mathematics of the 45 new
+modules, and approved the package (20:58:51 UTC); it did not run Lean. These
+are reviews by Codex agents, not by another model family. Codex also searched
+the literature (17:17 UTC). Claude Code (model Claude Opus 5.5) drafted the
+text of version 3, including the written proofs of Section 13, from the Lean
+proofs and Codex's notes on them, rebuilt the whole Lean project of the
+repository on the author's Windows computer (8 November 2026, 21:09 UTC, to
+9 November, 08:20 UTC), and searched
+the literature again (8 November, 21:07–21:22 UTC, and 9 November, 08:24–08:35
+UTC). An independent Claude Code agent (model
+Claude Fable 5.1), which had written none of the files, reviewed a draft of the
+paper against the statements and the evidence on 8 November 2026; it did not
+run Lean. Five of its seven minor remarks were applied and one needed no
+change; the remaining one asked for a further literature check if the release
+came after the arXiv announcement of 9 November 2026, and that check was done. Before
+the release a second such agent (same model) reviewed the paper, the Lean
+package and the receipts on 9 November 2026; it did not run Lean, and its
+corrections were applied. The author has read version 3 of Paper 1 and,
+using a side-by-side table, compared the statements of its new Lean theorems
+with the results stated in it.
 
 Paper 8 (version 1.7.0) was selected, proved, partly formalized in Lean and
 drafted by Claude Code agents (model Claude Opus 5.5); an adversarial
@@ -1947,7 +2108,11 @@ empty directory, as described above, and the second independent agent named in
 the disclosure of version 2 of Paper 1 reviewed the changes to the README and
 ATTEMPTS.md, the certificates, the receipts and the release notes (7 November
 2026). OpenAI Codex wrote the statement files and the Lean proofs of version 2
-of Paper 1, as described above.
+of Paper 1, as described above. For version 1.17.0, Claude Code (model Claude
+Opus 5.5) rebuilt the whole Lean project from a new empty directory, as
+described above, and drafted the changes to the README and ATTEMPTS.md. OpenAI
+Codex wrote the statement files and the Lean proofs of version 3 of Paper 1, as
+described above.
 
 AI systems are not authors. The author takes full responsibility for the content.
 

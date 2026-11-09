@@ -1,0 +1,45 @@
+{
+ "purpose": "Whole-project clean rebuild of the Lean project of release v1.17.0 (adds Paper 1 version 3).",
+ "start_utc": "2026-11-08T21:09:01Z",
+ "end_utc": "2026-11-09T08:20:28Z",
+ "result": "2999 of 2999 modules compiled; 2998 of 2999 replayed with leanchecker; the module Research has no constants and was exempted; 0 audit problems.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.16.0-receipt.json",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs)",
+ "procedure": [
+  "New empty output directory; sources copied from the release tree lean/ (Research.lean and Research/, 3001 files, of which 2999 are Lean modules). After the build their SHA-256 hashes were compared with the release tree: no difference. The directory Comparator/ was not built here; it is unchanged since version 1.13.0, and the CI workflow checks it.",
+  "Each module compiled with lean -DautoImplicit=false -DrelaxedAutoImplicit=false, then each module replayed with leanchecker, by the driver build6.py of version 1.16.0. This is not a lake build.",
+  "Warnings are recorded and do not fail a module; an error, sorry or non-zero exit code does."
+ ],
+ "runs": [
+  {
+   "start_utc": "2026-11-08T21:09:01Z",
+   "end_utc": "2026-11-09T08:20:28Z",
+   "note": "One run, up to 14 jobs. Compile phase until 04:18:23Z, leanchecker phase from 04:18:24Z. Every module passed at the first attempt; no log has the suffix .attemptN. Final status: status.json."
+  }
+ ],
+ "module_Research": {
+  "lines": "only import lines",
+  "constants": 0,
+  "extra_constants": 0,
+  "imports": 51,
+  "how_counted": "readModuleData on Research.olean (research-olean-constants.txt in the log archive)",
+  "consequence": "leanchecker has nothing to replay in this module. It was exempted before the run, as for versions 1.15.0 and 1.16.0."
+ },
+ "audit": {
+  "modules": 2999,
+  "compile_ok": 2999,
+  "check_ok": 2998,
+  "check_exempt": 1,
+  "axiom_lists": 112767,
+  "axiom_lists_empty": 8453,
+  "warnings": 97,
+  "problem_count": 0
+ },
+ "warnings": "97 lines in 15 older modules, the same as for version 1.16.0; none in Paper 1 or in the 45 new modules Research/TaskE/.",
+ "axioms": "every printed axiom list is a subset of propext, Classical.choice and Quot.sound. The 7 lists printed by Research.TaskE.FinalTaskEAudit (among them check_SameParityThree and check_SameParityThreeMinEight) and the list printed by Research.TaskE.C1High are each exactly these three axioms.",
+ "forbidden_tokens": "logs/clean-replay-v1.17.0-forbidden-tokens.log: outside comments, only the intentional sorry statements of the comparator challenge files lean/Comparator/.",
+ "logs": "logs/clean-replay-v1.17.0-logs.tar.gz",
+ "logs_note": "In the published logs the two local directories are replaced by <workspace> and <worker>; nothing else is changed."
+}

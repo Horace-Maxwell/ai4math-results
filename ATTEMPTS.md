@@ -7,8 +7,8 @@ problems that were dropped without a result. It gives the denominator behind
 the results in this repository: how many problems were tried, and what
 became of each.
 
-Status: 7 November 2026, covering the work of 25 September to 7 November 2026 up to version
-1.16.0. All dates are UTC.
+Status: 9 November 2026, covering the work of 25 September to 9 November 2026 up to version
+1.17.0. All dates are UTC.
 
 ## How to read this file
 
@@ -28,7 +28,7 @@ Status: 7 November 2026, covering the work of 25 September to 7 November 2026 up
 
 ## (a) Published
 
-The column "Lean" describes the formal verification in version 1.16.0; the
+The column "Lean" describes the formal verification in version 1.17.0; the
 README has the details.
 
 | # | Problem | Source | Published in | What was proved | Lean |
@@ -42,8 +42,8 @@ README has the details.
 | 13 | A107099: vanishing modulo 3 except at `n = 3^k` | OEIS (P. D. Hanna) | same as row 1 | The statement as written holds; a stronger reading fails at `x^729`. No novelty claimed since v1.2.1 | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
 | 14 | A361047: residues modulo 3 | OEIS (P. D. Hanna) | same as row 1 | The intended statement holds (the entry has an index slip). No novelty claimed since v1.2.1 | all mathematical results (version 2, v1.15.0); not the identification with the OEIS entry |
 | 15 | Roldán's Conjecture 1.3, case `q = 3` (order `27p²`) | arXiv:2604.09491 | v1.0.0 | Known result, formalized only. Proved earlier by S. Park (2026-08-21, github.com/coshaman/papers, who claims the whole conjecture) and J. A. Schreib (2026-09-05, github.com/jamesschreib/roldan-universality-conjecture); a certificate was announced in [trureturing issue #8338](https://github.com/the-omega-institute/trureturing/issues/8338) (2026-09-16). We add a complete Lean formalization and the second-largest energy | yes |
-| 16 | Maximal energy of integral circulant graphs of order `p^(2r)·3^(2s+1)`: the case `q = 3`, which Theorem A of Jiang and Yang does not cover | arXiv:2608.29523 | v1.1.0 (Paper 1, Theorem 2); version 2 in v1.16.0 | Proved for every prime `p ≥ 5`: the checkerboard set is the unique maximiser, and the maximal energy is given by their formula. The case `r = s = 1` (order `27p²`) is row 15; a Lean proof of it for all distinct odd primes was later merged in trureturing (pull request #19390, 2026-10-20) | all results (version 2, v1.16.0), not checked with comparator |
-| 17 | Equal-parity conjecture on the maximal energy of integral circulant graphs of order `p^a q^b` | our Paper 1 (conjecture stated in v1.1.0) | v1.2.0 (Theorem 3), v1.4.0 (Theorems 4 and 5), v1.5.0 (Theorem 5 extended); version 2 in v1.16.0 | Proved for orders `pq^m` and `p^m q` with `m` odd (Theorem 3) and `p²q^b` and `p^b q²` with `b` even (Theorem 4), that is, for every order `p^a q^b` with `a + b` even and `min(a, b) ≤ 2`, the prime 3 included (Theorem 5 of version 2). The case `n = pq` follows from earlier formulas of Ilić and Ilić–Bašić. Version 1.5 also claimed `3 ≤ min(a, b) ≤ 8` with computer assistance; version 2 withdraws this, because it has no formal proof, not because an error was found. Later work: Jiang and Yang (arXiv:2610.36883v1, 2026-10-27) state the formula for all distinct primes `p, q ≥ 5`; their statement does not include the prime 3. We make no claim about the orders with `min(a, b) ≥ 3` in which one of the primes is 3 | all results (version 2, v1.16.0), not checked with comparator; Proposition 31 only as an implication; the conjecture itself is not proved |
+| 16 | Maximal energy of integral circulant graphs of order `p^(2r)·3^(2s+1)`: the case `q = 3`, which Theorem A of Jiang and Yang does not cover | arXiv:2608.29523 | v1.1.0 (Paper 1, Theorem 2); version 2 in v1.16.0, version 3 in v1.17.0 | Proved for every prime `p ≥ 5`: the checkerboard set is the unique maximiser, and the maximal energy is given by their formula. The case `r = s = 1` (order `27p²`) is row 15; a Lean proof of it for all distinct odd primes was later merged in trureturing (pull request #19390, 2026-10-20) | all results (versions 2 and 3, v1.16.0 and v1.17.0), not checked with comparator |
+| 17 | Equal-parity conjecture on the maximal energy of integral circulant graphs of order `p^a q^b` | our Paper 1 (conjecture stated in v1.1.0) | v1.2.0 (Theorem 3), v1.4.0 (Theorems 4 and 5), v1.5.0 (Theorem 5 extended); version 2 in v1.16.0; version 3 in v1.17.0 (one prime equal to 3) | Proved for orders `pq^m` and `p^m q` with `m` odd (Theorem 3) and `p²q^b` and `p^b q²` with `b` even (Theorem 4), that is, for every order `p^a q^b` with `a + b` even and `min(a, b) ≤ 2`, the prime 3 included (Theorem 5 of version 2), and, in version 3, for every order `p^a q^b` with `a + b` even in which one of the primes is 3, with no bound on the exponents or on the other prime (Theorem 5 of version 3, Section 13). The case `n = pq` follows from earlier formulas of Ilić and Ilić–Bašić. Version 1.5 also claimed `3 ≤ min(a, b) ≤ 8` with computer assistance; version 2 withdrew this, because it has no formal proof, not because an error was found. Later work: Jiang and Yang (arXiv:2610.36883v1, 2026-10-27) state the formula for all distinct primes `p, q ≥ 5`; their statement does not include the prime 3. We have not reviewed their proof, and it is not formalized; only if it is correct does the conjecture hold for all distinct odd primes. The remaining orders (`p, q ≥ 5`, `min(a, b) ≥ 3`) are not proved here | all results (version 2, v1.16.0, and version 3, v1.17.0), not checked with comparator; Proposition 31 as an implication, with its conditions proved at the points `(3, q)`, `q` an odd prime other than 3; the conjecture itself is proved only for `min(a, b) ≤ 2` and when one of the primes is 3 |
 | 18 | A246056: the pattern of `a(n) mod 3` | OEIS (P. D. Hanna) | v1.2.0 | Known result, formalized only: it follows from a theorem of Deutsch and Sagan (J. Number Theory 117 (2006)) | yes |
 | 19 | A376230: a parity comment | OEIS (P. D. Hanna) | v1.2.0 | The comment is false as stated (`a(4) = 8`). The corrected pattern follows from a theorem of Gawron and Ulas (Discrete Math. 339 (2016)): known result, formalized only | yes |
 | 20 | Carenini's Question 1.3 on almost independent sets in regular graphs | arXiv:2609.28527 | v1.3.0 (Paper 3); version 2 in v1.10.0 | Answer: no. Smallest counterexample `(n, d, γ) = (6, 3, 1/18)`; counterexamples for every `(n, d)` with `2d ∣ n` apart from trivial cases, and further families; a positive result at the exponential scale. Some cases remain open | all results (version 2) |
@@ -99,7 +99,8 @@ items is claimed as a result in this repository.
     check or a statement contract.
   - Dropped without a result: 6 items (section c).
 - Under active work and not listed here: none. With version 2 of Paper 1
-  (v1.16.0), all ten papers are formalized completely in Lean.
+  (v1.16.0), all ten papers are formalized completely in Lean; version 3 of
+  Paper 1 (v1.17.0) is also formalized completely.
 - Scouted but not attempted: 54 candidates. This counts the candidates that
   scouting agents wrote up and ranked in their reports but on which no
   research was done. Problems rejected during bulk screening (for example,
@@ -239,3 +240,23 @@ Published corrections so far:
    arXiv:2610.36883 and trureturing pull request #19390 and the revision of
    arXiv:2608.29523. Theorems 1–4 are unchanged. The programs and logs of
    version 1.5 remain in `certificates/` as its records.
+14. **Paper 1, version 3 (v1.17.0).** Not a correction: no error was found in
+   version 2. Listed here because it changes statements of version 2 about the
+   scope of the paper. Theorem 5 now also covers every order of equal parity in
+   which one of the primes is 3, with no bound on the exponents or on the other
+   prime; the new Section 13 (statements 32–43) proves this case by verifying,
+   for the prime 3, the conditions of Proposition 31 at every exponent and every
+   other odd prime, and every new result is formalized in Lean (the main
+   statement `SameParityThree`, frozen on 8 November 2026 before its proof was found).
+   The heading of Conjecture 14 and the paragraph after it now say that the
+   conjecture is proved when `min(a, b) ≤ 2` or one of the primes is 3, and
+   that the remaining orders are covered by the statement of Jiang and Yang
+   (arXiv:2610.36883), whose proof we have not reviewed; the note on the
+   withdrawn Proposition 15 says that its orders with a prime 3 are now covered
+   by Theorem 5. Section 1 reports a further literature search
+   (8 November 2026, 21:07–21:22 UTC), the introduction of Section 12 says which
+   conditions are proved, and the section on formal verification, now
+   Section 14, describes the new Lean package. The statement that the three
+   conditions hold at every point of both regions for every `a ≥ 3` is not
+   proved. Proposition 31 and all proofs of version 2 are unchanged, and the
+   statements of version 2 keep their numbers.

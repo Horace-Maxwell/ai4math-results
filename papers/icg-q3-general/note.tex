@@ -9,7 +9,7 @@
 \usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
- pdftitle={The maximal energy of integral circulant graphs of orders p\textasciicircum(2r) 3\textasciicircum(2s+1), pq\textasciicircum m and p\textasciicircum 2 q\textasciicircum b},
+ pdftitle={The maximal energy of integral circulant graphs of order p\textasciicircum a q\textasciicircum b when one prime is 3 or one exponent is at most 2},
  pdfauthor={Horace Dong}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -24,30 +24,32 @@
 \setlength{\emergencystretch}{2em}
 \interfootnotelinepenalty=10000
 % Repository version that will contain this version of the paper (provisional).
-\newcommand{\repoversion}{1.16.0}
+\newcommand{\repoversion}{1.17.0}
 % Visible marker for what is not done yet; every use must be gone before release.
 \newcommand{\placeholder}[1]{\textbf{[#1]}}
-\title{The maximal energy of integral circulant graphs\\ of orders
-$p^{2r}3^{2s+1}$, $pq^m$ and $p^2q^b$\thanks{\emph{Version~2.} Every result of
-this version is formally verified in Lean~4 (Section~\ref{sec:verif});
-version~1.5, the previous one, was only partly formalised. Version~2 narrows
-the results on exponents of equal parity: Theorem~\ref{thm:minfour} is now
-stated for $\min\{a,b\}\le2$, the other exponent being arbitrary, instead of
-$\min\{a,b\}\le8$. The case $3\le\min\{a,b\}\le8$ of that theorem and
-Proposition~15 of version~1.5 rested on computer calculations and have no
-formal proof, so they are withdrawn; the withdrawal does not report an error in
-those calculations. Other claims without a formal proof, mainly the
-computational cross-checks of version~1.5, are deleted. The numbers of the
-remaining statements are unchanged, and the number~15 is not used. The main
-changes are listed at the end of Section~\ref{sec:verif}. Earlier versions
-remain available in the releases of~\cite{repo}: version~1.5 in~1.5.0,
-version~1.4 in~1.4.0 and version~1.2 in~1.2.0. Theorem~10, Conjecture~12 and
-Proposition~13 of version~1.2 are Theorem~\ref{thm:sign},
-Conjecture~\ref{conj:equal} and the withdrawn Proposition~15.}}
+% Title changed in version 3 (versions 1.1-2: "... of orders $p^{2r}3^{2s+1}$, $pq^m$ and $p^2q^b$"); chosen by the author on 2026-11-09.
+\title{The maximal energy of integral circulant graphs\\ of order $p^aq^b$
+when one prime is~$3$\\ or one exponent is at most~$2$\thanks{\emph{Version~3.} Every result of
+this version is formally verified in Lean~4 (Section~\ref{sec:verif}). Version~3
+extends Theorem~\ref{thm:minfour}, which version~2 stated for $\min\{a,b\}\le2$, to
+all orders $p^aq^b$ of equal parity in which one of the primes is~$3$, with no bound
+on the exponents or on the other prime. The new proof, in Section~\ref{sec:three},
+verifies the conditions of the reduction of Section~\ref{sec:minfour} for the
+prime~$3$. The statements of version~2 keep their numbers; the new statements are
+numbered from~32 on, and the number~15 is still not used. The main changes are
+listed at the end of Section~\ref{sec:verif}. Version~2 remains available in
+release~1.16.0 of~\cite{repo}, and earlier versions in its earlier releases:
+version~1.5 in~1.5.0, version~1.4 in~1.4.0 and version~1.2 in~1.2.0. Version~2
+withdrew the case $3\le\min\{a,b\}\le8$ of Theorem~\ref{thm:minfour} and
+Proposition~15 of version~1.5, which rested on computer calculations without a
+formal proof; the withdrawal does not report an error in those calculations.
+Theorem~10, Conjecture~12 and Proposition~13 of version~1.2 are
+Theorem~\ref{thm:sign}, Conjecture~\ref{conj:equal} and the withdrawn
+Proposition~15.}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
-\date{Version~2, 8 November 2026}
+\date{Version~3, 9 November 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -71,15 +73,22 @@ For example, for $n=p^2q^b$ with $b$ even the maximal energy is
 $\frac12[n+(5p^2-8p+4)\,d_b(q)]-(p^2-2p+2)\,\delta_b(q)$, where $d_b$ and
 $\delta_b$ are explicit polynomials, and it is attained exactly by
 $\{p^iq^j: i+j\text{ odd}\}$ and $\{p^iq^j: i+j\text{ even}\}\setminus\{n\}$.
-With the opposite-parity case, this determines the maximal energy for every
-order $p^aq^b$ with $\min\{a,b\}\le2$. Version~1.5 of this paper also claimed
-the range $3\le\min\{a,b\}\le8$ by a computer-assisted argument; version~2
-withdraws that claim, because it has no formal proof, and keeps only a
-conditional reduction (Proposition~\ref{prop:reduction}). Jiang and
-Yang~\cite{jy2} have since stated the corresponding formula,
-$\frac12[n+d_a(p)d_b(q)]-\delta_a(p)\delta_b(q)$, and the same description of the
-two maximisers, for all exponents of equal parity and distinct primes $p,q\ge5$; their
-statement does not include the prime~$3$. All the mathematics of this paper,
+We also prove the formula and the two maximisers when one of the primes is~$3$
+and both exponents are at least~$3$, the other prime and the exponents being
+arbitrary; the proof verifies, for the prime~$3$, every exponent and every other odd prime,
+the conditions of the conditional reduction of version~2
+(Proposition~\ref{prop:reduction}). So the equal-parity formula holds for every order $p^aq^b$
+with $\min\{a,b\}\le2$ and for every order of equal parity in which one of the
+primes is~$3$; with the opposite-parity case, this determines the maximal energy
+for all such orders. Version~1.5 of this paper claimed the range
+$3\le\min\{a,b\}\le8$ by a computer-assisted argument without a formal proof;
+version~2 withdrew that claim. Jiang and Yang~\cite{jy2} have stated the same
+formula, $\frac12[n+d_a(p)d_b(q)]-\delta_a(p)\delta_b(q)$, and the same two
+maximisers, for all exponents of equal parity and distinct primes $p,q\ge5$. Their
+statement covers the remaining orders. We have not reviewed its proof, and it is
+not formally verified. If it is correct, the two results together determine the
+maximal energy for every order $p^aq^b$ with distinct odd primes $p,q$. All the
+mathematics of this paper,
 including the closed forms of $d_k$ and $\delta_k$, is formally verified in
 Lean~4; statements about the literature are not. The proofs were found by AI
 coding agents working under the author's direction; their role is described at
@@ -137,7 +146,8 @@ If the two exponents have the same parity, the checkerboard set contains $n$
 itself and is not a set of proper divisors, and the maximiser changes.
 Conjecture~\ref{conj:equal}, stated in earlier versions of this paper, gives two
 maximisers and an explicit maximal energy for this case. We prove it when one of
-the exponents equals~$1$ or~$2$. For $n=p^aq^b$, a set written as
+the exponents equals~$1$ or~$2$, and, in version~3, when one of the primes
+equals~$3$. For $n=p^aq^b$, a set written as
 $\{p^iq^j:\ \dots\}$ consists of the divisors $p^iq^j$ of $n$ ($0\le i\le a$,
 $0\le j\le b$) with the stated property, and
 $\delta_k(x)=\bigl(x^k(x-1)+2(-1)^k\bigr)/(x+1)$ (Remark~\ref{rem:closed}).
@@ -181,24 +191,26 @@ $3x-4=d_1(x)$ and $x-2=\delta_1(x)$, Theorems~\ref{thm:onem} and~\ref{thm:ptwo}
 together give the following.
 
 \begin{theorem}\label{thm:minfour}
-Let $p,q$ be distinct odd primes, let $a,b\ge1$ with $a+b$ even and
-$\min\{a,b\}\le2$, and let $n=p^aq^b$. The maximal energy of an integral
-circulant graph of order $n$ is
+Let $p,q$ be distinct odd primes, let $a,b\ge1$ with $a+b$ even, suppose that
+$\min\{a,b\}\le2$ or that one of $p,q$ equals~$3$, and let $n=p^aq^b$. The
+maximal energy of an integral circulant graph of order $n$ is
 $\tfrac12\bigl[n+d_a(p)\,d_b(q)\bigr]-\delta_a(p)\,\delta_b(q)$, and it is
 attained exactly by the sets $\{p^iq^j:\ i+j\ \text{odd}\}$ and
 $\{p^iq^j:\ i+j\ \text{even}\}\setminus\{n\}$.
 \end{theorem}
 
 This is Theorem~\ref{thm:onem} if $\min\{a,b\}=1$ and Theorem~\ref{thm:ptwo} if
-$\min\{a,b\}=2$; the other exponent is arbitrary, and the prime~$3$ is allowed.
-Version~1.5 stated this theorem for $\min\{a,b\}\le8$; see the footnote on the
-title page.
+$\min\{a,b\}=2$; in these cases the other exponent is arbitrary, and the prime~$3$
+is allowed. If $\min\{a,b\}\ge3$ and one of the primes is~$3$, the theorem is
+proved in Section~\ref{sec:three}, with no bound on the exponents or on the other
+prime. Version~1.5 stated this theorem for $\min\{a,b\}\le8$, and version~2 for
+$\min\{a,b\}\le2$; see the footnote on the title page.
 
 Theorems~\ref{thm:jy} and~\ref{thm:main} cover every order whose exponents
 have opposite parity. So Theorems~\ref{thm:jy}--\ref{thm:minfour} determine
 the maximal energy, and all maximisers, for every order $p^aq^b$ with
-$\min\{a,b\}\le2$, and for every order whose exponents have opposite parity,
-where $p,q$ are distinct odd primes.
+$\min\{a,b\}\le2$, for every order $3^aq^b$, and for every order whose exponents
+have opposite parity, where $p,q$ are distinct odd primes.
 
 \paragraph{Earlier searches.} Our searches for earlier work on exponents of
 equal parity were made on 26 September 2026, between 03:37 and 04:32 UTC, in
@@ -219,15 +231,15 @@ Yang~\cite{jy2} (27 October 2026) stated in their Theorem~A that for distinct
 primes $p,q\ge5$ and $a,b\ge1$ with $a+b$ even, the maximal energy of an integral
 circulant graph of order $n=p^aq^b$ is
 $\frac12[n+d_a(p)d_b(q)-2g_a(p)g_b(q)]$, attained exactly by the two sets of
-Theorem~\ref{thm:minfour}; their $g_k$ is our $\delta_k$. So for $p,q\ge5$
-Theorem~\ref{thm:minfour} is a special case of their statement, while their
-statement does not include the prime~$3$. They add that, together with~\cite{jy},
-this determines the maximal energy and all maximisers for every order $p^aq^b$ with
-distinct primes $p,q\ge5$. We have compared the statements only.
+Theorem~\ref{thm:minfour}; their $g_k$ is our $\delta_k$. So for $p,q\ge5$ and
+$\min\{a,b\}\le2$, Theorem~\ref{thm:minfour} is a special case of their statement,
+while their statement does not include the prime~$3$. They add that, together
+with~\cite{jy}, this determines the maximal energy and all maximisers for every
+order $p^aq^b$ with distinct primes $p,q\ge5$. We have compared the statements only.
 We have not reviewed their proof, and nothing in this paper or in its Lean
-proofs uses it. The orders of equal parity with $\min\{a,b\}\ge3$ for which one of the primes
-is~$3$ are covered neither by Theorem~\ref{thm:minfour} nor by that statement; we
-make no claim about whether they have been treated elsewhere. The earlier
+proofs uses it. The orders of equal parity with $\min\{a,b\}\ge3$ in which one of
+the primes is~$3$ are not covered by that statement; Theorem~\ref{thm:minfour}, in
+the form extended in version~3, treats them (Section~\ref{sec:three}). The earlier
 paper~\cite{jy} of Jiang and Yang was revised on 30 October 2026, with a new title
 and an extension to several odd primes; according to its abstract and its Theorem~A
 the primes with odd exponent are still required to be at least~$5$, and its
@@ -239,7 +251,7 @@ primes, including $q=3$, was merged into the \texttt{trureturing} repository on
 case $r=s=1$ of Theorems~\ref{thm:jy} and~\ref{thm:main}; we read its description,
 not its Lean code.
 
-We searched again for this version on 7 November 2026, between 06:11 and 06:43 UTC:
+We searched again for version~2 on 7 November 2026, between 06:11 and 06:43 UTC:
 the arXiv (API, and the listings of math.CO, math.NT and math.SP up to those of
 6 November 2026); Semantic Scholar, OpenAlex, Crossref, DataCite, Zenodo and zbMATH
 Open; MathDB; MathOverflow and Mathematics Stack Exchange, through the Stack Exchange
@@ -250,6 +262,22 @@ we found no other work on the maximal energy of these graphs since 25 September 
 and in particular no treatment of the orders of equal parity with $\min\{a,b\}\ge3$
 in which one of the primes is~$3$. These paragraphs report what we read and the
 coverage of our searches, not a guarantee of priority.
+
+For version~3 we searched again on 8 November 2026, between 21:07 and 21:22 UTC:
+the arXiv (API, the versions of~\cite{jy,jy2}, and the listings of math.CO, math.NT
+and math.SP up to those of 6 November 2026); Semantic Scholar, OpenAlex, DataCite
+and zbMATH Open; MathDB; MathOverflow and Mathematics Stack Exchange; GitHub
+commits, issues, pull requests, repositories and code, and the commits since
+6 November 2026 of 27 repositories of AI-assisted mathematics, including
+\texttt{trureturing}; and web search. Apart from version~1.5 of this paper, we
+found no proof, claim or announcement for the orders of equal parity with
+$\min\{a,b\}\ge3$ in which one of the primes is~$3$, and no new version of~\cite{jy}
+or~\cite{jy2}. On 9 November 2026, between 08:24 and 08:35~UTC, we repeated the
+parts of this search that could have changed: the arXiv (API, the versions
+of~\cite{jy,jy2}, and the listings of math.CO, math.NT and math.SP of 9 November
+2026), Semantic Scholar, OpenAlex, GitHub (as above, and the new commits of the same
+repositories) and web search; we found nothing new. This reports the coverage of our
+searches, not a guarantee that they were complete.
 
 Our proof replaces the semidefinite part of~\cite{jy} by
 Theorem~\ref{thm:sign} below, an inequality for sign matrices that holds for
@@ -263,8 +291,9 @@ Section~\ref{sec:column} applies them to all rows of $T_a(p)Y$ at once, so
 that the states of the path are vectors built from the columns of the sign
 matrix~$Y$. With this, Section~\ref{sec:ptwo} proves Theorem~\ref{thm:ptwo},
 and Section~\ref{sec:minfour} gives a conditional reduction for larger
-exponents, of which we claim no instance. Section~\ref{sec:verif} describes the
-formal verification.
+exponents. Section~\ref{sec:three} proves its conditions when the prime whose
+exponent is~$a$ equals~$3$, which gives Theorem~\ref{thm:minfour} when one of the
+primes is~$3$. Section~\ref{sec:verif} describes the formal verification.
 
 \section{Weighted Ramanujan transforms}
 We use the notation of~\cite{jy}. For real $x>1$, an integer $k\ge1$ and
@@ -510,7 +539,7 @@ $\tfrac12[n+d_a(p)\,d_b(q)]$ is not attained, and the maximiser changes.
 By~\eqref{eq:G}, the set $\{p^iq^j: i+j\text{ odd}\}$ has energy
 $\tfrac12[n+d_a(p)\,d_b(q)]-\delta_a(p)\,\delta_b(q)$.
 
-\begin{conjecture}[stated in earlier versions; proved here only for $\min\{a,b\}\le2$]\label{conj:equal}
+\begin{conjecture}[stated in earlier versions; proved here when $\min\{a,b\}\le2$ or one of the primes is~$3$]\label{conj:equal}
 Let $p,q$ be distinct odd primes, $a,b\ge1$ with $a+b$ even, and
 $n=p^aq^b$. The maximal energy of an integral circulant graph of order $n$ is
 \[
@@ -525,18 +554,22 @@ By the computation above, the first of the two sets always attains the
 conjectured value. Since $d_1(x)=3x-4$, $\delta_1(x)=x-2$,
 $d_2(x)=5x^2-8x+4$ and $\delta_2(x)=x^2-2x+2$, Theorems~\ref{thm:onem}
 and~\ref{thm:ptwo} are the cases $\min\{a,b\}=1$ and $\min\{a,b\}=2$ of the
-conjecture, proved in Sections~\ref{sec:onem} and~\ref{sec:ptwo}, and
-Theorem~\ref{thm:minfour} is the case $\min\{a,b\}\le2$. We prove the conjecture
-in no other case and keep it here as a historical statement. For $p,q\ge5$ it is
-the statement of~\cite[Theorem~A]{jy2}, whose proof we have not reviewed. For orders of
-equal parity with $\min\{a,b\}\ge3$ in which one of the primes is~$3$ we make no
-claim (Section~1).
+conjecture, proved in Sections~\ref{sec:onem} and~\ref{sec:ptwo}.
+Section~\ref{sec:three} proves the case in which one of the primes is~$3$ and
+$\min\{a,b\}\ge3$, and Theorem~\ref{thm:minfour} collects these cases. So the
+conjecture is proved here, with Lean proofs, whenever $\min\{a,b\}\le2$ or one of
+the primes is~$3$. The remaining orders, with $p,q\ge5$ and $\min\{a,b\}\ge3$, are
+covered by the statement of~\cite[Theorem~A]{jy2}. We have not reviewed its proof,
+it is not formally verified, and nothing in our proofs uses it. If it is correct,
+the conjecture holds for all pairs of distinct odd primes.
 
 \addtocounter{theorem}{1}% Proposition 15 of version 1.5 is withdrawn; later numbers are kept.
 \noindent The number~15 is not used in this version. Proposition~15 of
 version~1.5 stated the conjecture, by computer-assisted certificates, for eleven
 exponent pairs. It is withdrawn. Its pairs with $\min\{a,b\}=2$ are covered by
-Theorem~\ref{thm:ptwo}; the pairs $(3,3)$, $(3,5)$, $(5,3)$ and $(4,4)$ are no
+Theorem~\ref{thm:ptwo}. For the pairs $(3,3)$, $(3,5)$, $(5,3)$ and $(4,4)$, the
+orders in which one of the primes is~$3$ are now covered by
+Theorem~\ref{thm:minfour} (Section~\ref{sec:three}); those with $p,q\ge5$ are no
 longer claimed.
 
 \begin{remark}\label{rem:pq}
@@ -1278,17 +1311,21 @@ $\Theta-G(Y)=2\bigl(d_b(q)-5\delta_b(q)\bigr)$, which is $4(q-3)$ for $b=2$.
 \end{remark}
 
 \section{A conditional reduction for larger exponents}\label{sec:minfour}
-This section proves no case of Conjecture~\ref{conj:equal} beyond
-Theorem~\ref{thm:minfour}. We use the notation of Section~\ref{sec:column}.
+This section proves no case of Conjecture~\ref{conj:equal} by itself. We use the
+notation of Section~\ref{sec:column}.
 For a fixed exponent $a\ge2$ of~$p$, and for all real $p,q$
 satisfying~\eqref{eq:regions} in one of its two regions,
 Proposition~\ref{prop:reduction} deduces the following conclusion from the
 conditions (S$_a$), (F$_a$) and (C$_a$), which do not depend on~$b$: for all
 $b\ge1$ with $b\equiv a\pmod2$, every $Y\in\{\pm1\}^{(a+1)\times(b+1)}$ with
 $y_{ab}=-1$ satisfies $G(Y)\le\Theta$, with equality exactly for $Y^-$ and~$Y^+$.
-The proposition is conditional. We do not claim that its conditions hold for
-any $a\ge3$; version~1.5 verified them for $3\le a\le8$ by computer, and that
-verification is not part of this version.
+The proposition is conditional. Section~\ref{sec:three} proves, for every
+$a\ge3$, condition (S$_a$) on both regions, condition (C$_a$) at every point of
+$\mathcal R_2$, and condition (F$_a$) at the points $(3,q)$ with $q=5$, $q=7$ or
+$q\ge8$; this suffices for Theorem~\ref{thm:minfour} when one of the primes is~$3$.
+We do not claim (F$_a$) or (C$_a$) at any other point with $a\ge3$. Version~1.5
+verified the conditions for $3\le a\le8$ by computer, and that verification is not
+part of this version.
 
 Let $\mathcal R_1$ and $\mathcal R_2$ be the two sets of pairs $(p,q)$
 in~\eqref{eq:regions}, and put $P_{\min}=2$ on $\mathcal R_1$ and
@@ -1406,10 +1443,548 @@ $1\le i\le k$.
 \end{itemize}
 \end{proof}
 
+\section{Exponents of equal parity when one prime is~3}\label{sec:three}
+In this section we prove the conditions of Proposition~\ref{prop:reduction} at the
+points $(3,q)$ that are needed for Theorem~\ref{thm:minfour} when one of the primes
+is~$3$, for every exponent $a\ge3$ of the prime~$3$, and we deduce that case of the
+theorem. The proof of Proposition~\ref{prop:reduction} uses the three conditions
+only at the point $(p,q)$ under consideration, and it uses $P_{\min}$ only through
+the inequality $P\ge P_{\min}$. So its conclusion holds at every point of
+$\mathcal R_1$ (respectively $\mathcal R_2$) at which (S$_a$) with $P_{\min}=2$
+(respectively $P_{\min}=4$), (F$_a$) and (C$_a$) hold; we use it in this pointwise
+form. The names of Lean lemmas given below refer to the modules
+\texttt{Research/TaskE/*.lean} of Section~\ref{sec:verif} (namespaces
+\texttt{CodexPaper1.TaskE}, \texttt{CodexPaper1.TaskE.SProof} and \texttt{CodexPaper1.TaskE.FCProof}), except
+where another module is named.
+
+We keep the notation of Sections~\ref{sec:column} and~\ref{sec:minfour}: $x=q$,
+$P=x-1$, $\mu_j$ is the potential for~$x$, $\mu_\infty=P/(x+1)$, and $\eta_n$,
+$\mathcal F_a$, $I_k$, $M=T_a(p)$, $\omega_i$, $\Delta$, $\psi_\mu$ and its cells
+are as there. In addition, for real $p\ge3$ and $a\ge1$ let $L=p^{a-1}(p-1)$; for
+$w\in\mathbb R^{a+1}$ let $\lambda_j(w)$, $-1\le j\le a-1$, be the
+path~\eqref{eq:path} with $x=p$ and $k=a$; let $\bar\mu_j=\mu^{(p)}_j$ be the
+potential of Lemma~\ref{lem:potential} for~$p$; and for $c\in\{\pm1\}^{a+1}$ put
+$\operatorname{pen}_i(c)=\max\{0,\ \omega_i-2|(Mc)_i|\}$, $0\le i\le a$. By the
+proof of Lemma~\ref{lem:path}, by Lemma~\ref{lem:potential} and as
+in~\eqref{eq:Mfacts}, for $c\in\{\pm1\}^{a+1}$ and $0\le j<a$,
+\begin{equation}\label{eq:lamfacts}
+(Mc)_{a-1-j}=L\bigl(\lambda_j(c)-c_j\bigr),\quad (Mc)_a=p^a\lambda_{-1}(c),\quad
+\operatorname{sgn}\lambda_j(c)=c_{j+1},\quad \tfrac{p-2}{p}\le|\lambda_j(c)|\le1,
+\end{equation}
+where the last two statements hold also for $j=-1$; moreover $\omega_i=2L$ for
+$i<a$, $\omega_a=p^a$, $\bar\mu_j\ge\frac{p-2}p$ for $j\ge-1$, and
+\begin{equation}\label{eq:Deltaid}
+\Delta(c)=2p^a\sum_{j\in\NA(c)}\bar\mu_j\,|\lambda_j(c)|.
+\end{equation}
+In Lean these are \texttt{row\_abs\_mass}, \texttt{row\_path},
+\texttt{path\_bounds}, \texttt{terminal\_lower}, \texttt{mu\_lower} and
+\texttt{deficit\_identity}.
+
+\paragraph{Condition (S$_a$).} This condition does not involve~$q$.
+
+\begin{lemma}\label{lem:pen}
+Let $a\ge1$, let $p\ge3$ be real and $c\in\{\pm1\}^{a+1}$. For $0\le j<a$,
+$\operatorname{pen}_{a-1-j}(c)=2L|\lambda_j(c)|$ if $j\in\NA(c)$, and
+$\operatorname{pen}_{a-1-j}(c)=0$ otherwise. Consequently
+\[
+2\Delta(c)-\sum_{i<a}\operatorname{pen}_i(c)
+=2p^{a-1}\sum_{j\in\NA(c)}\bigl(2p\bar\mu_j-(p-1)\bigr)|\lambda_j(c)|,
+\]
+which is nonnegative, and positive if $p\ge5$ and $c\ne\pm s_a$. Moreover
+$\max\{0,\ \omega_a-K|(Mc)_a|\}=0$ for every $K\ge0$ with $p\le K(p-2)$.
+\end{lemma}
+\begin{proof}
+Put $i=a-1-j$. By~\eqref{eq:lamfacts}, $|(Mc)_i|=L|\lambda_j(c)-c_j|$, where
+$\lambda_j(c)$ has the sign $c_{j+1}$ and absolute value at most~$1$. If
+$c_j\ne c_{j+1}$, then $|\lambda_j(c)-c_j|=1+|\lambda_j(c)|$, so
+$2|(Mc)_i|\ge2L=\omega_i$ and $\operatorname{pen}_i(c)=0$. If $c_j=c_{j+1}$, then
+$|\lambda_j(c)-c_j|=1-|\lambda_j(c)|$ and $\operatorname{pen}_i(c)=2L|\lambda_j(c)|$.
+Summing over~$j$ and subtracting from twice~\eqref{eq:Deltaid} gives the identity:
+each $j\in\NA(c)$ contributes
+$4p^a\bar\mu_j|\lambda_j(c)|-2L|\lambda_j(c)|=2p^{a-1}\bigl(2p\bar\mu_j-(p-1)\bigr)|\lambda_j(c)|$. As $\bar\mu_j\ge\frac{p-2}p$,
+$2p\bar\mu_j-(p-1)\ge p-3$, which is $\ge0$, and $>0$ if $p\ge5$; if $c\ne\pm
+s_a$, then $\NA(c)\ne\emptyset$ and $|\lambda_j(c)|>0$. Finally
+$|(Mc)_a|=p^a|\lambda_{-1}(c)|\ge p^{a-1}(p-2)$, so $K|(Mc)_a|\ge
+p^{a-1}K(p-2)\ge p^a=\omega_a$. (Lean: \texttt{penalty\_row},
+\texttt{penalty\_identity}, \texttt{budget\_gap}, \texttt{penalty\_bound},
+\texttt{penalty\_strict}, \texttt{terminal\_penalty\_zero}.)
+\end{proof}
+
+\begin{proposition}\label{prop:S}
+Let $a\ge1$. Condition~(S$_a$) holds with $P_{\min}=4$ for every real $p\ge3$, and
+with $P_{\min}=2$ for every real $p\ge5$. In particular it holds at every point of
+$\mathcal R_1$ with $P_{\min}=2$ and at every point of $\mathcal R_2$ with
+$P_{\min}=4$.
+\end{proposition}
+\begin{proof}
+Let $c\ne\pm s_a$, so that $\Delta(c)>0$ by Lemma~\ref{lem:potential}. If
+$P_{\min}=4$ and $p\ge3$, then $p\le4(p-2)$, so the term $i=a$ of the sum in
+(S$_a$) vanishes by Lemma~\ref{lem:pen}; the terms with $i<a$ are at most
+$\operatorname{pen}_i(c)$, and their sum is at most $2\Delta(c)<4\Delta(c)$. If
+$P_{\min}=2$ and $p\ge5$, then $p\le2(p-2)$, the term $i=a$ vanishes again, and
+the sum of the other terms, $\sum_{i<a}\operatorname{pen}_i(c)$, is smaller than
+$2\Delta(c)$ by Lemma~\ref{lem:pen}. (Lean: \texttt{condS\_four},
+\texttt{condS\_two}, \texttt{check\_ConditionsSUniform}.)
+\end{proof}
+
+\paragraph{The prime $3$.} From now on $p=3$, $a\ge3$, and $q\ge5$ is real, so that
+$(3,q)\in\mathcal R_2$, $P\ge4$, $L=2\cdot3^{a-1}$ and $3^a=\frac32L$. By
+Section~\ref{sec:potential}, Remark~\ref{rem:closed} and~\eqref{eq:muinf} with
+$x=3$, where $\mu_\infty=\frac12$,
+\begin{equation}\label{eq:threefacts}
+\bar\mu_0=\tfrac13,\ \ \bar\mu_1=\tfrac59,\ \ \tfrac13\le\bar\mu_j\le\tfrac59\
+(j\ge0),\ \ \bar\mu_j\ge\tfrac49\ (j\ge1),\ \
+2\delta_a(3)=2\cdot3^a\bar\mu_{a-1}=3^a+(-1)^a,
+\end{equation}
+$\bar\mu_{-1}=1$, $\bar\mu_{j-1}=2-3\bar\mu_j$, and $\bar\mu_j>\frac12$ for odd
+$j$. For $c\in\{\pm1\}^{a+1}$ and $0\le j<a$, the proof of
+Lemma~\ref{lem:potential} gives $|\lambda_{j-1}(c)|=(2+|\lambda_j(c)|)/3$ if
+$j\in\NA(c)$ and $|\lambda_{j-1}(c)|=(2-|\lambda_j(c)|)/3$ otherwise. If
+$c_l\ne c_{l+1}$ for $J<l<a$, then $|\lambda_J(c)|=\bar\mu_{a-2-J}$, as in the
+proof of Lemma~\ref{lem:paritydefect}. If $c'\in\{\pm1\}^{a+1}$ and $c'_l=-c_l$ for
+$J<l\le a$, then $\lambda_l(c')=-\lambda_l(c)$ for $J\le l\le a-1$, since
+$\lambda_l(c)$ is a linear function of $c_{l+1},\dots,c_a$. We also use the values
+of the cell function at arguments of the same sign: for $P\ge0$ and $A,B\ge0$,
+\begin{equation}\label{eq:hsame}
+h_\mu(A,B)=2\mu B-2PA\ \ \text{if } A\le B,\qquad
+h_\mu(A,B)=-2(P-\mu)B\ \ \text{if } B\le A,
+\end{equation}
+directly from the definition, and, as $h_\mu(-A,-B)=h_\mu(A,B)$, the same with
+$|A|,|B|$ in place of $A,B$ if $A,B\le0$ (Lean: \texttt{hcell\_same\_small},
+\texttt{hcell\_same\_large}, \texttt{hcell\_sign}). We put
+$K(\mu)=P(1+\mu)-4\mu=P+\mu(P-4)$, so that $K(\mu)\ge P$ for $\mu\ge0$.
+
+\begin{lemma}\label{lem:gain}
+Let $0\le\mu\le1$, $c\in\{\pm1\}^{a+1}$ and $\zeta\in[-1,1]^{a+1}$, and let
+$h_i=h_\mu\bigl((Mc)_i,(M\zeta)_i\bigr)$ be the cells of $\psi_\mu(c,\zeta)$. Then
+$h_i\le2\mu\operatorname{pen}_i(c)$ for $i<a$, and $h_a\le0$. Consequently, for
+every $i<a$,
+\[
+\psi_\mu(c,\zeta)\ \ge\ K(\mu)\,\Delta(c)+\bigl(2\mu\operatorname{pen}_i(c)-h_i\bigr)
+\ \ge\ K(\mu)\,\Delta(c)\ \ge\ P\,\Delta(c).
+\]
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:cell}, which applies as $P\ge4>\mu$, and by
+$|(M\zeta)_i|\le\omega_i$, we have $h_i\le2\mu\max\{0,\ \omega_i-P|(Mc)_i|\}$. For
+$i<a$ this is at most $2\mu\operatorname{pen}_i(c)$ because $P\ge2$. For $i=a$ it
+vanishes by the last part of Lemma~\ref{lem:pen} with $K=P$, as $3\le P$. Hence
+$\sum_lh_l\le h_i+2\mu\sum_{l<a,\,l\ne i}\operatorname{pen}_l(c)
+\le h_i-2\mu\operatorname{pen}_i(c)+4\mu\Delta(c)$ by Lemma~\ref{lem:pen}, and the
+definition of $\psi_\mu$ gives the first inequality. The second holds because
+$h_i\le2\mu\operatorname{pen}_i(c)$, and the third because $\Delta(c)\ge0$.
+(Lean: \texttt{hcell\_row\_budget}, \texttt{hcell\_terminal\_nonpos},
+\texttt{psi\_row\_gain}, \texttt{potential\_lower}.)
+\end{proof}
+
+\begin{lemma}\label{lem:deficit3}
+Let $c\in\{\pm1\}^{a+1}$.
+\begin{itemize}
+\item[(i)] $\Delta(c)\ge2\cdot3^a\bar\mu_j|\lambda_j(c)|$ for every $j\in\NA(c)$.
+ If $c_{a-1}=c_a$, then $\Delta(c)\ge2\delta_a(3)$.
+\item[(ii)] If $c\ne\pm s_a$, then $\Delta(c)\ge\frac8{27}3^a$; if moreover $a$ is
+ odd, then $\Delta(c)\ge\frac13 3^a$.
+\item[(iii)] $2\delta_a(3)\le\frac{28}{27}3^a$ and $2\delta_a(3)\le\frac{41}{27}L$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+(i) All terms of~\eqref{eq:Deltaid} are nonnegative. If $c_{a-1}=c_a$, the term
+$j=a-1$ is $2\cdot3^a\bar\mu_{a-1}=2\delta_a(3)$, as $|\lambda_{a-1}(c)|=|c_a|=1$.
+
+(ii) If some $j\ge1$ lies in $\NA(c)$, then $\bar\mu_j\ge\frac49$ and
+$|\lambda_j(c)|\ge\frac13$, and (i) gives $\Delta(c)\ge\frac8{27}3^a$. Otherwise
+$\NA(c)=\{0\}$, as $c\ne\pm s_a$; since $1,2\notin\NA(c)$ and $a\ge3$,
+$|\lambda_1(c)|=(2-|\lambda_2(c)|)/3\le\frac59$ and
+$|\lambda_0(c)|=(2-|\lambda_1(c)|)/3\ge\frac{13}{27}\ge\frac49$, so (i) with $j=0$
+gives $\Delta(c)\ge2\cdot3^a\cdot\frac13\cdot\frac49$. Let $a$ be odd and
+$J=\max\NA(c)$. Then $c$ alternates after~$J$, so $|\lambda_J(c)|=\bar\mu_{a-2-J}$.
+The indices $J\ge0$ and $a-2-J\ge-1$ have the odd sum $a-2$, so one of them is odd
+or equal to $-1$, and the corresponding value of $\bar\mu$ exceeds~$\frac12$,
+while the other is at least~$\frac13$. By (i),
+$\Delta(c)\ge2\cdot3^a\cdot\frac16$.
+
+(iii) By~\eqref{eq:threefacts}, $2\delta_a(3)\le3^a+1\le\frac{28}{27}3^a$ as
+$3^a\ge27$. If $a$ is odd, $2\delta_a(3)<3^a=\frac32L<\frac{41}{27}L$. If $a$ is
+even, then $a\ge4$, $L\ge54$ and $2\delta_a(3)=\frac32L+1\le(\frac32+\frac1{54})L
+=\frac{41}{27}L$. (Lean: \texttt{deficit\_pays\_term},
+\texttt{terminal\_repeat\_high}, \texttt{deficit\_lower},
+\texttt{deficit\_odd\_lower}, \texttt{two\_delta\_upper}, \texttt{delta\_ratio}.)
+\end{proof}
+
+\paragraph{Three row computations.} The next lemmas evaluate one cell exactly and
+insert it into Lemma~\ref{lem:gain}.
+
+\begin{lemma}\label{lem:lastpair}
+Let $0\le\mu\le1$ and $0\le m\le1$, and let $c,w\in\{\pm1\}^{a+1}$ satisfy
+$c_a=w_a$, $c_{a-1}=-c_a$ and $w_{a-1}=-w_a$. Then
+$\psi_\mu(c,mw)\ge4(P-\mu)mL$.
+\end{lemma}
+\begin{proof}
+By~\eqref{eq:lamfacts} with $j=a-1$ and $\lambda_{a-1}(c)=c_a$,
+$(Mc)_0=L(c_a-c_{a-1})=2Lc_a$, and likewise $(Mw)_0=2Lc_a$. So
+$\operatorname{pen}_0(c)=0$, the arguments of the cell $h_0$ are $2Lc_a$ and
+$2mLc_a$, and $h_0=-4(P-\mu)mL$ by~\eqref{eq:hsame}. Lemma~\ref{lem:gain} with
+$i=0$ gives the claim, as $K(\mu)\Delta(c)\ge0$. (Lean:
+\texttt{last\_pair\_F\_lower}, \texttt{alt\_last\_pair\_gain},
+\texttt{common\_last\_pair\_gain}; they prove the three instances used below.)
+\end{proof}
+
+\begin{lemma}\label{lem:alttail}
+Let $0\le J\le a-2$ and let $w\in\{\pm1\}^{a+1}$ satisfy $w_J=(s_a)_J$ and
+$w_l=-(s_a)_l$ for $J<l\le a$. Put $\theta=|\lambda_J(s_a)|$, $i=a-1-J$ and
+$\varepsilon=-(s_a)_J$. Then $\theta=\bar\mu_{a-2-J}\in[\frac13,\frac59]$,
+$|\lambda_J(w)|=\theta$, $J\in\NA(w)$, no $l>J$ lies in $\NA(w)$,
+$\Delta(w)\ge2\cdot3^a\bar\mu_J\theta\ge L\theta$,
+\[
+(Mw)_i=\varepsilon L(1-\theta),\qquad (Ms_a)_i=\varepsilon L(1+\theta).
+\]
+Moreover, for $0\le y\le1$ and $0\le m\le1$, all cells of $\psi_y(s_a,mw)$ are
+$\le0$, the cell in row~$i$ equals $-2(P-y)mL(1-\theta)$, and
+$\psi_y(s_a,mw)\ge2(P-y)mL(1-\theta)$.
+\end{lemma}
+\begin{proof}
+As $s_a$ alternates, $\theta=\bar\mu_{a-2-J}$, which lies in $[\frac13,\frac59]$
+by~\eqref{eq:threefacts}. Since $w=-s_a$ after~$J$,
+$\lambda_J(w)=-\lambda_J(s_a)$, and $\lambda_J(s_a)$ has the sign
+$(s_a)_{J+1}=\varepsilon$; so $\lambda_J(s_a)=\varepsilon\theta$ and
+$\lambda_J(w)=-\varepsilon\theta$. Also $w_J=(s_a)_J=-(s_a)_{J+1}=w_{J+1}$, and
+$w_l\ne w_{l+1}$ for $l>J$. Lemma~\ref{lem:deficit3}(i) and $\bar\mu_J\ge\frac13$
+give $\Delta(w)\ge2\cdot3^{a-1}\theta=L\theta$. By~\eqref{eq:lamfacts},
+$(Mw)_i=L(-\varepsilon\theta+\varepsilon)$ and
+$(Ms_a)_i=L(\varepsilon\theta+\varepsilon)$. By Lemma~\ref{lem:onecol}, all cells
+of $\psi_y(s_a,mw)$ are $\le0$, and $\Delta(s_a)=0$; so $\psi_y(s_a,mw)$ is at
+least minus the cell in row~$i$. That cell has the arguments
+$\varepsilon L(1+\theta)$ and $\varepsilon mL(1-\theta)$, the second being the
+smaller in absolute value, and~\eqref{eq:hsame} gives its value. (Lean:
+\texttt{alt\_tail\_geometry}, \texttt{alt\_tail\_gain},
+\texttt{alt\_psi\_row\_lower}, \texttt{negative\_tail\_z},
+\texttt{alt\_z\_signed}.)
+\end{proof}
+
+\begin{lemma}\label{lem:tailbudget}
+Let $g\in\{\pm1\}^{a+1}$, $0\le J<a$ and $\theta=|\lambda_J(g)|$. Then
+\begin{equation}\label{eq:tailbudget}
+2\delta_a(3)\le2\cdot3^a\Bigl(\bar\mu_J\theta+2\sum_{l\in\NA(g),\,l>J}
+\bar\mu_l|\lambda_l(g)|\Bigr)+2L(1-\theta),
+\end{equation}
+and the inequality is strict if $J\ge1$ and $\theta<1$.
+\end{lemma}
+\begin{proof}
+Write $\theta_j=|\lambda_j(g)|$ and $\beta_j=1-\bar\mu_j+(2\bar\mu_j-1)\theta_j$
+for $-1\le j\le a-1$. Let $0\le l<a$. If $l\notin\NA(g)$, then
+$\theta_{l-1}=(2-\theta_l)/3$, and with $\bar\mu_{l-1}=2-3\bar\mu_l$ one finds
+$\beta_{l-1}=\beta_l$. If $l\in\NA(g)$, then $\theta_{l-1}=(2+\theta_l)/3$, and
+one finds $\beta_l-\beta_{l-1}=2(2\bar\mu_l-1)\theta_l\le2\bar\mu_l\theta_l$, as
+$\bar\mu_l\le1$. Adding these relations for $J<l\le a-1$, and using
+$\theta_{a-1}=1$, so that $\beta_{a-1}=\bar\mu_{a-1}$, we get
+\[
+\bar\mu_{a-1}\le\beta_J+2\sum_{l\in\NA(g),\,l>J}\bar\mu_l\theta_l.
+\]
+Finally $\beta_J=\bar\mu_J\theta+(1-\bar\mu_J)(1-\theta)\le\bar\mu_J\theta+
+\frac23(1-\theta)$, because $\bar\mu_J\ge\frac13$, and the inequality is strict
+if $\bar\mu_J>\frac13$ and $\theta<1$, in particular if $J\ge1$ and $\theta<1$,
+by~\eqref{eq:threefacts}. Multiplying by $2\cdot3^a$, and using
+$2\cdot3^a\bar\mu_{a-1}=2\delta_a(3)$ and $2\cdot3^a\cdot\frac23=2L$, gives the
+lemma. (Lean: \texttt{repeat\_abs\_step}, \texttt{potential\_step\_budget},
+\texttt{potential\_tail\_budget}, \texttt{zero\_tail\_budget},
+\texttt{zero\_tail\_budget\_strict}.)
+\end{proof}
+
+\begin{lemma}\label{lem:pair}
+Let $0\le y\le1$, let $c,g\in\{\pm1\}^{a+1}$ and $0\le J<a$ with $c_J=g_J$ and
+$c_l=-g_l$ for $J<l\le a$, and put $\theta=|\lambda_J(g)|$. Then
+\begin{itemize}
+\item[(i)] $2\delta_a(3)\le\Delta(c)+\Delta(g)+2L(1-\theta)$;
+\item[(ii)] $\psi_y(c,g)\ge K(y)\,\Delta(c)+2(P-y)L(1-\theta)$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+(i) We have $\lambda_l(c)=-\lambda_l(g)$ for $J\le l\le a-1$; in particular
+$|\lambda_J(c)|=\theta$. For $l>J$, $l\in\NA(c)$ if and only if $l\in\NA(g)$, since
+$c_l=-g_l$ and $c_{l+1}=-g_{l+1}$. As $c_J=g_J$ and $c_{J+1}=-g_{J+1}$, the
+index~$J$ lies in exactly one of $\NA(c)$ and $\NA(g)$. Hence, by~\eqref{eq:Deltaid},
+$\Delta(c)+\Delta(g)$ is at least the first term on the right
+of~\eqref{eq:tailbudget}, and Lemma~\ref{lem:tailbudget} gives~(i).
+
+(ii) Put $i=a-1-J$ and $\chi=c_J\lambda_J(g)\in[-1,1]$, so that $|\chi|=\theta$.
+By~\eqref{eq:lamfacts}, $(Mc)_i=L(-\lambda_J(g)-c_J)=-c_JL(1+\chi)$ and
+$(Mg)_i=L(\lambda_J(g)-c_J)=-c_JL(1-\chi)$, and $\omega_i=2L$. If $\chi\ge0$, then
+$\operatorname{pen}_i(c)=0$ and, by~\eqref{eq:hsame},
+$h_i=-2(P-y)L(1-\chi)$. If $\chi<0$, then $\operatorname{pen}_i(c)=2L|\chi|$ and
+$h_i=2yL(1+|\chi|)-2PL(1-|\chi|)$. In both cases
+$2y\operatorname{pen}_i(c)-h_i=2(P-y)L(1-\theta)$, and Lemma~\ref{lem:gain} gives
+(ii). (Lean: \texttt{opposite\_tail\_z}, \texttt{opposite\_tail\_NA},
+\texttt{deficit\_tail\_at}, \texttt{pair\_match\_budget},
+\texttt{matched\_row\_gain}, \texttt{pair\_match\_gain}.)
+\end{proof}
+
+\paragraph{Condition (F$_a$).} We prove it for the real numbers
+\[
+q=5,\qquad q=7\qquad\text{and}\qquad q\ge8;
+\]
+these include every odd prime $q\ne3$. We do not claim it for other real $q\ge5$.
+
+\begin{lemma}\label{lem:Fscalar}
+Let $q=5$, $q=7$ or $q\ge8$, and $(\mu,m,r)\in\mathcal F_a$. Then
+$\mu_0\le\mu\le1$, $\mu_0\le m\le1$, $0<xr<P$ and $\mu_0\ge\frac35$, and
+\begin{equation}\label{eq:Fscalar}
+\tfrac{41}{27}\,xr<2P-\tfrac59P(1-\mu)-\tfrac{28}9\mu m.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The bounds follow from the definition of $\mathcal F_a$ and~\eqref{eq:murange}:
+$\mu_0=(P-1)/x\ge\frac35$, $\mu_\infty\le\mu_1\le1$, and $r$ is one of $(P-m)/x$,
+$(P-\mu)/x$, $\mu$, $m$, $\mu_0$, $\mu_\infty$, each of which is positive and,
+multiplied by~$x$, smaller than $P$, because $x\mu_1=P-\mu_0$. If $q\ge8$, then
+$\mu\ge\mu_0\ge\frac34$, and by $xr<P$ and $m\le1$ the right side
+of~\eqref{eq:Fscalar} minus $\frac{41}{27}xr$ exceeds
+$-\frac2{27}P+\frac{5P-28}9\mu\ge\frac{37}{108}P-\frac73>0$, since $5P-28>0$
+and $P\ge7$. If $q=5$ or $q=7$, then $(\mu_0,\mu_\infty,\mu_1)$ is
+$(\frac35,\frac23,\frac{17}{25})$ or $(\frac57,\frac34,\frac{37}{49})$. On each of
+the pieces of $\mathcal F_a$, $r$ is constant or an affine function of $\mu$ or
+of~$m$, so the difference of the two sides of~\eqref{eq:Fscalar} is affine in
+$\mu$ for fixed~$m$ and in $m$ for fixed~$\mu$; hence it is positive on the piece
+if it is positive at the end points of the segment or at the four corners of the
+rectangle. This is checked by exact rational arithmetic. (Lean:
+\texttt{family\_bounds}, \texttt{family\_min}, \texttt{mu\_zero\_lower},
+\texttt{scalar\_5}, \texttt{scalar\_7}, \texttt{scalar\_large},
+\texttt{scalar\_F}.)
+\end{proof}
+
+\begin{proposition}\label{prop:F}
+Let $a\ge3$ and let $q=5$, $q=7$ or $q\ge8$ be real. Then (F$_a$) holds at~$(3,q)$.
+\end{proposition}
+\begin{proof}
+Let $c\in\{\pm1\}^{a+1}$, $c\ne-s_a$, and $(\mu,m,r)\in\mathcal F_a$; we show
+$\psi=\psi_\mu(c,ms_a)>2x\delta_a(3)r$. By Lemmas~\ref{lem:Fscalar}
+and~\ref{lem:deficit3}(iii), $2x\delta_a(3)r\le\frac{41}{27}Lxr$, $0<xr<P$,
+$0\le\mu\le1$ and $\frac35\le m\le1$; and $ms_a\in[-1,1]^{a+1}$, so
+Lemma~\ref{lem:gain} applies.
+
+\emph{Case 1: $c_{a-1}=c_a$.} Then $\Delta(c)\ge2\delta_a(3)$ by
+Lemma~\ref{lem:deficit3}(i), and Lemma~\ref{lem:gain} gives
+$\psi\ge P\Delta(c)\ge2P\delta_a(3)>2x\delta_a(3)r$.
+
+\emph{Case 2: $c_a=(s_a)_a$ and $c_{a-1}=(s_a)_{a-1}$.} By
+Lemma~\ref{lem:lastpair} with $w=s_a$, $\psi\ge4(P-\mu)mL$. Since
+$4(P-\mu)m\ge\frac{12}5(P-1)>\frac{41}{27}P>\frac{41}{27}xr$ for $P\ge4$, we get
+$\psi>\frac{41}{27}Lxr\ge2x\delta_a(3)r$.
+
+\emph{Case 3: $c_a=-(s_a)_a$ and $c_{a-1}\ne c_a$.} As $c\ne-s_a$, the largest
+index $J$ with $c_J=(s_a)_J$ exists, and $J<a$. If $J=a-1$, then
+$c_{a-1}=(s_a)_{a-1}=-(s_a)_a=c_a$, which is excluded; so $J\le a-2$, and
+Lemma~\ref{lem:alttail} applies to $w=c$. With its notation, $J\in\NA(c)$ and
+$|\lambda_J(c)|=\theta$, so $\operatorname{pen}_i(c)=2L\theta$ by
+Lemma~\ref{lem:pen}; the cell $h_i$ has the arguments $\varepsilon L(1-\theta)$ and
+$(M ms_a)_i=\varepsilon mL(1+\theta)$, and $1-\theta\le m(1+\theta)$ because
+$m\ge\frac35$ and $\theta\ge\frac13$. By~\eqref{eq:hsame},
+$h_i=2\mu mL(1+\theta)-2PL(1-\theta)$. Lemma~\ref{lem:gain}, with $K(\mu)\ge0$ and
+$\Delta(c)\ge L\theta$, gives
+\[
+\psi\ge L\bigl[K(\mu)\theta+4\mu\theta-2\mu m(1+\theta)+2P(1-\theta)\bigr]
+=L\bigl[2P-P(1-\mu)\theta-2\mu m(1+\theta)\bigr].
+\]
+The bracket decreases in $\theta$, and $\theta\le\frac59$, so
+$\psi\ge L[2P-\frac59P(1-\mu)-\frac{28}9\mu m]>\frac{41}{27}Lxr$
+by~\eqref{eq:Fscalar}.
+
+If $c_{a-1}\ne c_a$ and $c_a=(s_a)_a$, then $c_{a-1}=-c_a=(s_a)_{a-1}$; so the
+three cases cover every $c\ne-s_a$. (Lean: \texttt{full\_F},
+\texttt{high\_deficit\_F}, \texttt{last\_pair\_scalar}, \texttt{tail\_F\_lower},
+\texttt{tail\_gain\_algebra}.)
+\end{proof}
+
+\paragraph{Condition (C$_a$).} This condition is proved at every point of
+$\mathcal R_2$.
+
+\begin{lemma}\label{lem:terminal}
+Let $g\in\{\pm1\}^{a+1}$ with $g_a=-1$, $g\ne g_+$ and $\Delta(g)\le2\delta_a(3)$.
+Then $g_{a-1}\ne g_a$.
+\end{lemma}
+\begin{proof}
+Suppose $g_{a-1}=g_a$. By Lemma~\ref{lem:deficit3}(i), the term $j=a-1$
+of~\eqref{eq:Deltaid} equals $2\delta_a(3)$. Every other $j\in\NA(g)$ adds a
+positive term, so $\NA(g)=\{a-1\}$. Then $g$ alternates on $0,\dots,a-1$, and
+$g_{a-1}=g_a=-1$, so $g_i=(-1)^{a+i}$ for $i<a$ and $g_a=-1$, that is, $g=g_+$, a
+contradiction. (Lean: \texttt{repeat\_before\_terminal\_impossible},
+\texttt{terminal\_low}.)
+\end{proof}
+
+\begin{proposition}\label{prop:C}
+Let $a\ge3$ and let $q\ge5$ be real. Then (C$_a$) holds at~$(3,q)$.
+\end{proposition}
+\begin{proof}
+Let $g\in\{\pm1\}^{a+1}$ with $g_a=-1$, $g\ne-(-1)^as_a$ and $g\ne g_+$, and
+suppose that $\Delta(g)\le2\delta_a(3)$; we prove (C1)--(C3), with
+$\gamma=2\delta_a(3)-\Delta(g)\ge0$. The only alternating sign vector with last
+entry $-1$ is $-(-1)^as_a$, so $g\ne\pm s_a$. By Lemma~\ref{lem:deficit3},
+$\Delta(g)\ge\frac8{27}3^a>0$ and $2\delta_a(3)\le\frac{28}{27}3^a\le\frac72\Delta(g)$,
+so
+\begin{equation}\label{eq:gamma}
+\gamma\le\tfrac52\Delta(g),\qquad 2\delta_a(3)<4\Delta(g).
+\end{equation}
+For $0\le y\le1$ the recursion $\eta_{n+1}(y)=(P-\eta_n(y))/x$ gives
+$0\le\eta_n(y)\le1$ for all $n$, $\eta_n(y)\ge(P-1)/x=\mu_0$ for $n\ge1$,
+$\eta_n(y)\le(P-\mu_0)/x=\mu_1$ for $n\ge2$, and $x\eta_1(y)=P-y$; also
+$x\mu_1=P-\mu_0$ and $\mu_0\ge\frac35$. The sets $I_k$ and the intervals in (C2) lie
+in $[0,1]$, and $I_k\subseteq(0,1]$ as $\mu_0>0$. (Lean: \texttt{q\_parameters},
+\texttt{eta\_unit}, \texttt{eta\_lower\_mu}, \texttt{eta\_upper\_mu},
+\texttt{q\_mu\_one}, \texttt{ik\_unit\_positive}, \texttt{gamma\_upper}.)
+
+\emph{(C2).} Each of the five terms on the left is at least $P\Delta(g)$, and the
+right side is at most $x\cdot\frac52\Delta(g)$ by~\eqref{eq:gamma}, as
+$0\le\eta_5(y)\le1$. Since $5P-\frac52x=\frac52(x-2)>0$ and $\Delta(g)>0$, (C2)
+holds. (Lean: \texttt{five\_chain}.)
+
+\emph{(C3).} We have $\hat D_1=(3x-4)/x\ge2$ and
+$\hat D_2=(5x^2-8x+4)/x^2\ge2$, since $(3x-2)(x-2)\ge0$, while $\mu_1\le1$ and
+$\mu_\infty\le1$. So $\Delta(g)(\hat D_1/\mu_1+2)$ and
+$\Delta(g)(\hat D_2/\mu_\infty+2)$ are at least $4\Delta(g)>2\delta_a(3)$
+by~\eqref{eq:gamma}. If $a$ is odd, then $2\delta_a(3)=3^a-1$ and
+$\Delta(g)\ge\frac13 3^a$ by Lemma~\ref{lem:deficit3}(ii); as $\mu_0=(x-2)/x$, we
+have $\hat D_1/\mu_0=(3x-4)/(x-2)>3$, so $\Delta(g)\hat D_1/\mu_0>3\Delta(g)\ge
+3^a>2\delta_a(3)$. The bound $\Delta(g)\ge\frac8{27}3^a$ alone would not suffice
+here, as $\hat D_1/\mu_0\to3$ when $x\to\infty$. (Lean:
+\texttt{terminal\_ratios}.)
+
+\emph{(C1) for $k\ge2$.} The column $\zeta=(-1)^k\mu_{k-1}g$ lies in
+$[-1,1]^{a+1}$, so $\psi_y(c,\zeta)\ge P\Delta(c)\ge0$ by Lemma~\ref{lem:gain}.
+The terms $n=1,2$ of the sum are each at least $P(1+\mu_0)\Delta(g)$, and the
+others are nonnegative. By~\eqref{eq:gamma} and $\eta_{k+1}(y)\le\mu_1$, the right
+side is at most $\frac52x\mu_1\Delta(g)=\frac52(P-\mu_0)\Delta(g)$. As
+$2P(1+\mu_0)-\frac52(P-\mu_0)=P(2\mu_0-\frac12)+\frac52\mu_0>0$, (C1) holds; in
+fact for every $k\ge2$, every $y\in[0,1]$ and every~$c$. (Lean:
+\texttt{chain\_sum\_two}, \texttt{c1\_long}.)
+
+\emph{(C1) for $k=1$.} We must show
+$P(1+\eta_1(y))\Delta(g)+\psi_y(c,-\mu_0g)>x\eta_2(y)\gamma$; we do so for every
+$c$ and every $y\in[0,1]$. The first term is positive and the second nonnegative,
+so we may assume $\gamma>0$. Recall that $x\eta_2(y)=P-\eta_1(y)\le P-\mu_0$.
+
+If $c\ne\pm s_a$, then $\psi_y(c,-\mu_0g)\ge P\Delta(c)\ge\frac8{27}3^aP$ by
+Lemmas~\ref{lem:gain} and~\ref{lem:deficit3}(ii), and with $\eta_1(y)\ge\mu_0$,
+$\Delta(g)\ge\frac8{27}3^a$ and $2\delta_a(3)\le\frac{28}{27}3^a$ the left side
+minus the right side is at least
+\[
+\Delta(g)\bigl[P(1+\mu_0)+P-\mu_0\bigr]+P\Delta(c)-(P-\mu_0)\,2\delta_a(3)
+\ge\tfrac{3^a}{27}\bigl[4P(2\mu_0-1)+20\mu_0\bigr]>0.
+\]
+(Lean: \texttt{c1\_one\_nonalt}.)
+
+If $c=\pm s_a$, then, as $\psi_y(-c,-\zeta)=\psi_y(c,\zeta)$,
+$\psi_y(c,-\mu_0g)=\psi_y(s_a,\mu_0w)$ with $w=-g$ if $c=s_a$ and $w=g$ if
+$c=-s_a$. Here $w\ne\pm s_a$ and $\Delta(w)=\Delta(g)<2\delta_a(3)$, so
+$w_{a-1}\ne w_a$ by Lemma~\ref{lem:deficit3}(i). If $w_a=(s_a)_a$, then
+$w_{a-1}=(s_a)_{a-1}$, and Lemma~\ref{lem:lastpair} (with $s_a$ in place of $c$)
+gives $\psi_y(s_a,\mu_0w)\ge4(P-y)\mu_0L$; as $x\eta_2(y)<P$, $y\le1$ and
+$\mu_0\ge\frac35$, we have $\frac{41}{27}x\eta_2(y)<4(P-y)\mu_0$ as in Case~2 of the
+proof of Proposition~\ref{prop:F}, so the right side,
+$x\eta_2(y)\gamma\le x\eta_2(y)\,2\delta_a(3)\le\frac{41}{27}Lx\eta_2(y)$, is smaller
+than $\psi_y(s_a,\mu_0w)$. If $w_a=-(s_a)_a$, let $J$ be the largest index with
+$w_J=(s_a)_J$; it exists as $w\ne-s_a$, and $J\le a-2$ as $w_{a-1}\ne w_a$. By
+Lemma~\ref{lem:alttail}, $\psi_y(s_a,\mu_0w)\ge2(P-y)\mu_0L(1-\theta)$ and
+$\Delta(w)\ge L\theta$ with $\theta\in[\frac13,\frac59]$. Write $e=\eta_1(y)$, so
+that $e\ge\mu_0\ge\frac35$ and $x\eta_2(y)=P-e$. Then the left side minus the right
+side is
+\begin{align*}
+&\bigl(2P+(P-1)e\bigr)\Delta(w)+\psi_y(s_a,\mu_0w)-(P-e)\,2\delta_a(3)\\
+&\qquad\ge L\Bigl[\bigl(2P+(P-1)e\bigr)\theta+2(P-y)\mu_0(1-\theta)
+-\tfrac{41}{27}(P-e)\Bigr].
+\end{align*}
+The bracket is affine in $\theta$ with slope
+$2P+(P-1)e-2(P-y)\mu_0\ge0$, so it is at least its value at $\theta=\frac13$,
+which, by $y\le1$, $\mu_0\ge\frac35$ and $e\ge\frac35$, is at least
+$\frac4{27}P-\frac4{45}>0$. (Lean: \texttt{c1\_one\_alt},
+\texttt{c1\_one\_alt\_positive}, \texttt{alt\_last\_pair\_gain},
+\texttt{alt\_tail\_gain}, \texttt{c1\_alt\_scalar}.)
+
+\emph{(C1) for $k=0$.} Here $0<y\le1$, $x\eta_1(y)=P-y$ and $\mu_{-1}=1$, so we
+must show $\psi_y(c,g)>(P-y)\gamma$ for every $c\ne-g$. By
+Lemma~\ref{lem:terminal}, $g_{a-1}\ne g_a$.
+
+\emph{Case A: $c\ne\pm s_a$.} If $\Delta(c)+\Delta(g)\ge2\delta_a(3)$, then
+$\gamma\le\Delta(c)$, and Lemma~\ref{lem:gain} gives
+$\psi_y(c,g)\ge P\Delta(c)>(P-y)\Delta(c)\ge(P-y)\gamma$, as $y>0$ and
+$\Delta(c)>0$. Otherwise $\Delta(c)<2\delta_a(3)$, so $c_{a-1}\ne c_a$ by
+Lemma~\ref{lem:deficit3}(i). If $c_a=g_a$, Lemma~\ref{lem:lastpair} with $w=g$ and
+$m=1$ gives $\psi_y(c,g)\ge4(P-y)L>\frac{41}{27}(P-y)L\ge(P-y)\,2\delta_a(3)\ge
+(P-y)\gamma$. If $c_a\ne g_a$, let $J$ be the largest index with $c_J=g_J$; it
+exists as $c\ne-g$, $J<a$, and $c_l=-g_l$ for $J<l\le a$. By
+Lemma~\ref{lem:pair}, with $\theta=|\lambda_J(g)|$,
+\[
+\psi_y(c,g)-(P-y)\gamma\ge K(y)\Delta(c)+2(P-y)L(1-\theta)
+-(P-y)\bigl(\Delta(c)+2L(1-\theta)\bigr)=y(q-4)\,\Delta(c),
+\]
+since $K(y)-(P-y)=y(P-3)=y(q-4)$. This is positive, as $y>0$, $q>4$ and
+$\Delta(c)>0$. (Lean: \texttt{c0\_nonalt}, \texttt{c0\_nonalt\_sum\_high},
+\texttt{c0\_common\_last\_pair}, \texttt{c0\_nonalt\_match}.)
+
+\emph{Case B: $c=\pm s_a$.} As $\psi_y(-c,-g)=\psi_y(c,g)$ and
+$\Delta(-g)=\Delta(g)$, we have $\psi_y(c,g)=\psi_y(s_a,w)$ with $w=g$ if $c=s_a$
+and $w=-g$ if $c=-s_a$; then $\Delta(w)=\Delta(g)$, $w_{a-1}\ne w_a$, and
+$w\ne-s_a$ because $c\ne-g$. If $w_a=(s_a)_a$, Lemma~\ref{lem:lastpair} gives
+$\psi_y(s_a,w)\ge4(P-y)L>(P-y)\gamma$ as in Case~A. Let $w_a=-(s_a)_a$, and let
+$J$ be the largest index with $w_J=(s_a)_J$; then $J\le a-2$ as in the case $k=1$.
+Let $\theta$, $i=a-1-J$ and the cells be as in Lemma~\ref{lem:alttail} with $m=1$.
+That lemma gives $\psi_y(s_a,w)\ge2(P-y)L(1-\theta)$, $|\lambda_J(w)|=\theta$,
+$J\in\NA(w)$ and $\NA(w)\cap(J,a)=\emptyset$. So Lemma~\ref{lem:tailbudget} for
+$w$ reads $2\delta_a(3)\le2\cdot3^a\bar\mu_J\theta+2L(1-\theta)$, and
+$\Delta(w)\ge2\cdot3^a\bar\mu_J\theta$ by Lemma~\ref{lem:deficit3}(i); hence
+$\gamma\le2L(1-\theta)$ and $(P-y)\gamma\le2(P-y)L(1-\theta)\le\psi_y(s_a,w)$.
+This bound is not strict, and the two cases $J\ge1$ and $J=0$ make it strict.
+\begin{itemize}
+\item If $J\ge1$, then $\theta\le\frac59<1$, so Lemma~\ref{lem:tailbudget} is
+ strict, $\gamma<2L(1-\theta)$, and $(P-y)\gamma<\psi_y(s_a,w)$ as $P-y>0$.
+\item If $J=0$, then $w_0=(s_a)_0=1$. We use a second row, the last one. Its
+ arguments are $A=(Ms_a)_a=3^a\lambda_{-1}(s_a)$ and $B=(Mw)_a=3^a\lambda_{-1}(w)$,
+ which are positive by~\eqref{eq:lamfacts}, as $(s_a)_0=w_0=1$; moreover
+ $A\ge3^{a-1}$ and $B\le\omega_a=3^a<P\cdot3^{a-1}\le PA$. By~\eqref{eq:hsame}
+ the cell $h_a$ is $-2(P-y)B<0$ if $B\le A$, and $2yB-2PA\le2(B-PA)<0$ if $B>A$.
+ All cells of $\psi_y(s_a,w)$ are $\le0$, so
+ $\psi_y(s_a,w)\ge-h_{a-1}-h_a>-h_{a-1}=2(P-y)L(1-\theta)\ge(P-y)\gamma$.
+\end{itemize}
+{\sloppy (Lean: \texttt{c0\_zero}, \texttt{c0\_alt\_positive},
+\texttt{c0\_alt\_tail\_strict}, \texttt{c0\_alt\_tail\_zero},
+\texttt{alt\_terminal\_cell\_neg}, \texttt{alt\_psi\_two\_rows}.)\par}
+
+This proves (C1) for $0\le k\le4$, and (C$_a$) follows. (Lean: \texttt{full\_C}.)
+\end{proof}
+
+\paragraph{Proof of Theorem~\ref{thm:minfour} when one of the primes is~$3$.} If
+$\min\{a,b\}\le2$, the theorem is Theorem~\ref{thm:onem} or~\ref{thm:ptwo}; so let
+$\min\{a,b\}\ge3$. Exchanging the names of the primes together with their
+exponents changes neither $n$, nor the claimed value, nor the two sets; so we may
+assume $p=3$. Then $q\ge5$ is a prime, so $q=5$, $q=7$ or $q\ge11$; the point
+$(3,q)$ lies in $\mathcal R_2$, and $P=q-1\ge4=P_{\min}$. By
+Propositions~\ref{prop:S}, \ref{prop:F} and~\ref{prop:C}, (S$_a$) with
+$P_{\min}=4$, (F$_a$) and (C$_a$) hold at $(3,q)$. By the pointwise form of
+Proposition~\ref{prop:reduction}, every $Y\in\{\pm1\}^{(a+1)\times(b+1)}$ with
+$y_{ab}=-1$ satisfies $G(Y)\le\Theta$, where
+$\Theta=d_a(3)\,d_b(q)-2\delta_a(3)\,\delta_b(q)$, with equality exactly for $Y^-$
+and~$Y^+$. As in the proof of Theorem~\ref{thm:ptwo},
+$2\E(\ICG_n(\mathcal D))=n+G(Y)$ for the sign matrix $Y$ of a set $\mathcal D$ of
+proper divisors of $n$, distinct sets have distinct sign matrices, and $Y^-$ and
+$Y^+$ are the sign matrices of $\{p^iq^j:\ i+j\ \text{odd}\}$ and
+$\{p^iq^j:\ i+j\ \text{even}\}\setminus\{n\}$, which are nonempty sets of proper
+divisors of $n$. So the maximal energy is $\frac12(n+\Theta)$, attained exactly by
+these two sets. (Lean: \texttt{prime\_domain}, \texttt{prime\_conditions},
+\texttt{prime\_sign\_conclusion}, \texttt{CodexPaper1.Prop31.sign\_conclusion} of
+version~2, \texttt{GraphTransport.graph\_result} and
+\texttt{CodexPaper1.TaskE.check\_SameParityThree}.) \qed
+
+\paragraph{What this section does not prove.} Condition (F$_a$) is proved at
+$(3,q)$ only for $q=5$, $q=7$ and $q\ge8$, which is enough for the primes; it is not
+claimed for $5<q<7$ or $7<q<8$. Condition (C$_a$) is proved on $\mathcal R_2$ and
+(S$_a$) on both regions, but (F$_a$) and (C$_a$) are not claimed at any point of
+$\mathcal R_1$ for $a\ge3$; so the case of Conjecture~\ref{conj:equal} with
+$p,q\ge5$ and $\min\{a,b\}\ge3$ is not proved here. In particular we do not claim
+that the three conditions hold at every point of both regions for every
+$a\ge3$.
+
 \section{Formal verification}\label{sec:verif}
 All the results are formally verified in Lean~4 (version 4.34.1) with
 Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}). Each mathematical claim of
-version~2 is a statement of Table~\ref{tab:lean}, a definition, a step of a
+version~3 is a statement of Table~\ref{tab:lean}, a definition, a step of a
 written proof of one of them, or an observation that is immediate from the
 definitions. Statements about the literature are marked by their citations and
 are not formal. Where the paper gives no written proof, the result rests on the
@@ -1417,7 +1992,12 @@ formal proof alone: Proposition~\ref{prop:model} and the Ramanujan-sum formula a
 row sums of Section~2, which it cites from~\cite{jy}; and, in
 Remark~\ref{rem:pq}, the energies of the graphs for $n=pq$, the identification of
 these graphs, the values $512$ and $1472$ and the fact that the maximisers are not
-multiplicative.
+multiplicative. In Section~\ref{sec:three} a few elementary estimates are stated
+with only a sketch of their proof, namely the corner values for $q=5$ and $q=7$ in
+Lemma~\ref{lem:Fscalar}; the Lean lemmas named there prove them. The paragraphs from
+``Statements before formal proofs'' to ``Checks'' describe the formalisation of
+version~2, which version~3 keeps unchanged; the paragraphs headed ``Version~3''
+describe what was added.
 
 \paragraph{Statements before formal proofs.}
 On 27 September 2026 a Claude Code agent (model Claude Opus~5.5) wrote a first
@@ -1433,7 +2013,7 @@ the $29$ accepted statements are kept.
 
 On 6 November 2026 the author decided to narrow the paper to
 $\min\{a,b\}\le2$ rather than formalise the certificates. OpenAI Codex then wrote
-the present statement files. Compared with the frozen file, apart from comments,
+the statement files of version~2. Compared with the frozen file, apart from comments,
 they replace \texttt{Theorem5} by \texttt{Theorem5MinTwo} and delete
 \texttt{Proposition15} and \texttt{Certificates}; every other definition and
 statement is unchanged, including \texttt{Proposition31} for general~$a$. They add
@@ -1518,13 +2098,39 @@ Lemmas~\ref{lem:colS}, \ref{lem:ineq}, \ref{lem:fd1}, \ref{lem:fd2} &
  \texttt{Lemma26}, \texttt{Lemma27}, \texttt{Lemma28}, \texttt{Lemma29}\\
 Remark~\ref{rem:tightB} & \texttt{Remark30}\\
 Proposition~\ref{prop:reduction} & \texttt{Proposition31}\\
+\midrule
+Theorem~\ref{thm:minfour}: $\min\{a,b\}\ge3$, one prime equal to~$3$ &
+ \texttt{SameParityThree}\\
+Section~\ref{sec:three}: \eqref{eq:lamfacts}, row masses; Lemma~\ref{lem:pen} &
+ \texttt{RowAbsMass}, \texttt{NonlastPenaltyIdentity}, \texttt{NonlastPenaltyBound},
+ \texttt{NonlastPenaltyStrict}\\
+Proposition~\ref{prop:S} & \texttt{ConditionsSUniform}\\
+Lemma~\ref{lem:gain}: $\psi_\mu(c,\zeta)\ge P\Delta(c)$ & \texttt{PotentialLowerThree}\\
+Lemma~\ref{lem:deficit3}(ii), (iii) & \texttt{DeficitLowerThree},
+ \texttt{DeltaRatioThree}\\
+Lemma~\ref{lem:tailbudget} & \texttt{ZeroTailBudgetThree}\\
+Lemma~\ref{lem:Fscalar} & \texttt{FScalarPrimeDomain}\\
+Proposition~\ref{prop:F}; its Case~1 & \texttt{ConditionsFThreePrimeDomain};
+ \texttt{HighDeficitFThree}\\
+Lemma~\ref{lem:terminal} & \texttt{TerminalLowThree}\\
+Proposition~\ref{prop:C} & \texttt{CondC} of version~2 at $(3,q)$, $q\ge5$ (lemma
+ \texttt{full\_C})\\
+Proposition~\ref{prop:C}: (C2), (C3) & \texttt{FiveChainThree},
+ \texttt{TerminalRatiosThree}\\
+Proposition~\ref{prop:C}: (C1) for $k\ge2$, $k=1$, $k=0$ & \texttt{C1LongThree};
+ \texttt{C1OneNonaltThree}, \texttt{C1OneAltThree}; \texttt{C1ZeroThree}\\
 \bottomrule
 \end{tabular}
-\caption{The $51$ statements of version~2. The $29$ whose names begin with
-\texttt{Theorem}, \texttt{Lemma}, \texttt{Remark} or \texttt{Proposition}, together
-with \texttt{SummaryOppositeParity} and \texttt{Section8OddSet} ($31$ in all), are in the namespace
+\caption{Above the second rule, the $51$ statements of version~2. The $29$ whose
+names begin with \texttt{Theorem}, \texttt{Lemma}, \texttt{Remark} or
+\texttt{Proposition}, together with \texttt{SummaryOppositeParity} and
+\texttt{Section8OddSet} ($31$ in all), are in the namespace
 \texttt{BackfillPaper1.Challenge}; the other $20$ are in
-\texttt{BackfillPaper1.NarrowSupplement}.}\label{tab:lean}
+\texttt{BackfillPaper1.NarrowSupplement}. Below it, the frozen statements of
+version~3 that correspond to the text, all in the namespace
+\texttt{CodexPaper1.TaskE.Challenge}, and the lemma \texttt{full\_C}, whose type is
+the condition \texttt{CondC} of version~2. The further frozen statement
+\texttt{C1HighThree} is proved but not used.}\label{tab:lean}
 \end{table}
 
 \paragraph{Checks.}
@@ -1574,12 +2180,112 @@ repository could not read compiled files, and they and the modules importing the
 run again, with fewer modules at a time, in two further runs. No run ended in a Lean
 error, and no module of this paper was among them. The $56$ axiom lists printed by the
 final audit (the $51$ statements, one calibration and four internal lemmas) consist
-of exactly the three axioms above. This paper has not been checked with comparator or
-with an independent kernel. The statement files, the tests, the proofs and the final
-audit are in version~\repoversion{} of the repository~\cite{repo}, directory
-\texttt{lean/Research/Backfill/Paper1/} and the modules \texttt{lean/Research/ICG*};
-the receipts of the builds are in
+of exactly the three axioms above. The statement files, the tests, the proofs and
+the final audit of version~2 were released in version~1.16.0 of the
+repository~\cite{repo}, directory \texttt{lean/Research/Backfill/Paper1/} and the
+modules \texttt{lean/Research/ICG*}; the receipts of these builds are in
 \texttt{certificates/\allowbreak icg-q3-general/\allowbreak lean-package-v2/} and
+\texttt{logs/\allowbreak clean-replay-v1.16.0-receipt.json} of that version.
+
+\paragraph{Version~3: statements.}
+On 8 November 2026 OpenAI Codex wrote the statement file
+\texttt{Research/TaskE/Challenge.lean}. It imports the statement file of version~2
+unchanged and uses only its definitions. Its main statement,
+\texttt{SameParityThree}, says: for all natural numbers $p,q,a,b$ such that $p,q$
+are distinct odd primes, $p=3$ or $q=3$, $\min\{a,b\}\ge3$ and $a+b$ is even,
+\texttt{MaxEnergy} holds for $n=p^aq^b$ with the value
+$\frac12[n+d_a(p)d_b(q)]-\delta_a(p)\delta_b(q)$ (with \texttt{dClosed} and
+\texttt{deltaK}) and the two sets \texttt{oddSet p q a b} and
+\texttt{(evenSet p q a b).erase n}. As in version~2, \texttt{MaxEnergy} says that
+both sets are admissible, that every admissible set has energy at most the value,
+and that equality holds exactly for the two sets; the energy is the sum of the
+absolute values of the eigenvalues of the adjacency matrix of the graph. A Codex
+agent that had not written the file reviewed it at 17:09~UTC, it was frozen at
+17:13~UTC, and the freeze was confirmed at
+17:28~UTC after the file and its seven tests (\texttt{StatementTests}) had been
+compiled. Six auxiliary statement files, \texttt{ChallengeS}, \texttt{ChallengeFC},
+\texttt{ChallengeF}, \texttt{ChallengeC1}, \texttt{ChallengeC1Alt} and
+\texttt{ChallengeC0}, state $20$ intermediate steps of Section~\ref{sec:three}, some
+in a stronger form than the text needs, and the definition \texttt{FPrimeDomain}
+($q=5$, $q=7$ or $q\ge8$). The same agent reviewed each of them, and they were
+frozen between 17:28 and 19:16~UTC on the same day. They are not hypotheses of
+\texttt{SameParityThree}.
+
+\paragraph{Version~3: proofs.}
+The proofs are in the $45$ new modules of \texttt{Research/TaskE/} ($3356$ lines),
+which import the statement files and do not modify them: the seven statement files,
+the tests, $36$ proof modules and the final audit \texttt{FinalTaskEAudit}. The
+$70$ modules of version~2 are unchanged, byte for byte; the new proofs use their
+lemmas, in particular \texttt{CodexPaper1.Prop31.sign\_conclusion}, the pointwise
+form of Proposition~\ref{prop:reduction}, and \texttt{GeneralEqG}. Condition
+(S$_a$) is proved in \texttt{SBasis}, \texttt{SPenalty} and \texttt{SUniform};
+(F$_a$) in \texttt{FGain}, \texttt{FHigh}, \texttt{FTail}, \texttt{FLastPair},
+\texttt{FScalar}, \texttt{FDeltaRatio} and \texttt{FComplete}; (C$_a$) in
+\texttt{FCParameters}, \texttt{PotentialLower}, \texttt{DeficitLower},
+\texttt{CFiveChain}, \texttt{CTerminal}, the modules \texttt{C1*} and \texttt{C0*},
+and \texttt{CComplete}. \texttt{PrimeConditions} assembles the three conditions at
+$(3,q)$ for every odd prime $q\ne3$ and applies
+\texttt{CodexPaper1.Prop31.sign\_conclusion}; \texttt{GraphTransport} passes from
+sign matrices to the graphs, as in the last paragraph of Section~\ref{sec:three};
+and \texttt{Main} proves \texttt{check\_SameParityThree}, exchanging the primes and
+the exponents when $q=3$. The module \texttt{C1High} is proved but not used by
+\texttt{Main}. Codex found these proofs on 8 November 2026, after the main statement had been
+frozen.
+
+\paragraph{Version~3: what is proved.}
+The module \texttt{FinalTaskEAudit} restates \texttt{SameParityThree}, the
+fallback \texttt{SameParityThreeMinEight} (the same statement with
+$\min\{a,b\}\le8$ added, a direct consequence), (C$_a$) at $(3,q)$ for $a\ge3$ and
+real $q\ge5$, \texttt{ConditionsFThreePrimeDomain} and \texttt{ConditionsSUniform},
+proves them by the theorems above, checks the two instances $(p,q,a,b)=(3,5,3,101)$
+and $(5,3,101,3)$ of the main statement, and prints the axioms of the main theorem
+\texttt{CodexPaper1.TaskE.check\_SameParityThree}, of the fallback
+\texttt{check\_SameParityThreeMinEight} and of the lemmas
+\texttt{full\_C}, \texttt{full\_F}, \texttt{prime\_conditions},
+\texttt{prime\_sign\_conclusion} and \texttt{graph\_result}. The modules of the
+proofs print the axioms of their main lemmas.
+
+\paragraph{Version~3: checks.}
+The Lean package of version~3 has $115$ modules: the $70$ of version~2 and the $45$
+new ones. On 8 November 2026 it was built from source in two new empty directories,
+one after the other (20:05--20:27 and 20:27--20:49~UTC), on the author's Windows
+computer, with the same toolchain and Mathlib, which were not rebuilt; no compiled
+file of the project was used as input. Each module was compiled and checked with
+\texttt{leanchecker}. All $460$ commands, $230$ in each directory, ended with exit
+code~$0$ on their first attempt, with no error, no warning and no \texttt{sorry}.
+The $115$ compiled \texttt{.olean} files of the two directories are byte for byte
+identical. In each directory, $273$ axiom listings cover $210$ distinct
+declarations; $209$ of them consist of exactly \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}, and one depends on no axiom.
+The new sources contain no \texttt{sorry}, \texttt{admit},
+\texttt{native\_decide}, \texttt{bv\_decide}, \texttt{implemented\_by},
+\texttt{extern}, \texttt{unsafe} or \texttt{axiom} declaration, and no local option
+other than \texttt{autoImplicit false}. Counting both builds and the development of
+the proofs on 8 November 2026, $580$ compile and check commands were run, of which
+$550$ succeeded and $30$ failed, counting warnings as failures; all failures were in
+the development, and their logs are kept.
+
+After both builds had ended, a Codex agent that had not written any statement,
+proof or build script of version~3, and that had earlier reviewed the statements and
+stages of the development, read only, was given the final review. It rechecked the
+hashes of the sealed inputs and of the $1080$ files of the evidence archive, read the
+sources and logs of both directories, reread the mathematics of the $45$ new
+modules, and approved the main statement, its proof and the builds
+(8 November 2026, 20:58:51~UTC). It did not run Lean. As for version~2, this is a
+review by a Codex agent, not by another model family, and the paper has not been
+checked with comparator or with an independent kernel.
+From 8 November 2026, 21:09~UTC, to 9 November, 08:20~UTC, Claude Code rebuilt
+the whole Lean project of the repository with these $45$ new modules on the
+author's Windows computer, from an empty directory, one module at a time and not
+with \texttt{lake}: all $2999$ modules compiled at the first attempt, and $2998$
+passed \texttt{leanchecker}. The remaining module is the root of the project, which
+has only imports and no constants, so it was not replayed. No module of this paper
+produced a warning, and the $7$ axiom lists printed by
+\texttt{Research.TaskE.FinalTaskEAudit} consist of exactly the three axioms above.
+The statement files, the proofs and the final audit of version~3 are in
+version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/Research/TaskE/}; the receipts of the builds are in
+\texttt{certificates/\allowbreak icg-q3-general/\allowbreak lean-package-v3/} and
 \texttt{logs/\allowbreak clean-replay-v\repoversion-receipt.json}.
 
 \paragraph{Definitions the reader must trust.}
@@ -1610,7 +2316,14 @@ simple predicates \texttt{IsSignVec}, \texttt{IsPmAlt}, \texttt{IsSignMat},
 \texttt{IsPmCheckerboard}, \texttt{IsPm3}, \texttt{MatEq} and \texttt{col}, and name the
 statements \texttt{EqualParityClaim}, \texttt{CondAll}, \texttt{SignConclusion} and
 \texttt{Conjecture14}, the last of which is not claimed. The $84$ known-answer
-tests check these definitions on examples.
+tests check these definitions on examples. The statement file of version~3 adds no
+new notion: \texttt{SameParityThree} uses only \texttt{DistinctOddPrimes},
+\texttt{MaxEnergy}, \texttt{oddSet}, \texttt{evenSet}, \texttt{dClosed} and
+\texttt{deltaK} of version~2. It also defines \texttt{SameParityThreeMinEight} and
+\texttt{UniformConditionsBothRegions}; the auxiliary files define
+\texttt{FPrimeDomain} and their $20$ statements, which use the definitions of
+version~2 listed above. The seven tests of version~3 check simple instances of the
+hypotheses.
 
 \paragraph{Faithfulness and non-claims.}
 Some statements are more general than the text: \texttt{Proposition6} holds for all
@@ -1618,10 +2331,23 @@ distinct primes and all sets of proper divisors, and \texttt{Lemma18} and
 \texttt{Lemma19} hold for all real $x$ above $1$ and~$2$, respectively, and for all
 $m\ge1$. \texttt{Conjecture14} is only a definition in the statement file; nothing
 proves or assumes it. \texttt{Proposition31} is the implication of
-Proposition~\ref{prop:reduction}, and no Lean statement says that its conditions hold
-for any~$a$. No Lean statement depends on~\cite{jy}, \cite{jy2}, \cite{ilic},
-\cite{ilicbasic} or~\cite{lesander}, and attributions to them occur only in comments
-of the statement file. The attributions, and the general results of Le
+Proposition~\ref{prop:reduction} for conditions on a whole region; version~3 uses its
+pointwise form \texttt{CodexPaper1.Prop31.sign\_conclusion}, proved in version~2.
+In version~2 no Lean statement said that the conditions hold for any $a\ge3$. In
+version~3 they are proved, for every $a\ge3$, at $(3,q)$ for every odd prime $q\ne3$
+(\texttt{prime\_conditions}); (S$_a$) is proved on both regions
+(\texttt{ConditionsSUniform}), (C$_a$) at every point of $\mathcal R_2$, and
+(F$_a$) only at the points $(3,q)$ with $q=5$, $q=7$ or real $q\ge8$
+(\texttt{ConditionsFThreePrimeDomain}), not for every real $q\ge5$. The statement
+\texttt{UniformConditionsBothRegions}, that the three conditions hold at every point
+of both regions for every $a\ge3$, is only a definition: it is not proved, not
+claimed, and not used. \texttt{SameParityThreeMinEight} is a direct consequence of
+\texttt{SameParityThree} and is not a separate result; no computer certificate is
+used. The conditions are not claimed at any point of $\mathcal R_1$ with $a\ge3$,
+apart from (S$_a$), so nothing here concerns the orders of equal parity with
+$p,q\ge5$ and $\min\{a,b\}\ge3$. No Lean statement depends on~\cite{jy},
+\cite{jy2}, \cite{ilic}, \cite{ilicbasic} or~\cite{lesander}, and attributions to
+them occur only in comments of the statement file of version~2. The attributions, and the general results of Le
 and Sander for arbitrary~$n$, are not formalised, and the comparison
 \texttt{MultiplicativeMaxComparison} is only for orders $p^aq^b$. The statements say
 nothing about priority or about the searches of Section~1. The agreement of the Lean
@@ -1654,6 +2380,23 @@ computations remain in the earlier releases of~\cite{repo}; they are not evidenc
 this version. Version~1.5 said that the closed forms of $d_k$ and $\delta_k$ were not
 formalised; they now are (\texttt{Remark9}), and the statements of the main theorems
 use them.
+
+\paragraph{Changes in version 3.}
+The title, which was \emph{The maximal energy of integral circulant graphs of orders
+$p^{2r}3^{2s+1}$, $pq^m$ and $p^2q^b$}, now names the orders that the paper covers.
+The statements of version~2 keep their numbers; the
+section on formal verification is now Section~\ref{sec:verif}. Apart from the
+footnote, the abstract, this section, the disclosure and the dates, version~3 differs
+from version~2 as follows. Theorem~\ref{thm:minfour} now also covers the orders of
+equal parity in which one of the primes is~$3$, and the new Section~\ref{sec:three},
+with the statements numbered 32 to~43, proves this case by verifying
+the conditions of Proposition~\ref{prop:reduction} for the prime~$3$. Section~1, the
+heading of Conjecture~\ref{conj:equal}, the paragraph after it and the note on the
+withdrawn Proposition~15 describe the new range, the relation with~\cite{jy2} and a
+further search of the literature. The introduction of Section~\ref{sec:minfour} says
+which conditions are proved, and Section~\ref{sec:three} states the pointwise form of
+Proposition~\ref{prop:reduction}. Table~\ref{tab:lean} lists the new statements.
+Proposition~\ref{prop:reduction} and all proofs of version~2 are unchanged.
 
 \section*{Tool and computational resource disclosure}
 Versions~1.1 to~1.5 of this paper were produced on 25 and 26 September 2026 in a
@@ -1690,8 +2433,8 @@ Version~2 was produced from 27 September 2026 to 8 November 2026. On
 statement file of Section~\ref{sec:verif}, and an independent Claude Code agent (same
 model) reviewed it. OpenAI Codex (desktop application) reviewed its second version,
 wrote the Lean proofs of $29$ statements on 27 and 28 September 2026 and, on 6 and
-7 November 2026, the present statement files, the remaining proofs and the final
-audit, and had them reviewed as described in Section~\ref{sec:verif}. Codex's session
+7 November 2026, the statement files of version~2, the remaining proofs and the
+final audit, and had them reviewed as described in Section~\ref{sec:verif}. Codex's session
 records name the model \texttt{gpt-6-astra} for its work of 27 and 28 September 2026
 and \texttt{gpt-6.1-sol} for that of 6 and 7 November 2026; they do not name a
 separate model for the Codex review agents. Claude Code (model
@@ -1704,10 +2447,28 @@ the files, reviewed a draft of this paper against the statements and the evidenc
 7 November 2026, and before the release a second such agent (same model) reviewed the
 paper, the Lean package and the receipts; neither ran Lean. The corrections of both
 reviews were applied.
+
+Version~3 was produced on 8 November 2026. OpenAI Codex (desktop application; its session records name the
+model \texttt{gpt-6.1-sol}) found the proofs of the conditions of
+Proposition~\ref{prop:reduction} for the prime~$3$ and wrote the Lean statement files
+and proofs of version~3; Codex review agents that had not written them reviewed the
+statements and, after the final builds, the whole package, as described in
+Section~\ref{sec:verif}. Before the proofs Codex also searched the
+literature (17:17~UTC). Claude Code (model Claude Opus~5.5) drafted the text of
+version~3, including the written proofs of Section~\ref{sec:three}, from the Lean
+proofs and Codex's notes on them. Claude Code rebuilt the whole Lean project of the
+repository on the author's Windows computer (8 November 2026, 21:09~UTC, to
+9 November, 08:20~UTC), and a Claude Code agent (model Claude Opus~5.5) searched the
+literature again (Section~1). An independent Claude Code agent (model
+Claude Fable~5.1), which had written none of the files, reviewed a draft of version~3
+against the statements and the evidence on 8 November 2026, and before the release a
+second such agent (same model) reviewed the paper, the Lean package and the receipts
+on 9 November 2026; neither ran Lean. The corrections of both reviews were applied.
+
 Throughout, ``we'' refers to this workflow; the reading and searching described in
 the paper were done by the agents. The author is not a professional mathematician.
-The author has read version~2 of this paper and, using a side-by-side table, compared
-the statements of the Lean theorems with the results stated here.
+The author has read versions~2 and~3 of this paper and, using side-by-side tables,
+compared the statements of the Lean theorems with the results stated in them.
 No human mathematician has reviewed this paper. The correctness of the results rests
 on the Lean proofs of the statements in Table~\ref{tab:lean} and on the agreement of
 those statements with the paper, which was checked by the reviewing agents; the
@@ -1718,7 +2479,7 @@ author takes full responsibility for its content.
 \bibitem{repo}
 H.~Dong, \emph{ai4math-results}, repository,
 \url{https://github.com/Horace-Maxwell/ai4math-results}, versions~1.1.0, 1.2.0,
-1.4.0, 1.5.0 and~\repoversion{} (2026); archived at Zenodo under the concept DOI
+1.4.0, 1.5.0, 1.16.0 and~\repoversion{} (2026); archived at Zenodo under the concept DOI
 \url{https://doi.org/10.5281/zenodo.22970254}.
 \bibitem{gutman}
 I.~Gutman, The energy of a graph, \emph{Ber.\ Math.-Statist.\ Sekt.\

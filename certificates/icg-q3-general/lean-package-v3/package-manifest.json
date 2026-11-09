@@ -1,0 +1,610 @@
+{
+ "module_count": 115,
+ "modules_from_version_2": 70,
+ "new_modules": 45,
+ "main_statement": "CodexPaper1.TaskE.Challenge.SameParityThree",
+ "main_theorem": "CodexPaper1.TaskE.check_SameParityThree",
+ "entrypoint": "Research.TaskE.FinalTaskEAudit",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "main_statement_frozen_utc": "2026-11-08T17:28:13Z",
+ "frozen_record_sha256": "e57c1a490b297b5656affc8270e051d1a772be7284c6ebc6699b6fee5ffc8e00",
+ "frozen_files": {
+  "Research/TaskE/Challenge.lean": "24b59fb5ad5f0ed1fd05452229afd31a9f1bfaef888c7a5161228a16738e009f",
+  "Research/TaskE/ChallengeS.lean": "7f28d36987d87b0ce0b00be7a188c84f772869d50f8b6093a3cb4466c35359f1",
+  "Research/TaskE/ChallengeF.lean": "688e0815e50667d6c80c61bc9f6c09f08268eddbaf3f31e01c48b9a768ba51db",
+  "Research/TaskE/ChallengeFC.lean": "7165fd1427d9f10fca5ee9c6303bd12ae5c389ea670b068f85c9380d20969967",
+  "Research/TaskE/ChallengeC0.lean": "6845aaab4582a78edaa29f202e154481346ea6d142ab9d6f85688abd63367ea7",
+  "Research/TaskE/ChallengeC1.lean": "1eb7098aecd1dba9168192aedcda932ef515d72858a26d5a4d8e0f044ee22a51",
+  "Research/TaskE/ChallengeC1Alt.lean": "ecb3dc3a080e56c55de5fd7716ff0292584e7e5c9fffc4a58ae4452cd689207e"
+ },
+ "codex_acceptance": {
+  "accepted_record_sha256": "a82af4cd4b41e219195435bcc9599e210702243ff67730b0fc1ed4d408d12780",
+  "accepted_utc": "2026-11-08T21:00:17Z",
+  "frozen_proofs_sha256": "065a07a166a2ca95ae50f1f4dc7330e8ffacd1b0ce257d884926bd6abec2865d",
+  "manifest_sha256": "066d053bf73f7fa8ff7228a5001114012a52863f8e3d99693ad9e9db35552a1e",
+  "final_review_sha256": "133d22d8fc6dc3d87142cfb33f817ee9bad59fbbfc49f75039c8b33026702493"
+ },
+ "files": {
+  "Research/Backfill/Paper1/Additional.lean": "85fcd8e9e94dd80cb3c7ff499219ce50936a33fb135826a3a332d9bbafc7ac0e",
+  "Research/Backfill/Paper1/AlternatingPath.lean": "46e64259835e6e8653f328ac63e194871951e3689f1c26d577b51095fd7918c7",
+  "Research/Backfill/Paper1/CellSupplements.lean": "9501e0046646c9b6200674a680349a8846c5536f69e8524b3e5050082415ecec",
+  "Research/Backfill/Paper1/Chain.lean": "051d216aba9107dee61a69f999ee967031e5a3ec519b03fd7c64690f4a7182bc",
+  "Research/Backfill/Paper1/Challenge.lean": "e2823ed99e9fdba5b8d8d9b0159d51d59dd9757e4b06c0b13444c636a6ddbff1",
+  "Research/Backfill/Paper1/ChallengeTests.lean": "bccd4f3fe594bb0cf4b4a8bfe62b5b239aeab540d93ca6c2817ae25b0b8e8e85",
+  "Research/Backfill/Paper1/ClosedForms.lean": "82d035c2560c1862c94ca070e1374c1c512355a97482e265cdbf2d4cff5a390a",
+  "Research/Backfill/Paper1/ColumnIdentity.lean": "86715de26d6fde711e9a7559322b6bb461f01e268f8b7bebec8e11195be3db75",
+  "Research/Backfill/Paper1/EqualParityMax.lean": "edb26551da372a96a841a6c180daec1cb946f678f4197037058c5621531559a0",
+  "Research/Backfill/Paper1/FDOne.lean": "9d583b82c9479fcc74a5742c97396e91c44ba290850ab800895831ef1d21ac53",
+  "Research/Backfill/Paper1/FDTwo.lean": "5990d2b4d3d44ed50e6a264ccc735a79abbf2ce25083b0c9f4e13789b9e0fa83",
+  "Research/Backfill/Paper1/FinalContractAudit.lean": "ea105e4995d6d44827215e574eb0c61858f0bd07232cc1953d59b3ff76f4c5d2",
+  "Research/Backfill/Paper1/GeneralEqG.lean": "66179df705ac178c487404b77a52b030ce3f3c3838c8df4075c5029d9ea344c9",
+  "Research/Backfill/Paper1/GeneralEquality.lean": "74a7e8e5c870bf7703190ad41448a7873ba85fa296943eeed2eebde3bc274ab6",
+  "Research/Backfill/Paper1/GeneralEqualityBase.lean": "02f92441ebc3a8fddee885558e837905e21f2a9e5528b707a9a6ab335d361c84",
+  "Research/Backfill/Paper1/GraphBridge.lean": "df267b48258407a227844a0786a53465ecaa3183662a26090d1707761a43aa34",
+  "Research/Backfill/Paper1/Initial.lean": "5749afaf1b6b73c6cf49e98235df7b62990f110ce1f5646fac6577aea52697e9",
+  "Research/Backfill/Paper1/MatrixSupplements.lean": "bf1c2fc891eac9681188b14f9701cf36a76cc9fee30ce9a05fe4c7ddc0331ca4",
+  "Research/Backfill/Paper1/MinTwo.lean": "378d77e284ddbc55ce5f9436d9b4285fd2ec2c4e78f62b28d083c62933363c04",
+  "Research/Backfill/Paper1/MuSupplements.lean": "b983eabcdd30847f0313af29e7117b27f0ee348a72d035cabc6d36e8ff564dab",
+  "Research/Backfill/Paper1/MultiplicativeBridge.lean": "01a06e9a3ac44bd5e29f2f219dd8b9f3721b49f94ec1c6c038cb0781cae93be0",
+  "Research/Backfill/Paper1/NarrowContractTests.lean": "d3e0828b715f0609d200b7ede01cda1f458309183041c7ea9594b40f91157aab",
+  "Research/Backfill/Paper1/NearExampleDetails.lean": "b432f9432fb1a09d1921e78631c88bc215e500b6f551f40758eca06d8c24a06a",
+  "Research/Backfill/Paper1/NearMax.lean": "c953ed6adec1d077e01344eeefa5fde725456f2ecda8a6036b979093fe1191cf",
+  "Research/Backfill/Paper1/Noncorner.lean": "5fa03193d552d8f1da097f5b79429a57927d7e68d658172e4f06115113c4c384",
+  "Research/Backfill/Paper1/NormAndCalibration.lean": "a288cd25d488d3625cd21e2b61167d57052264ffa392c202803a6d05556c74c1",
+  "Research/Backfill/Paper1/OddSet.lean": "312e6f15f890e011d69a28e162ff2ace7ec8ba77efd780e0b3551c637bef7b51",
+  "Research/Backfill/Paper1/OneColumn.lean": "813a40fda1791c994318e104b0c6e33116e5fc194184c578906b3d531dc29e4d",
+  "Research/Backfill/Paper1/OppositeParity.lean": "b01c65099c4a305763d63f6a432b79d67b452d32fc7c7af4dc2e02d4b422b165",
+  "Research/Backfill/Paper1/PQGraphModels.lean": "aa1b39aace83b06025abba4344e91f040c1fa52124ca186e5e2eff8a003ed275",
+  "Research/Backfill/Paper1/ParameterComparisons.lean": "dd03f51afe95b192c561190191e1d7587e400ec68d19c8959845c6d688a755d5",
+  "Research/Backfill/Paper1/PathAndSign.lean": "464c3034ee0056c408b6fbf1983a5036800d42c6c8a19af3f3020dff11b0e582",
+  "Research/Backfill/Paper1/PathCoordinates.lean": "b23c243310637a339116e21629386b29f12a16a128a0338303ab92b7240a971b",
+  "Research/Backfill/Paper1/PathLinearConvex.lean": "ffcb05d59ea7f71e42fa3f5cff3c343338b42b1113e7f116a1945048383ad005",
+  "Research/Backfill/Paper1/Prop31.lean": "fb77d159267865df20d27781af387a13dc484696148fe16975b6318c94375138",
+  "Research/Backfill/Paper1/Prop31Base.lean": "f0a9ccde4ea2eaf1f0664c6f099c6f8e72c5287af0d8250c3fd16e7d97756616",
+  "Research/Backfill/Paper1/Prop31FirstDeviation.lean": "34ea8d7512196049c117e5fbabf5af139e44233b38aece17e190c5d9b58ddbec",
+  "Research/Backfill/Paper1/Prop31Potential.lean": "df235dc2b0e83ff82e58b02ad523fe48e87135fb78ebdd3426c64a777c3f3242",
+  "Research/Backfill/Paper1/Prop31Selection.lean": "0574dccf244dca411dbd5f713fdc6f84bf459f5cde899d87320e200556df0bba",
+  "Research/Backfill/Paper1/Prop31ShortChains.lean": "f391d798ff139ddecc0a3eea9eec63ff9cbdeaa8f40eb2db42dfceda97e05d9e",
+  "Research/Backfill/Paper1/Prop31WholeChain.lean": "9bdabd57bf348b1f27ae0c6831a1e2c8788edbc7c3252e71143ae09a508dabb3",
+  "Research/Backfill/Paper1/RamanujanEntry.lean": "befc11bd7abfc2baad1772e9b18dbe9dd7cd5942334c1277fb45746f69e0fd75",
+  "Research/Backfill/Paper1/RatioDetails.lean": "7a3d8c32ac4f143be2daed8c008dc3327579ec7ff601887fadf13d7edead9ef0",
+  "Research/Backfill/Paper1/RemarkPQ.lean": "7bac6cc0f1ddaf33dab4d06069c4a67e5ae8869a7fa6a6e41c9bbcc6ca1b9788",
+  "Research/Backfill/Paper1/RemarkPQBase.lean": "ef8dd8de0b7ae09363456188d30778670dfb74f19da4dec8c6701245baf8e5b8",
+  "Research/Backfill/Paper1/RemarkPQFinite.lean": "bbd4249d4acf42c1aa9590fb8b189cbcf098c714d2f3b703f8fddfb4ef2a150c",
+  "Research/Backfill/Paper1/SignTwo.lean": "8b94d5b58cc27a3286c3cfde7c8ed1909b101aff975fbcae3be0c0725b0ac76f",
+  "Research/Backfill/Paper1/StatementAudit.lean": "4afb46606e1fb1c07da3d6d71fb0111d6ff725e291a7034a63579023bc539ecd",
+  "Research/Backfill/Paper1/SupplementStatements.lean": "6cb1815cd553f7fa1c49368e256c2cb70c59ff8488257da4e7dfdd80c01ea4da",
+  "Research/Backfill/Paper1/ThreeColumn.lean": "f219d85bef36d66f18c576f84a411996983485f45da380d27020a37cce5cb162",
+  "Research/Backfill/Paper1/TightFamilies.lean": "18f9a9b27b59785072a3477c75a508c06abc3f2743fbff30e27d7999ed2bb1fd",
+  "Research/Backfill/Paper1/TransformRows.lean": "8f86137096943a9857788ffa1dec7b70afa03d8490f2c3b4626a1fe1187a0b7c",
+  "Research/Backfill/Paper1/YplusDetails.lean": "1ed7718386cbebd44682ba47ba56b9cb2942afc0774209f20dbfc9b704ae8448",
+  "Research/ICGBridgeEnergy.lean": "e0488d780d4ab06581950400db3ad52a508b0b8848e0b978aa2c8ffba44056a6",
+  "Research/ICGBridgeMain.lean": "737c24e5f51c10ee360d3d256d2cd61a4bd82313b2d71784ea447ef248aa0d1e",
+  "Research/ICGBridgeRamanujan.lean": "9ca90a50b7ccd45eb86bbcff93adb71ee8583abacae34c5028200373ed253187",
+  "Research/ICGBridgeSpectral.lean": "bdf2c4ebf7af29bf38cd2e9126c814f628d50d249325cd1c86ac70d9c9c947aa",
+  "Research/ICGEqualParityA.lean": "37f13d462859ab88fa4e10a259ce7708403c058e18bb67638bd53e1ab5fcb31d",
+  "Research/ICGEqualParityBCol.lean": "dd5d71f5898313fc90624ac9dc4bf48d3f7a81615d84413fb21918fc04c15f6b",
+  "Research/ICGEqualParityBFD.lean": "c600158140cfb79d443f8e91b8c34ead508d2738cde25f91b0d10c4ad0463d8a",
+  "Research/ICGEqualParityBGraph.lean": "7f8ea074300d4b5ae80173754bbf9e4c9c3ab0df8223512b71afd14ce573def3",
+  "Research/ICGEqualParityBMain.lean": "808cecaa91abb06c8f9a6da39d38393494a11b2aa8be9e7007beab331efd94f5",
+  "Research/ICGEqualParityGraph.lean": "6d84cbdc094a92b993bbdaecdb5515fb591c6723dbc37883ef17666e9eb218d9",
+  "Research/ICGEqualParityLemmas.lean": "2bfabcbb7aac1db60e7193ada28bad779e15dd616d8141e43d9fcdcca86753c1",
+  "Research/ICGEqualParityUnique.lean": "b91c5f6fb9a8c80b0dd14a81fe73626430667a166653aa030085230c7601b342",
+  "Research/ICGGeneralBridge.lean": "45e5603852fa4adc5fd03f0e713d7c0d94f94bf9ce4ce5875d285782f2e23635",
+  "Research/ICGGeneralMain.lean": "02e68ca369c60838f171a1d401c6acbd630aad31f3759b0df226b07e1e3b2bd4",
+  "Research/ICGGeneralPath.lean": "2f11a7c94752679cf072397aead79290020e453894b6b93a60a6fc9ad722ad9b",
+  "Research/ICGGeneralSwap.lean": "efffea0241c48c3e41969db7dc81ebda551db6b94c60147513bdb8f8f84f864c",
+  "Research/ICGGeneralThm5.lean": "7848b81d1dc09b898d8a840fb93752cb268345ac55dfab6ec3fec7a2dc48f404",
+  "Research/TaskE/C0AltCore.lean": "3b282093d1da6ac34d4bf0fbab358510bb4838a13b41d0d046219e7558d32f04",
+  "Research/TaskE/C0AltTail.lean": "ae73c7b94e804ecc0f1e8ec189bd41403efbde3e5649aa2cf776e95a589e61b7",
+  "Research/TaskE/C0AltTerminal.lean": "52d388540d3e9932e12de71730777c564af4e6d14cb851b89f7016c567c6064c",
+  "Research/TaskE/C0BudgetBasis.lean": "f60548e4580eddf65a27e02c3d407541198bb477523723db342bb0637d4bbcc2",
+  "Research/TaskE/C0Complete.lean": "15cba74b2745910af76c4bb9932d87924aea890c106b6acc04a9c541a31489ca",
+  "Research/TaskE/C0NonaltCore.lean": "9ddcecb07a2300c05213930c428a8ea60f96ff6fe066414c562748afac1ca709",
+  "Research/TaskE/C0PairBudget.lean": "db89bb5a31341f6a814c96b04af696e1693bb05a924ded036a7298a53d312223",
+  "Research/TaskE/C0PairGain.lean": "b1e66da74a24f319f01b06d928f52b7aba1c9d98e809ad023ec115d1b8163b96",
+  "Research/TaskE/C0TailBudget.lean": "f9f96d27643e5c769b4437cda4a1d349636d9114cf36ef845cec44bf297fd80b",
+  "Research/TaskE/C0TerminalLow.lean": "0d2e52739191505ea3c2e82a78b5dcdb3e73caa0be9aa5670097668e3bee8fee",
+  "Research/TaskE/C1AltBasis.lean": "9a4bd04ac4d5dffb32993718d16d0ecc5275992334e9628335f630c914d338f2",
+  "Research/TaskE/C1AltComplete.lean": "75b0cd11d8939887d88ddfa5d6a3cc01823083e1734d361331eba884594f66af",
+  "Research/TaskE/C1AltCore.lean": "c0fc0674651f0bcc89ebff7959de9ae3257053b09028fa540b1045504cdeac85",
+  "Research/TaskE/C1Bounds.lean": "9131dc6c18ced6e58ffd790afa891a2746b0de43acc13b5dfe3c416083b8620e",
+  "Research/TaskE/C1High.lean": "cb56c1bd28c1908f119146009f81ca0483170ee21fed9c19a5d092d22b3116f5",
+  "Research/TaskE/C1Long.lean": "189fb9c1d20eb7aef604def9598f3a6d491d88e1f91f18849b6e87f7b65511ee",
+  "Research/TaskE/C1One.lean": "31ce16364a85c96585f42fcaeef64aae7fba1c894112334a5cc769c4f3ad8a62",
+  "Research/TaskE/CComplete.lean": "ff3343b083ef0ff7e3a42d401c6ca991dca2156b3aac3928d31025076fdb4977",
+  "Research/TaskE/CFiveChain.lean": "00dac7c9c8f3b67fe74f0c33c33643dc27bb834a3775b991cd98bb802d7415c2",
+  "Research/TaskE/CTerminal.lean": "cc2849f00fc8c347c069fe74b2f7a6fa420aba5fba2b3d7e67f8af96e0f48834",
+  "Research/TaskE/Challenge.lean": "24b59fb5ad5f0ed1fd05452229afd31a9f1bfaef888c7a5161228a16738e009f",
+  "Research/TaskE/ChallengeC0.lean": "6845aaab4582a78edaa29f202e154481346ea6d142ab9d6f85688abd63367ea7",
+  "Research/TaskE/ChallengeC1.lean": "1eb7098aecd1dba9168192aedcda932ef515d72858a26d5a4d8e0f044ee22a51",
+  "Research/TaskE/ChallengeC1Alt.lean": "ecb3dc3a080e56c55de5fd7716ff0292584e7e5c9fffc4a58ae4452cd689207e",
+  "Research/TaskE/ChallengeF.lean": "688e0815e50667d6c80c61bc9f6c09f08268eddbaf3f31e01c48b9a768ba51db",
+  "Research/TaskE/ChallengeFC.lean": "7165fd1427d9f10fca5ee9c6303bd12ae5c389ea670b068f85c9380d20969967",
+  "Research/TaskE/ChallengeS.lean": "7f28d36987d87b0ce0b00be7a188c84f772869d50f8b6093a3cb4466c35359f1",
+  "Research/TaskE/DeficitLower.lean": "87358a3daf9d731308af93f69587a4c3ac8d1483aa0496e1621fb41661874fd6",
+  "Research/TaskE/FCParameters.lean": "006f8cea527091e4efd5bd238220eb6be418be2c07d61afe9ccb47f9c389fbd1",
+  "Research/TaskE/FComplete.lean": "67d926d59126a3bac811e6badbf7697a3adf5d33130c647b9e28cd145221fbba",
+  "Research/TaskE/FDeltaRatio.lean": "bf89b45c91754561c0f47466ea20f0333ab5ad5db95ebd13fa1917e2ed674a03",
+  "Research/TaskE/FGain.lean": "d3b9886992139047a711ee24b4a78e6b4a48375442f99fd36c15ad2d71c65069",
+  "Research/TaskE/FHigh.lean": "6882382ad17563e80d60100ff99f90314450a922d452b9a8ecb5c9679c7c57e0",
+  "Research/TaskE/FLastPair.lean": "03ed5f9117b0209d2bb850ed503731052ac287ec1f1c889a8d202de677cd2e27",
+  "Research/TaskE/FScalar.lean": "41ce22ef77ad6c3ddb12f60f76ded4780e79ab9c32b0b823052b6e9dd21a885b",
+  "Research/TaskE/FTail.lean": "fc617004c3329f8cf6168dd4829b3cc7471b9e499ba9eaed1e0c2f60c485271e",
+  "Research/TaskE/FinalTaskEAudit.lean": "b7e003de5bb72acf2ddc59cfeb1c9ef5bfc5e958fe6b4773acd46164d7f36e46",
+  "Research/TaskE/GraphTransport.lean": "f01f97b04594e8c9af6e0eeaa4dca010d95cabc2167e51bec7199dba04c24e61",
+  "Research/TaskE/Main.lean": "aba311c617813c598b82c595492efc24e170889301b8888cc8826af0c867a6fb",
+  "Research/TaskE/PotentialLower.lean": "99f2cc1ee4ef567a3f8a6b2c29fd440291c17e4f1d60d70308af99c014fa68c9",
+  "Research/TaskE/PrimeConditions.lean": "4ba96a004642e88b604c764ac79fd47c708a3661df4d1275735227b6a881c5f5",
+  "Research/TaskE/SBasis.lean": "27aaffd546ee460e1e989b3ff4e52887bdfe80c079fc01f3688a8b4531dd9371",
+  "Research/TaskE/SPenalty.lean": "ee0eb114b1adaab7587c4cc380320d21660281c7ed0b7e05a51405a3e5395481",
+  "Research/TaskE/SUniform.lean": "cc545ea026e576e52a79379efadf560c99f9d7f6d881079d724c17645c05adc5",
+  "Research/TaskE/StatementTests.lean": "5f9bd44055b622eb51dbaeda1df9804224847294b2cc5b879d59142a6be6f1a0"
+ },
+ "imports": {
+  "Research.Backfill.Paper1.Additional": [
+   "Research.Backfill.Paper1.Challenge",
+   "Research.ICGGeneralThm5",
+   "Research.ICGEqualParityLemmas"
+  ],
+  "Research.Backfill.Paper1.AlternatingPath": [
+   "Research.Backfill.Paper1.PathLinearConvex",
+   "Research.Backfill.Paper1.GeneralEqualityBase"
+  ],
+  "Research.Backfill.Paper1.CellSupplements": [
+   "Research.Backfill.Paper1.SupplementStatements",
+   "Research.Backfill.Paper1.Additional"
+  ],
+  "Research.Backfill.Paper1.Chain": [
+   "Research.Backfill.Paper1.Additional"
+  ],
+  "Research.Backfill.Paper1.Challenge": [],
+  "Research.Backfill.Paper1.ChallengeTests": [
+   "Research.Backfill.Paper1.Challenge"
+  ],
+  "Research.Backfill.Paper1.ClosedForms": [
+   "Research.Backfill.Paper1.Additional"
+  ],
+  "Research.Backfill.Paper1.ColumnIdentity": [
+   "Research.Backfill.Paper1.PathAndSign",
+   "Research.Backfill.Paper1.ClosedForms"
+  ],
+  "Research.Backfill.Paper1.EqualParityMax": [
+   "Research.Backfill.Paper1.OppositeParity",
+   "Research.ICGEqualParityUnique",
+   "Research.ICGEqualParityBGraph"
+  ],
+  "Research.Backfill.Paper1.FDOne": [
+   "Research.Backfill.Paper1.ThreeColumn"
+  ],
+  "Research.Backfill.Paper1.FDTwo": [
+   "Research.Backfill.Paper1.ThreeColumn",
+   "Research.Backfill.Paper1.ColumnIdentity"
+  ],
+  "Research.Backfill.Paper1.FinalContractAudit": [
+   "Research.Backfill.Paper1.RatioDetails",
+   "Research.Backfill.Paper1.YplusDetails",
+   "Research.Backfill.Paper1.Additional",
+   "Research.Backfill.Paper1.AlternatingPath",
+   "Research.Backfill.Paper1.CellSupplements",
+   "Research.Backfill.Paper1.Chain",
+   "Research.Backfill.Paper1.ChallengeTests",
+   "Research.Backfill.Paper1.ClosedForms",
+   "Research.Backfill.Paper1.ColumnIdentity",
+   "Research.Backfill.Paper1.EqualParityMax",
+   "Research.Backfill.Paper1.FDOne",
+   "Research.Backfill.Paper1.FDTwo",
+   "Research.Backfill.Paper1.GeneralEqG",
+   "Research.Backfill.Paper1.GeneralEquality",
+   "Research.Backfill.Paper1.GraphBridge",
+   "Research.Backfill.Paper1.Initial",
+   "Research.Backfill.Paper1.MatrixSupplements",
+   "Research.Backfill.Paper1.MinTwo",
+   "Research.Backfill.Paper1.MuSupplements",
+   "Research.Backfill.Paper1.MultiplicativeBridge",
+   "Research.Backfill.Paper1.NarrowContractTests",
+   "Research.Backfill.Paper1.NearExampleDetails",
+   "Research.Backfill.Paper1.NearMax",
+   "Research.Backfill.Paper1.Noncorner",
+   "Research.Backfill.Paper1.NormAndCalibration",
+   "Research.Backfill.Paper1.OddSet",
+   "Research.Backfill.Paper1.OneColumn",
+   "Research.Backfill.Paper1.OppositeParity",
+   "Research.Backfill.Paper1.PQGraphModels",
+   "Research.Backfill.Paper1.ParameterComparisons",
+   "Research.Backfill.Paper1.PathAndSign",
+   "Research.Backfill.Paper1.PathCoordinates",
+   "Research.Backfill.Paper1.PathLinearConvex",
+   "Research.Backfill.Paper1.Prop31",
+   "Research.Backfill.Paper1.RamanujanEntry",
+   "Research.Backfill.Paper1.RemarkPQ",
+   "Research.Backfill.Paper1.SignTwo",
+   "Research.Backfill.Paper1.ThreeColumn",
+   "Research.Backfill.Paper1.TightFamilies",
+   "Research.Backfill.Paper1.TransformRows"
+  ],
+  "Research.Backfill.Paper1.GeneralEqG": [
+   "Research.Backfill.Paper1.SupplementStatements",
+   "Research.Backfill.Paper1.GraphBridge",
+   "Research.ICGGeneralMain"
+  ],
+  "Research.Backfill.Paper1.GeneralEquality": [
+   "Research.Backfill.Paper1.GeneralEqualityBase"
+  ],
+  "Research.Backfill.Paper1.GeneralEqualityBase": [
+   "Research.Backfill.Paper1.Chain",
+   "Research.Backfill.Paper1.OneColumn",
+   "Research.Backfill.Paper1.ColumnIdentity",
+   "Research.ICGEqualParityBMain"
+  ],
+  "Research.Backfill.Paper1.GraphBridge": [
+   "Research.Backfill.Paper1.PathAndSign",
+   "Research.ICGGeneralBridge"
+  ],
+  "Research.Backfill.Paper1.Initial": [
+   "Research.Backfill.Paper1.Challenge",
+   "Research.ICGGeneralThm5",
+   "Research.ICGEqualParityBCol"
+  ],
+  "Research.Backfill.Paper1.MatrixSupplements": [
+   "Research.Backfill.Paper1.GeneralEqualityBase",
+   "Research.Backfill.Paper1.TransformRows"
+  ],
+  "Research.Backfill.Paper1.MinTwo": [
+   "Research.Backfill.Paper1.EqualParityMax",
+   "Research.Backfill.Paper1.OppositeParity",
+   "Research.Backfill.Paper1.SupplementStatements"
+  ],
+  "Research.Backfill.Paper1.MuSupplements": [
+   "Research.Backfill.Paper1.PathAndSign",
+   "Research.Backfill.Paper1.SupplementStatements"
+  ],
+  "Research.Backfill.Paper1.MultiplicativeBridge": [
+   "Research.Backfill.Paper1.SupplementStatements"
+  ],
+  "Research.Backfill.Paper1.NarrowContractTests": [
+   "Research.Backfill.Paper1.SupplementStatements"
+  ],
+  "Research.Backfill.Paper1.NearExampleDetails": [
+   "Research.Backfill.Paper1.TightFamilies",
+   "Research.Backfill.Paper1.PathLinearConvex"
+  ],
+  "Research.Backfill.Paper1.NearMax": [
+   "Research.Backfill.Paper1.TightFamilies",
+   "Research.Backfill.Paper1.EqualParityMax",
+   "Research.Backfill.Paper1.SignTwo"
+  ],
+  "Research.Backfill.Paper1.Noncorner": [
+   "Research.Backfill.Paper1.Additional"
+  ],
+  "Research.Backfill.Paper1.NormAndCalibration": [
+   "Research.Backfill.Paper1.ColumnIdentity",
+   "Research.Backfill.Paper1.GraphBridge",
+   "Research.Backfill.Paper1.NarrowContractTests"
+  ],
+  "Research.Backfill.Paper1.OddSet": [
+   "Research.Backfill.Paper1.EqualParityMax"
+  ],
+  "Research.Backfill.Paper1.OneColumn": [
+   "Research.Backfill.Paper1.Additional"
+  ],
+  "Research.Backfill.Paper1.OppositeParity": [
+   "Research.Backfill.Paper1.GraphBridge",
+   "Research.Backfill.Paper1.ClosedForms",
+   "Research.ICGGeneralSwap"
+  ],
+  "Research.Backfill.Paper1.PQGraphModels": [
+   "Research.Backfill.Paper1.GraphBridge",
+   "Research.Backfill.Paper1.SupplementStatements"
+  ],
+  "Research.Backfill.Paper1.ParameterComparisons": [
+   "Research.Backfill.Paper1.SupplementStatements"
+  ],
+  "Research.Backfill.Paper1.PathAndSign": [
+   "Research.Backfill.Paper1.Additional"
+  ],
+  "Research.Backfill.Paper1.PathCoordinates": [
+   "Research.Backfill.Paper1.PathLinearConvex"
+  ],
+  "Research.Backfill.Paper1.PathLinearConvex": [
+   "Research.Backfill.Paper1.PathAndSign",
+   "Research.Backfill.Paper1.SupplementStatements"
+  ],
+  "Research.Backfill.Paper1.Prop31": [
+   "Research.Backfill.Paper1.Prop31ShortChains"
+  ],
+  "Research.Backfill.Paper1.Prop31Base": [
+   "Research.Backfill.Paper1.GeneralEquality"
+  ],
+  "Research.Backfill.Paper1.Prop31FirstDeviation": [
+   "Research.Backfill.Paper1.Prop31Selection"
+  ],
+  "Research.Backfill.Paper1.Prop31Potential": [
+   "Research.Backfill.Paper1.Prop31Base"
+  ],
+  "Research.Backfill.Paper1.Prop31Selection": [
+   "Research.Backfill.Paper1.Prop31Potential"
+  ],
+  "Research.Backfill.Paper1.Prop31ShortChains": [
+   "Research.Backfill.Paper1.Prop31WholeChain"
+  ],
+  "Research.Backfill.Paper1.Prop31WholeChain": [
+   "Research.Backfill.Paper1.Prop31FirstDeviation"
+  ],
+  "Research.Backfill.Paper1.RamanujanEntry": [
+   "Research.Backfill.Paper1.Additional",
+   "Research.Backfill.Paper1.SupplementStatements",
+   "Research.ICGGeneralBridge"
+  ],
+  "Research.Backfill.Paper1.RatioDetails": [
+   "Research.Backfill.Paper1.ParameterComparisons"
+  ],
+  "Research.Backfill.Paper1.RemarkPQ": [
+   "Research.Backfill.Paper1.RemarkPQFinite"
+  ],
+  "Research.Backfill.Paper1.RemarkPQBase": [
+   "Research.Backfill.Paper1.EqualParityMax"
+  ],
+  "Research.Backfill.Paper1.RemarkPQFinite": [
+   "Research.Backfill.Paper1.RemarkPQBase"
+  ],
+  "Research.Backfill.Paper1.SignTwo": [
+   "Research.Backfill.Paper1.PathAndSign",
+   "Research.Backfill.Paper1.ClosedForms",
+   "Research.ICGEqualParityBGraph"
+  ],
+  "Research.Backfill.Paper1.StatementAudit": [
+   "Research.Backfill.Paper1.SupplementStatements"
+  ],
+  "Research.Backfill.Paper1.SupplementStatements": [
+   "Research.Backfill.Paper1.Challenge"
+  ],
+  "Research.Backfill.Paper1.ThreeColumn": [
+   "Research.Backfill.Paper1.ClosedForms",
+   "Research.ICGEqualParityBMain"
+  ],
+  "Research.Backfill.Paper1.TightFamilies": [
+   "Research.Backfill.Paper1.ThreeColumn",
+   "Research.Backfill.Paper1.ColumnIdentity"
+  ],
+  "Research.Backfill.Paper1.TransformRows": [
+   "Research.Backfill.Paper1.PathAndSign",
+   "Research.Backfill.Paper1.SupplementStatements"
+  ],
+  "Research.Backfill.Paper1.YplusDetails": [
+   "Research.Backfill.Paper1.GeneralEquality",
+   "Research.Backfill.Paper1.PathLinearConvex"
+  ],
+  "Research.ICGBridgeEnergy": [
+   "Research.ICGBridgeRamanujan"
+  ],
+  "Research.ICGBridgeMain": [
+   "Research.ICGBridgeEnergy"
+  ],
+  "Research.ICGBridgeRamanujan": [
+   "Research.ICGBridgeSpectral"
+  ],
+  "Research.ICGBridgeSpectral": [],
+  "Research.ICGEqualParityA": [
+   "Research.ICGEqualParityLemmas"
+  ],
+  "Research.ICGEqualParityBCol": [
+   "Research.ICGEqualParityUnique"
+  ],
+  "Research.ICGEqualParityBFD": [
+   "Research.ICGEqualParityBCol"
+  ],
+  "Research.ICGEqualParityBGraph": [
+   "Research.ICGEqualParityBMain"
+  ],
+  "Research.ICGEqualParityBMain": [
+   "Research.ICGEqualParityBFD"
+  ],
+  "Research.ICGEqualParityGraph": [
+   "Research.ICGEqualParityA"
+  ],
+  "Research.ICGEqualParityLemmas": [
+   "Research.ICGGeneralMain"
+  ],
+  "Research.ICGEqualParityUnique": [
+   "Research.ICGEqualParityGraph"
+  ],
+  "Research.ICGGeneralBridge": [
+   "Research.ICGBridgeMain",
+   "Research.ICGGeneralThm5"
+  ],
+  "Research.ICGGeneralMain": [
+   "Research.ICGGeneralBridge"
+  ],
+  "Research.ICGGeneralPath": [],
+  "Research.ICGGeneralSwap": [
+   "Research.ICGGeneralMain"
+  ],
+  "Research.ICGGeneralThm5": [
+   "Research.ICGGeneralPath"
+  ],
+  "Research.TaskE.C0AltCore": [
+   "Research.TaskE.C0AltTerminal",
+   "Research.TaskE.C0NonaltCore"
+  ],
+  "Research.TaskE.C0AltTail": [
+   "Research.TaskE.C0TailBudget",
+   "Research.TaskE.C1AltBasis"
+  ],
+  "Research.TaskE.C0AltTerminal": [
+   "Research.TaskE.C0AltTail"
+  ],
+  "Research.TaskE.C0BudgetBasis": [
+   "Research.TaskE.ChallengeC0",
+   "Research.TaskE.FTail"
+  ],
+  "Research.TaskE.C0Complete": [
+   "Research.TaskE.C0AltCore",
+   "Research.TaskE.C0TerminalLow"
+  ],
+  "Research.TaskE.C0NonaltCore": [
+   "Research.TaskE.C0PairGain",
+   "Research.TaskE.FDeltaRatio",
+   "Research.TaskE.PotentialLower"
+  ],
+  "Research.TaskE.C0PairBudget": [
+   "Research.TaskE.C0TailBudget"
+  ],
+  "Research.TaskE.C0PairGain": [
+   "Research.TaskE.C0PairBudget",
+   "Research.TaskE.FGain"
+  ],
+  "Research.TaskE.C0TailBudget": [
+   "Research.TaskE.C0BudgetBasis"
+  ],
+  "Research.TaskE.C0TerminalLow": [
+   "Research.TaskE.ChallengeC0",
+   "Research.TaskE.FTail"
+  ],
+  "Research.TaskE.C1AltBasis": [
+   "Research.TaskE.ChallengeC1Alt",
+   "Research.TaskE.FComplete",
+   "Research.TaskE.C1Bounds",
+   "Research.Backfill.Paper1.Prop31FirstDeviation"
+  ],
+  "Research.TaskE.C1AltComplete": [
+   "Research.TaskE.C1AltCore"
+  ],
+  "Research.TaskE.C1AltCore": [
+   "Research.TaskE.C1AltBasis"
+  ],
+  "Research.TaskE.C1Bounds": [
+   "Research.TaskE.ChallengeC1",
+   "Research.TaskE.PotentialLower",
+   "Research.TaskE.DeficitLower",
+   "Research.TaskE.FCParameters"
+  ],
+  "Research.TaskE.C1High": [
+   "Research.TaskE.C1Bounds"
+  ],
+  "Research.TaskE.C1Long": [
+   "Research.TaskE.C1Bounds"
+  ],
+  "Research.TaskE.C1One": [
+   "Research.TaskE.C1Bounds"
+  ],
+  "Research.TaskE.CComplete": [
+   "Research.Backfill.Paper1.Prop31",
+   "Research.TaskE.C0Complete",
+   "Research.TaskE.C1AltComplete",
+   "Research.TaskE.C1One",
+   "Research.TaskE.C1Long",
+   "Research.TaskE.CFiveChain",
+   "Research.TaskE.CTerminal"
+  ],
+  "Research.TaskE.CFiveChain": [
+   "Research.TaskE.DeficitLower",
+   "Research.TaskE.FCParameters"
+  ],
+  "Research.TaskE.CTerminal": [
+   "Research.TaskE.DeficitLower",
+   "Research.TaskE.FCParameters"
+  ],
+  "Research.TaskE.Challenge": [
+   "Research.Backfill.Paper1.Challenge"
+  ],
+  "Research.TaskE.ChallengeC0": [
+   "Research.TaskE.ChallengeC1"
+  ],
+  "Research.TaskE.ChallengeC1": [
+   "Research.TaskE.ChallengeFC"
+  ],
+  "Research.TaskE.ChallengeC1Alt": [
+   "Research.TaskE.ChallengeC1"
+  ],
+  "Research.TaskE.ChallengeF": [
+   "Research.TaskE.ChallengeFC"
+  ],
+  "Research.TaskE.ChallengeFC": [
+   "Research.TaskE.ChallengeS"
+  ],
+  "Research.TaskE.ChallengeS": [
+   "Research.TaskE.Challenge"
+  ],
+  "Research.TaskE.DeficitLower": [
+   "Research.TaskE.ChallengeFC",
+   "Research.TaskE.SBasis",
+   "Research.Backfill.Paper1.MuSupplements"
+  ],
+  "Research.TaskE.FCParameters": [
+   "Research.TaskE.ChallengeFC",
+   "Research.Backfill.Paper1.MuSupplements"
+  ],
+  "Research.TaskE.FComplete": [
+   "Research.TaskE.FLastPair",
+   "Research.TaskE.FScalar",
+   "Research.TaskE.FDeltaRatio",
+   "Research.TaskE.FHigh"
+  ],
+  "Research.TaskE.FDeltaRatio": [
+   "Research.TaskE.ChallengeF",
+   "Research.TaskE.FCParameters"
+  ],
+  "Research.TaskE.FGain": [
+   "Research.TaskE.ChallengeF",
+   "Research.TaskE.SUniform",
+   "Research.TaskE.PotentialLower"
+  ],
+  "Research.TaskE.FHigh": [
+   "Research.TaskE.PotentialLower",
+   "Research.TaskE.FCParameters"
+  ],
+  "Research.TaskE.FLastPair": [
+   "Research.TaskE.FTail"
+  ],
+  "Research.TaskE.FScalar": [
+   "Research.TaskE.ChallengeF",
+   "Research.TaskE.C1Bounds"
+  ],
+  "Research.TaskE.FTail": [
+   "Research.TaskE.FGain",
+   "Research.TaskE.DeficitLower",
+   "Research.Backfill.Paper1.AlternatingPath",
+   "Research.Backfill.Paper1.ClosedForms",
+   "Research.Backfill.Paper1.Chain"
+  ],
+  "Research.TaskE.FinalTaskEAudit": [
+   "Research.TaskE.Main",
+   "Research.TaskE.StatementTests",
+   "Research.Backfill.Paper1.FinalContractAudit"
+  ],
+  "Research.TaskE.GraphTransport": [
+   "Research.Backfill.Paper1.GeneralEqG",
+   "Research.Backfill.Paper1.OddSet"
+  ],
+  "Research.TaskE.Main": [
+   "Research.TaskE.PrimeConditions",
+   "Research.TaskE.GraphTransport"
+  ],
+  "Research.TaskE.PotentialLower": [
+   "Research.TaskE.ChallengeFC",
+   "Research.TaskE.SUniform",
+   "Research.Backfill.Paper1.Prop31Base"
+  ],
+  "Research.TaskE.PrimeConditions": [
+   "Research.TaskE.CComplete",
+   "Research.TaskE.FComplete",
+   "Research.TaskE.SUniform"
+  ],
+  "Research.TaskE.SBasis": [
+   "Research.TaskE.ChallengeS",
+   "Research.Backfill.Paper1.PathCoordinates",
+   "Research.Backfill.Paper1.TransformRows"
+  ],
+  "Research.TaskE.SPenalty": [
+   "Research.TaskE.SBasis"
+  ],
+  "Research.TaskE.SUniform": [
+   "Research.TaskE.SPenalty"
+  ],
+  "Research.TaskE.StatementTests": [
+   "Research.TaskE.Challenge"
+  ]
+ }
+}

@@ -1,0 +1,295 @@
+# forbidden-token scan over 3006 files
+# summary (token, class): count
+#   admit	COMMENT	1
+#   axiom	COMMENT	11
+#   native_decide	COMMENT	3
+#   sorry	CODE	256
+#   sorry	COMMENT	16
+# hits
+COMMENT	sorry	Comparator/Paper3.lean:7	states, with a `sorry` proof, exactly the type of the theorem of the same name in
+COMMENT	sorry	Comparator/Paper3.lean:12	The `sorry`s are intentional: comparator checks that the solution proves the same
+CODE	sorry	Comparator/Paper3.lean:21	theorem check_IGammaFloor : BackfillPaper3.Challenge.IGammaFloor := sorry
+CODE	sorry	Comparator/Paper3.lean:23	theorem check_IGammaIso : BackfillPaper3.Challenge.IGammaIso := sorry
+CODE	sorry	Comparator/Paper3.lean:25	theorem check_PolyFacts : BackfillPaper3.Challenge.PolyFacts := sorry
+CODE	sorry	Comparator/Paper3.lean:27	theorem check_IntegerForm : BackfillPaper3.Challenge.IntegerForm := sorry
+CODE	sorry	Comparator/Paper3.lean:29	theorem check_Neg_6_3 : BackfillPaper3.Challenge.Neg_6_3 := sorry
+CODE	sorry	Comparator/Paper3.lean:31	theorem check_Neg_2d : BackfillPaper3.Challenge.Neg_2d := sorry
+CODE	sorry	Comparator/Paper3.lean:33	theorem check_Neg_8_2 : BackfillPaper3.Challenge.Neg_8_2 := sorry
+CODE	sorry	Comparator/Paper3.lean:35	theorem check_Neg_12_3_bip : BackfillPaper3.Challenge.Neg_12_3_bip := sorry
+CODE	sorry	Comparator/Paper3.lean:37	theorem check_Neg_12_3_top : BackfillPaper3.Challenge.Neg_12_3_top := sorry
+CODE	sorry	Comparator/Paper3.lean:39	theorem check_Table4Counts : BackfillPaper3.Challenge.Table4Counts := sorry
+CODE	sorry	Comparator/Paper3.lean:41	theorem check_KddIndependentSets : BackfillPaper3.Challenge.KddIndependentSets := sorry
+CODE	sorry	Comparator/Paper3.lean:43	theorem check_Lemma1 : BackfillPaper3.Challenge.Lemma1 := sorry
+CODE	sorry	Comparator/Paper3.lean:45	theorem check_Proposition2 : BackfillPaper3.Challenge.Proposition2 := sorry
+CODE	sorry	Comparator/Paper3.lean:47	theorem check_Lemma3 : BackfillPaper3.Challenge.Lemma3 := sorry
+CODE	sorry	Comparator/Paper3.lean:49	theorem check_TheoremA : BackfillPaper3.Challenge.TheoremA := sorry
+CODE	sorry	Comparator/Paper3.lean:51	theorem check_Remark4 : BackfillPaper3.Challenge.Remark4 := sorry
+CODE	sorry	Comparator/Paper3.lean:53	theorem check_TheoremB : BackfillPaper3.Challenge.TheoremB := sorry
+CODE	sorry	Comparator/Paper3.lean:55	theorem check_Corollary5 : BackfillPaper3.Challenge.Corollary5 := sorry
+CODE	sorry	Comparator/Paper3.lean:57	theorem check_WSymm : BackfillPaper3.Challenge.WSymm := sorry
+CODE	sorry	Comparator/Paper3.lean:59	theorem check_Lemma6 : BackfillPaper3.Challenge.Lemma6 := sorry
+CODE	sorry	Comparator/Paper3.lean:61	theorem check_Lemma7 : BackfillPaper3.Challenge.Lemma7 := sorry
+CODE	sorry	Comparator/Paper3.lean:63	theorem check_TheoremBprime : BackfillPaper3.Challenge.TheoremBprime := sorry
+CODE	sorry	Comparator/Paper3.lean:65	theorem check_Lemma8 : BackfillPaper3.Challenge.Lemma8 := sorry
+CODE	sorry	Comparator/Paper3.lean:67	theorem check_Lemma8_bddBelow : BackfillPaper3.Challenge.Lemma8_bddBelow := sorry
+CODE	sorry	Comparator/Paper3.lean:69	theorem check_PropositionC : BackfillPaper3.Challenge.PropositionC := sorry
+CODE	sorry	Comparator/Paper3.lean:71	theorem check_Rho_bddBelow : BackfillPaper3.Challenge.Rho_bddBelow := sorry
+CODE	sorry	Comparator/Paper3.lean:73	theorem check_TheoremD : BackfillPaper3.Challenge.TheoremD := sorry
+CODE	sorry	Comparator/Paper3.lean:75	theorem check_SSSZBound : BackfillPaper3.Challenge.SSSZBound := sorry
+CODE	sorry	Comparator/Paper3.lean:77	theorem check_CareniniProp21 : BackfillPaper3.Challenge.CareniniProp21 := sorry
+CODE	sorry	Comparator/Paper3.lean:79	theorem check_KahnZhao : BackfillPaper3.Challenge.KahnZhao := sorry
+CODE	sorry	Comparator/Paper3.lean:81	theorem check_QuestionTrueHalf : BackfillPaper3.Challenge.QuestionTrueHalf := sorry
+CODE	sorry	Comparator/Paper3.lean:83	theorem check_QuestionTrueZero : BackfillPaper3.Challenge.QuestionTrueZero := sorry
+CODE	sorry	Comparator/Paper3.lean:85	theorem check_TrivialCasesUnique : BackfillPaper3.Challenge.TrivialCasesUnique := sorry
+CODE	sorry	Comparator/Paper3.lean:87	theorem check_TrivialCasesTrue : BackfillPaper3.Challenge.TrivialCasesTrue := sorry
+CODE	sorry	Comparator/Paper3.lean:89	theorem check_CompetitorFacts : BackfillPaper3.Challenge.CompetitorFacts := sorry
+CODE	sorry	Comparator/Paper3.lean:91	theorem check_NegativeEveryAdmissible : BackfillPaper3.Challenge.NegativeEveryAdmissible := sorry
+CODE	sorry	Comparator/Paper3.lean:93	theorem check_AnswerNegative : BackfillPaper3.Challenge.AnswerNegative := sorry
+CODE	sorry	Comparator/Paper3.lean:95	theorem check_GammaStarScope : BackfillPaper3.Challenge.GammaStarScope := sorry
+CODE	sorry	Comparator/Paper3.lean:97	theorem check_LowGammaExamples : BackfillPaper3.Challenge.LowGammaExamples := sorry
+CODE	sorry	Comparator/Paper3.lean:99	theorem check_S3PrismH2Cycle : BackfillPaper3.Challenge.S3PrismH2Cycle := sorry
+CODE	sorry	Comparator/Paper3.lean:101	theorem check_SethDensity : BackfillPaper3.Challenge.SethDensity := sorry
+CODE	sorry	Comparator/Paper3.lean:103	theorem check_MaximisersAtGammaStar : BackfillPaper3.Challenge.MaximisersAtGammaStar := sorry
+CODE	sorry	Comparator/Paper3.lean:105	theorem check_Table1 : BackfillPaper3.Challenge.Table1 := sorry
+CODE	sorry	Comparator/Paper3.lean:107	theorem check_CubicSix : BackfillPaper3.Challenge.CubicSix := sorry
+CODE	sorry	Comparator/Paper3.lean:109	theorem check_ExactFailureSix : BackfillPaper3.Challenge.ExactFailureSix := sorry
+CODE	sorry	Comparator/Paper3.lean:111	theorem check_SmallestCounterexample : BackfillPaper3.Challenge.SmallestCounterexample := sorry
+CODE	sorry	Comparator/Paper3.lean:113	theorem check_Remark9 : BackfillPaper3.Challenge.Remark9 := sorry
+CODE	sorry	Comparator/Paper3.lean:115	theorem check_Remark10a : BackfillPaper3.Challenge.Remark10a := sorry
+CODE	sorry	Comparator/Paper3.lean:117	theorem check_Remark10b : BackfillPaper3.Challenge.Remark10b := sorry
+CODE	sorry	Comparator/Paper3.lean:119	theorem check_Remark10c : BackfillPaper3.Challenge.Remark10c := sorry
+CODE	sorry	Comparator/Paper3.lean:121	theorem check_Remark10d : BackfillPaper3.Challenge.Remark10d := sorry
+CODE	sorry	Comparator/Paper3.lean:123	theorem check_ReadingR6 : BackfillPaper3.Challenge.ReadingR6 := sorry
+CODE	sorry	Comparator/Paper3.lean:125	theorem check_Remark11 : BackfillPaper3.Challenge.Remark11 := sorry
+CODE	sorry	Comparator/Paper3.lean:127	theorem check_Remark12 : BackfillPaper3.Challenge.Remark12 := sorry
+CODE	sorry	Comparator/Paper3.lean:129	theorem check_RegularOn2dConnected : BackfillPaper3.Challenge.RegularOn2dConnected := sorry
+CODE	sorry	Comparator/Paper3.lean:131	theorem check_HighThresholdTie : BackfillPaper3.Challenge.HighThresholdTie := sorry
+CODE	sorry	Comparator/Paper3.lean:133	theorem check_TwoSwitchConnected : BackfillPaper3.Challenge.TwoSwitchConnected := sorry
+CODE	sorry	Comparator/Paper3.lean:135	theorem check_Table2 : BackfillPaper3.Challenge.Table2 := sorry
+CODE	sorry	Comparator/Paper3.lean:137	theorem check_LabelledCounts : BackfillPaper3.Challenge.LabelledCounts := sorry
+CODE	sorry	Comparator/Paper3.lean:139	theorem check_TheoremDNumerics : BackfillPaper3.Challenge.TheoremDNumerics := sorry
+COMMENT	sorry	Comparator/Paper4.lean:7	states, with a `sorry` proof, exactly the type of the theorem of the same name in
+COMMENT	sorry	Comparator/Paper4.lean:12	The `sorry`s are intentional: comparator checks that the solution proves the same
+CODE	sorry	Comparator/Paper4.lean:21	theorem check_Sec5_FP_symm : BackfillPaper4.Challenge.Sec5_FP_symm := sorry
+CODE	sorry	Comparator/Paper4.lean:23	theorem check_Sec5_FP_iff_viii : BackfillPaper4.Challenge.Sec5_FP_iff_viii := sorry
+CODE	sorry	Comparator/Paper4.lean:25	theorem check_Lemma2 : BackfillPaper4.Challenge.Lemma2 := sorry
+CODE	sorry	Comparator/Paper4.lean:27	theorem check_Sec2_bounds : BackfillPaper4.Challenge.Sec2_bounds := sorry
+CODE	sorry	Comparator/Paper4.lean:29	theorem check_Proposition3 : BackfillPaper4.Challenge.Proposition3 := sorry
+CODE	sorry	Comparator/Paper4.lean:31	theorem check_Sec2_peripheral_iff : BackfillPaper4.Challenge.Sec2_peripheral_iff := sorry
+CODE	sorry	Comparator/Paper4.lean:33	theorem check_Sec2_Q3_imp_Q3' : BackfillPaper4.Challenge.Sec2_Q3_imp_Q3' := sorry
+CODE	sorry	Comparator/Paper4.lean:35	theorem check_Sec2_Q4_imp_Q4' : BackfillPaper4.Challenge.Sec2_Q4_imp_Q4' := sorry
+CODE	sorry	Comparator/Paper4.lean:37	theorem check_Sec2_repeated : BackfillPaper4.Challenge.Sec2_repeated := sorry
+CODE	sorry	Comparator/Paper4.lean:39	theorem check_Sec2_readings_Q3 : BackfillPaper4.Challenge.Sec2_readings_Q3 := sorry
+CODE	sorry	Comparator/Paper4.lean:41	theorem check_Sec2_readings_Q4 : BackfillPaper4.Challenge.Sec2_readings_Q4 := sorry
+CODE	sorry	Comparator/Paper4.lean:43	theorem check_TheoremC_FP : BackfillPaper4.Challenge.TheoremC_FP := sorry
+CODE	sorry	Comparator/Paper4.lean:45	theorem check_Sec4_median_triangleFree : BackfillPaper4.Challenge.Sec4_median_triangleFree := sorry
+CODE	sorry	Comparator/Paper4.lean:47	theorem check_Sec4_nonCutVertex : BackfillPaper4.Challenge.Sec4_nonCutVertex := sorry
+CODE	sorry	Comparator/Paper4.lean:49	theorem check_Sec4_reduction : BackfillPaper4.Challenge.Sec4_reduction := sorry
+CODE	sorry	Comparator/Paper4.lean:51	theorem check_TheoremA_i : BackfillPaper4.Challenge.TheoremA_i := sorry
+CODE	sorry	Comparator/Paper4.lean:53	theorem check_TheoremA_ii : BackfillPaper4.Challenge.TheoremA_ii := sorry
+CODE	sorry	Comparator/Paper4.lean:55	theorem check_TheoremB_ii : BackfillPaper4.Challenge.TheoremB_ii := sorry
+CODE	sorry	Comparator/Paper4.lean:57	theorem check_Remark4_ii : BackfillPaper4.Challenge.Remark4_ii := sorry
+CODE	sorry	Comparator/Paper4.lean:59	theorem check_Sec8_open : BackfillPaper4.Challenge.Sec8_open := sorry
+CODE	sorry	Comparator/Paper4.lean:61	theorem check_Sec2_problem2_altReading : BackfillPaper4.Challenge.Sec2_problem2_altReading := sorry
+CODE	sorry	Comparator/Paper4.lean:63	theorem check_Remark4_iii : BackfillPaper4.Challenge.Remark4_iii := sorry
+CODE	sorry	Comparator/Paper4.lean:65	theorem check_Remark5_i : BackfillPaper4.Challenge.Remark5_i := sorry
+CODE	sorry	Comparator/Paper4.lean:67	theorem check_Released_fourPoint_facts : BackfillPaper4.Challenge.Released_fourPoint_facts := sorry
+CODE	sorry	Comparator/Paper4.lean:69	theorem check_TheoremB_i : BackfillPaper4.Challenge.TheoremB_i := sorry
+CODE	sorry	Comparator/Paper4.lean:71	theorem check_Sec3_medianDH_noQ4 : BackfillPaper4.Challenge.Sec3_medianDH_noQ4 := sorry
+CODE	sorry	Comparator/Paper4.lean:73	theorem check_Remark4_i : BackfillPaper4.Challenge.Remark4_i := sorry
+CODE	sorry	Comparator/Paper4.lean:75	theorem check_Sec2_classReading : BackfillPaper4.Challenge.Sec2_classReading := sorry
+CODE	sorry	Comparator/Paper4.lean:77	theorem check_Sec3_MO_notDH : BackfillPaper4.Challenge.Sec3_MO_notDH := sorry
+CODE	sorry	Comparator/Paper4.lean:79	theorem check_Remark5_ii : BackfillPaper4.Challenge.Remark5_ii := sorry
+CODE	sorry	Comparator/Paper4.lean:81	theorem check_Remark5_iii : BackfillPaper4.Challenge.Remark5_iii := sorry
+CODE	sorry	Comparator/Paper4.lean:83	theorem check_Sec6_DHtests : BackfillPaper4.Challenge.Sec6_DHtests := sorry
+CODE	sorry	Comparator/Paper4.lean:85	theorem check_Lemma1 : BackfillPaper4.Challenge.Lemma1 := sorry
+CODE	sorry	Comparator/Paper4.lean:87	theorem check_TheoremA_grid : BackfillPaper4.Challenge.TheoremA_grid := sorry
+CODE	sorry	Comparator/Paper4.lean:89	theorem check_TheoremB_grid : BackfillPaper4.Challenge.TheoremB_grid := sorry
+CODE	sorry	Comparator/Paper4.lean:91	theorem check_Sec3_monotonePath : BackfillPaper4.Challenge.Sec3_monotonePath := sorry
+CODE	sorry	Comparator/Paper4.lean:93	theorem check_BandeltMulder_extension : BackfillPaper4.Challenge.BandeltMulder_extension := sorry
+CODE	sorry	Comparator/Paper4.lean:95	theorem check_BandeltMulder_DH_fourPoint : BackfillPaper4.Challenge.BandeltMulder_DH_fourPoint := sorry
+CODE	sorry	Comparator/Paper4.lean:97	theorem check_TheoremC_i : BackfillPaper4.Challenge.TheoremC_i := sorry
+CODE	sorry	Comparator/Paper4.lean:99	theorem check_TheoremC_ii : BackfillPaper4.Challenge.TheoremC_ii := sorry
+CODE	sorry	Comparator/Paper4.lean:101	theorem check_Sec3_DH_noQ4_imp_Q3 : BackfillPaper4.Challenge.Sec3_DH_noQ4_imp_Q3 := sorry
+CODE	sorry	Comparator/Paper4.lean:103	theorem check_Sec4_aut : BackfillPaper4.Challenge.Sec4_aut := sorry
+CODE	sorry	Comparator/Paper4.lean:105	theorem check_Sec4_count_triangleFree7 : BackfillPaper4.Challenge.Sec4_count_triangleFree7 := sorry
+CODE	sorry	Comparator/Paper4.lean:107	theorem check_Sec4_count_candidates : BackfillPaper4.Challenge.Sec4_count_candidates := sorry
+CODE	sorry	Comparator/Paper4.lean:109	theorem check_TheoremA_min : BackfillPaper4.Challenge.TheoremA_min := sorry
+CODE	sorry	Comparator/Paper4.lean:111	theorem check_TheoremB_min : BackfillPaper4.Challenge.TheoremB_min := sorry
+CODE	sorry	Comparator/Paper4.lean:113	theorem check_TheoremA_unique : BackfillPaper4.Challenge.TheoremA_unique := sorry
+CODE	sorry	Comparator/Paper4.lean:115	theorem check_TheoremB_unique : BackfillPaper4.Challenge.TheoremB_unique := sorry
+CODE	sorry	Comparator/Paper4.lean:117	theorem check_Sec4_count_median : BackfillPaper4.Challenge.Sec4_count_median := sorry
+CODE	sorry	Comparator/Paper4.lean:119	theorem check_Sec4_count_labelled : BackfillPaper4.Challenge.Sec4_count_labelled := sorry
+COMMENT	sorry	Comparator/Paper5.lean:10	states, with a `sorry` proof, exactly the type of the theorem of the same name in
+COMMENT	sorry	Comparator/Paper5.lean:12	module with its imports replaced and each proof replaced by `sorry`; sections, namespaces
+COMMENT	sorry	Comparator/Paper5.lean:18	The `sorry`s are intentional: comparator checks that the solution proves the same
+CODE	sorry	Comparator/Paper5.lean:36	sorry
+CODE	sorry	Comparator/Paper5.lean:44	sorry
+CODE	sorry	Comparator/Paper5.lean:62	sorry
+CODE	sorry	Comparator/Paper5.lean:69	sorry
+CODE	sorry	Comparator/Paper5.lean:79	sorry
+CODE	sorry	Comparator/Paper5.lean:98	sorry
+CODE	sorry	Comparator/Paper5.lean:123	sorry
+CODE	sorry	Comparator/Paper5.lean:149	sorry
+CODE	sorry	Comparator/Paper5.lean:166	sorry
+CODE	sorry	Comparator/Paper5.lean:169	sorry
+CODE	sorry	Comparator/Paper5.lean:188	sorry
+CODE	sorry	Comparator/Paper5.lean:208	sorry
+CODE	sorry	Comparator/Paper5.lean:228	sorry
+CODE	sorry	Comparator/Paper5.lean:247	sorry
+CODE	sorry	Comparator/Paper5.lean:265	sorry
+CODE	sorry	Comparator/Paper5.lean:287	sorry
+CODE	sorry	Comparator/Paper5.lean:311	sorry
+CODE	sorry	Comparator/Paper5.lean:335	sorry
+CODE	sorry	Comparator/Paper5.lean:354	sorry
+CODE	sorry	Comparator/Paper5.lean:375	sorry
+CODE	sorry	Comparator/Paper5.lean:393	sorry
+CODE	sorry	Comparator/Paper5.lean:413	sorry
+CODE	sorry	Comparator/Paper5.lean:433	sorry
+CODE	sorry	Comparator/Paper5.lean:453	sorry
+CODE	sorry	Comparator/Paper5.lean:473	sorry
+CODE	sorry	Comparator/Paper5.lean:492	sorry
+CODE	sorry	Comparator/Paper5.lean:518	sorry
+CODE	sorry	Comparator/Paper5.lean:543	sorry
+CODE	sorry	Comparator/Paper5.lean:566	sorry
+CODE	sorry	Comparator/Paper5.lean:589	sorry
+CODE	sorry	Comparator/Paper5.lean:609	sorry
+CODE	sorry	Comparator/Paper5.lean:617	sorry
+CODE	sorry	Comparator/Paper5.lean:638	sorry
+CODE	sorry	Comparator/Paper5.lean:659	sorry
+CODE	sorry	Comparator/Paper5.lean:666	sorry
+CODE	sorry	Comparator/Paper5.lean:674	sorry
+CODE	sorry	Comparator/Paper5.lean:682	sorry
+CODE	sorry	Comparator/Paper5.lean:704	sorry
+CODE	sorry	Comparator/Paper5.lean:728	sorry
+CODE	sorry	Comparator/Paper5.lean:751	sorry
+CODE	sorry	Comparator/Paper5.lean:778	sorry
+CODE	sorry	Comparator/Paper5.lean:803	sorry
+CODE	sorry	Comparator/Paper5.lean:812	sorry
+CODE	sorry	Comparator/Paper5.lean:829	sorry
+CODE	sorry	Comparator/Paper5.lean:832	sorry
+COMMENT	sorry	Comparator/Paper6.lean:8	states, with a `sorry` proof, exactly the type of the theorem of the same name in
+COMMENT	sorry	Comparator/Paper6.lean:16	The `sorry`s are intentional: comparator checks that the solution proves the same
+CODE	sorry	Comparator/Paper6.lean:25	theorem check_P1 : BackfillPaper6.V3.P1 := sorry
+CODE	sorry	Comparator/Paper6.lean:27	theorem check_P2 : BackfillPaper6.V3.P2 := sorry
+CODE	sorry	Comparator/Paper6.lean:29	theorem check_P3_minWeight : BackfillPaper6.V3.P3_minWeight := sorry
+CODE	sorry	Comparator/Paper6.lean:31	theorem check_Lem21 : BackfillPaper6.V3.Lem21 := sorry
+CODE	sorry	Comparator/Paper6.lean:33	theorem check_Lem21_venn : BackfillPaper6.V3.Lem21_venn := sorry
+CODE	sorry	Comparator/Paper6.lean:35	theorem check_Lem22 : BackfillPaper6.V3.Lem22 := sorry
+CODE	sorry	Comparator/Paper6.lean:37	theorem check_ThmA : BackfillPaper6.V3.ThmA := sorry
+CODE	sorry	Comparator/Paper6.lean:39	theorem check_Table1 : BackfillPaper6.V3.Table1 := sorry
+CODE	sorry	Comparator/Paper6.lean:41	theorem check_Rem31 : BackfillPaper6.V3.Rem31 := sorry
+CODE	sorry	Comparator/Paper6.lean:43	theorem check_ThmB_witnesses : BackfillPaper6.V3.ThmB_witnesses := sorry
+CODE	sorry	Comparator/Paper6.lean:45	theorem check_S0_card : BackfillPaper6.V3.S0_card := sorry
+CODE	sorry	Comparator/Paper6.lean:47	theorem check_CarletEquiv : BackfillPaper6.V3.CarletEquiv := sorry
+CODE	sorry	Comparator/Paper6.lean:49	theorem check_IntroMU : BackfillPaper6.V3.IntroMU := sorry
+CODE	sorry	Comparator/Paper6.lean:51	theorem check_LAProp4 : BackfillPaper6.V3.LAProp4 := sorry
+CODE	sorry	Comparator/Paper6.lean:53	theorem check_LWConstrInRM : BackfillPaper6.V3.LWConstrInRM := sorry
+CODE	sorry	Comparator/Paper6.lean:55	theorem check_LWConj2_gives : BackfillPaper6.V3.LWConj2_gives := sorry
+CODE	sorry	Comparator/Paper6.lean:57	theorem check_ThmC_literal : BackfillPaper6.V3.ThmC_literal := sorry
+CODE	sorry	Comparator/Paper6.lean:59	theorem check_Sec4Concat : BackfillPaper6.V3.Sec4Concat := sorry
+CODE	sorry	Comparator/Paper6.lean:61	theorem check_FactStar : BackfillPaper6.V3.FactStar := sorry
+CODE	sorry	Comparator/Paper6.lean:63	theorem check_TransversalDim : BackfillPaper6.V3.TransversalDim := sorry
+CODE	sorry	Comparator/Paper6.lean:65	theorem check_PropD : BackfillPaper6.V3.PropD := sorry
+CODE	sorry	Comparator/Paper6.lean:67	theorem check_RemD162 : BackfillPaper6.V3.RemD162 := sorry
+CODE	sorry	Comparator/Paper6.lean:69	theorem check_PropE : BackfillPaper6.V3.PropE := sorry
+CODE	sorry	Comparator/Paper6.lean:71	theorem check_PropE_remark_2mod4 : BackfillPaper6.V3.PropE_remark_2mod4 := sorry
+CODE	sorry	Comparator/Paper6.lean:73	theorem check_Lem51 : BackfillPaper6.V3.Lem51 := sorry
+CODE	sorry	Comparator/Paper6.lean:75	theorem check_PropF : BackfillPaper6.V3.PropF := sorry
+CODE	sorry	Comparator/Paper6.lean:77	theorem check_MinDist : BackfillPaper6.V3.MinDist := sorry
+CODE	sorry	Comparator/Paper6.lean:79	theorem check_FlatBasics : BackfillPaper6.V3.FlatBasics := sorry
+CODE	sorry	Comparator/Paper6.lean:81	theorem check_AffineInvariance : BackfillPaper6.V3.AffineInvariance := sorry
+CODE	sorry	Comparator/Paper6.lean:83	theorem check_Cat4Weight : BackfillPaper6.V3.Cat4Weight := sorry
+CODE	sorry	Comparator/Paper6.lean:85	theorem check_Calib612 : BackfillPaper6.V3.Calib612 := sorry
+CODE	sorry	Comparator/Paper6.lean:87	theorem check_S0_eq_LA : BackfillPaper6.V3.S0_eq_LA := sorry
+CODE	sorry	Comparator/Paper6.lean:89	theorem check_ThmA_mathlib : BackfillPaper6.V3.ThmA_mathlib := sorry
+CODE	sorry	Comparator/Paper6.lean:91	theorem check_PropE_mathlib : BackfillPaper6.V3.PropE_mathlib := sorry
+CODE	sorry	Comparator/Paper6.lean:93	theorem check_Sec7Bridge : BackfillPaper6.V3.Sec7Bridge := sorry
+COMMENT	sorry	Comparator/Paper8.lean:7	states, with a `sorry` proof, exactly the type of the theorem of the same name in
+COMMENT	sorry	Comparator/Paper8.lean:12	The `sorry`s are intentional: comparator checks that the solution proves the same
+CODE	sorry	Comparator/Paper8.lean:21	theorem check_Lemma_2_1 : BackfillPaper8.Challenge.Lemma_2_1 := sorry
+CODE	sorry	Comparator/Paper8.lean:23	theorem check_Lemma_2_1_good : BackfillPaper8.Challenge.Lemma_2_1_good := sorry
+CODE	sorry	Comparator/Paper8.lean:25	theorem check_Lemma_2_2 : BackfillPaper8.Challenge.Lemma_2_2 := sorry
+CODE	sorry	Comparator/Paper8.lean:27	theorem check_Secular_monic : BackfillPaper8.Challenge.Secular_monic := sorry
+CODE	sorry	Comparator/Paper8.lean:29	theorem check_TreeStructure : BackfillPaper8.Challenge.TreeStructure := sorry
+CODE	sorry	Comparator/Paper8.lean:31	theorem check_Lemma_3_1_i : BackfillPaper8.Challenge.Lemma_3_1_i := sorry
+CODE	sorry	Comparator/Paper8.lean:33	theorem check_Lemma_3_1_ii : BackfillPaper8.Challenge.Lemma_3_1_ii := sorry
+CODE	sorry	Comparator/Paper8.lean:35	theorem check_Lemma_3_1_iii : BackfillPaper8.Challenge.Lemma_3_1_iii := sorry
+CODE	sorry	Comparator/Paper8.lean:37	theorem check_Lemma_3_1_iv : BackfillPaper8.Challenge.Lemma_3_1_iv := sorry
+CODE	sorry	Comparator/Paper8.lean:39	theorem check_Lemma_3_2 : BackfillPaper8.Challenge.Lemma_3_2 := sorry
+CODE	sorry	Comparator/Paper8.lean:41	theorem check_Lemma_3_3_a : BackfillPaper8.Challenge.Lemma_3_3_a := sorry
+CODE	sorry	Comparator/Paper8.lean:43	theorem check_Lemma_3_3_b : BackfillPaper8.Challenge.Lemma_3_3_b := sorry
+CODE	sorry	Comparator/Paper8.lean:45	theorem check_Lemma_3_3_c : BackfillPaper8.Challenge.Lemma_3_3_c := sorry
+CODE	sorry	Comparator/Paper8.lean:47	theorem check_Lemma_3_3_d : BackfillPaper8.Challenge.Lemma_3_3_d := sorry
+CODE	sorry	Comparator/Paper8.lean:49	theorem check_Lemma_3_3_e : BackfillPaper8.Challenge.Lemma_3_3_e := sorry
+CODE	sorry	Comparator/Paper8.lean:51	theorem check_Lemma_3_4 : BackfillPaper8.Challenge.Lemma_3_4 := sorry
+CODE	sorry	Comparator/Paper8.lean:53	theorem check_StdLeafSums : BackfillPaper8.Challenge.StdLeafSums := sorry
+CODE	sorry	Comparator/Paper8.lean:55	theorem check_Lemma_4_1 : BackfillPaper8.Challenge.Lemma_4_1 := sorry
+CODE	sorry	Comparator/Paper8.lean:57	theorem check_Lemma_4_2 : BackfillPaper8.Challenge.Lemma_4_2 := sorry
+CODE	sorry	Comparator/Paper8.lean:59	theorem check_Lemma_4_3 : BackfillPaper8.Challenge.Lemma_4_3 := sorry
+CODE	sorry	Comparator/Paper8.lean:61	theorem check_Cor_4_4 : BackfillPaper8.Challenge.Cor_4_4 := sorry
+CODE	sorry	Comparator/Paper8.lean:63	theorem check_Prop_5_1 : BackfillPaper8.Challenge.Prop_5_1 := sorry
+CODE	sorry	Comparator/Paper8.lean:65	theorem check_Lemma_5_2 : BackfillPaper8.Challenge.Lemma_5_2 := sorry
+CODE	sorry	Comparator/Paper8.lean:67	theorem check_Prop_5_3 : BackfillPaper8.Challenge.Prop_5_3 := sorry
+CODE	sorry	Comparator/Paper8.lean:69	theorem check_Lemma_5_4 : BackfillPaper8.Challenge.Lemma_5_4 := sorry
+CODE	sorry	Comparator/Paper8.lean:71	theorem check_Prop_5_5 : BackfillPaper8.Challenge.Prop_5_5 := sorry
+CODE	sorry	Comparator/Paper8.lean:73	theorem check_Prop_5_6 : BackfillPaper8.Challenge.Prop_5_6 := sorry
+CODE	sorry	Comparator/Paper8.lean:75	theorem check_Theorem1 : BackfillPaper8.Challenge.Theorem1 := sorry
+CODE	sorry	Comparator/Paper8.lean:77	theorem check_Theorem1_mathlib : BackfillPaper8.Challenge.Theorem1_mathlib := sorry
+CODE	sorry	Comparator/Paper8.lean:79	theorem check_Remark_8_3 : BackfillPaper8.Challenge.Remark_8_3 := sorry
+CODE	sorry	Comparator/Paper8.lean:81	theorem check_GoodNeg : BackfillPaper8.Challenge.GoodNeg := sorry
+CODE	sorry	Comparator/Paper8.lean:83	theorem check_DiamRadius : BackfillPaper8.Challenge.DiamRadius := sorry
+CODE	sorry	Comparator/Paper8.lean:85	theorem check_Theorem1_signed : BackfillPaper8.Challenge.Theorem1_signed := sorry
+CODE	sorry	Comparator/Paper8.lean:87	theorem check_Lemma_U1 : BackfillPaper8.Challenge.Lemma_U1 := sorry
+CODE	sorry	Comparator/Paper8.lean:89	theorem check_Lemma_3_2_pointwise : BackfillPaper8.Challenge.Lemma_3_2_pointwise := sorry
+CODE	sorry	Comparator/Paper8.lean:91	theorem check_Sharp_T15 : BackfillPaper8.Challenge.Sharp_T15 := sorry
+CODE	sorry	Comparator/Paper8.lean:93	theorem check_Sharp_T18 : BackfillPaper8.Challenge.Sharp_T18 := sorry
+CODE	sorry	Comparator/Paper8.lean:95	theorem check_Remark_8_2 : BackfillPaper8.Challenge.Remark_8_2 := sorry
+COMMENT	sorry	Comparator/Paper9.lean:8	states, with a `sorry` proof, exactly the type of the theorem of the same name in
+COMMENT	sorry	Comparator/Paper9.lean:14	The `sorry`s are intentional: comparator checks that the solution proves the same
+CODE	sorry	Comparator/Paper9.lean:23	theorem check_Laws_facts : AxialMSZ.Challenge.Laws_facts := sorry
+CODE	sorry	Comparator/Paper9.lean:25	theorem check_ExS_Statement : AxialMSZ.Challenge.ExS.Statement := sorry
+CODE	sorry	Comparator/Paper9.lean:27	theorem check_ExE_Statement : AxialMSZ.Challenge.ExE.Statement := sorry
+CODE	sorry	Comparator/Paper9.lean:29	theorem check_ExD_Statement : AxialMSZ.Challenge.ExD.Statement := sorry
+CODE	sorry	Comparator/Paper9.lean:31	theorem check_ExP_Statement : AxialMSZ.Challenge.ExP.Statement := sorry
+CODE	sorry	Comparator/Paper9.lean:33	theorem check_TheoremA : AxialMSZ.Challenge.TheoremA := sorry
+CODE	sorry	Comparator/Paper9.lean:35	theorem check_TheoremB : AxialMSZ.Challenge.TheoremB := sorry
+CODE	sorry	Comparator/Paper9.lean:37	theorem check_TheoremC : AxialMSZ.Challenge.TheoremC := sorry
+CODE	sorry	Comparator/Paper9.lean:39	theorem check_RemarkP : AxialMSZ.Challenge.RemarkP := sorry
+CODE	sorry	Comparator/Paper9.lean:41	theorem check_Corollary : AxialMSZ.Challenge.Corollary := sorry
+CODE	sorry	Comparator/Paper9.lean:43	theorem check_not_MS_Conjecture_3_16 : ¬ AxialMSZ.Challenge.MS_Conjecture_3_16 := sorry
+CODE	sorry	Comparator/Paper9.lean:45	theorem check_not_FinestSumDecomposition_connected : ¬ AxialMSZ.Challenge.FinestSumDecomposition_connected := sorry
+CODE	sorry	Comparator/Paper9.lean:47	theorem check_not_Indecomposable_connected : ¬ AxialMSZ.Challenge.Indecomposable_connected := sorry
+CODE	sorry	Comparator/Paper9.lean:49	theorem check_not_Simple_connected : ¬ AxialMSZ.Challenge.Simple_connected := sorry
+CODE	sorry	Comparator/Paper9.lean:51	theorem check_Dominance_nonsymmetric : AxialMSZ.Challenge.Dominance_nonsymmetric := sorry
+CODE	sorry	Comparator/Paper9.lean:53	theorem check_ExD_axes_in_block : CodexAxial.SupplementChallenge.ExD_axes_in_block := sorry
+CODE	sorry	Comparator/Paper9.lean:55	theorem check_ExD_block_not_axial_on_contained_axes : CodexAxial.SupplementChallenge.ExD_block_not_axial_on_contained_axes := sorry
+COMMENT	sorry	Comparator/WordRep.lean:8	states, with a `sorry` proof, exactly the type of the theorem of the same name in
+COMMENT	sorry	Comparator/WordRep.lean:13	The `sorry`s are intentional: comparator checks that the solution proves the same
+CODE	sorry	Comparator/WordRep.lean:22	theorem check_Problem1Mu : WordRepTensor.Challenge.Problem1Mu := sorry
+CODE	sorry	Comparator/WordRep.lean:24	theorem check_Problem1MuExt : WordRepTensor.Challenge.Problem1MuExt := sorry
+CODE	sorry	Comparator/WordRep.lean:26	theorem check_Problem5_1 : WordRepTensor.Challenge.Problem5_1 := sorry
+CODE	sorry	Comparator/WordRep.lean:28	theorem check_MycielskiOddCycleNotWR : WordRepTensor.Challenge.MycielskiOddCycleNotWR := sorry
+CODE	sorry	Comparator/WordRep.lean:30	theorem check_ExtMycielskiOddCycleNotWR : WordRepTensor.Challenge.ExtMycielskiOddCycleNotWR := sorry
+CODE	sorry	Comparator/WordRep.lean:32	theorem check_WordRepresentableOfEmbedding : WordRepTensor.Challenge.WordRepresentableOfEmbedding := sorry
+CODE	sorry	Comparator/WordRep.lean:34	theorem check_EmbeddingOfHom : WordRepTensor.Challenge.EmbeddingOfHom := sorry
+CODE	sorry	Comparator/WordRep.lean:36	theorem check_Lemma1Mu : WordRepTensor.Challenge.Lemma1Mu := sorry
+CODE	sorry	Comparator/WordRep.lean:38	theorem check_Lemma1MuExt : WordRepTensor.Challenge.Lemma1MuExt := sorry
+CODE	sorry	Comparator/WordRep.lean:40	theorem check_Lemma2Mu : WordRepTensor.Challenge.Lemma2Mu := sorry
+CODE	sorry	Comparator/WordRep.lean:42	theorem check_Lemma2MuExt : WordRepTensor.Challenge.Lemma2MuExt := sorry
+COMMENT	axiom	Research/Backfill/Paper1/Additional.lean:12	hypotheses. The local check_additional.py script records compilation, axiom,
+COMMENT	axiom	Research/Backfill/Paper1/Prop31.lean:7	Compilation, axiom audit, checker and fresh replay have NOT yet been run.
+COMMENT	native_decide	Research/Backfill/Paper2/ChallengeTests.lean:9	`simp`, `ring`, `rfl`); no `native_decide`.
+COMMENT	sorry	Research/Backfill/Paper3/ChallengeTests.lean:8	instances that must come out **false**. Not part of the frozen challenge file. No `sorry`.
+COMMENT	axiom	Research/Backfill/Paper4/Proof/Foundation.lean:6	that compilation, axiom audit, checker or clean replay has passed.
+COMMENT	axiom	Research/Backfill/Paper4/Proof/MetricBounds.lean:6	must establish the complete target checks, axiom audit, checker and fresh replay.
+COMMENT	axiom	Research/Backfill/Paper6/CalibBasic.lean:11	No unproved old Challenge proposition is used as a hypothesis or axiom.
+COMMENT	axiom	Research/Backfill/Paper6/PropEMathlibV4.lean:13	or replace any pending dependency with an axiom. No validation is claimed.
+COMMENT	axiom	Research/Backfill/Paper6/PropERemark.lean:15	No missing dependency is replaced by an axiom, placeholder, or added hypothesis.
+COMMENT	admit	Research/Backfill/Paper6/S0Comparison.lean:9	admit spurious values greater than 16384.
+COMMENT	axiom	Research/Backfill/Paper7/C61ThreeSquareObstruction.lean:4	Source-only draft. No Lean compilation, checker run, or axiom output has been
+COMMENT	axiom	Research/Backfill/Paper7/MomentB6Theta324ResidualPrunedQ4To8.lean:8	early axiom print does not establish complete-source success. -/
+COMMENT	axiom	Research/Backfill/Paper7/MomentB6Theta324StructuralProductQ0To4.lean:9	Value or an earlier axiom print is not whole-source success. Cost is UNKNOWN. -/
+COMMENT	native_decide	Research/Carenini.lean:29	All finite counts are checked by `decide` / `decide +kernel` (kernel reduction); no `native_decide`.
+COMMENT	native_decide	Research/HKOTriameter.lean:29	done by `decide` / `decide +kernel` (kernel reduction, no `native_decide`).
+COMMENT	axiom	Research/ICGEqualParityBAudit.lean:5	/-! Statement and axiom audit for Theorem B (round 6, `work/round6/equal-parity-a2/PROOF.md`). -/

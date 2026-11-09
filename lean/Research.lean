@@ -45,3 +45,5 @@ import Research.Backfill.Paper6.CheckPaper6
 import Research.Backfill.Paper7.ClaudePaper7FinalPackage
 import Research.Backfill.Paper8.Check
 import Research.WordRepTensor.Check
+import Research.TaskE.FinalTaskEAudit
+import Research.TaskE.C1High
