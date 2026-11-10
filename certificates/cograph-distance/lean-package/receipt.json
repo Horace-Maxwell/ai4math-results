@@ -1,0 +1,17 @@
+{
+ "what": "Two builds of the 6 modules of lean/Research/CographDist/ from new empty output directories, one after the other, on the author's Mac (Apple silicon), with the pinned toolchain and Mathlib (not rebuilt).",
+ "build_A": {
+  "start_utc": "2026-11-09T23:20:09Z",
+  "end_utc": "2026-11-09T23:21:48Z"
+ },
+ "build_B": {
+  "start_utc": "2026-11-09T23:21:48Z",
+  "end_utc": "2026-11-09T23:23:02Z"
+ },
+ "commands": "per build: lean -DautoImplicit=false -DrelaxedAutoImplicit=false on each module in import order, then leanchecker on each module; 12 commands per build, 24 in all, every one exit code 0 at the first attempt",
+ "diagnostics": "no error, no warning, no sorry in any log; leanchecker prints nothing on success",
+ "olean": "the 6 .olean files of the two builds are byte for byte identical (olean-sha256.txt in each log archive)",
+ "axioms": "Research.CographDist.Audit prints 7 axiom lists (check_OpenProblemI_negative, check_family and the five tests), each exactly propext, Classical.choice, Quot.sound",
+ "script": "tworoots.sh (Claude); not published, the logs record each command's result",
+ "logs_note": "Local paths replaced by <workspace>, <project>, <home>; nothing else changed."
+}

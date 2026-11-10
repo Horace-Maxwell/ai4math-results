@@ -1,0 +1,58 @@
+{
+ "paper": "papers/cograph-distance/",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "entry_point": "Research.CographDist.Audit",
+ "main_statement": "CographDist.OpenProblemI_negative",
+ "frozen": {
+  "utc": "2026-11-09T22:56:29Z",
+  "Challenge.lean": "960a24b9de500d2449a73a83b7385653f63054ab52dab3053d287c4e1270e569",
+  "note": "frozen at work path CographDist/; moved to Research/CographDist/ afterwards: Challenge.lean byte-identical, ChallengeTests.lean differs only in its import line",
+  "ChallengeTests.lean_after_move": "01cf6d86b82c022862bbcac18a86db6c09f46a59836c51962b2220b65b554181"
+ },
+ "modules": {
+  "Research.CographDist.Challenge": {
+   "path": "lean/Research/CographDist/Challenge.lean",
+   "sha256": "960a24b9de500d2449a73a83b7385653f63054ab52dab3053d287c4e1270e569",
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  "Research.CographDist.ChallengeTests": {
+   "path": "lean/Research/CographDist/ChallengeTests.lean",
+   "sha256": "01cf6d86b82c022862bbcac18a86db6c09f46a59836c51962b2220b65b554181",
+   "imports": [
+    "Research.CographDist.Challenge"
+   ]
+  },
+  "Research.CographDist.Family": {
+   "path": "lean/Research/CographDist/Family.lean",
+   "sha256": "749c2d1bf0f2a248739621cbae92425b6a2de49299bce32cef8066cebe851636",
+   "imports": [
+    "Research.CographDist.Challenge"
+   ]
+  },
+  "Research.CographDist.Eigen": {
+   "path": "lean/Research/CographDist/Eigen.lean",
+   "sha256": "4110fced4f2780333fc0adbf7aa27bb4945a78b6750c16f2cc471fdeadd92a2d",
+   "imports": [
+    "Research.CographDist.Family"
+   ]
+  },
+  "Research.CographDist.Main": {
+   "path": "lean/Research/CographDist/Main.lean",
+   "sha256": "704a62423ad1eed3a92f25d2efed281d8a6cfa223704a792b85094150b1a95ab",
+   "imports": [
+    "Research.CographDist.Eigen"
+   ]
+  },
+  "Research.CographDist.Audit": {
+   "path": "lean/Research/CographDist/Audit.lean",
+   "sha256": "408623c711805dca161f7e3ba3855fa49fb0382403c2ef57df49dfa3d37de2ae",
+   "imports": [
+    "Research.CographDist.Main",
+    "Research.CographDist.ChallengeTests"
+   ]
+  }
+ }
+}

@@ -1,0 +1,292 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={Connected cographs with distance eigenvalues just below -2},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.18.0}
+\setlength{\emergencystretch}{1.5em}
+
+\title{Connected cographs with distance eigenvalues\\ just below $-2$}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{10 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Lou and Lin proved that no connected cograph has a distance eigenvalue in the
+open interval $(-2,-1)$. In a recent survey, Manna, Mandal and Tura ask whether
+some interval $(-2-\varepsilon,-2)$ is also free of distance eigenvalues of
+connected cographs. It is not: for every $m\ge1$ the connected cograph
+$K_1\vee(K_1\cup mK_2)$ on $2m+2$ vertices has a distance eigenvalue in
+$\bigl(-2-\frac1{2m},-2\bigr)$. The same graphs were used by Conde, Dratman
+and Grippo for the adjacency matrix, and the answer also follows in a few lines
+from their lemma; we record it because the question is listed as open, with a
+direct proof that is formally verified in Lean~4. The proof was found and
+formalized by AI agents working under the author's direction; their role is
+described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+All graphs are finite and simple. A \emph{cograph} is a graph with no induced
+path on four vertices~\cite{cls}. The \emph{distance matrix} of a connected
+graph $G$ is $D(G)=(d(u,v))_{u,v}$, where $d$ is the graph distance, and its
+eigenvalues are the \emph{distance eigenvalues} of~$G$. Since $D(G)$ is a real
+symmetric matrix, they are real.
+
+Lu, Huang and Lou~\cite{lhl} showed that a connected threshold graph has no
+distance eigenvalue in $(-2,-1)$, and Lou and Lin~\cite{ll} extended this to
+all connected cographs. For threshold graphs, Alazemi, Andeli\'c, Koledin and
+Stani\'c~\cite{aaks} found a larger interval below $-1$ that contains no
+distance eigenvalue other than~$-2$. Manna, Mandal and Tura~\cite{mmt} observe
+that this larger interval does not extend to cographs, with the example
+$K_1\vee(K_1\cup3K_2)$, whose distance eigenvalue $\approx-2.155$ lies in it,
+and they ask~\cite[Open Problem ``Distance eigenvalues of cographs below $-2$
+and sharpness'', part~(i)]{mmt}:
+\begin{quote}
+Is there $\varepsilon>0$ such that $(-2-\varepsilon,-2)$ contains no distance
+eigenvalue of any connected cograph?
+\end{quote}
+
+For $m\ge1$ let $G_m=K_1\vee(K_1\cup mK_2)$: a vertex $c$ adjacent to all other
+vertices, a vertex $z$ adjacent only to~$c$, and $m$ disjoint edges
+$a_ib_i$ ($1\le i\le m$) whose ends are also adjacent to~$c$. The example
+of~\cite{mmt} is $G_3$.
+
+\begin{theorem}\label{thm:main}
+For every $m\ge1$, the graph $G_m$ is a connected cograph with a distance
+eigenvalue in the open interval $\bigl(-2-\frac1{2m},-2\bigr)$. Hence the
+answer to the question above is no: for every $\varepsilon>0$ some connected
+cograph has a distance eigenvalue in $(-2-\varepsilon,-2)$.
+\end{theorem}
+
+The eigenvalue is the smallest root of the cubic $p_m$ of Section~\ref{sec:proof};
+numerically it is $-2.383$, $-2.222$, $-2.155$, $-2.049$ and $-2.005$ for
+$m=1,2,3,10$ and~$100$.
+
+\paragraph{Relation to the work of Conde, Dratman and Grippo.}
+The graphs $G_m$ are the graphs $K_1\vee(mK_2+K_1)$ of Conde, Dratman and
+Grippo~\cite[Lemma~6 and its proof]{cdg}, who showed that each has an adjacency eigenvalue
+$\lambda_0\in\bigl(0,\frac1{2m+1}\bigr)$, so that positive adjacency eigenvalues
+of connected trivially perfect graphs accumulate at~$0$. Their paper does not
+discuss the distance matrix, but our answer follows from their lemma in a few
+lines (Remark~\ref{rem:cdg}); the survey~\cite{mmt} cites~\cite{cdg}. We record
+the answer because the question is listed as open, and we give a direct proof
+for $G_m$ itself, which we have formalized.
+
+\begin{remark}\label{rem:cdg}
+A connected cograph $G$ on at least two vertices has diameter at most~$2$, so
+$D(G)=2J-2I-A(G)$~\cite[Proposition ``Diameter'']{mmt}. Let $x$ be an
+eigenvector of $A(G_m)$ for the eigenvalue $\lambda_0$ of~\cite{cdg}, and let
+$G=K_1\vee(G_m\cup G_m)$, a connected cograph. The vector $y$ that is $0$ on
+the new vertex, $x$ on the first copy and $-x$ on the second satisfies
+$A(G)y=\lambda_0y$ and $Jy=0$, so $D(G)y=(-2-\lambda_0)y$, and
+$-2-\lambda_0\in\bigl(-2-\frac1{2m+1},-2\bigr)$. This remark is not part of
+the formal verification.
+\end{remark}
+
+\section{Proof of Theorem~\ref{thm:main}}\label{sec:proof}
+
+\begin{lemma}\label{lem:struct}
+$G_m$ is a connected cograph, and for $u\ne v$ we have $d(u,v)=1$ if $u$ and
+$v$ are adjacent and $d(u,v)=2$ otherwise.
+\end{lemma}
+
+\begin{proof}
+Every vertex other than $c$ is adjacent to~$c$, so $G_m$ is connected and any
+two non-adjacent vertices are at distance~$2$. Suppose that $v_0v_1v_2v_3$ is an
+induced path. If $v_1=c$, then $c$ is adjacent to $v_3$, which is not allowed;
+if $v_1=z$, then $v_0=v_2=c$, since $c$ is the only neighbour of~$z$. So
+$v_1$ is an end of an edge $a_ib_i$, and its neighbours $v_0,v_2$ lie in
+$\{c,a_i,b_i\}\setminus\{v_1\}$. Neither of them is $c$, since $c$ would be
+adjacent to the other one; so $v_0=v_2$, a contradiction.
+\end{proof}
+
+By Lemma~\ref{lem:struct}, the partition of the vertices into $\{c\}$,
+$\{a_1,b_1,\dots,a_m,b_m\}$ and $\{z\}$ is equitable for $D(G_m)$: the row sums
+of $D(G_m)$ over the three parts are $(0,2m,1)$ for~$c$, $(1,4m-3,2)$ for each
+$a_i$ and~$b_i$, and $(1,4m,0)$ for~$z$. Let
+\[
+p_m(x)=x^3+3x^2-x-3-m(4x^2+10x+4),
+\]
+the characteristic polynomial of the quotient matrix
+$\left(\begin{smallmatrix}0&2m&1\\1&4m-3&2\\1&4m&0\end{smallmatrix}\right)$.
+Then
+\[
+p_m(-2)=3>0,\qquad
+p_m\Bigl(-2-\frac1{2m}\Bigr)=-\frac{4m^2+6m+1}{8m^3}<0,
+\]
+so by the intermediate value theorem $p_m$ has a root $\lambda$ with
+$-2-\frac1{2m}<\lambda<-2$.
+
+We show that $\lambda$ is a distance eigenvalue of $G_m$ with an explicit
+eigenvector. Since $\lambda<-2$, $\lambda^2-1\ne0$; put
+\[
+\alpha=\frac{2m(\lambda+2)}{\lambda^2-1},\qquad \gamma=\lambda\alpha-2m,
+\]
+and let $x$ be the vector with $x_c=\alpha$, $x_z=\gamma$ and $x_v=1$ for the
+other $2m$ vertices; $x\ne0$. By the row sums above,
+\begin{align*}
+(D x)_c&=2m+\gamma=\lambda\alpha,\\
+(D x)_z&=\alpha+4m=\lambda\gamma,\\
+(D x)_{a_i}=(D x)_{b_i}&=\alpha+(4m-3)+2\gamma=\lambda.
+\end{align*}
+The first line is the definition of~$\gamma$. The second is equivalent to
+$\alpha(\lambda^2-1)=2m(\lambda+2)$, the definition of~$\alpha$. The third is
+equivalent to $\alpha(1+2\lambda)=\lambda+3$, that is, after multiplying by
+$\lambda^2-1$, to $2m(\lambda+2)(2\lambda+1)=(\lambda+3)(\lambda^2-1)$, which is
+$p_m(\lambda)=0$. Hence $Dx=\lambda x$. Given $\varepsilon>0$, choosing $m$
+with $\frac1{2m}<\varepsilon$ proves the last sentence of the theorem.
+\qed
+
+\section{Formal verification}\label{sec:lean}
+
+Theorem~\ref{thm:main} is formally verified in Lean~4 (version 4.34.1) with
+Mathlib~\cite{mathlib} (version v4.34.1, commit \texttt{d13f23b7}). The files
+are in version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/\allowbreak Research/\allowbreak CographDist/}.
+
+\paragraph{The statement.}
+The statement file \texttt{Challenge.lean} contains only definitions and the
+statement, no proofs. In ASCII notation (implicit arguments omitted):
+{\footnotesize
+\begin{verbatim}
+def HasInducedP4 (G : SimpleGraph V) : Prop :=
+  exists f : Fin 4 -> V, Function.Injective f /\
+    forall i j : Fin 4, G.Adj (f i) (f j) <-> (i.val + 1 = j.val \/ j.val + 1 = i.val)
+def IsCograph (G : SimpleGraph V) : Prop := Not (HasInducedP4 G)
+def distMatrix (G : SimpleGraph V) : Matrix V V Real := fun u v => (G.dist u v : Real)
+def IsDistEigenvalue [Fintype V] (G : SimpleGraph V) (mu : Real) : Prop :=
+  exists x : V -> Real, x != 0 /\ (distMatrix G).mulVec x = mu * x
+def OpenProblemI_negative : Prop :=
+  forall eps : Real, 0 < eps -> exists (V : Type) (_ : Fintype V) (G : SimpleGraph V),
+    G.Connected /\ IsCograph G /\
+    exists mu : Real, -2 - eps < mu /\ mu < -2 /\ IsDistEigenvalue G mu
+\end{verbatim}}
+\noindent (In the file, \texttt{mu * x} is the scalar multiple
+\texttt{mu • x}, and \texttt{distMatrix} is marked \texttt{noncomputable}.) Mathlib's \texttt{SimpleGraph.dist} is $0$ for vertices in
+different components; the statement asks for connected graphs. A test file
+checks that the path on four vertices is not a cograph, that $K_2$ is a
+connected cograph, and that $1$ is and $2$ is not a distance eigenvalue
+of~$K_2$.
+
+\paragraph{Review and freezing.}
+An independent Claude Code agent, which had not written the file, reviewed the
+statement and the tests against the definitions and the question
+of~\cite{mmt} and approved them; its three minor suggestions (a comment and
+three more tests) were applied, and the file was frozen on 9 November 2026 at
+22:56~UTC by recording the SHA-256 hash
+\begin{center}\small
+\texttt{960a24b9de500d2449a73a83b7385653f63054ab52dab3053d287c4e1270e569}
+\end{center}
+of \texttt{Challenge.lean}. The proof files were drafted while the review was
+running; the statement file was not changed to fit them, and after the review
+only its comment changed. Moving the files to the directory of the repository
+changed only their \texttt{import} lines; \texttt{Challenge.lean} itself,
+which imports only Mathlib, did not change.
+
+\paragraph{The proof.}
+Three files prove the theorem along the lines of Section~\ref{sec:proof}:
+\texttt{Family.lean} (the graph $G_m$, its connectedness, its distances and the
+absence of an induced $P_4$), \texttt{Eigen.lean} (the root of $p_m$ by the
+intermediate value theorem, and the eigenvector) and \texttt{Main.lean}
+(\texttt{openProblemI\_negative}, and \texttt{family\_theorem}, the statement of
+Theorem~\ref{thm:main} for each~$G_m$). The final audit
+\texttt{Audit.lean} restates both and prints their axioms and those of the
+five tests: each is exactly \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound}. No file uses \texttt{sorry}, \texttt{native\_decide},
+\texttt{bv\_decide} or an \texttt{axiom} declaration.
+
+\paragraph{Checks.}
+On 9 November 2026 (23:20--23:23~UTC) the six files were compiled, one module at
+a time, in two new empty output directories, one after the other, on the
+author's Mac, with the pinned toolchain and Mathlib, which were not rebuilt;
+each module was then replayed with \texttt{leanchecker}. All $24$ commands
+ended with exit code~$0$, with no error, no warning and no \texttt{sorry}, and
+the compiled \texttt{.olean} files of the two directories are byte for byte
+identical. From 9 to 10 November 2026 the whole Lean project of the
+repository, with these six files, was rebuilt from a new empty directory on the
+author's Windows computer, one module at a time and not with \texttt{lake}: all
+$3005$ modules compiled and $3004$ passed \texttt{leanchecker}; the remaining
+one, the root of the project, has only imports and no constants. The formalization has not been checked with comparator or with
+an independent kernel.
+
+\section*{How this paper was produced}
+This work was carried out on 9 November 2026 (UTC) in a workflow directed by the
+author, using agents of Anthropic Claude Code with the model Claude Opus~5.5.
+A Claude Code agent scouting for open problems found the question, noticed that
+the family $G_m$ answers it, and checked this numerically and symbolically.
+Another Claude Code agent searched the literature (22:49--23:17~UTC) and found
+the lemma of~\cite{cdg} and Remark~\ref{rem:cdg}. Claude Code wrote the
+statement file, the proofs and this text and ran the checks of
+Section~\ref{sec:lean}. An independent Claude Code agent (model Claude
+Fable~5.1), which had written none of the files, reviewed the statement file
+and compiled it with its tests; before the release a second such agent (same
+model) reviewed this paper, the Lean files and the records of the builds,
+without running Lean. The corrections of both reviews were applied. OpenAI Codex was not involved.
+Throughout, ``we'' refers to this workflow; the reading and searching described
+in the paper were done by the agents. The author is not a professional
+mathematician.
+The author has read this paper and, using a side-by-side table, compared its Lean
+statement with Theorem~\ref{thm:main}.
+No human mathematician has reviewed this paper. The correctness of the result
+rests on the Lean proof and on the agreement of the Lean statement with the
+question of~\cite{mmt}, which was checked by the reviewing agent; the written
+proof is given for the reader. AI systems are not authors of this paper; the
+author takes full responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Pallabi Manna, Santanu Mandal and Fernando C.\ Tura
+for the question, and to C.~M.~Conde, E.~Dratman and L.~N.~Grippo, whose lemma contains the
+essential example.
+
+{\small
+\begin{thebibliography}{99}
+\bibitem{aaks}
+A.~Alazemi, M.~Andeli\'c, T.~Koledin and Z.~Stani\'c, Eigenvalue-free
+intervals of distance matrices of threshold and chain graphs, \emph{Linear
+Multilinear Algebra} \textbf{69} (2021), 2959--2975,
+\url{https://doi.org/10.1080/03081087.2019.1701624}.
+\bibitem{cdg}
+C.~M.~Conde, E.~Dratman and L.~N.~Grippo, A sharp forbidden interval for the
+nontrivial adjacency eigenvalues of trivially perfect graphs,
+arXiv:2606.06052v1, 4 June 2026.
+\bibitem{cls}
+D.~G.~Corneil, H.~Lerchs and L.~Stewart Burlingham, Complement reducible
+graphs, \emph{Discrete Appl.\ Math.} \textbf{3} (1981), 163--174.
+\bibitem{repo}
+H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{ll}
+Z.~Lou and H.~Lin, Distance eigenvalues of a cograph and their multiplicities,
+\emph{Linear Algebra Appl.} \textbf{608} (2021), 1--12,
+\url{https://doi.org/10.1016/j.laa.2020.08.016}.
+\bibitem{lhl}
+L.~Lu, Q.~Huang and Z.~Lou, On the distance spectra of threshold graphs,
+\emph{Linear Algebra Appl.} \textbf{553} (2018), 223--237,
+\url{https://doi.org/10.1016/j.laa.2018.05.014}.
+\bibitem{mmt}
+P.~Manna, S.~Mandal and F.~C.~Tura, The spectral theory of cographs: a survey,
+organized by graph matrix, arXiv:2611.06981v1, 4 November 2026; we quote its
+open problem and use its names of results.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\end{thebibliography}}
+\end{document}

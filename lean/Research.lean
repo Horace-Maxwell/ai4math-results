@@ -47,3 +47,4 @@ import Research.Backfill.Paper8.Check
 import Research.WordRepTensor.Check
 import Research.TaskE.FinalTaskEAudit
 import Research.TaskE.C1High
+import Research.CographDist.Audit

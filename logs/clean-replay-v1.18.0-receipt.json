@@ -1,0 +1,46 @@
+{
+ "purpose": "Whole-project clean rebuild of the Lean project of release v1.18.0 (adds Paper 11).",
+ "start_utc": "2026-11-09T23:49:58Z",
+ "end_utc": "2026-11-10T11:04:56Z",
+ "result": "3005 of 3005 modules compiled; 3004 of 3005 replayed with leanchecker; the module Research has no constants and was exempted; 0 audit problems.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.17.0-receipt.json",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs)",
+ "procedure": [
+  "New empty output directory; sources copied from the release tree lean/ (Research.lean and Research/, 3007 files, of which 3005 are Lean modules). After the build their SHA-256 hashes were compared with the release tree: no difference. The directory Comparator/ was not built here; it is unchanged since version 1.13.0, and the CI workflow checks it.",
+  "Each module compiled with lean -DautoImplicit=false -DrelaxedAutoImplicit=false, then each module replayed with leanchecker, by the driver build6.py of version 1.16.0. This is not a lake build.",
+  "Warnings are recorded and do not fail a module; an error, sorry or non-zero exit code does.",
+  "In the published logs the local workspace directory is replaced by <workspace>; the toolchain directory does not occur in them; nothing else is changed."
+ ],
+ "runs": [
+  {
+   "start_utc": "2026-11-09T23:49:58Z",
+   "end_utc": "2026-11-10T11:04:56Z",
+   "note": "One run, up to 12 jobs. Compile phase until 06:54:33Z, leanchecker phase after it. Every module passed at the first attempt; no log has the suffix .attemptN. Final status: status.json; the file DONE records the end. The start time is that of the first module; the driver was launched about a second earlier."
+  }
+ ],
+ "module_Research": {
+  "lines": "only import lines",
+  "constants": 0,
+  "extra_constants": 0,
+  "imports": 52,
+  "how_counted": "readModuleData on Research.olean (research-olean-constants.txt in the log archive)",
+  "consequence": "leanchecker has nothing to replay in this module. It was exempted before the run, as for versions 1.15.0 to 1.17.0."
+ },
+ "audit": {
+  "modules": 3005,
+  "compile_ok": 3005,
+  "check_ok": 3004,
+  "check_exempt": 1,
+  "axiom_lists": 112774,
+  "axiom_lists_empty": 8453,
+  "warnings": 97,
+  "problem_count": 0
+ },
+ "warnings": "97 lines in 15 older modules, the same modules as for version 1.17.0; none in Paper 11.",
+ "axioms": "every printed axiom list is a subset of propext, Classical.choice and Quot.sound. The 7 lists printed by Research.CographDist.Audit are each exactly these three axioms.",
+ "forbidden_tokens": "logs/clean-replay-v1.18.0-forbidden-tokens.log: outside comments, only the intentional sorry statements of the comparator challenge files lean/Comparator/.",
+ "source_manifest": "logs/lean-sources-sha256.txt, 3015 files",
+ "logs": "logs/clean-replay-v1.18.0-logs.tar.gz"
+}
