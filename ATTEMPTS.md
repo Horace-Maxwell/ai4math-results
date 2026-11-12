@@ -7,7 +7,7 @@ problems that were dropped without a result. It gives the denominator behind
 the results in this repository: how many problems were tried, and what
 became of each.
 
-Status: 11 November 2026, covering the work of 25 September to 11 November 2026 up to version
+Status: 12 November 2026, covering the work of 25 September to 12 November 2026 up to version
 1.19.0. All dates are UTC.
 
 ## How to read this file

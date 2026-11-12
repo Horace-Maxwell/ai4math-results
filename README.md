@@ -25,7 +25,7 @@ computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.24091026](https://doi.org/10.5281/zenodo.24091026); version 1.18.0
 [10.5281/zenodo.24116516](https://doi.org/10.5281/zenodo.24116516).
 
-> **Verification status (version 1.19.0, 11 November 2026).** No human
+> **Verification status (version 1.19.0, 12 November 2026).** No human
 > mathematician has reviewed these papers. All eleven papers are formalized
 > completely: Paper 1 in its version 3, Papers 2, 3, 4, 5, 6, 7 and 8 in their
 > versions 2, Paper 10 in its version 2, and Papers 9 and 11. Every mathematical result in them has a Lean
@@ -1957,7 +1957,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Tool and computational resource disclosure
 
-This work was carried out from 25 September to 10 November 2026 (UTC) in a
+This work was carried out from 25 September to 12 November 2026 (UTC) in a
 workflow directed by the author, using two AI coding agents:
 
 - OpenAI Codex (desktop app; models `gpt-6-astra`, `gpt-6-sol`, `gpt-6.1-sol`);
