@@ -9,7 +9,7 @@
 \usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
- pdftitle={Tensor products of Mycielskians of odd cycles with odd wheels are not word-representable},
+ pdftitle={Tensor products of Mycielskians of odd cycles with odd wheels and with extended Mycielskians of odd cycles are not word-representable},
  pdfauthor={Horace Dong}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}[section]
@@ -18,16 +18,18 @@
 \newtheorem{remark}[lemma]{Remark}
 \newcommand{\Z}{\mathbb Z}
 \DeclareUrlCommand\code{\urlstyle{tt}\def\UrlBreaks{\do\_\do\/\do\.}\def\UrlBigBreaks{}}
-% Repository version 1.9.0 (user decision 2026-09-28T19:22:59Z: released together with version 2 of Paper 4).
-\newcommand{\repoversion}{1.9.0}
+\newcommand{\repoversion}{1.19.0}
 \setlength{\emergencystretch}{1.5em}
 
-\title{Tensor products of Mycielskians of odd cycles\\ with odd wheels are not
-word-representable}
+\title{Tensor products of Mycielskians of odd cycles\\ with odd wheels and with
+extended Mycielskians of odd cycles\\ are not word-representable\thanks{\emph{Version 2.} Version~1
+(September 2026) answered Problem~5.1 of~\cite{alsh}; version~2 adds
+Theorem~\ref{thm:two}, which answers Problems~5.2 and~5.3, with its formal
+verification. Theorem~\ref{thm:main} and its proof are unchanged.}}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
-\date{September 2026}
+\date{Version 2, 11 November 2026}
 \begin{document}
 \maketitle
 
@@ -38,13 +40,17 @@ the corresponding vertices are adjacent. Alshammari asked whether the tensor pro
 $\mu(C_{2n+1})\times W_{2m+1}$ and $\mu'(C_{2n+1})\times W_{2m+1}$ are
 non-word-representable for all $n\ge1$ and $m\ge2$, where $\mu$ and $\mu'$
 denote the Mycielskian and the extended Mycielskian and $W_{2m+1}$ is the
-wheel on an odd cycle. We show that the answer is yes. When $n\ge m$, each
-product contains an induced copy of its first factor; when $n\le m$, both
-contain an induced copy of $\mu(C_{2m+1})$. These graphs are not
-word-representable by theorems of Hameed and of Kitaev and Pyatkin.
-The result, the non-word-representability of $\mu(C_{2t+1})$ and
-$\mu'(C_{2t+1})$ on which it relies, and the other facts its proof uses are
-formally verified in Lean~4. The proof was found by AI agents
+wheel on an odd cycle, and whether the same holds for
+$\mu(C_{2n+1})\times\mu'(C_{2m+1})$ and $\mu'(C_{2n+1})\times\mu'(C_{2m+1})$
+when $1\le n<m$. We show that the answer to all three questions is yes. For
+the wheels, each product contains an induced copy of $\mu(C_{2k+1})$ or
+$\mu'(C_{2k+1})$ for some $k\ge2$, and these graphs are not word-representable
+by theorems of Hameed and of Kitaev and Pyatkin. For the products with
+$\mu'(C_{2m+1})$ we fold the longer cycle onto the shorter one: the root together
+with the top vertices and shadows of any three consecutive columns of the fold
+induces one of two seven-vertex graphs, and a colouring of the orientations of five edges, checked
+by computer, must change at each step around an odd cycle. All the results,
+and the facts their proofs use, are formally verified in Lean~4. The proof was found by AI agents
 working under the author's direction; their role is described at the end of
 the paper.
 \end{abstract}
@@ -94,8 +100,31 @@ homomorphism into $W_{2m+1}$, as in the proof
 of~\cite[Theorem~3.6]{alsh}; for $n\le m$, a copy of $\mu_{2m+1}$, by an
 embedding that adapts the one in the proof of~\cite[Theorem~4.3]{alsh}. That
 these subgraphs are not word-representable is due to Hameed~\cite{hameed} and
-to Kitaev and Pyatkin~\cite{kp}. We claim nothing about the other problems
-of~\cite{alsh}; in particular, whether the tensor product of two
+to Kitaev and Pyatkin~\cite{kp}. The next two problems of~\cite{alsh} are the following~\cite[Problems~5.2
+and~5.3]{alsh}.
+
+\begin{quote}
+Is it true that $\mu_{2n+1}\times\mu'_{2m+1}$ is always non-word-representable
+for $n<m$?\\
+Is it true that $\mu'_{2n+1}\times\mu'_{2m+1}$ is always non-word-representable
+for $n<m$?
+\end{quote}
+Here $n\ge1$, so that $C_{2n+1}$ is a cycle. Version~2 of this paper also
+answers these questions in the affirmative (Theorem~\ref{thm:two}: for all
+$1\le n<m$, both graphs are not word-representable); the numbering of
+the results of version~1 is kept, and the section on formal verification is now
+Section~\ref{sec:lean}.
+
+The proof (Section~\ref{sec:two}) does not find a known non-word-representable
+induced subgraph. It folds the cycle $C_{2m+1}$ onto $C_{2n+1}$ as in
+Section~\ref{sec:proof}, and shows that the root together with the top vertices and shadows of any three
+consecutive columns of the folded copy induces one of two seven-vertex
+graphs. A computation over the orientations of the edges of these two graphs,
+carried out by the Lean kernel, then shows that a word representing the
+product would give a two-colouring that changes at each step around the odd
+cycle $C_{2m+1}$, which is impossible. The same kind of computation is the core
+of the Lean proof of Theorem~\ref{thm:kp} below. We claim nothing about the last
+problem of~\cite{alsh}: whether the tensor product of two
 non-word-representable graphs can be word-representable~\cite[Problem~5.4]{alsh}
 remains open.
 
@@ -115,6 +144,19 @@ citing it in Semantic Scholar and OpenAlex; MathOverflow and Mathematics Stack
 Exchange; GitHub; MathDB; and web search) found nothing new. We did not search Google
 Scholar, Scopus or Web of Science, and we did not consult the book~\cite{kl}
 itself. This reports the coverage of our searches, not a guarantee of
+priority.
+
+For Problems~5.2 and~5.3, we found no earlier answer, claim or announced work in a
+search on 9 November 2026 between 22:11 and 22:27 UTC: the arXiv (only
+version~1 of~\cite{alsh}; its API, for the topic and the author); the works
+citing~\cite{alsh} in OpenAlex and Semantic Scholar (there were none);
+Crossref and Zenodo; GitHub (issues, pull requests, commits and repositories),
+including \texttt{trureturing}~\cite{tru}, where an issue opened on
+27 October 2026 concerns only Problem~5.4 and calls Problems~5.2 and~5.3
+open, and other repositories of AI-assisted work on open problems; MathDB;
+MathOverflow and Mathematics Stack Exchange; and web search. Google Scholar
+could not be searched, and Semantic Scholar returned errors for the metadata of~\cite{alsh}.
+A further search on 11 November 2026 (14:36--14:46~UTC) found nothing new. This reports the coverage of our searches, not a guarantee of
 priority.
 
 \section{Definitions and three known facts}\label{sec:defs}
@@ -225,6 +267,105 @@ Theorem~\ref{thm:kp}, since $k\ge K\ge5$ in the first case; so $G\times W_K$
 is not word-representable by Lemma~\ref{lem:hered}.
 \end{proof}
 
+\section{Problems 5.2 and 5.3}\label{sec:two}
+
+\begin{theorem}\label{thm:two}
+For all integers $1\le n<m$, the graphs $\mu_{2n+1}\times\mu'_{2m+1}$ and
+$\mu'_{2n+1}\times\mu'_{2m+1}$ are not word-representable.
+\end{theorem}
+
+\paragraph{The two windows.}
+Let $F_9$ be the graph on the seven vertices
+$w,v_1,v_2,v_3,u_1,u_2,u_3$ with the nine edges
+\[
+wu_1,\ wu_2,\ wu_3,\ v_1v_2,\ v_2v_3,\ u_1v_2,\ u_2v_1,\ u_2v_3,\ u_3v_2,
+\]
+and let $F_{11}$ be $F_9$ with the two further edges $u_1v_3$ and $u_3v_1$.
+For $K\ge5$, the subgraph of $\mu_K$ induced by $w,v_i,v_{i+1},v_{i+2},
+u_i,u_{i+1},u_{i+2}$ is $F_9$, and that of $\mu'_K$ is $F_{11}$ (with $v_j$,
+$u_j$ in the roles of $v_{j-i+1}$, $u_{j-i+1}$).
+
+Let a word $x$ represent a graph $G$, and orient each edge of $G$ from the end
+vertex that occurs first in~$x$. Section~\ref{sec:lean} shows that this
+orientation has the following property~(P): if $a\to c\to d\to b$ is a
+directed path and $a$ is adjacent to~$b$, then $a$ is adjacent to $d$ and $c$
+to~$b$. Given seven distinct vertices of $G$ inducing $F_9$ or $F_{11}$ in the
+order above, call the orientation of the five edges
+$wu_1,wu_2,v_1v_2,v_1u_2,u_1v_2$ the \emph{input state}, and that of the five
+edges $wu_2,wu_3,v_2v_3,v_2u_3,u_2v_3$ the \emph{output state}; each is one of
+$2^5$ orientations of five edges, read in this order.
+
+\begin{lemma}[computer-checked]\label{lem:window}
+There is a colouring $\chi$ of the $2^5$ states with two colours such that, for
+every graph $G$, every orientation of $G$ with property~(P), and every
+seven distinct vertices of $G$ inducing $F_9$ or $F_{11}$ in the order above, the input state and
+the output state have different colours.
+\end{lemma}
+
+Only the edges inside the seven vertices matter: as the vertices induce $F_9$
+or $F_{11}$, every directed path among them whose end vertices are adjacent
+has its two chords among the edges of $F_9$ or $F_{11}$. The Lean kernel checks
+the lemma for $F_9$ by running through all $2^9$ orientations of its edges and
+for $F_{11}$ through all $2^{11}$, with one fixed colouring $\chi$; the
+colouring is the one used for $F_9$ in version~1. We do not know a proof of Lemma~\ref{lem:window} without this
+computation. The check for $F_9$ is the one used in the Lean proof of
+Theorem~\ref{thm:kp} (Section~\ref{sec:lean}); the check for $F_{11}$ is new,
+and it uses the colouring of $F_9$, whereas the Lean proof of
+Theorem~\ref{thm:kp} for $\mu'$ uses another one. In Lean the lemma is stated
+for the orientation given by a word; the finite check covers every orientation
+of the edges of $F_9$ or $F_{11}$ with property~(P).
+
+\paragraph{The folded windows.}
+Let $k=2n+1$ and $K=2m+1$, so that $3\le k<K$ and $K\ge5$; let $H$ be $\mu_k$ or
+$\mu'_k$, and $G=H\times\mu'_K$. Put $\varphi=\varphi_{K,k}$, the fold of
+Section~\ref{sec:proof}, and, for $i\in\Z_K$,
+\[
+T_i=(v_{\varphi(i)},v_i),\qquad S_i=(u_{\varphi(i)},u_i),\qquad R=(w,w).
+\]
+
+\begin{lemma}\label{lem:foldwin}
+For every $i\in\Z_K$, the seven vertices $R,T_i,T_{i+1},T_{i+2},S_i,S_{i+1},
+S_{i+2}$ of $G$ are distinct and induce $F_9$ or $F_{11}$, in the roles of
+$w,v_1,v_2,v_3,u_1,u_2,u_3$.
+\end{lemma}
+\begin{proof}
+The second coordinates are distinct, since $i,i+1,i+2$ are distinct in
+$\Z_K$ for $K\ge5$. Recall that in $\mu'_K$ the root is adjacent exactly to
+the shadows, $v_j$ to $v_{j\pm1}$, and $v_j$ to $u_l$ exactly when $j\ne l$,
+and that shadows are pairwise non-adjacent. We go through the pairs.
+\emph{The root and a shadow}: $w$ and $u$ are adjacent in both factors, so
+$RS_j$ is an edge. \emph{The root and a top vertex, two shadows, a top vertex and
+the shadow of the same column}: the second coordinates are not adjacent, so
+these are not edges. \emph{Top vertices of consecutive columns}: $v_jv_{j+1}$ is
+an edge of $\mu'_K$, and $v_{\varphi(j)}v_{\varphi(j+1)}$ one of $H$, as
+$\varphi$ is a homomorphism. \emph{The top vertices $T_i$, $T_{i+2}$}: $v_i$ and
+$v_{i+2}$ are not adjacent in $C_K$. \emph{A top vertex and a shadow of
+consecutive columns}: the second coordinates have different indices, so they
+are adjacent; the first coordinates $v_{\varphi(j)}$ and $u_{\varphi(j\pm1)}$
+are adjacent in $\mu_k$, as $\varphi(j)$ and $\varphi(j\pm1)$ are adjacent in
+$C_k$, and in $\mu'_k$, as they are different. \emph{The pairs $T_iS_{i+2}$
+and $T_{i+2}S_i$}: the second coordinates are adjacent; the first coordinates
+are adjacent in $\mu_k$ if and only if $\varphi(i)$ and $\varphi(i+2)$ are
+adjacent in $C_k$, and in $\mu'_k$ if and only if they are different. Both
+conditions are symmetric in $i$ and $i+2$, so both pairs are edges or neither
+is. In the first case the seven vertices induce $F_{11}$, in the second $F_9$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:two}]
+Suppose that a word represents $G$, orient its edges as above, and let $c_i$
+be the colour $\chi$ of the input state of the window $W_i=(R,T_i,T_{i+1},
+T_{i+2},S_i,S_{i+1},S_{i+2})$ of Lemma~\ref{lem:foldwin}. The output state of
+$W_i$ is the orientation of the edges $RS_{i+1}$, $RS_{i+2}$, $T_{i+1}T_{i+2}$,
+$T_{i+1}S_{i+2}$, $S_{i+1}T_{i+2}$, which is the input state of $W_{i+1}$. By
+Lemmas~\ref{lem:window} and~\ref{lem:foldwin}, $c_{i+1}\ne c_i$ for every
+$i\in\Z_K$. Going once around $\Z_K$ changes the colour $K$ times, an odd
+number, so $c_0\ne c_0$, a contradiction.
+\end{proof}
+
+The windows of different $i$ may be of different types, and nothing is claimed
+about pairs of vertices of the folded copy that lie in no common window; the
+folded copy need not be an induced copy of $\mu_K$ or $\mu'_K$.
+
 \section{Formal verification}\label{sec:lean}
 
 The results of this paper are formally verified in Lean~4 (version 4.34.1)
@@ -244,9 +385,27 @@ recording its SHA-256 hash
 The proofs were written after the freeze, in separate files that import the
 statement file, which was not changed.
 
+For Theorem~\ref{thm:two}, a second statement file
+(\texttt{TaskF/Challenge.lean}) states the two answers, using the definitions of
+the first file, and a file of internal statements
+(\texttt{TaskF/RouteContract.lean}) states the steps of the proof:
+Lemma~\ref{lem:foldwin} for each of the two products, Lemma~\ref{lem:window}
+for one fixed colouring, the finite check behind it and the agreement of the
+states of consecutive windows. A Codex agent that had not written them reviewed
+both files against~\cite{alsh}, and they were frozen on 9 November 2026 at
+23:14~UTC by recording their SHA-256 hashes
+\begin{center}\small
+\texttt{aef837f367e24d4d1dc10dd2e0be6b4aac2c5040392b00b607fa981717d9c0b5},\\
+\texttt{f3e39eff93c2c46026fc241b0f119453f5a3f361099b484169ea24ca5bc99553}.
+\end{center}
+The written proof of Section~\ref{sec:two} and the Lean proofs were written after
+this freeze; the approach had been chosen before it. The files of version~1 were
+not changed.
+
 \paragraph{What is proved.}
-Table~\ref{tab:lean} lists the eleven statements of the frozen file; the file
-of checks proves each of them. In ASCII notation, the definition of
+Table~\ref{tab:lean} lists the eleven statements of the first frozen file and
+the two of the second; the file of checks of version~1 and the module
+\texttt{TaskF/Main.lean} prove each of them. In ASCII notation, the definition of
 word-representability and the statement of Theorem~\ref{thm:main} for $\mu$
 read as follows (implicit arguments omitted), with \texttt{forall}, \texttt{exists}, \texttt{->},
 \verb|<->|, \verb|/\|, \texttt{in}, \texttt{!=} and \texttt{Not} for
@@ -267,7 +426,15 @@ def Problem1Mu : Prop := forall n m : Nat, 1 <= n -> 2 <= m ->
 equal, and \texttt{mu n} and \texttt{muExt n} stand for
 \texttt{mycielskian (cycleGraph n)} and \texttt{extMycielskian (cycleGraph n)}.
 The name \texttt{Problem1Mu} comes from the label of
-\cite[Problem~5.1]{alsh} in the source of~\cite{alsh}.
+\cite[Problem~5.1]{alsh} in the source of~\cite{alsh}. The statements of
+Theorem~\ref{thm:two} read
+{\footnotesize
+\begin{verbatim}
+def Problem5_2 : Prop := forall n m : Nat, 1 <= n -> n < m ->
+  Not (WordRepresentable (tensorProd (mu (2 * n + 1)) (muExt (2 * m + 1))))
+def Problem5_3 : Prop := forall n m : Nat, 1 <= n -> n < m ->
+  Not (WordRepresentable (tensorProd (muExt (2 * n + 1)) (muExt (2 * m + 1))))
+\end{verbatim}}
 Lemmas~\ref{lem:hered}, \ref{lem:graphhom}, \ref{lem:hom}
 and~\ref{lem:emb} are proved in Lean as in the text.
 
@@ -292,11 +459,18 @@ Lean statement & what it says & here\\\midrule
  resp.\ $\mu'_{2n+1}\to W_{2m+1}$, for $2\le m\le n$ & Lem.~\ref{lem:hom}\\
 \code{Lemma2Mu}, \code{Lemma2MuExt} & an embedding of $\mu_{2m+1}$ as an induced
  subgraph into $\mu_{2n+1}\times W_{2m+1}$, resp.\
- $\mu'_{2n+1}\times W_{2m+1}$, for $1\le n\le m$, $m\ge2$ & Lem.~\ref{lem:emb}\\
+ $\mu'_{2n+1}\times W_{2m+1}$, for $1\le n\le m$, $m\ge2$ & Lem.~\ref{lem:emb}\\\midrule
+\code{Problem5_2}, \code{Problem5_3} & $\mu_{2n+1}\times\mu'_{2m+1}$, resp.\
+ $\mu'_{2n+1}\times\mu'_{2m+1}$, is not word-representable for all $1\le n<m$ &
+ Thm~\ref{thm:two}\\
 \bottomrule
 \end{tabular}
-\caption{The eleven statements of the frozen statement file (namespace
-\texttt{WordRepTensor.\allowbreak Challenge}). Each is proved.}\label{tab:lean}
+\caption{The eleven statements of the first frozen statement file (namespace
+\texttt{WordRepTensor.\allowbreak Challenge}) and the two of the second
+(\texttt{WordRepTensor.\allowbreak TaskF.\allowbreak Challenge}). Each is
+proved; the proofs of the last two are \texttt{WordRepTensor.\allowbreak
+TaskF.\allowbreak Proof.\allowbreak check\_Problem5\_2} and
+\texttt{check\_Problem5\_3}.}\label{tab:lean}
 \end{table}
 
 \paragraph{How Theorem~\ref{thm:kp} is proved in Lean.}
@@ -334,7 +508,7 @@ For every statement of Table~\ref{tab:lean}, the axiom audits
 \texttt{bv\_decide}, \texttt{implemented\_by}, \texttt{extern},
 \texttt{unsafe} or \texttt{opaque}, and no \texttt{axiom} declaration, in
 the proof files. The Lean package of this paper, $11$ modules (the
-statement file, its tests, eight proof modules and the file of checks), was
+statement file, its tests, eight proof modules and the file of checks of version~1), was
 built module by module in an empty directory,
 reusing only the pinned toolchain and the compiled Mathlib and its
 dependencies, and every module was checked with \texttt{leanchecker}, all
@@ -345,6 +519,26 @@ checked again with \texttt{leanchecker} (28 September 2026,
 20:48--22:16~UTC). The Lean
 files are in version~\repoversion{} of the repository~\cite{repo},
 directory \texttt{lean/Research/WordRepTensor/}.
+
+For Theorem~\ref{thm:two}, the six new modules (the second statement file,
+the file of internal statements, three proof modules and a file of checks),
+together with the eleven of version~1, were built module by module in two new
+empty directories on the author's Windows computer on 9 November 2026 (finished
+at 23:42~UTC), and every module was checked with \texttt{leanchecker}: all
+$68$ commands ended with exit code~$0$, with no warning, and the compiled
+\texttt{.olean} files of the two directories are byte for byte identical. The
+axiom audits of \texttt{check\_Problem5\_2} and \texttt{check\_Problem5\_3}
+report exactly \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound}. The finite check of Lemma~\ref{lem:window} for $F_{11}$ is
+proved with \texttt{decide +kernel}, which the Lean kernel evaluates; the
+static scan above found none of the listed constructs and no \texttt{axiom}
+declaration in the six new modules. From 10 to 11 November 2026 the whole Lean project of the repository was
+rebuilt from a new empty directory on the author's Windows computer, one module
+at a time and not with \texttt{lake}: all $3011$ modules compiled, and $3010$
+passed \texttt{leanchecker}; the remaining one, the root of the project, has only
+imports and no constants. Some modules of another paper had to be run again
+after memory failures; no Lean check rejected a module. The module \texttt{TaskF/FinalAudit.lean} also checks
+the instances $(n,m)=(1,2)$ and $(2,25)$ of both statements.
 
 \paragraph{Definitions the reader must trust.}
 Apart from Mathlib's graphs, cycle graphs (\texttt{cycleGraph}),
@@ -370,6 +564,8 @@ statements concern word-representability itself, not semi-transitive
 orientations, so the theorem of~\cite{hkp} is not needed as a hypothesis.
 Theorem~\ref{thm:kp} is formalized in its word-representability form; we do
 not formalize the characterizations of~\cite{hameed,kp} for arbitrary graphs.
+The internal statements of Theorem~\ref{thm:two} are not results of the paper;
+only \texttt{Problem5\_2} and \texttt{Problem5\_3} are claimed.
 That the Lean definitions agree with those of~\cite{alsh} was checked by the
 reviewing agents, not by a machine.
 
@@ -389,29 +585,49 @@ reviewed version~2 of the statement file and froze it. When Codex's usage
 quota ran out, Claude Code wrote the Lean proofs and ran the checks of
 Section~\ref{sec:lean}, and an independent Claude Code agent reviewed the
 proofs. Another independent Claude Code agent refereed a draft of this
-paper. Codex has not reviewed the Lean proofs or this paper; the final
-review before release was done by an independent Claude Code agent in its
+paper. Codex did not review the Lean proofs of version~1 or version~1 of this
+paper; the final review of version~1 before its release was done by an independent Claude Code agent in its
 place.
+
+Version~2 was produced from 9 to 11 November 2026. A Claude Code agent
+searched the literature for Problems~5.2 and~5.3 on 9 November (22:11--22:27~UTC).
+OpenAI Codex (desktop application; model \texttt{gpt-6.1-sol}) chose the
+approach, wrote the second statement file and the file of internal statements,
+which a Codex agent that had not written them reviewed before they were frozen,
+then wrote the proof of Theorem~\ref{thm:two} and the Lean proofs and ran the
+two builds; a Codex agent that had not written the proofs reviewed the result
+(9 November 2026, 23:48~UTC). Claude Code (model Claude Opus~5.5) wrote
+Section~\ref{sec:two} from Codex's notes and the Lean files, drafted the other
+changes of version~2 and rebuilt the whole Lean project of the repository.
+An independent Claude Code agent (model Claude Fable~5.1), which had written none
+of the files, reviewed a draft of version~2 against the Lean files, Codex's
+records and~\cite{alsh} on 10 November 2026, without running Lean; it found no
+error in the mathematics, and its corrections were applied. Before the release a
+second such agent (same model) reviewed version~2 again, with the Lean package
+and the records of the builds, and its corrections were applied.
 Throughout, ``we'' refers to this workflow. The author is not a professional
 mathematician.
-% Author role chosen by the user on 2026-09-28T23:35Z (option A).
-The author has read the paper and, using a side-by-side table, compared the
-statements of the Lean theorems with the results stated here.
+% Author role of version 1 chosen by the user on 2026-09-28T23:35Z (option A).
+The author has read version~1 of the paper and, using a side-by-side table,
+compared the statements of the Lean theorems with the results stated there.
+The author has read version~2 and, using a side-by-side table, compared the
+statements of the new Lean theorems with Theorem~\ref{thm:two}.
 No human mathematician has reviewed this paper. The correctness of the
-result rests on the Lean proofs of the statements in Table~\ref{tab:lean}
+results rests on the Lean proofs of the statements in Table~\ref{tab:lean}
 and on the agreement of those statements with the definitions
 of~\cite{alsh}, which was checked by the reviewing agents; the written proofs
 are given for the reader. AI systems are not authors of this paper; the
 author takes full responsibility for its content.
 
 \medskip
-\noindent Thanks are due to Nawaf Alshammari for the question studied here.
+\noindent Thanks are due to Nawaf Alshammari for the questions studied here.
 
 {\small
 \begin{thebibliography}{99}
 \bibitem{alsh}
 N.~Alshammari, On the word-representability of tensor product graphs,
-arXiv:2609.20881v1, 16 September 2026; we use its numbering.
+arXiv:2609.20881v1, 16 September 2026; we use its numbering. As of
+9 November 2026 it had only version~1.
 \bibitem{ckk}
 I.~Choi, J.~Kim and M.~Kim, On operations preserving semi-transitive
 orientability of graphs, \emph{J.\ Comb.\ Optim.} \textbf{37} (2019),

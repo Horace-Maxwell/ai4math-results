@@ -1,0 +1,56 @@
+{
+ "purpose": "Whole-project clean rebuild of the Lean project of release v1.19.0 (adds version 2 of Paper 10).",
+ "start_utc": "2026-11-10T17:34:57Z",
+ "end_utc": "2026-11-11T06:13:18Z",
+ "result": "3011 of 3011 modules compiled; 3010 of 3011 replayed with leanchecker; the module Research has no constants and was exempted; 0 audit problems. Two passes: see runs.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.18.0-receipt.json",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs)",
+ "procedure": [
+  "New empty output directory; sources copied from the release tree lean/ (Research.lean and Research/, 3013 files, of which 3011 are Lean modules). After the build their SHA-256 hashes were compared with the release tree: no difference. The directory Comparator/ was not built here; it is unchanged since version 1.13.0, and the CI workflow checks it.",
+  "Each module compiled with lean -DautoImplicit=false -DrelaxedAutoImplicit=false, then each module replayed with leanchecker, by the driver build6.py of version 1.16.0. This is not a lake build.",
+  "Warnings are recorded and do not fail a module; an error, sorry or non-zero exit code does. The driver reruns a module automatically (up to three times in pass 1, up to five in pass 2) when an attempt ends in a memory or file-read failure rather than a Lean verdict; logs of earlier attempts are kept with the suffix .attemptN.",
+  "In the published logs the local workspace directory is replaced by <workspace>; the directory of the pinned toolchain and packages (ai4math-lean-worker) by <worker>; nothing else is changed."
+ ],
+ "runs": [
+  {
+   "pass": 1,
+   "start_utc": "2026-11-10T17:34:57Z",
+   "end_utc": "2026-11-11T05:34:26Z",
+   "jobs": 14,
+   "note": "Compile phase until 2026-11-11T01:02:40Z, leanchecker phase until 05:34:26Z. 14 attempts in 10 modules of Paper 7 ended without a Lean verdict (5 failed to read a compiled file, 4 std::bad_alloc, 3 'INTERNAL PANIC: out of memory', 1 empty log, 1 log cut off); 8 of these modules passed when run again automatically. Two did not: MomentB4Block00C10 (one std::bad_alloc, then three failed reads) and MomentGapD_00_03_00 (log cut off, not recognized as a memory failure). The 84 modules depending on them were skipped. status-pass1.json is the status at the end of this pass."
+  },
+  {
+   "pass": 2,
+   "start_utc": "2026-11-11T05:34:27Z",
+   "end_utc": "2026-11-11T06:13:18Z",
+   "jobs": 6,
+   "note": "The same driver with --retry-failed and up to five automatic reruns: the 2 failed and 84 skipped modules were compiled, and these 86 modules except the exempt module Research were replayed with leanchecker, every one at the first attempt."
+  }
+ ],
+ "module_Research": {
+  "lines": "only import lines",
+  "constants": 0,
+  "extra_constants": 0,
+  "imports": 53,
+  "how_counted": "readModuleData on Research.olean (research-olean-constants.txt in the log archive)",
+  "consequence": "leanchecker has nothing to replay in this module. It was exempted before the run, as for versions 1.15.0 to 1.18.0."
+ },
+ "audit": {
+  "modules": 3011,
+  "compile_ok": 3011,
+  "check_ok": 3010,
+  "check_exempt": 1,
+  "axiom_lists": 112783,
+  "axiom_lists_empty": 8453,
+  "warnings": 97,
+  "problem_count": 0
+ },
+ "warnings": "97 lines in 15 older modules, the same lines as for version 1.18.0; none in Paper 10.",
+ "axioms": "every printed axiom list is a subset of propext, Classical.choice and Quot.sound. The lists printed for check_Problem5_2 and check_Problem5_3 by Research.WordRepTensor.TaskF.FinalAudit are each exactly these three axioms.",
+ "forbidden_tokens": "logs/clean-replay-v1.19.0-forbidden-tokens.log: outside comments, only the intentional sorry statements of the comparator challenge files lean/Comparator/.",
+ "no_lean_rejection": "No attempt of any module ended in a Lean error; every failure was a memory or file-read failure or a log cut off, and every module passed in the end.",
+ "source_manifest": "logs/lean-sources-sha256.txt, 3021 files",
+ "logs": "logs/clean-replay-v1.19.0-logs.tar.gz"
+}

@@ -22,12 +22,13 @@ computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.23989248](https://doi.org/10.5281/zenodo.23989248); version 1.15.0
 [10.5281/zenodo.24039349](https://doi.org/10.5281/zenodo.24039349); version 1.16.0
 [10.5281/zenodo.24048983](https://doi.org/10.5281/zenodo.24048983); version 1.17.0
-[10.5281/zenodo.24091026](https://doi.org/10.5281/zenodo.24091026).
+[10.5281/zenodo.24091026](https://doi.org/10.5281/zenodo.24091026); version 1.18.0
+[10.5281/zenodo.24116516](https://doi.org/10.5281/zenodo.24116516).
 
-> **Verification status (version 1.18.0, 10 November 2026).** No human
+> **Verification status (version 1.19.0, 11 November 2026).** No human
 > mathematician has reviewed these papers. All eleven papers are formalized
 > completely: Paper 1 in its version 3, Papers 2, 3, 4, 5, 6, 7 and 8 in their
-> versions 2, and Papers 9, 10 and 11. Every mathematical result in them has a Lean
+> versions 2, Paper 10 in its version 2, and Papers 9 and 11. Every mathematical result in them has a Lean
 > proof, checked against independently reviewed and frozen statement files. In
 > Paper 11, Remark 1, which derives its answer from a lemma of Conde, Dratman
 > and Grippo, is not formalized; it is not needed for Theorem 1, the paper's
@@ -84,7 +85,7 @@ computational certificates. It is archived on Zenodo: all versions
 | Paper 7 (version 2) | The minimum order of a counterexample to a conjecture on integral generalized sun graphs | new result: the minimum order is 42, and the counterexample with 42 vertices is unique; completely formalized (not checked with comparator, see below) | `Paper7FinalPackage.final_Theorem1`, `final_Theorem1MinOrder`, `final_Theorem2`, `final_Proposition3` (58 checked statements) | [`papers/sun-graphs`](papers/sun-graphs/note.pdf) |
 | Paper 8 (version 2) | The switching conjecture for main eigenvalues holds for trees of diameter at most 4 | new theorem; completely formalized, including the finite search | `BackfillPaper8.Check.check_Theorem1`, `check_Theorem1_mathlib`, `check_Theorem1_signed` (38 checked statements) | [`papers/switching-diam4`](papers/switching-diam4/note.pdf) |
 | Paper 9 | A simple primitive axial algebra with a disconnected non-annihilation graph, and a decomposable axial block | new theorems (counterexamples when arbitrary finite symmetric fusion laws are allowed); completely formalized | `AxialMSZ.Check.check_TheoremA`, `check_TheoremB`, `check_TheoremC`, `check_Corollary`, `check_not_Simple_connected` | [`papers/axial-nonannihilation`](papers/axial-nonannihilation/note.pdf) |
-| Paper 10 | Tensor products of Mycielskians of odd cycles with odd wheels are not word-representable | Problem 5.1 of arXiv:2609.20881 answered (we found no earlier answer); completely formalized | `WordRepTensor.Check.check_Problem5_1`, `check_MycielskiOddCycleNotWR`, `check_ExtMycielskiOddCycleNotWR` (11 checked statements) | [`papers/wordrep-tensor`](papers/wordrep-tensor/note.pdf) |
+| Paper 10 (version 2) | Tensor products of Mycielskians of odd cycles with odd wheels and with extended Mycielskians of odd cycles are not word-representable | Problems 5.1, 5.2 and 5.3 of arXiv:2609.20881 answered (we found no earlier answers); completely formalized; the proof of Theorem 3 rests on a finite check carried out by the Lean kernel; Theorem 3 not checked with comparator (see below) | `WordRepTensor.Check.check_Problem5_1`, `check_MycielskiOddCycleNotWR`, `WordRepTensor.TaskF.Proof.check_Problem5_2`, `check_Problem5_3` (13 checked statements) | [`papers/wordrep-tensor`](papers/wordrep-tensor/note.pdf) |
 | Paper 11 | Connected cographs with distance eigenvalues just below −2 | a short note: part (i) of an open problem in the survey arXiv:2611.06981 answered (no); the same graphs were used earlier by Conde, Dratman and Grippo (arXiv:2606.06052) for the adjacency matrix, and the answer also follows in a few lines from their lemma; completely formalized, except Remark 1, the derivation from their lemma (not checked with comparator, see below) | `CographDist.Audit.check_OpenProblemI_negative`, `check_family` | [`papers/cograph-distance`](papers/cograph-distance/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
@@ -626,9 +627,8 @@ and a decomposable axial block.*
   frozen in the same way, in a separate file. The proofs were written by
   OpenAI Codex.
 
-**Paper 10: [`papers/wordrep-tensor`](papers/wordrep-tensor/note.pdf).**
-*Tensor products of Mycielskians of odd cycles with odd wheels are not
-word-representable.*
+**Paper 10: [`papers/wordrep-tensor`](papers/wordrep-tensor/note.pdf) (version 2).**
+*Tensor products of Mycielskians of odd cycles with odd wheels and with extended Mycielskians of odd cycles are not word-representable.*
 
 - A graph is word-representable if some word over its vertices, containing
   every vertex, has two distinct letters alternating exactly when the
@@ -644,11 +644,21 @@ word-representable.*
   of her Theorem 4.3. These graphs are not word-representable by theorems
   of Hameed and of Kitaev and Pyatkin (arXiv:2408.05066, Theorem 4 and
   Remark 5), and word-representability passes to induced subgraphs.
-- Scope: nothing is claimed about Problems 5.2–5.4 of arXiv:2609.20881; in
-  particular, whether a tensor product of two non-word-representable graphs
-  can be word-representable remains open.
+- **Theorem 3 (version 2).** Alshammari's Problems 5.2 and 5.3 ask the same
+  for `μ(C_{2n+1}) × μ′(C_{2m+1})` and `μ′(C_{2n+1}) × μ′(C_{2m+1})` when
+  `n < m`. The answer is again yes, for all `1 ≤ n < m`. The proof folds the
+  cycle `C_{2m+1}` onto `C_{2n+1}`; the root together with the top vertices
+  and shadows of any three consecutive columns of the fold induces one of two
+  seven-vertex graphs. A finite check over the orientations of these two
+  graphs, carried out by the Lean kernel (`decide +kernel`, no
+  `native_decide`), gives a two-colouring of the orientations of five edges
+  that would have to change at each of the `2m + 1` steps around the cycle,
+  which is impossible. We know no proof of this check without the computation.
+- Scope: nothing is claimed about Problem 5.4 of arXiv:2609.20881: whether a
+  tensor product of two non-word-representable graphs can be
+  word-representable remains open.
 - Lean: every result of Paper 10 is formalized
-  (`lean/Research/WordRepTensor/`; the 11 checked statements are in
+  (`lean/Research/WordRepTensor/`; the 11 checked statements of version 1 are in
   `Check.lean`), including the non-word-representability of `μ(C_{2t+1})`
   and `μ′(C_{2t+1})` for all `t ≥ 1`, in its word-representability form.
   The Lean proof of that fact does not follow the cited papers: it works
@@ -660,6 +670,15 @@ word-representable.*
   review compared with the source, and the file was frozen by its SHA-256
   hash, after a review by OpenAI Codex, before the proofs were written. The
   proofs were written by Claude Code while Codex's usage quota had run out.
+- Lean, version 2: the six modules of `lean/Research/WordRepTensor/TaskF/`.
+  OpenAI Codex wrote a second statement file (`Problem5_2`, `Problem5_3`) and
+  a file of internal statements (the steps of the proof), which a Codex
+  agent that had not written them reviewed; both were frozen on 9 November
+  2026 (23:14 UTC) before the proofs were written. Codex wrote the proofs
+  (`WordRepTensor.TaskF.Proof.check_Problem5_2`, `check_Problem5_3`), and
+  built the 17 modules of the paper in two new empty directories with
+  `leanchecker` (`certificates/wordrep-tensor/lean-package-v2/`). The files
+  of version 1 are unchanged.
 
 **Paper 11: [`papers/cograph-distance`](papers/cograph-distance/note.pdf).**
 *Connected cographs with distance eigenvalues just below −2.* A short note
@@ -926,6 +945,7 @@ no error of version 2.
 | Paper 7 (version 2): every result, the 58 statements of the frozen statement files: Theorems 1 and 2 (minimum order 42, uniqueness; classification up to 41 vertices), orders and spectra of the graphs of Theorem 2 and that they are pairwise non-isomorphic; Proposition 3; Corollaries 3.1 and 4.3; Remark 3.2; Lemmas 2.1–2.4, 4.1, 4.2, 4.4 and 5.1–5.4; equations (1) and (2); Propositions 5.5–5.9 and 6.1–6.3; the bound of Section 7; the classification of the integral unicyclic graphs with at most 21 vertices; Theorem 2.1 and Proposition 3.2 of Braga, Moraes and Santos; the infinite families of the introduction | `Paper7FinalPackage.final_*`, one theorem for each of the 58 statements of `lean/Research/Backfill/Paper7/`, whose types are the frozen statements (`ClaudePaper7FinalPackage.lean`) | every module built and checked with `leanchecker` in two new empty directories and again in a clean rebuild of the whole project (`certificates/sun-graphs/lean-package-v2/`); only the three standard axioms; 120 known-answer tests of the statement files; not checked with comparator or nanoda (see below). The programs of version 1 are no longer used |
 | Paper 9: Theorem A (the algebra `S`), Theorem B (`E`), Theorem C (`D`), Corollary 1.1 (the general forms (R1)–(R5) are false when arbitrary finite symmetric fusion laws are allowed), Proposition 4.1 (non-symmetric dominance in the algebra of Peng and of Kaygorodov, Martín González and Páez-Guillán), the facts about the fusion laws, and the two statements about `D` in Remark 5.1 | `AxialMSZ.Check.check_TheoremA`, `check_TheoremB`, `check_TheoremC`, `check_Corollary`, `check_not_MS_Conjecture_3_16`, `check_not_FinestSumDecomposition_connected`, `check_not_Indecomposable_connected`, `check_not_Simple_connected`, `check_RemarkP`, `check_Dominance_nonsymmetric`, `check_Laws_facts`, `check_ExD_axes_in_block`, `check_ExD_block_not_axial_on_contained_axes` (and the aliases `check_ExS_Statement`, `check_ExE_Statement`, `check_ExD_Statement`, `check_ExP_Statement`) | exact rational arithmetic by two separately written programs, recomputation by a reviewing agent and by Codex, and a check of every structure constant and displayed number in the paper against the statement file (`certificates/axial/`) |
 | Paper 8 (version 2): every result, the 38 statements of the frozen statement file: Theorem 1 (also with Mathlib's definitions only) and its signature version, Lemmas 2.1–2.2, 3.1–3.4, 4.1–4.3, 5.2 and 5.4, Corollary 4.4, Propositions 5.1, 5.3, 5.5 and 5.6, the bound `t_r ≤ b* + k`, the criterion for a single secular eigenvalue, the structure of the trees of diameter at most 4 and their radius, the sharpness examples `T(15)` and `T(18,0,0)`, and Remarks 8.2 and 8.3 | `BackfillPaper8.Check.check_*`, one theorem for each of the 38 statements of the frozen statement file `lean/Research/Backfill/Paper8/Challenge.lean` (SHA-256 `69332eca…c715`); the version-1 files `SwitchingThmH.lean`, `SwitchingRowCount.lean` and `SwitchingWalkProfile.lean` remain and are used by the proofs, and `SwitchingDiam4Cubic.lean` remains | the finite search and the enumeration of the region (13,376 multisets) are checked by the Lean kernel; the programs of version 1 (`certificates/switching/`) remain independent cross-checks |
+| Paper 10 (version 2): Theorem 3 (both products, all `1 ≤ n < m`) | `WordRepTensor.TaskF.Proof.check_Problem5_2`, `check_Problem5_3`, whose types are the frozen statements `WordRepTensor.TaskF.Challenge.Problem5_2`, `Problem5_3` (`lean/Research/WordRepTensor/TaskF/Challenge.lean`, SHA-256 `aef837f3…c0b5`); the internal statements of the proof (`TaskF/RouteContract.lean`, SHA-256 `f3e39eff…9553`) are frozen with them and are not results | the finite check of the seven-vertex windows is carried out by the Lean kernel; the 17 modules of the paper built and checked with `leanchecker` in two new empty directories and again in a clean rebuild of the whole project (`certificates/wordrep-tensor/lean-package-v2/`); not checked with comparator or nanoda |
 | Paper 10: Theorem 1 (both products, all `n ≥ 1`, `m ≥ 2`); Theorem 2 in its word-representability form (`μ(C_{2t+1})` and `μ′(C_{2t+1})` are not word-representable, `t ≥ 1`); Lemmas 2.1, 2.2, 3.1 and 3.2 | `WordRepTensor.Check.check_Problem1Mu`, `check_Problem1MuExt`, `check_Problem5_1`, `check_MycielskiOddCycleNotWR`, `check_ExtMycielskiOddCycleNotWR`, `check_WordRepresentableOfEmbedding`, `check_EmbeddingOfHom`, `check_Lemma1Mu`, `check_Lemma1MuExt`, `check_Lemma2Mu`, `check_Lemma2MuExt` | no published programs: the finite checks of the proof are carried out by the Lean kernel (small cases were also checked with unpublished programs before the formalization) |
 | Paper 11: Theorem 1 (for every `m ≥ 1`, `G_m = K_1 ∨ (K_1 ∪ mK_2)` is a connected cograph with a distance eigenvalue in `(−2 − 1/(2m), −2)`; hence the answer no to part (i) of the open problem of arXiv:2611.06981), with the steps of its proof (Lemma 1, the root of `p_m`, the eigenvector) | `CographDist.Audit.check_OpenProblemI_negative` for the statement `OpenProblemI_negative` of the frozen statement file `lean/Research/CographDist/Challenge.lean` (SHA-256 `960a24b9…0e569`), and `CographDist.Audit.check_family` (Theorem 1 for each `G_m`), in `lean/Research/CographDist/Audit.lean` | the 6 modules built and checked with `leanchecker` in two new empty directories (24 commands, identical `.olean` files) and again in the whole-project rebuild of version 1.18.0 (`certificates/cograph-distance/lean-package/`); 7 axiom lists, each exactly the three standard axioms; five tests of the statement file; no published programs (the family was checked numerically and symbolically before the formalization, by computations that are not published); not checked with comparator or nanoda (see below). Remark 1 (the derivation from the lemma of Conde, Dratman and Grippo) and the numerical values of the eigenvalues are not formalized |
 
@@ -1212,12 +1232,43 @@ of exactly these three. Outside comments, the forbidden tokens occur only as
 the intentional `sorry`s of the comparator challenge files
 (`logs/clean-replay-v1.18.0-forbidden-tokens.log`). Every module passed at the
 first attempt, in one run, and no module was run again.
-`logs/lean-sources-sha256.txt` lists 3015 files. The full
+`logs/lean-sources-sha256.txt` listed 3015 files. The full
 record is in `logs/clean-replay-v1.18.0-receipt.json`, and the logs of every
 module are in `logs/clean-replay-v1.18.0-logs.tar.gz`. Before it was copied
 into the release tree, the Lean package of Paper 11 had been built module by
 module from two new empty directories on the author's Mac and checked with
 `leanchecker` (`certificates/cograph-distance/lean-package/receipt.json`).
+
+For version 1.19.0, which adds the 6 Lean files of version 2 of Paper 10
+(`lean/Research/WordRepTensor/TaskF/`) and one `import` line in
+`lean/Research.lean` (`Research.WordRepTensor.TaskF.FinalAudit`), the whole
+project was rebuilt from a new empty directory on the author's Windows computer
+(63 GB of memory), from 17:34 UTC on 10 November to 06:13 UTC on 11 November
+2026, again with `lean` and `leanchecker` run on one module at a time rather
+than with `lake`. The rebuilt sources agree byte for byte with
+`lean/Research.lean` and `lean/Research/`; the directory `lean/Comparator/` was
+not rebuilt here. It took two passes. In the first, with up to 14 jobs at a
+time, 14 attempts in 10 modules of Paper 7 ended without a Lean verdict (5 could
+not read a compiled file, 4 ran out of memory with `std::bad_alloc`, 3 with an
+"out of memory" panic, 1 left an empty log and 1 a log cut off); 8 of these
+modules passed when the driver ran them again automatically, 2 did not, and the
+84 modules depending on them were skipped. The second pass, with up to 6 jobs,
+compiled these 86 modules and replayed with `leanchecker` all of them except
+the exempt module `Research`, each at the first attempt. In the end all 3011 modules (the 3005 of version 1.18.0 and the 6 new
+ones) compiled, with the same 97 warning lines in 15 older modules as for
+version 1.18.0, none in Paper 10, no error and no `sorry`, and 3010 modules
+passed `leanchecker`; the remaining one is the module `Research`, which has
+only imports and no constants and was exempted, as before. No Lean check
+rejected a module. All 112,783 printed axiom lists are subsets of the three
+axioms above, and the lists printed for `check_Problem5_2` and
+`check_Problem5_3` by `Research.WordRepTensor.TaskF.FinalAudit` consist of
+exactly these three. Outside comments, the forbidden tokens occur only as the
+intentional `sorry`s of the comparator challenge files
+(`logs/clean-replay-v1.19.0-forbidden-tokens.log`).
+`logs/lean-sources-sha256.txt` lists 3021 files. The full record, with both
+passes, is in `logs/clean-replay-v1.19.0-receipt.json`, and the logs of every
+module, including those of the failed attempts (suffix `.attemptN`), are in
+`logs/clean-replay-v1.19.0-logs.tar.gz`.
 
 ### Comparator check of the completely formalized papers
 
@@ -1262,7 +1313,9 @@ for version 1.15.0 for the same papers
 for version 1.16.0 for the same papers
 ([run 42454366396](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/42454366396)),
 and for version 1.17.0 for the same papers
-([run 42637962692](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/42637962692)).
+([run 42637962692](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/42637962692)),
+and for version 1.18.0 for the same papers
+([run 42863985711](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/42863985711)).
 Paper 6 is not in the workflow: a comparator run of its 35 theorems takes much
 longer than those of the other papers (more than 30 minutes on the computer
 used for version 1.13.0), and we have not tried it on GitHub's machines. It was
@@ -1289,6 +1342,13 @@ described above, but not by an independent kernel; `FinalContractAudit.lean`
 restates each of the 51 statements of version 2 with its frozen type, and
 `lean/Research/TaskE/FinalTaskEAudit.lean` restates the main statement of
 version 3, `SameParityThree`, and the conditions proved for it.
+
+**Theorem 3 of Paper 10 (version 2) has not been checked with comparator or
+nanoda.** The comparator configuration of Paper 10 lists the 11 statements of
+version 1 only. The proofs of `check_Problem5_2` and `check_Problem5_3` have been
+replayed by the Lean kernel with `leanchecker` in the two builds of the package
+and in the rebuild of the whole project described above, but not by an
+independent kernel.
 
 **Paper 11 has not been checked with comparator or nanoda.** It has no
 challenge file in `lean/Comparator/` and no configuration in `ci/comparator/`.
@@ -1382,6 +1442,7 @@ lake build Research.Backfill.Paper7.ClaudePaper7FinalPackage  # Paper 7 (version
 lake build Research.Backfill.Paper8.ChallengeTests  # Paper 8 (version 2): known-answer tests of the statement file
 lake build Research.Backfill.Paper8.Proof.Tests.Main  # Paper 8 (version 2): further known-answer tests, written after the proofs
 lake build Research.WordRepTensor.ChallengeTests  # Paper 10: known-answer tests of the statement file
+lake build Research.WordRepTensor.TaskF.FinalAudit  # Paper 10 (version 2): restates Problem5_2 and Problem5_3 and two instances, printing the axioms
 lake build Research.CographDist.Audit  # Paper 11: restates OpenProblemI_negative and Theorem 1, imports the five tests, printing the axioms
 ```
 
@@ -1561,10 +1622,11 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 - `certificates/switching/`: programs and logs for Paper 8, and the referee agent's report and programs (`review/`); `certificates/switching/lean-package-v2/`: the manifest and acceptance receipt of the Lean package of version 2 of Paper 8.
 - `certificates/axial/`: the statement contract, the reviews of the statement file, the programs and logs for Paper 9, and the receipt of the acceptance run of its Lean package (`lean-package/`).
 - `certificates/wordrep-tensor/lean-package/`: the manifest and acceptance receipt of the Lean package of Paper 10.
+- `certificates/wordrep-tensor/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 10, version 2.
 - `certificates/cograph-distance/lean-package/`: the manifest, receipt and build logs of the Lean package of Paper 11.
 - `certificates/oeis-hanna/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 2, version 2.
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
-- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper1/` (Paper 1, version 2; statement files `Challenge.lean` and `SupplementStatements.lean`, tests `ChallengeTests.lean` and `NarrowContractTests.lean`, the proof modules in the same directory, with no `Proof/` folder, and the check file `FinalContractAudit.lean`; the proofs also use the older modules `lean/Research/ICG*.lean`), `lean/Research/TaskE/` (Paper 1, version 3; the main statement file `Challenge.lean`, six auxiliary statement files `Challenge*.lean`, the tests `StatementTests.lean`, the proof modules in the same directory, with no `Proof/` folder, `Main.lean` with the main theorem, and the check file `FinalTaskEAudit.lean`; the proofs also use the modules of version 2), `lean/Research/Backfill/Paper2/` (Paper 2, version 2; the proof modules are in the same directory, with no `Proof/` folder), `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9), `lean/Research/WordRepTensor/` (Paper 10) and `lean/Research/CographDist/` (Paper 11; the statement file `Challenge.lean`, the tests `ChallengeTests.lean`, the proof modules `Family.lean`, `Eigen.lean` and `Main.lean` in the same directory, with no `Proof/` folder, and the check file `Audit.lean`). `lean/Comparator/` holds the challenge files for the comparator check below.
+- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper1/` (Paper 1, version 2; statement files `Challenge.lean` and `SupplementStatements.lean`, tests `ChallengeTests.lean` and `NarrowContractTests.lean`, the proof modules in the same directory, with no `Proof/` folder, and the check file `FinalContractAudit.lean`; the proofs also use the older modules `lean/Research/ICG*.lean`), `lean/Research/TaskE/` (Paper 1, version 3; the main statement file `Challenge.lean`, six auxiliary statement files `Challenge*.lean`, the tests `StatementTests.lean`, the proof modules in the same directory, with no `Proof/` folder, `Main.lean` with the main theorem, and the check file `FinalTaskEAudit.lean`; the proofs also use the modules of version 2), `lean/Research/Backfill/Paper2/` (Paper 2, version 2; the proof modules are in the same directory, with no `Proof/` folder), `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9), `lean/Research/WordRepTensor/` (Paper 10; version 2 adds `TaskF/`) and `lean/Research/CographDist/` (Paper 11; the statement file `Challenge.lean`, the tests `ChallengeTests.lean`, the proof modules `Family.lean`, `Eigen.lean` and `Main.lean` in the same directory, with no `Proof/` folder, and the check file `Audit.lean`). `lean/Comparator/` holds the challenge files for the comparator check below.
 - `.github/workflows/comparator.yml` and `ci/comparator/`: the comparator check of the completely formalized papers (see below; the workflow does not include Paper 6, whose configuration `ci/comparator/paper6.json` was used locally, and Papers 1, 2, 7 and 11 have no configuration).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
@@ -1817,7 +1879,14 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
   29 September 2026 found nothing new. We did not search
   Google Scholar, Scopus or Web of Science, and we did not consult the book
   of Kitaev and Lozin itself. This reports the coverage of our searches,
-  not a guarantee of priority.
+  not a guarantee of priority. For Problems 5.2 and 5.3 (version 2) we found
+  no earlier answer, claim or announced work in a search on 9 November 2026
+  between 22:11 and 22:27 UTC: the arXiv (only version 1 of the paper); the
+  works citing it in OpenAlex and Semantic Scholar (there were none); Crossref
+  and Zenodo; GitHub, including trureturing, where an issue opened on
+  27 October 2026 concerns only Problem 5.4 and calls Problems 5.2 and 5.3
+  open; MathDB; MathOverflow and Mathematics Stack Exchange; and web search.
+  Google Scholar could not be searched. A further search on 11 November 2026 (14:36–14:46 UTC) found nothing new; Semantic Scholar and Google Scholar could not be searched then.
 - Paper 11: the question is part (i) of the open problem "Distance
   eigenvalues of cographs below −2 and sharpness" in the survey of Manna,
   Mandal and Tura (arXiv:2611.06981v1, 4 November 2026). Lu, Huang and Lou
@@ -2179,6 +2248,21 @@ reviewed the proofs, and another refereed a draft of the paper.
 The author has also read Paper 10 and, using the same kind of side-by-side
 table, compared its Lean statements with the results in the paper.
 
+Version 2 of Paper 10 (version 1.19.0) was produced on 9 and 10 November
+2026. A Claude Code agent (model Claude Opus 5.5) searched the literature for
+Problems 5.2 and 5.3. OpenAI Codex (desktop application; model gpt-6.1-sol)
+chose the approach, wrote the second statement file and the file of internal
+statements, which a Codex agent that had not written them reviewed before they
+were frozen, then wrote the proof of Theorem 3 and the Lean proofs and ran the
+two builds; a Codex agent that had not written the proofs reviewed the result.
+Claude Code (model Claude Opus 5.5) wrote Section 4 of the paper from Codex's
+notes and the Lean files and drafted the other changes. An independent Claude
+Code agent (model Claude Fable 5.1), which had written none of the files,
+reviewed the draft against the Lean files, Codex's records and the source on
+10 November 2026, without running Lean; it found no error in the mathematics,
+and its corrections were applied. The author has read version 2 of Paper 10 and, using a side-by-side table,
+compared the statements of its new Lean theorems with Theorem 3.
+
 Paper 11 (version 1.18.0) was produced on 9 November 2026 by agents of
 Anthropic Claude Code with the model Claude Opus 5.5, unless stated otherwise;
 the author approved the work and chose to publish it as a short note. A Claude
@@ -2251,7 +2335,14 @@ drafted the changes to the README and ATTEMPTS.md. A third independent Claude
 Code agent (model Claude Fable 5.1), which had written none of these files,
 reviewed these changes, the certificates, the receipts and the release notes on
 10 November 2026, without running Lean; its corrections were applied. OpenAI
-Codex took no part in Paper 11 or in this rebuild.
+Codex took no part in Paper 11 or in this rebuild. For version 1.19.0, Claude Code (model Claude Opus
+5.5) rebuilt the whole Lean project from a new empty directory, as described
+above, and drafted the changes to the README and ATTEMPTS.md, and an independent
+Claude Code agent (model Claude Fable 5.1), which had written none of these
+files, reviewed them, the certificates, the receipts and the release notes on
+11 November 2026, without running Lean; its corrections were applied. OpenAI
+Codex wrote the statements and the Lean proofs of version 2 of Paper 10, as
+described above, and took no part in this rebuild.
 
 AI systems are not authors. The author takes full responsibility for the content.
 

@@ -1,0 +1,106 @@
+{
+ "module_count": 17,
+ "new_modules_version_2": 6,
+ "entrypoint": "Research.WordRepTensor.TaskF.FinalAudit",
+ "main_theorems": [
+  "WordRepTensor.TaskF.Proof.check_Problem5_2",
+  "WordRepTensor.TaskF.Proof.check_Problem5_3"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "frozen_statements_utc": "2026-11-09T23:14:13Z",
+ "frozen_files": {
+  "RouteContract.lean": "f3e39eff93c2c46026fc241b0f119453f5a3f361099b484169ea24ca5bc99553",
+  "Challenge.lean": "aef837f367e24d4d1dc10dd2e0be6b4aac2c5040392b00b607fa981717d9c0b5"
+ },
+ "frozen_record_sha256": "f2f8de2e651c500a9193d613b77cc0fb69c33970c4cd05d4e441f3ef3313aeb1",
+ "version_1_statement_file_sha256": "40c8efd69f8499c9874f07163043c0793c94c8597b7a3902d5aeb0a2ce0c9b58",
+ "codex_acceptance": {
+  "accepted_sha256": "ab25ad5410994bf1c95f83b16858fc1d1dcb808d70cdeb2fbafa6be6f001dabd",
+  "manifest_sha256": "954cd2e0bd7956f796a7ee4f9c54795843f070bc6f2e8c99713a148b1c368fa0",
+  "final_review_json_sha256": "553c19d32c7e379a2c9310660cb0f6f79290d8a7152b37568f0ad12c9931e65a",
+  "accepted_utc": "2026-11-09T23:48:36Z"
+ },
+ "files": {
+  "Research/WordRepTensor/Challenge.lean": "40c8efd69f8499c9874f07163043c0793c94c8597b7a3902d5aeb0a2ce0c9b58",
+  "Research/WordRepTensor/ChallengeTests.lean": "e00c28ef82fe8c98a1d5254c3fba6835df95baa7148251997c1abe7023c1e2fd",
+  "Research/WordRepTensor/Check.lean": "27e55b04b72ae133e6b3ac8b144653d81c4961df3fdff92a586c8a33c0583582",
+  "Research/WordRepTensor/Proof/WREmbed.lean": "db3d4b449984f7f07830a965055d57c1a51148986e40d6c038c92cdc389b28aa",
+  "Research/WordRepTensor/Proof/WRFold.lean": "9764bec193536f10b3cdc4a4ca20850ae04854c773fe44d9b3bb78fd87907701",
+  "Research/WordRepTensor/Proof/WRGraphs.lean": "bb05ad520857f1db3ffa50d0563261dab21b6f6c007a0d85c81f2cfcd6623d52",
+  "Research/WordRepTensor/Proof/WRMain.lean": "0005446a49eb65c50c6072e2c88a78b74e0c8aefcf4c9639d9c301d153054d4a",
+  "Research/WordRepTensor/Proof/WRMycielski.lean": "4cf8ec3480c21125db08bbbbaf4a63863266ddb89a387b725183c70d67dbdd04",
+  "Research/WordRepTensor/Proof/WRWindow.lean": "4c9265c3f1d49402a6b23fc2e405f8c199ee20a24bd505023f698532c8d4876c",
+  "Research/WordRepTensor/Proof/WRWindowData.lean": "79f16e5153229305f3bf3d3de0aa831d27176d1aa56c3a2f15f8b11b0f43ea32",
+  "Research/WordRepTensor/Proof/WRWords.lean": "5e83048b67b08df0f77bce88616ee7a4522f09e4732e023516ca8ab451610126",
+  "Research/WordRepTensor/TaskF/Challenge.lean": "aef837f367e24d4d1dc10dd2e0be6b4aac2c5040392b00b607fa981717d9c0b5",
+  "Research/WordRepTensor/TaskF/Colour.lean": "4e8a5474562d07bdcadfb1b0a078d3b03b8b077e2a3cfa203c6ab463a088e82f",
+  "Research/WordRepTensor/TaskF/FinalAudit.lean": "184cca28c8cea089bb4f1467eb60a4ae3f6fc984da2486e6debb89e79b91b339",
+  "Research/WordRepTensor/TaskF/Main.lean": "9770047d1b4b32c89878ddd8b14e448d4b3ab7eeed783f2073ddff9d9c2c9617",
+  "Research/WordRepTensor/TaskF/RouteContract.lean": "f3e39eff93c2c46026fc241b0f119453f5a3f361099b484169ea24ca5bc99553",
+  "Research/WordRepTensor/TaskF/Windows.lean": "bda629550616ba1f8dcaf91854e5910289315ae5bdf54993559d9647029481e5"
+ },
+ "imports": {
+  "Challenge": [
+   "Mathlib"
+  ],
+  "ChallengeTests": [
+   "Research.WordRepTensor.Challenge"
+  ],
+  "Check": [
+   "Research.WordRepTensor.Challenge",
+   "Research.WordRepTensor.Proof.WRMain"
+  ],
+  "Proof/WREmbed": [
+   "Research.WordRepTensor.Proof.WRWords",
+   "Research.WordRepTensor.Proof.WRGraphs"
+  ],
+  "Proof/WRFold": [
+   "Research.WordRepTensor.Proof.WRGraphs"
+  ],
+  "Proof/WRGraphs": [
+   "Research.WordRepTensor.Challenge"
+  ],
+  "Proof/WRMain": [
+   "Research.WordRepTensor.Proof.WRMycielski",
+   "Research.WordRepTensor.Proof.WREmbed",
+   "Research.WordRepTensor.Proof.WRFold"
+  ],
+  "Proof/WRMycielski": [
+   "Research.WordRepTensor.Proof.WRWindow"
+  ],
+  "Proof/WRWindow": [
+   "Research.WordRepTensor.Proof.WRWindowData"
+  ],
+  "Proof/WRWindowData": [
+   "Research.WordRepTensor.Proof.WRWords",
+   "Research.WordRepTensor.Proof.WRGraphs"
+  ],
+  "Proof/WRWords": [
+   "Research.WordRepTensor.Challenge"
+  ],
+  "TaskF/Challenge": [
+   "Research.WordRepTensor.Challenge"
+  ],
+  "TaskF/Colour": [
+   "Research.WordRepTensor.TaskF.RouteContract"
+  ],
+  "TaskF/FinalAudit": [
+   "Research.WordRepTensor.TaskF.Main",
+   "Research.WordRepTensor.Check",
+   "Research.WordRepTensor.ChallengeTests"
+  ],
+  "TaskF/Main": [
+   "Research.WordRepTensor.TaskF.Challenge",
+   "Research.WordRepTensor.TaskF.Colour",
+   "Research.WordRepTensor.TaskF.Windows"
+  ],
+  "TaskF/RouteContract": [
+   "Research.WordRepTensor.Proof.WRMycielski",
+   "Research.WordRepTensor.Proof.WRFold"
+  ],
+  "TaskF/Windows": [
+   "Research.WordRepTensor.TaskF.RouteContract"
+  ]
+ }
+}
