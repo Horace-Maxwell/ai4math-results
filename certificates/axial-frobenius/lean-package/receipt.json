@@ -1,0 +1,50 @@
+{
+ "name": "paper12-lean-package",
+ "tool": "OpenAI Codex, driver build16.py (SHA-256 fabf4f41fb396667ed25b0973e1b28ffb842c87391c7f1747235909b7370db78)",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs)",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "lean_version": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "builds": {
+  "A": {
+   "directory": "new and empty",
+   "modules": 10,
+   "commands": 20,
+   "first_start": "2026-11-12T17:25:00Z",
+   "last_end": "2026-11-12T17:28:42Z",
+   "all_exit_0_first_attempt": true,
+   "warnings": 0,
+   "logs": {
+    "file": "build-A-logs.tar.gz",
+    "sha256": "a6e8428b543c77958012116d2f878c06ab0a8443721da6e057cdecb0cb47744a",
+    "bytes": 2472
+   }
+  },
+  "B": {
+   "directory": "new and empty",
+   "modules": 10,
+   "commands": 20,
+   "first_start": "2026-11-12T17:28:42Z",
+   "last_end": "2026-11-12T17:32:24Z",
+   "all_exit_0_first_attempt": true,
+   "warnings": 0,
+   "logs": {
+    "file": "build-B-logs.tar.gz",
+    "sha256": "e297a9a9765f9435822554f947cc10d9c3c8e7168e6c4df46a36574447518c75",
+    "bytes": 2474
+   }
+  }
+ },
+ "olean_A_equals_B": {
+  "files": 10,
+  "identical": true
+ },
+ "axioms_of_main_theorems": "check_ShpectorovAnswer and check_StrongShpectorovAnswer: exactly propext, Classical.choice and Quot.sound (Research.TaskG.Check compile log)",
+ "run": {
+  "started_utc": "2026-11-12T17:24:59Z",
+  "ended_utc": "2026-11-12T17:32:25Z",
+  "note": "builds A and B ran one after the other in one run of the driver"
+ },
+ "logs_note": "The logs contain no local directory and are published unchanged.",
+ "whole_project": "see logs/clean-replay-v1.20.0-receipt.json"
+}

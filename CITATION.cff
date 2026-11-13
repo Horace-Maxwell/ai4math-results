@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "Research papers formalized in Lean 4: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras, word-representability and distance eigenvalues of cographs"
+title: "Research papers formalized in Lean 4: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras, word-representability, distance eigenvalues of cographs and Frobenius forms of axial algebras"
 type: software
 authors:
   - family-names: "Dong"
@@ -8,8 +8,8 @@ authors:
     affiliation: "Independent researcher"
     email: "maxwelldhx@gmail.com"
     orcid: "https://orcid.org/0009-0002-7554-7548"
-version: 1.19.0
-date-released: 2026-11-12
+version: 1.20.0
+date-released: 2026-11-13
 license: Apache-2.0
 repository-code: "https://github.com/Horace-Maxwell/ai4math-results"
 keywords:
@@ -34,3 +34,4 @@ keywords:
   - tensor products of graphs
   - cographs
   - distance matrix
+  - Frobenius forms

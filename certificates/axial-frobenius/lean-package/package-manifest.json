@@ -1,0 +1,74 @@
+{
+ "module_count": 10,
+ "new_modules": 8,
+ "reused_unchanged": [
+  "Research/AxialMSZ/Challenge.lean",
+  "Research/AxialMSZ/ChallengeTests.lean"
+ ],
+ "entrypoint": "Research.TaskG.Check",
+ "main_theorems": [
+  "TaskG.Check.check_ShpectorovAnswer",
+  "TaskG.Check.check_StrongShpectorovAnswer"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "frozen_statements_utc": "2026-11-12T16:41:14Z",
+ "frozen_files": {
+  "Challenge.lean": "05448636ff2c4fefdc731111eaf9659228123084ecc24525cfde978a37709bb8"
+ },
+ "frozen_record_sha256": "ac9a8473fa6eca2b8a281bdfe5639937dbc7eafd76f6d5400b182bdd85c7cd87",
+ "first_freeze_utc": "2026-11-12T16:27:56Z",
+ "codex_acceptance": {
+  "accepted_sha256": "3b488c8cb6a45a8668ac9bfa60fcac200bac7822a3a4522f5a63490fe7e510f1",
+  "manifest_sha256": "133f06682cab3ab751e1793839acfdce29821ffc022700c06b76671ef94e6f0f",
+  "final_review_json_sha256": "3c2bc616bb841bdbcdf14b9fab740ec358a596e70e64e4237039f304df173053",
+  "accepted_utc": "2026-11-12T17:47:21Z"
+ },
+ "files": {
+  "Research/AxialMSZ/Challenge.lean": "0d88e7321e0f0931f953ea250f2c5dc1d6d5773cd8f78e3080e0d6eeceb13ee1",
+  "Research/AxialMSZ/ChallengeTests.lean": "b8d816e3a3683edec8bab3a497728bc1063ad68fe89c0864fe12c4b7cc9154bf",
+  "Research/TaskG/Automorphism.lean": "0d67b496ededd94f9c3cea427692dbabd74abcc0ea01cf67570176e395b7e1e1",
+  "Research/TaskG/Axes.lean": "7473dce4808189aba661e1b14a23e85ac52126521d8824fa892bdb26c46346b7",
+  "Research/TaskG/Challenge.lean": "05448636ff2c4fefdc731111eaf9659228123084ecc24525cfde978a37709bb8",
+  "Research/TaskG/Check.lean": "f58b80776be8d3ece4c777e89638f9c7273661051b7bc80fe991420935bcb4f9",
+  "Research/TaskG/Data.lean": "99722f24d1ce14d47df699816581887c3e108d0ecc355996ddc8435cb471101a",
+  "Research/TaskG/Forms.lean": "a5ab15913cb1423aec936832ac010ae00a3765865ea4cb395f54cc19ed41e5f1",
+  "Research/TaskG/Main.lean": "053c3e0192f5a59e8fb3e29e4a4323f10ebdb59d7ccfdbb335c3f75de57d2105",
+  "Research/TaskG/Simplicity.lean": "e71ce6902e132fa6a2b28a7ffa7570e0a7567b551fa14847fb4e615922cf3e0b"
+ },
+ "imports": {
+  "AxialMSZ/Challenge": [
+   "Mathlib"
+  ],
+  "AxialMSZ/ChallengeTests": [
+   "Research.AxialMSZ.Challenge"
+  ],
+  "TaskG/Automorphism": [
+   "Research.TaskG.Data"
+  ],
+  "TaskG/Axes": [
+   "Research.TaskG.Data"
+  ],
+  "TaskG/Challenge": [
+   "Research.AxialMSZ.Challenge"
+  ],
+  "TaskG/Check": [
+   "Research.TaskG.Main"
+  ],
+  "TaskG/Data": [
+   "Research.TaskG.Challenge"
+  ],
+  "TaskG/Forms": [
+   "Research.TaskG.Data"
+  ],
+  "TaskG/Main": [
+   "Research.TaskG.Automorphism",
+   "Research.TaskG.Forms",
+   "Research.TaskG.Simplicity",
+   "Research.TaskG.Axes"
+  ],
+  "TaskG/Simplicity": [
+   "Research.TaskG.Data"
+  ]
+ }
+}

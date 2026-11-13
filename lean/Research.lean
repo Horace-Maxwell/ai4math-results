@@ -49,3 +49,4 @@ import Research.WordRepTensor.TaskF.FinalAudit
 import Research.TaskE.FinalTaskEAudit
 import Research.TaskE.C1High
 import Research.CographDist.Audit
+import Research.TaskG.Check
