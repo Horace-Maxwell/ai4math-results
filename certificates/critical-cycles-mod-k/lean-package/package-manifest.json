@@ -1,0 +1,2068 @@
+{
+ "module_count": 447,
+ "entrypoints": [
+  "Research.TaskH.ExactTests",
+  "Research.TaskH.ExactTestsFive",
+  "Research.TaskH.ExactTestsSix",
+  "Research.TaskH.Seven.SevenCheck",
+  "Research.TaskH.Six.CaseSixElaboration"
+ ],
+ "main_theorems": [
+  "TaskH.case_four",
+  "TaskH.case_five",
+  "TaskH.case_six",
+  "TaskH.case_seven"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "files": {
+  "Research/TaskH/Basics.lean": "dd22561dfe6817e939c2e73d05584dbda1cbbc837d7b56f227bf63aac757275d",
+  "Research/TaskH/Challenge.lean": "a139c7e6cfda64bce9722b6a45ab4909497ad228d46bce434d7acc5ed4f22a3b",
+  "Research/TaskH/CliqueCompletion.lean": "0383a984157feecdf7322593cd7fb070e50701f07a525321f8a249dfe11b1e92",
+  "Research/TaskH/ClosedColorOrders.lean": "1eaf24bfa4db0b48662f97e98e8bb2780acf5deb405e624b2eab7a174565415f",
+  "Research/TaskH/ColorWords.lean": "9e91682e26a7d4252fad54ada1ebe3a141ec34d883284d70ce108faf08afafba",
+  "Research/TaskH/ColorWordsCount.lean": "f065cfe226f7b8dd985775c64a2f9ad99a6d0dedea608daf35c20b0236cf9ce7",
+  "Research/TaskH/ColorWordsSaturation.lean": "fc6c0390f21ba0d4c467fe5f9e002f3dff54acc3219ff45589c04d90bbdf6d11",
+  "Research/TaskH/ColorWordsStrict.lean": "7bcda4ddf68beaeff19f2c949fd70cd1d85709c90cb954feb4ac3ac65e96b8c3",
+  "Research/TaskH/CompleteCritical.lean": "962d3eeebd7dc9fb827eba55216a6e2a9ae29dbd55fa1ebfefd2f7ae2bc1cbf0",
+  "Research/TaskH/Critical.lean": "fc661dbbfd1e550eb4d83f59002b535de76b6136f509f1088a2afd755fe947da",
+  "Research/TaskH/CycleFlux.lean": "bab80f9c6174d62341acdd10b62046b21f4ae4d8b55012db909b2b2e195e43e1",
+  "Research/TaskH/CycleFourWitness.lean": "bba45ec4eb6ca033066cf28cc6e6796ebf89a96c923d11f4d4004e72b3c10811",
+  "Research/TaskH/CycleIncidence.lean": "124c4cbd2c3e88a41812baf78dd512c4c709170afa32371c2461aa2490e60ab6",
+  "Research/TaskH/CycleOrientation.lean": "bd6f1cff25d9ede575bcf0a1f8993ef0d762a83e69dad4d030b365780c3e7091",
+  "Research/TaskH/Degree.lean": "6ff3b4b2c965069b5e9bbcbe5a27a201bf250638acb603ab59af571c4b014656",
+  "Research/TaskH/DeletedCycleOrders.lean": "995e4b594c7cb3e20eb20cc558d0cdbfd7d3659674efcb440baa9e874083bb3c",
+  "Research/TaskH/DirectedCycle.lean": "f271f7189a36fa58f8c42d3d87805102f35e961563b30bf2a2c2601ceabfcbf9",
+  "Research/TaskH/EdgeCycles.lean": "1d684c1826d09854db8611238ad37bdc587a0e8bf37b3e081aefb580c43d9862",
+  "Research/TaskH/EdgeCyclesCount.lean": "e755b5a1ac7e145f5260cb7da6c028e2446c9815ff7cec5c259283aaf51e9b28",
+  "Research/TaskH/EdgeCyclesDistinct.lean": "73fc01ab5cf73c8b4ceee1d91c41b59eb0caa119eeab7e39cb35155336871b76",
+  "Research/TaskH/EqualityDegree.lean": "21b8fe48a9f09f7d736e1cd93b6b8a031f008be78ea9302ebb18c915059f3f7e",
+  "Research/TaskH/EqualityShortCycles.lean": "27a8dca0e766119702dc05eda3c14723f4510f9f2d5318ffafe9669bab7b28a4",
+  "Research/TaskH/ExactTests.lean": "7ade3b0256818aa0a98cd22b607dbe369b8401605ce4aa0ec89dba0b4c825603",
+  "Research/TaskH/FiniteBudget.lean": "4667e876e43c9cbf331416b6dd58d9a434fdaa0e1218e2fa0b0798b9ae26de31",
+  "Research/TaskH/FourColorPerms.lean": "ae04bd3e0e2bb9f068ca3e0a8772409b8bc6a6fa7c258ae616d0eee02f75c25e",
+  "Research/TaskH/FourCount.lean": "8f2e3c06793ea437f7376fd8a4b2c8b67c51b87b4fbac68c93cca95cda474ede",
+  "Research/TaskH/FourCountData.lean": "d73825743636fddaca4571844843b40df16ce82a8559e5c5a71da6f280693565",
+  "Research/TaskH/GoodCycleLowerBound.lean": "d78b5c96ff66f21ec714955db7b65c1755bfa570d1bdb2fb0e5c7b8313e42b09",
+  "Research/TaskH/GoodMultiplicity.lean": "a9854474cabb2a11bbd957c9e56bb204474fb335c98c3140ee8ccd6c74865c29",
+  "Research/TaskH/GoodMultiplicityDeleted.lean": "bf32a65bd9d18eebe43434f9c2cb4ab6e0f871ac02b0d3a81c7587a4f783ea4d",
+  "Research/TaskH/GoodMultiplicityOrders.lean": "327578820a78f87c294220e6573d0f473e7cb6197709e0c57c7f2a312c67b6d6",
+  "Research/TaskH/LayerColoring.lean": "194ba44a65b87278b257850db85175977d31f983d37384fec1ba0216e3c59699",
+  "Research/TaskH/LayerCycleSeparation.lean": "82d69d767a469482f65111f11103a2042728597bdb1592aa20a2daff6a6ef5d7",
+  "Research/TaskH/LayerCycles.lean": "dbfa6509bcbbc39f95852aa10f319ab9910daa77a6962fea6ed6b9e769df379a",
+  "Research/TaskH/LayerFlux.lean": "dbd1ea0245615a3104d91b1b623b0055fdb38bd98e5e9376d8cfc05b6cedda1a",
+  "Research/TaskH/LayerSets.lean": "8d0f846f04ac4b42d61d502aecf78b42dd21abe4a9b7066c678edb5fb8caf711",
+  "Research/TaskH/LayerTail.lean": "6b88484b78101d50c5599efae5b7dd9db2ddf6694fcaff61d8bdd4eb40700caf",
+  "Research/TaskH/LowDegreeAvoidCount.lean": "fdcff9bee841b3b7648167dea65d475ecc587e8c4750514bcbcdbd1fd7d22c44",
+  "Research/TaskH/LowDegreeAvoidCycles.lean": "951eb0d9589052b3ec91d104c0ab601abfaa9c0d97ce287be289df0e0e21afce",
+  "Research/TaskH/LowDegreeComplete.lean": "1e559969240e83a4b2a74474e7b0ca12e46e346f4c0a809e507da5cf6464198e",
+  "Research/TaskH/LowDegreeCycleCount.lean": "162b2396cdaa6cf1d1934eb256d5221bc6e1a125b0ec44dfe14599305d689630",
+  "Research/TaskH/LowDegreeCycles.lean": "9e829c2698e92703c4774777f27f5314ae1e2acefc2e57070b0c8de1e8123eb3",
+  "Research/TaskH/LowDegreePaths.lean": "653e390c33b5c24eb3f3b04ee1ad6f2da5e33423e30c161194932b59e791bc8c",
+  "Research/TaskH/MainFour.lean": "37202bb9ad57464032f22769cd5fbcbeea9c29eb1efd7975f468af6237c4daad",
+  "Research/TaskH/MonochromaticReach.lean": "8f08cb1a62f1ae0760d8aaf03c2c7b8bbbebb28c7acd9cfb288e8eed682d7868",
+  "Research/TaskH/NestedShift.lean": "8236908ef1bd8a288604b83b85cae52215c9c56d21fe29a4618cb54805fcc7bb",
+  "Research/TaskH/RawDescents.lean": "16ec1e0cbfe9bb0b70a5b9502e3a189775752c6269f04fdba36958b6680f9f07",
+  "Research/TaskH/Recolor.lean": "6587ae3072031b0ef906f6442a0c694de5444436d2135d460ca525f529eca3e7",
+  "Research/TaskH/Regression.lean": "aa0536b4d498ac705f97728844eaabb9866dc8396d1826c9d4d355c6ca07adf7",
+  "Research/TaskH/CaseFive.lean": "640313d24f72432283318538de92025fae11941ccf8fc9888c78e0c017e9495e",
+  "Research/TaskH/ExactTestsFive.lean": "398c906d8b4d3a26433f31783cb9c5f7513e3bac2426a11bb84aa9dd095b2d9c",
+  "Research/TaskH/Five/CliqueCompletion.lean": "ad2388ed8d1fbea4c03ea8f9d6bb34677f932924851c53389170da26cb125ebb",
+  "Research/TaskH/Five/ClosedColorOrders.lean": "ffc4ac877c863cbbac7fe04d5b019c932be535ce9b7d20481741bd06f4b53241",
+  "Research/TaskH/Five/ColorCycle.lean": "e005d1f2b0fb6647bacae901f1ad83d4a0838a2a209f93106ccd976d77a2ff40",
+  "Research/TaskH/Five/ColorWordsSaturation.lean": "b856e1619fc9d9af8a798a42f3487f3645bf1dc33072b9bbbe8a9f9cbd8cf3e1",
+  "Research/TaskH/Five/ColorWordsStrict.lean": "9615dcb02260d27acaca935e5ddd380868a16a49535123fc037f4cb06ee4d83f",
+  "Research/TaskH/Five/CycleFive.lean": "2b767692aff46c1e4853ccbdc60ef16ec94925fd6d00d18c0e458663c5db4272",
+  "Research/TaskH/Five/CycleFlux.lean": "b6f489ac580c8fe5daebe7b26b9dde06887ec403af3bb40519ea0940b61d834d",
+  "Research/TaskH/Five/Definitions.lean": "efe191ea6d7d5131767f8e6eede90d667536b97025355df98624c555f6479499",
+  "Research/TaskH/Five/DeletedCycleOrders.lean": "b9cbc9328ea98e21b22d85d60ed1366a493f44f6f5c5ec3cab9bd9f0acf72492",
+  "Research/TaskH/Five/EdgeCycles.lean": "5fc2e288797c8e42b97cd92fde1056821a063b77db4c3a38e092708ae3f9a4fb",
+  "Research/TaskH/Five/EdgeCyclesCount.lean": "4d04b9a2a1b80600ec2be4b2f5da34968577f196e32cbdab532627825d3fa4c6",
+  "Research/TaskH/Five/EdgeCyclesDistinct.lean": "8a298400e66fffa7e55065840d4c07acd3f3058afe0ea067e4d6656fe204c74f",
+  "Research/TaskH/Five/EqualityShortCycles.lean": "543016ad654f5f6371a0e3884a7932a016383a656d75ef70a5c11a23eec33328",
+  "Research/TaskH/Five/FiveAttachedGroup.lean": "cdc4ab0b68e36c01f305eb8ffcb3079c666989d37e38e5892d7bd8412d0e3e67",
+  "Research/TaskH/Five/FiveAttachment.lean": "1a098d92a5db80e2468d43fc32f7cec9f1068656b7874e5d12fbf1eeb570ef9b",
+  "Research/TaskH/Five/FiveAttachmentData.lean": "d54a27d051109ea9232a6687b19575f4fd24759574710f9560df9b4ec93685cb",
+  "Research/TaskH/Five/FiveColorPerms.lean": "d1928d903ad45b6f125c830fad24f9a0f31a237a30c4354e4665b6176c7ad4dd",
+  "Research/TaskH/Five/FiveEqualityWitness.lean": "4923c294025ab46c1031c2b1fd1a45f1212e79ae53b0bda08b41b7e186788d2c",
+  "Research/TaskH/Five/FiveForbidden.lean": "dbc5f1edf8bbbac683e302593285455a008324ac4065305ea9ba0c3b6687978e",
+  "Research/TaskH/Five/FiveForbiddenBudget.lean": "22b21bbdf4f4a9f14b9b7fbcb25aca9e431a439823180c074c94d76be3e46fb0",
+  "Research/TaskH/Five/FiveForcedGroupBudget.lean": "3263edb25d95afd177eec05dcc4d1ced93cf6f4766987c0efc030b4d834ec691",
+  "Research/TaskH/Five/FiveForcedGroupPaths.lean": "44ddd0deedc444becda6abb007606ec9d9653bc1eba62a98a648f1397b917253",
+  "Research/TaskH/Five/FiveGroupBounds.lean": "81423f2306aa5ffdca7ade2916ec4a11c47a9663304adb23812634eeda51c35c",
+  "Research/TaskH/Five/FiveGroupNeighbors.lean": "26e69695afc9925f83b47182f3023d79fd92b12601fec08766f250ab3b393971",
+  "Research/TaskH/Five/FiveHighDegree.lean": "93a9f600782ce421646bf6628eb116b9f844633ded6b9fdeb2996187a82a3c73",
+  "Research/TaskH/Five/FiveHighDegreeContradiction.lean": "38eaf62e8b66c867277ac6902e337c23c98d39d4384e85f29d577b4184ed853c",
+  "Research/TaskH/Five/FiveIncidence.lean": "337d306df8bffa94a44ad7716c2484da3577ab72b5dd0b9c4a5af10ef8972204",
+  "Research/TaskH/Five/FiveLastBudget.lean": "2613115dc94554c2f1002d4437797d6e75d2caaf579d591e45fbb66ac3d3cbec",
+  "Research/TaskH/Five/FiveLightEdge.lean": "ca095097b552a6d422a83700a7bff965c58f5c476b511ab1a7436a3a4dd95b23",
+  "Research/TaskH/Five/FiveLightEdgeColorBudget.lean": "c18a3c42e0fa8d7ed6a8efd4e212a9193c9047a9b98ef1bb3583578156dfeb24",
+  "Research/TaskH/Five/FiveLightEdgeData.lean": "d94ef81b73507bc70f18ff22867e5543a6c3339aa84afdf40137dc0f28d6f7f3",
+  "Research/TaskH/Five/FiveLightEdgeDecagon.lean": "7c36fa4f18c97efe0b4b64dd081ecf1c8888192cb80010b6d15d12f2acb57e7c",
+  "Research/TaskH/Five/FiveLightEdgeFibers.lean": "c064360df3f54304a767a030c84caa72cafc1520b2aa29e55ad75f75f47ececa",
+  "Research/TaskH/Five/FiveLightEdgeMissingColor.lean": "00d401d177be2f18ef61fef743b0a9d8a217a4b4e194b0e8bab55548855f061c",
+  "Research/TaskH/Five/FiveLightEdgeOrder.lean": "868b55c1a05cd60b79b763886fba67d79fb14b1fa85a84980b6d0454f6e8b805",
+  "Research/TaskH/Five/FiveLightEdgeOutside.lean": "9ef53a9f863ad2010174f5415564ee42bb0de2ec523b3b6e063a3336796e6832",
+  "Research/TaskH/Five/FiveLightEdgePathLengths.lean": "9e494427b43a00bb0a022b421e4342346879b4fc410bfa76e912146009f43c44",
+  "Research/TaskH/Five/FiveLightEdgePaths.lean": "acaebfbda4687f198eb310e97f9f8b9037e98e6939fb4264244b6f96b9543b5d",
+  "Research/TaskH/Five/FiveLightEdgeTransport.lean": "8b2e5b7a63c2d0da31f89a41c1e1c5ac3b041b83819c891aa24da46290ac4879",
+  "Research/TaskH/Five/FiveNeighborIncidence.lean": "b6e41ffdcf9c03a83d42747b3ca40a6327c8d53d03c6cd393ff33191db51ad44",
+  "Research/TaskH/Five/FivePatternCrossPaths.lean": "e95f9ebbf2b916fd8f91ffe3803daedbe66e877f016dd240aebfa42b9b43f67b",
+  "Research/TaskH/Five/FivePatternData.lean": "dbf339400df00ed4b0a96a8078a3921263a6160d215f5236f0a560e909585281",
+  "Research/TaskH/Five/FivePatternDegree.lean": "6658ef328036eb0113d5ccedc17adefde3863883902d90283560dcd0cf97644e",
+  "Research/TaskH/Five/FivePatternExactness.lean": "8ef7fb811d2b7ffd6a3281de718221810e57b5aecb8193b612f665da234155e6",
+  "Research/TaskH/Five/FivePatternForcedColors.lean": "1defeccc06ebe6550156f49b54904921bee39bb2548ae77c243f37db929b64b3",
+  "Research/TaskH/Five/FivePatternTransport.lean": "a4e7cd90767c9783f747a81662b07ce65cf099eb23c398e33cbe095a1f8e2446",
+  "Research/TaskH/Five/FiveRigidityData.lean": "0cefefa3d9d647861aa788c30912c277079eeed4fa1084c2e14ae95f3daa8c91",
+  "Research/TaskH/Five/FiveSetBudget.lean": "fecb3413310271abf0c3b9b2e0a77eb04b6bc57a8ac2b3792aeefb28f39703f2",
+  "Research/TaskH/Five/FiveSparsePattern.lean": "b5cf8ca84a3ba9292bc6317683f237161e85cb6f94393edf9565704d45366557",
+  "Research/TaskH/Five/GoodCycleLowerBound.lean": "eaa895bd3213eaba739743972941cb3b645efc55dc653bf32097a851a3b6abcb",
+  "Research/TaskH/Five/GoodMultiplicity.lean": "6c7ad2239988a51b1f0e51221047cd4b15e9bd7c79bdd1013b9dec307dca664f",
+  "Research/TaskH/Five/GoodMultiplicityDeleted.lean": "165efaeb8bcfd3611c756ab7b4486da7d0a1eb609ca9077c7512b59c267de530",
+  "Research/TaskH/Five/GoodMultiplicityOrders.lean": "db4ecb1649390eb7b6fa4c61adc899ad0ec6ffcb36800d2c5c7fff32c2aca663",
+  "Research/TaskH/Five/LayerColoring.lean": "8b9d229062ad86c4a7aba152f144f62468d767f0b0aea3b463336dff1c757a6a",
+  "Research/TaskH/Five/LayerCycleSeparation.lean": "073671197f8b13a11a9e1215929e5d04da985c7dfd7aae8702b8616806a88444",
+  "Research/TaskH/Five/LayerCycles.lean": "a7b3c4521a36a3b5dde3bdd3811b81dbc9fc7e5fd60ecdaeecff092fafd0b556",
+  "Research/TaskH/Five/LayerFlux.lean": "c2a3df89115d913743a4fbe9452bd7f0a1ff977b4a132a307ad8919e7f5407b7",
+  "Research/TaskH/Five/LayerTail.lean": "f7e48c5708cc4b1138611be6f007fe4eb1c81c5b4bcfea6c94a984fff8efee67",
+  "Research/TaskH/Five/LowDegreeAvoidCount.lean": "a9c4fbaf1c2e70cab0de20d01ebe98d9b7ca162ac57367d34dfca88f8e99cebd",
+  "Research/TaskH/Five/LowDegreeAvoidCycles.lean": "85cfd0e3275e659161cf5bd7a70eb053e03b27f55cd514941483a06638ba503a",
+  "Research/TaskH/Five/LowDegreeComplete.lean": "267659915dad4ac6913c863f49dd0082598b8f65d59b4e42e4d4daf40aa066d4",
+  "Research/TaskH/Five/LowDegreePaths.lean": "02b695fd668f0fc605720ff538e70b9dc85189a1a2bec504ab9e698230dca0d5",
+  "Research/TaskH/Five/NestedShift.lean": "77911d3069f7a80689c2e0530b9d56ededd7ee416f2404717ff881e9338af058",
+  "Research/TaskH/Five/RainbowCycles.lean": "b762e3aedaa393df81c3a39842dd930efe168e2319439bc260f3d24397de12df",
+  "Research/TaskH/Five/RawDescents.lean": "8b301fb2e6e4d9ca88a42662ed8b4659771da4817b30cf7084d413a652138324",
+  "Research/TaskH/Five/Regression.lean": "c99cb4a567d5dcc4f5436b5b2066d97ea2429f762b947d0ad324a9330a6ecee2",
+  "Research/TaskH/Five/SingletonCycles.lean": "d3f4b506c2e2d373be774b72342aa2fd960a85bb580896dca37b6e442306e14b",
+  "Research/TaskH/Five/SingletonNeighborColors.lean": "c4bb4c412f45e8fcc767bc1f0e746ab773e33bec7ed5b54f4e256b3c9f032368",
+  "Research/TaskH/MainFive.lean": "aa88cfc4f47b441846f77ce57c8fdaf8d9b6ca9a9cff78430fa4c38a0907ddaf",
+  "Research/TaskH/CaseSix.lean": "68ec21934ae1dac519efd34562a29d934aa8402190fad373189d3272c3a61d3f",
+  "Research/TaskH/ExactTestsSix.lean": "96754e229357760dae66dbc010cbad0ac1385b54e895353e3dc43bec0d4693aa",
+  "Research/TaskH/MainSix.lean": "d29bcd4b91b948de18f28ccfcc2fd06f5f9e7a48f5dbb08f7be6bbadbc466bb9",
+  "Research/TaskH/Six/BipartiteSixWords.lean": "179f6bcad9c9e44abd36545edd0f3e953fd643c8e265953b703d750910dc683a",
+  "Research/TaskH/Six/CaseSixElaboration.lean": "de98dacf317a282f299a1427bf3cd78bcb545568f0d9533b0b4e9849bf005caa",
+  "Research/TaskH/Six/CliqueCompletion.lean": "30b8f015ca5769dc2e354c05fbe214d3270efd281c7a01a3fb3f9548eeba0b5f",
+  "Research/TaskH/Six/ClosedColorOrders.lean": "85a6519ccb51e0964e3793003c0b7ec443b7eb5714633adc9c8514a25fac036b",
+  "Research/TaskH/Six/ColorCycle.lean": "efdbe49d9502042b714e10b23b0b463da02be6f9991fe0928bfacd529131903c",
+  "Research/TaskH/Six/ColorWordsSaturation.lean": "2002e9d1fa9004489e80056ae7c321f96aa8a8309a96cbd8368d1c4863bf63dc",
+  "Research/TaskH/Six/ColorWordsStrict.lean": "3023422d962c33c996b9ee0118889ce874c9a7c968eac8aac147e9e5701956f2",
+  "Research/TaskH/Six/CycleFlux.lean": "128f63a04cee2ff9bae55a10f3fc37b3c31d9e5a3cacfd72f776e938bfb0aa89",
+  "Research/TaskH/Six/CycleSix.lean": "fee5e0f0b7f1fe27f6cf80bfb30640449f38f55da28d3725d4c2776da3968b9d",
+  "Research/TaskH/Six/Definitions.lean": "35e3b8d1eb5fdb3189fdbac362747c1eb303f6451283a92f99e5d252b928784e",
+  "Research/TaskH/Six/DegreeSixComplete.lean": "6a7061a2c2bf7e64db6e7bda5119e5588e8db75b211a0614a689eb26b55955fa",
+  "Research/TaskH/Six/DeletedCycleOrders.lean": "613b3929ffe24dc0753b1178054835ebc917746842d775ac83571ff88fcf04ff",
+  "Research/TaskH/Six/EdgeColorOrders.lean": "1948379e4c92da3a49fa14bfcfdd701a30a8e73753f5efea0a6089bc24360773",
+  "Research/TaskH/Six/EdgeCycles.lean": "7893dcaf2ab3e8534cfd228f67a68192f3058a51e598150ff21d1a3a474e3c05",
+  "Research/TaskH/Six/EdgeCyclesCount.lean": "4779ef4d446e1fda41f05b2acf13cb701919a9d74960f516beb2c33f538f1d28",
+  "Research/TaskH/Six/EdgeCyclesDistinct.lean": "1baeb046a7f7f11faa81d1774a04a3fced23bdbf71974ea22eb49db273dcbd92",
+  "Research/TaskH/Six/EqualityDegree.lean": "232a27a421e30fadbe1565d4c826be0349c99b9e78a815667d9b7330add654e9",
+  "Research/TaskH/Six/EqualityShortCycles.lean": "1a71839acc54360d1e6ab811ad3f7f4496bc024df15f9e6db3637676882b7ad7",
+  "Research/TaskH/Six/GoodCycleLowerBound.lean": "f4e6ec729cd6c16cf97d6bf58cd4979882cbbf235c4aa5f8f94a3fd7b597563f",
+  "Research/TaskH/Six/GoodMultiplicity.lean": "cd2511c8457ec44d174eb1ed2a5d44d80659ef61c668cf455f6dde5ed042d6d1",
+  "Research/TaskH/Six/GoodMultiplicityDeleted.lean": "a16f44e9ba6049001fe0d1ae34b00a6780f5a2723d94b898914c9e95f0b00704",
+  "Research/TaskH/Six/GoodMultiplicityOrders.lean": "0a1dc86fa122e788784dda87df812dcb40c641e4b2893a4e123bcb3e077e772a",
+  "Research/TaskH/Six/HexagonWordIndices.lean": "8cee690c351e8b907c59e405a8d54f37d7c268d43325f07e8864b28b62834ff9",
+  "Research/TaskH/Six/HexagonWords.lean": "fc9ac1c4559028d87fe11712b3ed90437903a04b58c00cbc3d5c6e67dd112a75",
+  "Research/TaskH/Six/HexagonWordsCardinality.lean": "276ab2fef0bc1083bdd2af7b37946fa078ce48800f7c1687e6357230b38f84af",
+  "Research/TaskH/Six/LayerColoring.lean": "96abc5d069050f823dc3d1f7bf172d2bce6efc114079654a3df888e78f7732c3",
+  "Research/TaskH/Six/LayerCycleSeparation.lean": "3c21cd5f05ce3c30bca8d0262c07fee002ffc9a33c436508316c11f223a91750",
+  "Research/TaskH/Six/LayerCycles.lean": "13cb87bca17bb10ef34211d57976c6bc73e28ca413de7b6ecb347cfcad6ce2ba",
+  "Research/TaskH/Six/LayerFlux.lean": "a87aac2bf3e24fdda37c0acad6bfb52080de81234bbe33a2eb0007b7019bfbc8",
+  "Research/TaskH/Six/LayerTail.lean": "02e24c1edf800d7c9838e83a9b7e72782a719fe5dc4ee4edee9b79e6e1901fd9",
+  "Research/TaskH/Six/NestedShift.lean": "da0a205a1fd1965062121033d6327df5c2c2c9356d27c26c5d832d6bec09a6be",
+  "Research/TaskH/Six/RainbowCycles.lean": "383ba219a39f8f4c764eb6cb75f2430ccebbc8a5ff60ea75ec63e00efd1666d1",
+  "Research/TaskH/Six/RawDescents.lean": "ad07cbff1dc4e738a813ddb604a160feee4d901c676de1089276111af86714c1",
+  "Research/TaskH/Six/RegressionSix.lean": "5d1c114c8003885dfdc1383c5eb4a3d4abc6af3063f3d412d47b0bf5513eb3b0",
+  "Research/TaskH/Six/SingletonClique.lean": "4fd3579780ef6b666329549efb11c5ae2e46b3c95dd48a5cfaf943086227713c",
+  "Research/TaskH/Six/SingletonCycles.lean": "daab07223e41660b6e314bedf5821da5398070c77d0628c25249d08d73a79b79",
+  "Research/TaskH/Six/SingletonNeighborColors.lean": "bbe527eb4e767f1691c90515aa4fa9169c11a7074f7b1e4dc4bb90f8f5b11eb1",
+  "Research/TaskH/Six/SixAttachment.lean": "692ceb4a8472fa78a7a765c4a963785d09a0ea7fc7ac91a6182d9f1c06f636e9",
+  "Research/TaskH/Six/SixAttachmentData.lean": "097ce2451420674ce5cd1f98ec8e7f7f0735fee7c1a2b3df10976937a5f47128",
+  "Research/TaskH/Six/SixBipartiteCore.lean": "f0b1e80a92526ce1edd2b952b8b8d8ba0adc39153f2dfe7c3eaee8e12318dcc4",
+  "Research/TaskH/Six/SixCliqueCommonNeighbors.lean": "4db5463e757c8df630be66f542855eb7b992c8a39413237b14b085fcc6e19be1",
+  "Research/TaskH/Six/SixCliquePathPacking.lean": "06507c56c397186fb2b731037bb0299a2f627183704365cc580a1ecaf7fc06e1",
+  "Research/TaskH/Six/SixDegreeNineExclusion.lean": "440b3255918b4922505bdf37cd97dd37d345f29ce804db32c59e8cb4849bc6d3",
+  "Research/TaskH/Six/SixDegreeTenCenterCoverage.lean": "e711a90954b010526dce2d1b3c952a3ac6eca8f0af68e043978fa83074ede24b",
+  "Research/TaskH/Six/SixDegreeTenColors.lean": "6500135698426d02aecf2c1de9171167579e3d310439fbc8aa14948c1933467b",
+  "Research/TaskH/Six/SixDegreeTenCommonOutside.lean": "522c89c39b214df4e1d1f92e9829ff45935852f6a82a2e87618f43b264746484",
+  "Research/TaskH/Six/SixDegreeTenCommonPacking.lean": "d91ae59ed0da9857d3c0c6d4c3e7632fdb519184a43e6d347840eacb593c0548",
+  "Research/TaskH/Six/SixDegreeTenExteriorWords.lean": "22f8157fa5c2c5489a3dc0238e26da109c4a27c1599ee9f86d85e994b6a51520",
+  "Research/TaskH/Six/SixDegreeTenFrame.lean": "673f8b57e2dd8fa8ba81c7466392900fc0259a9bb307267eac5533bf89d97bfc",
+  "Research/TaskH/Six/SixDegreeTenFrameWords.lean": "fd74782670685ab5097466be5d705f0d73a9aa53a0e015492f238f11a54d0f37",
+  "Research/TaskH/Six/SixDegreeTenLocalShape.lean": "9adcddf57d28dfef7fc9875700af2da612a507045f27971ad33c83ca59b862d1",
+  "Research/TaskH/Six/SixDegreeTenPairDichotomy.lean": "668342b6359e8772c4296004a6147c1c0169c6f90943bfc5f54a491fd1e7b02e",
+  "Research/TaskH/Six/SixDegreeTenSplitColors.lean": "97a8db9fa5dfdaf7d78d81428bf44ffbc03e150e12cff3acac5d340d5dc8e6ce",
+  "Research/TaskH/Six/SixDegreeTenSplitPacking.lean": "3c5018b866337cb102edc726d3758fba32e5a3d6514ebc3534360cf7f94aa9be",
+  "Research/TaskH/Six/SixDegreeTenSplitSeparation.lean": "b98909d93c3fadafe560ab126240ceaca41ee6591463db28b7242f1a02eb6db3",
+  "Research/TaskH/Six/SixDegreeTenSplitWeight.lean": "04acf7bceb2a2d97eb8cef2c83c38c04a6f83693ed2d06456f40a2955954c592",
+  "Research/TaskH/Six/SixEqualityDegreeTen.lean": "b50c8f21ea31ba8984c48b0cc695ff7e4315561bf65de2ed47967e50dbb83733",
+  "Research/TaskH/Six/SixFiniteBudget.lean": "5baf9dc74849a93f84b56e36a4f6d360cbf9b425c03e8a7559ae3a5444893e07",
+  "Research/TaskH/Six/SixFiveCliqueBudget.lean": "5dfd14b4991f5e583278b1a680faecf4e2f040683770a2523e87f73e359daea5",
+  "Research/TaskH/Six/SixFiveCliqueClosedPacking.lean": "48ce6b96e5aaa4e0def8ccbd26273ddc7ca321796a3ccfea913eb6e467ecd4c5",
+  "Research/TaskH/Six/SixFiveCliqueData.lean": "bcf6257c2e688f52c4dc3da0500fa91f5c7e370ca8539df691dfbaba2c7d0056",
+  "Research/TaskH/Six/SixFiveCliqueLocal.lean": "59cc197889d5f40b0de2116764058df324ec7d500df8de5a9a3d820851d931e0",
+  "Research/TaskH/Six/SixFiveCliqueOutside.lean": "564a67540d2ab2dfe2006fb09c58ba810d5c68ef6daa63178733d64bad610372",
+  "Research/TaskH/Six/SixFiveCliquePairBudget.lean": "5e883b9ab7025d8b5a8a8cf0f80cc28786bda730ace97da2267b2c005bbeb4da",
+  "Research/TaskH/Six/SixFiveCliquePairColors.lean": "fd8659ebad9756788ae143bcddaa27b17dee2c0d0cd512e34b098da80dfb16b1",
+  "Research/TaskH/Six/SixFiveCliquePairPacking.lean": "c777d37271d4b22c0e2d9e0fd0b26143b1c9a93cced465ca3d5dbde72e70d325",
+  "Research/TaskH/Six/SixFiveCliquePairPaths.lean": "584d0592c0cb4f6a7e834a62439b0b29ca85a0a63591d2b7bbd657976d4774f1",
+  "Research/TaskH/Six/SixFiveCliqueReindex.lean": "8e902bdc00f4c0e573791743268431c5a47f8928d8ea5ba71a63b05608b6d225",
+  "Research/TaskH/Six/SixFiveCliqueSeparation.lean": "e2ecc3e9f2a2deb4e04b45f19f0963d49d9caa2108c4c4bba51f05ab48af83b5",
+  "Research/TaskH/Six/SixFiveCliqueSets.lean": "29e7a649dfd070e97b871d7070851bf9b4573ce6cd36d5dacbcf5b3e0de1b995",
+  "Research/TaskH/Six/SixFiveCliqueThreeHooks.lean": "857bb7ea5c196ae17130e645002386003286f3e970f9ba44487b8227ab24a667",
+  "Research/TaskH/Six/SixFourCliqueConsequences.lean": "773046be00e5bec4e0a26a883419dde4b9c4db9ea97addb3c0f6bf385095056f",
+  "Research/TaskH/Six/SixFourCliquePacking.lean": "d6ed70f4780a1d17c518483759a7bfe9108a431b0633978701b73bd0b07a0f6c",
+  "Research/TaskH/Six/SixFourCliqueRepresentatives.lean": "6d4100387b1f10f89eab4ea51b25b4b7c5a06d610de19793998e2f88545a9100",
+  "Research/TaskH/Six/SixFourLabelBudget.lean": "ff6b0d5f92593e7965ded9f57d187974d053746a0bfb042938e2656193b1a66a",
+  "Research/TaskH/Six/SixIncidence.lean": "f7d87be86c644c7f202ddc8ccede5db2fe60009d949736a222e10e3fd298caa5",
+  "Research/TaskH/Six/SixMinimumDegreeNine.lean": "b63007fd80e7e98f9058f5f30078808dada46284073dd50e28d9db1706ab3a0c",
+  "Research/TaskH/Six/SixNeighborIncidence.lean": "b0ee839bc184a2bc27aeed4d9503696217a9f362e45b4ea99633054e2d0a988a",
+  "Research/TaskH/Six/SixNeighborPathRule.lean": "aad17608e94e73acd1f88b0154f37fa28abbb0c8f30f1e9b68f0fb224e155bab",
+  "Research/TaskH/Six/SixOpenNeighborhoodPacking.lean": "35d8c1bfbdfa8e377f64f736c3da17870de03e809608431fec1b9db46d22cddd",
+  "Research/TaskH/Six/SixRainbowHexagonCollision.lean": "eaf94adadc32af803d8d3bafa99edc61d279e6e2c707363cded619e1ec6bdf3d",
+  "Research/TaskH/Six/SixRootPathClosing.lean": "a2d7f86bbafec1a7205574ae7bdd76b0585ad3c55b50424d044f7e0fa504ed4f",
+  "Research/TaskH/Six/SixRootPathOrder.lean": "6bfb9ad6018fb1f6d443b69f5687f1d67f9fe50041d690596d68a4eb1dcd7cde",
+  "Research/TaskH/Six/SixRootPaths.lean": "a5f90541224693de13b37a357dc3f7b74daaabb54aeeb7231ae368feec909a4b",
+  "Research/TaskH/Six/SixSplitClonePacking.lean": "bd90fdd108911a76d1d6f51354e1467eb89ec0f76be927577d90426885f0b522",
+  "Research/TaskH/Six/SixSplitLabelIntersection.lean": "fbf30864f3f7b13fb913aed46708998e9a488616aa32ca827e92f6710f952fb2",
+  "Research/TaskH/Six/SixStarForcedColor.lean": "903f35f5cd15a996d2afdc3faffe3c3d8f2d6bad83c7755d0e48d47948094fd5",
+  "Research/TaskH/Six/SixTraceScalarBudget.lean": "04d1e7a6165e93cba5e29bbe82f19059276432dfae25b74565710839ee5974ac",
+  "Research/TaskH/Six/TraceSixBacktrackSets.lean": "b66d00998f78463b025d6344e2c661aa7a0ed19731675fa9e7e08f55809bfddc",
+  "Research/TaskH/Six/TraceSixBacktracks.lean": "57e3c44cb4709f07fb036264a7954b2524d534c081c508c75b2470e3e8eeeda4",
+  "Research/TaskH/Six/TraceSixCommonIdentity.lean": "3f5f66bdf88db24d11bdbe35de724aac263e0c455b53605faabdab77f9ace600",
+  "Research/TaskH/Six/TraceSixCommonNeighbors.lean": "81e8978fbb2ad899d476507bab2885943f6a4f0b2a63426343b1657648da2a72",
+  "Research/TaskH/Six/TraceSixCyclesBridge.lean": "1a5aab2e9d9cc2c53a72a8f4ac076e81a13e589320576aed7d64c84b93ce7aa5",
+  "Research/TaskH/Six/TraceSixDefectIdentity.lean": "abd1c4c7f3b941e4f27e5e1b8b55baf7fdae29f44e447298d493665d82252f46",
+  "Research/TaskH/Six/TraceSixDoubleCross.lean": "057830e5831ece7dfb93e81e79b0d7bbe1c6a4e217552e91d7e2db44a8868cc9",
+  "Research/TaskH/Six/TraceSixEdgePairCounts.lean": "2174bf9d7dac7dcd631c6be1e7afd78f0707bb5932524580ab5d2d987d7f9744",
+  "Research/TaskH/Six/TraceSixEdgePairData.lean": "c227aae7e48191423991f39ca2ccade8588bf5e9fb38a28e1ff303ce74a31083",
+  "Research/TaskH/Six/TraceSixFrobenius.lean": "e1708e119a424e0296901710fed8a0fb3e523e6178a83d4eae7320474319d257",
+  "Research/TaskH/Six/TraceSixGraphBound.lean": "3cb13ec2cd995d128faa92fd928a2dec85c83c2034485a187e6bd0ca002dd47f",
+  "Research/TaskH/Six/TraceSixMantel.lean": "12395c1db256d8480c95df55b776e332bc1c8c3e31c8191b6bde24f68d3747db",
+  "Research/TaskH/Six/TraceSixMatrixAggregates.lean": "f908434d2efa4511619cc65cc425ad4c6d0ea1bf7649f59284c6f89516668093",
+  "Research/TaskH/Six/TraceSixMatrixCommon.lean": "ffab703a684ebe2e70ea1cba6cd3f4d11c8160196e0c225ef661311059fd5a7d",
+  "Research/TaskH/Six/TraceSixMoments.lean": "47135be66d008c5e5da35c741dde312a8bdf66f75c888a059120c70e351ddd9d",
+  "Research/TaskH/Six/TraceSixNeighborCounts.lean": "b0562ce63f9984aba8ebdf53acfaf2b8162f673d8113aea82551fe1ff4c4a964",
+  "Research/TaskH/Six/TraceSixPairIdentity.lean": "cd773ef57a3ae469aeb7360b4c1634cde2db8219523b4131564605914e380f91",
+  "Research/TaskH/Six/TraceSixPairReversal.lean": "9556585378699eac03941de42c67ebb6c3190780cc79c6a32c38d570a2d3bf3d",
+  "Research/TaskH/Six/TraceSixPairs.lean": "b6ff0c1a102a8086e15d81e42856d8bf75339763611696dbf90163a4cbb48693",
+  "Research/TaskH/Six/TraceSixPathMoments.lean": "0fce7880916cc40accb4a18941d83057455447f91d7e00279316af58ef7a2aef",
+  "Research/TaskH/Six/TraceSixPaths.lean": "12a7ec6d52086935f8d23a030108b21a5007d148c9a54395e87f0d8ab5548452",
+  "Research/TaskH/Six/TraceSixSamePosition.lean": "650f23c0b2d2bf0a8142b3cd4e1b9dff0116f92964f5a0f266042ba50c2f70d8",
+  "Research/TaskH/Six/TraceSixSamePositionData.lean": "748962bf0f5b47cac4dc8e697abbe9e75c9808410044ff3e4f7a292521d0ba0c",
+  "Research/TaskH/Six/TraceSixSamePositionReal.lean": "06e85569edab2af53cf753ab2e6b240d49265c6a5a7917a4e257585ea57d690e",
+  "Research/TaskH/Six/TraceSixSingleCross.lean": "7cbc8bde266547e709d1745b38bc5e723d7dbfbc68e4e7decf2227674b66f165",
+  "Research/TaskH/CaseSeven.lean": "d982be019e0e72d4f2bbd37559ad237bab9a446a0425b18025df37ea8e04691b",
+  "Research/TaskH/ExactTestsSeven.lean": "be0f2070e7dcb1f575d769a05aa9074d8e791a7b9d2167d18b07b671cb6f51ff",
+  "Research/TaskH/MainSeven.lean": "f9ae577eee3f11ac7ff4aac8fcd382807e4636ad0c70955da22c694fbaab34ee",
+  "Research/TaskH/Seven/ClosedColorOrders.lean": "6b6f7c79bf890ea569aef154916cca5f86a8d6007890eb0472b92c9547ac0b72",
+  "Research/TaskH/Seven/ColorCycle.lean": "c8b9452207f54d82b723db2e9c4b76622847d426b8fd4b0f3b6e1e09ce037a62",
+  "Research/TaskH/Seven/ColorWordsSaturation.lean": "0c5924b40323d7688614c65195a4bdc2680f9965ac16f7b1010b0e0f928708eb",
+  "Research/TaskH/Seven/ColorWordsStrict.lean": "600c32d29280fca8a078e9cf4b6d7319fd2c658b46be1fa53641f69e55d17bf9",
+  "Research/TaskH/Seven/CycleFlux.lean": "5c84a0acd8cd5d675158e29d9008ed1f988827001513e2ba868e19dbacee005e",
+  "Research/TaskH/Seven/CycleSeven.lean": "1234a6468612af91092d1e14a092858a7bc8d82aa65390e9c81ac3aea7f3f4e7",
+  "Research/TaskH/Seven/Definitions.lean": "26de1cfabe37c97ce1428f5c3cb2a92d871e82625b0f02e8189504726834ecbc",
+  "Research/TaskH/Seven/DeletedCycleOrders.lean": "c366915be7722e9ac979daeadaa11428e9b5e5f8f1976134ce554faa3787d008",
+  "Research/TaskH/Seven/EdgeColorOrders.lean": "30df26372591c467d76793d81c54ee0df8f5e8c471de8a11f1fd6c3a854cd756",
+  "Research/TaskH/Seven/EdgeCycles.lean": "ae0d9a2f75022447ef9f92b7a9914c19e16c1ceb01308c11e1cdd093c8d4e0a3",
+  "Research/TaskH/Seven/EdgeCyclesCount.lean": "ea843f401c45559196f1c89f681d64fdf099cb6b879292ebc8518d38ecc910c5",
+  "Research/TaskH/Seven/EdgeCyclesDistinct.lean": "693cc62c788ae3492a43f72dbdb6be815ba329f768bcbcd66f544822a040e566",
+  "Research/TaskH/Seven/EqualityShortCycles.lean": "fa3fe1c5d38b1262d8e7d7509856eb1269e3c8d78575ee5c0a8c35463aea03a4",
+  "Research/TaskH/Seven/GoodCycleLowerBound.lean": "b0d6a8acbb0b2b1772283587a789f923346b3c4c4a87f89024591f4bb3e58477",
+  "Research/TaskH/Seven/GoodMultiplicity.lean": "4c9900bd94861622d435311b7554fe156e94a5b65e53cd21c6cef9c4fbc2cb6e",
+  "Research/TaskH/Seven/GoodMultiplicityDeleted.lean": "202ba001ac240e7e3929913975707ac351251f66fd2a6251d47709d419cbc417",
+  "Research/TaskH/Seven/GoodMultiplicityOrders.lean": "8b79e1ff519ccc0515c10e3a34c1996083145e201476e601fc0d40e022258ced",
+  "Research/TaskH/Seven/LayerColoring.lean": "295568719ae16c0c63a413296b5a43873ffefd90b8574555728308f488a66061",
+  "Research/TaskH/Seven/LayerCycleSeparation.lean": "d6c2d35f9eff8cd52a22e60a512639b226890b28cb12735bd7909a7d7f027b54",
+  "Research/TaskH/Seven/LayerCycles.lean": "fde1c79099c57d17b27eae226a383856c10cc9798c83a9b3e4a8abadb2ebb47a",
+  "Research/TaskH/Seven/LayerFlux.lean": "a68195782cd70461400fa471e0e3514ece38853a38923a5a111eee5fc8f112f7",
+  "Research/TaskH/Seven/LayerTail.lean": "e884e9dad2096dc6d235e54e9d6f916029d37bd031994b6898a46c27fe56b959",
+  "Research/TaskH/Seven/NestedShift.lean": "e57fea37ee372fbb39d2094b3d447bf9a6eb37933a2eea2f72236e1e9fc3e338",
+  "Research/TaskH/Seven/RainbowCycles.lean": "6b0c1995b293343ca69477bb5a10a29bab5fe4597cb0777151505bc6b5ba697b",
+  "Research/TaskH/Seven/RawDescents.lean": "844e5ede58734fe8e9fbec3cf7c8bef1fbd9d754fb394bf226cc2c2477ad63b2",
+  "Research/TaskH/Seven/SevenAttachment.lean": "1e7097b90755a391a04a42569fb94da0c9c8d76af973895f6bb4e1d1b7b681de",
+  "Research/TaskH/Seven/SevenAttachmentData.lean": "229febcb043a3bbe63ba5981b95c5fef0f1d7c2107cebd84f9a5e1db895a7973",
+  "Research/TaskH/Seven/SevenBP45.lean": "d5e8a20c843d66383cd4e9fd111b92bb0f9e9846d9f9cd05913ba072579217e6",
+  "Research/TaskH/Seven/SevenBPActualChordCount.lean": "60687289d03529a051698e2d5945e10d88e038528b91c1c6c12c4418c33ad5e5",
+  "Research/TaskH/Seven/SevenBPAttachmentArithmetic.lean": "e61ab07612bb6657e0d750416644a73ad7c20c5115637156e980ad4e9e8417cb",
+  "Research/TaskH/Seven/SevenBPAttachmentFourEar.lean": "60ef653d832fb37d958f0442fdcda914cbdec66dd487b91dc366ec3871dbd926",
+  "Research/TaskH/Seven/SevenBPAttachmentTwoEar.lean": "7d5c34ba387eb0e01acc93555456d2df76c0a485a641d21d79526245b5d560b5",
+  "Research/TaskH/Seven/SevenBPBoundaryBudget.lean": "789601fc375c25228a8e0b495389f695214563a03a0993accd077abc0205dcc1",
+  "Research/TaskH/Seven/SevenBPChordBudget.lean": "30dde2355e13e517667675ee9bcdc69fc9da4f49a1ccd796620ceb0b07fa50e0",
+  "Research/TaskH/Seven/SevenBPChordClassification.lean": "657631d1bb7d68c5b21ea665b359ea6bd8035b2d2477e8fbd2d754d27c1cf97e",
+  "Research/TaskH/Seven/SevenBPChordExclusions.lean": "a3682655db77fce1704161dcd32199ced86c060c8b5ef7c00c3737ada6baaea3",
+  "Research/TaskH/Seven/SevenBPChordGroups.lean": "14f6c2623944c0e44d41a43397fb989298465c1ac50fe623ab0e35fd9f3cd2aa",
+  "Research/TaskH/Seven/SevenBPChordNormalize.lean": "f901a83f9b910d78bc6d79ca4b1416b9fd744e3669133973d33d58ce1f3b4a78",
+  "Research/TaskH/Seven/SevenBPChordResidues.lean": "c90c6a5700b5aa326554a3d2970fcd4ffdb50c018d27a240258d5263e0b40804",
+  "Research/TaskH/Seven/SevenBPChordWitnessData.lean": "0e91a5e3298baf7b162ee5933db51c5e914301546f13741164cfa3dde9d436ce",
+  "Research/TaskH/Seven/SevenBPCycleAttachments.lean": "e53efc03c699bcf7c1c00efe1bee5f7313f0afeca6ae3fe8c21c0e52f89be2e7",
+  "Research/TaskH/Seven/SevenBPCycleIndexShift.lean": "44e67502548d6a19845a2eb8c3ee88715bd486fd587574bf12fd5eaa5f7e6390",
+  "Research/TaskH/Seven/SevenBPCycleWitness.lean": "46a412d88a8d4a762e296bec9e1fdea4280fb543613c022859ac48387c18712e",
+  "Research/TaskH/Seven/SevenBPEighteenChordData.lean": "d2234048c8d5c46eae44a5731719a9d5c40454deb6261d7ae77e5eeacca37577",
+  "Research/TaskH/Seven/SevenBPEighteenChords.lean": "906d14bae5b0907169b7472b9f3997e221886d7900ed7fbc533a0a651a22b590",
+  "Research/TaskH/Seven/SevenBPEighteenClassBoundary.lean": "63c550ef799d76ab5efbab5e774b4a51372cba515f82b17b79352c8f6a230821",
+  "Research/TaskH/Seven/SevenBPEighteenCompatibility.lean": "8a668aa760f0c73c6b8a90fc6d585c1e4a6553dd5e543a7b05b721aae59f00c1",
+  "Research/TaskH/Seven/SevenBPEighteenCycle.lean": "caaa4d800a436614459cabd7770d448b26fee74914330b348eabf5a5064a25cd",
+  "Research/TaskH/Seven/SevenBPEighteenExclusion45.lean": "530be706f565e025618002d7448c6b0685ad75df5978b3a28335ea9e758c5d12",
+  "Research/TaskH/Seven/SevenBPEighteenHookClasses.lean": "d285b86f8ddf375f886be3a804287839351a1091a2dfde2ea2f1b72147d80565",
+  "Research/TaskH/Seven/SevenBPEighteenHooks.lean": "bb930942731a757eff6da3e2d8c1cf6aa06a1a978d5007a7c5c5b36f5aac3647",
+  "Research/TaskH/Seven/SevenBPEighteenSideAttachments.lean": "1a1e83f3a3d8daa71785dd443e54b6d67277b01f9b96e4a5aba879e91b1b8059",
+  "Research/TaskH/Seven/SevenBPEighteenSideCounts.lean": "af09f906e6da0d42c0ccae2a639d1435900b7d5e723261215941ebf5afcdad9b",
+  "Research/TaskH/Seven/SevenBPEighteenSideStructure.lean": "99f9799c2e87c492bcc6652774d19f22b2005878aeb8270cad0443aad5e71ba7",
+  "Research/TaskH/Seven/SevenBPEighteenThreeEar.lean": "cc5fe048bb08dd8c1091dd431e21190f5087e67c1eb920696b27cd41b61bf926",
+  "Research/TaskH/Seven/SevenBPEighteenTripleClassification.lean": "f830bc6e7c0b1b70bacffc819c45d635d3275776c1ba2cfad0965020deae7dcd",
+  "Research/TaskH/Seven/SevenBPEighteenTripleNeighbors.lean": "37d83c9fa0dadcfdcc0194121db35312942653e6850893fed9124d44b1e83cb6",
+  "Research/TaskH/Seven/SevenBPExternalCapacity.lean": "413db4b40ee59ca0000d592492926686786d9f84aaeaa8c3ddeb95201dd1b3fa",
+  "Research/TaskH/Seven/SevenBPForcedLow.lean": "2de3e72287853137a02e3bb12bc34ff5eb57691fbc488dc8a25ae356b532684c",
+  "Research/TaskH/Seven/SevenBPInternalCapacity.lean": "49d3961df52b5fce2d523c7bbdb129a17c33640d8f1cba3149148a8bca3d5fdc",
+  "Research/TaskH/Seven/SevenBPInternalEdges.lean": "a80742d2b486d531f9aa6859e6f1f3535d01c9469e9a8a104e2f3e99eb151581",
+  "Research/TaskH/Seven/SevenBPLongCycle.lean": "ff6693aa8e6aaf5500834e49bd8549bc83966b0bf539ec86f1d397df84374cd8",
+  "Research/TaskH/Seven/SevenBPQuadNeighborGroups.lean": "549741993536f2dbedd3ddf3df9e8d358d4aeb3a2afa9d267c06bf3a73fcb400",
+  "Research/TaskH/Seven/SevenBPQuadNeighbors.lean": "1bd0e29d0cc4c3356da9bc93b63d161fa9db716d6b9ebdecc1e9eac5a002d660",
+  "Research/TaskH/Seven/SevenBPSameParitySupport.lean": "24658c0f9256d9c85b661a25eb03acdd785cd35f9d468cfe4022546c9c1bed3e",
+  "Research/TaskH/Seven/SevenBPSharedAttachments.lean": "1c0256c3f86818f03fbef017bf7b3c89b0bf96a553813fee0d82593c116adbcd",
+  "Research/TaskH/Seven/SevenBPSharedHookGroups.lean": "b0309e44c1d7dabbc3bc09ec8d274d8e4368dddfddaa97aa1c3dbbd2ff9fb293",
+  "Research/TaskH/Seven/SevenBPShortCycleReduction.lean": "a868def371f574e47d3a1281f327e1c07ac9da69f785fae29b1956e3af4c6a80",
+  "Research/TaskH/Seven/SevenBPShortestLongCycle.lean": "b9b341edd5fd9e40059cee7cd6b7ea3d62b9b6d14686b14684b312b02b8f5930",
+  "Research/TaskH/Seven/SevenBPSixteenClassBoundary.lean": "3390463876f9737a5a10207ca328b720a7d0c740a4eb7977cd5f1ece3bb2bc7e",
+  "Research/TaskH/Seven/SevenBPSixteenEndgame.lean": "35e1f2c528b59577e227f329b484ca536536d49b77e7f188a3d9aaa91049cb92",
+  "Research/TaskH/Seven/SevenBPSixteenExistence.lean": "0baa3e79491e12362b0540ff088e7da587a82212700e5c51ee47179db3850e87",
+  "Research/TaskH/Seven/SevenBPSixteenQuadSide.lean": "1e3a9f7ada38d85e974d5d245b5d4349b16eb7005f20bfb563d0454ed2971a55",
+  "Research/TaskH/Seven/SevenBPSixteenSideAttachments.lean": "f1ddf76d06e4d7e3fb67ff343e4985e5a227de1347597368d51fe85230d1d536",
+  "Research/TaskH/Seven/SevenBPSixteenSideCounts.lean": "0f9dd0c057b2fc2525cee5d2fdbaaf77aaeeff0b823f17a8b09ad67a47c22f8c",
+  "Research/TaskH/Seven/SevenBPSixteenSideStructure.lean": "49ae860a614fe6152e7066b5696f9f90fe64778624b0f46a8600e5744c50b8e2",
+  "Research/TaskH/Seven/SevenBPTwoEar.lean": "a40779c18a21ac5b903b32d6c6b9d56c98b865abc7bc31a551706a20aa5b04b8",
+  "Research/TaskH/Seven/SevenBoundedIncidence.lean": "95eedc3f5009f8ab617212b659e7e14efc279284b553c344c99d64d1b29e432a",
+  "Research/TaskH/Seven/SevenCheck.lean": "d4ef081b1577fdee3c794f7d8a0ee57de1bd9d0bee6b1a95b192fdb963384e16",
+  "Research/TaskH/Seven/SevenCliqueCompletion.lean": "ebe98e85db09f1389c3bb81e8c5d9ee02bc1a8ed66644b99dc5f0fc2a23d1efa",
+  "Research/TaskH/Seven/SevenCliqueRainbow.lean": "3a8c11ae9cc0508bc8b21cb490aea08d498205076832d2672065bdf04e6eb229",
+  "Research/TaskH/Seven/SevenColorClassBudgets.lean": "2644e6f98b2d041f0f412debd1b9d9bc00deff7d3e93933285e80f3ea79b7c58",
+  "Research/TaskH/Seven/SevenCommonCaseReduction.lean": "0ad9addd16f054eba4c8a722c8257ebbf62ac2bfe7c938fc0939636571e7080c",
+  "Research/TaskH/Seven/SevenCommonCrossingCycles.lean": "19e4c9e3f6aebda50d5f471496f2eafa1fb3a94addda92f52c626a0fc3d9d78f",
+  "Research/TaskH/Seven/SevenCommonFive.lean": "16b7ecedcef25ebba8823f862c12198d59ace3d7e57c8e0c65dd8dbe5e553698",
+  "Research/TaskH/Seven/SevenCommonFour.lean": "a36c9e6680026055ee3dcbab3c476da24f36f5a975ed54f491a0e506c8aa0aff",
+  "Research/TaskH/Seven/SevenCommonFourColors.lean": "1a6202cc487f4ce7848d6279ebad8ce481fa6a1b86c962cc878f01fc6ffe7b2c",
+  "Research/TaskH/Seven/SevenCommonFourExcess.lean": "05cbfa5068efef0be2afc88cf9003afb6af82ec08909172a52d4e02599aef922",
+  "Research/TaskH/Seven/SevenCommonIncidence.lean": "409524de49fdc047887230b5392425619856d6e7a788c843bff8e85acd40f429",
+  "Research/TaskH/Seven/SevenCommonMateOutside.lean": "a0068c43b87cf72357c7baa22ecbb8e50bc82f0d8e89a1d99bd757695d256c70",
+  "Research/TaskH/Seven/SevenCommonMateSeparation.lean": "8072c8a6cab93819ca3f0dd919f9e6bf584cec68e11006b2ef7dffd013ab386f",
+  "Research/TaskH/Seven/SevenCommonOneTwo.lean": "848546ed3b8dcf3d8cad360068f0255fceb80bb1b73366bbd00abf8115f52e0a",
+  "Research/TaskH/Seven/SevenCommonPartners.lean": "6896be5aa34d8e6338f228db007910ad39f093287c079900d5428716e9041176",
+  "Research/TaskH/Seven/SevenCommonRepGraph.lean": "3b0d2acf0f719af87bedc6daf464bfb0d647f993702eacdf6bb90ae1cd8528a2",
+  "Research/TaskH/Seven/SevenCommonRepOutside.lean": "5a58348f4f60a80577e0df93c999b060f50e5631743e34700b97942befb4a12a",
+  "Research/TaskH/Seven/SevenCommonRepSeparation.lean": "b15085b092b46cde2d2e19dc905ae70114ed12e29e3f3555cf8eb05a0527aa88",
+  "Research/TaskH/Seven/SevenCommonRepresentativeColors.lean": "26d43abe5680849032dabd3ea29ddb17f2502797ab7844429fb92b152373df97",
+  "Research/TaskH/Seven/SevenCommonSplitLocal.lean": "27ed529e79e10ae1049870f54f46b1193c6b19f393979bace172128be8455b4c",
+  "Research/TaskH/Seven/SevenCommonSplitOutside.lean": "cf9a6fdf50b8d09433e5f9c0188cb776bc5c5980a9aefb3f427a5901f3ca753e",
+  "Research/TaskH/Seven/SevenCompleteCheck.lean": "9d8e9ef24a68aa75484a9ff87d784f29171b42f4c38b25841a431c99e813a5d1",
+  "Research/TaskH/Seven/SevenCompleteWords.lean": "3312530a961d5f317b21ac81c2dfad4dc55905bc4913eb0ef220b115286f196c",
+  "Research/TaskH/Seven/SevenDegreeElevenFibers.lean": "879fc143ffe2e9bc25bc751197d0c0bb7cb57966cb6e92410e0c109a4397fc2e",
+  "Research/TaskH/Seven/SevenDegreeSeven.lean": "882861f7f7aa518da05d2574cfac21822e2c3a6b8e07ca5ab669077c42dee9ac",
+  "Research/TaskH/Seven/SevenDegreeTwelveClassOrder.lean": "2d2871299cf8e1ca463ec9a2e4fe055995cdffb2c20b4cf24aec94d40ca36786",
+  "Research/TaskH/Seven/SevenDegreeTwelveFrame.lean": "23d26a50f0ebf58d558ee1d322708c8de4455f3b48f11ed66aa2ed5cd220d0b3",
+  "Research/TaskH/Seven/SevenDegreeTwelveGeometry.lean": "28f5138af1f0ef474e7589cc94995429bec8374f251b06dd3f1bc28cd66739b8",
+  "Research/TaskH/Seven/SevenEqualityBasics.lean": "d3f5d6e9090a5a1c6173beb8b38691848dad39136e8bd8d65ed18e97612c4cff",
+  "Research/TaskH/Seven/SevenFinalBridge.lean": "ba1aac604fb9ac162530778d100a01ba81ad27446a80e0633e5849e189cbe282",
+  "Research/TaskH/Seven/SevenFirstStep.lean": "464e6f94812b0b4ad6507784b2204d2b439debc60ff7b1277429293dcb7ac62a",
+  "Research/TaskH/Seven/SevenHamiltonCoordinates.lean": "2d00c5bbfcc16f8bb6032e39fbe8c1d6d2133108de96d2a450467ea0c1df4907",
+  "Research/TaskH/Seven/SevenHamiltonMissingEdge.lean": "52d5f5c9c14800d8cfc3df920c31b06761d6cc512780ca90778076913013d4ac",
+  "Research/TaskH/Seven/SevenHamiltonPerms.lean": "4be21a40e980fcbf10fcb1de92ac05b08c983680fa99617691c20f308c658c79",
+  "Research/TaskH/Seven/SevenHeptagonWordIndices.lean": "4c5fc61d6f973019c5ade8e629e69672b5bfc62e276617659abe4a59c66bc58d",
+  "Research/TaskH/Seven/SevenHeptagonWords.lean": "0a5c1337980f1c863ac7807fd68450736089308e587973916cbe63956334b88d",
+  "Research/TaskH/Seven/SevenHeptagonWordsCardinality.lean": "9b0417bfd88fa3d277826fc7b9a3200cd05b88ba25ed5ac2e8929bba9a851873",
+  "Research/TaskH/Seven/SevenIncidence.lean": "1398d6e61c9322497878d310f8c9234c751e10d02b94ee66fffc8bb3e48aed95",
+  "Research/TaskH/Seven/SevenIndependentBounds.lean": "fed8edfb88817cd2c90a26a985e8dcfd1fbe5f54226d2c590674c55692bc20b4",
+  "Research/TaskH/Seven/SevenJoint.lean": "ce711a9503c1a274ec6cf3eef9f1336946897c9d7de0c60e9477b95ddbb38293",
+  "Research/TaskH/Seven/SevenK4LongPath.lean": "dd33c5c1a81c716ea5f5aa39887d72730363aefe4c7a8f101feda7c19b2b7156",
+  "Research/TaskH/Seven/SevenK5CommonNeighbor.lean": "e3ca6ac751dcdda7bad40188ef7a1887c4db89e6f870ed9157621e1a442b7b2e",
+  "Research/TaskH/Seven/SevenK5Free.lean": "63266103577b89deef0c8cc556545f56a16aaaa694296538eb4c4bf694f3cbc4",
+  "Research/TaskH/Seven/SevenK5LastClosed.lean": "953219431f4a59a151d62d7d8ec071b997f8fb9ffb9f1ed7a5f0e67d2ed13410",
+  "Research/TaskH/Seven/SevenK5LastFinite.lean": "a7795fc174f0f2bab1d87e17c2dc46e220bf0a8cf15731482679127ba32f0021",
+  "Research/TaskH/Seven/SevenK5LastStructure.lean": "6a9e744a5c430ac95baab98fb6a7bcbde84b15899d775659e819c3c1fb491f38",
+  "Research/TaskH/Seven/SevenK5PackingCompatibility.lean": "d17ff29f6b0651ab1c15b23b5f216a3dabe67b1e203a8b27f5e8a2f3489ec72c",
+  "Research/TaskH/Seven/SevenK5PackingConsequences.lean": "21137e40dae1eb4ff08bcd70b3f65ea57388a3e45e1ee3d819955bb26a39efd1",
+  "Research/TaskH/Seven/SevenK5PackingHeavy.lean": "7c36c28fcdd54623f49d1518d706d1b4e6276b290fd4cca9ebb7b208f166411a",
+  "Research/TaskH/Seven/SevenK5PackingLabels.lean": "158717a1c95f6d4ddccf2a082d74e15957ccbb290e01567ffdea888932b21c78",
+  "Research/TaskH/Seven/SevenK5PackingNoSmall.lean": "cfe17341d30efa9be39314f479df1fe447669d396fda91c4b723b8b703e320ba",
+  "Research/TaskH/Seven/SevenK5PackingRepresentatives.lean": "a713117fb801737ad85d5b6c6858cdd9762f0dfc82fd582a7b5ee7d8b5865fe8",
+  "Research/TaskH/Seven/SevenK5PackingTriangle.lean": "6eb79d9a36969c89b1dafde0526082493f96560d465c818470445ee64ddac9ad",
+  "Research/TaskH/Seven/SevenK5Path.lean": "ea8bee0faddedf33389b40b926cc708a7a3514168b080060e355f08cf75aea8a",
+  "Research/TaskH/Seven/SevenK5Reindex.lean": "5e02b51d124c4397fae69e0cb494b78ede2cfe3fbf5fb1ebf70928eb18a3018f",
+  "Research/TaskH/Seven/SevenK6CliqueBudget.lean": "ea410458757622ca53640c68fb21bf0f8765fcc9331ad1e9eeca15fb4b014f35",
+  "Research/TaskH/Seven/SevenK6CliqueData.lean": "fc9debb4d951199efac02641c68eb7ca9243fecef5f477b866dc0b4165924f9e",
+  "Research/TaskH/Seven/SevenK6CliqueLocal.lean": "217f80252f4ae97ebff0951ea9593b5c685a3673f687912dae123ea0cacc4c51",
+  "Research/TaskH/Seven/SevenK6CliqueOrder.lean": "e0b3dbd34371aa1ca1d0df71e8d8af385c189c2a5e972c5346a9a2d5e3caaa24",
+  "Research/TaskH/Seven/SevenK6CliqueOutside.lean": "6195db0dce6df23a89c9960ac272396770614622020c731334778888dc9545a9",
+  "Research/TaskH/Seven/SevenK6CliquePairBudget.lean": "c1ee44ff7ce11101a68b1a0ef9ea4b191857fb3af7084062ec07ad1810c3f937",
+  "Research/TaskH/Seven/SevenK6CliquePairColors.lean": "26d26fed9cb9101b4f52bf10d9de097583cafe3f92d690439fed727bc060d1de",
+  "Research/TaskH/Seven/SevenK6CliquePairPacking.lean": "88a1692eead32e8cdc7f6a178b4c1eb6e8d089bfe0d0d005a23348a7ebce494f",
+  "Research/TaskH/Seven/SevenK6CliquePairPaths.lean": "0b4030cd37030b29273ad20bac653aebedc0c16c75b4b1e32623082e0d73797d",
+  "Research/TaskH/Seven/SevenK6CliqueReindex.lean": "322b12da0999e92d4b281991c49acc68800890cf726ff6a347408914a83e746f",
+  "Research/TaskH/Seven/SevenK6CliqueSeparation.lean": "8cd4aafe61d94a2a2070a3e422b0a2240f97d48ffab06825ee3402b3fe1f1d27",
+  "Research/TaskH/Seven/SevenK6CliqueSets.lean": "bb1b7c13db7a04fad34e73088cf1c67cc0f3a56cc293826a0cda0282dc605697",
+  "Research/TaskH/Seven/SevenK6CliqueThreeHooks.lean": "5c8339fc49a28b3317f1789231ae05f3820cbfbf218416967e0a690c12422e7e",
+  "Research/TaskH/Seven/SevenK6Free.lean": "7410eefd0a94b517853a15a6046ed5bcaab4ecdfbf9a4be33944e40e164845a7",
+  "Research/TaskH/Seven/SevenLocalCommonColors.lean": "eebf79783ddaa934c56cb15f195ec3432816ae71d2cd1031d69a8dcba703e28f",
+  "Research/TaskH/Seven/SevenLowerBound.lean": "c56468b8d86b6737a5754b3473057e8fb7c752e53ffa8f0106a461254b308105",
+  "Research/TaskH/Seven/SevenMaximumCut.lean": "9c8540bbddd4217a6e4cef0e2ff70fb938c53e84d4b1ef45cd9d4c5183b10720",
+  "Research/TaskH/Seven/SevenMinimumThirteen.lean": "b0b007c6dfcc1d1bc2df649357a247b3b8d472732a175fbc09917b6a379ae474",
+  "Research/TaskH/Seven/SevenMinimumTwelve.lean": "49e0d4f4b7056461dfce64a99e902ba36a529921cf0a477874f550f8d5a082a0",
+  "Research/TaskH/Seven/SevenNeighborIncidence.lean": "2954edeeef2ff43a0568607b5177f56b90c57049b9df379141ec897ae3631a1d",
+  "Research/TaskH/Seven/SevenNoncompleteDegree.lean": "d61c9ba5d99693085f7aff31f1ac84a5411f059eb4a4594e9f578d419b1bcf94",
+  "Research/TaskH/Seven/SevenOrder45.lean": "63dce56191e425955b1115ff6dc65ba311988964645054a1ed69260eabecf2b4",
+  "Research/TaskH/Seven/SevenOriginalLowerBound.lean": "0056c4f5f78af2d77b5bf546253c8a819e040250ce244d06672c168b8892b4fb",
+  "Research/TaskH/Seven/SevenPairInsertion.lean": "603e97f03b97796a1c5d46d56a4b62c30b46a205c7f487e3504570c35d6985a7",
+  "Research/TaskH/Seven/SevenPureSplit.lean": "00b27bc8cf0817596ba73680c9c2aa3b748c0b3fd1af91d92dde0a987654d3c2",
+  "Research/TaskH/Seven/SevenRootedFivePaths.lean": "62db04c52169bbc901c9881745d4e1f7b58f37b53e361d8a593459ed0ef57c0e",
+  "Research/TaskH/Seven/SevenSCCCover.lean": "0a1f42811fa6c000dbad887f6dfb4f34e612d940a63ba080f301df4f3d59ea75",
+  "Research/TaskH/Seven/SevenSCCCycle.lean": "2a63bc343b00bb4447eef97e58f4505da5fb4ee456775a35fb0a05d2fe1d8a66",
+  "Research/TaskH/Seven/SevenSCCFamily.lean": "0d238351b733b55196ff884845afd304f8155973a5c104a6775083c1a91be6f8",
+  "Research/TaskH/Seven/SevenSCCFamilyOrders.lean": "0cf7c0a935ed7870182cfd0e748ce67d37c0326409570d35fa0a035445feb856",
+  "Research/TaskH/Seven/SevenSCCFamilyPartition.lean": "5a4c025449aed1a31022b87ccf98a1a33d4ed2b3df398838644bc4fcd1432823",
+  "Research/TaskH/Seven/SevenSCCPalette.lean": "a61154c5b422e04d8697a0756df46c9e312e883a178337b6d35ad5743ac75f92",
+  "Research/TaskH/Seven/SevenSCCRainbow.lean": "eabacc4647313bb8285079c26d4bea69d38f962e636e76ed2c58402ad0b0d8e4",
+  "Research/TaskH/Seven/SevenSCCRelation.lean": "1095cd78b8c41f152ece0ff80d3180c4f0564e378954419722510c07da240435",
+  "Research/TaskH/Seven/SevenSingletonDegree.lean": "cf2d7df4b04dc70c588448950723e263abaffb1d9f1842da9d3ad337240e64be",
+  "Research/TaskH/Seven/SevenSingletonOrderFamilies.lean": "3400cbeda539d8f2a5ac6a348ba14253ddf83c2f354bb7deb50b656e9f912633",
+  "Research/TaskH/Seven/SevenSplitAdjacentCenters.lean": "096333dd7daf99c90a085fd6ff7a110e6296ab7c140ab904768c6da429e730df",
+  "Research/TaskH/Seven/SevenSplitAdjacentPacking.lean": "aebd01139e42b8f4e412040ead421a51e55ba551dbb9143045d1601e08f04a4f",
+  "Research/TaskH/Seven/SevenSplitCenterOutside.lean": "2b27e34602583726ca51e2be6a38fdde65cb2a3c66855f42a42eaa621165b312",
+  "Research/TaskH/Seven/SevenSplitCenterPools.lean": "b0e836d93d5f1f718eab1c27d097a6455116032d0b42d83f443c1386bdf0391b",
+  "Research/TaskH/Seven/SevenSplitCenterSymmetry.lean": "6e21a4ea912fc4dc1b48c23c6620ee0ad7a21e2954ad367082a167d7cb8177c0",
+  "Research/TaskH/Seven/SevenSplitCommonCenterBudget.lean": "9ddae675212f5d3b546b7c3932d77865d11f03f7b0bd913c51105237717755d8",
+  "Research/TaskH/Seven/SevenSplitCommonCenterPaths.lean": "da8f4f00919f35a61ef9fb0185b0a6d58560c67060cc66b25361ce5a35ea19fb",
+  "Research/TaskH/Seven/SevenSplitLeafIncidence.lean": "ee59bb3a1978d2928893a7f78c85b52f7bc8ccd60f951a03ac44d2f0d871add4",
+  "Research/TaskH/Seven/SevenSplitLeafPoolSeparation.lean": "cc513154a9e0daa3a5c05e52cc68b8bfb0ff05f6d298769baf3db4cd9105203f",
+  "Research/TaskH/Seven/SevenSplitPairCoordinates.lean": "7118e868d3108cdd652316944600c5f817ee543aa553f568a272f0abdfa5f1e4",
+  "Research/TaskH/Seven/SevenSplitPoolCapacity.lean": "0fc7da79bf461edad57e3ef88f58d70a449f703e0ae25e737dab0165817e3f19",
+  "Research/TaskH/Seven/SevenSplitPoolColors.lean": "0aae263328847c584027beb1897bd730dbeba520dada5b8984474d5fee075210",
+  "Research/TaskH/Seven/SevenSplitPoolIncidence.lean": "4aefee3aa3f626546cc812ba3b7c9b238c27cc94399ed6cb616f7acb51eda3f0",
+  "Research/TaskH/Seven/SevenSplitResidualBudget.lean": "98434c7172ff66d6ad89050058b6665d1acd0cd5b832d608422e149f44750dd5",
+  "Research/TaskH/Seven/SevenTwoColorAlphaPool.lean": "c2bd931950b6ca96369cdc4a48d8f934471d49153fa356f761d7fe8804731ee7",
+  "Research/TaskH/Seven/SevenTwoColorClosing.lean": "47da7430dd6decd9abeaf95e27f499407d0185345188ff6868e4455dbfa2a5a9",
+  "Research/TaskH/Seven/SevenTwoColorDetours.lean": "87d2b001b89fcfaf32d07932b0d00332106493b1606fc476e61e38a9e939907e",
+  "Research/TaskH/Seven/SevenTwoColorFourPairs.lean": "3ffd70cf6e70e43d28cbb42820c549a4e2d58076d8158bfa6ecdee7cc31e448f",
+  "Research/TaskH/Seven/SevenTwoColorFrame.lean": "76678b1ad5c954737a7fd80bbc4c90c2a37731f5d9baa2d14c2b16dce69570c5",
+  "Research/TaskH/Seven/SevenTwoColorFrameSwap.lean": "b12ab607e4388d819e0744739aab86eee3fedc2eb6dc66eea10aa10fda101724",
+  "Research/TaskH/Seven/SevenTwoColorHubBudget.lean": "d95a572bf004e487218fd636513ea7a3ecfc492a7360cbfbcfc2a327cf40db0c",
+  "Research/TaskH/Seven/SevenTwoColorLastPairRestrictions.lean": "6e94565fafcbcec7e69d87c6445f42c5725fc8f161a1eb2111ba81045b8636ed",
+  "Research/TaskH/Seven/SevenTwoColorOwnHubs.lean": "6748eabd1a217cd8dddaecb472d6aba95e4dec58ca3c19ca8c5c67611e515a89",
+  "Research/TaskH/Seven/SevenTwoColorOwnLeafAbsent.lean": "8d6cc1370e7ea95e867b07286de4e2dbcfdc048ae975d2bd3d4846b2b7403d37",
+  "Research/TaskH/Seven/SevenTwoColorPathPositions.lean": "91e27e7f584e43c3d7c4aa5b8da0b66b7f90188a315b86050b042c9008045643",
+  "Research/TaskH/Seven/SevenTwoColorPathSystems.lean": "faad6fc7ea571eb4ada89287b06431048b5aa63afa859645facd977e2a98dffa",
+  "Research/TaskH/Seven/SevenTwoColorPaths.lean": "703d66cc54c919b5b75a79edf424cb25de6dd395bf0b46002ed4d85e8d4312b7",
+  "Research/TaskH/Seven/SevenTwoColorResidual.lean": "238494700fb2f3776f2810cd78e23433d13285356e1ba157e6f4bd84115c4e67",
+  "Research/TaskH/Seven/SevenTwoColorResidualColors.lean": "d8069b265c2d862907a81d91d9b3e197ee47f9dfcaba3d3c843cc7cd8f39a823",
+  "Research/TaskH/Seven/SevenTwoColorResidualLowerBound.lean": "a5816c78c9e0fc2080641e6fa46e14deae2f92c1c1924586105097d93d0ce979",
+  "Research/TaskH/Seven/SevenTwoColorRetention.lean": "ff1591ecd7e912a131893633f3c3d6fe250603c3f6245b6c5009e5a40a51dec8",
+  "Research/TaskH/Seven/SevenTwoColorSeven.lean": "81ae6adc40e0d21ffd273aee3f7b4afb21784b009b5e889ea63eb50f6fb56c88",
+  "Research/TaskH/Seven/SevenTwoColorSevenResidual.lean": "de22034559e1cff2e1c2fb4501b513958afed4a9c6f27c7141523d41a92b322e",
+  "Research/TaskH/Seven/SevenTwoColorSixPathInterior.lean": "b99c321004086f82384f76ca1a1df84b7a9e4570d87fb89503569eb344039435",
+  "Research/TaskH/Seven/SevenTwoColorSixPathNeighbors.lean": "29ffa1d6036f1037138e6fd5fcbb81e1d8bc981c0d43195c8fed502c66d78f2b",
+  "Research/TaskH/Seven/SevenTwoColorSwapFibers.lean": "4f6ab21964a5c21b9c39595736d8523e6939cff91208978904617b1c383c7a3c",
+  "Research/TaskH/Seven/SingletonClique.lean": "0a98da64218875874677063dba23179ebf884fac6c711b64ca4af19c28018f29",
+  "Research/TaskH/Seven/SingletonCycles.lean": "7cf3f1b2f266d521b0511a940910087f750e48b4d3b098b72b25e2156232c557",
+  "Research/TaskH/Seven/SingletonNeighborColors.lean": "34ac495ecdf00089daa765413c6181188d18f41a24fddf5c3f1a0cb1209ffd0c"
+ },
+ "imports": {
+  "Research/TaskH/Basics": [
+   "Research.TaskH.Challenge"
+  ],
+  "Research/TaskH/Challenge": [
+   "Mathlib"
+  ],
+  "Research/TaskH/CliqueCompletion": [
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/ClosedColorOrders": [
+   "Research.TaskH.ColorWordsStrict"
+  ],
+  "Research/TaskH/ColorWords": [
+   "Mathlib"
+  ],
+  "Research/TaskH/ColorWordsCount": [
+   "Research.TaskH.ColorWords"
+  ],
+  "Research/TaskH/ColorWordsSaturation": [
+   "Research.TaskH.ColorWordsStrict"
+  ],
+  "Research/TaskH/ColorWordsStrict": [
+   "Research.TaskH.ColorWordsCount"
+  ],
+  "Research/TaskH/CompleteCritical": [
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Critical": [
+   "Research.TaskH.Challenge"
+  ],
+  "Research/TaskH/CycleFlux": [
+   "Research.TaskH.RawDescents"
+  ],
+  "Research/TaskH/CycleFourWitness": [
+   "Research.TaskH.FourCountData"
+  ],
+  "Research/TaskH/CycleIncidence": [
+   "Research.TaskH.EdgeCyclesCount",
+   "Research.TaskH.CycleFourWitness",
+   "Research.TaskH.Degree",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/CycleOrientation": [
+   "Research.TaskH.Challenge"
+  ],
+  "Research/TaskH/Degree": [
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/DeletedCycleOrders": [
+   "Research.TaskH.ColorWordsSaturation",
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/DirectedCycle": [
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/EdgeCycles": [
+   "Research.TaskH.FourColorPerms",
+   "Research.TaskH.CycleOrientation",
+   "Research.TaskH.Basics"
+  ],
+  "Research/TaskH/EdgeCyclesCount": [
+   "Research.TaskH.EdgeCyclesDistinct"
+  ],
+  "Research/TaskH/EdgeCyclesDistinct": [
+   "Research.TaskH.EdgeCycles"
+  ],
+  "Research/TaskH/EqualityDegree": [
+   "Research.TaskH.EqualityShortCycles",
+   "Research.TaskH.CycleIncidence",
+   "Research.TaskH.FourCount"
+  ],
+  "Research/TaskH/EqualityShortCycles": [
+   "Research.TaskH.GoodCycleLowerBound",
+   "Research.TaskH.GoodMultiplicityOrders",
+   "Research.TaskH.FiniteBudget",
+   "Research.TaskH.EdgeCycles"
+  ],
+  "Research/TaskH/ExactTests": [
+   "Research.TaskH.MainFour"
+  ],
+  "Research/TaskH/FiniteBudget": [
+   "Research.TaskH.Challenge"
+  ],
+  "Research/TaskH/FourColorPerms": [
+   "Research.TaskH.DirectedCycle"
+  ],
+  "Research/TaskH/FourCount": [
+   "Research.TaskH.FourCountData"
+  ],
+  "Research/TaskH/FourCountData": [
+   "Research.TaskH.Basics"
+  ],
+  "Research/TaskH/GoodCycleLowerBound": [
+   "Research.TaskH.LayerCycles",
+   "Research.TaskH.LayerFlux",
+   "Research.TaskH.LayerCycleSeparation"
+  ],
+  "Research/TaskH/GoodMultiplicity": [
+   "Research.TaskH.RawDescents",
+   "Research.TaskH.ClosedColorOrders",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/GoodMultiplicityDeleted": [
+   "Research.TaskH.GoodMultiplicity",
+   "Research.TaskH.DeletedCycleOrders"
+  ],
+  "Research/TaskH/GoodMultiplicityOrders": [
+   "Research.TaskH.GoodMultiplicityDeleted"
+  ],
+  "Research/TaskH/LayerColoring": [
+   "Research.TaskH.LayerSets",
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/LayerCycleSeparation": [
+   "Research.TaskH.NestedShift",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/LayerCycles": [
+   "Research.TaskH.LayerTail",
+   "Research.TaskH.MonochromaticReach"
+  ],
+  "Research/TaskH/LayerFlux": [
+   "Research.TaskH.LayerColoring",
+   "Research.TaskH.CycleFlux",
+   "Research.TaskH.DirectedCycle"
+  ],
+  "Research/TaskH/LayerSets": [
+   "Mathlib"
+  ],
+  "Research/TaskH/LayerTail": [
+   "Research.TaskH.LayerColoring",
+   "Research.TaskH.FourColorPerms"
+  ],
+  "Research/TaskH/LowDegreeAvoidCount": [
+   "Research.TaskH.LowDegreeAvoidCycles",
+   "Research.TaskH.LowDegreeCycleCount"
+  ],
+  "Research/TaskH/LowDegreeAvoidCycles": [
+   "Research.TaskH.LowDegreeCycles"
+  ],
+  "Research/TaskH/LowDegreeComplete": [
+   "Research.TaskH.LowDegreeAvoidCount",
+   "Research.TaskH.CliqueCompletion"
+  ],
+  "Research/TaskH/LowDegreeCycleCount": [
+   "Research.TaskH.LowDegreeCycles"
+  ],
+  "Research/TaskH/LowDegreeCycles": [
+   "Research.TaskH.LowDegreePaths",
+   "Research.TaskH.EdgeCyclesDistinct"
+  ],
+  "Research/TaskH/LowDegreePaths": [
+   "Research.TaskH.Degree",
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/MainFour": [
+   "Research.TaskH.EqualityDegree",
+   "Research.TaskH.LowDegreeComplete",
+   "Research.TaskH.Regression"
+  ],
+  "Research/TaskH/MonochromaticReach": [
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/NestedShift": [
+   "Research.TaskH.CycleFlux",
+   "Research.TaskH.DirectedCycle"
+  ],
+  "Research/TaskH/RawDescents": [
+   "Research.TaskH.Basics",
+   "Research.TaskH.ColorWords"
+  ],
+  "Research/TaskH/Recolor": [
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Regression": [
+   "Research.TaskH.CompleteCritical",
+   "Research.TaskH.CycleFourWitness"
+  ],
+  "Research/TaskH/CaseFive": [
+   "Research.TaskH.Challenge"
+  ],
+  "Research/TaskH/ExactTestsFive": [
+   "Research.TaskH.MainFive"
+  ],
+  "Research/TaskH/Five/CliqueCompletion": [
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Five/ClosedColorOrders": [
+   "Research.TaskH.Five.ColorWordsStrict"
+  ],
+  "Research/TaskH/Five/ColorCycle": [
+   "Research.TaskH.LayerTail"
+  ],
+  "Research/TaskH/Five/ColorWordsSaturation": [
+   "Research.TaskH.Five.ColorWordsStrict",
+   "Research.TaskH.ColorWordsSaturation"
+  ],
+  "Research/TaskH/Five/ColorWordsStrict": [
+   "Research.TaskH.ColorWordsStrict"
+  ],
+  "Research/TaskH/Five/CycleFive": [
+   "Research.TaskH.Five.Definitions"
+  ],
+  "Research/TaskH/Five/CycleFlux": [
+   "Research.TaskH.Five.RawDescents"
+  ],
+  "Research/TaskH/Five/Definitions": [
+   "Research.TaskH.CycleIncidence"
+  ],
+  "Research/TaskH/Five/DeletedCycleOrders": [
+   "Research.TaskH.Five.ColorWordsSaturation",
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Five/EdgeCycles": [
+   "Research.TaskH.Five.FiveColorPerms",
+   "Research.TaskH.CycleOrientation",
+   "Research.TaskH.Basics"
+  ],
+  "Research/TaskH/Five/EdgeCyclesCount": [
+   "Research.TaskH.Five.EdgeCyclesDistinct"
+  ],
+  "Research/TaskH/Five/EdgeCyclesDistinct": [
+   "Research.TaskH.Five.EdgeCycles"
+  ],
+  "Research/TaskH/Five/EqualityShortCycles": [
+   "Research.TaskH.Five.Definitions",
+   "Research.TaskH.Five.GoodCycleLowerBound",
+   "Research.TaskH.Five.GoodMultiplicityOrders",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Five/FiveAttachedGroup": [
+   "Research.TaskH.Five.FiveForcedGroupPaths",
+   "Research.TaskH.Five.FivePatternDegree"
+  ],
+  "Research/TaskH/Five/FiveAttachment": [
+   "Research.TaskH.Five.FiveAttachmentData"
+  ],
+  "Research/TaskH/Five/FiveAttachmentData": [
+   "Research.TaskH.Five.CycleFive"
+  ],
+  "Research/TaskH/Five/FiveColorPerms": [
+   "Research.TaskH.Five.Definitions"
+  ],
+  "Research/TaskH/Five/FiveEqualityWitness": [
+   "Research.TaskH.Five.FiveIncidence"
+  ],
+  "Research/TaskH/Five/FiveForbidden": [
+   "Research.TaskH.Five.FiveGroupBounds",
+   "Research.TaskH.Five.FiveForbiddenBudget",
+   "Research.TaskH.Five.FiveHighDegree"
+  ],
+  "Research/TaskH/Five/FiveForbiddenBudget": [
+   "Research.TaskH.Five.FivePatternDegree"
+  ],
+  "Research/TaskH/Five/FiveForcedGroupBudget": [
+   "Research.TaskH.Five.FiveSparsePattern"
+  ],
+  "Research/TaskH/Five/FiveForcedGroupPaths": [
+   "Research.TaskH.Five.FivePatternForcedColors"
+  ],
+  "Research/TaskH/Five/FiveGroupBounds": [
+   "Research.TaskH.Five.FiveGroupNeighbors"
+  ],
+  "Research/TaskH/Five/FiveGroupNeighbors": [
+   "Research.TaskH.Five.FivePatternExactness",
+   "Research.TaskH.Five.FivePatternCrossPaths"
+  ],
+  "Research/TaskH/Five/FiveHighDegree": [
+   "Research.TaskH.Five.FiveNeighborIncidence",
+   "Research.TaskH.Five.FiveAttachment"
+  ],
+  "Research/TaskH/Five/FiveHighDegreeContradiction": [
+   "Research.TaskH.Five.FiveForbidden",
+   "Research.TaskH.Five.FiveLightEdgeOrder",
+   "Research.TaskH.Five.FiveEqualityWitness",
+   "Research.TaskH.Five.FiveLastBudget",
+   "Research.TaskH.Five.EdgeCyclesCount",
+   "Research.TaskH.Five.SingletonCycles"
+  ],
+  "Research/TaskH/Five/FiveIncidence": [
+   "Research.TaskH.Five.CycleFive"
+  ],
+  "Research/TaskH/Five/FiveLastBudget": [
+   "Research.TaskH.Five.FiveHighDegree"
+  ],
+  "Research/TaskH/Five/FiveLightEdge": [
+   "Research.TaskH.Five.FiveLightEdgeTransport"
+  ],
+  "Research/TaskH/Five/FiveLightEdgeColorBudget": [
+   "Research.TaskH.Five.FiveLightEdgePathLengths"
+  ],
+  "Research/TaskH/Five/FiveLightEdgeData": [
+   "Research.TaskH.Five.FivePatternData"
+  ],
+  "Research/TaskH/Five/FiveLightEdgeDecagon": [
+   "Research.TaskH.Five.FiveLightEdgeData"
+  ],
+  "Research/TaskH/Five/FiveLightEdgeFibers": [
+   "Research.TaskH.Five.FiveLightEdgeColorBudget",
+   "Research.TaskH.Five.FiveLightEdgeMissingColor"
+  ],
+  "Research/TaskH/Five/FiveLightEdgeMissingColor": [
+   "Research.TaskH.Five.FiveLightEdgePathLengths"
+  ],
+  "Research/TaskH/Five/FiveLightEdgeOrder": [
+   "Research.TaskH.Five.FiveLightEdgeFibers"
+  ],
+  "Research/TaskH/Five/FiveLightEdgeOutside": [
+   "Research.TaskH.Five.FiveLightEdgeDecagon",
+   "Research.TaskH.Five.FivePatternTransport"
+  ],
+  "Research/TaskH/Five/FiveLightEdgePathLengths": [
+   "Research.TaskH.Five.FiveLightEdgePaths"
+  ],
+  "Research/TaskH/Five/FiveLightEdgePaths": [
+   "Research.TaskH.Five.FiveLightEdge"
+  ],
+  "Research/TaskH/Five/FiveLightEdgeTransport": [
+   "Research.TaskH.Five.FiveLightEdgeOutside"
+  ],
+  "Research/TaskH/Five/FiveNeighborIncidence": [
+   "Research.TaskH.Five.FiveIncidence",
+   "Research.TaskH.Five.FiveAttachmentData"
+  ],
+  "Research/TaskH/Five/FivePatternCrossPaths": [
+   "Research.TaskH.Five.FiveAttachedGroup"
+  ],
+  "Research/TaskH/Five/FivePatternData": [
+   "Research.TaskH.Five.CycleFive"
+  ],
+  "Research/TaskH/Five/FivePatternDegree": [
+   "Research.TaskH.Five.FivePatternForcedColors"
+  ],
+  "Research/TaskH/Five/FivePatternExactness": [
+   "Research.TaskH.Five.FiveRigidityData",
+   "Research.TaskH.Five.FivePatternDegree"
+  ],
+  "Research/TaskH/Five/FivePatternForcedColors": [
+   "Research.TaskH.Five.FiveForcedGroupBudget"
+  ],
+  "Research/TaskH/Five/FivePatternTransport": [
+   "Research.TaskH.Five.FivePatternData",
+   "Research.TaskH.Five.FiveAttachment",
+   "Research.TaskH.Five.FiveSetBudget"
+  ],
+  "Research/TaskH/Five/FiveRigidityData": [
+   "Research.TaskH.Five.FivePatternData"
+  ],
+  "Research/TaskH/Five/FiveSetBudget": [
+   "Research.TaskH.Five.FiveIncidence"
+  ],
+  "Research/TaskH/Five/FiveSparsePattern": [
+   "Research.TaskH.Five.FivePatternTransport"
+  ],
+  "Research/TaskH/Five/GoodCycleLowerBound": [
+   "Research.TaskH.Five.LayerCycles",
+   "Research.TaskH.Five.LayerFlux",
+   "Research.TaskH.Five.LayerCycleSeparation"
+  ],
+  "Research/TaskH/Five/GoodMultiplicity": [
+   "Research.TaskH.Five.RawDescents",
+   "Research.TaskH.Five.ClosedColorOrders",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/Five/GoodMultiplicityDeleted": [
+   "Research.TaskH.Five.GoodMultiplicity",
+   "Research.TaskH.Five.DeletedCycleOrders"
+  ],
+  "Research/TaskH/Five/GoodMultiplicityOrders": [
+   "Research.TaskH.Five.GoodMultiplicityDeleted"
+  ],
+  "Research/TaskH/Five/LayerColoring": [
+   "Research.TaskH.LayerSets",
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/Five/LayerCycleSeparation": [
+   "Research.TaskH.Five.NestedShift",
+   "Research.TaskH.LayerCycleSeparation"
+  ],
+  "Research/TaskH/Five/LayerCycles": [
+   "Research.TaskH.Five.LayerTail",
+   "Research.TaskH.MonochromaticReach"
+  ],
+  "Research/TaskH/Five/LayerFlux": [
+   "Research.TaskH.Five.LayerColoring",
+   "Research.TaskH.Five.CycleFlux",
+   "Research.TaskH.DirectedCycle"
+  ],
+  "Research/TaskH/Five/LayerTail": [
+   "Research.TaskH.Five.LayerColoring",
+   "Research.TaskH.Five.ColorCycle"
+  ],
+  "Research/TaskH/Five/LowDegreeAvoidCount": [
+   "Research.TaskH.Five.LowDegreeAvoidCycles",
+   "Research.TaskH.Five.SingletonCycles"
+  ],
+  "Research/TaskH/Five/LowDegreeAvoidCycles": [
+   "Research.TaskH.Five.LowDegreePaths",
+   "Research.TaskH.Five.EdgeCycles"
+  ],
+  "Research/TaskH/Five/LowDegreeComplete": [
+   "Research.TaskH.Five.LowDegreeAvoidCount",
+   "Research.TaskH.Five.CliqueCompletion"
+  ],
+  "Research/TaskH/Five/LowDegreePaths": [
+   "Research.TaskH.Five.Definitions",
+   "Research.TaskH.Degree",
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/Five/NestedShift": [
+   "Research.TaskH.Five.CycleFlux",
+   "Research.TaskH.NestedShift"
+  ],
+  "Research/TaskH/Five/RainbowCycles": [
+   "Research.TaskH.Five.EqualityShortCycles"
+  ],
+  "Research/TaskH/Five/RawDescents": [
+   "Research.TaskH.Basics",
+   "Research.TaskH.ColorWords"
+  ],
+  "Research/TaskH/Five/Regression": [
+   "Research.TaskH.CaseFive",
+   "Research.TaskH.CompleteCritical",
+   "Research.TaskH.CycleFourWitness",
+   "Research.TaskH.Five.CycleFive"
+  ],
+  "Research/TaskH/Five/SingletonCycles": [
+   "Research.TaskH.Five.SingletonNeighborColors",
+   "Research.TaskH.Five.EdgeCyclesDistinct"
+  ],
+  "Research/TaskH/Five/SingletonNeighborColors": [
+   "Research.TaskH.Five.Definitions"
+  ],
+  "Research/TaskH/MainFive": [
+   "Research.TaskH.Five.EqualityShortCycles",
+   "Research.TaskH.Five.RainbowCycles",
+   "Research.TaskH.Five.LowDegreeComplete",
+   "Research.TaskH.Five.FiveHighDegreeContradiction",
+   "Research.TaskH.Five.Regression"
+  ],
+  "Research/TaskH/CaseSix": [
+   "Research.TaskH.Challenge"
+  ],
+  "Research/TaskH/ExactTestsSix": [
+   "Research.TaskH.MainSix"
+  ],
+  "Research/TaskH/MainSix": [
+   "Research.TaskH.Six.SixEqualityDegreeTen",
+   "Research.TaskH.Six.SixDegreeTenSplitPacking",
+   "Research.TaskH.Six.SixDegreeTenCommonPacking",
+   "Research.TaskH.Six.RegressionSix"
+  ],
+  "Research/TaskH/Six/BipartiteSixWords": [
+   "Research.TaskH.Six.HexagonWordsCardinality"
+  ],
+  "Research/TaskH/Six/CaseSixElaboration": [
+   "Research.TaskH.CaseSix"
+  ],
+  "Research/TaskH/Six/CliqueCompletion": [
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Six/ClosedColorOrders": [
+   "Research.TaskH.Six.ColorWordsStrict"
+  ],
+  "Research/TaskH/Six/ColorCycle": [
+   "Research.TaskH.LayerTail"
+  ],
+  "Research/TaskH/Six/ColorWordsSaturation": [
+   "Research.TaskH.Six.ColorWordsStrict",
+   "Research.TaskH.ColorWordsSaturation"
+  ],
+  "Research/TaskH/Six/ColorWordsStrict": [
+   "Research.TaskH.ColorWordsStrict"
+  ],
+  "Research/TaskH/Six/CycleFlux": [
+   "Research.TaskH.Six.RawDescents"
+  ],
+  "Research/TaskH/Six/CycleSix": [
+   "Research.TaskH.Six.Definitions"
+  ],
+  "Research/TaskH/Six/Definitions": [
+   "Research.TaskH.CycleIncidence"
+  ],
+  "Research/TaskH/Six/DegreeSixComplete": [
+   "Research.TaskH.Six.SingletonClique",
+   "Research.TaskH.Six.CliqueCompletion"
+  ],
+  "Research/TaskH/Six/DeletedCycleOrders": [
+   "Research.TaskH.Six.ColorWordsSaturation",
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Six/EdgeColorOrders": [
+   "Research.TaskH.Six.ColorCycle",
+   "Research.TaskH.Six.Definitions",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/Six/EdgeCycles": [
+   "Research.TaskH.Six.EdgeColorOrders",
+   "Research.TaskH.Basics"
+  ],
+  "Research/TaskH/Six/EdgeCyclesCount": [
+   "Research.TaskH.Six.EdgeCyclesDistinct",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Six/EdgeCyclesDistinct": [
+   "Research.TaskH.Six.EdgeCycles"
+  ],
+  "Research/TaskH/Six/EqualityDegree": [
+   "Research.TaskH.Six.DegreeSixComplete",
+   "Research.TaskH.Six.SixNeighborIncidence",
+   "Research.TaskH.Six.SixFiniteBudget"
+  ],
+  "Research/TaskH/Six/EqualityShortCycles": [
+   "Research.TaskH.Six.Definitions",
+   "Research.TaskH.Six.GoodCycleLowerBound",
+   "Research.TaskH.Six.GoodMultiplicityOrders",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Six/GoodCycleLowerBound": [
+   "Research.TaskH.Six.LayerCycles",
+   "Research.TaskH.Six.LayerFlux",
+   "Research.TaskH.Six.LayerCycleSeparation"
+  ],
+  "Research/TaskH/Six/GoodMultiplicity": [
+   "Research.TaskH.Six.RawDescents",
+   "Research.TaskH.Six.ClosedColorOrders",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/Six/GoodMultiplicityDeleted": [
+   "Research.TaskH.Six.GoodMultiplicity",
+   "Research.TaskH.Six.DeletedCycleOrders"
+  ],
+  "Research/TaskH/Six/GoodMultiplicityOrders": [
+   "Research.TaskH.Six.GoodMultiplicityDeleted"
+  ],
+  "Research/TaskH/Six/HexagonWordIndices": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/HexagonWords": [
+   "Research.TaskH.Six.HexagonWordIndices"
+  ],
+  "Research/TaskH/Six/HexagonWordsCardinality": [
+   "Research.TaskH.Six.HexagonWords"
+  ],
+  "Research/TaskH/Six/LayerColoring": [
+   "Research.TaskH.LayerSets",
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/Six/LayerCycleSeparation": [
+   "Research.TaskH.Six.NestedShift",
+   "Research.TaskH.LayerCycleSeparation"
+  ],
+  "Research/TaskH/Six/LayerCycles": [
+   "Research.TaskH.Six.LayerTail",
+   "Research.TaskH.MonochromaticReach"
+  ],
+  "Research/TaskH/Six/LayerFlux": [
+   "Research.TaskH.Six.LayerColoring",
+   "Research.TaskH.Six.CycleFlux",
+   "Research.TaskH.DirectedCycle"
+  ],
+  "Research/TaskH/Six/LayerTail": [
+   "Research.TaskH.Six.LayerColoring",
+   "Research.TaskH.Six.ColorCycle"
+  ],
+  "Research/TaskH/Six/NestedShift": [
+   "Research.TaskH.Six.CycleFlux",
+   "Research.TaskH.NestedShift"
+  ],
+  "Research/TaskH/Six/RainbowCycles": [
+   "Research.TaskH.Six.EqualityShortCycles"
+  ],
+  "Research/TaskH/Six/RawDescents": [
+   "Research.TaskH.Basics",
+   "Research.TaskH.ColorWords"
+  ],
+  "Research/TaskH/Six/RegressionSix": [
+   "Research.TaskH.CaseSix",
+   "Research.TaskH.CompleteCritical",
+   "Research.TaskH.CycleFourWitness",
+   "Research.TaskH.Six.HexagonWordsCardinality"
+  ],
+  "Research/TaskH/Six/SingletonClique": [
+   "Research.TaskH.Six.SingletonCycles",
+   "Research.TaskH.Six.RainbowCycles"
+  ],
+  "Research/TaskH/Six/SingletonCycles": [
+   "Research.TaskH.Six.SingletonNeighborColors",
+   "Research.TaskH.Six.EdgeCyclesCount"
+  ],
+  "Research/TaskH/Six/SingletonNeighborColors": [
+   "Research.TaskH.Six.Definitions"
+  ],
+  "Research/TaskH/Six/SixAttachment": [
+   "Research.TaskH.Six.SixAttachmentData"
+  ],
+  "Research/TaskH/Six/SixAttachmentData": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/SixBipartiteCore": [
+   "Research.TaskH.Six.SixFourCliqueConsequences"
+  ],
+  "Research/TaskH/Six/SixCliqueCommonNeighbors": [
+   "Research.TaskH.Six.SixCliquePathPacking",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Six/SixCliquePathPacking": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/SixDegreeNineExclusion": [
+   "Research.TaskH.Six.SixBipartiteCore",
+   "Research.TaskH.Six.BipartiteSixWords",
+   "Research.TaskH.Six.SixMinimumDegreeNine"
+  ],
+  "Research/TaskH/Six/SixDegreeTenCenterCoverage": [
+   "Research.TaskH.Six.SixDegreeTenColors"
+  ],
+  "Research/TaskH/Six/SixDegreeTenColors": [
+   "Research.TaskH.Six.SingletonClique"
+  ],
+  "Research/TaskH/Six/SixDegreeTenCommonOutside": [
+   "Research.TaskH.Six.SixDegreeTenExteriorWords"
+  ],
+  "Research/TaskH/Six/SixDegreeTenCommonPacking": [
+   "Research.TaskH.Six.SixDegreeTenCommonOutside",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Six/SixDegreeTenExteriorWords": [
+   "Research.TaskH.Six.SixDegreeTenLocalShape"
+  ],
+  "Research/TaskH/Six/SixDegreeTenFrame": [
+   "Research.TaskH.Six.SixDegreeTenCenterCoverage"
+  ],
+  "Research/TaskH/Six/SixDegreeTenFrameWords": [
+   "Research.TaskH.Six.SixDegreeTenFrame",
+   "Research.TaskH.Six.SixNeighborPathRule"
+  ],
+  "Research/TaskH/Six/SixDegreeTenLocalShape": [
+   "Research.TaskH.Six.SixDegreeTenPairDichotomy",
+   "Research.TaskH.Six.SixDegreeTenFrameWords"
+  ],
+  "Research/TaskH/Six/SixDegreeTenPairDichotomy": [
+   "Research.TaskH.Six.SixDegreeTenFrame",
+   "Research.TaskH.Six.SixNeighborPathRule"
+  ],
+  "Research/TaskH/Six/SixDegreeTenSplitColors": [
+   "Research.TaskH.Six.SixStarForcedColor",
+   "Research.TaskH.Six.SixDegreeTenLocalShape",
+   "Research.TaskH.Six.SixDegreeTenCommonOutside"
+  ],
+  "Research/TaskH/Six/SixDegreeTenSplitPacking": [
+   "Research.TaskH.Six.SixDegreeTenSplitSeparation",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Six/SixDegreeTenSplitSeparation": [
+   "Research.TaskH.Six.SixDegreeTenSplitWeight"
+  ],
+  "Research/TaskH/Six/SixDegreeTenSplitWeight": [
+   "Research.TaskH.Six.SixDegreeTenSplitColors",
+   "Research.TaskH.Six.SixSplitClonePacking",
+   "Research.TaskH.Six.SixFourLabelBudget"
+  ],
+  "Research/TaskH/Six/SixEqualityDegreeTen": [
+   "Research.TaskH.Six.SixDegreeNineExclusion",
+   "Research.TaskH.Six.TraceSixGraphBound"
+  ],
+  "Research/TaskH/Six/SixFiniteBudget": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueBudget": [
+   "Research.TaskH.Six.SixFiveCliqueSets",
+   "Research.TaskH.Six.EqualityDegree"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueClosedPacking": [
+   "Research.TaskH.Six.SixFiveCliqueSeparation"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueData": [
+   "Research.TaskH.Six.SixAttachmentData"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueLocal": [
+   "Research.TaskH.Six.SixFiveCliqueData",
+   "Research.TaskH.Six.SixCliquePathPacking"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueOutside": [
+   "Research.TaskH.Six.SixFiveCliquePairBudget"
+  ],
+  "Research/TaskH/Six/SixFiveCliquePairBudget": [
+   "Research.TaskH.Six.SixFiveCliquePairPacking"
+  ],
+  "Research/TaskH/Six/SixFiveCliquePairColors": [
+   "Research.TaskH.Six.SixFiveCliqueThreeHooks"
+  ],
+  "Research/TaskH/Six/SixFiveCliquePairPacking": [
+   "Research.TaskH.Six.SixFiveCliquePairPaths"
+  ],
+  "Research/TaskH/Six/SixFiveCliquePairPaths": [
+   "Research.TaskH.Six.SixFiveCliquePairColors"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueReindex": [
+   "Research.TaskH.Six.SixFiveCliqueSets"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueSeparation": [
+   "Research.TaskH.Six.SixFiveCliqueOutside",
+   "Research.TaskH.Six.SixCliquePathPacking"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueSets": [
+   "Research.TaskH.Six.SixFiveCliqueLocal",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueThreeHooks": [
+   "Research.TaskH.Six.SixFiveCliqueReindex",
+   "Research.TaskH.Six.SixFiveCliqueBudget",
+   "Research.TaskH.Six.SixRootPathOrder"
+  ],
+  "Research/TaskH/Six/SixFourCliqueConsequences": [
+   "Research.TaskH.Six.SixFourCliqueRepresentatives",
+   "Research.TaskH.Six.SixFiniteBudget"
+  ],
+  "Research/TaskH/Six/SixFourCliquePacking": [
+   "Research.TaskH.Six.SixCliqueCommonNeighbors"
+  ],
+  "Research/TaskH/Six/SixFourCliqueRepresentatives": [
+   "Research.TaskH.Six.SixFourCliquePacking"
+  ],
+  "Research/TaskH/Six/SixFourLabelBudget": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Six/SixIncidence": [
+   "Research.TaskH.Six.CycleSix",
+   "Research.TaskH.Six.EdgeCyclesCount"
+  ],
+  "Research/TaskH/Six/SixMinimumDegreeNine": [
+   "Research.TaskH.Six.SixFiveCliqueClosedPacking"
+  ],
+  "Research/TaskH/Six/SixNeighborIncidence": [
+   "Research.TaskH.Six.SixIncidence",
+   "Research.TaskH.Six.SixAttachment"
+  ],
+  "Research/TaskH/Six/SixNeighborPathRule": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/SixOpenNeighborhoodPacking": [
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Six/SixRainbowHexagonCollision": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/SixRootPathClosing": [
+   "Research.TaskH.Six.SixRootPaths"
+  ],
+  "Research/TaskH/Six/SixRootPathOrder": [
+   "Research.TaskH.Six.SixRootPathClosing"
+  ],
+  "Research/TaskH/Six/SixRootPaths": [
+   "Research.TaskH.Six.EqualityDegree"
+  ],
+  "Research/TaskH/Six/SixSplitClonePacking": [
+   "Research.TaskH.Six.SixRainbowHexagonCollision",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Six/SixSplitLabelIntersection": [
+   "Research.TaskH.Six.SixRainbowHexagonCollision"
+  ],
+  "Research/TaskH/Six/SixStarForcedColor": [
+   "Research.TaskH.Six.SixSplitLabelIntersection",
+   "Research.TaskH.Six.SixNeighborPathRule"
+  ],
+  "Research/TaskH/Six/SixTraceScalarBudget": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Six/TraceSixBacktrackSets": [
+   "Research.TaskH.Six.TraceSixPaths"
+  ],
+  "Research/TaskH/Six/TraceSixBacktracks": [
+   "Research.TaskH.Six.TraceSixBacktrackSets",
+   "Research.TaskH.Six.TraceSixFrobenius"
+  ],
+  "Research/TaskH/Six/TraceSixCommonIdentity": [
+   "Research.TaskH.Six.TraceSixSamePositionReal",
+   "Research.TaskH.Six.TraceSixCyclesBridge"
+  ],
+  "Research/TaskH/Six/TraceSixCommonNeighbors": [
+   "Research.TaskH.Six.TraceSixPairIdentity"
+  ],
+  "Research/TaskH/Six/TraceSixCyclesBridge": [
+   "Research.TaskH.Six.TraceSixDoubleCross",
+   "Research.TaskH.Six.HexagonWordsCardinality"
+  ],
+  "Research/TaskH/Six/TraceSixDefectIdentity": [
+   "Research.TaskH.Six.TraceSixPathMoments",
+   "Research.TaskH.Six.TraceSixCommonIdentity"
+  ],
+  "Research/TaskH/Six/TraceSixDoubleCross": [
+   "Research.TaskH.Six.TraceSixCommonNeighbors"
+  ],
+  "Research/TaskH/Six/TraceSixEdgePairCounts": [
+   "Research.TaskH.Six.TraceSixEdgePairData"
+  ],
+  "Research/TaskH/Six/TraceSixEdgePairData": [
+   "Research.TaskH.Six.TraceSixPaths"
+  ],
+  "Research/TaskH/Six/TraceSixFrobenius": [
+   "Research.TaskH.Six.TraceSixMoments"
+  ],
+  "Research/TaskH/Six/TraceSixGraphBound": [
+   "Research.TaskH.Six.TraceSixDefectIdentity",
+   "Research.TaskH.Six.SixTraceScalarBudget"
+  ],
+  "Research/TaskH/Six/TraceSixMantel": [
+   "Research.TaskH.Six.TraceSixMoments"
+  ],
+  "Research/TaskH/Six/TraceSixMatrixAggregates": [
+   "Research.TaskH.Six.TraceSixMatrixCommon"
+  ],
+  "Research/TaskH/Six/TraceSixMatrixCommon": [
+   "Research.TaskH.Six.TraceSixSamePositionReal",
+   "Research.TaskH.Six.TraceSixBacktracks"
+  ],
+  "Research/TaskH/Six/TraceSixMoments": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Six/TraceSixNeighborCounts": [
+   "Research.TaskH.Six.TraceSixSingleCross",
+   "Research.TaskH.Six.TraceSixDoubleCross"
+  ],
+  "Research/TaskH/Six/TraceSixPairIdentity": [
+   "Research.TaskH.Six.TraceSixPairs"
+  ],
+  "Research/TaskH/Six/TraceSixPairReversal": [
+   "Research.TaskH.Six.TraceSixPairIdentity"
+  ],
+  "Research/TaskH/Six/TraceSixPairs": [
+   "Research.TaskH.Six.TraceSixPaths"
+  ],
+  "Research/TaskH/Six/TraceSixPathMoments": [
+   "Research.TaskH.Six.TraceSixMatrixAggregates"
+  ],
+  "Research/TaskH/Six/TraceSixPaths": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/TraceSixSamePosition": [
+   "Research.TaskH.Six.TraceSixSamePositionData"
+  ],
+  "Research/TaskH/Six/TraceSixSamePositionData": [
+   "Research.TaskH.Six.TraceSixCommonNeighbors",
+   "Research.TaskH.Six.TraceSixPairReversal"
+  ],
+  "Research/TaskH/Six/TraceSixSamePositionReal": [
+   "Research.TaskH.Six.TraceSixNeighborCounts",
+   "Research.TaskH.Six.TraceSixSamePosition",
+   "Research.TaskH.Six.TraceSixFrobenius"
+  ],
+  "Research/TaskH/Six/TraceSixSingleCross": [
+   "Research.TaskH.Six.TraceSixEdgePairCounts",
+   "Research.TaskH.Six.TraceSixPairReversal",
+   "Research.TaskH.Six.TraceSixCommonNeighbors",
+   "Research.TaskH.Six.TraceSixMantel"
+  ],
+  "Research/TaskH/CaseSeven": [
+   "Research.TaskH.Challenge"
+  ],
+  "Research/TaskH/ExactTestsSeven": [
+   "Research.TaskH.MainSeven"
+  ],
+  "Research/TaskH/MainSeven": [
+   "Research.TaskH.Seven.SevenMinimumThirteen",
+   "Research.TaskH.Seven.SevenFinalBridge",
+   "Research.TaskH.Seven.SevenOriginalLowerBound",
+   "Research.TaskH.Seven.SevenCompleteCheck"
+  ],
+  "Research/TaskH/Seven/ClosedColorOrders": [
+   "Research.TaskH.Seven.ColorWordsStrict"
+  ],
+  "Research/TaskH/Seven/ColorCycle": [
+   "Research.TaskH.LayerTail"
+  ],
+  "Research/TaskH/Seven/ColorWordsSaturation": [
+   "Research.TaskH.Seven.ColorWordsStrict",
+   "Research.TaskH.ColorWordsSaturation"
+  ],
+  "Research/TaskH/Seven/ColorWordsStrict": [
+   "Research.TaskH.ColorWordsStrict"
+  ],
+  "Research/TaskH/Seven/CycleFlux": [
+   "Research.TaskH.Seven.RawDescents"
+  ],
+  "Research/TaskH/Seven/CycleSeven": [
+   "Research.TaskH.Seven.Definitions"
+  ],
+  "Research/TaskH/Seven/Definitions": [
+   "Research.TaskH.CycleIncidence"
+  ],
+  "Research/TaskH/Seven/DeletedCycleOrders": [
+   "Research.TaskH.Seven.ColorWordsSaturation",
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Seven/EdgeColorOrders": [
+   "Research.TaskH.Seven.ColorCycle",
+   "Research.TaskH.Seven.Definitions",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/Seven/EdgeCycles": [
+   "Research.TaskH.Seven.EdgeColorOrders",
+   "Research.TaskH.Basics"
+  ],
+  "Research/TaskH/Seven/EdgeCyclesCount": [
+   "Research.TaskH.Seven.EdgeCyclesDistinct",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Seven/EdgeCyclesDistinct": [
+   "Research.TaskH.Seven.EdgeCycles"
+  ],
+  "Research/TaskH/Seven/EqualityShortCycles": [
+   "Research.TaskH.Seven.Definitions",
+   "Research.TaskH.Seven.GoodCycleLowerBound",
+   "Research.TaskH.Seven.GoodMultiplicityOrders",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Seven/GoodCycleLowerBound": [
+   "Research.TaskH.Seven.LayerCycles",
+   "Research.TaskH.Seven.LayerFlux",
+   "Research.TaskH.Seven.LayerCycleSeparation"
+  ],
+  "Research/TaskH/Seven/GoodMultiplicity": [
+   "Research.TaskH.Seven.RawDescents",
+   "Research.TaskH.Seven.ClosedColorOrders",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/Seven/GoodMultiplicityDeleted": [
+   "Research.TaskH.Seven.GoodMultiplicity",
+   "Research.TaskH.Seven.DeletedCycleOrders"
+  ],
+  "Research/TaskH/Seven/GoodMultiplicityOrders": [
+   "Research.TaskH.Seven.GoodMultiplicityDeleted"
+  ],
+  "Research/TaskH/Seven/LayerColoring": [
+   "Research.TaskH.LayerSets",
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/Seven/LayerCycleSeparation": [
+   "Research.TaskH.Seven.NestedShift",
+   "Research.TaskH.LayerCycleSeparation"
+  ],
+  "Research/TaskH/Seven/LayerCycles": [
+   "Research.TaskH.Seven.LayerTail",
+   "Research.TaskH.MonochromaticReach"
+  ],
+  "Research/TaskH/Seven/LayerFlux": [
+   "Research.TaskH.Seven.LayerColoring",
+   "Research.TaskH.Seven.CycleFlux",
+   "Research.TaskH.DirectedCycle"
+  ],
+  "Research/TaskH/Seven/LayerTail": [
+   "Research.TaskH.Seven.LayerColoring",
+   "Research.TaskH.Seven.ColorCycle"
+  ],
+  "Research/TaskH/Seven/NestedShift": [
+   "Research.TaskH.Seven.CycleFlux",
+   "Research.TaskH.NestedShift"
+  ],
+  "Research/TaskH/Seven/RainbowCycles": [
+   "Research.TaskH.Seven.EqualityShortCycles"
+  ],
+  "Research/TaskH/Seven/RawDescents": [
+   "Research.TaskH.Basics",
+   "Research.TaskH.ColorWords"
+  ],
+  "Research/TaskH/Seven/SevenAttachment": [
+   "Research.TaskH.Seven.SevenAttachmentData"
+  ],
+  "Research/TaskH/Seven/SevenAttachmentData": [
+   "Research.TaskH.Seven.CycleSeven"
+  ],
+  "Research/TaskH/Seven/SevenBP45": [
+   "Research.TaskH.Seven.SevenBPSixteenEndgame",
+   "Research.TaskH.Seven.SevenBPSixteenExistence"
+  ],
+  "Research/TaskH/Seven/SevenBPActualChordCount": [
+   "Research.TaskH.Seven.SevenBPChordClassification"
+  ],
+  "Research/TaskH/Seven/SevenBPAttachmentArithmetic": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Seven/SevenBPAttachmentFourEar": [
+   "Research.TaskH.Seven.SevenBPCycleAttachments"
+  ],
+  "Research/TaskH/Seven/SevenBPAttachmentTwoEar": [
+   "Research.TaskH.Seven.SevenBPChordClassification"
+  ],
+  "Research/TaskH/Seven/SevenBPBoundaryBudget": [
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Seven/SevenBPChordBudget": [
+   "Research.TaskH.Seven.SevenBPChordNormalize"
+  ],
+  "Research/TaskH/Seven/SevenBPChordClassification": [
+   "Research.TaskH.Seven.SevenBPChordBudget"
+  ],
+  "Research/TaskH/Seven/SevenBPChordExclusions": [
+   "Research.TaskH.Seven.SevenBPChordWitnessData"
+  ],
+  "Research/TaskH/Seven/SevenBPChordGroups": [
+   "Research.TaskH.Seven.SevenBPChordExclusions"
+  ],
+  "Research/TaskH/Seven/SevenBPChordNormalize": [
+   "Research.TaskH.Seven.SevenBPChordResidues"
+  ],
+  "Research/TaskH/Seven/SevenBPChordResidues": [
+   "Research.TaskH.Seven.SevenBPChordGroups"
+  ],
+  "Research/TaskH/Seven/SevenBPChordWitnessData": [
+   "Research.TaskH.Seven.SevenBPCycleWitness"
+  ],
+  "Research/TaskH/Seven/SevenBPCycleAttachments": [
+   "Research.TaskH.Seven.SevenBPAttachmentTwoEar",
+   "Research.TaskH.Seven.SevenBPSameParitySupport",
+   "Research.TaskH.Seven.SevenBPBoundaryBudget"
+  ],
+  "Research/TaskH/Seven/SevenBPCycleIndexShift": [
+   "Research.TaskH.Seven.SevenBPInternalCapacity"
+  ],
+  "Research/TaskH/Seven/SevenBPCycleWitness": [
+   "Research.TaskH.Basics"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenChordData": [
+   "Research.TaskH.Seven.SevenBPEighteenCycle"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenChords": [
+   "Research.TaskH.Seven.SevenBPEighteenChordData"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenClassBoundary": [
+   "Research.TaskH.Seven.SevenBPEighteenTripleNeighbors"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenCompatibility": [
+   "Research.TaskH.Seven.SevenBPEighteenThreeEar"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenCycle": [
+   "Research.TaskH.Seven.SevenBPShortCycleReduction"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenExclusion45": [
+   "Research.TaskH.Seven.SevenBPEighteenSideCounts"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenHookClasses": [
+   "Research.TaskH.Seven.SevenBPEighteenCompatibility"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenHooks": [
+   "Research.TaskH.Seven.SevenBPEighteenChords"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenSideAttachments": [
+   "Research.TaskH.Seven.SevenBPEighteenClassBoundary"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenSideCounts": [
+   "Research.TaskH.Seven.SevenBPEighteenSideStructure"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenSideStructure": [
+   "Research.TaskH.Seven.SevenBPEighteenSideAttachments"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenThreeEar": [
+   "Research.TaskH.Seven.SevenBPEighteenHooks"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenTripleClassification": [
+   "Research.TaskH.Seven.SevenBPEighteenHookClasses"
+  ],
+  "Research/TaskH/Seven/SevenBPEighteenTripleNeighbors": [
+   "Research.TaskH.Seven.SevenBPEighteenTripleClassification"
+  ],
+  "Research/TaskH/Seven/SevenBPExternalCapacity": [
+   "Research.TaskH.Seven.SevenBPCycleIndexShift"
+  ],
+  "Research/TaskH/Seven/SevenBPForcedLow": [
+   "Research.TaskH.Seven.SevenBPSharedAttachments"
+  ],
+  "Research/TaskH/Seven/SevenBPInternalCapacity": [
+   "Research.TaskH.Seven.SevenBPTwoEar",
+   "Research.TaskH.Seven.SevenBPBoundaryBudget"
+  ],
+  "Research/TaskH/Seven/SevenBPInternalEdges": [
+   "Research.TaskH.Seven.SevenBPActualChordCount"
+  ],
+  "Research/TaskH/Seven/SevenBPLongCycle": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Seven/SevenBPQuadNeighborGroups": [
+   "Research.TaskH.Seven.SevenBPSharedHookGroups"
+  ],
+  "Research/TaskH/Seven/SevenBPQuadNeighbors": [
+   "Research.TaskH.Seven.SevenBPForcedLow",
+   "Research.TaskH.Seven.SevenBPQuadNeighborGroups"
+  ],
+  "Research/TaskH/Seven/SevenBPSameParitySupport": [
+   "Research.TaskH.Seven.SevenBPChordResidues"
+  ],
+  "Research/TaskH/Seven/SevenBPSharedAttachments": [
+   "Research.TaskH.Seven.SevenBPAttachmentFourEar",
+   "Research.TaskH.Seven.SevenBPSharedHookGroups"
+  ],
+  "Research/TaskH/Seven/SevenBPSharedHookGroups": [
+   "Research.TaskH.Seven.SevenBPSameParitySupport"
+  ],
+  "Research/TaskH/Seven/SevenBPShortCycleReduction": [
+   "Research.TaskH.Seven.SevenBPExternalCapacity",
+   "Research.TaskH.Seven.SevenBPCycleWitness"
+  ],
+  "Research/TaskH/Seven/SevenBPShortestLongCycle": [
+   "Research.TaskH.Seven.SevenBPLongCycle"
+  ],
+  "Research/TaskH/Seven/SevenBPSixteenClassBoundary": [
+   "Research.TaskH.Seven.SevenBPCycleAttachments",
+   "Research.TaskH.Seven.SevenBPInternalEdges"
+  ],
+  "Research/TaskH/Seven/SevenBPSixteenEndgame": [
+   "Research.TaskH.Seven.SevenBPSixteenQuadSide"
+  ],
+  "Research/TaskH/Seven/SevenBPSixteenExistence": [
+   "Research.TaskH.Seven.SevenBPEighteenExclusion45"
+  ],
+  "Research/TaskH/Seven/SevenBPSixteenQuadSide": [
+   "Research.TaskH.Seven.SevenBPSixteenSideCounts"
+  ],
+  "Research/TaskH/Seven/SevenBPSixteenSideAttachments": [
+   "Research.TaskH.Seven.SevenBPSixteenClassBoundary"
+  ],
+  "Research/TaskH/Seven/SevenBPSixteenSideCounts": [
+   "Research.TaskH.Seven.SevenBPSixteenSideStructure",
+   "Research.TaskH.Seven.SevenBPAttachmentArithmetic"
+  ],
+  "Research/TaskH/Seven/SevenBPSixteenSideStructure": [
+   "Research.TaskH.Seven.SevenBPSixteenSideAttachments",
+   "Research.TaskH.Seven.SevenBPQuadNeighbors"
+  ],
+  "Research/TaskH/Seven/SevenBPTwoEar": [
+   "Research.TaskH.Seven.SevenBPShortestLongCycle"
+  ],
+  "Research/TaskH/Seven/SevenBoundedIncidence": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Seven/SevenCheck": [
+   "Research.TaskH.ExactTestsSeven",
+   "Research.TaskH.Seven.SevenOriginalLowerBound"
+  ],
+  "Research/TaskH/Seven/SevenCliqueCompletion": [
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Seven/SevenCliqueRainbow": [
+   "Research.TaskH.Seven.CycleSeven"
+  ],
+  "Research/TaskH/Seven/SevenColorClassBudgets": [
+   "Research.TaskH.Seven.SevenSingletonOrderFamilies",
+   "Research.TaskH.Seven.SevenEqualityBasics",
+   "Research.TaskH.Seven.SevenNoncompleteDegree",
+   "Mathlib.Algebra.BigOperators.Ring.Finset"
+  ],
+  "Research/TaskH/Seven/SevenCommonCaseReduction": [
+   "Research.TaskH.Seven.SevenLocalCommonColors"
+  ],
+  "Research/TaskH/Seven/SevenCommonCrossingCycles": [
+   "Research.TaskH.Seven.SevenCommonCaseReduction"
+  ],
+  "Research/TaskH/Seven/SevenCommonFive": [
+   "Research.TaskH.Seven.SevenCommonMateSeparation"
+  ],
+  "Research/TaskH/Seven/SevenCommonFour": [
+   "Research.TaskH.Seven.SevenCommonFourExcess"
+  ],
+  "Research/TaskH/Seven/SevenCommonFourColors": [
+   "Research.TaskH.Seven.SevenCommonFive"
+  ],
+  "Research/TaskH/Seven/SevenCommonFourExcess": [
+   "Research.TaskH.Seven.SevenCommonFourColors"
+  ],
+  "Research/TaskH/Seven/SevenCommonIncidence": [
+   "Research.TaskH.Seven.SevenCommonRepGraph"
+  ],
+  "Research/TaskH/Seven/SevenCommonMateOutside": [
+   "Research.TaskH.Seven.SevenCommonIncidence"
+  ],
+  "Research/TaskH/Seven/SevenCommonMateSeparation": [
+   "Research.TaskH.Seven.SevenCommonMateOutside"
+  ],
+  "Research/TaskH/Seven/SevenCommonOneTwo": [
+   "Research.TaskH.Seven.SevenCommonRepOutside"
+  ],
+  "Research/TaskH/Seven/SevenCommonPartners": [
+   "Research.TaskH.Seven.SevenCommonOneTwo"
+  ],
+  "Research/TaskH/Seven/SevenCommonRepGraph": [
+   "Research.TaskH.Seven.SevenCommonCrossingCycles",
+   "Mathlib.Combinatorics.SimpleGraph.Extremal.Turan"
+  ],
+  "Research/TaskH/Seven/SevenCommonRepOutside": [
+   "Research.TaskH.Seven.SevenCommonRepSeparation"
+  ],
+  "Research/TaskH/Seven/SevenCommonRepSeparation": [
+   "Research.TaskH.Seven.SevenSplitPoolIncidence"
+  ],
+  "Research/TaskH/Seven/SevenCommonRepresentativeColors": [
+   "Research.TaskH.Seven.SevenCommonSplitOutside"
+  ],
+  "Research/TaskH/Seven/SevenCommonSplitLocal": [
+   "Research.TaskH.Seven.SevenRootedFivePaths"
+  ],
+  "Research/TaskH/Seven/SevenCommonSplitOutside": [
+   "Research.TaskH.Seven.SevenCommonSplitLocal",
+   "Research.TaskH.Seven.SevenDegreeTwelveClassOrder"
+  ],
+  "Research/TaskH/Seven/SevenCompleteCheck": [
+   "Research.TaskH.CaseSeven",
+   "Research.TaskH.CompleteCritical",
+   "Research.TaskH.Seven.SevenCompleteWords"
+  ],
+  "Research/TaskH/Seven/SevenCompleteWords": [
+   "Research.TaskH.CycleFourWitness",
+   "Research.TaskH.Seven.SevenHeptagonWordsCardinality"
+  ],
+  "Research/TaskH/Seven/SevenDegreeElevenFibers": [
+   "Research.TaskH.Seven.SevenFirstStep",
+   "Research.TaskH.Seven.SevenK5Free",
+   "Mathlib.Algebra.BigOperators.Ring.Finset"
+  ],
+  "Research/TaskH/Seven/SevenDegreeSeven": [
+   "Research.TaskH.Seven.SingletonClique",
+   "Research.TaskH.Seven.SevenCliqueCompletion"
+  ],
+  "Research/TaskH/Seven/SevenDegreeTwelveClassOrder": [
+   "Research.TaskH.Seven.SevenDegreeTwelveFrame",
+   "Research.TaskH.Seven.SevenColorClassBudgets"
+  ],
+  "Research/TaskH/Seven/SevenDegreeTwelveFrame": [
+   "Research.TaskH.Seven.SevenMinimumTwelve"
+  ],
+  "Research/TaskH/Seven/SevenDegreeTwelveGeometry": [
+   "Research.TaskH.Seven.SevenDegreeTwelveFrame"
+  ],
+  "Research/TaskH/Seven/SevenEqualityBasics": [
+   "Research.TaskH.Seven.RainbowCycles",
+   "Research.TaskH.Seven.SevenIndependentBounds",
+   "Research.TaskH.Seven.SevenLowerBound"
+  ],
+  "Research/TaskH/Seven/SevenFinalBridge": [
+   "Research.TaskH.Seven.SevenOrder45",
+   "Research.TaskH.Seven.SevenK5Free",
+   "Research.TaskH.Seven.SevenMaximumCut",
+   "Research.TaskH.Seven.SevenBP45",
+   "Research.TaskH.Seven.SevenLowerBound"
+  ],
+  "Research/TaskH/Seven/SevenFirstStep": [
+   "Research.TaskH.Seven.SingletonClique"
+  ],
+  "Research/TaskH/Seven/SevenHamiltonCoordinates": [
+   "Research.TaskH.Seven.SevenHamiltonPerms",
+   "Research.TaskH.Seven.SevenHeptagonWords"
+  ],
+  "Research/TaskH/Seven/SevenHamiltonMissingEdge": [
+   "Research.TaskH.Seven.SevenHamiltonCoordinates"
+  ],
+  "Research/TaskH/Seven/SevenHamiltonPerms": [
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Seven/SevenHeptagonWordIndices": [
+   "Research.TaskH.Seven.CycleSeven"
+  ],
+  "Research/TaskH/Seven/SevenHeptagonWords": [
+   "Research.TaskH.Seven.SevenHeptagonWordIndices"
+  ],
+  "Research/TaskH/Seven/SevenHeptagonWordsCardinality": [
+   "Research.TaskH.Seven.SevenHeptagonWords"
+  ],
+  "Research/TaskH/Seven/SevenIncidence": [
+   "Research.TaskH.Seven.CycleSeven",
+   "Research.TaskH.Seven.EdgeCyclesCount"
+  ],
+  "Research/TaskH/Seven/SevenIndependentBounds": [
+   "Research.TaskH.Seven.SevenNeighborIncidence"
+  ],
+  "Research/TaskH/Seven/SevenJoint": [
+   "Research.TaskH.Seven.SevenEqualityBasics"
+  ],
+  "Research/TaskH/Seven/SevenK4LongPath": [
+   "Research.TaskH.Seven.SevenCliqueRainbow",
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Seven/SevenK5CommonNeighbor": [
+   "Research.TaskH.Seven.SevenK5Reindex"
+  ],
+  "Research/TaskH/Seven/SevenK5Free": [
+   "Research.TaskH.Seven.SevenK5LastClosed"
+  ],
+  "Research/TaskH/Seven/SevenK5LastClosed": [
+   "Research.TaskH.Seven.SevenK5LastStructure"
+  ],
+  "Research/TaskH/Seven/SevenK5LastFinite": [
+   "Research.TaskH.Seven.SevenK5PackingNoSmall",
+   "Mathlib.Data.Fin.Tuple.Basic",
+   "Mathlib.Data.Fintype.Card",
+   "Mathlib.Data.Fintype.BigOperators"
+  ],
+  "Research/TaskH/Seven/SevenK5LastStructure": [
+   "Research.TaskH.Seven.SevenK5LastFinite"
+  ],
+  "Research/TaskH/Seven/SevenK5PackingCompatibility": [
+   "Research.TaskH.Seven.SevenK5PackingLabels",
+   "Research.TaskH.Seven.SevenCliqueRainbow",
+   "Mathlib.Logic.Equiv.Fintype"
+  ],
+  "Research/TaskH/Seven/SevenK5PackingConsequences": [
+   "Research.TaskH.Seven.SevenK5PackingRepresentatives",
+   "Research.TaskH.Seven.SevenK6Free"
+  ],
+  "Research/TaskH/Seven/SevenK5PackingHeavy": [
+   "Research.TaskH.Seven.SevenK5PackingTriangle"
+  ],
+  "Research/TaskH/Seven/SevenK5PackingLabels": [
+   "Research.TaskH.Seven.SevenK5CommonNeighbor",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Seven/SevenK5PackingNoSmall": [
+   "Research.TaskH.Seven.SevenK5PackingConsequences",
+   "Research.TaskH.Seven.SevenK5PackingHeavy"
+  ],
+  "Research/TaskH/Seven/SevenK5PackingRepresentatives": [
+   "Research.TaskH.Seven.SevenK5PackingLabels"
+  ],
+  "Research/TaskH/Seven/SevenK5PackingTriangle": [
+   "Research.TaskH.Seven.SevenK5PackingCompatibility"
+  ],
+  "Research/TaskH/Seven/SevenK5Path": [
+   "Research.TaskH.Seven.SevenCliqueRainbow",
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Seven/SevenK5Reindex": [
+   "Research.TaskH.Seven.SevenK5Path",
+   "Research.TaskH.Seven.SevenK4LongPath"
+  ],
+  "Research/TaskH/Seven/SevenK6CliqueBudget": [
+   "Research.TaskH.Seven.SevenK6CliqueSets",
+   "Research.TaskH.Seven.SingletonCycles",
+   "Research.TaskH.Seven.SevenIncidence",
+   "Research.TaskH.Seven.SevenNoncompleteDegree"
+  ],
+  "Research/TaskH/Seven/SevenK6CliqueData": [
+   "Research.TaskH.Seven.SevenCliqueRainbow"
+  ],
+  "Research/TaskH/Seven/SevenK6CliqueLocal": [
+   "Research.TaskH.Seven.SevenK6CliqueData"
+  ],
+  "Research/TaskH/Seven/SevenK6CliqueOrder": [
+   "Research.TaskH.Seven.SevenK6CliqueThreeHooks"
+  ],
+  "Research/TaskH/Seven/SevenK6CliqueOutside": [
+   "Research.TaskH.Seven.SevenK6CliquePairBudget",
+   "Research.TaskH.Seven.SevenIndependentBounds"
+  ],
+  "Research/TaskH/Seven/SevenK6CliquePairBudget": [
+   "Research.TaskH.Seven.SevenK6CliquePairPacking",
+   "Research.TaskH.Seven.SevenBoundedIncidence"
+  ],
+  "Research/TaskH/Seven/SevenK6CliquePairColors": [
+   "Research.TaskH.Seven.SevenK6CliqueOrder"
+  ],
+  "Research/TaskH/Seven/SevenK6CliquePairPacking": [
+   "Research.TaskH.Seven.SevenK6CliquePairPaths"
+  ],
+  "Research/TaskH/Seven/SevenK6CliquePairPaths": [
+   "Research.TaskH.Seven.SevenK6CliquePairColors"
+  ],
+  "Research/TaskH/Seven/SevenK6CliqueReindex": [
+   "Research.TaskH.Seven.SevenK6CliqueSets"
+  ],
+  "Research/TaskH/Seven/SevenK6CliqueSeparation": [
+   "Research.TaskH.Seven.SevenK6CliqueOutside",
+   "Research.TaskH.Seven.SevenK5Path"
+  ],
+  "Research/TaskH/Seven/SevenK6CliqueSets": [
+   "Research.TaskH.Seven.SevenK6CliqueLocal",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Seven/SevenK6CliqueThreeHooks": [
+   "Research.TaskH.Seven.SevenK6CliqueReindex",
+   "Research.TaskH.Seven.SevenK6CliqueBudget",
+   "Research.TaskH.Seven.SevenEqualityBasics"
+  ],
+  "Research/TaskH/Seven/SevenK6Free": [
+   "Research.TaskH.Seven.SevenK6CliqueSeparation",
+   "Research.TaskH.Seven.SevenSingletonDegree"
+  ],
+  "Research/TaskH/Seven/SevenLocalCommonColors": [
+   "Research.TaskH.Seven.SevenCommonPartners"
+  ],
+  "Research/TaskH/Seven/SevenLowerBound": [
+   "Research.TaskH.Seven.EqualityShortCycles"
+  ],
+  "Research/TaskH/Seven/SevenMaximumCut": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Seven/SevenMinimumThirteen": [
+   "Research.TaskH.Seven.SevenSplitResidualBudget",
+   "Research.TaskH.Seven.SevenTwoColorResidualLowerBound"
+  ],
+  "Research/TaskH/Seven/SevenMinimumTwelve": [
+   "Research.TaskH.Seven.SevenPairInsertion"
+  ],
+  "Research/TaskH/Seven/SevenNeighborIncidence": [
+   "Research.TaskH.Seven.SevenIncidence",
+   "Research.TaskH.Seven.SevenAttachment"
+  ],
+  "Research/TaskH/Seven/SevenNoncompleteDegree": [
+   "Research.TaskH.Seven.SevenDegreeSeven",
+   "Research.TaskH.Degree"
+  ],
+  "Research/TaskH/Seven/SevenOrder45": [
+   "Research.TaskH.Seven.SevenHamiltonMissingEdge",
+   "Research.TaskH.Seven.SevenSCCFamilyPartition"
+  ],
+  "Research/TaskH/Seven/SevenOriginalLowerBound": [
+   "Research.TaskH.CaseSeven",
+   "Research.TaskH.Seven.SevenCompleteCheck",
+   "Research.TaskH.Seven.SevenLowerBound"
+  ],
+  "Research/TaskH/Seven/SevenPairInsertion": [
+   "Research.TaskH.Seven.SevenDegreeElevenFibers"
+  ],
+  "Research/TaskH/Seven/SevenPureSplit": [
+   "Research.TaskH.Seven.SevenCommonFour"
+  ],
+  "Research/TaskH/Seven/SevenRootedFivePaths": [
+   "Research.TaskH.Seven.SevenDegreeTwelveGeometry"
+  ],
+  "Research/TaskH/Seven/SevenSCCCover": [
+   "Research.TaskH.Seven.SevenSCCRelation"
+  ],
+  "Research/TaskH/Seven/SevenSCCCycle": [
+   "Research.TaskH.Seven.SevenSCCRelation",
+   "Research.TaskH.Seven.SevenEqualityBasics"
+  ],
+  "Research/TaskH/Seven/SevenSCCFamily": [
+   "Research.TaskH.Seven.SevenSCCCycle",
+   "Research.TaskH.Seven.SevenSCCCover"
+  ],
+  "Research/TaskH/Seven/SevenSCCFamilyOrders": [
+   "Research.TaskH.Seven.SevenJoint",
+   "Research.TaskH.Seven.EdgeCyclesDistinct",
+   "Research.TaskH.LayerCycleSeparation",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Seven/SevenSCCFamilyPartition": [
+   "Research.TaskH.Seven.SevenSCCFamily",
+   "Research.TaskH.Seven.SevenSCCFamilyOrders"
+  ],
+  "Research/TaskH/Seven/SevenSCCPalette": [
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/Seven/SevenSCCRainbow": [
+   "Research.TaskH.Seven.Definitions",
+   "Research.TaskH.Seven.SevenSCCPalette"
+  ],
+  "Research/TaskH/Seven/SevenSCCRelation": [
+   "Research.TaskH.Seven.SevenSCCRainbow",
+   "Research.TaskH.Seven.CycleSeven",
+   "Research.TaskH.Seven.EdgeColorOrders"
+  ],
+  "Research/TaskH/Seven/SevenSingletonDegree": [
+   "Research.TaskH.Seven.SingletonClique"
+  ],
+  "Research/TaskH/Seven/SevenSingletonOrderFamilies": [
+   "Research.TaskH.Seven.SingletonClique",
+   "Research.TaskH.Seven.SevenIncidence"
+  ],
+  "Research/TaskH/Seven/SevenSplitAdjacentCenters": [
+   "Research.TaskH.Seven.SevenSplitLeafPoolSeparation",
+   "Research.TaskH.Seven.SevenTwoColorFrameSwap"
+  ],
+  "Research/TaskH/Seven/SevenSplitAdjacentPacking": [
+   "Research.TaskH.Seven.SevenSplitAdjacentCenters",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Seven/SevenSplitCenterOutside": [
+   "Research.TaskH.Seven.SevenSplitCommonCenterBudget"
+  ],
+  "Research/TaskH/Seven/SevenSplitCenterPools": [
+   "Research.TaskH.Seven.SevenTwoColorFrame"
+  ],
+  "Research/TaskH/Seven/SevenSplitCenterSymmetry": [
+   "Research.TaskH.Seven.SevenSplitCenterPools"
+  ],
+  "Research/TaskH/Seven/SevenSplitCommonCenterBudget": [
+   "Research.TaskH.Seven.SevenSplitLeafIncidence"
+  ],
+  "Research/TaskH/Seven/SevenSplitCommonCenterPaths": [
+   "Research.TaskH.Seven.SevenSplitAdjacentPacking"
+  ],
+  "Research/TaskH/Seven/SevenSplitLeafIncidence": [
+   "Research.TaskH.Seven.SevenPureSplit",
+   "Research.TaskH.Seven.SevenSplitCommonCenterPaths",
+   "Research.TaskH.Seven.SevenTwoColorResidual"
+  ],
+  "Research/TaskH/Seven/SevenSplitLeafPoolSeparation": [
+   "Research.TaskH.Seven.SevenSplitCenterSymmetry"
+  ],
+  "Research/TaskH/Seven/SevenSplitPairCoordinates": [
+   "Research.TaskH.Seven.SevenCommonRepresentativeColors"
+  ],
+  "Research/TaskH/Seven/SevenSplitPoolCapacity": [
+   "Research.TaskH.Seven.SevenSplitPoolColors"
+  ],
+  "Research/TaskH/Seven/SevenSplitPoolColors": [
+   "Research.TaskH.Seven.SevenSplitPairCoordinates"
+  ],
+  "Research/TaskH/Seven/SevenSplitPoolIncidence": [
+   "Research.TaskH.Seven.SevenSplitPoolCapacity"
+  ],
+  "Research/TaskH/Seven/SevenSplitResidualBudget": [
+   "Research.TaskH.Seven.SevenSplitCenterOutside"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorAlphaPool": [
+   "Research.TaskH.Seven.SevenTwoColorPathPositions"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorClosing": [
+   "Research.TaskH.Seven.SevenTwoColorPaths",
+   "Research.TaskH.Seven.Definitions"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorDetours": [
+   "Research.TaskH.Seven.SevenTwoColorClosing"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorFourPairs": [
+   "Research.TaskH.Seven.SevenTwoColorFrameSwap"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorFrame": [
+   "Research.TaskH.Seven.SevenSplitPairCoordinates",
+   "Research.TaskH.Seven.SevenTwoColorSeven",
+   "Research.TaskH.Seven.SevenK5Free"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorFrameSwap": [
+   "Research.TaskH.Seven.SevenTwoColorFrame",
+   "Research.TaskH.Seven.SevenTwoColorSwapFibers"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorHubBudget": [
+   "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+   "Mathlib.Data.Finset.Card"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorLastPairRestrictions": [
+   "Research.TaskH.Seven.SevenTwoColorPathSystems"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorOwnHubs": [
+   "Research.TaskH.Seven.SevenTwoColorAlphaPool",
+   "Research.TaskH.Seven.SevenTwoColorHubBudget",
+   "Research.TaskH.Seven.SevenSplitLeafPoolSeparation"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorOwnLeafAbsent": [
+   "Research.TaskH.Seven.SevenTwoColorSevenResidual"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorPathPositions": [
+   "Research.TaskH.Seven.SevenTwoColorRetention"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorPathSystems": [
+   "Research.TaskH.Seven.SevenTwoColorOwnLeafAbsent"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorPaths": [
+   "Research.TaskH.DirectedCycle",
+   "Research.TaskH.EdgeCycles"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorResidual": [
+   "Research.TaskH.Seven.SevenTwoColorOwnHubs"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorResidualColors": [
+   "Research.TaskH.Seven.SevenTwoColorLastPairRestrictions"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorResidualLowerBound": [
+   "Research.TaskH.Seven.SevenTwoColorResidualColors"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorRetention": [
+   "Research.TaskH.Seven.SevenTwoColorFourPairs"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorSeven": [
+   "Research.TaskH.Seven.SevenTwoColorDetours",
+   "Research.TaskH.Seven.SevenColorClassBudgets"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorSevenResidual": [
+   "Research.TaskH.Seven.SevenTwoColorSixPathNeighbors"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorSixPathInterior": [
+   "Research.TaskH.Seven.SevenTwoColorResidual"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorSixPathNeighbors": [
+   "Research.TaskH.Seven.SevenTwoColorSixPathInterior"
+  ],
+  "Research/TaskH/Seven/SevenTwoColorSwapFibers": [
+   "Research.TaskH.Seven.SevenTwoColorPaths"
+  ],
+  "Research/TaskH/Seven/SingletonClique": [
+   "Research.TaskH.Seven.SingletonCycles",
+   "Research.TaskH.LayerCycleSeparation"
+  ],
+  "Research/TaskH/Seven/SingletonCycles": [
+   "Research.TaskH.Seven.SingletonNeighborColors",
+   "Research.TaskH.Seven.EdgeCyclesCount"
+  ],
+  "Research/TaskH/Seven/SingletonNeighborColors": [
+   "Research.TaskH.Seven.Definitions"
+  ]
+ }
+}

@@ -1,0 +1,236 @@
+{
+ "name": "paper13-lean-packages",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs)",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "packages": {
+  "k4": {
+   "formal_batch": "formal-batch01",
+   "modules": 49,
+   "driver_sha256": "fabf4f41fb396667ed25b0973e1b28ffb842c87391c7f1747235909b7370db78",
+   "run": {
+    "started_utc": "2026-11-13T20:45:33Z",
+    "ended_utc": "2026-11-13T21:02:53Z"
+   },
+   "builds": {
+    "A": {
+     "directory": "new and empty",
+     "modules": 49,
+     "commands": 98,
+     "first_start": "2026-11-13T20:45:34Z",
+     "last_end": "2026-11-13T20:54:12Z",
+     "all_exit_0_first_attempt": true,
+     "warnings": 0,
+     "commands_passing_after_automatic_reruns": 0,
+     "all_final_states_OK": true,
+     "logs": {
+      "file": "k4-build-A-logs.tar.gz",
+      "sha256": "425f4a45839ecc9f33d5c83e5a2a5796d9f92122c728e2e096f6d0b4f9da19d6",
+      "bytes": 6186
+     }
+    },
+    "B": {
+     "directory": "new and empty",
+     "modules": 49,
+     "commands": 98,
+     "first_start": "2026-11-13T20:54:12Z",
+     "last_end": "2026-11-13T21:02:52Z",
+     "all_exit_0_first_attempt": true,
+     "warnings": 0,
+     "commands_passing_after_automatic_reruns": 0,
+     "all_final_states_OK": true,
+     "logs": {
+      "file": "k4-build-B-logs.tar.gz",
+      "sha256": "e242a854d0c6c004717e049bc7cfffe8b23e78cb56defd167980b960dd47568c",
+      "bytes": 6169
+     }
+    }
+   },
+   "olean_A_equals_B": {
+    "files": 49,
+    "identical": true
+   },
+   "earlier_attempts_without_lean_verdict": {},
+   "codex_acceptance": {
+    "record": "ACCEPTED-PARTIAL-K4-01.json",
+    "record_sha256": "981efc26e6570cbe79ebe3b04d0274a0fdbc2be59946cef3d37f56a0573b069a",
+    "utc": "2026-11-13T21:16:58Z",
+    "status": "ACCEPTED_PARTIAL_K4_ONLY",
+    "manifest_sha256": "0abd2f69872794213d6acd5610022cfd863d6c2ed715cdb00d67be314b74f091"
+   }
+  },
+  "k5": {
+   "formal_batch": "formal-k5-batch01",
+   "modules": 120,
+   "driver_sha256": "fabf4f41fb396667ed25b0973e1b28ffb842c87391c7f1747235909b7370db78",
+   "run": {
+    "started_utc": "2026-11-13T23:51:57Z",
+    "ended_utc": "2026-11-14T00:32:57Z"
+   },
+   "builds": {
+    "A": {
+     "directory": "new and empty",
+     "modules": 120,
+     "commands": 240,
+     "first_start": "2026-11-13T23:51:58Z",
+     "last_end": "2026-11-14T00:12:30Z",
+     "all_exit_0_first_attempt": true,
+     "warnings": 0,
+     "commands_passing_after_automatic_reruns": 0,
+     "all_final_states_OK": true,
+     "logs": {
+      "file": "k5-build-A-logs.tar.gz",
+      "sha256": "a7eb7aba49ea31bbaedda94c15b53916fef305cd00cdacedf2b6de0fbbf68e01",
+      "bytes": 15376
+     }
+    },
+    "B": {
+     "directory": "new and empty",
+     "modules": 120,
+     "commands": 240,
+     "first_start": "2026-11-14T00:12:31Z",
+     "last_end": "2026-11-14T00:32:56Z",
+     "all_exit_0_first_attempt": true,
+     "warnings": 0,
+     "commands_passing_after_automatic_reruns": 0,
+     "all_final_states_OK": true,
+     "logs": {
+      "file": "k5-build-B-logs.tar.gz",
+      "sha256": "4be7eb2826398cbdbcded35b153de1b50d7d48209d4793028d4ac9cdc70514e6",
+      "bytes": 15339
+     }
+    }
+   },
+   "olean_A_equals_B": {
+    "files": 120,
+    "identical": true
+   },
+   "earlier_attempts_without_lean_verdict": {},
+   "codex_acceptance": {
+    "record": "ACCEPTED-PARTIAL-K5-01.json",
+    "record_sha256": "4d63096dc272a2fc2eeb0a709e3af680a03a50606661c1cb45dd735f0a27a574",
+    "utc": "2026-11-14T00:52:10Z",
+    "status": "ACCEPTED_PARTIAL_K5_ONLY",
+    "manifest_sha256": "6683a9b53a009f67d6921f00f467c8b8a3c21e8e2d9a05b6ff11c7c5f5c54eac"
+   }
+  },
+  "k6": {
+   "formal_batch": "formal-k6-batch01",
+   "modules": 236,
+   "driver_sha256": "fabf4f41fb396667ed25b0973e1b28ffb842c87391c7f1747235909b7370db78",
+   "run": {
+    "started_utc": "2026-11-14T05:26:32Z",
+    "ended_utc": "2026-11-14T06:40:18Z"
+   },
+   "builds": {
+    "A": {
+     "directory": "new and empty",
+     "modules": 236,
+     "commands": 472,
+     "first_start": "2026-11-14T05:26:34Z",
+     "last_end": "2026-11-14T06:03:17Z",
+     "all_exit_0_first_attempt": false,
+     "warnings": 0,
+     "commands_passing_after_automatic_reruns": 6,
+     "all_final_states_OK": true,
+     "logs": {
+      "file": "k6-build-A-logs.tar.gz",
+      "sha256": "6386c581dfe264afcf7fcbd7b6fa15f7324ac69cf7bc37df4be097810255b935",
+      "bytes": 32982
+     }
+    },
+    "B": {
+     "directory": "new and empty",
+     "modules": 236,
+     "commands": 472,
+     "first_start": "2026-11-14T06:03:19Z",
+     "last_end": "2026-11-14T06:40:17Z",
+     "all_exit_0_first_attempt": false,
+     "warnings": 0,
+     "commands_passing_after_automatic_reruns": 3,
+     "all_final_states_OK": true,
+     "logs": {
+      "file": "k6-build-B-logs.tar.gz",
+      "sha256": "c292267706596ba79093564fcf7e4604727a466d6595cd8b255906b9740dea8e",
+      "bytes": 32361
+     }
+    }
+   },
+   "olean_A_equals_B": {
+    "files": 236,
+    "identical": true
+   },
+   "earlier_attempts_without_lean_verdict": {
+    "earlier_failed_automatic_attempts": 13,
+    "earlier_failure_classification": {
+     "FILE_READ": 11,
+     "BAD_ALLOC": 2
+    }
+   },
+   "codex_acceptance": {
+    "record": "ACCEPTED-PARTIAL-K6-01.json",
+    "record_sha256": "b50a9f74dd0260353c34addeb1224dfb3d44c5394ae7cd33a7a9759137fcc43e",
+    "utc": "2026-11-14T07:05:56Z",
+    "status": "ACCEPTED_PARTIAL_K6_ONLY",
+    "manifest_sha256": "321052096f21a6d469c077a7d88eadd9571e0fcdcfbc83a9c4220049f6ee6efc"
+   }
+  },
+  "k7": {
+   "formal_batch": "formal-k7-batch01",
+   "modules": 240,
+   "driver_sha256": "fabf4f41fb396667ed25b0973e1b28ffb842c87391c7f1747235909b7370db78",
+   "run": {
+    "started_utc": "2026-11-15T07:35:27Z",
+    "ended_utc": "2026-11-15T09:01:02Z"
+   },
+   "builds": {
+    "A": {
+     "directory": "new and empty",
+     "modules": 240,
+     "commands": 480,
+     "first_start": "2026-11-15T07:35:30Z",
+     "last_end": "2026-11-15T08:18:17Z",
+     "all_exit_0_first_attempt": true,
+     "warnings": 0,
+     "commands_passing_after_automatic_reruns": 0,
+     "all_final_states_OK": true,
+     "logs": {
+      "file": "k7-build-A-logs.tar.gz",
+      "sha256": "e52308f18007b54b34ebbdb9cb9d61bc6a149138ee318a04b77e65c202bae299",
+      "bytes": 32983
+     }
+    },
+    "B": {
+     "directory": "new and empty",
+     "modules": 240,
+     "commands": 480,
+     "first_start": "2026-11-15T08:18:18Z",
+     "last_end": "2026-11-15T09:01:01Z",
+     "all_exit_0_first_attempt": true,
+     "warnings": 0,
+     "commands_passing_after_automatic_reruns": 0,
+     "all_final_states_OK": true,
+     "logs": {
+      "file": "k7-build-B-logs.tar.gz",
+      "sha256": "d6da868267e8962e47f54a3bd014fdb4326ca3e685ad7dd957e39616d7e4f290",
+      "bytes": 32934
+     }
+    }
+   },
+   "olean_A_equals_B": {
+    "files": 240,
+    "identical": true
+   },
+   "earlier_attempts_without_lean_verdict": {},
+   "codex_acceptance": {
+    "record": "ACCEPTED-PARTIAL-K7-01.json",
+    "record_sha256": "d7bed05af1f2ecd628c5499435abc0d81a954d1b9e3e91201ae631759662a8f3",
+    "utc": "2026-11-15T09:32:30Z",
+    "status": "ACCEPTED_PARTIAL_K7_ONLY",
+    "manifest_sha256": "a9221039c93532df30d8b4df268a0c46691d988d992660c85b7c07a946d1ed07"
+   }
+  }
+ },
+ "logs_note": "In the published logs <worker> and <workspace> replace local directories; nothing else is changed.",
+ "whole_project": "see logs/clean-replay-v1.21.0-receipt.json"
+}

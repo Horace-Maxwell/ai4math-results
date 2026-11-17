@@ -50,3 +50,8 @@ import Research.TaskE.FinalTaskEAudit
 import Research.TaskE.C1High
 import Research.CographDist.Audit
 import Research.TaskG.Check
+import Research.TaskH.ExactTests
+import Research.TaskH.ExactTestsFive
+import Research.TaskH.ExactTestsSix
+import Research.TaskH.Seven.SevenCheck
+import Research.TaskH.Six.CaseSixElaboration
