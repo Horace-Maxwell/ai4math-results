@@ -8,7 +8,7 @@
 \usepackage{xurl}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
- pdftitle={Critical graphs with the fewest cycles of length 0 modulo k: the cases 4<=k<=7},
+ pdftitle={Critical graphs with the fewest cycles of length 0 modulo k},
  pdfauthor={Horace Dong}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
@@ -16,15 +16,14 @@
 \newtheorem{corollary}{Corollary}
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
-\newcommand{\repoversion}{1.21.0}
+\newcommand{\repoversion}{1.22.0}
 \setlength{\emergencystretch}{1.5em}
 
-\title{Critical graphs with the fewest cycles of length $0$ modulo $k$:\\
-the cases $4\le k\le 7$}
+\title{Critical graphs with the fewest cycles of length $0$ modulo $k$}
 \author{Horace Dong\\ \small Independent researcher\\
 \small\texttt{maxwelldhx@gmail.com}\\
 \small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
-\date{17 November 2026}
+\date{18 November 2026}
 \begin{document}
 \maketitle
 
@@ -33,12 +32,16 @@ Choi and Sieniawski proved that for every $k\ge3$, every graph with no proper
 $k$-colouring has at least $(k+1)!/(2k)$ cycles of length $0$ modulo~$k$, a
 bound attained by $K_{k+1}$, and asked whether, for $k\ge4$, $K_{k+1}$ is the
 only $(k+1)$-critical graph attaining it. We show that the answer is yes for
-$k=4,5,6,7$. As far as we know, the question remains open for $k\ge8$. The proofs use the
-counting method of Choi and Sieniawski, a construction of Kim and Picollelli,
-and, for each $k$, a case analysis of the degrees and of small cliques; for
-$k=7$ they also use a lemma on cycles of length~$14$ in bipartite graphs. The four results are formally verified in Lean~4. The proofs were
-found and formalized by AI agents working under the author's direction; their
-role is described at the end of the paper.
+every $k\ge4$. The proof uses the counting method of Choi and Sieniawski. For
+$k=4$ and $k=5$ it uses a construction of Kim and Picollelli and a case
+analysis of degrees. For $k\ge6$ we show that a critical graph attaining the
+bound, other than $K_{k+1}$, has minimum degree at least $2k-1$, and then use
+a theorem of Gao, Huo, Liu and Ma on paths whose lengths form an arithmetic
+progression to find a cycle whose length is a multiple of $k$ larger than $k$,
+which the equality case forbids. The result is formally verified in Lean~4,
+including the theorem of Gao, Huo, Liu and Ma.
+The proofs were found and formalized by AI agents working under the author's
+direction; their role is described at the end of the paper.
 \end{abstract}
 
 \section{Introduction}
@@ -69,34 +72,38 @@ $\frac{(k+1)!}{2k}$ cycles of length $0$ modulo $k$?
 \end{quote}
 
 \begin{theorem}\label{thm:main}
-Let $k\in\{4,5,6,7\}$. If $G$ is a $(k+1)$-critical graph with
-exactly $\frac{(k+1)!}{2k}$ cycles of length $0$ modulo $k$, then
-$G\cong K_{k+1}$.
+Let $k\ge4$. If $G$ is a $(k+1)$-critical graph with exactly
+$\frac{(k+1)!}{2k}$ cycles of length $0$ modulo $k$, then $G\cong K_{k+1}$.
 \end{theorem}
 
-So the answer to the question is yes for $4\le k\le7$; as far as we know, it
-remains open for $k\ge8$.
-The arguments of Sections~\ref{sec:good} and~\ref{sec:general} are written
-for general $k$, but we claim them, and have formalized them, only for
-$4\le k\le7$; the formalization proves them separately for each of these four
-values. For graphs of minimum degree $k$ we use a construction of Kim and
+So the answer to the question is yes. A first version of this paper
+(version~1.21.0 of the repository~\cite{repo}) proved Theorem~\ref{thm:main}
+for $4\le k\le7$, with a separate case analysis for each~$k$. The present
+version keeps the arguments for $k=4$ and $k=5$ and replaces those for $k=6$
+and $k=7$ by one argument for all $k\ge6$ (Sections~\ref{sec:six}
+and~\ref{sec:long}).
+
+For graphs of minimum degree $k$ we use a construction of Kim and
 Picollelli~\cite[Theorem~2.4 and Corollary~2.5]{kp}: for a $(k+1)$-critical
 graph $G$ with $\delta(G)=k$ they construct an injection $f$ from the cycles of
 $K_{k+1}$ of length at most $k$ into the cycles of $G$ such that the length of
 $f(C)$ is a multiple of the length of $C$, and deduce the lower bound
 $(k+1)!/(2k)$ for such graphs. They do not consider the equality case of this
-bound for $k\ge4$.
+bound for $k\ge4$. For $k\ge6$ we use a theorem of Gao, Huo, Liu and
+Ma~\cite[Theorem~3.1]{ghlm} on paths with prescribed ends whose lengths form an
+arithmetic progression with difference $1$ or $2$, which in turn uses a theorem of
+Fan~\cite{fan}.
 
-Searches of the literature on 13, 16 and 17 November 2026 found no answer to the
-question for any $k\ge4$; arXiv:2611.13580 had only its first version and no
-citing works. A public repository of AI-written notes treats the lower bound
-for special classes of graphs, such as line graphs, but not this question for
-general critical graphs. The coverage of these searches is described in the
-repository~\cite{repo}.
+Searches of the literature on 13, 16, 17 and 18 November 2026 found no answer to the
+question for any $k\ge4$ other than version~1 of this paper; arXiv:2611.13580
+had only its first version and no citing works. A public repository of
+AI-written notes treats the lower bound for special classes of graphs, such as
+line graphs, but not this question for general critical graphs. The coverage
+of these searches is described in the repository~\cite{repo}.
 
 \section{Good cycles and the saturation identity}\label{sec:good}
 
-Fix $k\in\{4,5,6,7\}$ and write $b=\frac{(k-1)!}{2}$ and $B=(k+1)b=\frac{(k+1)!}{2k}$.
+Fix $k\ge4$ and write $b=\frac{(k-1)!}{2}$ and $B=(k+1)b=\frac{(k+1)!}{2k}$.
 We use the method of~\cite{cs}. Let a total order of $V(G)$ be given. An edge of
 a directed walk is a \emph{descent} if it goes from a later to an earlier
 vertex. A cycle of length $ak$ with a chosen cyclic direction is \emph{good} if
@@ -147,7 +154,7 @@ repeat a fixed cyclic order, and again at most $k$ permutations make it good.
 
 \section{Consequences of saturation}\label{sec:general}
 
-Throughout this section $k\in\{4,5,6,7\}$ and $G$ is $(k+1)$-critical with $N_k(G)=B$. Since $G$ is
+Throughout this section $k\ge4$ and $G$ is $(k+1)$-critical with $N_k(G)=B$. Since $G$ is
 critical, $G-v$ is $k$-colourable for every $v$, and every vertex has degree at
 least~$k$.
 
@@ -180,7 +187,7 @@ $2(a-1)>a-1$ descents and the direction is not good, a contradiction.
 \end{proof}
 
 \begin{lemma}\label{lem:rainbow}
-Let $k\in\{5,6,7\}$. For every vertex $v$, every proper $k$-colouring of $G-v$ and every $k$-cycle
+For every vertex $v$, every proper $k$-colouring of $G-v$ and every $k$-cycle
 $C$, the vertices of $C-v$ have distinct colours.
 \end{lemma}
 
@@ -192,8 +199,6 @@ distinct, $C$ would be good for no permutation, contradicting
 Corollary~\ref{cor:sat}.
 \end{proof}
 
-\noindent The same argument works for $k=4$, but the case $k=4$ does not need
-the lemma, and it is formalized only for $k=5,6,7$.
 
 \paragraph{Successor digraphs.} Let $H$ be a graph with a proper
 $k$-colouring $\varphi$ and let $\sigma$ be a cyclic permutation of the colours
@@ -266,10 +271,9 @@ $\sigma$, so $N(v)$ is a clique and $\{v\}\cup N(v)$ spans $K_{k+1}$. By
 criticality this subgraph is all of~$G$.
 \end{proof}
 
-\noindent For $k=4$ and $k=5$ the formalization follows this proof. For
-$k=6$ and $k=7$ it proves the proposition differently, from
-Lemma~\ref{lem:singleton} below: a vertex of degree $k$ has $k$ singleton
-neighbours, which span a $K_k$.
+\noindent Proposition~\ref{prop:degk} is used only for $k=4$ and $k=5$, and is
+formalized only for these two values; for
+$k\ge6$, Section~\ref{sec:six} gives more.
 
 \begin{lemma}\label{lem:order}
 Every vertex of $G$ lies on at least $b+1$ $k$-cycles.
@@ -301,24 +305,21 @@ On $6\le n\le15$ the right-hand side is at least $\frac{45}{2}$, so $G$ has at
 least $23>15$ cycles of length $0$ modulo $4$, a contradiction. Hence
 $\delta(G)=4$ and $G\cong K_5$.
 
-\section{The cases $k=5,6,7$}\label{sec:567}
+\section{The case $k=5$}\label{sec:five}
 
-Throughout this section $k\in\{5,6,7\}$, $G$ is $(k+1)$-critical with
-$N_k(G)=B$, and $G\not\cong K_{k+1}$; we derive a contradiction. We write
+In this section $k\ge5$, $G$ is $(k+1)$-critical with $N_k(G)=B$, and
+$G\not\cong K_{k+1}$. We first prove three tools and then derive a
+contradiction for $k=5$; the first tool is used again in
+Section~\ref{sec:six}. We write
 $n=|V(G)|$, $d_v$ for the degree of $v$, and $c_v$ for the number of
 $k$-cycles through~$v$. By Lemma~\ref{lem:short} every cycle counted by
 $N_k(G)$ is a $k$-cycle, so
 \begin{equation}\label{eq:incidence}
 \sum_{v} c_v = kB,
 \end{equation}
-which is $360$, $2520$ and $20160$ for $k=5,6,7$. By
+which is $360$ for $k=5$. By
 Proposition~\ref{prop:degk}, $\delta(G)\ge k+1$, hence $n\ge k+2$; by
-Lemma~\ref{lem:order}, $c_v\ge b+1$ for every~$v$. The values are
-$(b,B)=(12,72)$, $(60,420)$ and $(360,2880)$.
-
-The three arguments are long case analyses. We give the complete chain of
-steps with all counts, prove the general tools in full, and outline the longer
-local steps; the complete arguments are in the Lean files named in each step.
+Lemma~\ref{lem:order}, $c_v\ge b+1$ for every~$v$.
 
 \subsection{Three tools}
 
@@ -352,8 +353,8 @@ rainbow and contains $x_l$, the successor is $x_l$. Hence $x_jx_l\in E(G)$.
 \end{proof}
 
 \begin{lemma}[outside neighbours of a $k$-cycle]\label{lem:attach}
-Let $C$ be a $k$-cycle and $y\notin V(C)$. Then $y$ has at most $k-3$
-neighbours on $C$ (that is, $2$, $3$, $4$ for $k=5,6,7$).
+Let $k=5$, let $C$ be a $5$-cycle and $y\notin V(C)$. Then $y$ has at most
+$k-3=2$ neighbours on~$C$.
 \end{lemma}
 
 \begin{proof}
@@ -366,12 +367,12 @@ $y\,s_{j+2}s_{j+3}\cdots s_{k-1}s_0s_1\cdots s_j\,y$ is a $k$-cycle avoiding
 $w$ that contains $y$ and $s_0$, contradicting Lemma~\ref{lem:rainbow}. So the
 indices of the neighbours of $y$ form an independent set in the graph on
 $\{1,\dots,k-1\}$ with edges $\{j,j+2\}$, which is the disjoint union of the
-paths on the odd and on the even indices. For $k=5,6,7$ its independence number
-is $2,3,4$.
+paths on the odd and on the even indices. For $k=5$ its independence number
+is~$2$.
 \end{proof}
 
 \begin{lemma}[two double counts]\label{lem:double}
-For every vertex $v$,
+Let $k=5$. For every vertex $v$,
 \[
 b\,d_v\le (k-3)(B-c_v)\qquad\text{and}\qquad d_v(c_v-b)\ge 2c_v .
 \]
@@ -473,185 +474,349 @@ $n=22$ and $d_u=d_v=8$, whence $c_u=c_v=24$ while the other $20$ vertices have
 $c_x\ge16$: $\sum_x c_x\ge24+24+20\cdot16=368>360$, contradicting
 \eqref{eq:incidence}.
 
-\subsection{The case $k=6$}
 
-Here $b=60$, $B=420$, $\sum_vc_v=2520$, $c_v\ge61$ and $\delta(G)\ge7$.
+\section{Minimum degree when $k\ge6$}\label{sec:six}
 
-\emph{Step 1: $8\le\delta$, $\Delta\le17$, $c_v\ge68$, $13\le n\le37$.}
-Lemma~\ref{lem:double} reads $60d_v\le3(420-c_v)$ and $d_v(c_v-60)\ge2c_v$.
-With $c_v\ge61$ the first gives $d_v\le17$, and then the second gives
-$c_v\ge60\cdot17/15=68$, so $n\le37$ by \eqref{eq:incidence}. For $d_v=7$,
-Lemma~\ref{lem:singleton} gives $c_v\ge300$, while the first inequality gives
-$c_v\le280$; so $\delta\ge8$. Counting rooted paths of length $4$ shows
-$\delta+\Delta\le n+3$ (otherwise $2c_v\ge d_v(\delta-1)(\delta-2)(\delta-3)
-\ge8\cdot7\cdot6\cdot5=1680>2\cdot420$), so $n\ge13$.
+Throughout this section $k\ge6$, $G$ is $(k+1)$-critical with $N_k(G)=B$, and
+$G\not\cong K_{k+1}$. We prove:
 
-\emph{Step 2: $G$ is $K_5$-free, so $\delta\ge9$.} Let $Q$ be a $K_5$ and
-suppose an outside vertex $y$ has at least two neighbours in $Q$; put
-$T=Q\cup\{y\}$, which spans a $6$-cycle. Paths of length $4$ inside $T$ through
-the vertex of the same colour as an outside vertex (as in the case $k=5$) show:
-if $y$ has at least three neighbours in $Q$, every vertex outside $T$ has at
-most one neighbour in $T$, and then
-$\sum_x c_x\ge60(72-n-24)+61(n-6)=2514+n>2520$; if $y$ has exactly two
-neighbours $p,q$, the other multi-neighbour vertices outside $T$ are adjacent
-exactly to $p,q$, are forced to the colour of $y$, and have pairwise disjoint
-outside neighbourhoods, so their number $r$ satisfies $n\ge12+7r$, i.e.\
-$r\le3$, and $\sum_x c_x\ge2874+n-60r>2520$. Both contradict
-\eqref{eq:incidence}, so every outside vertex has at most one neighbour
-in $Q$. Then the outside neighbourhoods $A_q=N(q)\setminus Q$ are
-disjoint, any two of them are at distance at least $3$ in $G-Q$ (a shorter
-connection closes through $Q$ into a $6$-cycle whose interior would need a
-colour outside the five colours of $Q$ at two adjacent vertices), and choosing
-one vertex in each $A_q$ gives five disjoint closed neighbourhoods of size at
-least $8$: $n\ge5+5\cdot8=45>37$. Lemma~\ref{lem:singleton} now gives
-$\delta\ge9$: if $d_v\le8$ then $q\ge4$ and $G\supseteq K_5$.
+\begin{proposition}\label{prop:mindeg}
+Every vertex of $G$ has degree at least $2k-1$.
+\end{proposition}
 
-\emph{Step 3: $\delta\le10$.} Suppose $\delta\ge11$. First $G$ is $K_4$-free:
-for a $K_4$ $Q$, two outside vertices with distinct roots $a,b\in Q$ and a
-common neighbour $z$ outside $Q$ give $6$-cycles $a\,x\,z\,y\,b\,s\,a$ for both
-$s\in Q\setminus\{a,b\}$, forcing $x,z,y$ to three distinct colours outside the
-four colours of $Q$; so with $r$ the number of outside vertices with at least
-two neighbours in $Q$ and $p$ the number of $q\in Q$ having an outside vertex
-attached only to $q$,
-\begin{equation}\label{eq:six-pack}
-(\delta-4)r+(\delta-1)p\le n-4,\qquad\text{and } r\ge\delta-3 \text{ if } p<4,
-\end{equation}
-which is impossible for $\delta\ge11$, $n\le37$. Next, a direct count shows:
-\emph{every $K_4$-free graph with $0<n\le37$ and all degrees in $[11,17]$ has at
-least $43412$ $6$-cycles.} With $A$ the adjacency matrix, $t_i$ the number of
-triangles at $i$, $T=\frac13\sum t_i$, $S_r=\sum_i d_i^r$,
-$Q=\sum_{ij\in E}2d_id_j$ (ordered edges), $D=\sum_{ij\in E}\binom{c_{ij}}2$
-with $c_{ij}$ the number of common neighbours, and
-$M=A^3-3\,\mathrm{diag}(d_i-1)A$, classifying pairs of paths of length $3$ with
-common ends gives the exact identity
-\[
-12\,C_6=\|M\|_F^2-5S_3+6S_2-5S_1+3Q-12\textstyle\sum_it_i^2+30T+36D .
-\]
-Cauchy--Schwarz on the entries of $M$ gives $\|M\|_F^2\ge(8h+33)^2$ with
-$h=S_2/n\ge121$; Mantel's theorem in each neighbourhood gives
-$12\sum t_i^2\le\frac34S_4$; and $(d-11)(d-17)(28d+187)\le0$,
-$(d^2-121)(d^2-289)\le0$ bound $S_3,S_4$. Together with $n\le37$ this yields
-$12C_6\ge14586215/28$, so $C_6\ge43412>420$, a contradiction.
+In this section we write $h=\frac{(k-1)!}{2}$ for the number called $b$ in
+Section~\ref{sec:general}, as the letter $b$ will denote a vertex; so
+$B=(k+1)h$. Fix a vertex $v$ and a proper $k$-colouring $\varphi$ of $G-v$. For a colour
+$i$ let $F_i=\{x\in N(v):\varphi(x)=i\}$ and
+$W_i=\{x\in V(G)-v:\varphi(x)=i\}$; note $F_i\subseteq W_i$. Every $F_i$ is
+nonempty, since otherwise $v$ could be coloured~$i$. A colour $i$ is a
+\emph{singleton colour} if $|F_i|=1$, and the vertex of $F_i$ is then its
+\emph{centre}. Two facts are used throughout: by Lemma~\ref{lem:short} every
+cycle counted by $N_k(G)$ has length exactly $k$, and by
+Lemma~\ref{lem:rainbow} the vertices of $C-v$ have distinct colours for every
+$k$-cycle~$C$ (and every choice of deleted vertex and colouring).
 
-\emph{Step 4: $\delta=10$, $G$ is $K_4$-free and $n\le36$.} If $d_v=9$ then
-$q\ge3$, so $c_v\ge180$, $n\le35$, and the singleton neighbours give a $K_4$;
-\eqref{eq:six-pack} becomes $5r+8p\le31$, which forces $p=0$, $r=6$ and an
-actual $K_{4,6}$ in $G$. But $K_{4,6}$ already has
-$\binom43\binom63\cdot6=480>420$ $6$-cycles. So $\delta=10$. A vertex of
-degree $10$ gives $c_v\ge120$ and $n\le36$, and then \eqref{eq:six-pack}
-($6r+9p\le32$) excludes every $K_4$.
+\subsection{Singleton colours}
 
-\emph{Step 5: a vertex of degree $10$.} Fix $v$ with $d_v=10$ and a colouring
-$\varphi$ of $G-v$. By $K_4$-freeness exactly two colours are singletons, at
-$a$ and $b$, and the other four colours occur on pairs $\{p_i,q_i\}$. A path of
-length $4$ in $G-v$ with both ends in $N(v)$ closes to a $6$-cycle through $v$,
-so its five vertices have distinct colours. From this, $G[N(v)]$ is either
-(A) two stars $K_{1,4}$ centred at $a$ and $b$ (plus possibly $ab$), or (B) a
-$K_{2,4}$ between $\{a,b\}$ and four vertices $r_i$, plus a triangle-free graph
-on the other four. In case (A) the leaves of the star at $a$ send at least
-$32$ edges out of $N[v]$, to a set $X$ disjoint from the corresponding set $Y$
-for $b$, and colour arguments show $\sum_{z\in X}|N(z)\cap P|\le|X|+6$; so
-$64\le|X|+|Y|+12\le n+1\le37$. In case (B) the $r_i$ have at least $28$
-outside neighbours and the other four at least $6$ further ones, so $n\ge45>36$.
-
-\subsection{The case $k=7$}
-
-Here $b=360$, $B=2880$, $\sum_vc_v=20160$, $c_v\ge361$ and $\delta(G)\ge8$.
-
-\emph{Step 1: $\Delta\le27$, $c_v\ge389$, $n\le51$.} Lemma~\ref{lem:double}
-gives $360d_v\le4(2880-c_v)$, so $d_v\le27$, and $d_v(c_v-360)\ge2c_v$, so
-$c_v\ge360\cdot27/25=388.8$. By \eqref{eq:incidence}, $n\le\lfloor20160/389\rfloor=51$.
-
-\emph{Step 2: $G$ is $K_6$-free, so $\delta\ge10$.} For a $K_6$, one first
-shows, as in Step~2 for $k=6$ (vertices with two neighbours in the clique are
-forced to repeat colours and are excluded by the incidence budget), that every
-outside vertex has at most one neighbour in it; choosing one outside neighbour of each
-clique vertex gives six vertices whose closed neighbourhoods outside the clique
-have at least $8$ vertices each and are pairwise disjoint (by
-Lemma~\ref{lem:rainbow}), so $n\ge6+48=54>51$. Then
-Lemma~\ref{lem:singleton} ($q\ge14-d_v$) gives $\delta\ge10$.
-
-\emph{Step 3: $G$ is $K_5$-free, so $\delta\ge11$.} Let $Q$ be a $K_5$ and
-$H=G-Q$; label each $x\in V(H)$ by $L(x)=N(x)\cap Q$. If two labelled vertices
-are joined by a path of length $2$ or $3$ in $H$, their labels are the same
-singleton (otherwise the path closes through $Q$ into $7$-cycles that force
-its $3$ or $4$ vertices onto the two colours not used on $Q$). With $r$ the
-number of vertices with $|L|\ge2$ and $p$ the number of $q\in Q$ that are the
-label of some vertex, open-neighbourhood packing gives $5r+9p\le n-5\le46$,
-and $r\ge6$ if $p<5$. This leaves $p\in\{0,1\}$ or $p=5,r=0$. If $p\le1$,
-two multi-label vertices with $|L(x)\cup L(y)|\ge4$ lie on a $7$-cycle through
-$Q$ that forces them to different colours among the two free colours, so this
-compatibility graph is bipartite; a label count then gives a contradiction. If
-$p=5$ and $r=0$, each of the five singleton groups has at least $6$ vertices,
-and one can choose one vertex from each group so that the five chosen vertices
-are pairwise non-adjacent; packing their closed neighbourhoods in $H$ gives
-$n\ge55>51$, a contradiction. (Codex's written proof of this last step uses an
-averaging argument instead; we describe the version that is formalized.)
-
-\emph{Step 4: no vertex of degree $11$ or $12$, so $\delta\ge13$.} A vertex of
-degree $11$ has three singleton neighbours (forming, with $v$, a $K_4$) and
-four colour pairs; inserting a suitable pair vertex into a Hamiltonian path of
-the three singleton neighbours yields a $7$-cycle through $v$ with a repeated
-colour. For a vertex $v$ of degree $12$ one shows first that in every colouring of
-$G-v$ the colours on $N(v)$ have multiplicities $1,1,2,2,2,2,2$ (three
-singleton colours are excluded as for degree $11$); the cases where a pair vertex is adjacent
-to both singleton neighbours are excluded, leaving a ``pure split'' in which the
-singleton neighbours $a,b$ are adjacent to complementary halves $P,Q$ of the
-pairs. Colour-class budgets give $n\le46$, at most $33$ vertices outside $N[v]$,
-and at most $5$ vertices of each singleton colour. At least four shortest
-alternating paths from $a$ to the $q_i$ have length exactly $7$ (lengths $3,5$
-give a non-rainbow $7$-cycle, length $9$ a $14$-cycle). Splitting the outside
-vertices into the neighbours of $a$, $b$, $P$, $Q$ (at least $6,6,8,8$ of them,
-with overlaps at most $2$) and a residual set $Z$ gives $|Z|\le33-26=7$, while
-these paths put at least $4+2+2=8$ vertices into $Z$.
-
-\emph{Step 5: $n\le45$.} Suppose $n\ge46$. Take $x$ with $c_x$ minimal, so
-$c_x\le\lfloor20160/46\rfloor=438$, an edge $xy$ on a $7$-cycle through $x$, and
-let $d$ be the number of $7$-cycles containing both $x$ and $y$; then
-$1\le d\le c_x-360\le78$. Colour $G-xy$; every $7$-cycle not containing both
-$x,y$ is rainbow, and recolouring along out-closed sets of a successor digraph
-$D_\sigma$ shows that each such cycle lies inside one strong component of
-$D_\sigma$. Every vertex lies on a directed cycle of $D_\sigma$ (else it lies
-only on the $\le78<361$ bad cycles), all directed cycles have length $7$, and a
-component with $T_i$ directed cycles has at most $6T_i+1$ vertices. Summing
-over the $360$ inverse pairs of cyclic orders, $\sum_\sigma T_\sigma=2880-d$,
-so some $\sigma$ has $T=\sum_iT_i\le7$. A component with $T_i=1$ is a set of $7$
-vertices with a non-edge ($G$ is $K_5$-free), so each of its vertices lies on at
-most $240$ non-bad cycles (of the $360$ Hamiltonian $7$-cycles on $7$ vertices,
-$120$ use a given pair as an edge), giving $c_z\le240+78=318<361$. So
-every $T_i\ge2$, there are at most $3$ components, and
-$n\le6T+3\le45$, a contradiction.
-
-\emph{Step 6: a maximum cut.} Choose $A\subseteq V(G)$ maximising the number of
-edges between $A$ and its complement. Moving one vertex $x$ across shows that
-at least half of the edges at $x$ cross the cut, so the bipartite spanning
-subgraph $H'$ of crossing edges has minimum degree at least $\lceil13/2\rceil=7$
-and at most $45$ vertices. We use the following lemma, proved in the Lean
-files listed below.
-
-\begin{lemma}\label{lem:bp45}
-Every nonempty finite bipartite graph on at most $45$ vertices with minimum
-degree at least $7$ contains a cycle of length $14$.
+\begin{lemma}\label{lem:retain}
+Let $\alpha\ne\beta$ be singleton colours with centres $a$ and $b$. Then every
+$k$-cycle through $v$ that avoids $a$ contains $b$ and contains no vertex
+of~$W_\alpha$.
 \end{lemma}
 
-\noindent\emph{Outline.} In a counterexample, a shortest cycle of length at
-least $14$ has length $16$ or $18$, and on at most $45$ vertices a $C_{18}$ is
-impossible when there is no $C_{16}$; so there is a $C_{16}$. With at most $29$
-vertices outside it, counting attachments (after excluding vertices with four
-neighbours on it by further $14$-cycles) forces at least $12$ chords; ten
-explicit $14$-cycles restrict the chords, and a grouping modulo $4$ allows at
-most $11$. \hfill$\square$
+\begin{proof}
+Colouring $v$ with $\alpha$ and every other vertex by $\varphi$ is a proper
+colouring $\psi_a$ of $G-a$, since $a$ is the only neighbour of $v$ of colour
+$\alpha$. Let $C$ be a $k$-cycle through $v$ avoiding $a$. Applying
+Lemma~\ref{lem:rainbow} to the deleted vertex $a$ and the colouring $\psi_a$,
+the $k$ vertices of $C$ have distinct $\psi_a$-colours. So $C$ contains no vertex
+of $W_\alpha$, and it contains a vertex $z\ne v$ of colour~$\beta$. If $C$
+avoided $b$, the same argument with the colouring $\psi_b$ of $G-b$ (colour $v$
+with $\beta$) would show that $v$ is the only vertex of colour $\beta$ on $C$,
+a contradiction.
+\end{proof}
 
-Applying Lemma~\ref{lem:bp45} to $H'$ gives a $14$-cycle in $G$, contradicting
-Lemma~\ref{lem:short}. This completes the case $k=7$.
+\begin{lemma}[donor paths]\label{lem:donor}
+Let $\alpha\ne\beta$ be singleton colours with centres $a$ and $b$, and let
+$\delta_1,\dots,\delta_s$ be distinct colours different from $\alpha$ and
+$\beta$, where $s\ge0$ and $s+2\le k$. Then $G$ has a path
+$v\,u_1\cdots u_s\,b$ avoiding $a$ with $\varphi(u_j)=\delta_j$ for all~$j$.
+\end{lemma}
+
+\begin{proof}
+Colouring $v$ with $\alpha$ gives a proper colouring of $G-va$, in which $v$ and
+$a$ have the same colour. Choose a cyclic permutation $\sigma$ of the colours
+with $\sigma(\alpha)=\delta_1$, $\sigma(\delta_j)=\delta_{j+1}$ and
+$\sigma(\delta_s)=\beta$ (with $\sigma(\alpha)=\beta$ if $s=0$). As in the
+proof of Lemma~\ref{lem:edge}, the successor digraph of this colouring contains
+a directed $k$-cycle through $v$; its colours are distinct, so it avoids $a$,
+and by Lemma~\ref{lem:retain} it contains $b$, which is its only vertex of
+colour~$\beta$. Following the cycle from $v$, the colours are
+$\alpha,\delta_1,\dots,\delta_s,\beta$, so the first $s+2$ vertices form the
+required path.
+\end{proof}
+
+\noindent For $s=1$ the lemma says that for every colour $\gamma\ne\alpha,\beta$
+the centre $b$ has a neighbour in~$F_\gamma$.
+
+\begin{lemma}[short spokes]\label{lem:spoke}
+Let $\alpha\ne\beta$ be singleton colours with centres $a$ and $b$, and let $Q$
+be a path from $a$ or from $b$ to $v$ of length $L$ with $2\le L\le k-1$. Then
+the vertices of $Q-v$ have distinct colours.
+\end{lemma}
+
+\begin{proof}
+By symmetry let $Q$ start at $b$. Suppose the claim fails, and let $T$ be the set of colours on $Q-v$; then $|T|\le L-1$ and
+$\beta\in T$. Let $s=k-L-1\ge0$. Since $|T\cup\{\alpha\}|\le L$, there are at
+least $k-L>s$ colours outside $T\cup\{\alpha\}$; choose $s$ of them. By
+Lemma~\ref{lem:donor} there is a path $P$ from $v$ to $b$ of length $s+1$
+avoiding $a$ whose inner vertices have these colours. The inner vertices of
+$P$ and $Q$ have different colours, so $P$ followed by $Q$ is a cycle of length
+$k$ through $v$, and it contains two vertices of $Q-v$ of the same colour,
+contradicting Lemma~\ref{lem:rainbow}.
+\end{proof}
+
+\begin{lemma}\label{lem:twosingletons}
+There are at most two singleton colours. Hence $d(v)\ge 2k-2$, and if
+$d(v)=2k-2$ then there are exactly two singleton colours and $|F_i|=2$ for
+every other colour~$i$.
+\end{lemma}
+
+\begin{proof}
+The second statement follows from the first, since
+$d(v)=\sum_i|F_i|\ge q+2(k-q)$ when $q$ colours are singleton colours.
+
+Suppose that the set $J$ of centres has at least three elements. By
+Lemma~\ref{lem:singleton}, $J\cup\{v\}$ is a clique. Call a colour that is not a
+singleton colour \emph{plural}.
+
+\emph{A spine.} Let $a\ne b$ be centres and $\gamma$ a plural colour. We find a
+path from $a$ to $b$ of length $k-4$ avoiding $v$ and~$F_\gamma$. If
+$|J|\ge k-3$, take a path through $k-3$ vertices of the clique $J$ from $a$ to
+$b$. Otherwise let $s=k-3-|J|\ge1$; there are $k-|J|-1\ge s$ colours that are
+neither the colours of $J$ nor $\gamma$, and we choose $s$ of them, say $D$.
+Order $J$ as a path $a=w_0,w_1,\dots,w_{|J|-1}=b$, choose a third centre $h\ne
+a,w_1$, and apply Lemma~\ref{lem:donor} to the centres $h$ (avoided) and $w_1$
+(reached) with the colour sequence $\varphi(a),D$. This gives a path from $v$ to
+$w_1$ whose first inner vertex is $a$, the only neighbour of $v$ of its colour,
+and whose other inner vertices have the colours of $D$; removing $v$ and continuing along $w_1,\dots,w_{|J|-1}$ gives a
+path of length $(s+1)+(|J|-2)=k-4$, since the colours of $D$ are not colours
+of~$J$. No vertex of this path has colour~$\gamma$.
+
+\emph{Hooks.} Let $\gamma$ be plural and let $p\ne p'$ in $F_\gamma$ be
+adjacent to centres $a$ and $b$ respectively. If $a\ne b$, the cycle
+$v\,p\,a\,(\text{spine})\,b\,p'\,v$ has length $k$ and contains two vertices of
+colour~$\gamma$, contradicting Lemma~\ref{lem:rainbow}. By
+Lemma~\ref{lem:donor} with $s=1$ every centre has a neighbour in $F_\gamma$. It
+follows that there is a vertex $P_\gamma\in F_\gamma$ adjacent to every centre,
+and no other vertex of $F_\gamma$ is adjacent to a centre.
+
+\emph{The vertices $P_\gamma$ are pairwise adjacent.} Let $\gamma\ne\delta$ be
+plural and let $a\ne b$ be centres with colours $\alpha,\beta$. By
+Lemma~\ref{lem:donor} (avoiding $a$, reaching $b$, colours $\gamma,\delta$)
+there is a path $v\,p\,z\,b$ with $\varphi(p)=\gamma$ and
+$\varphi(z)=\delta$. If $p\ne P_\gamma$, the path $a\,P_\gamma\,b\,z\,p\,v$ of
+length $5\le k-1$ contradicts Lemma~\ref{lem:spoke}. So $p=P_\gamma$. If $z\ne P_\delta$, the path
+$b\,z\,P_\gamma\,a\,P_\delta\,v$ contradicts Lemma~\ref{lem:spoke} in the same
+way. So $z=P_\delta$, and $P_\gamma P_\delta=pz$ is an edge.
+
+Now the centres together with the vertices $P_\gamma$ for the plural colours
+$\gamma$ are $k$ pairwise adjacent vertices, all adjacent to $v$; so $G$
+contains $K_{k+1}$. If $G$ had a further vertex $w$, the graph $G-w$ would
+contain $K_{k+1}$ and could not be $k$-coloured; so $G\cong K_{k+1}$, contrary
+to our assumption.
+\end{proof}
+
+\subsection{Colour classes}
+
+Let $c_x$ be the number of $k$-cycles through a vertex $x$. By
+Lemma~\ref{lem:order}, $c_x\ge h+1$ for all~$x$.
+
+\begin{lemma}\label{lem:classes}
+$|W_i|\le k$ for every colour $i$. If $\alpha\ne\beta$ are singleton colours,
+then $|W_\alpha|\le k-2$ and $|W_\beta|\le k-2$. In particular, if there are two
+singleton colours, then $|V(G)|\le k^2-3$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:rainbow} every $k$-cycle contains at most one vertex of
+$W_i$, so $\sum_{x\in W_i}c_x\le B=(k+1)h$; if $|W_i|\ge k+1$ the left side
+would be at least $(k+1)(h+1)$.
+
+Let $a,b$ be the centres of $\alpha,\beta$. By Lemma~\ref{lem:edge} at least
+$h$ $k$-cycles contain $v$ and avoid $b$, and by Lemma~\ref{lem:retain} they
+all contain $a$; at least $h$ further $k$-cycles contain $a$ and avoid $v$. So
+$c_a\ge2h$. At least $h$ $k$-cycles contain $v$ and avoid $a$, and by
+Lemma~\ref{lem:retain} they contain no vertex of $W_\alpha$. Hence
+$\sum_{x\in W_\alpha}c_x\le B-h$. If $|W_\alpha|\ge k-1$, the left side would
+be at least $2h+(k-2)(h+1)=kh+k-2>kh=B-h$. Finally
+$|V(G)|-1=\sum_i|W_i|\le 2(k-2)+(k-2)k=k^2-4$.
+\end{proof}
+
+\subsection{A vertex of degree $2k-2$}
+
+We now assume $d(v)=2k-2$ and derive a contradiction, which proves
+Proposition~\ref{prop:mindeg}. By Lemma~\ref{lem:twosingletons}, applied to
+every vertex, every vertex has degree at least $2k-2$, there are exactly two singleton colours $\alpha,\beta$
+with centres $a,b$, and every other colour $i$ has $|F_i|=2$. A vertex of
+$N(v)-\{a,b\}$ adjacent to $a$ is an \emph{$a$-hook}, one adjacent to $b$ a
+\emph{$b$-hook}. By Lemma~\ref{lem:donor} with $s=1$, every $F_i$
+($i\ne\alpha,\beta$) contains an $a$-hook and a $b$-hook. By
+Lemma~\ref{lem:classes}, $|V(G)|\le k^2-3$.
+
+\emph{(i) $G$ contains no $K_k$.} Let $Q$ be a clique of size $k$. Since
+$|V(G)|\ge d(v)+1=2k-1$, at least two vertices lie outside~$Q$. Suppose an
+outside vertex $z$ has two neighbours $a_0,b_0\in Q$. Choose another outside
+vertex $w$ and a proper $k$-colouring of $G-w$. The clique $Q$ uses all $k$
+colours, so some $u\in Q$ has the colour of $z$, and $u\ne a_0,b_0$. Choose
+$d_0\in Q-\{a_0,b_0,u\}$ and a path from $a_0$ to $b_0$ through all vertices of
+$Q-d_0$; with $z$ it forms a $k$-cycle avoiding $w$ that contains $u$ and $z$,
+contradicting Lemma~\ref{lem:rainbow}. So every outside vertex has at most one
+neighbour in $Q$, and at most $|V(G)|-k\le k^2-k-3$ edges leave $Q$. But every
+vertex of $Q$ has degree at least $2k-2$, hence at least $k-1$ neighbours
+outside $Q$, so at least $k(k-1)$ edges leave~$Q$, a contradiction.
+
+\emph{(ii) No vertex is both an $a$-hook and a $b$-hook.} Suppose $P\in F_\gamma$
+is adjacent to $a$ and $b$, and let $\delta\ne\alpha,\beta,\gamma$. By
+Lemma~\ref{lem:donor} (avoiding $a$, reaching $b$, colours $\gamma,\delta$)
+there is a path $v\,p\,z\,b$ with $\varphi(p)=\gamma$, $\varphi(z)=\delta$. As
+in the proof of Lemma~\ref{lem:twosingletons}, Lemma~\ref{lem:spoke} applied to
+$a\,P\,b\,z\,p\,v$ gives $p=P$, and applied to $b\,z\,P\,a\,T\,v$, for any
+$a$-hook $T\in F_\delta$, gives $z=T$. So the $a$-hook $T$ of colour $\delta$
+is unique, is also a $b$-hook, and is adjacent to $P$. Applying this to each
+such $T$ in place of $P$, the $a$-hooks of the $k-2$ colours other than
+$\alpha,\beta$ are pairwise adjacent; together with $a$ and $v$ they form a
+$K_k$, contradicting~(i).
+
+\emph{(iii) No $a$-hook is adjacent to a $b$-hook.} Let $x$ be an $a$-hook and
+$y$ a $b$-hook with $xy\in E(G)$; then $\varphi(x)\ne\varphi(y)$. Let $T$ be an
+$a$-hook of colour $\varphi(y)$; by (ii), $T\ne y$. The path $b\,y\,x\,a\,T\,v$
+has length $5\le k-1$ and contains $y$ and $T$, of the same colour,
+contradicting Lemma~\ref{lem:spoke}.
+
+Consequently, for every colour $i\ne\alpha,\beta$ we have $F_i=\{P_i,Q_i\}$,
+where $P_i$ is adjacent to $a$ and not to $b$, $Q_i$ is adjacent to $b$ and not
+to $a$, and no edge joins a vertex $P_i$ to a vertex~$Q_j$.
+
+\emph{(iv) Locked colours.} For $i\ne\alpha,\beta$ let $K_i$ be the component
+of the subgraph of $G-v$ induced by the colours $\alpha$ and $i$ that contains
+$a$; it contains $P_i$. Call $i$ \emph{locked at $a$} if $Q_i\in K_i$. If $i$
+is not locked at $a$, exchange the colours $\alpha$ and $i$ on $K_i$. This
+gives a proper colouring $\varphi'$ of $G-v$ in which the colour classes on
+$N(v)$ are $\{P_i\}$ for $\alpha$, $\{b\}$ for $\beta$, $\{a,Q_i\}$ for $i$,
+and unchanged for the other colours. So $P_i$ and $b$ are the centres of the
+two singleton colours of $\varphi'$, and Lemma~\ref{lem:donor} (with $s=1$)
+for $\varphi'$ gives, for every $j\ne\alpha,\beta,i$, a neighbour of $P_i$ in
+$F_j=\{P_j,Q_j\}$; it is not $Q_j$, so $P_iP_j\in E(G)$. Hence if
+$P_iP_j\notin E(G)$, both $i$ and $j$ are locked at $a$. If all the $P_i$ were
+pairwise adjacent, they would form with $a$ and $v$ a $K_k$; so by (i) at least
+two colours are locked at $a$. In the same way (with $b$, $\beta$ and the
+$Q_i$) at least two colours are \emph{locked at $b$}, that is, $P_j$ lies in
+the component of the colours $\beta,j$ containing~$b$.
+
+\emph{(v) Locked paths have length $k-1$.} Let $i$ be locked at $a$ and let
+$L$ be a shortest path from $a$ to $Q_i$ in $K_i$, of length $x$. Its colours
+alternate between $\alpha$ and $i$, so $x$ is odd, and $x\ge3$ since $a$ and
+$Q_i$ are not adjacent. If $x\le k-2$, then $L$ followed by the edge $Q_iv$ is a
+path from $a$ to $v$ of length at most $k-1$ whose at least four vertices other
+than $v$ carry only two colours, contradicting Lemma~\ref{lem:spoke}. So
+$x\ge k-1$. The path $L$ has $(x+1)/2$ vertices of colour $\alpha$, so
+$(x+1)/2\le|W_\alpha|\le k-2$ by Lemma~\ref{lem:classes}, i.e.\ $x\le2k-5$.
+Suppose $x\ge k$ and let $s=2k-x-3$, so that $2\le s\le k-3$. Choose $s$ colours
+other than $\alpha,\beta,i$ and, by Lemma~\ref{lem:donor} with the roles of $a$
+and $b$ exchanged, a path from $v$ to $a$ of length $s+1$ avoiding $b$ whose
+inner vertices have these colours. Together with the path $L$, the edge $Q_ib$
+and the edge $bv$ it forms a cycle of length $(s+1)+x+2=2k$, contradicting
+Lemma~\ref{lem:short}. Hence $x=k-1$; since $x$ is odd, $k$ is even. The same
+holds for a colour locked at~$b$.
+
+\emph{(vi) A cycle of length $2k$.} Let $i$ be locked at $a$; as at least two
+colours are locked at $b$, choose one, $j\ne i$. By (v) there are paths $L$ from
+$a$ to $Q_i$ with colours $\alpha,i$ and $M$ from $b$ to $P_j$ with colours
+$\beta,j$, both of length $k-1$. They are disjoint, as the four colours are
+distinct, so $a\,L\,Q_i\,b\,M\,P_j\,a$ is a cycle of length $2k$, contradicting
+Lemma~\ref{lem:short}. This proves Proposition~\ref{prop:mindeg}.
+
+\section{A long cycle of length $0$ modulo $k$}\label{sec:long}
+
+A \emph{rooted graph} $(H,x,y)$ is a graph $H$ with distinct vertices $x,y$; it
+is \emph{$2$-connected} if $H+xy$ is $2$-connected. Paths $P_0,\dots,P_{r-1}$
+are \emph{admissible} if $|P_0|\ge2$ and $|P_i|=|P_0|+id$ for all $i$, where
+$d\in\{1,2\}$ ($|P|$ is the number of edges).
+
+\begin{theorem}[{Gao, Huo, Liu and Ma~\cite[Theorem~3.1]{ghlm}}]\label{thm:ghlm}
+Let $r\ge1$. If $(H,x,y)$ is a $2$-connected rooted graph in which every vertex
+other than $x$ and $y$ has degree at least $r+1$, then $H$ has $r$ admissible
+paths from $x$ to~$y$.
+\end{theorem}
+
+For $r=2$ this is \cite[Theorem~2.1]{ghlm}, which Gao, Huo, Liu and Ma derive
+from a theorem of Fan~\cite[Theorem~2.5]{fan}. The formalization contains a
+complete proof of Theorem~\ref{thm:ghlm}, including the case $r=2$; it
+proceeds by induction on the number of vertices rather than on $|V|+|E|$ as
+in~\cite{ghlm}.
+
+\begin{lemma}\label{lem:progression}
+Let $H$ be a connected graph of minimum degree at least $m\ge2$ and let
+$2\le t\le m-1$. Then $H$ has cycles $C_0,\dots,C_{t-1}$ with $|C_i|=A+id$ for
+some $A\ge3$ and $d\in\{1,2\}$.
+\end{lemma}
+
+\begin{proof}
+This is the proof of~\cite[Theorem~1.3]{ghlm}. Choose a vertex $c$ and a
+component $Z$ of $H-c$; among all sets $I\subseteq Z$ that are a component of
+$H-c'$ for some vertex $c'$, choose one, $I$, of minimum size, with its vertex
+$c'$. No edge leaves $I$ except to $c'$, and $H-I$ is connected (a path between
+two vertices outside $I$ that enters $I$ must enter and leave through $c'$). If
+a vertex $u\in I$ separated $H$, a component of $H-u$ not containing $c'$ would
+miss $H-I$, hence be a proper subset of $I$, against minimality. It follows
+that $H'=H[I\cup\{c'\}]$ is $2$-connected; $|I|\ge2$ because a single vertex
+of $I$ would have degree at most~$1$. Every vertex of $I$ has all its neighbours in
+$I\cup\{c'\}$, so its degree in $H'$ is at least $m\ge t+1$. Choose a neighbour
+$y$ of $c'$ in $I$. Theorem~\ref{thm:ghlm} gives $t$ admissible paths from $c'$
+to $y$ in $H'$; none of them uses the edge $c'y$, so adding this edge closes
+each into a cycle, of length one more.
+\end{proof}
+
+\begin{proposition}\label{prop:long}
+Let $k\ge4$ and let $G$ be a connected graph of minimum degree at least
+$2k-1$. Then $G$ has a cycle whose length is a multiple of $k$ larger than~$k$.
+\end{proposition}
+
+\begin{proof}
+\emph{$k$ odd.} Apply Lemma~\ref{lem:progression} to $G$ with $m=2k-1$ and
+$t=2k-2$. We find an index $i<2k-2$ such that $k$ divides $A+id$ and
+$A+id>k$. If $d=1$: when $A\le2k$ take $i=2k-A\le 2k-3$; otherwise take
+$1\le i\le k$ with $k\mid A+i$. If $d=2$ and $A\le k$: take $i=(2k-A)/2$ if $A$
+is even and $i=(3k-A)/2\le 2k-3$ if $A$ is odd. If $d=2$ and $A>k$: let
+$1\le j\le k$ with $k\mid A+j$, and take $i=j/2$ if $j$ is even and $i=(j+k)/2$
+if $j$ is odd.
+
+\emph{$k$ even.} Among all partitions of $V(G)$ into two parts choose one with
+the largest number of crossing edges, and let $H$ be the spanning subgraph of
+the crossing edges. Moving one vertex to the other part shows
+$d_H(u)\ge d_G(u)/2$, so $\delta(H)\ge k$. If $H$ were disconnected, moving one
+of its components to the other side would keep all edges of $H$ crossing and
+add an edge of $G$ joining that component to the rest, so $H$ is connected.
+Apply Lemma~\ref{lem:progression} to $H$ with $m=k$ and $t=k-1\ge3$. As $H$ is
+bipartite, all cycle lengths are even, so $A$ is even and $d=2$. Write $k=2q$
+and $A=2c$ with $c\ge2$; among the $2q-1$ consecutive integers
+$c,\dots,c+2q-2$ there is a multiple of $q$ larger than $q$ (take $2q$ if $c\le
+2q$, and the next multiple of $q$ otherwise). Doubling gives a cycle of $H$,
+hence of $G$, of the required length.
+\end{proof}
+
+\begin{remark}
+For $2$-connected graphs with at least $2k+2$ vertices, Proposition~\ref{prop:long}
+also follows from a theorem of Bai, Grzesik, Li and
+Prorok~\cite[Theorem~1.6]{bglp}: for even $m\ge4$, every $2$-connected graph of
+minimum degree at least $m-1$ with at least $m+2$ vertices has cycles of all
+even lengths modulo $m$; with $m=2k$ this gives a cycle whose length is a
+positive multiple of $2k$. We derive Proposition~\ref{prop:long} from
+Theorem~\ref{thm:ghlm} because this is the route that is formalized.
+\end{remark}
+
+\section{Proof of Theorem~\ref{thm:main}}\label{sec:proof}
+
+For $k=4$ and $k=5$ this is Sections~\ref{sec:four} and~\ref{sec:five}. Let
+$k\ge6$, let $G$ be $(k+1)$-critical with $N_k(G)=B$, and suppose $G\not\cong
+K_{k+1}$. The graph $G$ is connected: otherwise $k$-colourings of its
+components, which are proper subgraphs, would combine into a $k$-colouring of
+$G$. By Proposition~\ref{prop:mindeg}, $\delta(G)\ge2k-1$, so by
+Proposition~\ref{prop:long} $G$ has a cycle whose length is a multiple of $k$
+larger than $k$. This contradicts Lemma~\ref{lem:short}. \hfill$\square$
+
+\medskip
+Theorem~\ref{thm:main} is the uniqueness statement asked for in~\cite{cs}; that
+$K_{k+1}$ is $(k+1)$-critical and has exactly $B$ cycles of length divisible by
+$k$ is the observation recalled in the introduction.
 
 \section{Formal verification}\label{sec:lean}
 
 Theorem~\ref{thm:main} is formally verified in Lean~4 (version 4.34.1) with
-Mathlib~\cite{mathlib} (version v4.34.1, commit \texttt{d13f23b7}), separately
-for each of $k=4,5,6,7$. The $447$ files are in version~\repoversion{} of the
-repository~\cite{repo}, directory \texttt{lean/\allowbreak Research/\allowbreak
-TaskH/}.
+Mathlib~\cite{mathlib} (version v4.34.1, commit \texttt{d13f23b7}). The $716$
+files are in version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/\allowbreak Research/\allowbreak TaskH/}.
 
 \paragraph{The statements.}
 The statement file \texttt{Challenge.lean} contains only definitions and
@@ -671,99 +836,109 @@ def EqualityCase (k : Nat) : Prop :=
     IsCriticalPlus k G -> modCycleCount k G = bound k ->
       Nonempty (G =g (top : SimpleGraph (Fin (k + 1))))
 def Question2 : Prop := forall k : Nat, 4 <= k -> EqualityCase k
-def CaseFour : Prop := EqualityCase 4
 \end{verbatim}}
 \noindent (In the file the conclusion is written with an auxiliary definition
 \texttt{IsCompleteOfOrder}, \texttt{G =g H} is a graph isomorphism, and
 \texttt{top} is the complete graph.) A cycle is the edge set of a closed walk
 that is a cycle in Mathlib's sense, so neither its starting vertex nor its
 direction is counted. Criticality quantifies over all proper subgraphs,
-including those obtained by deleting a single edge. The files
-\texttt{CaseFive.lean}, \texttt{CaseSix.lean} and \texttt{CaseSeven.lean} add
-\texttt{CaseFive := EqualityCase 5}, \texttt{CaseSix := EqualityCase 6} and
-\texttt{CaseSeven := EqualityCase 7} (and, for $k=7$, \texttt{LowerBoundSeven},
-Theorem~\ref{thm:cs} for $k=7$ and $8$-critical graphs), and regression statements saying that
-$K_{k+1}$ is $(k+1)$-critical with exactly \texttt{bound k} counted cycles
-($15$, $72$, $420$ and $2880$; the division in \texttt{bound} is exact for
-these~$k$). The full question \texttt{Question2} (the files' name for
-Question~8 of~\cite{cs}) is defined but not proved.
+including those obtained by deleting a single edge. The division in
+\texttt{bound} is exact: the files prove $2k\cdot\texttt{bound}\,k=k!\,(k+1)$
+for $k\ge3$. \texttt{Question2}, the files' name for Question~8
+of~\cite{cs}, is Theorem~\ref{thm:main}. The files
+\texttt{CaseFive.lean}, \texttt{CaseSix.lean} and \texttt{CaseSeven.lean}
+define \texttt{EqualityCase 5}, \texttt{6} and \texttt{7}, which the first
+version proved separately.
 
 \paragraph{Review and freezing.}
-Before any proof file specific to a given $k$ was written (files reused from
-smaller $k$ had been written after their own freezes), an independent Codex agent,
-which had not written the statement, reviewed it against the question and
-approved it, and the file was frozen by recording its SHA-256 hash: on
-13 November 2026 at 18:42~UTC ($k=4$, \texttt{Challenge.lean}) and 21:15~UTC
-($k=5$), and on 14 November at 00:05~UTC ($k=6$) and 06:32~UTC ($k=7$). The
-frozen files were not changed afterwards.
+\texttt{Challenge.lean}, including \texttt{Question2}, was reviewed against the
+question by a Codex agent that had not written it and frozen, by recording its
+SHA-256 hash, on 13 November 2026 at 18:42~UTC, before any proof file was
+written; it was not changed afterwards. The files for $k=5,6,7$ were frozen in
+the same way on 13 and 14 November.
 
 \paragraph{The proofs.}
-The theorems \texttt{TaskH.case\_four}, \texttt{case\_five},
-\texttt{case\_six} and \texttt{case\_seven} (in \texttt{MainFour.lean},
-\ldots, \texttt{MainSeven.lean}) prove \texttt{CaseFour}, \ldots,
-\texttt{CaseSeven}. The lemmas of Sections~\ref{sec:good}--\ref{sec:567} are
-proved for each $k$ separately, including Lemma~\ref{lem:om}, which is
-reproved rather than assumed, and Lemma~\ref{lem:bp45}. The file
-\texttt{Seven/\allowbreak SevenOriginalLowerBound.lean} also proves
-\texttt{LowerBoundSeven}, that is, Theorem~\ref{thm:cs} for $k=7$ and
-$8$-critical graphs. The test files
-\texttt{ExactTests.lean}, \texttt{ExactTestsFive.lean},
-\texttt{ExactTestsSix.lean} and \texttt{ExactTestsSeven.lean} restate each
-main theorem with its frozen type and check $K_{k+1}$, and the main files print
-the axioms of the main theorems: each is exactly \texttt{propext},
-\texttt{Classical.choice} and \texttt{Quot.sound}. No file uses
-\texttt{sorry}, \texttt{native\_decide}, \texttt{bv\_decide} or an
-\texttt{axiom} declaration.
+The theorem
+\texttt{TaskH.\allowbreak original\_\allowbreak question\_\allowbreak two\_\allowbreak all\_\allowbreak k} in
+\texttt{Original\allowbreak QuestionTwo\allowbreak Assembly.lean} proves \texttt{Question2}: it uses
+\texttt{case\_\allowbreak four} and \texttt{case\_\allowbreak five} for $k=4,5$, and for $k\ge6$
+combines \texttt{equality\_\allowbreak shortCycles\_\allowbreak from\_\allowbreak critical\_\allowbreak count}
+(Lemma~\ref{lem:short}),
+\texttt{critical\_\allowbreak original\_\allowbreak connected},
+\texttt{equality\_\allowbreak original\_\allowbreak minimum\_\allowbreak degree\_\allowbreak two\_\allowbreak mul\_\allowbreak sub\_\allowbreak one}
+(Proposition~\ref{prop:mindeg}) and
+\texttt{connected\_\allowbreak high\_\allowbreak degree\_\allowbreak original\_\allowbreak long\_\allowbreak zero\_\allowbreak cycle}
+(Proposition~\ref{prop:long}). The last uses
+\texttt{gao\_\allowbreak original\_\allowbreak rooted\_\allowbreak path\_\allowbreak claim}, a proof of
+Theorem~\ref{thm:ghlm}, and \texttt{fan\_\allowbreak rooted\_\allowbreak two\_\allowbreak paths}, a proof of its
+case $r=2$ \cite[Theorem~2.1]{ghlm}; neither is assumed. The good-cycle lemmas of Section~\ref{sec:good} are
+reproved, not assumed. The test file \texttt{OriginalQuestionTwoTests.lean}
+restates the theorem with the frozen type and proves that the frozen
+counterexample statement is false, and the files
+\texttt{ExactTests.lean}, \ldots, \texttt{ExactTestsSeven.lean} check
+$K_{k+1}$ for $k=4,\dots,7$: it is $(k+1)$-critical with exactly
+\texttt{bound k} counted cycles ($15$, $72$, $420$ and $2880$). That $K_{k+1}$ is
+$(k+1)$-critical is proved for every $k$ (\texttt{complete\_\allowbreak isCriticalPlus}),
+but its cycle count is formalized only for $k\le7$. The axioms of
+\texttt{original\_\allowbreak question\_\allowbreak two\_\allowbreak all\_\allowbreak k}, printed by the files, are exactly
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. No file
+uses \texttt{sorry}, \texttt{native\_\allowbreak decide}, \texttt{bv\_\allowbreak decide} or an
+\texttt{axiom} declaration; \texttt{decide +kernel} is used, which is checked
+by the kernel and adds no axiom. Comments in some files (for example
+\texttt{Original\allowbreak QuestionTwo\allowbreak Assembly.lean},
+\texttt{General/\allowbreak OriginalStrongerMinimumDegree.lean} and
+\texttt{CaseSix.lean}) were written before the reviews and checks below and
+call the files candidates, unchecked, or awaiting review; they were not
+changed, so as not to change the checked files.
 
 \paragraph{Checks.}
-For each $k$ the files needed for that case ($49$, $120$, $236$ and $240$
-modules for $k=4,5,6,7$) were compiled module by module, each by its own Lean
-process, in two new empty output directories on the author's Windows
-computer, with the pinned toolchain and Mathlib, which were not rebuilt, and
-each module was replayed with \texttt{leanchecker}; this was done between
-13 and 15 November 2026. All final commands ended with exit code~$0$, with no error,
-no warning and no \texttt{sorry}, and the compiled \texttt{.olean} files of the
-two directories are byte for byte identical. In the run for $k=6$, $13$
-attempts ended without a verdict of Lean, because a file could not be read
-($11$) or memory ran out ($2$); the build driver ran these modules again, and
-they passed. From 16 to 17 November 2026 the whole Lean project of the repository, $3466$ modules including these $447$ files, which had not been built together before, was rebuilt in a new empty directory in the same way: every module compiled, with no error, no \texttt{sorry} and no warning in the files of this paper, and every module with constants passed \texttt{leanchecker}; attempts that failed for lack of memory or file access were run again (\texttt{logs/clean-replay-v1.21.0-receipt.json} of the repository). The formalization has not been checked with
-comparator or with an independent kernel.
+The $717$ files of Codex's accepted package (the $716$ files of the repository
+and a statement file for $k=8$ that nothing imports and that is not included)
+were compiled module by module in two new empty output directories on the
+author's Mac, with the pinned toolchain and Mathlib, on 17 November 2026
+(04:08--07:14~UTC); every module was replayed with \texttt{leanchecker}. All
+$2868$ commands ended with exit code~$0$ and printed nothing except the
+requested axiom lists, and the \texttt{.olean} files of the two directories are
+byte for byte identical. In the whole-project rebuild of version~1.22.0 of the repository (17--18 November 2026, on the author's Windows computer), the $716$ files were compiled and replayed with \texttt{leanchecker} again, together with the rest of the project; runs that failed for lack of memory or file access, without a Lean verdict, were run again and passed (details in the repository). The formalization has not been checked
+with comparator or with an independent kernel.
 
 \section*{How this paper was produced}
-This work was carried out from 13 to 17 November 2026 (UTC) in a workflow
-directed by the author, using OpenAI Codex with the model GPT-6.1 Sol and
-Anthropic Claude Code with the model Claude Opus~5.5. Claude Code's scouting
-agents proposed the question; the author chose it, and Claude Code assigned it
-to Codex. Codex agents found the proofs, wrote the statement files, the
-mathematical manuscripts and the Lean files, and ran the checks on the author's
-Windows computer. For each $k$, a Codex agent (same model) that had not written
-the statement reviewed it before it was frozen, and after the checks another
-Codex agent that was not among the recorded authors of the proofs gave the
-final review. These reviews did not each read every file: for $k=5$ the final
-reviewer read $44$ of the $120$ files itself and relied for the others on a
-sub-agent it started ($27$ files) and on its own earlier review for $k=4$
-($49$ files); for $k=6$ and $k=7$ it read the main files in full and relied for
-the others on earlier reviews by other Codex agents; and for $k=7$ the records do not identify the authors of
-$40$ of the $240$ files, so that the independence of its final reviewer from
-those authors is not documented. Claude Code searched the literature, wrote
-this text from Codex's manuscripts and the Lean files, and rebuilt the whole
-Lean project of the repository; an independent Claude Code agent (model Claude
-Opus~5.5), which had written none of the files, reviewed this paper and the
-release before publication, and its corrections were applied. Throughout,
-``we'' refers to this workflow; the reading and searching described in the
-paper were done by the agents. The author is not a professional
-mathematician. The author has read this paper and, using a side-by-side table,
-compared its Lean statements with Theorem~\ref{thm:main}.
-No human mathematician has reviewed this paper. The correctness of the result
-rests on the Lean proofs and on the agreement of the Lean statements with the
-question of~\cite{cs}; the written proofs are given for the reader, and for
-$k=7$ some steps are only outlined. AI systems are not authors of this paper;
-the author takes full responsibility for its content.
+This work was carried out from 13 to 18 November 2026 (UTC) in a
+workflow directed by the author, using OpenAI Codex with the model GPT-6.1 Sol
+and Anthropic Claude Code with the model Claude Opus~5.5. Claude Code's
+scouting agents proposed the question; the author chose it, and Claude Code
+assigned it to Codex. Codex agents found the proofs, wrote the statement files,
+the mathematical manuscripts and the Lean files, and ran the checks. Each
+statement file was reviewed before it was frozen by a Codex agent (same model)
+that had not written it. The cases $k=4,\dots,7$ were reviewed after their
+checks by Codex agents that were not among the recorded authors of those proofs
+(details in version~1.21.0 of the repository, including that for $k=7$ the
+records do not identify the authors of $40$ files). The proof for all $k\ge4$
+was reviewed after its checks by an independent Claude Code agent (model Claude
+Opus~5.5) that had written none of the files. It reread the raw logs of the
+checks, read the statement file and the main proof files, read Codex's
+written proof of Proposition~\ref{prop:mindeg} and the parts of its written
+proof of Proposition~\ref{prop:long} that derive it from
+Theorem~\ref{thm:ghlm}, and approved; it did not read the Lean proofs of
+Theorem~\ref{thm:ghlm} and of its case $r=2$ line by line, nor the
+deeper counting lemmas, whose correctness rests on the Lean check. Claude Code
+searched the literature, wrote this text from Codex's manuscripts and the Lean
+files, and rebuilt the whole Lean project of the repository; an independent
+Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied. Throughout, ``we'' refers to this workflow;
+the reading and searching described in the paper were done by the agents. The
+author is not a professional mathematician. The author has read this paper and, using a side-by-side table, compared its Lean statements with Theorem~\ref{thm:main}. No human
+mathematician has reviewed this paper. The correctness of the result rests on
+the Lean proofs and on the agreement of the Lean statements with the question
+of~\cite{cs}; the written proofs are given for the reader. AI systems are not
+authors of this paper; the author takes full responsibility for its content.
 
 \medskip
 \noindent Thanks are due to Ilkyoo Choi and Kamil Sieniawski for the question.
 
 \begin{thebibliography}{9}
+\bibitem{bglp} Y.~Bai, A.~Grzesik, B.~Li and M.~Prorok, Cycle lengths in graphs
+of given minimum degree, \emph{J. Combin. Theory Ser. B} 180 (2026) 111--150;
+arXiv:2511.03085.
 \bibitem{bmmn} R.~C. Brewster, S.~McGuinness, B.~Moore and J.~A. Noel,
 A dichotomy theorem for circular colouring reconfiguration,
 \emph{Theoret. Comput. Sci.} 639 (2016) 1--13.
@@ -773,6 +948,11 @@ $0$ modulo $k$ in graphs with no proper $k$-coloring, arXiv:2611.13580v1, 2026.
 \url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
 (2026); archived at Zenodo under the concept DOI
 \url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{fan} G.~Fan, Distribution of cycle lengths in graphs, \emph{J. Combin.
+Theory Ser. B} 84 (2002) 187--202.
+\bibitem{ghlm} J.~Gao, Q.~Huo, C.-H. Liu and J.~Ma, A unified proof of
+conjectures on cycle lengths in graphs, \emph{Int. Math. Res. Not. IMRN}
+2022 (2022), no.~10, 7615--7653; arXiv:1904.08126.
 \bibitem{kp} S.~Kim and M.~E. Picollelli, $4$-chromatic graphs have at least
 four cycles of length $0 \bmod 3$, \emph{Electron. J. Combin.} 31(2) (2024)
 Paper No.~2.58; arXiv:2312.05945.

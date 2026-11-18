@@ -55,3 +55,6 @@ import Research.TaskH.ExactTestsFive
 import Research.TaskH.ExactTestsSix
 import Research.TaskH.Seven.SevenCheck
 import Research.TaskH.Six.CaseSixElaboration
+import Research.TaskH.OriginalQuestionTwoTests
+import Research.TaskH.Fan.Tests
+import Research.TaskH.Gao.Tests

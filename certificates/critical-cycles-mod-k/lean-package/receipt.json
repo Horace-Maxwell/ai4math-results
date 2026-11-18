@@ -232,5 +232,48 @@
   }
  },
  "logs_note": "In the published logs <worker> and <workspace> replace local directories; nothing else is changed.",
- "whole_project": "see logs/clean-replay-v1.21.0-receipt.json"
+ "whole_project": "see logs/clean-replay-v1.21.0-receipt.json and logs/clean-replay-v1.22.0-receipt.json",
+ "allk": {
+  "package": "formal-original-allk-parallel-batch01 (717 files: the 716 files of lean/Research/TaskH and CaseEight.lean)",
+  "computer": "the author's Mac (Apple silicon), Lean 4.34.1 and the pinned Mathlib, not rebuilt",
+  "run": {
+   "started_utc": "2026-11-17T04:08:51Z",
+   "finished_utc": "2026-11-17T07:14:06Z",
+   "attempts": 1,
+   "status": "PASS_MACHINE_PENDING_INDEPENDENT_FINAL_REVIEW",
+   "directories": "two new empty output directories ('normal' and 'fresh'), each module compiled by its own Lean process and replayed with leanchecker",
+   "commands": 2868,
+   "all_exit_0": true,
+   "coverage": {
+    "modules_per_root": 717,
+    "steps": 2868,
+    "logs": 2868,
+    "axiom_outputs": 7920,
+    "diagnostics": 0
+   },
+   "olean_identical_across_roots": true,
+   "axioms_used": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+   ],
+   "parallelism_events": [
+    {
+     "utc": "2026-11-17T04:42:51Z",
+     "reason": "TASK_GROUP_RSS_OVER_32GB",
+     "parallel_commands": 1,
+     "existing_commands_drain_without_new_parallel_launch": true
+    }
+   ]
+  },
+  "final_theorem": "TaskH.original_question_two_all_k : TaskH.Challenge.Question2",
+  "receipt_sha256_original": "d76caafa6385cdf354ade705973e3c8c068357179a5d27c79ad5fdaf9575ed16",
+  "logs": {
+   "file": "allk-mac-build-logs.tar.gz",
+   "sha256": "b68c4777b4d4862e1a3aea9a59aef71004e538c1c8ad8311497a082251581f8a",
+   "bytes": 1249599,
+   "content": "receipt.json and SESSION.json of the run (with <workspace> replacing the local project directory) and the 2868 compile and leanchecker logs (unchanged)"
+  },
+  "final_review": "an independent Claude Code agent (Claude Opus 5.5) that wrote none of the files: APPROVE_FORMAL_ALLK, 2026-11-17T15:57:56Z, 0 BLOCKER, 0 MAJOR, 3 MINOR (see the README)"
+ }
 }

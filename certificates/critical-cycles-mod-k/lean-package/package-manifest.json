@@ -1,13 +1,17 @@
 {
- "module_count": 447,
+ "module_count": 716,
  "entrypoints": [
   "Research.TaskH.ExactTests",
   "Research.TaskH.ExactTestsFive",
   "Research.TaskH.ExactTestsSix",
   "Research.TaskH.Seven.SevenCheck",
-  "Research.TaskH.Six.CaseSixElaboration"
+  "Research.TaskH.Six.CaseSixElaboration",
+  "Research.TaskH.OriginalQuestionTwoTests",
+  "Research.TaskH.Fan.Tests",
+  "Research.TaskH.Gao.Tests"
  ],
  "main_theorems": [
+  "TaskH.original_question_two_all_k",
   "TaskH.case_four",
   "TaskH.case_five",
   "TaskH.case_six",
@@ -16,7 +20,15 @@
  "toolchain": "leanprover/lean4:v4.34.1",
  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
  "files": {
+  "Research/TaskH/Bai/LongZeroArithmetic.lean": "2773617ecc654a2a10f2c235e8cc4c75cf9c67c75655ab95598f4fe19e95b260",
+  "Research/TaskH/Bai/OriginalLongZeroCycle.lean": "df8045227442cc59e1706378c8f3cb7b5631a9339eaa46b50e1c25472bb96c5a",
+  "Research/TaskH/Bai/SpanningCutBasic.lean": "347cde26df371e4c3aac8138863615848f8f8f5ce5362a642f2949ec7149262b",
+  "Research/TaskH/Bai/SpanningMaximumCut.lean": "44f817693b46bf2ae41cfd653fa0eb25a5b2ab915d8280be1e5398cf267eca07",
+  "Research/TaskH/Bai/TerminalCycleProgression.lean": "67331cd7b3971770f3c83f8fb11a371a9954cdb184d7fad80e646e2a42a27932",
   "Research/TaskH/Basics.lean": "dd22561dfe6817e939c2e73d05584dbda1cbbc837d7b56f227bf63aac757275d",
+  "Research/TaskH/CaseFive.lean": "640313d24f72432283318538de92025fae11941ccf8fc9888c78e0c017e9495e",
+  "Research/TaskH/CaseSeven.lean": "d982be019e0e72d4f2bbd37559ad237bab9a446a0425b18025df37ea8e04691b",
+  "Research/TaskH/CaseSix.lean": "68ec21934ae1dac519efd34562a29d934aa8402190fad373189d3272c3a61d3f",
   "Research/TaskH/Challenge.lean": "a139c7e6cfda64bce9722b6a45ab4909497ad228d46bce434d7acc5ed4f22a3b",
   "Research/TaskH/CliqueCompletion.lean": "0383a984157feecdf7322593cd7fb070e50701f07a525321f8a249dfe11b1e92",
   "Research/TaskH/ClosedColorOrders.lean": "1eaf24bfa4db0b48662f97e98e8bb2780acf5deb405e624b2eab7a174565415f",
@@ -39,34 +51,52 @@
   "Research/TaskH/EqualityDegree.lean": "21b8fe48a9f09f7d736e1cd93b6b8a031f008be78ea9302ebb18c915059f3f7e",
   "Research/TaskH/EqualityShortCycles.lean": "27a8dca0e766119702dc05eda3c14723f4510f9f2d5318ffafe9669bab7b28a4",
   "Research/TaskH/ExactTests.lean": "7ade3b0256818aa0a98cd22b607dbe369b8401605ce4aa0ec89dba0b4c825603",
-  "Research/TaskH/FiniteBudget.lean": "4667e876e43c9cbf331416b6dd58d9a434fdaa0e1218e2fa0b0798b9ae26de31",
-  "Research/TaskH/FourColorPerms.lean": "ae04bd3e0e2bb9f068ca3e0a8772409b8bc6a6fa7c258ae616d0eee02f75c25e",
-  "Research/TaskH/FourCount.lean": "8f2e3c06793ea437f7376fd8a4b2c8b67c51b87b4fbac68c93cca95cda474ede",
-  "Research/TaskH/FourCountData.lean": "d73825743636fddaca4571844843b40df16ce82a8559e5c5a71da6f280693565",
-  "Research/TaskH/GoodCycleLowerBound.lean": "d78b5c96ff66f21ec714955db7b65c1755bfa570d1bdb2fb0e5c7b8313e42b09",
-  "Research/TaskH/GoodMultiplicity.lean": "a9854474cabb2a11bbd957c9e56bb204474fb335c98c3140ee8ccd6c74865c29",
-  "Research/TaskH/GoodMultiplicityDeleted.lean": "bf32a65bd9d18eebe43434f9c2cb4ab6e0f871ac02b0d3a81c7587a4f783ea4d",
-  "Research/TaskH/GoodMultiplicityOrders.lean": "327578820a78f87c294220e6573d0f473e7cb6197709e0c57c7f2a312c67b6d6",
-  "Research/TaskH/LayerColoring.lean": "194ba44a65b87278b257850db85175977d31f983d37384fec1ba0216e3c59699",
-  "Research/TaskH/LayerCycleSeparation.lean": "82d69d767a469482f65111f11103a2042728597bdb1592aa20a2daff6a6ef5d7",
-  "Research/TaskH/LayerCycles.lean": "dbfa6509bcbbc39f95852aa10f319ab9910daa77a6962fea6ed6b9e769df379a",
-  "Research/TaskH/LayerFlux.lean": "dbd1ea0245615a3104d91b1b623b0055fdb38bd98e5e9376d8cfc05b6cedda1a",
-  "Research/TaskH/LayerSets.lean": "8d0f846f04ac4b42d61d502aecf78b42dd21abe4a9b7066c678edb5fb8caf711",
-  "Research/TaskH/LayerTail.lean": "6b88484b78101d50c5599efae5b7dd9db2ddf6694fcaff61d8bdd4eb40700caf",
-  "Research/TaskH/LowDegreeAvoidCount.lean": "fdcff9bee841b3b7648167dea65d475ecc587e8c4750514bcbcdbd1fd7d22c44",
-  "Research/TaskH/LowDegreeAvoidCycles.lean": "951eb0d9589052b3ec91d104c0ab601abfaa9c0d97ce287be289df0e0e21afce",
-  "Research/TaskH/LowDegreeComplete.lean": "1e559969240e83a4b2a74474e7b0ca12e46e346f4c0a809e507da5cf6464198e",
-  "Research/TaskH/LowDegreeCycleCount.lean": "162b2396cdaa6cf1d1934eb256d5221bc6e1a125b0ec44dfe14599305d689630",
-  "Research/TaskH/LowDegreeCycles.lean": "9e829c2698e92703c4774777f27f5314ae1e2acefc2e57070b0c8de1e8123eb3",
-  "Research/TaskH/LowDegreePaths.lean": "653e390c33b5c24eb3f3b04ee1ad6f2da5e33423e30c161194932b59e791bc8c",
-  "Research/TaskH/MainFour.lean": "37202bb9ad57464032f22769cd5fbcbeea9c29eb1efd7975f468af6237c4daad",
-  "Research/TaskH/MonochromaticReach.lean": "8f08cb1a62f1ae0760d8aaf03c2c7b8bbbebb28c7acd9cfb288e8eed682d7868",
-  "Research/TaskH/NestedShift.lean": "8236908ef1bd8a288604b83b85cae52215c9c56d21fe29a4618cb54805fcc7bb",
-  "Research/TaskH/RawDescents.lean": "16ec1e0cbfe9bb0b70a5b9502e3a189775752c6269f04fdba36958b6680f9f07",
-  "Research/TaskH/Recolor.lean": "6587ae3072031b0ef906f6442a0c694de5444436d2135d460ca525f529eca3e7",
-  "Research/TaskH/Regression.lean": "aa0536b4d498ac705f97728844eaabb9866dc8396d1826c9d4d355c6ca07adf7",
-  "Research/TaskH/CaseFive.lean": "640313d24f72432283318538de92025fae11941ccf8fc9888c78e0c017e9495e",
   "Research/TaskH/ExactTestsFive.lean": "398c906d8b4d3a26433f31783cb9c5f7513e3bac2426a11bb84aa9dd095b2d9c",
+  "Research/TaskH/ExactTestsSeven.lean": "be0f2070e7dcb1f575d769a05aa9074d8e791a7b9d2167d18b07b671cb6f51ff",
+  "Research/TaskH/ExactTestsSix.lean": "96754e229357760dae66dbc010cbad0ac1385b54e895353e3dc43bec0d4693aa",
+  "Research/TaskH/Fan/AdjEqConnectivity.lean": "62b8e8deae62950829f7019aa1b32dab555e02111bb5759f4760ced96684ab19",
+  "Research/TaskH/Fan/BoundaryQuotientConnectivity.lean": "cad4dd0e4524fb7ca79fbe4bcf6a99c29d044d2d7f6a22bf00d71477268702e8",
+  "Research/TaskH/Fan/BoundaryQuotientMap.lean": "2d3b0229bf349f68533fd99e83b7d575755e0e2a344c832986817719f5df67a3",
+  "Research/TaskH/Fan/Challenge.lean": "29b9a7fee4446109ed43fd01d3208e860fbabb89004027ea34695190a45c1dde",
+  "Research/TaskH/Fan/ClosedNeighborhoodBranch.lean": "19cf6e63f5c806460c0176484bbfa33d1aa27ad401a3786b4e34fdccce99f68d",
+  "Research/TaskH/Fan/ClosedNeighborhoodLift.lean": "b8ec2c7de520b7d501d92a6e7d99bde4373db0be42e09498f08fd6756ebc507a",
+  "Research/TaskH/Fan/ClosedNeighborhoodQuotient.lean": "82286a96ef1b8e8ece9c3ccb9ada9cef8defb53b3bbc92324287517ca13300ad",
+  "Research/TaskH/Fan/ComponentBoundaryTorso.lean": "dc7e310f217c131297b496f2e609465afb6f174ffcd725e84273bdb98481c51d",
+  "Research/TaskH/Fan/ComponentRootBlock.lean": "47cdd5fcd9b3cb4604097eb272c3bf32bc19c989a78197b72bb8771986fb1fec",
+  "Research/TaskH/Fan/EqualNeighborhoodBoundary.lean": "fa793445a392321292bf3d072566f66eff81b819eb1ee2a9a67376212b5a0bae",
+  "Research/TaskH/Fan/EqualNeighborhoodExterior.lean": "f33b95374302c22be045581018a7706bbb9c7449c602fe916d06e176a81664ff",
+  "Research/TaskH/Fan/EqualNeighborhoodPathLift.lean": "0dc760afb02b61d21802bbe49b0b2cff250eb580b29c01e1f7db5e2c477c441f",
+  "Research/TaskH/Fan/EqualNeighborhoodRecursion.lean": "2b1af5fab131c39635c7a5576c49a9fa5834abe6804524f6bb323bb15f5960e2",
+  "Research/TaskH/Fan/EqualRootNeighborhoods.lean": "735eca280a257566ec5ac80eaed0ba0d2434d5d0d40ec780a0d911150361b0d2",
+  "Research/TaskH/Fan/FanFiniteOrder.lean": "cd12b231c1b2008f70d489b4a273deb46674792c458032b7cc5df0570fcb660e",
+  "Research/TaskH/Fan/FanOrdinaryStep.lean": "4be4d67ef55951e172f3d8f60cc720b96d5638d44d27b1ef4694fad189a47728",
+  "Research/TaskH/Fan/FanRootedStep.lean": "f5216bfb7902d9638227a0e8ee4626413adefb739e8b955910812841d0026527",
+  "Research/TaskH/Fan/FanTwoPathProof.lean": "ab6624368979cbc3a25550ddf95f4774b7b379184104ffd86bd5453da2ad16fd",
+  "Research/TaskH/Fan/FourCycleComponentBranch.lean": "8b2dde0369da0af971dc43362c44f475d39126f00c28529e202f6d52f6246ddc",
+  "Research/TaskH/Fan/FourCyclePrefixes.lean": "9dc8190cc531441e524db197c2dd9a161b10ea34079858a8a9c24263374ff296",
+  "Research/TaskH/Fan/Identification.lean": "f4c171cfab63fa75cc5e7126832d3a51c3ef6cea90d85ef3fac19fbdd90444ef",
+  "Research/TaskH/Fan/IdentificationConnectivity.lean": "6146e93cb7074755f9bc7e082c56266ae5fe785a2f59d3b39e10de40e468a0c9",
+  "Research/TaskH/Fan/IdentificationPathLift.lean": "b63c92470044b5097bceed0d0a9064dddacc661b5295e1f0545b80b43b22ba4f",
+  "Research/TaskH/Fan/IdentificationYComponent.lean": "405a49410cd600a4191874983d9fd52cb933935849d615e7d54e0061376b59c5",
+  "Research/TaskH/Fan/OutsideComponent.lean": "f1fde9747a680106317c094c54bf5a0c42d68614b294dd656af926a6b9cddf99",
+  "Research/TaskH/Fan/PathOperations.lean": "d31f9cb29fddee169f2a9e0f11a152b5565e953f9c09f92b4358fb5eedf5fbdc",
+  "Research/TaskH/Fan/RootEdgeNormalization.lean": "2eb0862035b9d5353e0d75b59eca9af746bd5df7507f7da0ba9ae1836c77a736",
+  "Research/TaskH/Fan/RootNeighborhood.lean": "e5de99af2afd5334dd7bdd432363e48dd0afa97545aedfe7b3863daab5a901a4",
+  "Research/TaskH/Fan/RootTriangle.lean": "1163e598a1d8a23b7146d427d83d39090659bb3bf09fa212d2418c8613a1dc51",
+  "Research/TaskH/Fan/RootedConnectivity.lean": "5823bdce50920f8b38f8535e64dbf19c275ee314768b79181293616cd02d39ab",
+  "Research/TaskH/Fan/RootedCutBranch.lean": "37b2ae2139095567116d17f07cb63a39553fa692d7d019bfb729b8faba8e7945",
+  "Research/TaskH/Fan/RootedCutCover.lean": "af6982b22b3930ed23afde6a4012db861f3e05fb10de61ac5403339074ecacd9",
+  "Research/TaskH/Fan/RootedCutSide.lean": "1d35fd91d06d2d48b1f20106a569647869640513d34a2dd1aa64519950bd04c3",
+  "Research/TaskH/Fan/RootedCutTorso.lean": "47cb0aeb7e0e21c2656cc759daf9ff2ef2fa43352d196d00b92cf9007cb3cc18",
+  "Research/TaskH/Fan/RootedLongPath.lean": "1dfd45cc1ff2aec12e45d003270a79f3cc7befab8f8e5c2d85b39eb128424c20",
+  "Research/TaskH/Fan/RootedSetRetraction.lean": "76ad100ea2ed1e7149e81c3981ba272ff04c89bf8519f06e2a909280af7ef6cd",
+  "Research/TaskH/Fan/SingletonRootComponent.lean": "e54f227a37b6d9925f3cc267febf65ddb40803575c28189e4089dec5751ae046",
+  "Research/TaskH/Fan/Tests.lean": "30e3de4440459509992a89db797dff1a4f6739c7a00a8ef2eea0c43d2272816c",
+  "Research/TaskH/Fan/TorsoRetraction.lean": "3cbe93f680725234b0afb2feb51df8da68832acd61228d2d32e7f89abeef2a53",
+  "Research/TaskH/Fan/TriangleFirstHit.lean": "c38308c6fb1c157e869e26973ca1ffc7a6e1f07e8452ec39157e552dc34841ad",
+  "Research/TaskH/Fan/TrianglePrefixes.lean": "ff7bd2bd569afdcedba9960815c993da57a4d33e4e01dd316c43351ebd19ec09",
+  "Research/TaskH/Fan/TwoBoundaryTorso.lean": "9de1fe690c8f328c8f5714ba1fad45eb812e717e3653e2d6abd0fa16bd605638",
+  "Research/TaskH/FiniteBudget.lean": "4667e876e43c9cbf331416b6dd58d9a434fdaa0e1218e2fa0b0798b9ae26de31",
   "Research/TaskH/Five/CliqueCompletion.lean": "ad2388ed8d1fbea4c03ea8f9d6bb34677f932924851c53389170da26cb125ebb",
   "Research/TaskH/Five/ClosedColorOrders.lean": "ffc4ac877c863cbbac7fe04d5b019c932be535ce9b7d20481741bd06f4b53241",
   "Research/TaskH/Five/ColorCycle.lean": "e005d1f2b0fb6647bacae901f1ad83d4a0838a2a209f93106ccd976d77a2ff40",
@@ -135,126 +165,256 @@
   "Research/TaskH/Five/Regression.lean": "c99cb4a567d5dcc4f5436b5b2066d97ea2429f762b947d0ad324a9330a6ecee2",
   "Research/TaskH/Five/SingletonCycles.lean": "d3f4b506c2e2d373be774b72342aa2fd960a85bb580896dca37b6e442306e14b",
   "Research/TaskH/Five/SingletonNeighborColors.lean": "c4bb4c412f45e8fcc767bc1f0e746ab773e33bec7ed5b54f4e256b3c9f032368",
+  "Research/TaskH/FourColorPerms.lean": "ae04bd3e0e2bb9f068ca3e0a8772409b8bc6a6fa7c258ae616d0eee02f75c25e",
+  "Research/TaskH/FourCount.lean": "8f2e3c06793ea437f7376fd8a4b2c8b67c51b87b4fbac68c93cca95cda474ede",
+  "Research/TaskH/FourCountData.lean": "d73825743636fddaca4571844843b40df16ce82a8559e5c5a71da6f280693565",
+  "Research/TaskH/Gao/ActualCliqueComponentEntry.lean": "2634ce6a122ce3238b9cab76d785256a5886eb88e7d03cce68dc4184fdd25cc6",
+  "Research/TaskH/Gao/ActualCliqueFullBranch.lean": "a8c2f74739ef374f2b8e3aa3a0c0982b6da2cb8cb944b09ec11509ddf32089d1",
+  "Research/TaskH/Gao/ActualCliqueNonsingletonAssembly.lean": "a0a2910afc51ad673ff76443d2861c329beac0ba8c946dc8fe2e9637cd905bc8",
+  "Research/TaskH/Gao/ActualCycleFromSpokes.lean": "f48b55894576f197a56763184e8f81d39aabdde8dcd2fa65f4be7159da40320d",
+  "Research/TaskH/Gao/ActualCycleMaximalCarrier.lean": "087f38965de5d50a6a3d9a85f4c617e78c84ccd1f493b0f591938ff17dffaa5c",
+  "Research/TaskH/Gao/ActualCycleSupportTwoConnected.lean": "e4f0daf9a33699261b13a0d2ff4e8a0eb408d74eb683bec0d26e4c1516028f92",
+  "Research/TaskH/Gao/ActualHubBothFamilyBranches.lean": "825a7e1ed9b8b10deda1b6006e6085c51452410dac823ece6d268722a8b406ba",
+  "Research/TaskH/Gao/ActualHubSideConnectors.lean": "ebe548c753cacb8dacf22c48f083f6566ce72acb9f49720eae1adb773ccbd295",
+  "Research/TaskH/Gao/ActualQualifiedRouteHub.lean": "1ee14008b7187c3fe5f73b3d4f30cc0c9f9ecc80a2daae299e1c196ca856cb83",
+  "Research/TaskH/Gao/ActualSetCrossing.lean": "6b503c47e587022e18844755fa7f3c2e0aae0c8e84e3a708ff41b5c207b3a0d0",
+  "Research/TaskH/Gao/ActualSimpleEarExtension.lean": "c6fb3a263b4a48a1156e9527e5ac3cf261ac3fa9d69220d53f91b491f16ea603",
+  "Research/TaskH/Gao/Base.lean": "4aed1149d908bd1412a10c3ea6c2e0db86c56bd4821df6b02c32132db9601b36",
+  "Research/TaskH/Gao/BicliqueG5ActualQuotient.lean": "b14943049d57e8457ee271a1c6ddf812eccf1ba0da6cf8399cba94612743891f",
+  "Research/TaskH/Gao/BicliqueG5DegreeOrder.lean": "84f88441a3cea816d40a95e9c811f02fa0cc31ddea2bfd8a324a61d190af6451",
+  "Research/TaskH/Gao/BicliqueG5OriginalFamily.lean": "b3d76c4aec788e44ff5f8684859ac38fce4ee6caac274fcf045575c0ef3b1813",
+  "Research/TaskH/Gao/BicliqueG5OriginalSelectedH.lean": "78ee3afcc8198c3dca4738ad81eff5156013a49113f50353edc1fa3348618a8d",
+  "Research/TaskH/Gao/BicliqueG5SelectedRegion.lean": "b7a21b123770430e9f8a027fd62966d2720bb305fe8772ccf23a6972943738dc",
+  "Research/TaskH/Gao/BicliqueG5SingletonOne.lean": "32a4b77f2f30806d2964cb42d3edd25ecbb34d0193667fe07a3ba35f4b0e9c2b",
+  "Research/TaskH/Gao/BicliqueLexicographicSelection.lean": "320c2ae112c2617b833b96431580d7dae9a28cadb39e31663ab31e37375de46e",
+  "Research/TaskH/Gao/BicliqueSingletonFirstFamily.lean": "9e0090140a1c89123212ae82c17f8b170332f82dc2bf0488e7fb5505830604e3",
+  "Research/TaskH/Gao/BicliqueSingletonFirstGeometry.lean": "395432f818b48b4ea03b125b0e46889b5e8243a332f048e84ee633ed120cf165",
+  "Research/TaskH/Gao/BicliqueSingletonFirstInduction.lean": "a535def4196f60de382d17cdf2c73582b05658d553561f6c4a05e178e43accbe",
+  "Research/TaskH/Gao/BicliqueSingletonNormalization.lean": "e33ad61ffd52f8f52c4009f7801a987bbbfa876691d58546efbaea8dc515377b",
+  "Research/TaskH/Gao/BicliqueSingletonOriginalBranch.lean": "11cdec508df1435a874f9bc47b025a605317640ca486ee448fe3d04afefcd135",
+  "Research/TaskH/Gao/BicliqueSingletonSecondFamily.lean": "7c1e2cca316d1d0ab752793e8a6de8707affcf8ac6d894ac3d08816b6dbbc053",
+  "Research/TaskH/Gao/BicliqueSingletonSecondGeometry.lean": "591b9c45b370c33fe96c33faafce2685daeb58021a76b0118baf675c72e7789a",
+  "Research/TaskH/Gao/BicliqueSingletonSecondInduction.lean": "e6c2e00eab088e6338ba19d7bf905a131d8d27e3a288dc6217bbec831d27f55e",
+  "Research/TaskH/Gao/BicliqueTerminalG6Attachment.lean": "1d1df291c202b4c2ec523219f0978be59b99e53303fa73fb0e3bf45cea4b5a49",
+  "Research/TaskH/Gao/BicliqueTerminalGeometry.lean": "791d1f6088a4a5ec9d1485687644e0b4945e024a51fbee22f30c19a558b52b83",
+  "Research/TaskH/Gao/BicliqueTerminalInduction.lean": "73e81e9814955936e62de54be3339cf3a703063ce0b40af07af859a95c10d4aa",
+  "Research/TaskH/Gao/BicliqueTerminalOriginalFamily.lean": "811baf08fb26a70bdab11d13085d1b5e14749b7db708acc8eaec614c047b40a6",
+  "Research/TaskH/Gao/BicliqueThirdMatching.lean": "0a1d86da179543e288c996902e9403b920655e6bf0c2426a7d79aa66801299a8",
+  "Research/TaskH/Gao/BicliqueThirdOriginalFamily.lean": "b9f7ba6513239cf416d691f04fa9b924ebd817dde549a70050d8199173edc697",
+  "Research/TaskH/Gao/BicliqueThirdQuotientInduction.lean": "d65098624b457efcccb72f6079eb4ec898b09a462ae216a270b68955c189bf5f",
+  "Research/TaskH/Gao/BicliqueThirdRootGeometry.lean": "4d0d830cab4fd1fc252087400d7d04b48928c79ce0510f63ae771f822c172b4f",
+  "Research/TaskH/Gao/BipartitePaths.lean": "edfb180be50ed3ba7e02875286d808a76f328fc4603d324f13491e68cdc02de7",
+  "Research/TaskH/Gao/BipartitePrefixFamily.lean": "5cdf0db96f5ef375c213765ba9dd4117d0ae15fc2b2e9ba0175e55c6e05044bd",
+  "Research/TaskH/Gao/CarrierAttachmentCuts.lean": "fe27c7295ae3b56a397d2ea2a7f344f23ab8e7cfa79afdc00398b1f55d786600",
+  "Research/TaskH/Gao/CarrierAttachments.lean": "677f36415731a7d13600159a4de6f2182de8de50f35adfe0bb11208bbccbf772",
+  "Research/TaskH/Gao/CarrierAvoidingSpokes.lean": "e3266091db8cb8cee8d9c8a111cffae4940a91eba1f98cab0a999f24c4bf58ad",
+  "Research/TaskH/Gao/CarrierCentralChoice.lean": "7714c21d39a10678801f6cdbdc36504f631bd2327f304b82ba42b9b21ba2500c",
+  "Research/TaskH/Gao/CarrierCentralTerminalLinkage.lean": "1591b940f420f7d9e0ac9332378c3ea92e6c346924ba166f1ecf12749d3747d7",
+  "Research/TaskH/Gao/CarrierCommonPointCutBound.lean": "590d9c611bf3d2419b47b34a73449fd1f2cbd16815d4518ed33344b3876d6254",
+  "Research/TaskH/Gao/CarrierCommonTerminalPoint.lean": "af8c592b302ad25cb99500e93f4c5fd319c0f6f40d72b9e1c48d127e91fb4a7f",
+  "Research/TaskH/Gao/CarrierDeletedConnectivity.lean": "385fceeccb1e5f7b985e31bd955f53625d7efda839a4fcf07c432d633a4608e9",
+  "Research/TaskH/Gao/CarrierGreatestRegion.lean": "babe869606d80979385bc99572ff5c53c74e14bdfffdcf2661700cc47382ef39",
+  "Research/TaskH/Gao/CarrierPeeling.lean": "8e208771b4fa0ad2119aed1176387a3db72222ba8b965f266ee69411ba3997e5",
+  "Research/TaskH/Gao/CarrierTerminalBranches.lean": "83ed73c846fec495bbdb301441ef049a8bade5c623ac0f70a2fb566b4a3037ed",
+  "Research/TaskH/Gao/CarrierUniformTerminal.lean": "7659765e801262dd99945589b91ef027a97b6f04761e535b75986762c0617beb",
+  "Research/TaskH/Gao/CaseThreeActualFragment.lean": "d8425a059ec78532496d48caef014e0e0abc6e984fe7f7dcca7d7e0e48d9324e",
+  "Research/TaskH/Gao/CaseThreeCoreChoice.lean": "012528bc3a22c152b2799c1845814e748324b9cd9702e3c88e61dc480ac94ab1",
+  "Research/TaskH/Gao/CaseThreeCoreLossBudget.lean": "730ccaa5e0921e2a92ef02a4e6d3d65366904daca9692f1054e66e679f35c07e",
+  "Research/TaskH/Gao/CaseThreeCoreOrder.lean": "2b310aa428be61dab0f4fd2ceae6767afc7172c61348e90ee26f108c6bf4f737",
+  "Research/TaskH/Gao/CaseThreeCorePaths.lean": "0f05b775697d7f1dcfa01b02137d368982eb8298fba7e7859d3b3ed737d8916c",
+  "Research/TaskH/Gao/CaseThreeKBlock.lean": "4102311b9a4c269cf15f90846d78805fa3db0c57ab2fad0a3d2e9c61b069ffec",
+  "Research/TaskH/Gao/CaseThreeOriginal.lean": "a41cce79fbd1ea2b94ed23b62b9efb3d5e7e5dd8d36dd43317ddb5c9f8a9e5a1",
+  "Research/TaskH/Gao/CaseThreeSideBlock.lean": "02c69dc26b51c6e15835acca1b55191bd0dab20f3c0a5599d6972fa45d0d3f62",
+  "Research/TaskH/Gao/CaseThreeSingletonComponent.lean": "b22a6b22427de3a106f950de7a0966379bb12cea59930557457494044672418e",
+  "Research/TaskH/Gao/CaseThreeTwinDeletion.lean": "5ec1641c1661f30af11f972821896761764cb4762d9f56f13cabbad6ac249023",
+  "Research/TaskH/Gao/CaseTwoActualComponents.lean": "29d1f2f375a5a24039872f5c3d4e4abe9d7f48af6d564ca62839aa43b22ec26c",
+  "Research/TaskH/Gao/CaseTwoEqualNeighborhoodFamily.lean": "29c144d83e49e5138537c7c2c4b3bc743e21b6f4ccb022e3d5c6b4f771a63fd4",
+  "Research/TaskH/Gao/CaseTwoLargeYFamily.lean": "687d06f137a9122d199913eca3a25f732126e6b5dfec40cb998fccd2ba325b25",
+  "Research/TaskH/Gao/CaseTwoOriginalQuad.lean": "ec837295029ed36da4d0282d0a1a66f9d30de2179f2ee7b61cb9f4e009106738",
+  "Research/TaskH/Gao/CaseTwoQuadNeighborDegree.lean": "6d1c4c0866a9098cd8bd72acdf8502003a8862b581aa9e337e197a0759c7afce",
+  "Research/TaskH/Gao/CasebiActualNoLeaf.lean": "b9628b53382025088ddb3f754f6e60951b20153a5e15701e5724a5aa99891b46",
+  "Research/TaskH/Gao/CasebiComponentPrefixes.lean": "f9051a36fb88555cfca192868a367a8d8bf42f11e2aa3f0ca5b2b48af9f6240d",
+  "Research/TaskH/Gao/CasebiFeasibleFirstPart.lean": "046ab6fceaa4f18891df5ab67fea315ea9ed07aba3b01f8fb2ebb75898c876c1",
+  "Research/TaskH/Gao/CasebiFeasibleRigidity.lean": "6a978c8607bd720ade93e3bfe3ebca9411a1f1f03b38fcd46c9fa5999178c9de",
+  "Research/TaskH/Gao/CasebiFeasibleSecondDegree.lean": "10d37c451e4309ef4848cdd32f8ccd48def4af44dd5cfc9d676a8560fe0e1d03",
+  "Research/TaskH/Gao/CasebiFeasibleTerminalBlock.lean": "ed654465a2d827e023d2af01ef1c72093f026b15d60ddbe06e35db7466cfc2ac",
+  "Research/TaskH/Gao/CasebiHubActualShortFamily.lean": "20b9f0dd2db77c5a14cdce730f2622fad27fa29ce53a668db778c7b4925a1068",
+  "Research/TaskH/Gao/CasebiNoHubLowDegreeExit.lean": "1b40e28ef64223cf64928e20a650e56c85e82a582e1a4a583fb96787899f0fec",
+  "Research/TaskH/Gao/CasebiNoYTerminalCutCase.lean": "ce09b26c4077ff5da448655e3f2d0c55310bca129a967800b1ab29eb38647b20",
+  "Research/TaskH/Gao/CasebiNoYTerminalOriginal.lean": "79c7f42305310b73ad786983dcc2c4286d027aabe0c076310ed089a89bb407a0",
+  "Research/TaskH/Gao/CasebiNonsingletonCaseOne.lean": "d91876f5cac878a36419ba34f4502676daa5eaac2dd45f50f13ba24d972e929b",
+  "Research/TaskH/Gao/CasebiOriginalLeafCommonPoint.lean": "b5c3bf7d63d9b6b1d6be9756cf33f157097c673f204742a8a5d3dcdf2acc6c3c",
+  "Research/TaskH/Gao/CasebiOriginalNonsingletonExhaustion.lean": "65f93505155672590e282271c1f37feb93e02dfef8da6edbeccee60895bdf979",
+  "Research/TaskH/Gao/CasebiOriginalYLeafFirstBlockExit.lean": "a91047330e8e9ce47aeeed9c3708c999b965c826b53ddec6c1ab0561b8ed1497",
+  "Research/TaskH/Gao/CasebiOriginalYTerminalExit.lean": "b870102ef78d52f91d34d2526e5846ea5810f4448daab5fc6d984c325b56524d",
+  "Research/TaskH/Gao/CasebiOriginalYTerminalLeaf.lean": "a0be9325f8874717f9544da253533f481a19ce4e6472618c009840707943194c",
+  "Research/TaskH/Gao/CasebiOutsideComponent.lean": "695df6b31a6439239da789fed5dea463370660043befd45c370a3f0b70cc1578",
+  "Research/TaskH/Gao/CasebiPairedTerminalFamily.lean": "f7a16a42f7ba894a92640c6628b0bc5efe7a1585fd08b956a0e40afcb7b1033a",
+  "Research/TaskH/Gao/CasebiQualifiedRouteOriginal.lean": "97fbf24b6f8ea107fe911dea2a270891803ffc412db51ba68ab0d90f5c736702",
+  "Research/TaskH/Gao/CasebiTerminalFreePair.lean": "7ed128eaa3bc492553fc08a1ff20cd74a227a2c5075bc00f48e48a54452e0ed2",
+  "Research/TaskH/Gao/CasebiTwoTerminalContradiction.lean": "f5c3214de6ae779999845c349ad67417af1ea24008c07a6e554010a0662dc6a6",
+  "Research/TaskH/Gao/Challenge.lean": "e49644c7083c841eb3a80b6f39e1d3f3b4753733f4b3a02a6f3d7354e010f414",
+  "Research/TaskH/Gao/CliqueBoundaryBudget.lean": "341cc45b587a92ff048445998659b0303ea6eb20377c366dbc20212b037c0059",
+  "Research/TaskH/Gao/CliqueBoundaryRooted.lean": "8833fe22dd77dff0b10886cd2e77016e116a4eb0e3c6ca0870bf44e59d72e3ee",
+  "Research/TaskH/Gao/CliqueCoreDegree.lean": "c3cc861cecde8e6f64b64ae2e5b60fb02b3deb572a804edd06348501be35f2fe",
+  "Research/TaskH/Gao/CliqueEmptyInductionStep.lean": "cf21207f981527fe6f761039c20737f873dea8819d52384efa7433f00d4d3427",
+  "Research/TaskH/Gao/CliqueEmptyRealRoot.lean": "0b7732e5909f654ce3b6648b31fa3cb6bb5a6fa62f880fa2f212411677928c32",
+  "Research/TaskH/Gao/CliqueFamilyTransport.lean": "1b93e4d76eb40975d316473a90459a96628675cfc8a4791792eef84a2b34c62a",
+  "Research/TaskH/Gao/CliqueNonemptyInductionStep.lean": "794e23c54f248e7d5af4a6c3ccca795a40431e99dc62b2cc543bd75d7dd89bf6",
+  "Research/TaskH/Gao/CliquePaths.lean": "e7341898b920cf41bcf0ada1a1949bfdfcf52e4f3b17fb292daf9843037fb1a6",
+  "Research/TaskH/Gao/CliquePrefixFamily.lean": "eb06ebca947fd14b320b56829e8c2fb348edd7044e0cdaff8ee0d309b74f53bf",
+  "Research/TaskH/Gao/ComponentFragmentTransport.lean": "ef99bc1a51b5e09a609d2195551742545112942773843e55210586febd5942ac",
+  "Research/TaskH/Gao/ComponentTerminalCliqueDegree.lean": "721ba3c4ff301b2a7c6f898f2b2f17090f256521f239924fea96240e295791af",
+  "Research/TaskH/Gao/ComponentTerminalTail.lean": "15913cff8908aeb32f70571f68b2b0523736add400fcebc28db22a57519b5018",
+  "Research/TaskH/Gao/FamilyOperations.lean": "93948e89bd998b69abb01bbd60200ba621c58f37b08702f432ed9ed7a22d0d9c",
+  "Research/TaskH/Gao/G5ExtensionConnectivity.lean": "107f183a6c79308d56f1510de09556e90b2e29128c1db3ffe3914e1dd2569f12",
+  "Research/TaskH/Gao/G6ActualComponents.lean": "cbf2f6db8de640817e348127337215f4db05d8a68029ba380cbde23606b10c6c",
+  "Research/TaskH/Gao/G6ActualTestTwoConnected.lean": "fb8948092553d8f03622bed560365d037e63c80c21a51315a6a4122dc8d35b3e",
+  "Research/TaskH/Gao/G6AnchorDeletions.lean": "e60e87f30c7822c4335c0d30b267de07acc912d212fcc92068098ce815c49777",
+  "Research/TaskH/Gao/G6BicliquePathFamily.lean": "cf69e7caa354b86ac6e810d7498c42bd629a7c5fce929260c3613d673899def3",
+  "Research/TaskH/Gao/G6ComponentAttachment.lean": "54961290fc622cdd177989d7635e7f9adb219a0f67ba9df3fe398253317877d1",
+  "Research/TaskH/Gao/G6DegreeAndOrder.lean": "6e0064b23a6ed0d7e875f706c91ac4ee16e62d4ad15768917d0481c6669b267d",
+  "Research/TaskH/Gao/G6DeleteActualHPoint.lean": "13cbb02e7d0cfafec00179c80060030b16e743743473d57d17dd0fb214455b4f",
+  "Research/TaskH/Gao/G6DeleteRetainedW.lean": "bc2e21ca3ede510cf93771574978645e8f98e4e6327b9d4a3b9527d036012c19",
+  "Research/TaskH/Gao/G6FourTags.lean": "a433dae12d3d12e70b0d591c1d26981db4c1472b7cd9ab2030f9e947a91ada0b",
+  "Research/TaskH/Gao/G6OriginalFamily.lean": "aadc9437dcc20642196bf494b88bfdf94fe8808dd6fa32a44a2901d0f997008b",
+  "Research/TaskH/Gao/G6TaggedPathLift.lean": "83b98ecdfc158b15a0986c488c87409192012db939449243784120e10b59801c",
+  "Research/TaskH/Gao/GraphIsoTwoConnected.lean": "220eb9c331f18f1d1081af9d323bbcd1a9ed252ba487e839054dd9703b4eb79d",
+  "Research/TaskH/Gao/IdentificationDegree.lean": "f95a01edee4039da2ffd1b8baebd75067922306d2c99993d50c558f6631f762f",
+  "Research/TaskH/Gao/IdentificationFamilyLift.lean": "da34c0651e9d0444dd8683654264c565498eed37a6243221cfbb76ad58864f6b",
+  "Research/TaskH/Gao/LargeCliqueAdmissible.lean": "824d157a35e622e6cb2c2653a931d623a9e9a702764c60fcce626f52e14a5260",
+  "Research/TaskH/Gao/MaximalRegionActualAttachments.lean": "5cb6e742aa14516abbb11025364aea60aa45025140a2b94e478f32dc21e345d5",
+  "Research/TaskH/Gao/NoHubOutsideActualCarrier.lean": "75a6ce0ff4255498726f9715fa2e669e25d54eb75fa2ba846ff5c16bbb6bfc3e",
+  "Research/TaskH/Gao/NoHubOutsideActualHub.lean": "0bb97f33f4c12ae297d52243736b5d0398ca3c8b8c870e4effb8fbb4f6b0d95c",
+  "Research/TaskH/Gao/NoHubOutsideActualLeafComponent.lean": "53132faa027510e000ed8bf126d484654b25ad1cc4f0dd360bbee33f17fdeb8f",
+  "Research/TaskH/Gao/NoHubYTerminalLeaf.lean": "88e88c565cf2b7983a34caea8ac792c6bd112e9b29eab6c8ed50abb0ba29e603",
+  "Research/TaskH/Gao/OneRootExtension.lean": "5ef77719f34713afea4af030e4e287a979c83c63cdf6142ad5bc31f30dc5b01f",
+  "Research/TaskH/Gao/OriginalLeafDegreeNeighborSets.lean": "3dce1efe8456a32fd8797e633a329e35ca474b9ffc32f9d9cf5b0d587aa1270f",
+  "Research/TaskH/Gao/OriginalNormalizedAssembly.lean": "7481c40d9fd894b67cc17ca165e72ab7cbd9c15036bd56741011c24fa649c9fc",
+  "Research/TaskH/Gao/OriginalRootedPathAssembly.lean": "5f57d30bb5cb08769df848d850e39515764f0ee018cfa5e241690b13270ac162",
+  "Research/TaskH/Gao/PathConcatenation.lean": "9d832efc3678152e9ba2b6373372a66e311a93c609c9c0029850b9ea5661d899",
+  "Research/TaskH/Gao/Progression.lean": "61793bb482944072a3a3506a473c365adc78234137aab1148647e0240edfe1f7",
+  "Research/TaskH/Gao/QualifiedHubActualChild.lean": "e1378f14301c513b4840a2bda0a9c93899546a02cdcdbc3716b6e54b7a2e04c5",
+  "Research/TaskH/Gao/QualifiedRouteAnchorCrossing.lean": "c2467be35de4f6945d36ec07f304c758885f5153ee1749eaede9027fbdef364e",
+  "Research/TaskH/Gao/QualifiedRouteTerminalSeparation.lean": "53c63cdfe996a3312e14317229781370605d69e841aa91fc929a5a1e883ff846",
+  "Research/TaskH/Gao/RealRootComponentAndLift.lean": "5f0a95f48fb6dbcfab34a9772232658501fe8f2f2a462f6977f75d2077c775fe",
+  "Research/TaskH/Gao/RealRootRegion.lean": "43b86d0d6019ae0231a71ac5aedbccc5029650a9c78ee01db37e1a2408855cc2",
+  "Research/TaskH/Gao/RegionRootedBridge.lean": "3f009564457cb61e9d9bbb2bdb68e07ea95d54181df67e31939f994ae1801998",
+  "Research/TaskH/Gao/RootEdgeAdmissiblePreprocessing.lean": "18dc6d8751198a97a4f9890ba2fd8a2d565ebb5dac7bbfc70b23af58040c21f7",
+  "Research/TaskH/Gao/RootRegionQuotient.lean": "80eb3dffa24d4ab93e96921785d6eda9dabf05a10de102a7c48e12ee8293f67c",
+  "Research/TaskH/Gao/RootedCutAdmissible.lean": "0f5ea1597a2b4cd3b2eb47bcc50a176f3e11cbe9430cb06636675554b9ddbe19",
+  "Research/TaskH/Gao/SingletonCliqueNeighbors.lean": "54687f630b5cf3b82a4ea1ec688df42e2d53fbb4291c67c21d8edb035bac4132",
+  "Research/TaskH/Gao/SingletonG1Degree.lean": "86f3f6eeb23ab12367412b5903f30bb3c730ca0c759cb1303371ed450c4dfd57",
+  "Research/TaskH/Gao/SingletonG1InductionAndFamily.lean": "4e20237918ad978cff792cfa88a784649480688296121bec24495315a0c0f30e",
+  "Research/TaskH/Gao/SingletonG1Quotient.lean": "7e04721ec17e35c4abaced7cd9850e08d6f6e6e3e8b43b0d637970f17b4eb697",
+  "Research/TaskH/Gao/SingletonG2ConnectivityAndInduction.lean": "c45254fa659de3c8f981883012f31c5d9ccfda654f0c1f6ce3bf7db092e9bc86",
+  "Research/TaskH/Gao/SingletonG2Family.lean": "302309d8778549d0e789d4f644c45367a36d044954db8cdfe61b55371c82b5d3",
+  "Research/TaskH/Gao/SingletonG2Quotient.lean": "e4bf30f0037807e13dfc26ded46720bb9a448adc5dd0a3518abbbac4f38c575d",
+  "Research/TaskH/Gao/TerminalCommonPointDeletedComponents.lean": "0e8b3fa6337b965ba451bd90b49fc68dc75a76e219d4b06fab23aaf2d50e5141",
+  "Research/TaskH/Gao/TerminalFragment.lean": "84793bd520700b451b6272afb95b45bd5848253183311b84fd8b16a133dec07b",
+  "Research/TaskH/Gao/TerminalFragmentCarrierRoute.lean": "1351817c4e76e75e4041232b0216a5c7c1f060fee13fb240e447d4759c4e733b",
+  "Research/TaskH/Gao/TerminalFragmentDescent.lean": "d09c9fef37cb64a35e50a2dc1fc56e2c7a0ab819236cc1cc754d06293b7bdb1c",
+  "Research/TaskH/Gao/TerminalFragmentExistence.lean": "175b7f528004aa2468bf21157a857dd2c954bcb49c79f448fd887dd52e28aafb",
+  "Research/TaskH/Gao/TerminalRegionSeparation.lean": "0e6952f6683352b020a881419c13551c50c573b3bd5db14ec2aa7f9383340993",
+  "Research/TaskH/Gao/Tests.lean": "b61ea4173e89d324cfd68ff8cc398bb07cd81cf9f0ab1c4b3c056bda1d916351",
+  "Research/TaskH/Gao/TwoTerminalEndpointCut.lean": "786b1152ce4d1c5c5c0181716d035e0dd5e9cdd6a4fb9c563f1881bfaef3d4e5",
+  "Research/TaskH/Gao/TwoTerminalRouteCertificate.lean": "690d1fe1826df55d33569cc6ce8ef78557e92482d5a9475a7d8eb151d7560e00",
+  "Research/TaskH/Gao/TwoTerminalSeparatingCut.lean": "87bbedc5097bc079e3343079f8c95cfcec5b3f4dc1bd8f6367a77598ade54fa1",
+  "Research/TaskH/Gao/UnorderedLinkage/AuxiliaryRoot.lean": "67b29ae9dd05122793616a03dcd4a1febc0d4700a12e742aded6d8b3773bbb07",
+  "Research/TaskH/Gao/UnorderedLinkage/PathContact.lean": "1f5ffe4c2c465b7f60a03850ec655335c220dba87c2375cc60ca744e51eaecc9",
+  "Research/TaskH/Gao/UnorderedLinkage/RerouteFork.lean": "f16c43b9b2dcc95552240339b7112fff01a86a2429b63996e5b0e709259ca8f4",
+  "Research/TaskH/Gao/UnorderedLinkage/RootedFork.lean": "79ba276fddd8c775250436f1017b8660a74a4be446c6838bba0594b7068d9c53",
+  "Research/TaskH/Gao/UnorderedLinkage/RootedTwoFan.lean": "bb4aeca5e30644832e483e70591a3ac2cca78eaba8891093b617fe7b729e9509",
+  "Research/TaskH/Gao/UnorderedLinkage/TwoSetLinkage.lean": "38d4d310cbdb7e3921d23e56abb72569f17588e44b92994bc5c4729297f3c81e",
+  "Research/TaskH/General/AllCycleSingletonOriginal.lean": "153c3420b5b525b44cc90a51d3f7b0c8e2d9d9afbf1027e0da16ae6d17db178e",
+  "Research/TaskH/General/CliqueExteriorHookOriginal.lean": "8c7b84d1ec58251cfd4f39375237b1e0d3ea9ff51ce8b78ddc772cda36a313a8",
+  "Research/TaskH/General/ClosedColorOrders.lean": "cf3293775bf95698eb39327fdc7401699fb68d5d803f6b79f4a95228d8a05de6",
+  "Research/TaskH/General/ColorCycle.lean": "5ec5b6b591f36b25fd07608559fe0dddd974b661c1f93dbc6ed7a1e8c677ed29",
+  "Research/TaskH/General/ColorWordsSaturation.lean": "4336425b8d7e348d2b21edf82609f4137fde5d63763b62b34fdf594dbb761d2f",
+  "Research/TaskH/General/ColorWordsStrict.lean": "0047137825a8926a60e9f23ba3d26f3bb5fe4c8b98d7cadd12d39a6e44466819",
+  "Research/TaskH/General/CriticalColoring.lean": "12e42a706d92d3f9c456fabe68daf51effe12286c34bfc59c03fa329d36405a1",
+  "Research/TaskH/General/CriticalConnectivity.lean": "21fc6d4a8f7e1a017f86a38b247d5c30859e92b261d43f52594095b7f35991f4",
+  "Research/TaskH/General/CycleFlux.lean": "c254d99418aefe219ac61332435369501d76275b6fb0bb2322a4d81e40508379",
+  "Research/TaskH/General/DeletedCycleOrders.lean": "5d118608d44826a5168f70f5be03a3ed62002e707215c462d14a5032d2caf9de",
+  "Research/TaskH/General/EdgeColorOrders.lean": "4c07f891deac6975febe58a6b95ec89703cffb05206de8c9e72d94f16cc11292",
+  "Research/TaskH/General/EdgeCycles.lean": "2cb3b0191464d9f654a38313d0e5d261e17654fbf205479b60aa8d3f03929606",
+  "Research/TaskH/General/EdgeCyclesCount.lean": "17d3310f703a37deaff59a0723b38ba13abb7bcc3dbe5d3914ab693ee5fc1454",
+  "Research/TaskH/General/EdgeCyclesDistinct.lean": "35195f24fdf7a6a3743ff2132a13304a379050a6e953d8b83255d6c3cbb54f19",
+  "Research/TaskH/General/EqualityEdgeOriginal.lean": "f7b173098002cbe64290ddfb708816ecf0421123e7212d71f821b1fea853d6a5",
+  "Research/TaskH/General/EqualityRainbowOriginal.lean": "9e35a6569af61d121b682ddd0ff316ca64348174811687d5097f4a422e7002ea",
+  "Research/TaskH/General/EqualityShortCycles.lean": "1c959dcfd8567f0628faecfc87b9d945bb67ae419d45cc6a4da3afb9d66c3200",
+  "Research/TaskH/General/FactorialBalance.lean": "eb8ac5421dacfd48e0c97010b57292a8880623a834235c4b840677e51f427e3e",
+  "Research/TaskH/General/FiniteColorAvoidance.lean": "728491a1867d0c1e0bad89df6260a330bf20847ff162c779f69991c9e7e40d5b",
+  "Research/TaskH/General/GoodCycleLowerBound.lean": "378c30e6f2f739811ae7c47ef66ebd4b5c77be494fe44e9f3d9ae2f1d28cb2c6",
+  "Research/TaskH/General/GoodMultiplicity.lean": "9ecc6798105820a8f3746cf64079b64a6a230e0ce75fa209f96280bac0fd93a8",
+  "Research/TaskH/General/GoodMultiplicityDeleted.lean": "26b02398b882931420734effd6d3be3aa920912ef43fe6698a05cdc2ccd4a9ea",
+  "Research/TaskH/General/GoodMultiplicityOrders.lean": "f5554be77d9a0d12aae1048f61f355acf8c82bd694092bd8f70cd2127c8fd096",
+  "Research/TaskH/General/LayerColoring.lean": "0c265c899f2a15c86f797dad18290b9e30ed79529c5a2afa9f4faa0b5a376993",
+  "Research/TaskH/General/LayerCycleSeparation.lean": "aba93c19fbf2dad7009c487853b5a5c09b840899245472a19157b0468ef8cd69",
+  "Research/TaskH/General/LayerCycles.lean": "4e25f4af4c8ede4838c7f722a299fac97a951a9186bc41133ec222ee510b0ed5",
+  "Research/TaskH/General/LayerFlux.lean": "d2a73b590c816fd4d0fdbe5a53cb1690d771deafeb6d33c47c418cb4c50d5b19",
+  "Research/TaskH/General/OrderedColorRanks.lean": "42353316db4c4750acbf1cbcf44186917aa8213566b7fb3683b68a98f1983539",
+  "Research/TaskH/General/OrderedSingletonDonorOriginal.lean": "439a595ba107aae93d3d31d1839a1667c436f920c53a4d9308c66ecbef4b0a5a",
+  "Research/TaskH/General/OriginalBoundaryCliqueExclusion.lean": "1208e741959c3329d882efaea424cb2c20266913305a3b002cae223dcd2a35b6",
+  "Research/TaskH/General/OriginalBoundaryFiberSaturation.lean": "9c9d4c728e21367863c978d5d40f1b106d61b37c95551d0ad8eb78d67c626b0f",
+  "Research/TaskH/General/OriginalBoundaryNoCommonHook.lean": "761654c4d6f8a7479ab05380a79c2a7722f8dc20df6c9a1414e2e6882727619e",
+  "Research/TaskH/General/OriginalBoundaryNoCrossHook.lean": "13869a901bd267b2e02fc4adfe887e338326abfed4dd6dc5c87aad8ee08cb426",
+  "Research/TaskH/General/OriginalBoundarySplitData.lean": "8dfa66df2a4de7fc013ea2f85790a8e0b5a10f96f903719671cc9da34ee8f8bb",
+  "Research/TaskH/General/OriginalCommonHookPropagation.lean": "9304b40912db60f18389a3f6dd3fb563d9353c1e74be0318c2af73f3ccd3b662",
+  "Research/TaskH/General/OriginalCycleIncidence.lean": "694dfaf5e574a059cdf464ebe42c263d483033325f5726349de2c8afd14ddcbe",
+  "Research/TaskH/General/OriginalKempePathTransport.lean": "59a22cdbb63a0f9e9852b64b6d132d86b40ffe76559012f10388a021bfa9f1d0",
+  "Research/TaskH/General/OriginalKempeSingletonCoverage.lean": "717b5bf106139938826ee0fdf5d94a37e656a3584c0b2cba1601b0b8b696740e",
+  "Research/TaskH/General/OriginalLockedPathPadding.lean": "5904084b0dec866d472a9e60caf8c7e0d85d588dfbb33e51e9150cb61fc4a75f",
+  "Research/TaskH/General/OriginalMinimumDegreeBaseline.lean": "71d7fa71312982707243a292ae5f14e2b625e31d2387b0d9ec96f08367d01bdb",
+  "Research/TaskH/General/OriginalSplitLockedRows.lean": "57968c444f8d169a3184b2c6913e4a157d4e75886551730c985ab99f2f53abb0",
+  "Research/TaskH/General/OriginalStrongerMinimumDegree.lean": "25fa05d83a0d502d3ed962364ba0c6784a18bd1e607a38248b73a88a77c863aa",
+  "Research/TaskH/General/OriginalTwoLockedRows.lean": "afab501a2b37630e8552af0e512a388a2691a4973cc0cd62516cadd2c34540ba",
+  "Research/TaskH/General/RawDescents.lean": "b6e8a3eb854df795bed58ad4a3d3ab329302208ea537c5a150a3b0dd1aa942f8",
+  "Research/TaskH/General/ShortSingletonSpokeOriginal.lean": "46b9d42dcaa941040cb104f9ccd7677a39dfe82f34ef900aa047ff4f5caf227b",
+  "Research/TaskH/General/ShortSpokeSupportOriginal.lean": "4c0d9577e755acbc1717eace73f37bc7c8e1d6c0ac450ac45da9a0ea40972e1b",
+  "Research/TaskH/General/SingletonBaselineOriginal.lean": "85ea46d209c39b334e62d03936ad83609842bc6f6ea22c1b84419fdf7114c6aa",
+  "Research/TaskH/General/SingletonCenterCarrierOriginal.lean": "881466cbb8b83d2bbd4be1ebe3ee7e72005e7629536467690b750440725a73a2",
+  "Research/TaskH/General/SingletonEdgeOriginal.lean": "47d65c570190fadc9f1f1ef17304d14566b35b8eb8d1b421ef235ee4132df670",
+  "Research/TaskH/General/SingletonFiberBoundaryOriginal.lean": "23614093f97c28707e91c1471ef989cfa1aed0fff82245ff2f518d92c199ce87",
+  "Research/TaskH/General/SingletonFiberHookUniquenessOriginal.lean": "418bb8cdfa9f7730b9e25bea192501c91e190289fda7a4635256109c22ee44b2",
+  "Research/TaskH/General/SingletonFullCliqueOriginal.lean": "f0c339feef556b455b6a0293b3afdf357af71e825b772309c443faa58501f545",
+  "Research/TaskH/General/SingletonFullEmptyOriginal.lean": "e4963f6084694681546cd26f10a61e4d3867628acfd79e52af8c8ca568d187cf",
+  "Research/TaskH/General/SingletonRepresentativeCliqueOriginal.lean": "b562c36593c427aa52294496d469054b0c43a01c8c1e1bef04fffa9c410644f4",
+  "Research/TaskH/General/SingletonRetainedOriginal.lean": "309c6734b7d8ccd055d881a0e47cf0374015725cd77525cc43b334fa68710ea3",
+  "Research/TaskH/General/SingletonSpineBudgetOriginal.lean": "ee1bf7fa203f77aed2ecfc638f2e0dabe8d7d924704343687c533a985f32ab8f",
+  "Research/TaskH/General/SingletonSpineOriginal.lean": "ae6bbdcdd954c7fcd7ddcab249048918a33798d1f798dba557f2d571864d28cc",
+  "Research/TaskH/General/ThreeSingletonCliqueOriginal.lean": "cd2724f2579155c2a0975033f34d5d47d46bab80186019c95fefb2739c8d9f99",
+  "Research/TaskH/General/ThreeSingletonTailOriginal.lean": "79724009f3ccb67f9f33461ec41549f0fc75b2de4853b520a3fc6ce6f2bd658f",
+  "Research/TaskH/General/TwoColorSingletonPathOriginal.lean": "a77ca9c352eeae7e1571f447935ad256cb5966d38db824ba8740c2e268fcba4e",
+  "Research/TaskH/General/WholeClassCardOriginal.lean": "401b70d0fd86408c5aa17cc3ba8abead6083af329cdfecc211068fa8de9a207f",
+  "Research/TaskH/General/WholeClassCycleBudgetOriginal.lean": "55d82d813b3bff7aa2b97c1c902977151754954c411cc9bfad875b7ec899ef20",
+  "Research/TaskH/GoodCycleLowerBound.lean": "d78b5c96ff66f21ec714955db7b65c1755bfa570d1bdb2fb0e5c7b8313e42b09",
+  "Research/TaskH/GoodMultiplicity.lean": "a9854474cabb2a11bbd957c9e56bb204474fb335c98c3140ee8ccd6c74865c29",
+  "Research/TaskH/GoodMultiplicityDeleted.lean": "bf32a65bd9d18eebe43434f9c2cb4ab6e0f871ac02b0d3a81c7587a4f783ea4d",
+  "Research/TaskH/GoodMultiplicityOrders.lean": "327578820a78f87c294220e6573d0f473e7cb6197709e0c57c7f2a312c67b6d6",
+  "Research/TaskH/LayerColoring.lean": "194ba44a65b87278b257850db85175977d31f983d37384fec1ba0216e3c59699",
+  "Research/TaskH/LayerCycleSeparation.lean": "82d69d767a469482f65111f11103a2042728597bdb1592aa20a2daff6a6ef5d7",
+  "Research/TaskH/LayerCycles.lean": "dbfa6509bcbbc39f95852aa10f319ab9910daa77a6962fea6ed6b9e769df379a",
+  "Research/TaskH/LayerFlux.lean": "dbd1ea0245615a3104d91b1b623b0055fdb38bd98e5e9376d8cfc05b6cedda1a",
+  "Research/TaskH/LayerSets.lean": "8d0f846f04ac4b42d61d502aecf78b42dd21abe4a9b7066c678edb5fb8caf711",
+  "Research/TaskH/LayerTail.lean": "6b88484b78101d50c5599efae5b7dd9db2ddf6694fcaff61d8bdd4eb40700caf",
+  "Research/TaskH/LowDegreeAvoidCount.lean": "fdcff9bee841b3b7648167dea65d475ecc587e8c4750514bcbcdbd1fd7d22c44",
+  "Research/TaskH/LowDegreeAvoidCycles.lean": "951eb0d9589052b3ec91d104c0ab601abfaa9c0d97ce287be289df0e0e21afce",
+  "Research/TaskH/LowDegreeComplete.lean": "1e559969240e83a4b2a74474e7b0ca12e46e346f4c0a809e507da5cf6464198e",
+  "Research/TaskH/LowDegreeCycleCount.lean": "162b2396cdaa6cf1d1934eb256d5221bc6e1a125b0ec44dfe14599305d689630",
+  "Research/TaskH/LowDegreeCycles.lean": "9e829c2698e92703c4774777f27f5314ae1e2acefc2e57070b0c8de1e8123eb3",
+  "Research/TaskH/LowDegreePaths.lean": "653e390c33b5c24eb3f3b04ee1ad6f2da5e33423e30c161194932b59e791bc8c",
   "Research/TaskH/MainFive.lean": "aa88cfc4f47b441846f77ce57c8fdaf8d9b6ca9a9cff78430fa4c38a0907ddaf",
-  "Research/TaskH/CaseSix.lean": "68ec21934ae1dac519efd34562a29d934aa8402190fad373189d3272c3a61d3f",
-  "Research/TaskH/ExactTestsSix.lean": "96754e229357760dae66dbc010cbad0ac1385b54e895353e3dc43bec0d4693aa",
-  "Research/TaskH/MainSix.lean": "d29bcd4b91b948de18f28ccfcc2fd06f5f9e7a48f5dbb08f7be6bbadbc466bb9",
-  "Research/TaskH/Six/BipartiteSixWords.lean": "179f6bcad9c9e44abd36545edd0f3e953fd643c8e265953b703d750910dc683a",
-  "Research/TaskH/Six/CaseSixElaboration.lean": "de98dacf317a282f299a1427bf3cd78bcb545568f0d9533b0b4e9849bf005caa",
-  "Research/TaskH/Six/CliqueCompletion.lean": "30b8f015ca5769dc2e354c05fbe214d3270efd281c7a01a3fb3f9548eeba0b5f",
-  "Research/TaskH/Six/ClosedColorOrders.lean": "85a6519ccb51e0964e3793003c0b7ec443b7eb5714633adc9c8514a25fac036b",
-  "Research/TaskH/Six/ColorCycle.lean": "efdbe49d9502042b714e10b23b0b463da02be6f9991fe0928bfacd529131903c",
-  "Research/TaskH/Six/ColorWordsSaturation.lean": "2002e9d1fa9004489e80056ae7c321f96aa8a8309a96cbd8368d1c4863bf63dc",
-  "Research/TaskH/Six/ColorWordsStrict.lean": "3023422d962c33c996b9ee0118889ce874c9a7c968eac8aac147e9e5701956f2",
-  "Research/TaskH/Six/CycleFlux.lean": "128f63a04cee2ff9bae55a10f3fc37b3c31d9e5a3cacfd72f776e938bfb0aa89",
-  "Research/TaskH/Six/CycleSix.lean": "fee5e0f0b7f1fe27f6cf80bfb30640449f38f55da28d3725d4c2776da3968b9d",
-  "Research/TaskH/Six/Definitions.lean": "35e3b8d1eb5fdb3189fdbac362747c1eb303f6451283a92f99e5d252b928784e",
-  "Research/TaskH/Six/DegreeSixComplete.lean": "6a7061a2c2bf7e64db6e7bda5119e5588e8db75b211a0614a689eb26b55955fa",
-  "Research/TaskH/Six/DeletedCycleOrders.lean": "613b3929ffe24dc0753b1178054835ebc917746842d775ac83571ff88fcf04ff",
-  "Research/TaskH/Six/EdgeColorOrders.lean": "1948379e4c92da3a49fa14bfcfdd701a30a8e73753f5efea0a6089bc24360773",
-  "Research/TaskH/Six/EdgeCycles.lean": "7893dcaf2ab3e8534cfd228f67a68192f3058a51e598150ff21d1a3a474e3c05",
-  "Research/TaskH/Six/EdgeCyclesCount.lean": "4779ef4d446e1fda41f05b2acf13cb701919a9d74960f516beb2c33f538f1d28",
-  "Research/TaskH/Six/EdgeCyclesDistinct.lean": "1baeb046a7f7f11faa81d1774a04a3fced23bdbf71974ea22eb49db273dcbd92",
-  "Research/TaskH/Six/EqualityDegree.lean": "232a27a421e30fadbe1565d4c826be0349c99b9e78a815667d9b7330add654e9",
-  "Research/TaskH/Six/EqualityShortCycles.lean": "1a71839acc54360d1e6ab811ad3f7f4496bc024df15f9e6db3637676882b7ad7",
-  "Research/TaskH/Six/GoodCycleLowerBound.lean": "f4e6ec729cd6c16cf97d6bf58cd4979882cbbf235c4aa5f8f94a3fd7b597563f",
-  "Research/TaskH/Six/GoodMultiplicity.lean": "cd2511c8457ec44d174eb1ed2a5d44d80659ef61c668cf455f6dde5ed042d6d1",
-  "Research/TaskH/Six/GoodMultiplicityDeleted.lean": "a16f44e9ba6049001fe0d1ae34b00a6780f5a2723d94b898914c9e95f0b00704",
-  "Research/TaskH/Six/GoodMultiplicityOrders.lean": "0a1dc86fa122e788784dda87df812dcb40c641e4b2893a4e123bcb3e077e772a",
-  "Research/TaskH/Six/HexagonWordIndices.lean": "8cee690c351e8b907c59e405a8d54f37d7c268d43325f07e8864b28b62834ff9",
-  "Research/TaskH/Six/HexagonWords.lean": "fc9ac1c4559028d87fe11712b3ed90437903a04b58c00cbc3d5c6e67dd112a75",
-  "Research/TaskH/Six/HexagonWordsCardinality.lean": "276ab2fef0bc1083bdd2af7b37946fa078ce48800f7c1687e6357230b38f84af",
-  "Research/TaskH/Six/LayerColoring.lean": "96abc5d069050f823dc3d1f7bf172d2bce6efc114079654a3df888e78f7732c3",
-  "Research/TaskH/Six/LayerCycleSeparation.lean": "3c21cd5f05ce3c30bca8d0262c07fee002ffc9a33c436508316c11f223a91750",
-  "Research/TaskH/Six/LayerCycles.lean": "13cb87bca17bb10ef34211d57976c6bc73e28ca413de7b6ecb347cfcad6ce2ba",
-  "Research/TaskH/Six/LayerFlux.lean": "a87aac2bf3e24fdda37c0acad6bfb52080de81234bbe33a2eb0007b7019bfbc8",
-  "Research/TaskH/Six/LayerTail.lean": "02e24c1edf800d7c9838e83a9b7e72782a719fe5dc4ee4edee9b79e6e1901fd9",
-  "Research/TaskH/Six/NestedShift.lean": "da0a205a1fd1965062121033d6327df5c2c2c9356d27c26c5d832d6bec09a6be",
-  "Research/TaskH/Six/RainbowCycles.lean": "383ba219a39f8f4c764eb6cb75f2430ccebbc8a5ff60ea75ec63e00efd1666d1",
-  "Research/TaskH/Six/RawDescents.lean": "ad07cbff1dc4e738a813ddb604a160feee4d901c676de1089276111af86714c1",
-  "Research/TaskH/Six/RegressionSix.lean": "5d1c114c8003885dfdc1383c5eb4a3d4abc6af3063f3d412d47b0bf5513eb3b0",
-  "Research/TaskH/Six/SingletonClique.lean": "4fd3579780ef6b666329549efb11c5ae2e46b3c95dd48a5cfaf943086227713c",
-  "Research/TaskH/Six/SingletonCycles.lean": "daab07223e41660b6e314bedf5821da5398070c77d0628c25249d08d73a79b79",
-  "Research/TaskH/Six/SingletonNeighborColors.lean": "bbe527eb4e767f1691c90515aa4fa9169c11a7074f7b1e4dc4bb90f8f5b11eb1",
-  "Research/TaskH/Six/SixAttachment.lean": "692ceb4a8472fa78a7a765c4a963785d09a0ea7fc7ac91a6182d9f1c06f636e9",
-  "Research/TaskH/Six/SixAttachmentData.lean": "097ce2451420674ce5cd1f98ec8e7f7f0735fee7c1a2b3df10976937a5f47128",
-  "Research/TaskH/Six/SixBipartiteCore.lean": "f0b1e80a92526ce1edd2b952b8b8d8ba0adc39153f2dfe7c3eaee8e12318dcc4",
-  "Research/TaskH/Six/SixCliqueCommonNeighbors.lean": "4db5463e757c8df630be66f542855eb7b992c8a39413237b14b085fcc6e19be1",
-  "Research/TaskH/Six/SixCliquePathPacking.lean": "06507c56c397186fb2b731037bb0299a2f627183704365cc580a1ecaf7fc06e1",
-  "Research/TaskH/Six/SixDegreeNineExclusion.lean": "440b3255918b4922505bdf37cd97dd37d345f29ce804db32c59e8cb4849bc6d3",
-  "Research/TaskH/Six/SixDegreeTenCenterCoverage.lean": "e711a90954b010526dce2d1b3c952a3ac6eca8f0af68e043978fa83074ede24b",
-  "Research/TaskH/Six/SixDegreeTenColors.lean": "6500135698426d02aecf2c1de9171167579e3d310439fbc8aa14948c1933467b",
-  "Research/TaskH/Six/SixDegreeTenCommonOutside.lean": "522c89c39b214df4e1d1f92e9829ff45935852f6a82a2e87618f43b264746484",
-  "Research/TaskH/Six/SixDegreeTenCommonPacking.lean": "d91ae59ed0da9857d3c0c6d4c3e7632fdb519184a43e6d347840eacb593c0548",
-  "Research/TaskH/Six/SixDegreeTenExteriorWords.lean": "22f8157fa5c2c5489a3dc0238e26da109c4a27c1599ee9f86d85e994b6a51520",
-  "Research/TaskH/Six/SixDegreeTenFrame.lean": "673f8b57e2dd8fa8ba81c7466392900fc0259a9bb307267eac5533bf89d97bfc",
-  "Research/TaskH/Six/SixDegreeTenFrameWords.lean": "fd74782670685ab5097466be5d705f0d73a9aa53a0e015492f238f11a54d0f37",
-  "Research/TaskH/Six/SixDegreeTenLocalShape.lean": "9adcddf57d28dfef7fc9875700af2da612a507045f27971ad33c83ca59b862d1",
-  "Research/TaskH/Six/SixDegreeTenPairDichotomy.lean": "668342b6359e8772c4296004a6147c1c0169c6f90943bfc5f54a491fd1e7b02e",
-  "Research/TaskH/Six/SixDegreeTenSplitColors.lean": "97a8db9fa5dfdaf7d78d81428bf44ffbc03e150e12cff3acac5d340d5dc8e6ce",
-  "Research/TaskH/Six/SixDegreeTenSplitPacking.lean": "3c5018b866337cb102edc726d3758fba32e5a3d6514ebc3534360cf7f94aa9be",
-  "Research/TaskH/Six/SixDegreeTenSplitSeparation.lean": "b98909d93c3fadafe560ab126240ceaca41ee6591463db28b7242f1a02eb6db3",
-  "Research/TaskH/Six/SixDegreeTenSplitWeight.lean": "04acf7bceb2a2d97eb8cef2c83c38c04a6f83693ed2d06456f40a2955954c592",
-  "Research/TaskH/Six/SixEqualityDegreeTen.lean": "b50c8f21ea31ba8984c48b0cc695ff7e4315561bf65de2ed47967e50dbb83733",
-  "Research/TaskH/Six/SixFiniteBudget.lean": "5baf9dc74849a93f84b56e36a4f6d360cbf9b425c03e8a7559ae3a5444893e07",
-  "Research/TaskH/Six/SixFiveCliqueBudget.lean": "5dfd14b4991f5e583278b1a680faecf4e2f040683770a2523e87f73e359daea5",
-  "Research/TaskH/Six/SixFiveCliqueClosedPacking.lean": "48ce6b96e5aaa4e0def8ccbd26273ddc7ca321796a3ccfea913eb6e467ecd4c5",
-  "Research/TaskH/Six/SixFiveCliqueData.lean": "bcf6257c2e688f52c4dc3da0500fa91f5c7e370ca8539df691dfbaba2c7d0056",
-  "Research/TaskH/Six/SixFiveCliqueLocal.lean": "59cc197889d5f40b0de2116764058df324ec7d500df8de5a9a3d820851d931e0",
-  "Research/TaskH/Six/SixFiveCliqueOutside.lean": "564a67540d2ab2dfe2006fb09c58ba810d5c68ef6daa63178733d64bad610372",
-  "Research/TaskH/Six/SixFiveCliquePairBudget.lean": "5e883b9ab7025d8b5a8a8cf0f80cc28786bda730ace97da2267b2c005bbeb4da",
-  "Research/TaskH/Six/SixFiveCliquePairColors.lean": "fd8659ebad9756788ae143bcddaa27b17dee2c0d0cd512e34b098da80dfb16b1",
-  "Research/TaskH/Six/SixFiveCliquePairPacking.lean": "c777d37271d4b22c0e2d9e0fd0b26143b1c9a93cced465ca3d5dbde72e70d325",
-  "Research/TaskH/Six/SixFiveCliquePairPaths.lean": "584d0592c0cb4f6a7e834a62439b0b29ca85a0a63591d2b7bbd657976d4774f1",
-  "Research/TaskH/Six/SixFiveCliqueReindex.lean": "8e902bdc00f4c0e573791743268431c5a47f8928d8ea5ba71a63b05608b6d225",
-  "Research/TaskH/Six/SixFiveCliqueSeparation.lean": "e2ecc3e9f2a2deb4e04b45f19f0963d49d9caa2108c4c4bba51f05ab48af83b5",
-  "Research/TaskH/Six/SixFiveCliqueSets.lean": "29e7a649dfd070e97b871d7070851bf9b4573ce6cd36d5dacbcf5b3e0de1b995",
-  "Research/TaskH/Six/SixFiveCliqueThreeHooks.lean": "857bb7ea5c196ae17130e645002386003286f3e970f9ba44487b8227ab24a667",
-  "Research/TaskH/Six/SixFourCliqueConsequences.lean": "773046be00e5bec4e0a26a883419dde4b9c4db9ea97addb3c0f6bf385095056f",
-  "Research/TaskH/Six/SixFourCliquePacking.lean": "d6ed70f4780a1d17c518483759a7bfe9108a431b0633978701b73bd0b07a0f6c",
-  "Research/TaskH/Six/SixFourCliqueRepresentatives.lean": "6d4100387b1f10f89eab4ea51b25b4b7c5a06d610de19793998e2f88545a9100",
-  "Research/TaskH/Six/SixFourLabelBudget.lean": "ff6b0d5f92593e7965ded9f57d187974d053746a0bfb042938e2656193b1a66a",
-  "Research/TaskH/Six/SixIncidence.lean": "f7d87be86c644c7f202ddc8ccede5db2fe60009d949736a222e10e3fd298caa5",
-  "Research/TaskH/Six/SixMinimumDegreeNine.lean": "b63007fd80e7e98f9058f5f30078808dada46284073dd50e28d9db1706ab3a0c",
-  "Research/TaskH/Six/SixNeighborIncidence.lean": "b0ee839bc184a2bc27aeed4d9503696217a9f362e45b4ea99633054e2d0a988a",
-  "Research/TaskH/Six/SixNeighborPathRule.lean": "aad17608e94e73acd1f88b0154f37fa28abbb0c8f30f1e9b68f0fb224e155bab",
-  "Research/TaskH/Six/SixOpenNeighborhoodPacking.lean": "35d8c1bfbdfa8e377f64f736c3da17870de03e809608431fec1b9db46d22cddd",
-  "Research/TaskH/Six/SixRainbowHexagonCollision.lean": "eaf94adadc32af803d8d3bafa99edc61d279e6e2c707363cded619e1ec6bdf3d",
-  "Research/TaskH/Six/SixRootPathClosing.lean": "a2d7f86bbafec1a7205574ae7bdd76b0585ad3c55b50424d044f7e0fa504ed4f",
-  "Research/TaskH/Six/SixRootPathOrder.lean": "6bfb9ad6018fb1f6d443b69f5687f1d67f9fe50041d690596d68a4eb1dcd7cde",
-  "Research/TaskH/Six/SixRootPaths.lean": "a5f90541224693de13b37a357dc3f7b74daaabb54aeeb7231ae368feec909a4b",
-  "Research/TaskH/Six/SixSplitClonePacking.lean": "bd90fdd108911a76d1d6f51354e1467eb89ec0f76be927577d90426885f0b522",
-  "Research/TaskH/Six/SixSplitLabelIntersection.lean": "fbf30864f3f7b13fb913aed46708998e9a488616aa32ca827e92f6710f952fb2",
-  "Research/TaskH/Six/SixStarForcedColor.lean": "903f35f5cd15a996d2afdc3faffe3c3d8f2d6bad83c7755d0e48d47948094fd5",
-  "Research/TaskH/Six/SixTraceScalarBudget.lean": "04d1e7a6165e93cba5e29bbe82f19059276432dfae25b74565710839ee5974ac",
-  "Research/TaskH/Six/TraceSixBacktrackSets.lean": "b66d00998f78463b025d6344e2c661aa7a0ed19731675fa9e7e08f55809bfddc",
-  "Research/TaskH/Six/TraceSixBacktracks.lean": "57e3c44cb4709f07fb036264a7954b2524d534c081c508c75b2470e3e8eeeda4",
-  "Research/TaskH/Six/TraceSixCommonIdentity.lean": "3f5f66bdf88db24d11bdbe35de724aac263e0c455b53605faabdab77f9ace600",
-  "Research/TaskH/Six/TraceSixCommonNeighbors.lean": "81e8978fbb2ad899d476507bab2885943f6a4f0b2a63426343b1657648da2a72",
-  "Research/TaskH/Six/TraceSixCyclesBridge.lean": "1a5aab2e9d9cc2c53a72a8f4ac076e81a13e589320576aed7d64c84b93ce7aa5",
-  "Research/TaskH/Six/TraceSixDefectIdentity.lean": "abd1c4c7f3b941e4f27e5e1b8b55baf7fdae29f44e447298d493665d82252f46",
-  "Research/TaskH/Six/TraceSixDoubleCross.lean": "057830e5831ece7dfb93e81e79b0d7bbe1c6a4e217552e91d7e2db44a8868cc9",
-  "Research/TaskH/Six/TraceSixEdgePairCounts.lean": "2174bf9d7dac7dcd631c6be1e7afd78f0707bb5932524580ab5d2d987d7f9744",
-  "Research/TaskH/Six/TraceSixEdgePairData.lean": "c227aae7e48191423991f39ca2ccade8588bf5e9fb38a28e1ff303ce74a31083",
-  "Research/TaskH/Six/TraceSixFrobenius.lean": "e1708e119a424e0296901710fed8a0fb3e523e6178a83d4eae7320474319d257",
-  "Research/TaskH/Six/TraceSixGraphBound.lean": "3cb13ec2cd995d128faa92fd928a2dec85c83c2034485a187e6bd0ca002dd47f",
-  "Research/TaskH/Six/TraceSixMantel.lean": "12395c1db256d8480c95df55b776e332bc1c8c3e31c8191b6bde24f68d3747db",
-  "Research/TaskH/Six/TraceSixMatrixAggregates.lean": "f908434d2efa4511619cc65cc425ad4c6d0ea1bf7649f59284c6f89516668093",
-  "Research/TaskH/Six/TraceSixMatrixCommon.lean": "ffab703a684ebe2e70ea1cba6cd3f4d11c8160196e0c225ef661311059fd5a7d",
-  "Research/TaskH/Six/TraceSixMoments.lean": "47135be66d008c5e5da35c741dde312a8bdf66f75c888a059120c70e351ddd9d",
-  "Research/TaskH/Six/TraceSixNeighborCounts.lean": "b0562ce63f9984aba8ebdf53acfaf2b8162f673d8113aea82551fe1ff4c4a964",
-  "Research/TaskH/Six/TraceSixPairIdentity.lean": "cd773ef57a3ae469aeb7360b4c1634cde2db8219523b4131564605914e380f91",
-  "Research/TaskH/Six/TraceSixPairReversal.lean": "9556585378699eac03941de42c67ebb6c3190780cc79c6a32c38d570a2d3bf3d",
-  "Research/TaskH/Six/TraceSixPairs.lean": "b6ff0c1a102a8086e15d81e42856d8bf75339763611696dbf90163a4cbb48693",
-  "Research/TaskH/Six/TraceSixPathMoments.lean": "0fce7880916cc40accb4a18941d83057455447f91d7e00279316af58ef7a2aef",
-  "Research/TaskH/Six/TraceSixPaths.lean": "12a7ec6d52086935f8d23a030108b21a5007d148c9a54395e87f0d8ab5548452",
-  "Research/TaskH/Six/TraceSixSamePosition.lean": "650f23c0b2d2bf0a8142b3cd4e1b9dff0116f92964f5a0f266042ba50c2f70d8",
-  "Research/TaskH/Six/TraceSixSamePositionData.lean": "748962bf0f5b47cac4dc8e697abbe9e75c9808410044ff3e4f7a292521d0ba0c",
-  "Research/TaskH/Six/TraceSixSamePositionReal.lean": "06e85569edab2af53cf753ab2e6b240d49265c6a5a7917a4e257585ea57d690e",
-  "Research/TaskH/Six/TraceSixSingleCross.lean": "7cbc8bde266547e709d1745b38bc5e723d7dbfbc68e4e7decf2227674b66f165",
-  "Research/TaskH/CaseSeven.lean": "d982be019e0e72d4f2bbd37559ad237bab9a446a0425b18025df37ea8e04691b",
-  "Research/TaskH/ExactTestsSeven.lean": "be0f2070e7dcb1f575d769a05aa9074d8e791a7b9d2167d18b07b671cb6f51ff",
+  "Research/TaskH/MainFour.lean": "37202bb9ad57464032f22769cd5fbcbeea9c29eb1efd7975f468af6237c4daad",
   "Research/TaskH/MainSeven.lean": "f9ae577eee3f11ac7ff4aac8fcd382807e4636ad0c70955da22c694fbaab34ee",
+  "Research/TaskH/MainSix.lean": "d29bcd4b91b948de18f28ccfcc2fd06f5f9e7a48f5dbb08f7be6bbadbc466bb9",
+  "Research/TaskH/MonochromaticReach.lean": "8f08cb1a62f1ae0760d8aaf03c2c7b8bbbebb28c7acd9cfb288e8eed682d7868",
+  "Research/TaskH/NestedShift.lean": "8236908ef1bd8a288604b83b85cae52215c9c56d21fe29a4618cb54805fcc7bb",
+  "Research/TaskH/OriginalQuestionTwoAssembly.lean": "afbf6b78545621aa9f71c33b65bd3ee3be30095f3dca078eba7f64d8d8596ea3",
+  "Research/TaskH/OriginalQuestionTwoTests.lean": "540c57c60d7d54ff6112a3e550254d5471ce635e572ee5afd5e8a69a23134e84",
+  "Research/TaskH/RawDescents.lean": "16ec1e0cbfe9bb0b70a5b9502e3a189775752c6269f04fdba36958b6680f9f07",
+  "Research/TaskH/Recolor.lean": "6587ae3072031b0ef906f6442a0c694de5444436d2135d460ca525f529eca3e7",
+  "Research/TaskH/Regression.lean": "aa0536b4d498ac705f97728844eaabb9866dc8396d1826c9d4d355c6ca07adf7",
   "Research/TaskH/Seven/ClosedColorOrders.lean": "6b6f7c79bf890ea569aef154916cca5f86a8d6007890eb0472b92c9547ac0b72",
   "Research/TaskH/Seven/ColorCycle.lean": "c8b9452207f54d82b723db2e9c4b76622847d426b8fd4b0f3b6e1e09ce037a62",
   "Research/TaskH/Seven/ColorWordsSaturation.lean": "0c5924b40323d7688614c65195a4bdc2680f9965ac16f7b1010b0e0f928708eb",
@@ -462,10 +622,151 @@
   "Research/TaskH/Seven/SevenTwoColorSwapFibers.lean": "4f6ab21964a5c21b9c39595736d8523e6939cff91208978904617b1c383c7a3c",
   "Research/TaskH/Seven/SingletonClique.lean": "0a98da64218875874677063dba23179ebf884fac6c711b64ca4af19c28018f29",
   "Research/TaskH/Seven/SingletonCycles.lean": "7cf3f1b2f266d521b0511a940910087f750e48b4d3b098b72b25e2156232c557",
-  "Research/TaskH/Seven/SingletonNeighborColors.lean": "34ac495ecdf00089daa765413c6181188d18f41a24fddf5c3f1a0cb1209ffd0c"
+  "Research/TaskH/Seven/SingletonNeighborColors.lean": "34ac495ecdf00089daa765413c6181188d18f41a24fddf5c3f1a0cb1209ffd0c",
+  "Research/TaskH/Six/BipartiteSixWords.lean": "179f6bcad9c9e44abd36545edd0f3e953fd643c8e265953b703d750910dc683a",
+  "Research/TaskH/Six/CaseSixElaboration.lean": "de98dacf317a282f299a1427bf3cd78bcb545568f0d9533b0b4e9849bf005caa",
+  "Research/TaskH/Six/CliqueCompletion.lean": "30b8f015ca5769dc2e354c05fbe214d3270efd281c7a01a3fb3f9548eeba0b5f",
+  "Research/TaskH/Six/ClosedColorOrders.lean": "85a6519ccb51e0964e3793003c0b7ec443b7eb5714633adc9c8514a25fac036b",
+  "Research/TaskH/Six/ColorCycle.lean": "efdbe49d9502042b714e10b23b0b463da02be6f9991fe0928bfacd529131903c",
+  "Research/TaskH/Six/ColorWordsSaturation.lean": "2002e9d1fa9004489e80056ae7c321f96aa8a8309a96cbd8368d1c4863bf63dc",
+  "Research/TaskH/Six/ColorWordsStrict.lean": "3023422d962c33c996b9ee0118889ce874c9a7c968eac8aac147e9e5701956f2",
+  "Research/TaskH/Six/CycleFlux.lean": "128f63a04cee2ff9bae55a10f3fc37b3c31d9e5a3cacfd72f776e938bfb0aa89",
+  "Research/TaskH/Six/CycleSix.lean": "fee5e0f0b7f1fe27f6cf80bfb30640449f38f55da28d3725d4c2776da3968b9d",
+  "Research/TaskH/Six/Definitions.lean": "35e3b8d1eb5fdb3189fdbac362747c1eb303f6451283a92f99e5d252b928784e",
+  "Research/TaskH/Six/DegreeSixComplete.lean": "6a7061a2c2bf7e64db6e7bda5119e5588e8db75b211a0614a689eb26b55955fa",
+  "Research/TaskH/Six/DeletedCycleOrders.lean": "613b3929ffe24dc0753b1178054835ebc917746842d775ac83571ff88fcf04ff",
+  "Research/TaskH/Six/EdgeColorOrders.lean": "1948379e4c92da3a49fa14bfcfdd701a30a8e73753f5efea0a6089bc24360773",
+  "Research/TaskH/Six/EdgeCycles.lean": "7893dcaf2ab3e8534cfd228f67a68192f3058a51e598150ff21d1a3a474e3c05",
+  "Research/TaskH/Six/EdgeCyclesCount.lean": "4779ef4d446e1fda41f05b2acf13cb701919a9d74960f516beb2c33f538f1d28",
+  "Research/TaskH/Six/EdgeCyclesDistinct.lean": "1baeb046a7f7f11faa81d1774a04a3fced23bdbf71974ea22eb49db273dcbd92",
+  "Research/TaskH/Six/EqualityDegree.lean": "232a27a421e30fadbe1565d4c826be0349c99b9e78a815667d9b7330add654e9",
+  "Research/TaskH/Six/EqualityShortCycles.lean": "1a71839acc54360d1e6ab811ad3f7f4496bc024df15f9e6db3637676882b7ad7",
+  "Research/TaskH/Six/GoodCycleLowerBound.lean": "f4e6ec729cd6c16cf97d6bf58cd4979882cbbf235c4aa5f8f94a3fd7b597563f",
+  "Research/TaskH/Six/GoodMultiplicity.lean": "cd2511c8457ec44d174eb1ed2a5d44d80659ef61c668cf455f6dde5ed042d6d1",
+  "Research/TaskH/Six/GoodMultiplicityDeleted.lean": "a16f44e9ba6049001fe0d1ae34b00a6780f5a2723d94b898914c9e95f0b00704",
+  "Research/TaskH/Six/GoodMultiplicityOrders.lean": "0a1dc86fa122e788784dda87df812dcb40c641e4b2893a4e123bcb3e077e772a",
+  "Research/TaskH/Six/HexagonWordIndices.lean": "8cee690c351e8b907c59e405a8d54f37d7c268d43325f07e8864b28b62834ff9",
+  "Research/TaskH/Six/HexagonWords.lean": "fc9ac1c4559028d87fe11712b3ed90437903a04b58c00cbc3d5c6e67dd112a75",
+  "Research/TaskH/Six/HexagonWordsCardinality.lean": "276ab2fef0bc1083bdd2af7b37946fa078ce48800f7c1687e6357230b38f84af",
+  "Research/TaskH/Six/LayerColoring.lean": "96abc5d069050f823dc3d1f7bf172d2bce6efc114079654a3df888e78f7732c3",
+  "Research/TaskH/Six/LayerCycleSeparation.lean": "3c21cd5f05ce3c30bca8d0262c07fee002ffc9a33c436508316c11f223a91750",
+  "Research/TaskH/Six/LayerCycles.lean": "13cb87bca17bb10ef34211d57976c6bc73e28ca413de7b6ecb347cfcad6ce2ba",
+  "Research/TaskH/Six/LayerFlux.lean": "a87aac2bf3e24fdda37c0acad6bfb52080de81234bbe33a2eb0007b7019bfbc8",
+  "Research/TaskH/Six/LayerTail.lean": "02e24c1edf800d7c9838e83a9b7e72782a719fe5dc4ee4edee9b79e6e1901fd9",
+  "Research/TaskH/Six/NestedShift.lean": "da0a205a1fd1965062121033d6327df5c2c2c9356d27c26c5d832d6bec09a6be",
+  "Research/TaskH/Six/RainbowCycles.lean": "383ba219a39f8f4c764eb6cb75f2430ccebbc8a5ff60ea75ec63e00efd1666d1",
+  "Research/TaskH/Six/RawDescents.lean": "ad07cbff1dc4e738a813ddb604a160feee4d901c676de1089276111af86714c1",
+  "Research/TaskH/Six/RegressionSix.lean": "5d1c114c8003885dfdc1383c5eb4a3d4abc6af3063f3d412d47b0bf5513eb3b0",
+  "Research/TaskH/Six/SingletonClique.lean": "4fd3579780ef6b666329549efb11c5ae2e46b3c95dd48a5cfaf943086227713c",
+  "Research/TaskH/Six/SingletonCycles.lean": "daab07223e41660b6e314bedf5821da5398070c77d0628c25249d08d73a79b79",
+  "Research/TaskH/Six/SingletonNeighborColors.lean": "bbe527eb4e767f1691c90515aa4fa9169c11a7074f7b1e4dc4bb90f8f5b11eb1",
+  "Research/TaskH/Six/SixAttachment.lean": "692ceb4a8472fa78a7a765c4a963785d09a0ea7fc7ac91a6182d9f1c06f636e9",
+  "Research/TaskH/Six/SixAttachmentData.lean": "097ce2451420674ce5cd1f98ec8e7f7f0735fee7c1a2b3df10976937a5f47128",
+  "Research/TaskH/Six/SixBipartiteCore.lean": "f0b1e80a92526ce1edd2b952b8b8d8ba0adc39153f2dfe7c3eaee8e12318dcc4",
+  "Research/TaskH/Six/SixCliqueCommonNeighbors.lean": "4db5463e757c8df630be66f542855eb7b992c8a39413237b14b085fcc6e19be1",
+  "Research/TaskH/Six/SixCliquePathPacking.lean": "06507c56c397186fb2b731037bb0299a2f627183704365cc580a1ecaf7fc06e1",
+  "Research/TaskH/Six/SixDegreeNineExclusion.lean": "440b3255918b4922505bdf37cd97dd37d345f29ce804db32c59e8cb4849bc6d3",
+  "Research/TaskH/Six/SixDegreeTenCenterCoverage.lean": "e711a90954b010526dce2d1b3c952a3ac6eca8f0af68e043978fa83074ede24b",
+  "Research/TaskH/Six/SixDegreeTenColors.lean": "6500135698426d02aecf2c1de9171167579e3d310439fbc8aa14948c1933467b",
+  "Research/TaskH/Six/SixDegreeTenCommonOutside.lean": "522c89c39b214df4e1d1f92e9829ff45935852f6a82a2e87618f43b264746484",
+  "Research/TaskH/Six/SixDegreeTenCommonPacking.lean": "d91ae59ed0da9857d3c0c6d4c3e7632fdb519184a43e6d347840eacb593c0548",
+  "Research/TaskH/Six/SixDegreeTenExteriorWords.lean": "22f8157fa5c2c5489a3dc0238e26da109c4a27c1599ee9f86d85e994b6a51520",
+  "Research/TaskH/Six/SixDegreeTenFrame.lean": "673f8b57e2dd8fa8ba81c7466392900fc0259a9bb307267eac5533bf89d97bfc",
+  "Research/TaskH/Six/SixDegreeTenFrameWords.lean": "fd74782670685ab5097466be5d705f0d73a9aa53a0e015492f238f11a54d0f37",
+  "Research/TaskH/Six/SixDegreeTenLocalShape.lean": "9adcddf57d28dfef7fc9875700af2da612a507045f27971ad33c83ca59b862d1",
+  "Research/TaskH/Six/SixDegreeTenPairDichotomy.lean": "668342b6359e8772c4296004a6147c1c0169c6f90943bfc5f54a491fd1e7b02e",
+  "Research/TaskH/Six/SixDegreeTenSplitColors.lean": "97a8db9fa5dfdaf7d78d81428bf44ffbc03e150e12cff3acac5d340d5dc8e6ce",
+  "Research/TaskH/Six/SixDegreeTenSplitPacking.lean": "3c5018b866337cb102edc726d3758fba32e5a3d6514ebc3534360cf7f94aa9be",
+  "Research/TaskH/Six/SixDegreeTenSplitSeparation.lean": "b98909d93c3fadafe560ab126240ceaca41ee6591463db28b7242f1a02eb6db3",
+  "Research/TaskH/Six/SixDegreeTenSplitWeight.lean": "04acf7bceb2a2d97eb8cef2c83c38c04a6f83693ed2d06456f40a2955954c592",
+  "Research/TaskH/Six/SixEqualityDegreeTen.lean": "b50c8f21ea31ba8984c48b0cc695ff7e4315561bf65de2ed47967e50dbb83733",
+  "Research/TaskH/Six/SixFiniteBudget.lean": "5baf9dc74849a93f84b56e36a4f6d360cbf9b425c03e8a7559ae3a5444893e07",
+  "Research/TaskH/Six/SixFiveCliqueBudget.lean": "5dfd14b4991f5e583278b1a680faecf4e2f040683770a2523e87f73e359daea5",
+  "Research/TaskH/Six/SixFiveCliqueClosedPacking.lean": "48ce6b96e5aaa4e0def8ccbd26273ddc7ca321796a3ccfea913eb6e467ecd4c5",
+  "Research/TaskH/Six/SixFiveCliqueData.lean": "bcf6257c2e688f52c4dc3da0500fa91f5c7e370ca8539df691dfbaba2c7d0056",
+  "Research/TaskH/Six/SixFiveCliqueLocal.lean": "59cc197889d5f40b0de2116764058df324ec7d500df8de5a9a3d820851d931e0",
+  "Research/TaskH/Six/SixFiveCliqueOutside.lean": "564a67540d2ab2dfe2006fb09c58ba810d5c68ef6daa63178733d64bad610372",
+  "Research/TaskH/Six/SixFiveCliquePairBudget.lean": "5e883b9ab7025d8b5a8a8cf0f80cc28786bda730ace97da2267b2c005bbeb4da",
+  "Research/TaskH/Six/SixFiveCliquePairColors.lean": "fd8659ebad9756788ae143bcddaa27b17dee2c0d0cd512e34b098da80dfb16b1",
+  "Research/TaskH/Six/SixFiveCliquePairPacking.lean": "c777d37271d4b22c0e2d9e0fd0b26143b1c9a93cced465ca3d5dbde72e70d325",
+  "Research/TaskH/Six/SixFiveCliquePairPaths.lean": "584d0592c0cb4f6a7e834a62439b0b29ca85a0a63591d2b7bbd657976d4774f1",
+  "Research/TaskH/Six/SixFiveCliqueReindex.lean": "8e902bdc00f4c0e573791743268431c5a47f8928d8ea5ba71a63b05608b6d225",
+  "Research/TaskH/Six/SixFiveCliqueSeparation.lean": "e2ecc3e9f2a2deb4e04b45f19f0963d49d9caa2108c4c4bba51f05ab48af83b5",
+  "Research/TaskH/Six/SixFiveCliqueSets.lean": "29e7a649dfd070e97b871d7070851bf9b4573ce6cd36d5dacbcf5b3e0de1b995",
+  "Research/TaskH/Six/SixFiveCliqueThreeHooks.lean": "857bb7ea5c196ae17130e645002386003286f3e970f9ba44487b8227ab24a667",
+  "Research/TaskH/Six/SixFourCliqueConsequences.lean": "773046be00e5bec4e0a26a883419dde4b9c4db9ea97addb3c0f6bf385095056f",
+  "Research/TaskH/Six/SixFourCliquePacking.lean": "d6ed70f4780a1d17c518483759a7bfe9108a431b0633978701b73bd0b07a0f6c",
+  "Research/TaskH/Six/SixFourCliqueRepresentatives.lean": "6d4100387b1f10f89eab4ea51b25b4b7c5a06d610de19793998e2f88545a9100",
+  "Research/TaskH/Six/SixFourLabelBudget.lean": "ff6b0d5f92593e7965ded9f57d187974d053746a0bfb042938e2656193b1a66a",
+  "Research/TaskH/Six/SixIncidence.lean": "f7d87be86c644c7f202ddc8ccede5db2fe60009d949736a222e10e3fd298caa5",
+  "Research/TaskH/Six/SixMinimumDegreeNine.lean": "b63007fd80e7e98f9058f5f30078808dada46284073dd50e28d9db1706ab3a0c",
+  "Research/TaskH/Six/SixNeighborIncidence.lean": "b0ee839bc184a2bc27aeed4d9503696217a9f362e45b4ea99633054e2d0a988a",
+  "Research/TaskH/Six/SixNeighborPathRule.lean": "aad17608e94e73acd1f88b0154f37fa28abbb0c8f30f1e9b68f0fb224e155bab",
+  "Research/TaskH/Six/SixOpenNeighborhoodPacking.lean": "35d8c1bfbdfa8e377f64f736c3da17870de03e809608431fec1b9db46d22cddd",
+  "Research/TaskH/Six/SixRainbowHexagonCollision.lean": "eaf94adadc32af803d8d3bafa99edc61d279e6e2c707363cded619e1ec6bdf3d",
+  "Research/TaskH/Six/SixRootPathClosing.lean": "a2d7f86bbafec1a7205574ae7bdd76b0585ad3c55b50424d044f7e0fa504ed4f",
+  "Research/TaskH/Six/SixRootPathOrder.lean": "6bfb9ad6018fb1f6d443b69f5687f1d67f9fe50041d690596d68a4eb1dcd7cde",
+  "Research/TaskH/Six/SixRootPaths.lean": "a5f90541224693de13b37a357dc3f7b74daaabb54aeeb7231ae368feec909a4b",
+  "Research/TaskH/Six/SixSplitClonePacking.lean": "bd90fdd108911a76d1d6f51354e1467eb89ec0f76be927577d90426885f0b522",
+  "Research/TaskH/Six/SixSplitLabelIntersection.lean": "fbf30864f3f7b13fb913aed46708998e9a488616aa32ca827e92f6710f952fb2",
+  "Research/TaskH/Six/SixStarForcedColor.lean": "903f35f5cd15a996d2afdc3faffe3c3d8f2d6bad83c7755d0e48d47948094fd5",
+  "Research/TaskH/Six/SixTraceScalarBudget.lean": "04d1e7a6165e93cba5e29bbe82f19059276432dfae25b74565710839ee5974ac",
+  "Research/TaskH/Six/TraceSixBacktrackSets.lean": "b66d00998f78463b025d6344e2c661aa7a0ed19731675fa9e7e08f55809bfddc",
+  "Research/TaskH/Six/TraceSixBacktracks.lean": "57e3c44cb4709f07fb036264a7954b2524d534c081c508c75b2470e3e8eeeda4",
+  "Research/TaskH/Six/TraceSixCommonIdentity.lean": "3f5f66bdf88db24d11bdbe35de724aac263e0c455b53605faabdab77f9ace600",
+  "Research/TaskH/Six/TraceSixCommonNeighbors.lean": "81e8978fbb2ad899d476507bab2885943f6a4f0b2a63426343b1657648da2a72",
+  "Research/TaskH/Six/TraceSixCyclesBridge.lean": "1a5aab2e9d9cc2c53a72a8f4ac076e81a13e589320576aed7d64c84b93ce7aa5",
+  "Research/TaskH/Six/TraceSixDefectIdentity.lean": "abd1c4c7f3b941e4f27e5e1b8b55baf7fdae29f44e447298d493665d82252f46",
+  "Research/TaskH/Six/TraceSixDoubleCross.lean": "057830e5831ece7dfb93e81e79b0d7bbe1c6a4e217552e91d7e2db44a8868cc9",
+  "Research/TaskH/Six/TraceSixEdgePairCounts.lean": "2174bf9d7dac7dcd631c6be1e7afd78f0707bb5932524580ab5d2d987d7f9744",
+  "Research/TaskH/Six/TraceSixEdgePairData.lean": "c227aae7e48191423991f39ca2ccade8588bf5e9fb38a28e1ff303ce74a31083",
+  "Research/TaskH/Six/TraceSixFrobenius.lean": "e1708e119a424e0296901710fed8a0fb3e523e6178a83d4eae7320474319d257",
+  "Research/TaskH/Six/TraceSixGraphBound.lean": "3cb13ec2cd995d128faa92fd928a2dec85c83c2034485a187e6bd0ca002dd47f",
+  "Research/TaskH/Six/TraceSixMantel.lean": "12395c1db256d8480c95df55b776e332bc1c8c3e31c8191b6bde24f68d3747db",
+  "Research/TaskH/Six/TraceSixMatrixAggregates.lean": "f908434d2efa4511619cc65cc425ad4c6d0ea1bf7649f59284c6f89516668093",
+  "Research/TaskH/Six/TraceSixMatrixCommon.lean": "ffab703a684ebe2e70ea1cba6cd3f4d11c8160196e0c225ef661311059fd5a7d",
+  "Research/TaskH/Six/TraceSixMoments.lean": "47135be66d008c5e5da35c741dde312a8bdf66f75c888a059120c70e351ddd9d",
+  "Research/TaskH/Six/TraceSixNeighborCounts.lean": "b0562ce63f9984aba8ebdf53acfaf2b8162f673d8113aea82551fe1ff4c4a964",
+  "Research/TaskH/Six/TraceSixPairIdentity.lean": "cd773ef57a3ae469aeb7360b4c1634cde2db8219523b4131564605914e380f91",
+  "Research/TaskH/Six/TraceSixPairReversal.lean": "9556585378699eac03941de42c67ebb6c3190780cc79c6a32c38d570a2d3bf3d",
+  "Research/TaskH/Six/TraceSixPairs.lean": "b6ff0c1a102a8086e15d81e42856d8bf75339763611696dbf90163a4cbb48693",
+  "Research/TaskH/Six/TraceSixPathMoments.lean": "0fce7880916cc40accb4a18941d83057455447f91d7e00279316af58ef7a2aef",
+  "Research/TaskH/Six/TraceSixPaths.lean": "12a7ec6d52086935f8d23a030108b21a5007d148c9a54395e87f0d8ab5548452",
+  "Research/TaskH/Six/TraceSixSamePosition.lean": "650f23c0b2d2bf0a8142b3cd4e1b9dff0116f92964f5a0f266042ba50c2f70d8",
+  "Research/TaskH/Six/TraceSixSamePositionData.lean": "748962bf0f5b47cac4dc8e697abbe9e75c9808410044ff3e4f7a292521d0ba0c",
+  "Research/TaskH/Six/TraceSixSamePositionReal.lean": "06e85569edab2af53cf753ab2e6b240d49265c6a5a7917a4e257585ea57d690e",
+  "Research/TaskH/Six/TraceSixSingleCross.lean": "7cbc8bde266547e709d1745b38bc5e723d7dbfbc68e4e7decf2227674b66f165"
  },
  "imports": {
+  "Research/TaskH/Bai/LongZeroArithmetic": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Bai/OriginalLongZeroCycle": [
+   "Research.TaskH.Bai.LongZeroArithmetic",
+   "Research.TaskH.Bai.TerminalCycleProgression",
+   "Research.TaskH.Bai.SpanningMaximumCut",
+   "Research.TaskH.Gao.OriginalRootedPathAssembly"
+  ],
+  "Research/TaskH/Bai/SpanningCutBasic": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Bai/SpanningMaximumCut": [
+   "Research.TaskH.Bai.SpanningCutBasic"
+  ],
+  "Research/TaskH/Bai/TerminalCycleProgression": [
+   "Research.TaskH.Gao.TerminalFragmentExistence",
+   "Research.TaskH.Gao.Challenge"
+  ],
   "Research/TaskH/Basics": [
+   "Research.TaskH.Challenge"
+  ],
+  "Research/TaskH/CaseFive": [
+   "Research.TaskH.Challenge"
+  ],
+  "Research/TaskH/CaseSeven": [
+   "Research.TaskH.Challenge"
+  ],
+  "Research/TaskH/CaseSix": [
    "Research.TaskH.Challenge"
   ],
   "Research/TaskH/Challenge": [
@@ -545,109 +846,162 @@
   "Research/TaskH/ExactTests": [
    "Research.TaskH.MainFour"
   ],
-  "Research/TaskH/FiniteBudget": [
-   "Research.TaskH.Challenge"
-  ],
-  "Research/TaskH/FourColorPerms": [
-   "Research.TaskH.DirectedCycle"
-  ],
-  "Research/TaskH/FourCount": [
-   "Research.TaskH.FourCountData"
-  ],
-  "Research/TaskH/FourCountData": [
-   "Research.TaskH.Basics"
-  ],
-  "Research/TaskH/GoodCycleLowerBound": [
-   "Research.TaskH.LayerCycles",
-   "Research.TaskH.LayerFlux",
-   "Research.TaskH.LayerCycleSeparation"
-  ],
-  "Research/TaskH/GoodMultiplicity": [
-   "Research.TaskH.RawDescents",
-   "Research.TaskH.ClosedColorOrders",
-   "Research.TaskH.CycleOrientation"
-  ],
-  "Research/TaskH/GoodMultiplicityDeleted": [
-   "Research.TaskH.GoodMultiplicity",
-   "Research.TaskH.DeletedCycleOrders"
-  ],
-  "Research/TaskH/GoodMultiplicityOrders": [
-   "Research.TaskH.GoodMultiplicityDeleted"
-  ],
-  "Research/TaskH/LayerColoring": [
-   "Research.TaskH.LayerSets",
-   "Research.TaskH.Recolor"
-  ],
-  "Research/TaskH/LayerCycleSeparation": [
-   "Research.TaskH.NestedShift",
-   "Research.TaskH.CycleOrientation"
-  ],
-  "Research/TaskH/LayerCycles": [
-   "Research.TaskH.LayerTail",
-   "Research.TaskH.MonochromaticReach"
-  ],
-  "Research/TaskH/LayerFlux": [
-   "Research.TaskH.LayerColoring",
-   "Research.TaskH.CycleFlux",
-   "Research.TaskH.DirectedCycle"
-  ],
-  "Research/TaskH/LayerSets": [
-   "Mathlib"
-  ],
-  "Research/TaskH/LayerTail": [
-   "Research.TaskH.LayerColoring",
-   "Research.TaskH.FourColorPerms"
-  ],
-  "Research/TaskH/LowDegreeAvoidCount": [
-   "Research.TaskH.LowDegreeAvoidCycles",
-   "Research.TaskH.LowDegreeCycleCount"
-  ],
-  "Research/TaskH/LowDegreeAvoidCycles": [
-   "Research.TaskH.LowDegreeCycles"
-  ],
-  "Research/TaskH/LowDegreeComplete": [
-   "Research.TaskH.LowDegreeAvoidCount",
-   "Research.TaskH.CliqueCompletion"
-  ],
-  "Research/TaskH/LowDegreeCycleCount": [
-   "Research.TaskH.LowDegreeCycles"
-  ],
-  "Research/TaskH/LowDegreeCycles": [
-   "Research.TaskH.LowDegreePaths",
-   "Research.TaskH.EdgeCyclesDistinct"
-  ],
-  "Research/TaskH/LowDegreePaths": [
-   "Research.TaskH.Degree",
-   "Research.TaskH.Recolor"
-  ],
-  "Research/TaskH/MainFour": [
-   "Research.TaskH.EqualityDegree",
-   "Research.TaskH.LowDegreeComplete",
-   "Research.TaskH.Regression"
-  ],
-  "Research/TaskH/MonochromaticReach": [
-   "Research.TaskH.Recolor"
-  ],
-  "Research/TaskH/NestedShift": [
-   "Research.TaskH.CycleFlux",
-   "Research.TaskH.DirectedCycle"
-  ],
-  "Research/TaskH/RawDescents": [
-   "Research.TaskH.Basics",
-   "Research.TaskH.ColorWords"
-  ],
-  "Research/TaskH/Recolor": [
-   "Research.TaskH.Critical"
-  ],
-  "Research/TaskH/Regression": [
-   "Research.TaskH.CompleteCritical",
-   "Research.TaskH.CycleFourWitness"
-  ],
-  "Research/TaskH/CaseFive": [
-   "Research.TaskH.Challenge"
-  ],
   "Research/TaskH/ExactTestsFive": [
    "Research.TaskH.MainFive"
+  ],
+  "Research/TaskH/ExactTestsSeven": [
+   "Research.TaskH.MainSeven"
+  ],
+  "Research/TaskH/ExactTestsSix": [
+   "Research.TaskH.MainSix"
+  ],
+  "Research/TaskH/Fan/AdjEqConnectivity": [
+   "Research.TaskH.Fan.Challenge"
+  ],
+  "Research/TaskH/Fan/BoundaryQuotientConnectivity": [
+   "Research.TaskH.Fan.BoundaryQuotientMap"
+  ],
+  "Research/TaskH/Fan/BoundaryQuotientMap": [
+   "Research.TaskH.Fan.EqualNeighborhoodBoundary"
+  ],
+  "Research/TaskH/Fan/Challenge": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Fan/ClosedNeighborhoodBranch": [
+   "Research.TaskH.Fan.ClosedNeighborhoodQuotient",
+   "Research.TaskH.Fan.IdentificationYComponent",
+   "Research.TaskH.Fan.ClosedNeighborhoodLift"
+  ],
+  "Research/TaskH/Fan/ClosedNeighborhoodLift": [
+   "Research.TaskH.Fan.RootNeighborhood",
+   "Research.TaskH.Fan.IdentificationPathLift"
+  ],
+  "Research/TaskH/Fan/ClosedNeighborhoodQuotient": [
+   "Research.TaskH.Fan.RootNeighborhood",
+   "Research.TaskH.Fan.IdentificationConnectivity"
+  ],
+  "Research/TaskH/Fan/ComponentBoundaryTorso": [
+   "Research.TaskH.Fan.OutsideComponent",
+   "Research.TaskH.Fan.TwoBoundaryTorso"
+  ],
+  "Research/TaskH/Fan/ComponentRootBlock": [
+   "Research.TaskH.Fan.RootedSetRetraction"
+  ],
+  "Research/TaskH/Fan/EqualNeighborhoodBoundary": [
+   "Research.TaskH.Fan.EqualNeighborhoodExterior"
+  ],
+  "Research/TaskH/Fan/EqualNeighborhoodExterior": [
+   "Research.TaskH.Fan.EqualRootNeighborhoods"
+  ],
+  "Research/TaskH/Fan/EqualNeighborhoodPathLift": [
+   "Research.TaskH.Fan.BoundaryQuotientConnectivity",
+   "Research.TaskH.Fan.IdentificationPathLift"
+  ],
+  "Research/TaskH/Fan/EqualNeighborhoodRecursion": [
+   "Research.TaskH.Fan.EqualNeighborhoodPathLift"
+  ],
+  "Research/TaskH/Fan/EqualRootNeighborhoods": [
+   "Research.TaskH.Fan.SingletonRootComponent",
+   "Research.TaskH.Fan.ClosedNeighborhoodBranch"
+  ],
+  "Research/TaskH/Fan/FanFiniteOrder": [
+   "Research.TaskH.Fan.RootedConnectivity"
+  ],
+  "Research/TaskH/Fan/FanOrdinaryStep": [
+   "Research.TaskH.Fan.EqualNeighborhoodRecursion",
+   "Research.TaskH.Fan.FourCycleComponentBranch"
+  ],
+  "Research/TaskH/Fan/FanRootedStep": [
+   "Research.TaskH.Fan.FanFiniteOrder",
+   "Research.TaskH.Fan.FanOrdinaryStep",
+   "Research.TaskH.Fan.RootedCutBranch"
+  ],
+  "Research/TaskH/Fan/FanTwoPathProof": [
+   "Research.TaskH.Fan.FanRootedStep",
+   "Research.TaskH.Fan.RootEdgeNormalization"
+  ],
+  "Research/TaskH/Fan/FourCycleComponentBranch": [
+   "Research.TaskH.Fan.FourCyclePrefixes",
+   "Research.TaskH.Fan.ComponentBoundaryTorso"
+  ],
+  "Research/TaskH/Fan/FourCyclePrefixes": [
+   "Research.TaskH.Fan.PathOperations"
+  ],
+  "Research/TaskH/Fan/Identification": [
+   "Research.TaskH.Fan.PathOperations"
+  ],
+  "Research/TaskH/Fan/IdentificationConnectivity": [
+   "Research.TaskH.Fan.AdjEqConnectivity",
+   "Research.TaskH.Fan.Identification"
+  ],
+  "Research/TaskH/Fan/IdentificationPathLift": [
+   "Research.TaskH.Fan.Identification"
+  ],
+  "Research/TaskH/Fan/IdentificationYComponent": [
+   "Research.TaskH.Fan.ComponentRootBlock",
+   "Research.TaskH.Fan.Identification"
+  ],
+  "Research/TaskH/Fan/OutsideComponent": [
+   "Research.TaskH.Fan.AdjEqConnectivity",
+   "Research.TaskH.Fan.PathOperations"
+  ],
+  "Research/TaskH/Fan/PathOperations": [
+   "Research.TaskH.Fan.Challenge"
+  ],
+  "Research/TaskH/Fan/RootEdgeNormalization": [
+   "Research.TaskH.Fan.PathOperations"
+  ],
+  "Research/TaskH/Fan/RootNeighborhood": [
+   "Research.TaskH.Fan.RootTriangle",
+   "Research.TaskH.Fan.RootedConnectivity"
+  ],
+  "Research/TaskH/Fan/RootTriangle": [
+   "Research.TaskH.Fan.TriangleFirstHit",
+   "Research.TaskH.Fan.TrianglePrefixes"
+  ],
+  "Research/TaskH/Fan/RootedConnectivity": [
+   "Research.TaskH.Fan.Challenge"
+  ],
+  "Research/TaskH/Fan/RootedCutBranch": [
+   "Research.TaskH.Fan.RootedCutTorso",
+   "Research.TaskH.Fan.PathOperations"
+  ],
+  "Research/TaskH/Fan/RootedCutCover": [
+   "Research.TaskH.Fan.RootedConnectivity"
+  ],
+  "Research/TaskH/Fan/RootedCutSide": [
+   "Research.TaskH.Fan.RootedCutCover"
+  ],
+  "Research/TaskH/Fan/RootedCutTorso": [
+   "Research.TaskH.Fan.TwoBoundaryTorso",
+   "Research.TaskH.Fan.RootedCutSide"
+  ],
+  "Research/TaskH/Fan/RootedLongPath": [
+   "Research.TaskH.Fan.RootedConnectivity"
+  ],
+  "Research/TaskH/Fan/RootedSetRetraction": [
+   "Research.TaskH.Fan.AdjEqConnectivity"
+  ],
+  "Research/TaskH/Fan/SingletonRootComponent": [
+   "Research.TaskH.Fan.Challenge"
+  ],
+  "Research/TaskH/Fan/Tests": [
+   "Research.TaskH.Fan.Challenge"
+  ],
+  "Research/TaskH/Fan/TorsoRetraction": [
+   "Research.TaskH.Fan.AdjEqConnectivity"
+  ],
+  "Research/TaskH/Fan/TriangleFirstHit": [
+   "Research.TaskH.Fan.PathOperations"
+  ],
+  "Research/TaskH/Fan/TrianglePrefixes": [
+   "Research.TaskH.Fan.PathOperations"
+  ],
+  "Research/TaskH/Fan/TwoBoundaryTorso": [
+   "Research.TaskH.Fan.TorsoRetraction"
+  ],
+  "Research/TaskH/FiniteBudget": [
+   "Research.TaskH.Challenge"
   ],
   "Research/TaskH/Five/CliqueCompletion": [
    "Research.TaskH.Critical"
@@ -898,6 +1252,961 @@
   "Research/TaskH/Five/SingletonNeighborColors": [
    "Research.TaskH.Five.Definitions"
   ],
+  "Research/TaskH/FourColorPerms": [
+   "Research.TaskH.DirectedCycle"
+  ],
+  "Research/TaskH/FourCount": [
+   "Research.TaskH.FourCountData"
+  ],
+  "Research/TaskH/FourCountData": [
+   "Research.TaskH.Basics"
+  ],
+  "Research/TaskH/Gao/ActualCliqueComponentEntry": [
+   "Research.TaskH.Gao.ActualSetCrossing"
+  ],
+  "Research/TaskH/Gao/ActualCliqueFullBranch": [
+   "Research.TaskH.Gao.ActualCliqueNonsingletonAssembly",
+   "Research.TaskH.Gao.SingletonG1InductionAndFamily",
+   "Research.TaskH.Gao.SingletonG2ConnectivityAndInduction"
+  ],
+  "Research/TaskH/Gao/ActualCliqueNonsingletonAssembly": [
+   "Research.TaskH.Gao.ComponentTerminalCliqueDegree",
+   "Research.TaskH.Gao.LargeCliqueAdmissible",
+   "Research.TaskH.Gao.CliqueNonemptyInductionStep",
+   "Research.TaskH.Gao.CliqueEmptyInductionStep",
+   "Research.TaskH.Gao.Base"
+  ],
+  "Research/TaskH/Gao/ActualCycleFromSpokes": [
+   "Research.TaskH.Gao.PathConcatenation"
+  ],
+  "Research/TaskH/Gao/ActualCycleMaximalCarrier": [
+   "Research.TaskH.Gao.ActualCycleFromSpokes",
+   "Research.TaskH.Gao.ActualCycleSupportTwoConnected",
+   "Research.TaskH.Gao.MaximalRegionActualAttachments"
+  ],
+  "Research/TaskH/Gao/ActualCycleSupportTwoConnected": [
+   "Research.TaskH.Gao.CarrierDeletedConnectivity"
+  ],
+  "Research/TaskH/Gao/ActualHubBothFamilyBranches": [
+   "Research.TaskH.Gao.ActualHubSideConnectors",
+   "Research.TaskH.Gao.QualifiedHubActualChild",
+   "Research.TaskH.Gao.CasebiHubActualShortFamily",
+   "Research.TaskH.Gao.CasebiPairedTerminalFamily"
+  ],
+  "Research/TaskH/Gao/ActualHubSideConnectors": [
+   "Research.TaskH.Gao.MaximalRegionActualAttachments",
+   "Research.TaskH.Gao.TerminalFragmentCarrierRoute"
+  ],
+  "Research/TaskH/Gao/ActualQualifiedRouteHub": [
+   "Research.TaskH.Gao.QualifiedRouteTerminalSeparation",
+   "Research.TaskH.Gao.CarrierAttachmentCuts"
+  ],
+  "Research/TaskH/Gao/ActualSetCrossing": [
+   "Research.TaskH.Fan.Challenge"
+  ],
+  "Research/TaskH/Gao/ActualSimpleEarExtension": [
+   "Research.TaskH.Gao.CarrierAttachments",
+   "Research.TaskH.Gao.PathConcatenation",
+   "Research.TaskH.Gao.ActualSetCrossing"
+  ],
+  "Research/TaskH/Gao/Base": [
+   "Research.TaskH.Gao.Challenge",
+   "Research.TaskH.Fan.RootedLongPath"
+  ],
+  "Research/TaskH/Gao/BicliqueG5ActualQuotient": [
+   "Research.TaskH.Gao.G5ExtensionConnectivity",
+   "Research.TaskH.Gao.BicliqueSingletonFirstGeometry",
+   "Research.TaskH.Gao.CliqueCoreDegree"
+  ],
+  "Research/TaskH/Gao/BicliqueG5DegreeOrder": [
+   "Research.TaskH.Gao.BicliqueG5ActualQuotient"
+  ],
+  "Research/TaskH/Gao/BicliqueG5OriginalFamily": [
+   "Research.TaskH.Gao.BicliqueG5DegreeOrder",
+   "Research.TaskH.Gao.BicliqueThirdMatching",
+   "Research.TaskH.Gao.BicliqueTerminalOriginalFamily",
+   "Research.TaskH.Gao.BicliqueLexicographicSelection",
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/BicliqueG5OriginalSelectedH": [
+   "Research.TaskH.Gao.BicliqueG5OriginalFamily",
+   "Research.TaskH.Gao.BicliqueG5SingletonOne",
+   "Research.TaskH.Gao.BicliqueG5SelectedRegion"
+  ],
+  "Research/TaskH/Gao/BicliqueG5SelectedRegion": [
+   "Research.TaskH.Gao.G6ActualComponents",
+   "Research.TaskH.Gao.CliqueCoreDegree"
+  ],
+  "Research/TaskH/Gao/BicliqueG5SingletonOne": [
+   "Research.TaskH.Gao.CaseThreeTwinDeletion",
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/BicliqueLexicographicSelection": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Gao/BicliqueSingletonFirstFamily": [
+   "Research.TaskH.Gao.BicliqueSingletonFirstInduction",
+   "Research.TaskH.Gao.IdentificationFamilyLift",
+   "Research.TaskH.Gao.BipartitePrefixFamily"
+  ],
+  "Research/TaskH/Gao/BicliqueSingletonFirstGeometry": [
+   "Research.TaskH.Gao.SingletonG1Quotient"
+  ],
+  "Research/TaskH/Gao/BicliqueSingletonFirstInduction": [
+   "Research.TaskH.Gao.BicliqueSingletonFirstGeometry",
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/BicliqueSingletonNormalization": [
+   "Research.TaskH.Gao.BicliqueLexicographicSelection",
+   "Research.TaskH.Gao.SingletonCliqueNeighbors",
+   "Research.TaskH.Gao.BipartitePrefixFamily",
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/BicliqueSingletonOriginalBranch": [
+   "Research.TaskH.Gao.BicliqueSingletonNormalization",
+   "Research.TaskH.Gao.BicliqueG5OriginalSelectedH",
+   "Research.TaskH.Gao.BicliqueThirdMatching",
+   "Research.TaskH.Gao.BicliqueTerminalG6Attachment",
+   "Research.TaskH.Gao.G6OriginalFamily"
+  ],
+  "Research/TaskH/Gao/BicliqueSingletonSecondFamily": [
+   "Research.TaskH.Gao.BicliqueSingletonSecondInduction",
+   "Research.TaskH.Gao.IdentificationFamilyLift",
+   "Research.TaskH.Gao.BipartitePrefixFamily"
+  ],
+  "Research/TaskH/Gao/BicliqueSingletonSecondGeometry": [
+   "Research.TaskH.Gao.BicliqueSingletonFirstGeometry",
+   "Research.TaskH.Gao.IdentificationDegree"
+  ],
+  "Research/TaskH/Gao/BicliqueSingletonSecondInduction": [
+   "Research.TaskH.Gao.BicliqueSingletonSecondGeometry",
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/BicliqueTerminalG6Attachment": [
+   "Research.TaskH.Gao.BicliqueTerminalOriginalFamily",
+   "Research.TaskH.Gao.G6ComponentAttachment"
+  ],
+  "Research/TaskH/Gao/BicliqueTerminalGeometry": [
+   "Research.TaskH.Gao.BicliqueSingletonFirstGeometry",
+   "Research.TaskH.Gao.ComponentTerminalTail",
+   "Research.TaskH.Gao.ActualSetCrossing",
+   "Research.TaskH.Gao.RootRegionQuotient"
+  ],
+  "Research/TaskH/Gao/BicliqueTerminalInduction": [
+   "Research.TaskH.Gao.BicliqueTerminalGeometry",
+   "Research.TaskH.Gao.IdentificationDegree",
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/BicliqueTerminalOriginalFamily": [
+   "Research.TaskH.Gao.BicliqueTerminalInduction",
+   "Research.TaskH.Gao.BicliqueSingletonFirstFamily",
+   "Research.TaskH.Gao.IdentificationFamilyLift",
+   "Research.TaskH.Gao.BipartitePrefixFamily"
+  ],
+  "Research/TaskH/Gao/BicliqueThirdMatching": [
+   "Research.TaskH.Gao.BicliqueThirdOriginalFamily",
+   "Research.TaskH.Gao.BicliqueSingletonFirstFamily",
+   "Research.TaskH.Gao.BicliqueSingletonSecondFamily",
+   "Research.TaskH.Gao.G6ComponentAttachment"
+  ],
+  "Research/TaskH/Gao/BicliqueThirdOriginalFamily": [
+   "Research.TaskH.Gao.BicliqueThirdQuotientInduction",
+   "Research.TaskH.Gao.IdentificationFamilyLift",
+   "Research.TaskH.Gao.BipartitePrefixFamily"
+  ],
+  "Research/TaskH/Gao/BicliqueThirdQuotientInduction": [
+   "Research.TaskH.Gao.BicliqueThirdRootGeometry",
+   "Research.TaskH.Gao.IdentificationDegree",
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/BicliqueThirdRootGeometry": [
+   "Research.TaskH.Gao.RootRegionQuotient",
+   "Research.TaskH.Gao.BicliqueSingletonFirstGeometry",
+   "Research.TaskH.Gao.OneRootExtension"
+  ],
+  "Research/TaskH/Gao/BipartitePaths": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Gao/BipartitePrefixFamily": [
+   "Research.TaskH.Gao.BipartitePaths"
+  ],
+  "Research/TaskH/Gao/CarrierAttachmentCuts": [
+   "Research.TaskH.Gao.CarrierPeeling"
+  ],
+  "Research/TaskH/Gao/CarrierAttachments": [
+   "Research.TaskH.Gao.ComponentFragmentTransport"
+  ],
+  "Research/TaskH/Gao/CarrierAvoidingSpokes": [
+   "Research.TaskH.Gao.CarrierGreatestRegion"
+  ],
+  "Research/TaskH/Gao/CarrierCentralChoice": [
+   "Research.TaskH.Gao.CarrierAttachmentCuts"
+  ],
+  "Research/TaskH/Gao/CarrierCentralTerminalLinkage": [
+   "Research.TaskH.Gao.CarrierTerminalBranches",
+   "Research.TaskH.Gao.TwoTerminalRouteCertificate",
+   "Research.TaskH.Gao.PathConcatenation",
+   "Research.TaskH.Gao.UnorderedLinkage.TwoSetLinkage"
+  ],
+  "Research/TaskH/Gao/CarrierCommonPointCutBound": [
+   "Research.TaskH.Gao.CarrierCommonTerminalPoint"
+  ],
+  "Research/TaskH/Gao/CarrierCommonTerminalPoint": [
+   "Research.TaskH.Gao.TerminalCommonPointDeletedComponents",
+   "Research.TaskH.Gao.CarrierPeeling"
+  ],
+  "Research/TaskH/Gao/CarrierDeletedConnectivity": [
+   "Research.TaskH.Gao.CarrierAttachments"
+  ],
+  "Research/TaskH/Gao/CarrierGreatestRegion": [
+   "Research.TaskH.Gao.CarrierCentralChoice"
+  ],
+  "Research/TaskH/Gao/CarrierPeeling": [
+   "Research.TaskH.Gao.CarrierDeletedConnectivity"
+  ],
+  "Research/TaskH/Gao/CarrierTerminalBranches": [
+   "Research.TaskH.Gao.CarrierUniformTerminal",
+   "Research.TaskH.Gao.TerminalFragmentCarrierRoute"
+  ],
+  "Research/TaskH/Gao/CarrierUniformTerminal": [
+   "Research.TaskH.Gao.CarrierAvoidingSpokes"
+  ],
+  "Research/TaskH/Gao/CaseThreeActualFragment": [
+   "Research.TaskH.Gao.CaseThreeKBlock",
+   "Research.TaskH.Gao.ComponentTerminalTail",
+   "Research.TaskH.Gao.Base"
+  ],
+  "Research/TaskH/Gao/CaseThreeCoreChoice": [
+   "Research.TaskH.Gao.CliqueBoundaryBudget"
+  ],
+  "Research/TaskH/Gao/CaseThreeCoreLossBudget": [
+   "Research.TaskH.Gao.CaseThreeCoreChoice",
+   "Research.TaskH.Gao.CliqueCoreDegree"
+  ],
+  "Research/TaskH/Gao/CaseThreeCoreOrder": [
+   "Research.TaskH.Gao.CaseThreeCorePaths",
+   "Research.TaskH.Gao.ActualCliqueComponentEntry",
+   "Research.TaskH.Gao.FamilyOperations"
+  ],
+  "Research/TaskH/Gao/CaseThreeCorePaths": [
+   "Research.TaskH.Gao.CaseThreeCoreChoice",
+   "Research.TaskH.Gao.CliquePrefixFamily"
+  ],
+  "Research/TaskH/Gao/CaseThreeKBlock": [
+   "Research.TaskH.Gao.CaseThreeCorePaths",
+   "Research.TaskH.Gao.CaseThreeCoreLossBudget",
+   "Research.TaskH.Gao.CliqueBoundaryRooted",
+   "Research.TaskH.Gao.IdentificationFamilyLift"
+  ],
+  "Research/TaskH/Gao/CaseThreeOriginal": [
+   "Research.TaskH.Gao.CaseThreeSingletonComponent",
+   "Research.TaskH.Gao.CaseThreeActualFragment",
+   "Research.TaskH.Gao.CaseThreeSideBlock",
+   "Research.TaskH.Gao.CaseThreeCoreOrder",
+   "Research.TaskH.Gao.CliqueEmptyInductionStep"
+  ],
+  "Research/TaskH/Gao/CaseThreeSideBlock": [
+   "Research.TaskH.Gao.CaseThreeKBlock",
+   "Research.TaskH.Gao.RealRootComponentAndLift",
+   "Research.TaskH.Gao.Base"
+  ],
+  "Research/TaskH/Gao/CaseThreeSingletonComponent": [
+   "Research.TaskH.Gao.CaseThreeTwinDeletion",
+   "Research.TaskH.Gao.CaseThreeCoreChoice",
+   "Research.TaskH.Gao.SingletonCliqueNeighbors"
+  ],
+  "Research/TaskH/Gao/CaseThreeTwinDeletion": [
+   "Research.TaskH.Gao.FamilyOperations",
+   "Research.TaskH.Fan.AdjEqConnectivity"
+  ],
+  "Research/TaskH/Gao/CaseTwoActualComponents": [
+   "Research.TaskH.Gao.CaseTwoQuadNeighborDegree",
+   "Research.TaskH.Gao.SingletonG1Quotient",
+   "Research.TaskH.Gao.RootRegionQuotient",
+   "Research.TaskH.Fan.RootNeighborhood"
+  ],
+  "Research/TaskH/Gao/CaseTwoEqualNeighborhoodFamily": [
+   "Research.TaskH.Gao.CaseTwoActualComponents",
+   "Research.TaskH.Gao.IdentificationFamilyLift"
+  ],
+  "Research/TaskH/Gao/CaseTwoLargeYFamily": [
+   "Research.TaskH.Gao.CaseTwoActualComponents",
+   "Research.TaskH.Gao.IdentificationFamilyLift"
+  ],
+  "Research/TaskH/Gao/CaseTwoOriginalQuad": [
+   "Research.TaskH.Gao.CaseTwoLargeYFamily",
+   "Research.TaskH.Gao.CaseTwoEqualNeighborhoodFamily"
+  ],
+  "Research/TaskH/Gao/CaseTwoQuadNeighborDegree": [
+   "Research.TaskH.Gao.IdentificationDegree"
+  ],
+  "Research/TaskH/Gao/CasebiActualNoLeaf": [
+   "Research.TaskH.Gao.CasebiComponentPrefixes",
+   "Research.TaskH.Gao.ComponentTerminalTail",
+   "Research.TaskH.Gao.CliqueBoundaryBudget"
+  ],
+  "Research/TaskH/Gao/CasebiComponentPrefixes": [
+   "Research.TaskH.Gao.BipartitePrefixFamily",
+   "Research.TaskH.Gao.BicliqueLexicographicSelection",
+   "Research.TaskH.Gao.ActualCliqueComponentEntry",
+   "Research.TaskH.Gao.FamilyOperations"
+  ],
+  "Research/TaskH/Gao/CasebiFeasibleFirstPart": [
+   "Research.TaskH.Gao.CasebiFeasibleTerminalBlock",
+   "Research.TaskH.Gao.CliqueBoundaryRooted",
+   "Research.TaskH.Gao.IdentificationFamilyLift"
+  ],
+  "Research/TaskH/Gao/CasebiFeasibleRigidity": [
+   "Research.TaskH.Gao.CasebiFeasibleSecondDegree"
+  ],
+  "Research/TaskH/Gao/CasebiFeasibleSecondDegree": [
+   "Research.TaskH.Gao.CasebiFeasibleFirstPart",
+   "Research.TaskH.Gao.CliqueEmptyInductionStep"
+  ],
+  "Research/TaskH/Gao/CasebiFeasibleTerminalBlock": [
+   "Research.TaskH.Gao.CasebiActualNoLeaf"
+  ],
+  "Research/TaskH/Gao/CasebiHubActualShortFamily": [
+   "Research.TaskH.Gao.BicliqueLexicographicSelection",
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/CasebiNoHubLowDegreeExit": [
+   "Research.TaskH.Gao.CasebiOriginalLeafCommonPoint"
+  ],
+  "Research/TaskH/Gao/CasebiNoYTerminalCutCase": [
+   "Research.TaskH.Gao.CasebiTwoTerminalContradiction"
+  ],
+  "Research/TaskH/Gao/CasebiNoYTerminalOriginal": [
+   "Research.TaskH.Gao.CarrierCentralTerminalLinkage",
+   "Research.TaskH.Gao.CasebiTerminalFreePair"
+  ],
+  "Research/TaskH/Gao/CasebiNonsingletonCaseOne": [
+   "Research.TaskH.Gao.CasebiOutsideComponent",
+   "Research.TaskH.Gao.RealRootComponentAndLift",
+   "Research.TaskH.Gao.Base"
+  ],
+  "Research/TaskH/Gao/CasebiOriginalLeafCommonPoint": [
+   "Research.TaskH.Gao.OriginalLeafDegreeNeighborSets",
+   "Research.TaskH.Gao.TerminalCommonPointDeletedComponents",
+   "Research.TaskH.Gao.CasebiFeasibleRigidity"
+  ],
+  "Research/TaskH/Gao/CasebiOriginalNonsingletonExhaustion": [
+   "Research.TaskH.Gao.CasebiNoYTerminalOriginal",
+   "Research.TaskH.Gao.CasebiOriginalYTerminalExit"
+  ],
+  "Research/TaskH/Gao/CasebiOriginalYLeafFirstBlockExit": [
+   "Research.TaskH.Gao.CasebiOriginalYTerminalLeaf"
+  ],
+  "Research/TaskH/Gao/CasebiOriginalYTerminalExit": [
+   "Research.TaskH.Gao.NoHubOutsideActualHub",
+   "Research.TaskH.Gao.CasebiOriginalYLeafFirstBlockExit",
+   "Research.TaskH.Gao.CasebiNoHubLowDegreeExit"
+  ],
+  "Research/TaskH/Gao/CasebiOriginalYTerminalLeaf": [
+   "Research.TaskH.Gao.NoHubYTerminalLeaf",
+   "Research.TaskH.Gao.CasebiOriginalLeafCommonPoint",
+   "Research.TaskH.Gao.CasebiQualifiedRouteOriginal"
+  ],
+  "Research/TaskH/Gao/CasebiOutsideComponent": [
+   "Research.TaskH.Gao.CasebiFeasibleRigidity",
+   "Research.TaskH.Fan.RootedSetRetraction"
+  ],
+  "Research/TaskH/Gao/CasebiPairedTerminalFamily": [
+   "Research.TaskH.Gao.CasebiNonsingletonCaseOne"
+  ],
+  "Research/TaskH/Gao/CasebiQualifiedRouteOriginal": [
+   "Research.TaskH.Gao.ActualQualifiedRouteHub",
+   "Research.TaskH.Gao.ActualHubBothFamilyBranches"
+  ],
+  "Research/TaskH/Gao/CasebiTerminalFreePair": [
+   "Research.TaskH.Gao.CasebiNoYTerminalCutCase"
+  ],
+  "Research/TaskH/Gao/CasebiTwoTerminalContradiction": [
+   "Research.TaskH.Gao.CasebiPairedTerminalFamily",
+   "Research.TaskH.Gao.TwoTerminalRouteCertificate"
+  ],
+  "Research/TaskH/Gao/Challenge": [
+   "Research.TaskH.Fan.Challenge"
+  ],
+  "Research/TaskH/Gao/CliqueBoundaryBudget": [
+   "Research.TaskH.Gao.IdentificationDegree"
+  ],
+  "Research/TaskH/Gao/CliqueBoundaryRooted": [
+   "Research.TaskH.Gao.RegionRootedBridge"
+  ],
+  "Research/TaskH/Gao/CliqueCoreDegree": [
+   "Research.TaskH.Gao.CliqueBoundaryBudget"
+  ],
+  "Research/TaskH/Gao/CliqueEmptyInductionStep": [
+   "Research.TaskH.Gao.CliqueEmptyRealRoot",
+   "Research.TaskH.Gao.FamilyOperations"
+  ],
+  "Research/TaskH/Gao/CliqueEmptyRealRoot": [
+   "Research.TaskH.Gao.RealRootRegion",
+   "Research.TaskH.Gao.CliqueBoundaryBudget"
+  ],
+  "Research/TaskH/Gao/CliqueFamilyTransport": [
+   "Research.TaskH.Gao.CliquePrefixFamily",
+   "Research.TaskH.Gao.IdentificationFamilyLift",
+   "Research.TaskH.Gao.CliqueCoreDegree"
+  ],
+  "Research/TaskH/Gao/CliqueNonemptyInductionStep": [
+   "Research.TaskH.Gao.CliqueFamilyTransport",
+   "Research.TaskH.Gao.CliqueBoundaryRooted"
+  ],
+  "Research/TaskH/Gao/CliquePaths": [
+   "Research.TaskH.Fan.PathOperations"
+  ],
+  "Research/TaskH/Gao/CliquePrefixFamily": [
+   "Research.TaskH.Gao.CliquePaths",
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/ComponentFragmentTransport": [
+   "Research.TaskH.Gao.TerminalFragmentExistence",
+   "Research.TaskH.Gao.GraphIsoTwoConnected"
+  ],
+  "Research/TaskH/Gao/ComponentTerminalCliqueDegree": [
+   "Research.TaskH.Gao.ComponentTerminalTail",
+   "Research.TaskH.Gao.CliqueBoundaryBudget"
+  ],
+  "Research/TaskH/Gao/ComponentTerminalTail": [
+   "Research.TaskH.Gao.ComponentFragmentTransport"
+  ],
+  "Research/TaskH/Gao/FamilyOperations": [
+   "Research.TaskH.Gao.PathConcatenation"
+  ],
+  "Research/TaskH/Gao/G5ExtensionConnectivity": [
+   "Research.TaskH.Gao.G6ComponentAttachment"
+  ],
+  "Research/TaskH/Gao/G6ActualComponents": [
+   "Research.TaskH.Gao.G6FourTags"
+  ],
+  "Research/TaskH/Gao/G6ActualTestTwoConnected": [
+   "Research.TaskH.Gao.G6DeleteActualHPoint"
+  ],
+  "Research/TaskH/Gao/G6AnchorDeletions": [
+   "Research.TaskH.Gao.G6DeleteRetainedW"
+  ],
+  "Research/TaskH/Gao/G6BicliquePathFamily": [
+   "Research.TaskH.Gao.G6TaggedPathLift",
+   "Research.TaskH.Gao.BipartitePrefixFamily"
+  ],
+  "Research/TaskH/Gao/G6ComponentAttachment": [
+   "Research.TaskH.Gao.G6ActualComponents",
+   "Research.TaskH.Gao.TerminalFragmentExistence"
+  ],
+  "Research/TaskH/Gao/G6DegreeAndOrder": [
+   "Research.TaskH.Gao.G6ActualComponents"
+  ],
+  "Research/TaskH/Gao/G6DeleteActualHPoint": [
+   "Research.TaskH.Gao.G6AnchorDeletions"
+  ],
+  "Research/TaskH/Gao/G6DeleteRetainedW": [
+   "Research.TaskH.Gao.G6ComponentAttachment",
+   "Research.TaskH.Gao.OneRootExtension"
+  ],
+  "Research/TaskH/Gao/G6FourTags": [
+   "Research.TaskH.Gao.IdentificationDegree"
+  ],
+  "Research/TaskH/Gao/G6OriginalFamily": [
+   "Research.TaskH.Gao.G6ActualTestTwoConnected",
+   "Research.TaskH.Gao.G6DegreeAndOrder",
+   "Research.TaskH.Gao.G6BicliquePathFamily",
+   "Research.TaskH.Gao.BicliqueLexicographicSelection"
+  ],
+  "Research/TaskH/Gao/G6TaggedPathLift": [
+   "Research.TaskH.Gao.G6FourTags",
+   "Research.TaskH.Gao.IdentificationFamilyLift"
+  ],
+  "Research/TaskH/Gao/GraphIsoTwoConnected": [
+   "Research.TaskH.Fan.Challenge"
+  ],
+  "Research/TaskH/Gao/IdentificationDegree": [
+   "Research.TaskH.Fan.Identification"
+  ],
+  "Research/TaskH/Gao/IdentificationFamilyLift": [
+   "Research.TaskH.Gao.FamilyOperations",
+   "Research.TaskH.Fan.IdentificationPathLift"
+  ],
+  "Research/TaskH/Gao/LargeCliqueAdmissible": [
+   "Research.TaskH.Gao.ActualCliqueComponentEntry",
+   "Research.TaskH.Gao.CliquePrefixFamily",
+   "Research.TaskH.Fan.PathOperations"
+  ],
+  "Research/TaskH/Gao/MaximalRegionActualAttachments": [
+   "Research.TaskH.Gao.ActualSimpleEarExtension"
+  ],
+  "Research/TaskH/Gao/NoHubOutsideActualCarrier": [
+   "Research.TaskH.Gao.ActualCycleMaximalCarrier",
+   "Research.TaskH.Gao.TerminalCommonPointDeletedComponents",
+   "Research.TaskH.Gao.CarrierGreatestRegion"
+  ],
+  "Research/TaskH/Gao/NoHubOutsideActualHub": [
+   "Research.TaskH.Gao.NoHubOutsideActualCarrier",
+   "Research.TaskH.Gao.NoHubOutsideActualLeafComponent",
+   "Research.TaskH.Gao.CarrierCommonPointCutBound",
+   "Research.TaskH.Gao.QualifiedRouteAnchorCrossing",
+   "Research.TaskH.Gao.ActualQualifiedRouteHub"
+  ],
+  "Research/TaskH/Gao/NoHubOutsideActualLeafComponent": [
+   "Research.TaskH.Gao.NoHubOutsideActualCarrier",
+   "Research.TaskH.Gao.CarrierAttachments"
+  ],
+  "Research/TaskH/Gao/NoHubYTerminalLeaf": [
+   "Research.TaskH.Gao.TerminalRegionSeparation",
+   "Research.TaskH.Gao.ActualQualifiedRouteHub"
+  ],
+  "Research/TaskH/Gao/OneRootExtension": [
+   "Research.TaskH.Fan.Identification"
+  ],
+  "Research/TaskH/Gao/OriginalLeafDegreeNeighborSets": [
+   "Research.TaskH.Gao.BicliqueLexicographicSelection",
+   "Research.TaskH.Gao.CasebiActualNoLeaf"
+  ],
+  "Research/TaskH/Gao/OriginalNormalizedAssembly": [
+   "Research.TaskH.Gao.ActualCliqueFullBranch",
+   "Research.TaskH.Gao.CaseTwoOriginalQuad",
+   "Research.TaskH.Gao.CaseThreeOriginal",
+   "Research.TaskH.Gao.BicliqueSingletonOriginalBranch",
+   "Research.TaskH.Gao.CasebiOriginalNonsingletonExhaustion"
+  ],
+  "Research/TaskH/Gao/OriginalRootedPathAssembly": [
+   "Research.TaskH.Gao.OriginalNormalizedAssembly",
+   "Research.TaskH.Gao.RootEdgeAdmissiblePreprocessing",
+   "Research.TaskH.Fan.FanTwoPathProof"
+  ],
+  "Research/TaskH/Gao/PathConcatenation": [
+   "Research.TaskH.Gao.Progression"
+  ],
+  "Research/TaskH/Gao/Progression": [
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/QualifiedHubActualChild": [
+   "Research.TaskH.Gao.MaximalRegionActualAttachments",
+   "Research.TaskH.Gao.CarrierAttachmentCuts",
+   "Research.TaskH.Gao.CasebiActualNoLeaf",
+   "Research.TaskH.Gao.FamilyOperations",
+   "Research.TaskH.Fan.IdentificationYComponent"
+  ],
+  "Research/TaskH/Gao/QualifiedRouteAnchorCrossing": [
+   "Research.TaskH.Gao.MaximalRegionActualAttachments",
+   "Research.TaskH.Gao.CarrierPeeling"
+  ],
+  "Research/TaskH/Gao/QualifiedRouteTerminalSeparation": [
+   "Research.TaskH.Gao.QualifiedRouteAnchorCrossing",
+   "Research.TaskH.Gao.TerminalFragmentCarrierRoute"
+  ],
+  "Research/TaskH/Gao/RealRootComponentAndLift": [
+   "Research.TaskH.Gao.CliqueEmptyRealRoot",
+   "Research.TaskH.Gao.TerminalFragmentExistence"
+  ],
+  "Research/TaskH/Gao/RealRootRegion": [
+   "Research.TaskH.Gao.GraphIsoTwoConnected",
+   "Research.TaskH.Gao.OneRootExtension"
+  ],
+  "Research/TaskH/Gao/RegionRootedBridge": [
+   "Research.TaskH.Gao.GraphIsoTwoConnected",
+   "Research.TaskH.Gao.CliqueCoreDegree",
+   "Research.TaskH.Gao.OneRootExtension"
+  ],
+  "Research/TaskH/Gao/RootEdgeAdmissiblePreprocessing": [
+   "Research.TaskH.Fan.RootEdgeNormalization",
+   "Research.TaskH.Gao.RootedCutAdmissible"
+  ],
+  "Research/TaskH/Gao/RootRegionQuotient": [
+   "Research.TaskH.Gao.CliqueCoreDegree",
+   "Research.TaskH.Fan.IdentificationConnectivity",
+   "Research.TaskH.Fan.AdjEqConnectivity"
+  ],
+  "Research/TaskH/Gao/RootedCutAdmissible": [
+   "Research.TaskH.Fan.RootedCutBranch",
+   "Research.TaskH.Gao.FamilyOperations",
+   "Research.TaskH.Gao.Base"
+  ],
+  "Research/TaskH/Gao/SingletonCliqueNeighbors": [
+   "Research.TaskH.Fan.RootNeighborhood",
+   "Research.TaskH.Fan.AdjEqConnectivity"
+  ],
+  "Research/TaskH/Gao/SingletonG1Degree": [
+   "Research.TaskH.Gao.SingletonG1Quotient",
+   "Research.TaskH.Gao.IdentificationDegree"
+  ],
+  "Research/TaskH/Gao/SingletonG1InductionAndFamily": [
+   "Research.TaskH.Gao.SingletonG1Degree",
+   "Research.TaskH.Gao.IdentificationFamilyLift",
+   "Research.TaskH.Gao.CliquePaths"
+  ],
+  "Research/TaskH/Gao/SingletonG1Quotient": [
+   "Research.TaskH.Gao.ActualCliqueComponentEntry",
+   "Research.TaskH.Gao.CliqueBoundaryBudget",
+   "Research.TaskH.Fan.BoundaryQuotientConnectivity"
+  ],
+  "Research/TaskH/Gao/SingletonG2ConnectivityAndInduction": [
+   "Research.TaskH.Gao.SingletonG2Family",
+   "Research.TaskH.Gao.SingletonCliqueNeighbors",
+   "Research.TaskH.Gao.ActualCliqueComponentEntry",
+   "Research.TaskH.Fan.RootedConnectivity"
+  ],
+  "Research/TaskH/Gao/SingletonG2Family": [
+   "Research.TaskH.Gao.SingletonG2Quotient",
+   "Research.TaskH.Gao.IdentificationFamilyLift",
+   "Research.TaskH.Gao.CliquePaths"
+  ],
+  "Research/TaskH/Gao/SingletonG2Quotient": [
+   "Research.TaskH.Gao.IdentificationDegree",
+   "Research.TaskH.Fan.IdentificationConnectivity"
+  ],
+  "Research/TaskH/Gao/TerminalCommonPointDeletedComponents": [
+   "Research.TaskH.Gao.TerminalRegionSeparation"
+  ],
+  "Research/TaskH/Gao/TerminalFragment": [
+   "Research.TaskH.Fan.RootedSetRetraction"
+  ],
+  "Research/TaskH/Gao/TerminalFragmentCarrierRoute": [
+   "Research.TaskH.Gao.TerminalFragmentExistence"
+  ],
+  "Research/TaskH/Gao/TerminalFragmentDescent": [
+   "Research.TaskH.Gao.TerminalFragment"
+  ],
+  "Research/TaskH/Gao/TerminalFragmentExistence": [
+   "Research.TaskH.Gao.TerminalFragmentDescent"
+  ],
+  "Research/TaskH/Gao/TerminalRegionSeparation": [
+   "Research.TaskH.Gao.TerminalFragmentExistence",
+   "Research.TaskH.Gao.CarrierGreatestRegion"
+  ],
+  "Research/TaskH/Gao/Tests": [
+   "Research.TaskH.Gao.Challenge"
+  ],
+  "Research/TaskH/Gao/TwoTerminalEndpointCut": [
+   "Research.TaskH.Gao.TwoTerminalSeparatingCut"
+  ],
+  "Research/TaskH/Gao/TwoTerminalRouteCertificate": [
+   "Research.TaskH.Gao.TwoTerminalEndpointCut"
+  ],
+  "Research/TaskH/Gao/TwoTerminalSeparatingCut": [
+   "Research.TaskH.Gao.TerminalFragmentCarrierRoute"
+  ],
+  "Research/TaskH/Gao/UnorderedLinkage/AuxiliaryRoot": [
+   "Research.TaskH.Gao.UnorderedLinkage.RootedTwoFan"
+  ],
+  "Research/TaskH/Gao/UnorderedLinkage/PathContact": [
+   "Research.TaskH.Fan.PathOperations"
+  ],
+  "Research/TaskH/Gao/UnorderedLinkage/RerouteFork": [
+   "Research.TaskH.Gao.UnorderedLinkage.RootedFork"
+  ],
+  "Research/TaskH/Gao/UnorderedLinkage/RootedFork": [
+   "Research.TaskH.Gao.UnorderedLinkage.PathContact"
+  ],
+  "Research/TaskH/Gao/UnorderedLinkage/RootedTwoFan": [
+   "Research.TaskH.Gao.UnorderedLinkage.RerouteFork"
+  ],
+  "Research/TaskH/Gao/UnorderedLinkage/TwoSetLinkage": [
+   "Research.TaskH.Gao.UnorderedLinkage.AuxiliaryRoot"
+  ],
+  "Research/TaskH/General/AllCycleSingletonOriginal": [
+   "Research.TaskH.General.SingletonRetainedOriginal"
+  ],
+  "Research/TaskH/General/CliqueExteriorHookOriginal": [
+   "Research.TaskH.General.EqualityRainbowOriginal",
+   "Research.TaskH.Gao.CliquePaths"
+  ],
+  "Research/TaskH/General/ClosedColorOrders": [
+   "Research.TaskH.General.ColorWordsStrict"
+  ],
+  "Research/TaskH/General/ColorCycle": [
+   "Mathlib.GroupTheory.Perm.Fin",
+   "Mathlib.Tactic"
+  ],
+  "Research/TaskH/General/ColorWordsSaturation": [
+   "Research.TaskH.General.ColorWordsStrict",
+   "Research.TaskH.ColorWordsSaturation"
+  ],
+  "Research/TaskH/General/ColorWordsStrict": [
+   "Research.TaskH.ColorWordsStrict",
+   "Research.TaskH.General.ColorCycle"
+  ],
+  "Research/TaskH/General/CriticalColoring": [
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/General/CriticalConnectivity": [
+   "Research.TaskH.General.CriticalColoring",
+   "Research.TaskH.Fan.Challenge"
+  ],
+  "Research/TaskH/General/CycleFlux": [
+   "Research.TaskH.General.RawDescents",
+   "Mathlib.Logic.Equiv.Fin.Rotate"
+  ],
+  "Research/TaskH/General/DeletedCycleOrders": [
+   "Research.TaskH.General.ColorWordsSaturation",
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/General/EdgeColorOrders": [
+   "Research.TaskH.General.ColorCycle",
+   "Research.TaskH.EdgeCycles"
+  ],
+  "Research/TaskH/General/EdgeCycles": [
+   "Research.TaskH.General.EdgeColorOrders",
+   "Research.TaskH.Basics"
+  ],
+  "Research/TaskH/General/EdgeCyclesCount": [
+   "Research.TaskH.General.EdgeCyclesDistinct",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/General/EdgeCyclesDistinct": [
+   "Research.TaskH.General.EdgeCycles"
+  ],
+  "Research/TaskH/General/EqualityEdgeOriginal": [
+   "Research.TaskH.General.EqualityRainbowOriginal",
+   "Research.TaskH.General.EdgeCyclesCount"
+  ],
+  "Research/TaskH/General/EqualityRainbowOriginal": [
+   "Research.TaskH.General.GoodCycleLowerBound"
+  ],
+  "Research/TaskH/General/EqualityShortCycles": [
+   "Research.TaskH.General.GoodMultiplicityOrders",
+   "Research.TaskH.General.FactorialBalance",
+   "Research.TaskH.General.EdgeCycles",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/General/FactorialBalance": [
+   "Research.TaskH.Challenge",
+   "Mathlib.Data.Nat.Factorial.Basic",
+   "Mathlib.Tactic"
+  ],
+  "Research/TaskH/General/FiniteColorAvoidance": [
+   "Mathlib"
+  ],
+  "Research/TaskH/General/GoodCycleLowerBound": [
+   "Research.TaskH.General.LayerCycles",
+   "Research.TaskH.General.LayerFlux",
+   "Research.TaskH.General.LayerCycleSeparation",
+   "Research.TaskH.General.EqualityShortCycles"
+  ],
+  "Research/TaskH/General/GoodMultiplicity": [
+   "Research.TaskH.General.RawDescents",
+   "Research.TaskH.General.ClosedColorOrders",
+   "Research.TaskH.GoodMultiplicity"
+  ],
+  "Research/TaskH/General/GoodMultiplicityDeleted": [
+   "Research.TaskH.General.GoodMultiplicity",
+   "Research.TaskH.General.DeletedCycleOrders",
+   "Research.TaskH.GoodMultiplicityDeleted"
+  ],
+  "Research/TaskH/General/GoodMultiplicityOrders": [
+   "Research.TaskH.General.GoodMultiplicityDeleted",
+   "Research.TaskH.GoodMultiplicityOrders"
+  ],
+  "Research/TaskH/General/LayerColoring": [
+   "Research.TaskH.LayerSets",
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/General/LayerCycleSeparation": [
+   "Research.TaskH.General.CycleFlux",
+   "Research.TaskH.General.ColorCycle",
+   "Research.TaskH.LayerCycleSeparation"
+  ],
+  "Research/TaskH/General/LayerCycles": [
+   "Research.TaskH.General.LayerColoring",
+   "Research.TaskH.General.ColorCycle",
+   "Research.TaskH.DirectedCycle",
+   "Research.TaskH.MonochromaticReach"
+  ],
+  "Research/TaskH/General/LayerFlux": [
+   "Research.TaskH.General.LayerColoring",
+   "Research.TaskH.General.CycleFlux",
+   "Research.TaskH.DirectedCycle"
+  ],
+  "Research/TaskH/General/OrderedColorRanks": [
+   "Mathlib"
+  ],
+  "Research/TaskH/General/OrderedSingletonDonorOriginal": [
+   "Research.TaskH.General.OrderedColorRanks",
+   "Research.TaskH.General.SingletonRetainedOriginal"
+  ],
+  "Research/TaskH/General/OriginalBoundaryCliqueExclusion": [
+   "Research.TaskH.General.OriginalBoundaryFiberSaturation",
+   "Research.TaskH.General.WholeClassCardOriginal",
+   "Research.TaskH.General.CliqueExteriorHookOriginal"
+  ],
+  "Research/TaskH/General/OriginalBoundaryFiberSaturation": [
+   "Research.TaskH.General.OriginalMinimumDegreeBaseline"
+  ],
+  "Research/TaskH/General/OriginalBoundaryNoCommonHook": [
+   "Research.TaskH.General.OriginalBoundaryCliqueExclusion",
+   "Research.TaskH.General.OriginalCommonHookPropagation",
+   "Research.TaskH.General.SingletonFullCliqueOriginal"
+  ],
+  "Research/TaskH/General/OriginalBoundaryNoCrossHook": [
+   "Research.TaskH.General.OriginalBoundaryNoCommonHook"
+  ],
+  "Research/TaskH/General/OriginalBoundarySplitData": [
+   "Research.TaskH.General.OriginalBoundaryNoCrossHook"
+  ],
+  "Research/TaskH/General/OriginalCommonHookPropagation": [
+   "Research.TaskH.General.SingletonFullEmptyOriginal",
+   "Research.TaskH.General.ShortSpokeSupportOriginal"
+  ],
+  "Research/TaskH/General/OriginalCycleIncidence": [
+   "Research.TaskH.General.AllCycleSingletonOriginal",
+   "Research.TaskH.CycleIncidence"
+  ],
+  "Research/TaskH/General/OriginalKempePathTransport": [
+   "Research.TaskH.Seven.SevenTwoColorPaths",
+   "Research.TaskH.General.TwoColorSingletonPathOriginal",
+   "Research.TaskH.General.WholeClassCardOriginal"
+  ],
+  "Research/TaskH/General/OriginalKempeSingletonCoverage": [
+   "Research.TaskH.Seven.SevenTwoColorSwapFibers",
+   "Research.TaskH.General.SingletonFiberBoundaryOriginal"
+  ],
+  "Research/TaskH/General/OriginalLockedPathPadding": [
+   "Research.TaskH.General.OriginalKempePathTransport"
+  ],
+  "Research/TaskH/General/OriginalMinimumDegreeBaseline": [
+   "Research.TaskH.General.SingletonBaselineOriginal",
+   "Research.TaskH.Degree"
+  ],
+  "Research/TaskH/General/OriginalSplitLockedRows": [
+   "Research.TaskH.General.OriginalBoundarySplitData",
+   "Research.TaskH.General.OriginalKempeSingletonCoverage"
+  ],
+  "Research/TaskH/General/OriginalStrongerMinimumDegree": [
+   "Research.TaskH.General.OriginalSplitLockedRows",
+   "Research.TaskH.General.OriginalTwoLockedRows"
+  ],
+  "Research/TaskH/General/OriginalTwoLockedRows": [
+   "Research.TaskH.General.OriginalLockedPathPadding"
+  ],
+  "Research/TaskH/General/RawDescents": [
+   "Research.TaskH.Basics",
+   "Research.TaskH.ColorWords"
+  ],
+  "Research/TaskH/General/ShortSingletonSpokeOriginal": [
+   "Research.TaskH.General.OrderedSingletonDonorOriginal",
+   "Research.TaskH.General.FiniteColorAvoidance"
+  ],
+  "Research/TaskH/General/ShortSpokeSupportOriginal": [
+   "Research.TaskH.General.ShortSingletonSpokeOriginal"
+  ],
+  "Research/TaskH/General/SingletonBaselineOriginal": [
+   "Research.TaskH.General.SingletonRepresentativeCliqueOriginal"
+  ],
+  "Research/TaskH/General/SingletonCenterCarrierOriginal": [
+   "Research.TaskH.General.ThreeSingletonCliqueOriginal"
+  ],
+  "Research/TaskH/General/SingletonEdgeOriginal": [
+   "Research.TaskH.General.EqualityEdgeOriginal"
+  ],
+  "Research/TaskH/General/SingletonFiberBoundaryOriginal": [
+   "Research.TaskH.General.OrderedSingletonDonorOriginal"
+  ],
+  "Research/TaskH/General/SingletonFiberHookUniquenessOriginal": [
+   "Research.TaskH.General.SingletonSpineBudgetOriginal",
+   "Research.TaskH.General.SingletonFiberBoundaryOriginal"
+  ],
+  "Research/TaskH/General/SingletonFullCliqueOriginal": [
+   "Research.TaskH.General.SingletonFullEmptyOriginal",
+   "Research.TaskH.General.ShortSpokeSupportOriginal"
+  ],
+  "Research/TaskH/General/SingletonFullEmptyOriginal": [
+   "Research.TaskH.General.SingletonFiberHookUniquenessOriginal"
+  ],
+  "Research/TaskH/General/SingletonRepresentativeCliqueOriginal": [
+   "Research.TaskH.General.SingletonFullCliqueOriginal",
+   "Research.TaskH.General.CliqueExteriorHookOriginal"
+  ],
+  "Research/TaskH/General/SingletonRetainedOriginal": [
+   "Research.TaskH.General.SingletonEdgeOriginal"
+  ],
+  "Research/TaskH/General/SingletonSpineBudgetOriginal": [
+   "Research.TaskH.General.SingletonSpineOriginal",
+   "Research.TaskH.General.FiniteColorAvoidance"
+  ],
+  "Research/TaskH/General/SingletonSpineOriginal": [
+   "Research.TaskH.General.ThreeSingletonTailOriginal",
+   "Research.TaskH.General.SingletonCenterCarrierOriginal",
+   "Research.TaskH.Gao.CliquePaths"
+  ],
+  "Research/TaskH/General/ThreeSingletonCliqueOriginal": [
+   "Research.TaskH.General.OrderedSingletonDonorOriginal"
+  ],
+  "Research/TaskH/General/ThreeSingletonTailOriginal": [
+   "Research.TaskH.General.OrderedSingletonDonorOriginal"
+  ],
+  "Research/TaskH/General/TwoColorSingletonPathOriginal": [
+   "Research.TaskH.General.ShortSingletonSpokeOriginal"
+  ],
+  "Research/TaskH/General/WholeClassCardOriginal": [
+   "Research.TaskH.General.WholeClassCycleBudgetOriginal"
+  ],
+  "Research/TaskH/General/WholeClassCycleBudgetOriginal": [
+   "Research.TaskH.General.OriginalCycleIncidence"
+  ],
+  "Research/TaskH/GoodCycleLowerBound": [
+   "Research.TaskH.LayerCycles",
+   "Research.TaskH.LayerFlux",
+   "Research.TaskH.LayerCycleSeparation"
+  ],
+  "Research/TaskH/GoodMultiplicity": [
+   "Research.TaskH.RawDescents",
+   "Research.TaskH.ClosedColorOrders",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/GoodMultiplicityDeleted": [
+   "Research.TaskH.GoodMultiplicity",
+   "Research.TaskH.DeletedCycleOrders"
+  ],
+  "Research/TaskH/GoodMultiplicityOrders": [
+   "Research.TaskH.GoodMultiplicityDeleted"
+  ],
+  "Research/TaskH/LayerColoring": [
+   "Research.TaskH.LayerSets",
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/LayerCycleSeparation": [
+   "Research.TaskH.NestedShift",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/LayerCycles": [
+   "Research.TaskH.LayerTail",
+   "Research.TaskH.MonochromaticReach"
+  ],
+  "Research/TaskH/LayerFlux": [
+   "Research.TaskH.LayerColoring",
+   "Research.TaskH.CycleFlux",
+   "Research.TaskH.DirectedCycle"
+  ],
+  "Research/TaskH/LayerSets": [
+   "Mathlib"
+  ],
+  "Research/TaskH/LayerTail": [
+   "Research.TaskH.LayerColoring",
+   "Research.TaskH.FourColorPerms"
+  ],
+  "Research/TaskH/LowDegreeAvoidCount": [
+   "Research.TaskH.LowDegreeAvoidCycles",
+   "Research.TaskH.LowDegreeCycleCount"
+  ],
+  "Research/TaskH/LowDegreeAvoidCycles": [
+   "Research.TaskH.LowDegreeCycles"
+  ],
+  "Research/TaskH/LowDegreeComplete": [
+   "Research.TaskH.LowDegreeAvoidCount",
+   "Research.TaskH.CliqueCompletion"
+  ],
+  "Research/TaskH/LowDegreeCycleCount": [
+   "Research.TaskH.LowDegreeCycles"
+  ],
+  "Research/TaskH/LowDegreeCycles": [
+   "Research.TaskH.LowDegreePaths",
+   "Research.TaskH.EdgeCyclesDistinct"
+  ],
+  "Research/TaskH/LowDegreePaths": [
+   "Research.TaskH.Degree",
+   "Research.TaskH.Recolor"
+  ],
   "Research/TaskH/MainFive": [
    "Research.TaskH.Five.EqualityShortCycles",
    "Research.TaskH.Five.RainbowCycles",
@@ -905,11 +2214,16 @@
    "Research.TaskH.Five.FiveHighDegreeContradiction",
    "Research.TaskH.Five.Regression"
   ],
-  "Research/TaskH/CaseSix": [
-   "Research.TaskH.Challenge"
+  "Research/TaskH/MainFour": [
+   "Research.TaskH.EqualityDegree",
+   "Research.TaskH.LowDegreeComplete",
+   "Research.TaskH.Regression"
   ],
-  "Research/TaskH/ExactTestsSix": [
-   "Research.TaskH.MainSix"
+  "Research/TaskH/MainSeven": [
+   "Research.TaskH.Seven.SevenMinimumThirteen",
+   "Research.TaskH.Seven.SevenFinalBridge",
+   "Research.TaskH.Seven.SevenOriginalLowerBound",
+   "Research.TaskH.Seven.SevenCompleteCheck"
   ],
   "Research/TaskH/MainSix": [
    "Research.TaskH.Six.SixEqualityDegreeTen",
@@ -917,423 +2231,34 @@
    "Research.TaskH.Six.SixDegreeTenCommonPacking",
    "Research.TaskH.Six.RegressionSix"
   ],
-  "Research/TaskH/Six/BipartiteSixWords": [
-   "Research.TaskH.Six.HexagonWordsCardinality"
-  ],
-  "Research/TaskH/Six/CaseSixElaboration": [
-   "Research.TaskH.CaseSix"
-  ],
-  "Research/TaskH/Six/CliqueCompletion": [
-   "Research.TaskH.Critical"
-  ],
-  "Research/TaskH/Six/ClosedColorOrders": [
-   "Research.TaskH.Six.ColorWordsStrict"
-  ],
-  "Research/TaskH/Six/ColorCycle": [
-   "Research.TaskH.LayerTail"
-  ],
-  "Research/TaskH/Six/ColorWordsSaturation": [
-   "Research.TaskH.Six.ColorWordsStrict",
-   "Research.TaskH.ColorWordsSaturation"
-  ],
-  "Research/TaskH/Six/ColorWordsStrict": [
-   "Research.TaskH.ColorWordsStrict"
-  ],
-  "Research/TaskH/Six/CycleFlux": [
-   "Research.TaskH.Six.RawDescents"
-  ],
-  "Research/TaskH/Six/CycleSix": [
-   "Research.TaskH.Six.Definitions"
-  ],
-  "Research/TaskH/Six/Definitions": [
-   "Research.TaskH.CycleIncidence"
-  ],
-  "Research/TaskH/Six/DegreeSixComplete": [
-   "Research.TaskH.Six.SingletonClique",
-   "Research.TaskH.Six.CliqueCompletion"
-  ],
-  "Research/TaskH/Six/DeletedCycleOrders": [
-   "Research.TaskH.Six.ColorWordsSaturation",
-   "Research.TaskH.Critical"
-  ],
-  "Research/TaskH/Six/EdgeColorOrders": [
-   "Research.TaskH.Six.ColorCycle",
-   "Research.TaskH.Six.Definitions",
-   "Research.TaskH.CycleOrientation"
-  ],
-  "Research/TaskH/Six/EdgeCycles": [
-   "Research.TaskH.Six.EdgeColorOrders",
-   "Research.TaskH.Basics"
-  ],
-  "Research/TaskH/Six/EdgeCyclesCount": [
-   "Research.TaskH.Six.EdgeCyclesDistinct",
-   "Research.TaskH.FiniteBudget"
-  ],
-  "Research/TaskH/Six/EdgeCyclesDistinct": [
-   "Research.TaskH.Six.EdgeCycles"
-  ],
-  "Research/TaskH/Six/EqualityDegree": [
-   "Research.TaskH.Six.DegreeSixComplete",
-   "Research.TaskH.Six.SixNeighborIncidence",
-   "Research.TaskH.Six.SixFiniteBudget"
-  ],
-  "Research/TaskH/Six/EqualityShortCycles": [
-   "Research.TaskH.Six.Definitions",
-   "Research.TaskH.Six.GoodCycleLowerBound",
-   "Research.TaskH.Six.GoodMultiplicityOrders",
-   "Research.TaskH.FiniteBudget"
-  ],
-  "Research/TaskH/Six/GoodCycleLowerBound": [
-   "Research.TaskH.Six.LayerCycles",
-   "Research.TaskH.Six.LayerFlux",
-   "Research.TaskH.Six.LayerCycleSeparation"
-  ],
-  "Research/TaskH/Six/GoodMultiplicity": [
-   "Research.TaskH.Six.RawDescents",
-   "Research.TaskH.Six.ClosedColorOrders",
-   "Research.TaskH.CycleOrientation"
-  ],
-  "Research/TaskH/Six/GoodMultiplicityDeleted": [
-   "Research.TaskH.Six.GoodMultiplicity",
-   "Research.TaskH.Six.DeletedCycleOrders"
-  ],
-  "Research/TaskH/Six/GoodMultiplicityOrders": [
-   "Research.TaskH.Six.GoodMultiplicityDeleted"
-  ],
-  "Research/TaskH/Six/HexagonWordIndices": [
-   "Research.TaskH.Six.CycleSix"
-  ],
-  "Research/TaskH/Six/HexagonWords": [
-   "Research.TaskH.Six.HexagonWordIndices"
-  ],
-  "Research/TaskH/Six/HexagonWordsCardinality": [
-   "Research.TaskH.Six.HexagonWords"
-  ],
-  "Research/TaskH/Six/LayerColoring": [
-   "Research.TaskH.LayerSets",
+  "Research/TaskH/MonochromaticReach": [
    "Research.TaskH.Recolor"
   ],
-  "Research/TaskH/Six/LayerCycleSeparation": [
-   "Research.TaskH.Six.NestedShift",
-   "Research.TaskH.LayerCycleSeparation"
-  ],
-  "Research/TaskH/Six/LayerCycles": [
-   "Research.TaskH.Six.LayerTail",
-   "Research.TaskH.MonochromaticReach"
-  ],
-  "Research/TaskH/Six/LayerFlux": [
-   "Research.TaskH.Six.LayerColoring",
-   "Research.TaskH.Six.CycleFlux",
+  "Research/TaskH/NestedShift": [
+   "Research.TaskH.CycleFlux",
    "Research.TaskH.DirectedCycle"
   ],
-  "Research/TaskH/Six/LayerTail": [
-   "Research.TaskH.Six.LayerColoring",
-   "Research.TaskH.Six.ColorCycle"
+  "Research/TaskH/OriginalQuestionTwoAssembly": [
+   "Research.TaskH.Bai.OriginalLongZeroCycle",
+   "Research.TaskH.General.OriginalStrongerMinimumDegree",
+   "Research.TaskH.General.GoodCycleLowerBound",
+   "Research.TaskH.General.CriticalConnectivity",
+   "Research.TaskH.MainFour",
+   "Research.TaskH.MainFive"
   ],
-  "Research/TaskH/Six/NestedShift": [
-   "Research.TaskH.Six.CycleFlux",
-   "Research.TaskH.NestedShift"
+  "Research/TaskH/OriginalQuestionTwoTests": [
+   "Research.TaskH.OriginalQuestionTwoAssembly"
   ],
-  "Research/TaskH/Six/RainbowCycles": [
-   "Research.TaskH.Six.EqualityShortCycles"
-  ],
-  "Research/TaskH/Six/RawDescents": [
+  "Research/TaskH/RawDescents": [
    "Research.TaskH.Basics",
    "Research.TaskH.ColorWords"
   ],
-  "Research/TaskH/Six/RegressionSix": [
-   "Research.TaskH.CaseSix",
+  "Research/TaskH/Recolor": [
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Regression": [
    "Research.TaskH.CompleteCritical",
-   "Research.TaskH.CycleFourWitness",
-   "Research.TaskH.Six.HexagonWordsCardinality"
-  ],
-  "Research/TaskH/Six/SingletonClique": [
-   "Research.TaskH.Six.SingletonCycles",
-   "Research.TaskH.Six.RainbowCycles"
-  ],
-  "Research/TaskH/Six/SingletonCycles": [
-   "Research.TaskH.Six.SingletonNeighborColors",
-   "Research.TaskH.Six.EdgeCyclesCount"
-  ],
-  "Research/TaskH/Six/SingletonNeighborColors": [
-   "Research.TaskH.Six.Definitions"
-  ],
-  "Research/TaskH/Six/SixAttachment": [
-   "Research.TaskH.Six.SixAttachmentData"
-  ],
-  "Research/TaskH/Six/SixAttachmentData": [
-   "Research.TaskH.Six.CycleSix"
-  ],
-  "Research/TaskH/Six/SixBipartiteCore": [
-   "Research.TaskH.Six.SixFourCliqueConsequences"
-  ],
-  "Research/TaskH/Six/SixCliqueCommonNeighbors": [
-   "Research.TaskH.Six.SixCliquePathPacking",
-   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
-  ],
-  "Research/TaskH/Six/SixCliquePathPacking": [
-   "Research.TaskH.Six.CycleSix"
-  ],
-  "Research/TaskH/Six/SixDegreeNineExclusion": [
-   "Research.TaskH.Six.SixBipartiteCore",
-   "Research.TaskH.Six.BipartiteSixWords",
-   "Research.TaskH.Six.SixMinimumDegreeNine"
-  ],
-  "Research/TaskH/Six/SixDegreeTenCenterCoverage": [
-   "Research.TaskH.Six.SixDegreeTenColors"
-  ],
-  "Research/TaskH/Six/SixDegreeTenColors": [
-   "Research.TaskH.Six.SingletonClique"
-  ],
-  "Research/TaskH/Six/SixDegreeTenCommonOutside": [
-   "Research.TaskH.Six.SixDegreeTenExteriorWords"
-  ],
-  "Research/TaskH/Six/SixDegreeTenCommonPacking": [
-   "Research.TaskH.Six.SixDegreeTenCommonOutside",
-   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
-  ],
-  "Research/TaskH/Six/SixDegreeTenExteriorWords": [
-   "Research.TaskH.Six.SixDegreeTenLocalShape"
-  ],
-  "Research/TaskH/Six/SixDegreeTenFrame": [
-   "Research.TaskH.Six.SixDegreeTenCenterCoverage"
-  ],
-  "Research/TaskH/Six/SixDegreeTenFrameWords": [
-   "Research.TaskH.Six.SixDegreeTenFrame",
-   "Research.TaskH.Six.SixNeighborPathRule"
-  ],
-  "Research/TaskH/Six/SixDegreeTenLocalShape": [
-   "Research.TaskH.Six.SixDegreeTenPairDichotomy",
-   "Research.TaskH.Six.SixDegreeTenFrameWords"
-  ],
-  "Research/TaskH/Six/SixDegreeTenPairDichotomy": [
-   "Research.TaskH.Six.SixDegreeTenFrame",
-   "Research.TaskH.Six.SixNeighborPathRule"
-  ],
-  "Research/TaskH/Six/SixDegreeTenSplitColors": [
-   "Research.TaskH.Six.SixStarForcedColor",
-   "Research.TaskH.Six.SixDegreeTenLocalShape",
-   "Research.TaskH.Six.SixDegreeTenCommonOutside"
-  ],
-  "Research/TaskH/Six/SixDegreeTenSplitPacking": [
-   "Research.TaskH.Six.SixDegreeTenSplitSeparation",
-   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
-  ],
-  "Research/TaskH/Six/SixDegreeTenSplitSeparation": [
-   "Research.TaskH.Six.SixDegreeTenSplitWeight"
-  ],
-  "Research/TaskH/Six/SixDegreeTenSplitWeight": [
-   "Research.TaskH.Six.SixDegreeTenSplitColors",
-   "Research.TaskH.Six.SixSplitClonePacking",
-   "Research.TaskH.Six.SixFourLabelBudget"
-  ],
-  "Research/TaskH/Six/SixEqualityDegreeTen": [
-   "Research.TaskH.Six.SixDegreeNineExclusion",
-   "Research.TaskH.Six.TraceSixGraphBound"
-  ],
-  "Research/TaskH/Six/SixFiniteBudget": [
-   "Mathlib"
-  ],
-  "Research/TaskH/Six/SixFiveCliqueBudget": [
-   "Research.TaskH.Six.SixFiveCliqueSets",
-   "Research.TaskH.Six.EqualityDegree"
-  ],
-  "Research/TaskH/Six/SixFiveCliqueClosedPacking": [
-   "Research.TaskH.Six.SixFiveCliqueSeparation"
-  ],
-  "Research/TaskH/Six/SixFiveCliqueData": [
-   "Research.TaskH.Six.SixAttachmentData"
-  ],
-  "Research/TaskH/Six/SixFiveCliqueLocal": [
-   "Research.TaskH.Six.SixFiveCliqueData",
-   "Research.TaskH.Six.SixCliquePathPacking"
-  ],
-  "Research/TaskH/Six/SixFiveCliqueOutside": [
-   "Research.TaskH.Six.SixFiveCliquePairBudget"
-  ],
-  "Research/TaskH/Six/SixFiveCliquePairBudget": [
-   "Research.TaskH.Six.SixFiveCliquePairPacking"
-  ],
-  "Research/TaskH/Six/SixFiveCliquePairColors": [
-   "Research.TaskH.Six.SixFiveCliqueThreeHooks"
-  ],
-  "Research/TaskH/Six/SixFiveCliquePairPacking": [
-   "Research.TaskH.Six.SixFiveCliquePairPaths"
-  ],
-  "Research/TaskH/Six/SixFiveCliquePairPaths": [
-   "Research.TaskH.Six.SixFiveCliquePairColors"
-  ],
-  "Research/TaskH/Six/SixFiveCliqueReindex": [
-   "Research.TaskH.Six.SixFiveCliqueSets"
-  ],
-  "Research/TaskH/Six/SixFiveCliqueSeparation": [
-   "Research.TaskH.Six.SixFiveCliqueOutside",
-   "Research.TaskH.Six.SixCliquePathPacking"
-  ],
-  "Research/TaskH/Six/SixFiveCliqueSets": [
-   "Research.TaskH.Six.SixFiveCliqueLocal",
-   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
-  ],
-  "Research/TaskH/Six/SixFiveCliqueThreeHooks": [
-   "Research.TaskH.Six.SixFiveCliqueReindex",
-   "Research.TaskH.Six.SixFiveCliqueBudget",
-   "Research.TaskH.Six.SixRootPathOrder"
-  ],
-  "Research/TaskH/Six/SixFourCliqueConsequences": [
-   "Research.TaskH.Six.SixFourCliqueRepresentatives",
-   "Research.TaskH.Six.SixFiniteBudget"
-  ],
-  "Research/TaskH/Six/SixFourCliquePacking": [
-   "Research.TaskH.Six.SixCliqueCommonNeighbors"
-  ],
-  "Research/TaskH/Six/SixFourCliqueRepresentatives": [
-   "Research.TaskH.Six.SixFourCliquePacking"
-  ],
-  "Research/TaskH/Six/SixFourLabelBudget": [
-   "Mathlib"
-  ],
-  "Research/TaskH/Six/SixIncidence": [
-   "Research.TaskH.Six.CycleSix",
-   "Research.TaskH.Six.EdgeCyclesCount"
-  ],
-  "Research/TaskH/Six/SixMinimumDegreeNine": [
-   "Research.TaskH.Six.SixFiveCliqueClosedPacking"
-  ],
-  "Research/TaskH/Six/SixNeighborIncidence": [
-   "Research.TaskH.Six.SixIncidence",
-   "Research.TaskH.Six.SixAttachment"
-  ],
-  "Research/TaskH/Six/SixNeighborPathRule": [
-   "Research.TaskH.Six.CycleSix"
-  ],
-  "Research/TaskH/Six/SixOpenNeighborhoodPacking": [
-   "Research.TaskH.FiniteBudget"
-  ],
-  "Research/TaskH/Six/SixRainbowHexagonCollision": [
-   "Research.TaskH.Six.CycleSix"
-  ],
-  "Research/TaskH/Six/SixRootPathClosing": [
-   "Research.TaskH.Six.SixRootPaths"
-  ],
-  "Research/TaskH/Six/SixRootPathOrder": [
-   "Research.TaskH.Six.SixRootPathClosing"
-  ],
-  "Research/TaskH/Six/SixRootPaths": [
-   "Research.TaskH.Six.EqualityDegree"
-  ],
-  "Research/TaskH/Six/SixSplitClonePacking": [
-   "Research.TaskH.Six.SixRainbowHexagonCollision",
-   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
-  ],
-  "Research/TaskH/Six/SixSplitLabelIntersection": [
-   "Research.TaskH.Six.SixRainbowHexagonCollision"
-  ],
-  "Research/TaskH/Six/SixStarForcedColor": [
-   "Research.TaskH.Six.SixSplitLabelIntersection",
-   "Research.TaskH.Six.SixNeighborPathRule"
-  ],
-  "Research/TaskH/Six/SixTraceScalarBudget": [
-   "Mathlib"
-  ],
-  "Research/TaskH/Six/TraceSixBacktrackSets": [
-   "Research.TaskH.Six.TraceSixPaths"
-  ],
-  "Research/TaskH/Six/TraceSixBacktracks": [
-   "Research.TaskH.Six.TraceSixBacktrackSets",
-   "Research.TaskH.Six.TraceSixFrobenius"
-  ],
-  "Research/TaskH/Six/TraceSixCommonIdentity": [
-   "Research.TaskH.Six.TraceSixSamePositionReal",
-   "Research.TaskH.Six.TraceSixCyclesBridge"
-  ],
-  "Research/TaskH/Six/TraceSixCommonNeighbors": [
-   "Research.TaskH.Six.TraceSixPairIdentity"
-  ],
-  "Research/TaskH/Six/TraceSixCyclesBridge": [
-   "Research.TaskH.Six.TraceSixDoubleCross",
-   "Research.TaskH.Six.HexagonWordsCardinality"
-  ],
-  "Research/TaskH/Six/TraceSixDefectIdentity": [
-   "Research.TaskH.Six.TraceSixPathMoments",
-   "Research.TaskH.Six.TraceSixCommonIdentity"
-  ],
-  "Research/TaskH/Six/TraceSixDoubleCross": [
-   "Research.TaskH.Six.TraceSixCommonNeighbors"
-  ],
-  "Research/TaskH/Six/TraceSixEdgePairCounts": [
-   "Research.TaskH.Six.TraceSixEdgePairData"
-  ],
-  "Research/TaskH/Six/TraceSixEdgePairData": [
-   "Research.TaskH.Six.TraceSixPaths"
-  ],
-  "Research/TaskH/Six/TraceSixFrobenius": [
-   "Research.TaskH.Six.TraceSixMoments"
-  ],
-  "Research/TaskH/Six/TraceSixGraphBound": [
-   "Research.TaskH.Six.TraceSixDefectIdentity",
-   "Research.TaskH.Six.SixTraceScalarBudget"
-  ],
-  "Research/TaskH/Six/TraceSixMantel": [
-   "Research.TaskH.Six.TraceSixMoments"
-  ],
-  "Research/TaskH/Six/TraceSixMatrixAggregates": [
-   "Research.TaskH.Six.TraceSixMatrixCommon"
-  ],
-  "Research/TaskH/Six/TraceSixMatrixCommon": [
-   "Research.TaskH.Six.TraceSixSamePositionReal",
-   "Research.TaskH.Six.TraceSixBacktracks"
-  ],
-  "Research/TaskH/Six/TraceSixMoments": [
-   "Mathlib"
-  ],
-  "Research/TaskH/Six/TraceSixNeighborCounts": [
-   "Research.TaskH.Six.TraceSixSingleCross",
-   "Research.TaskH.Six.TraceSixDoubleCross"
-  ],
-  "Research/TaskH/Six/TraceSixPairIdentity": [
-   "Research.TaskH.Six.TraceSixPairs"
-  ],
-  "Research/TaskH/Six/TraceSixPairReversal": [
-   "Research.TaskH.Six.TraceSixPairIdentity"
-  ],
-  "Research/TaskH/Six/TraceSixPairs": [
-   "Research.TaskH.Six.TraceSixPaths"
-  ],
-  "Research/TaskH/Six/TraceSixPathMoments": [
-   "Research.TaskH.Six.TraceSixMatrixAggregates"
-  ],
-  "Research/TaskH/Six/TraceSixPaths": [
-   "Research.TaskH.Six.CycleSix"
-  ],
-  "Research/TaskH/Six/TraceSixSamePosition": [
-   "Research.TaskH.Six.TraceSixSamePositionData"
-  ],
-  "Research/TaskH/Six/TraceSixSamePositionData": [
-   "Research.TaskH.Six.TraceSixCommonNeighbors",
-   "Research.TaskH.Six.TraceSixPairReversal"
-  ],
-  "Research/TaskH/Six/TraceSixSamePositionReal": [
-   "Research.TaskH.Six.TraceSixNeighborCounts",
-   "Research.TaskH.Six.TraceSixSamePosition",
-   "Research.TaskH.Six.TraceSixFrobenius"
-  ],
-  "Research/TaskH/Six/TraceSixSingleCross": [
-   "Research.TaskH.Six.TraceSixEdgePairCounts",
-   "Research.TaskH.Six.TraceSixPairReversal",
-   "Research.TaskH.Six.TraceSixCommonNeighbors",
-   "Research.TaskH.Six.TraceSixMantel"
-  ],
-  "Research/TaskH/CaseSeven": [
-   "Research.TaskH.Challenge"
-  ],
-  "Research/TaskH/ExactTestsSeven": [
-   "Research.TaskH.MainSeven"
-  ],
-  "Research/TaskH/MainSeven": [
-   "Research.TaskH.Seven.SevenMinimumThirteen",
-   "Research.TaskH.Seven.SevenFinalBridge",
-   "Research.TaskH.Seven.SevenOriginalLowerBound",
-   "Research.TaskH.Seven.SevenCompleteCheck"
+   "Research.TaskH.CycleFourWitness"
   ],
   "Research/TaskH/Seven/ClosedColorOrders": [
    "Research.TaskH.Seven.ColorWordsStrict"
@@ -2063,6 +2988,418 @@
   ],
   "Research/TaskH/Seven/SingletonNeighborColors": [
    "Research.TaskH.Seven.Definitions"
+  ],
+  "Research/TaskH/Six/BipartiteSixWords": [
+   "Research.TaskH.Six.HexagonWordsCardinality"
+  ],
+  "Research/TaskH/Six/CaseSixElaboration": [
+   "Research.TaskH.CaseSix"
+  ],
+  "Research/TaskH/Six/CliqueCompletion": [
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Six/ClosedColorOrders": [
+   "Research.TaskH.Six.ColorWordsStrict"
+  ],
+  "Research/TaskH/Six/ColorCycle": [
+   "Research.TaskH.LayerTail"
+  ],
+  "Research/TaskH/Six/ColorWordsSaturation": [
+   "Research.TaskH.Six.ColorWordsStrict",
+   "Research.TaskH.ColorWordsSaturation"
+  ],
+  "Research/TaskH/Six/ColorWordsStrict": [
+   "Research.TaskH.ColorWordsStrict"
+  ],
+  "Research/TaskH/Six/CycleFlux": [
+   "Research.TaskH.Six.RawDescents"
+  ],
+  "Research/TaskH/Six/CycleSix": [
+   "Research.TaskH.Six.Definitions"
+  ],
+  "Research/TaskH/Six/Definitions": [
+   "Research.TaskH.CycleIncidence"
+  ],
+  "Research/TaskH/Six/DegreeSixComplete": [
+   "Research.TaskH.Six.SingletonClique",
+   "Research.TaskH.Six.CliqueCompletion"
+  ],
+  "Research/TaskH/Six/DeletedCycleOrders": [
+   "Research.TaskH.Six.ColorWordsSaturation",
+   "Research.TaskH.Critical"
+  ],
+  "Research/TaskH/Six/EdgeColorOrders": [
+   "Research.TaskH.Six.ColorCycle",
+   "Research.TaskH.Six.Definitions",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/Six/EdgeCycles": [
+   "Research.TaskH.Six.EdgeColorOrders",
+   "Research.TaskH.Basics"
+  ],
+  "Research/TaskH/Six/EdgeCyclesCount": [
+   "Research.TaskH.Six.EdgeCyclesDistinct",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Six/EdgeCyclesDistinct": [
+   "Research.TaskH.Six.EdgeCycles"
+  ],
+  "Research/TaskH/Six/EqualityDegree": [
+   "Research.TaskH.Six.DegreeSixComplete",
+   "Research.TaskH.Six.SixNeighborIncidence",
+   "Research.TaskH.Six.SixFiniteBudget"
+  ],
+  "Research/TaskH/Six/EqualityShortCycles": [
+   "Research.TaskH.Six.Definitions",
+   "Research.TaskH.Six.GoodCycleLowerBound",
+   "Research.TaskH.Six.GoodMultiplicityOrders",
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Six/GoodCycleLowerBound": [
+   "Research.TaskH.Six.LayerCycles",
+   "Research.TaskH.Six.LayerFlux",
+   "Research.TaskH.Six.LayerCycleSeparation"
+  ],
+  "Research/TaskH/Six/GoodMultiplicity": [
+   "Research.TaskH.Six.RawDescents",
+   "Research.TaskH.Six.ClosedColorOrders",
+   "Research.TaskH.CycleOrientation"
+  ],
+  "Research/TaskH/Six/GoodMultiplicityDeleted": [
+   "Research.TaskH.Six.GoodMultiplicity",
+   "Research.TaskH.Six.DeletedCycleOrders"
+  ],
+  "Research/TaskH/Six/GoodMultiplicityOrders": [
+   "Research.TaskH.Six.GoodMultiplicityDeleted"
+  ],
+  "Research/TaskH/Six/HexagonWordIndices": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/HexagonWords": [
+   "Research.TaskH.Six.HexagonWordIndices"
+  ],
+  "Research/TaskH/Six/HexagonWordsCardinality": [
+   "Research.TaskH.Six.HexagonWords"
+  ],
+  "Research/TaskH/Six/LayerColoring": [
+   "Research.TaskH.LayerSets",
+   "Research.TaskH.Recolor"
+  ],
+  "Research/TaskH/Six/LayerCycleSeparation": [
+   "Research.TaskH.Six.NestedShift",
+   "Research.TaskH.LayerCycleSeparation"
+  ],
+  "Research/TaskH/Six/LayerCycles": [
+   "Research.TaskH.Six.LayerTail",
+   "Research.TaskH.MonochromaticReach"
+  ],
+  "Research/TaskH/Six/LayerFlux": [
+   "Research.TaskH.Six.LayerColoring",
+   "Research.TaskH.Six.CycleFlux",
+   "Research.TaskH.DirectedCycle"
+  ],
+  "Research/TaskH/Six/LayerTail": [
+   "Research.TaskH.Six.LayerColoring",
+   "Research.TaskH.Six.ColorCycle"
+  ],
+  "Research/TaskH/Six/NestedShift": [
+   "Research.TaskH.Six.CycleFlux",
+   "Research.TaskH.NestedShift"
+  ],
+  "Research/TaskH/Six/RainbowCycles": [
+   "Research.TaskH.Six.EqualityShortCycles"
+  ],
+  "Research/TaskH/Six/RawDescents": [
+   "Research.TaskH.Basics",
+   "Research.TaskH.ColorWords"
+  ],
+  "Research/TaskH/Six/RegressionSix": [
+   "Research.TaskH.CaseSix",
+   "Research.TaskH.CompleteCritical",
+   "Research.TaskH.CycleFourWitness",
+   "Research.TaskH.Six.HexagonWordsCardinality"
+  ],
+  "Research/TaskH/Six/SingletonClique": [
+   "Research.TaskH.Six.SingletonCycles",
+   "Research.TaskH.Six.RainbowCycles"
+  ],
+  "Research/TaskH/Six/SingletonCycles": [
+   "Research.TaskH.Six.SingletonNeighborColors",
+   "Research.TaskH.Six.EdgeCyclesCount"
+  ],
+  "Research/TaskH/Six/SingletonNeighborColors": [
+   "Research.TaskH.Six.Definitions"
+  ],
+  "Research/TaskH/Six/SixAttachment": [
+   "Research.TaskH.Six.SixAttachmentData"
+  ],
+  "Research/TaskH/Six/SixAttachmentData": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/SixBipartiteCore": [
+   "Research.TaskH.Six.SixFourCliqueConsequences"
+  ],
+  "Research/TaskH/Six/SixCliqueCommonNeighbors": [
+   "Research.TaskH.Six.SixCliquePathPacking",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Six/SixCliquePathPacking": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/SixDegreeNineExclusion": [
+   "Research.TaskH.Six.SixBipartiteCore",
+   "Research.TaskH.Six.BipartiteSixWords",
+   "Research.TaskH.Six.SixMinimumDegreeNine"
+  ],
+  "Research/TaskH/Six/SixDegreeTenCenterCoverage": [
+   "Research.TaskH.Six.SixDegreeTenColors"
+  ],
+  "Research/TaskH/Six/SixDegreeTenColors": [
+   "Research.TaskH.Six.SingletonClique"
+  ],
+  "Research/TaskH/Six/SixDegreeTenCommonOutside": [
+   "Research.TaskH.Six.SixDegreeTenExteriorWords"
+  ],
+  "Research/TaskH/Six/SixDegreeTenCommonPacking": [
+   "Research.TaskH.Six.SixDegreeTenCommonOutside",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Six/SixDegreeTenExteriorWords": [
+   "Research.TaskH.Six.SixDegreeTenLocalShape"
+  ],
+  "Research/TaskH/Six/SixDegreeTenFrame": [
+   "Research.TaskH.Six.SixDegreeTenCenterCoverage"
+  ],
+  "Research/TaskH/Six/SixDegreeTenFrameWords": [
+   "Research.TaskH.Six.SixDegreeTenFrame",
+   "Research.TaskH.Six.SixNeighborPathRule"
+  ],
+  "Research/TaskH/Six/SixDegreeTenLocalShape": [
+   "Research.TaskH.Six.SixDegreeTenPairDichotomy",
+   "Research.TaskH.Six.SixDegreeTenFrameWords"
+  ],
+  "Research/TaskH/Six/SixDegreeTenPairDichotomy": [
+   "Research.TaskH.Six.SixDegreeTenFrame",
+   "Research.TaskH.Six.SixNeighborPathRule"
+  ],
+  "Research/TaskH/Six/SixDegreeTenSplitColors": [
+   "Research.TaskH.Six.SixStarForcedColor",
+   "Research.TaskH.Six.SixDegreeTenLocalShape",
+   "Research.TaskH.Six.SixDegreeTenCommonOutside"
+  ],
+  "Research/TaskH/Six/SixDegreeTenSplitPacking": [
+   "Research.TaskH.Six.SixDegreeTenSplitSeparation",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Six/SixDegreeTenSplitSeparation": [
+   "Research.TaskH.Six.SixDegreeTenSplitWeight"
+  ],
+  "Research/TaskH/Six/SixDegreeTenSplitWeight": [
+   "Research.TaskH.Six.SixDegreeTenSplitColors",
+   "Research.TaskH.Six.SixSplitClonePacking",
+   "Research.TaskH.Six.SixFourLabelBudget"
+  ],
+  "Research/TaskH/Six/SixEqualityDegreeTen": [
+   "Research.TaskH.Six.SixDegreeNineExclusion",
+   "Research.TaskH.Six.TraceSixGraphBound"
+  ],
+  "Research/TaskH/Six/SixFiniteBudget": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueBudget": [
+   "Research.TaskH.Six.SixFiveCliqueSets",
+   "Research.TaskH.Six.EqualityDegree"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueClosedPacking": [
+   "Research.TaskH.Six.SixFiveCliqueSeparation"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueData": [
+   "Research.TaskH.Six.SixAttachmentData"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueLocal": [
+   "Research.TaskH.Six.SixFiveCliqueData",
+   "Research.TaskH.Six.SixCliquePathPacking"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueOutside": [
+   "Research.TaskH.Six.SixFiveCliquePairBudget"
+  ],
+  "Research/TaskH/Six/SixFiveCliquePairBudget": [
+   "Research.TaskH.Six.SixFiveCliquePairPacking"
+  ],
+  "Research/TaskH/Six/SixFiveCliquePairColors": [
+   "Research.TaskH.Six.SixFiveCliqueThreeHooks"
+  ],
+  "Research/TaskH/Six/SixFiveCliquePairPacking": [
+   "Research.TaskH.Six.SixFiveCliquePairPaths"
+  ],
+  "Research/TaskH/Six/SixFiveCliquePairPaths": [
+   "Research.TaskH.Six.SixFiveCliquePairColors"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueReindex": [
+   "Research.TaskH.Six.SixFiveCliqueSets"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueSeparation": [
+   "Research.TaskH.Six.SixFiveCliqueOutside",
+   "Research.TaskH.Six.SixCliquePathPacking"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueSets": [
+   "Research.TaskH.Six.SixFiveCliqueLocal",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Six/SixFiveCliqueThreeHooks": [
+   "Research.TaskH.Six.SixFiveCliqueReindex",
+   "Research.TaskH.Six.SixFiveCliqueBudget",
+   "Research.TaskH.Six.SixRootPathOrder"
+  ],
+  "Research/TaskH/Six/SixFourCliqueConsequences": [
+   "Research.TaskH.Six.SixFourCliqueRepresentatives",
+   "Research.TaskH.Six.SixFiniteBudget"
+  ],
+  "Research/TaskH/Six/SixFourCliquePacking": [
+   "Research.TaskH.Six.SixCliqueCommonNeighbors"
+  ],
+  "Research/TaskH/Six/SixFourCliqueRepresentatives": [
+   "Research.TaskH.Six.SixFourCliquePacking"
+  ],
+  "Research/TaskH/Six/SixFourLabelBudget": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Six/SixIncidence": [
+   "Research.TaskH.Six.CycleSix",
+   "Research.TaskH.Six.EdgeCyclesCount"
+  ],
+  "Research/TaskH/Six/SixMinimumDegreeNine": [
+   "Research.TaskH.Six.SixFiveCliqueClosedPacking"
+  ],
+  "Research/TaskH/Six/SixNeighborIncidence": [
+   "Research.TaskH.Six.SixIncidence",
+   "Research.TaskH.Six.SixAttachment"
+  ],
+  "Research/TaskH/Six/SixNeighborPathRule": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/SixOpenNeighborhoodPacking": [
+   "Research.TaskH.FiniteBudget"
+  ],
+  "Research/TaskH/Six/SixRainbowHexagonCollision": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/SixRootPathClosing": [
+   "Research.TaskH.Six.SixRootPaths"
+  ],
+  "Research/TaskH/Six/SixRootPathOrder": [
+   "Research.TaskH.Six.SixRootPathClosing"
+  ],
+  "Research/TaskH/Six/SixRootPaths": [
+   "Research.TaskH.Six.EqualityDegree"
+  ],
+  "Research/TaskH/Six/SixSplitClonePacking": [
+   "Research.TaskH.Six.SixRainbowHexagonCollision",
+   "Research.TaskH.Six.SixOpenNeighborhoodPacking"
+  ],
+  "Research/TaskH/Six/SixSplitLabelIntersection": [
+   "Research.TaskH.Six.SixRainbowHexagonCollision"
+  ],
+  "Research/TaskH/Six/SixStarForcedColor": [
+   "Research.TaskH.Six.SixSplitLabelIntersection",
+   "Research.TaskH.Six.SixNeighborPathRule"
+  ],
+  "Research/TaskH/Six/SixTraceScalarBudget": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Six/TraceSixBacktrackSets": [
+   "Research.TaskH.Six.TraceSixPaths"
+  ],
+  "Research/TaskH/Six/TraceSixBacktracks": [
+   "Research.TaskH.Six.TraceSixBacktrackSets",
+   "Research.TaskH.Six.TraceSixFrobenius"
+  ],
+  "Research/TaskH/Six/TraceSixCommonIdentity": [
+   "Research.TaskH.Six.TraceSixSamePositionReal",
+   "Research.TaskH.Six.TraceSixCyclesBridge"
+  ],
+  "Research/TaskH/Six/TraceSixCommonNeighbors": [
+   "Research.TaskH.Six.TraceSixPairIdentity"
+  ],
+  "Research/TaskH/Six/TraceSixCyclesBridge": [
+   "Research.TaskH.Six.TraceSixDoubleCross",
+   "Research.TaskH.Six.HexagonWordsCardinality"
+  ],
+  "Research/TaskH/Six/TraceSixDefectIdentity": [
+   "Research.TaskH.Six.TraceSixPathMoments",
+   "Research.TaskH.Six.TraceSixCommonIdentity"
+  ],
+  "Research/TaskH/Six/TraceSixDoubleCross": [
+   "Research.TaskH.Six.TraceSixCommonNeighbors"
+  ],
+  "Research/TaskH/Six/TraceSixEdgePairCounts": [
+   "Research.TaskH.Six.TraceSixEdgePairData"
+  ],
+  "Research/TaskH/Six/TraceSixEdgePairData": [
+   "Research.TaskH.Six.TraceSixPaths"
+  ],
+  "Research/TaskH/Six/TraceSixFrobenius": [
+   "Research.TaskH.Six.TraceSixMoments"
+  ],
+  "Research/TaskH/Six/TraceSixGraphBound": [
+   "Research.TaskH.Six.TraceSixDefectIdentity",
+   "Research.TaskH.Six.SixTraceScalarBudget"
+  ],
+  "Research/TaskH/Six/TraceSixMantel": [
+   "Research.TaskH.Six.TraceSixMoments"
+  ],
+  "Research/TaskH/Six/TraceSixMatrixAggregates": [
+   "Research.TaskH.Six.TraceSixMatrixCommon"
+  ],
+  "Research/TaskH/Six/TraceSixMatrixCommon": [
+   "Research.TaskH.Six.TraceSixSamePositionReal",
+   "Research.TaskH.Six.TraceSixBacktracks"
+  ],
+  "Research/TaskH/Six/TraceSixMoments": [
+   "Mathlib"
+  ],
+  "Research/TaskH/Six/TraceSixNeighborCounts": [
+   "Research.TaskH.Six.TraceSixSingleCross",
+   "Research.TaskH.Six.TraceSixDoubleCross"
+  ],
+  "Research/TaskH/Six/TraceSixPairIdentity": [
+   "Research.TaskH.Six.TraceSixPairs"
+  ],
+  "Research/TaskH/Six/TraceSixPairReversal": [
+   "Research.TaskH.Six.TraceSixPairIdentity"
+  ],
+  "Research/TaskH/Six/TraceSixPairs": [
+   "Research.TaskH.Six.TraceSixPaths"
+  ],
+  "Research/TaskH/Six/TraceSixPathMoments": [
+   "Research.TaskH.Six.TraceSixMatrixAggregates"
+  ],
+  "Research/TaskH/Six/TraceSixPaths": [
+   "Research.TaskH.Six.CycleSix"
+  ],
+  "Research/TaskH/Six/TraceSixSamePosition": [
+   "Research.TaskH.Six.TraceSixSamePositionData"
+  ],
+  "Research/TaskH/Six/TraceSixSamePositionData": [
+   "Research.TaskH.Six.TraceSixCommonNeighbors",
+   "Research.TaskH.Six.TraceSixPairReversal"
+  ],
+  "Research/TaskH/Six/TraceSixSamePositionReal": [
+   "Research.TaskH.Six.TraceSixNeighborCounts",
+   "Research.TaskH.Six.TraceSixSamePosition",
+   "Research.TaskH.Six.TraceSixFrobenius"
+  ],
+  "Research/TaskH/Six/TraceSixSingleCross": [
+   "Research.TaskH.Six.TraceSixEdgePairCounts",
+   "Research.TaskH.Six.TraceSixPairReversal",
+   "Research.TaskH.Six.TraceSixCommonNeighbors",
+   "Research.TaskH.Six.TraceSixMantel"
   ]
+ },
+ "not_included": {
+  "Research/TaskH/CaseEight.lean": {
+   "sha256": "c846b4524340a3127cf475e69ca28c0b12bbda80dae5caa2f687372b3de7c59b",
+   "reason": "statement file for k = 8 (definitions only), imported by no other file; part of Codex's all-k package and compiled in its checks"
+  }
  }
 }
