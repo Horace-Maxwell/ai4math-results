@@ -1,0 +1,229 @@
+{
+ "module_count": 15,
+ "entrypoints": [
+  "Research.TaskJ.Rank.CheckRank",
+  "Research.TaskJ.Rank.Extension.CheckExtension"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskJ.Rank.CheckRank": [
+   "TaskJ.Rank.check_TwoPointParameters",
+   "TaskJ.Rank.check_FivePointParameters",
+   "TaskJ.Rank.check_TwoPointRank",
+   "TaskJ.Rank.check_FivePointRank",
+   "TaskJ.Rank.check_TwoPointCounterexample",
+   "TaskJ.Rank.check_FivePointCounterexample"
+  ],
+  "Research.TaskJ.Rank.Extension.CheckExtension": [
+   "TaskJ.Rank.Extension.check_UnboundedGap"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskJ/Rank/Challenge.lean",
+   "frozen_utc": "2026-11-18T00:07:30Z",
+   "freeze_record": "rank/FREEZE.json",
+   "sha256": "5ebdebf72d3c873ca499a7c17a15e8f182010a0eefb62020af99577f90d421e5"
+  },
+  {
+   "file": "lean/Research/TaskJ/Rank/Extension/Challenge.lean",
+   "frozen_utc": "2026-11-18T00:22:07Z",
+   "freeze_record": "rank/extension/FREEZE.json",
+   "sha256": "efa3009d5c56b17b0b476e154e41f321859a49845aec98ed41f4bd3b1abead72"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskJ/Rank/Challenge.lean",
+   "module": "Research.TaskJ.Rank.Challenge",
+   "sha256": "5ebdebf72d3c873ca499a7c17a15e8f182010a0eefb62020af99577f90d421e5",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/Challenge.lean",
+   "codex_source_sha256": "5ebdebf72d3c873ca499a7c17a15e8f182010a0eefb62020af99577f90d421e5",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.GroupTheory.Rank",
+    "Mathlib.GroupTheory.Subgroup.Centralizer",
+    "Mathlib.Data.ZMod.Basic",
+    "Mathlib.Data.Finset.Powerset",
+    "Mathlib.Data.Fintype.Perm",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/CheckRank.lean",
+   "module": "Research.TaskJ.Rank.CheckRank",
+   "sha256": "f715c2aafc65ec6c2bd116a8a6f8f9c572c81ee723c894338fa8df052bccbea2",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/CheckRank.lean",
+   "codex_source_sha256": "ac7d5507ac236903125c4e472806850e2a4af7e2b63efa63858544a19871fdd4",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Parameters.lean",
+   "module": "Research.TaskJ.Rank.Parameters",
+   "sha256": "3958140f604622945cdf9207d128050428cae376821e54c1efddc3bde98d97e0",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/Parameters.lean",
+   "codex_source_sha256": "8cdc50fc28f5635c6bbf71efd8e35b1c0b2e7f8661ba90ea46c8c90830864bd3",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Proof.lean",
+   "module": "Research.TaskJ.Rank.Proof",
+   "sha256": "09c025f6e90484a38f5e916c7d65ad79ed17b3aeeed0e3dd571fffe19dda945c",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/Proof.lean",
+   "codex_source_sha256": "d59f9c1a640d316357d81b3b9532c5a6e3f5c7c66ed3aeded2ca97dc89c5372b",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Parameters",
+    "Research.TaskJ.Rank.RankValues"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/RankValues.lean",
+   "module": "Research.TaskJ.Rank.RankValues",
+   "sha256": "7cd632ec76570d0274cdcfc12419a0240a41ddc9e8ba2af411d36645b1731a10",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/RankValues.lean",
+   "codex_source_sha256": "8a3895f7c0aa61251f8027b1f5ce15984b05a870d378adcafdd6f07f41e28892",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Extension/Arithmetic.lean",
+   "module": "Research.TaskJ.Rank.Extension.Arithmetic",
+   "sha256": "75b1a5e51941b1d8622930a490eec001cc190414bdac97d77c96dc894daa5a9d",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/extension/Arithmetic.lean",
+   "codex_source_sha256": "e6985e46581b8e3af6939e05d26364641cfbf66ea5ccf986c0c6696464f1375e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Extension.Challenge",
+    "Mathlib.Data.Nat.Prime.Nth",
+    "Mathlib.Data.Nat.Pairing",
+    "Mathlib.Data.Nat.GCD.BigOperators",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Sigma",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Extension/Challenge.lean",
+   "module": "Research.TaskJ.Rank.Extension.Challenge",
+   "sha256": "efa3009d5c56b17b0b476e154e41f321859a49845aec98ed41f4bd3b1abead72",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/extension/Challenge.lean",
+   "codex_source_sha256": "efa3009d5c56b17b0b476e154e41f321859a49845aec98ed41f4bd3b1abead72",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.GroupTheory.Rank",
+    "Mathlib.GroupTheory.Subgroup.Centralizer",
+    "Mathlib.GroupTheory.QuotientGroup.Basic",
+    "Mathlib.GroupTheory.SpecificGroups.Cyclic",
+    "Mathlib.Algebra.Group.TypeTags.Hom",
+    "Mathlib.Data.ZMod.Basic",
+    "Mathlib.Data.PNat.Basic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Extension/CheckExtension.lean",
+   "module": "Research.TaskJ.Rank.Extension.CheckExtension",
+   "sha256": "fa96728b5d0cd5095a08729ea1f83813e016ef38c0e2c1550417e9d264806128",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/extension/CheckExtension.lean",
+   "codex_source_sha256": "1fcc1439f16f31dc8f9862632b2d5f87e1b6deeef549033ae4676ebd5a433d93",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Extension.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Extension/ExampleFamily.lean",
+   "module": "Research.TaskJ.Rank.Extension.ExampleFamily",
+   "sha256": "fcaf0672914bc4da17714d559b1c7a569a2eda45c469d1952684a5a455316e6b",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/extension/ExampleFamily.lean",
+   "codex_source_sha256": "71ebd2c198c4f118a6716259cc8a291d2f0ea3e6c943da3bda272933a502e3fc",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Extension.Arithmetic",
+    "Research.TaskJ.Rank.Extension.FiberAutomorphisms",
+    "Research.TaskJ.Rank.Extension.SquareRank"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Extension/FiberAutomorphisms.lean",
+   "module": "Research.TaskJ.Rank.Extension.FiberAutomorphisms",
+   "sha256": "e31c8938834e6b6acc526879f4b95d6a1e71f3bbee5d67cdef2bf67616a8573a",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/extension/FiberAutomorphisms.lean",
+   "codex_source_sha256": "934f528551af11cbf742d5a993b9b6278678dcfc80ad1515821dfb5afdab4801",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Extension.OrbitStructure"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Extension/OrbitStructure.lean",
+   "module": "Research.TaskJ.Rank.Extension.OrbitStructure",
+   "sha256": "2a426a89d5234c9f2f400659888f35aa6c77f1b24684e1d871bf70d59c919e50",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/extension/OrbitStructure.lean",
+   "codex_source_sha256": "5cd698a8f078a7cc38e1a1cdb71d3e7a299e1b1d4b560485e8dd2bbb3216c974",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Extension.Challenge",
+    "Mathlib.Data.Set.Card",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Extension/PacketRank.lean",
+   "module": "Research.TaskJ.Rank.Extension.PacketRank",
+   "sha256": "0ed610d6ad7a0f4293d3289bd97edef600873e77fb1456449cd1890d2248a5fa",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/extension/PacketRank.lean",
+   "codex_source_sha256": "6ec377995a07cdb79aadd579871ff19b2e47885a12525ebbbaeff50abc49e915",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Extension.OrbitStructure"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Extension/Proof.lean",
+   "module": "Research.TaskJ.Rank.Extension.Proof",
+   "sha256": "e5f635d4ccb55f7c68ecf40c41e12bcc155453a26e5205ff703a0955fa10ea33",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/extension/Proof.lean",
+   "codex_source_sha256": "d052bc3325fef6017c81f92120b7043eb2853ba1e74cedd6c2909fefbf4147b3",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Extension.ExampleFamily",
+    "Research.TaskJ.Rank.Extension.PacketRank"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Extension/RankCRT.lean",
+   "module": "Research.TaskJ.Rank.Extension.RankCRT",
+   "sha256": "1a6fe0d12ffa23e13672b7c136af3db31845d382db83eee9a613c2e4c6b5075d",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/extension/RankCRT.lean",
+   "codex_source_sha256": "7b2b24b23b4fc4499acaf07c243246fde9c096ae3988b82d6453327b8bc65d95",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Extension.Challenge",
+    "Mathlib.Data.ZMod.QuotientRing",
+    "Mathlib.Algebra.Group.Equiv.TypeTags",
+    "Mathlib.Algebra.Group.Prod"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Rank/Extension/SquareRank.lean",
+   "module": "Research.TaskJ.Rank.Extension.SquareRank",
+   "sha256": "0cf046eff799d67dd50481779755b16224c7037179b9fa3dc2942376a576b5b3",
+   "codex_source": "work/codex-r3/phase18/taskJ/rank/extension/SquareRank.lean",
+   "codex_source_sha256": "c21418c82a8667fed0c3c1b96370ce35b4496125e55cb9da6ee9f5614ef70c9d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Rank.Extension.RankCRT",
+    "Mathlib.SetTheory.Cardinal.NatCard"
+   ]
+  }
+ ]
+}

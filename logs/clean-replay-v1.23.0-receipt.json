@@ -1,0 +1,50 @@
+{
+ "purpose": "Whole-project clean rebuild of the Lean project of release v1.23.0 (adds Papers 14 and 15).",
+ "start_utc": "2026-11-18T23:37:30Z",
+ "end_utc": "2026-11-19T12:32:01Z",
+ "result": "3778 of 3778 modules compiled; 3777 of 3778 replayed with leanchecker; the module Research has no constants and was exempted; 0 audit problems. One pass; every compile and every leanchecker run passed at its first attempt.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.22.0-receipt.json",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs); OpenAI Codex did not use it during the rebuild: according to a recursive file listing taken after the rebuild, no file in its directories there (.codex and ai4math-codex*) was written after 18 November 2026, 23:35:36 UTC, before the run started (that file was a provisioning guard file of the Codex app)",
+ "procedure": [
+  "New empty output directory; sources copied from the release tree lean/ (Research.lean and Research/, 3780 files, of which 3778 are Lean modules and 2 are Python scripts of Paper 3). After the build their SHA-256 hashes were compared with the release tree: no difference. The directory Comparator/ was not built here; it is unchanged since version 1.13.0, and the CI workflow checks it.",
+  "Each module compiled with lean -DautoImplicit=false -DrelaxedAutoImplicit=false, then each module replayed with leanchecker, by the driver build6.py of version 1.16.0. This is not a lake build.",
+  "Warnings are recorded and do not fail a module; an error, sorry or non-zero exit code does. The driver would rerun a module automatically (up to five times) when an attempt ends in a memory or file-read failure rather than a Lean verdict; in this run no attempt failed. It starts a new Lean process only while enough commit charge (memory reserved by Windows) is free.",
+  "In the published logs the local workspace directory is replaced by <workspace> and the directory of the pinned toolchain and packages (ai4math-lean-worker) by <worker>, Windows line endings of status.json, plan.json, research-olean-constants.txt and run.log are written as Unix line endings, and the byte-order mark at the start of research-olean-constants.txt is removed; nothing else is changed. run.log is empty: the driver writes its progress to status.json."
+ ],
+ "runs": [
+  {
+   "pass": 1,
+   "start_utc": "2026-11-18T23:37:30Z",
+   "end_utc": "2026-11-19T12:32:01Z",
+   "jobs": "up to 12 (free-commit threshold 14 GiB, 6 GiB reserved per start)",
+   "note": "One start, no restart. Compile phase from 2026-11-18T23:37:30Z to 2026-11-19T07:08:40Z, leanchecker phase from 07:08:40Z to 12:32:01Z. Every compile and every leanchecker run passed at its first attempt; no second pass was needed."
+  }
+ ],
+ "discarded_run": "An earlier start of this rebuild, on 2026-11-18 at 19:23 UTC with up to 16 jobs, was lost when the Windows computer stopped with a system error at 19:26 UTC (the Windows event log records the restart at 19:27 UTC after bugcheck 0xEF, CRITICAL_PROCESS_DIED). Its directory was set aside and not used; the rebuild above started again from the same source archive in a new empty directory.",
+ "module_Research": {
+  "lines": "only import lines",
+  "constants": 0,
+  "extra_constants": 0,
+  "imports": 65,
+  "how_counted": "readModuleData on Research.olean (research-olean-constants.txt in the log archive)",
+  "consequence": "leanchecker has nothing to replay in this module. It was exempted before the run, as for versions 1.15.0 to 1.22.0."
+ },
+ "audit": {
+  "modules": 3778,
+  "compile_ok": 3778,
+  "check_ok": 3777,
+  "check_exempt": 1,
+  "axiom_lists": 116793,
+  "axiom_lists_empty": 8574,
+  "warnings": 97,
+  "problem_count": 0
+ },
+ "warnings": "97 lines in 15 older modules, the same lines as for versions 1.21.0 and 1.22.0; none in Papers 14 and 15.",
+ "axioms": "every printed axiom list in the logs is a subset of propext, Classical.choice and Quot.sound. The lists printed for the check theorems of Papers 14 and 15 (TaskJ.Rank.check_TwoPointParameters, check_FivePointParameters, check_TwoPointRank, check_FivePointRank, check_TwoPointCounterexample, check_FivePointCounterexample by Research.TaskJ.Rank.CheckRank; TaskJ.Rank.Extension.check_UnboundedGap by Research.TaskJ.Rank.Extension.CheckExtension; check_LengthUpperBound, check_LengthAttained, check_YuanGapAtLongest by Research.TaskJ.Grid.CheckGrid) are each exactly these three axioms.",
+ "forbidden_tokens": "logs/clean-replay-v1.23.0-forbidden-tokens.log: outside comments, only the intentional sorry statements of the comparator challenge files lean/Comparator/ (the same hits as for version 1.22.0; none in the new files).",
+ "lean_errors": "No attempt ended in a Lean error, and no attempt failed.",
+ "source_manifest": "logs/lean-sources-sha256.txt, 3788 files",
+ "logs": "logs/clean-replay-v1.23.0-logs.tar.gz (status.json, plan.json, research-olean-constants.txt, run.log and the log of every module)"
+}

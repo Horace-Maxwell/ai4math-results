@@ -1,0 +1,598 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={On the rank of groups of equivariant permutations: a counterexample to an upper bound},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{citedtheorem}{Theorem}
+\renewcommand{\thecitedtheorem}{\Alph{citedtheorem}}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.23.0}
+\setlength{\emergencystretch}{1.5em}
+
+\newcommand{\Rank}{\operatorname{Rank}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Conj}{\operatorname{Conj}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\lmin}{\lambda^{\min}}
+
+\title{On the rank of groups of equivariant permutations:\\
+a counterexample to an upper bound}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{19 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a finite group $G$ acting on a finite set $X$, Lara-G\'omez,
+Romero-Rosales and Ruiz-Medina gave an upper bound for the rank of the group
+$\Aut_G(X)$ of $G$-equivariant permutations of $X$, refined it by grouping
+generators of coprime orders into ``packets'', and stated that the refined
+bound should be the exact value of the rank. We point out that the first
+bound, Theorem~4 of the published version, fails for the group of order two
+acting regularly on two points, where it gives $0$ while the rank is $1$. We
+give a five-point example in which the rank is $2$ while the refined
+expression is $3$ (preprint version) or $4$ (published version); the authors'
+own $21$-point example already shows that the refined expression is not
+always exact, and ours is a simpler instance. Finally, for every $n\ge3$ we
+give a faithful action of a finite cyclic group for which the rank is $2$
+while the two versions of the refined expression equal $n$ and $n+1$ for
+every admissible choice of generators, so the difference is unbounded. These
+three results are formally verified in Lean~4. The proofs were found and
+formalized by AI agents working under the author's direction; their role is
+described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+Let a group $G$ act on a set $X$. The $G$-equivariant maps $f\colon X\to X$,
+those with $f(g\cdot x)=g\cdot f(x)$ for all $g\in G$ and $x\in X$, form a
+monoid under composition, and its group of units $\Aut_G(X)$ consists of the
+$G$-equivariant permutations of $X$. Lara-G\'omez, Romero-Rosales and
+Ruiz-Medina~\cite{lrr} study generating sets of this monoid and of its group of
+units; an earlier version of their paper is the preprint~\cite{rlr}. For a
+finite $G$-set $X$ they construct an explicit generating set of $\Aut_G(X)$
+from the orbit structure of the action and count it, which gives an upper
+bound for the rank of $\Aut_G(X)$ (Theorem~4 of~\cite{lrr}, Theorem~5
+of~\cite{rlr}). They then group some of these generators into ``packets'' of
+pairwise commuting elements of coprime orders, which gives a second, packet
+bound (Corollary~6 of~\cite{lrr}, Corollary~19 of~\cite{rlr}), and in the
+Open problem that closes the relevant subsection they write that the packet
+bound ``should be the exact value of the rank''.
+
+We make three observations; the definitions are recalled in
+Section~\ref{sec:defs}.
+\begin{itemize}
+\item The printed upper bound of Theorem~4 of~\cite{lrr} (and the right-hand
+side of Theorem~5 of~\cite{rlr}) fails for the cyclic group of order two
+acting regularly on two points: the bound is $0$ and the rank is $1$
+(Theorem~\ref{thm:two}). The same happens for every transitive action $G/H$
+with $N_G(H)/H$ nontrivial (Remark~\ref{rem:transitive}, a written argument
+only), and the bound becomes valid if the term $-\delta_G(X)$ is removed
+(Remark~\ref{rem:repair}, also a written argument, which only recounts the
+authors' own generating set).
+\item The packet expression is not always the exact rank. This is already
+shown by the authors' own $21$-point example (Example~1 of~\cite{lrr}), whose
+printed generators give rank at most $4$ while the expression is $6$ ($5$ in
+the version of~\cite{rlr}); see Section~\ref{sec:five}. We give a simpler
+five-point example in which the rank is $2$ and the two versions of the
+expression are $3$ and~$4$ (Theorem~\ref{thm:five}). The rank of the group
+involved, $C_2\times S_3$, also follows from a theorem of Lu~\cite{lu}.
+\item The difference between the packet expression and the rank is
+unbounded: for every $n\ge3$ there is a faithful action of a finite cyclic
+group with rank $2$ for which the two versions of the expression equal $n$ and
+$n+1$, for every admissible choice of generating sets of minimal cardinality
+(Theorem~\ref{thm:gap}).
+\end{itemize}
+To our knowledge, what is new here is the failure of Theorem~4
+of~\cite{lrr} and the unbounded gap. In all three examples the packet
+bounds~\eqref{eq:packet} hold. For the five-point example and the family both
+versions of the expected equality fail; for the two-point example the journal
+version fails ($2\ne1$), and so does Theorem~4 of~\cite{lrr}. We found no correction of~\cite{lrr}
+or~\cite{rlr} in the literature as of 19 November 2026. Theorems~\ref{thm:two},
+\ref{thm:five} and~\ref{thm:gap} are formally verified in Lean~4
+(Section~\ref{sec:lean}); the remarks marked ``written argument'' are not.
+
+\section{Definitions and the statements of~\texorpdfstring{\cite{lrr}}{[2]} and~\texorpdfstring{\cite{rlr}}{[5]}}
+\label{sec:defs}
+
+We follow the notation of~\cite{lrr}. Let $X$ be a finite $G$-set. For $x\in
+X$ let $G_x$ be its stabilizer. Let $\Conj_G(X)$ be the set of conjugacy
+classes $[H]$ of subgroups of $G$ that occur as stabilizers, and write
+$r=|\Conj_G(X)|$. The \emph{box} of $[H]$ is
+$B_{[H]}=\{x\in X: [G_x]=[H]\}$; it is a union of orbits. Put
+\begin{align*}
+\kappa_G(X)&=\#\{[H]\in\Conj_G(X): B_{[H]}\text{ consists of one orbit}\},\\
+\omega_G(X)&=\#\{[H]\in\Conj_G(X): N_G(H)/H \text{ is trivial}\},\\
+R_G(X)&=\textstyle\sum_{[H]\in\Conj_G(X)}\Rank\bigl(N_G(H)/H\bigr),
+\end{align*}
+where $\Rank$ is the least size of a generating set, with the convention
+of~\cite{lrr,rlr} that the trivial group has rank $1$ (the notation $R_G(X)$
+is ours). Further, $\delta_G(X)=0$ if $\omega_G(X)=R_G(X)$ and
+$\delta_G(X)=1$ otherwise, and $\Lambda_G(X)=1$ if either every box consists of
+one orbit and every $N_G(H)/H$ is trivial, or some box contains at least three
+orbits; otherwise $\Lambda_G(X)=0$.
+
+\begin{citedtheorem}[{\cite[Theorem~4]{lrr}; the right-hand side of
+\cite[Theorem~5]{rlr}}]\label{thm:lrr}
+Let $X$ be a finite $G$-set. Then
+\[
+\Rank\bigl(\Aut_G(X)\bigr)\le r-\kappa_G(X)+\Lambda_G(X)-\omega_G(X)
+-\delta_G(X)+R_G(X).
+\]
+\end{citedtheorem}
+
+The hypothesis is only that $X$ is a finite $G$-set. The displayed definition
+of $\delta_G(X)$ is the same in both versions; the sentence explaining it says
+that $\delta_G(X)$ equals zero when $\omega_G(X)=R_G(X)$ in~\cite[p.~8]{lrr}
+and that it equals one in that case in~\cite[p.~6]{rlr}
+(Remark~\ref{rem:delta}).
+
+\paragraph{Packets.} For each box choose a generating set of minimal
+cardinality, that is, with $\Rank(N_G(H)/H)$ elements, of $N_G(H)/H$ (the
+authors' choice~\cite[p.~8]{lrr}, \cite[p.~8]{rlr}), with representatives
+$n_1,\dots,n_k\in N_G(H)$, and a
+representative orbit $Gx$ in the box with $G_x=H$. Each $n_t$ gives the
+\emph{base generator} that maps $g\cdot x\mapsto gn_t\cdot x$ on $Gx$ and
+fixes all other points; its order equals the order of $n_tH$ in $N_G(H)/H$.
+Let $\mathcal B$ be the set of base generators of order greater than $1$. A
+\emph{packet} is a subset of $\mathcal B$ whose elements have pairwise coprime
+orders and come from pairwise different boxes, and $\lmin_G(X)$ is the least
+number of packets in a partition of~$\mathcal B$. The authors note that
+$\lmin_G(X)$ may depend on the choice of these generating
+sets~\cite[p.~19]{lrr}. Throughout, ``admissible choice'' means such a choice;
+generating sets that are only minimal under inclusion are not allowed. Write $L_G(X)=r-\kappa_G(X)+\Lambda_G(X)$. The packet
+bounds are
+\begin{equation}\label{eq:packet}
+\begin{aligned}
+\Rank\bigl(\Aut_G(X)\bigr)&\le L_G(X)+\lmin_G(X)&&\text{\cite[Corollary~19]{rlr}},\\
+\Rank\bigl(\Aut_G(X)\bigr)&\le L_G(X)+\lmin_G(X)+1&&\text{\cite[Corollary~6]{lrr}}.
+\end{aligned}
+\end{equation}
+
+\paragraph{The expectation of equality.} After Example~20 of~\cite{rlr}
+(\S2.1, p.~19) and after Example~1 of~\cite{lrr} (\S3.1, p.~20), the Open
+problem states that the respective bound in~\eqref{eq:packet} should be the
+exact value of the rank of $\Aut_G(X)$, while noting that $\lmin_G(X)$ has no
+explicit expression yet. We call this the authors' stated expectation of
+equality: for every finite $G$-set $X$,
+\[
+\Rank\bigl(\Aut_G(X)\bigr)=L_G(X)+\lmin_G(X)\ \text{in \cite{rlr}},\qquad
+\Rank\bigl(\Aut_G(X)\bigr)=L_G(X)+\lmin_G(X)+1\ \text{in \cite{lrr}}.
+\]
+The Introduction of~\cite{lrr} (p.~2) also says ``We conjecture that the upper
+bound is sharp''. If ``sharp'' means only that the bound is attained for some
+$G$-sets, our examples do not contradict that sentence; they concern the
+stronger reading in the Open problem.
+
+\section{The bound of Theorem~\ref{thm:lrr} fails}\label{sec:two}
+
+\begin{theorem}\label{thm:two}
+Let $G=C_2$ act regularly on a set $X$ of two points. Then $r=\kappa_G(X)=1$,
+$\Lambda_G(X)=\omega_G(X)=0$, $R_G(X)=\delta_G(X)=\lmin_G(X)=1$, the
+right-hand side of Theorem~\ref{thm:lrr} equals $0$, and
+$\Rank(\Aut_G(X))=1$. So Theorem~\ref{thm:lrr} fails for this $G$-set. The
+two packet bounds~\eqref{eq:packet} equal $1$ and $2$ and hold.
+\end{theorem}
+
+\begin{proof}
+Both points lie in one orbit and have trivial stabilizer, so there is one box,
+consisting of one orbit: $r=\kappa_G(X)=1$. Its quotient is
+$N_G(1)/1=C_2$, of rank $1$, so $\omega_G(X)=0$, $R_G(X)=1$ and
+$\delta_G(X)=1$. Neither condition for $\Lambda_G(X)=1$ holds, so
+$\Lambda_G(X)=0$, and the right-hand side is $1-1+0-0-1+1=0$. The two
+permutations of $X$, the identity and the swap, both commute with the action,
+so $\Aut_G(X)\cong C_2$ has rank $1$. The only generating set of $C_2$ of minimal
+cardinality is its nonidentity element, so $\mathcal B$ has one element and
+$\lmin_G(X)=1$; hence $L_G(X)+\lmin_G(X)=1$ and $L_G(X)+\lmin_G(X)+1=2$.
+\end{proof}
+
+In the counting that proves Theorem~\ref{thm:lrr}~\cite[p.~16]{lrr}, the term
+$-\delta_G(X)$ accounts for merging one base generator with the product $T$ of
+the orbit cycles $t_i$. When every box has one orbit, $T$ is the identity
+(the authors note on p.~10 that $s_i$ and $t_i$ can then be omitted), and the merge
+does not save a generator; Theorem~\ref{thm:two} is the smallest such case.
+
+\begin{remark}[Transitive actions; written argument, not formalized]
+\label{rem:transitive}
+Let $X=G/H$ be a finite transitive $G$-set with $W=N_G(H)/H$ nontrivial. An
+equivariant permutation $f$ is determined by $f(H)=nH$, and $f$ and $f^{-1}$
+preserve stabilizers, so $n\in N_G(H)$; conversely each $n\in N_G(H)$ gives
+$gH\mapsto gnH$. Hence $\Aut_G(X)$ is isomorphic to the opposite group of $W$,
+which is isomorphic to $W$ by inversion, and $\Rank(\Aut_G(X))=\Rank(W)$. Here
+$r=\kappa_G(X)=1$, $\Lambda_G(X)=\omega_G(X)=0$, $R_G(X)=\Rank(W)$ and
+$\delta_G(X)=1$, so the right-hand side of Theorem~\ref{thm:lrr} is
+$\Rank(W)-1$. In particular the bound fails for the regular action of every
+nontrivial finite group.
+\end{remark}
+
+\begin{remark}[A corrected bound; written argument, not formalized]
+\label{rem:repair}
+Removing $-\delta_G(X)$ gives a valid bound,
+\[
+\Rank\bigl(\Aut_G(X)\bigr)\le r-\kappa_G(X)+\Lambda_G(X)-\omega_G(X)+R_G(X),
+\]
+with equality in Remark~\ref{rem:transitive}. This is a recount of the
+generating set of~\cite[Theorems~5 and~6]{lrr}: the $R_G(X)-\omega_G(X)$
+nontrivial base generators, one transposition $s_i$ of two orbits in each of
+the $r-\kappa_G(X)$ boxes with at least two orbits, and, if some box has at
+least three orbits, one element $T$ that cyclically permutes the orbits of
+every such box. Conjugates of $s_i$ by powers of $T$ generate all
+permutations of the orbits of box $i$, and conjugating the base generators by
+these gives the base generators on every orbit. If every box has one orbit and every
+$N_G(H)/H$ is trivial, then $\Aut_G(X)$ is trivial, of rank $1$ by
+convention, and the right-hand side is $\Lambda_G(X)=1$. We do not claim that
+this bound is new or best possible.
+\end{remark}
+
+\begin{remark}[The explanatory sentence in~\cite{rlr}; written argument, not
+formalized]\label{rem:delta}
+If $\delta_G(X)$ is read as in the sentence of~\cite[p.~6]{rlr}, so that
+$\delta_G(X)=1$ when $\omega_G(X)=R_G(X)$, take instead the trivial group
+acting on two points. There is one box with two orbits and trivial quotient:
+$r=1$, $\kappa_G(X)=\Lambda_G(X)=0$ and $\omega_G(X)=R_G(X)=1$. The bound is
+then $1-0+0-1-1+1=0$, while $\Aut_G(X)=\Sym(X)$ has rank $1$. With the
+displayed definition, $\delta_G(X)=0$ and the bound is $1$, which is correct.
+So the right-hand side of Theorem~5 of~\cite{rlr} fails under either reading.
+\end{remark}
+
+\section{The packet expression is not always exact}\label{sec:five}
+
+The authors' Example~1 of~\cite{lrr} (Example~20 of~\cite{rlr}) is a $G$-set
+with $21$ points, two boxes of three orbits each, and quotients
+$C_2\times C_2$ and $C_3$. Its parameters are $r=2$, $\kappa_G(X)=0$ and
+$\Lambda_G(X)=1$; the two base generators of order $2$ must lie in different
+packets and the base generator of order $3$ can join one of them, so
+$\lmin_G(X)=2$ and the two versions of the packet expression equal $5$
+and~$6$. The authors list four generators of $\Aut_G(X)$ and conclude that its
+rank is at most $4$~\cite[p.~20]{lrr}. Read together with the Open problem
+that follows it, this example already shows that the expected equality does
+not always hold. (As a check outside the Lean formalization, we realized this
+$G$-set with $G=C_2^2\times C_3$, each box consisting of three regular orbits
+of the corresponding quotient, and found by computer that the four printed
+elements, composed from right to left as in~\cite[Lemma~3]{lrr}, generate a
+group of order $(4^3\cdot3!)(3^3\cdot3!)=62{,}208$, the
+order of $\Aut_G(X)$ stated in~\cite{lrr}.) The following example is smaller
+and can be checked by hand.
+
+\begin{theorem}\label{thm:five}
+Let $G=C_2$ act on $X=\{1,2,3,4,5\}$, its generator acting as the
+transposition $(1\,2)$. Then $r=2$, $\kappa_G(X)=\Lambda_G(X)=\omega_G(X)=1$,
+$R_G(X)=2$, $\delta_G(X)=\lmin_G(X)=1$, the right-hand side of
+Theorem~\ref{thm:lrr} is $2$, and $\Rank(\Aut_G(X))=2$,
+while $L_G(X)+\lmin_G(X)=3$ and $L_G(X)+\lmin_G(X)+1=4$.
+\end{theorem}
+
+\begin{proof}
+The points $1,2$ form one orbit with trivial stabilizer, and $3,4,5$ are three
+fixed points with stabilizer $G$. Since $G$ is abelian, $\Conj_G(X)$ has the
+two elements $[1]$ and $[G]$, the first box has one orbit and the second
+has three, so $r=2$, $\kappa_G(X)=1$ and $\Lambda_G(X)=1$. The quotients are
+$C_2$ and the trivial group, each of rank $1$, so $\omega_G(X)=1$,
+$R_G(X)=2$ and $\delta_G(X)=1$, and the right-hand side of
+Theorem~\ref{thm:lrr} is $2-1+1-1-1+2=2$. Each quotient has a unique generating
+set of minimal cardinality (for the trivial group, $\{1\}$, by the rank-$1$
+convention); the base generator from the trivial quotient is the identity
+and is discarded, and the one from $C_2$ is $(1\,2)$, of order $2$. So
+$\lmin_G(X)=1$, and $L_G(X)+\lmin_G(X)=3$.
+
+A permutation commutes with $(1\,2)$ if and only if it preserves $\{1,2\}$
+and $\{3,4,5\}$, so $\Aut_G(X)=\langle(1\,2)\rangle\times\Sym\{3,4,5\}\cong
+C_2\times S_3$. With $x=(1\,2)(3\,4\,5)$ and $y=(3\,4)$ we have
+$x^3=(1\,2)$ and $x^4=(3\,4\,5)$, and $(3\,4\,5)$, $(3\,4)$ generate
+$\Sym\{3,4,5\}$; so $x,y$ generate $\Aut_G(X)$. The group is not abelian,
+hence not cyclic, and its rank is $2$.
+\end{proof}
+
+Here Theorem~\ref{thm:lrr} holds with equality and both packet bounds hold.
+That $C_2\times S_3$ has rank $2$ is also a special case of Lu's theorem on
+generalised wreath products of symmetric groups~\cite[Theorem~1.1 and
+Lemma~3.10]{lu}; what Theorem~\ref{thm:five} adds is the computation of the
+parameters of~\cite{lrr} for this $G$-set.
+
+\paragraph{Two small points in~\cite{rlr}.} After Corollary~19 of~\cite{rlr}
+(p.~18) the packet bound is compared with the earlier one using the inequality
+$\lmin_G(X)\le R_G(X)-\omega_G(X)-\delta_G(X)$; for the $G$-set of
+Theorem~\ref{thm:two} this reads $1\le0$. The journal version does not contain
+this inequality. In Example~20 of~\cite{rlr} the set displayed before the
+conclusion that the rank is at most $4$ has six elements; the journal version
+lists four.
+
+\section{An unbounded gap}\label{sec:gap}
+
+\begin{theorem}\label{thm:gap}
+For every $n\ge3$ there are a finite cyclic group $G$ and a finite set $X$ on
+which $G$ acts faithfully such that $r=\kappa_G(X)=n$, $\Lambda_G(X)=0$,
+$\Rank(\Aut_G(X))=2$, and, for every choice of generating sets of minimal
+cardinality of the quotients $N_G(H)/H$, $\lmin_G(X)=n$. Hence the two versions of the packet
+expression equal $n$ and $n+1$, and exceed the rank by $n-2$ and $n-1$.
+\end{theorem}
+
+\begin{proof}
+Assign to each ordered pair $(i,j)$ of distinct elements of
+$\{1,\dots,n\}$ a prime $p_{ij}$, all $n(n-1)$ primes distinct, and put
+$p_{ii}=1$. Let
+\[
+A_i=\prod_{j}p_{ij},\qquad B_i=\prod_{j}p_{ji},\qquad q_i=A_iB_i,\qquad
+M=\prod_iA_i=\prod_iB_i .
+\]
+For each $i$, $A_i$ and $B_i$ are coprime, since no label has $i$ as both its
+first and its second index (except $p_{ii}=1$). The $A_i$ are pairwise coprime
+and so are the $B_i$, so $A_i\mid M$ and $B_i\mid M$ give $q_i\mid M$. Each
+$q_i>1$. For $i\ne j$ choose $k\notin\{i,j\}$ (here $n\ge3$ is used): $p_{ik}$
+divides $q_i$ but not $q_j$, so the $q_i$ are distinct; and $p_{ij}$ divides
+both $q_i$ and $q_j$.
+
+Let $G=\mathbb Z/M$ act on $X=\bigsqcup_{i}\mathbb Z/q_i$ by
+$g\cdot(i,t)=(i,t+g)$. If $g$ acts trivially, then $g\equiv0$ modulo every
+$q_i$, hence modulo every $A_i$, hence modulo $M$ by the Chinese remainder
+theorem; so the action is faithful. The reduction $\mathbb Z/M\to\mathbb Z/q_i$
+is onto, so each component is one orbit, and the stabilizer of each of its
+points is the kernel $K_i$ of the reduction. These kernels have the distinct
+indices $q_i$, so they are distinct, and as $G$ is abelian each is its own
+conjugacy class with normalizer $G$ and quotient $G/K_i\cong\mathbb Z/q_i$.
+Thus each box is one component, consisting of one orbit: $r=\kappa_G(X)=n$.
+No quotient is trivial and no box has three orbits, so $\Lambda_G(X)=0$.
+
+A generating set of minimal cardinality of the nontrivial cyclic group
+$\mathbb Z/q_i$ is a single generator, of order $q_i$. So for every choice $\mathcal B$ has
+exactly one element from each box, of order $q_i$; any two of these orders
+share the prime $p_{ij}$, so every packet has one element and
+$\lmin_G(X)=n$.
+
+An equivariant permutation preserves stabilizers and therefore maps each
+component to itself. On $\mathbb Z/q_i$, equivariance gives
+$f(t)=t+f(0)$, and conversely independent translations of the components are
+equivariant. Hence, using the Chinese remainder theorem twice,
+\[
+\Aut_G(X)\cong\prod_i\mathbb Z/q_i\cong\prod_i\bigl(\mathbb Z/A_i\times
+\mathbb Z/B_i\bigr)\cong\Bigl(\prod_i\mathbb Z/A_i\Bigr)\times
+\Bigl(\prod_i\mathbb Z/B_i\Bigr)\cong\mathbb Z/M\times\mathbb Z/M .
+\]
+This group is generated by two elements and, since $M>1$, is not cyclic (every
+element has order dividing $M<M^2$). So its rank is $2$.
+\end{proof}
+
+The cardinality condition matters here: $\{a_i,b_i\}$ with $a_i$ of order
+$A_i$ and $b_i$ of order $B_i$ is an inclusion-minimal generating set of
+$\mathbb Z/q_i$, and with these sets the packets $\{a_1,\dots,a_n\}$ and
+$\{b_1,\dots,b_n\}$ would be allowed, giving $2$ instead of~$n$.
+
+\begin{remark}[A smaller variant; written argument, not formalized]
+One prime $p_{ij}=p_{ji}$ per unordered pair also works, with
+$\Aut_G(X)\cong C_M\times C_M$, $M=\prod_{i<j}p_{ij}$; for $n=3$ and the primes
+$2,3,5$ this gives orbits of lengths $6,10,15$ ($|X|=31$, $|G|=30$). Lean uses
+the directed version.
+\end{remark}
+
+
+\section{Formal verification}\label{sec:lean}
+
+Theorems~\ref{thm:two}, \ref{thm:five} and~\ref{thm:gap} are formally verified
+in Lean~4 (version 4.34.1) with Mathlib~\cite{mathlib} (commit
+\texttt{d13f23b7}). The $15$ files are in version~\repoversion{} of the
+repository~\cite{repo}, directory \texttt{lean/Research/TaskJ/Rank/}: five files for
+Theorems~\ref{thm:two} and~\ref{thm:five}, and ten, in a subdirectory
+\texttt{Extension}, for Theorem~\ref{thm:gap}.
+
+\paragraph{The statements.}
+The two statement files \texttt{Challenge.lean} contain only definitions
+and statements. There are seven frozen targets: \texttt{TwoPointParameters},
+\texttt{FivePointParameters}, \texttt{TwoPointRank}, \texttt{FivePointRank},
+\texttt{TwoPointCounterexample} and \texttt{FivePointCounterexample}, in the
+namespace \texttt{TaskJ.\allowbreak Rank.\allowbreak Challenge}, and
+\texttt{TaskJ.\allowbreak Rank.\allowbreak Extension.\allowbreak UnboundedGap}.
+In ASCII notation, with implicit arguments omitted and some definitions
+abridged:
+{\footnotesize
+\begin{verbatim}
+-- Theorems 1 and 2: C2 = ZMod 2 acts on Fin n through an involution t
+def twoSwap : Equiv.Perm (Fin 2) := Equiv.swap 0 1  -- fiveSwap: the same in Fin 5
+def act (t : Equiv.Perm (Fin n)) (g : C2) (x : Fin n) : Fin n :=
+  if g = 0 then x else t x
+def equivariantGroup (t : Equiv.Perm (Fin n)) : Subgroup (Equiv.Perm (Fin n)) :=
+  Subgroup.centralizer ({t} : Set _)
+def firstBound t : Int :=
+  (r t : Int) - kappa t + capitalLambda t - omega t - deltaDisplayed t + rankSum t
+def preprintPacketBound t : Int :=
+  (r t : Int) - kappa t + capitalLambda t + packetNumber t
+def journalPacketBound t : Int := preprintPacketBound t + 1
+def TwoPointParameters : Prop :=
+  r twoSwap = 1 /\ kappa twoSwap = 1 /\ capitalLambda twoSwap = 0 /\
+  omega twoSwap = 0 /\ rankSum twoSwap = 1 /\ deltaDisplayed twoSwap = 1 /\
+  packetNumber twoSwap = 1 /\ firstBound twoSwap = 0 /\
+  preprintPacketBound twoSwap = 1 /\ journalPacketBound twoSwap = 2
+-- FivePointParameters: the values 2,1,1,1,2,1,1,2,3,4 for fiveSwap
+def TwoPointRank : Prop := Group.rank (equivariantGroup twoSwap) = 1
+def FivePointRank : Prop := Group.rank (equivariantGroup fiveSwap) = 2
+def TwoPointCounterexample : Prop :=
+  ActionLaws twoSwap /\ EquivarianceMeaning twoSwap /\ BasesValid twoSwap /\
+  TwoPointParameters /\ TwoPointRank /\
+  Not ((Group.rank (equivariantGroup twoSwap) : Int) <= firstBound twoSwap)
+-- FivePointCounterexample: the analogous conjunction for fiveSwap, ending with
+--   rank < preprintPacketBound fiveSwap /\ rank < journalPacketBound fiveSwap
+
+-- Theorem 3: Z/M acts on the disjoint union of the Z/(width i)
+structure Family (n : Nat) where
+  modulus : PNat
+  width : Fin n -> PNat
+  divides : forall i, (width i : Nat) | (modulus : Nat)
+def automorphisms (D : Family n) : Subgroup (Equiv.Perm D.Point) :=
+  Subgroup.centralizer (Set.range D.action)
+abbrev Weyl (D : Family n) (i : Fin n) := D.Actor / D.boxGroup i
+def Valid (D : Family n) (B : D.Bases) : Prop :=
+  forall i, Subgroup.closure (B i : Set (D.Weyl i)) = top /\
+    (B i).card = max 1 (Group.rank (D.Weyl i))
+def Fits (D : Family n) (B : D.Bases) (k : Nat) : Prop :=
+  exists f : D.Item B -> Fin k, forall x y, x != y -> f x = f y ->
+    x.1 != y.1 /\ Nat.Coprime (orderOf x.2.val) (orderOf y.2.val)
+def packets (D : Family n) (B : D.Bases) : Nat := sInf {k : Nat | D.Fits B k}
+-- preprint B := r - kappa + capitalLambda + packets B (in Int); journal B := preprint B + 1
+def UnboundedGap : Prop :=
+  forall n : Nat, 3 <= n -> exists D : Family n,
+    (forall i, 1 < (D.width i : Nat)) /\ Function.Injective D.width /\
+    Function.Injective D.action /\ IsCyclic D.Actor /\
+    (forall x : D.Point, D.stabilizer x = (D.projection x.1).ker) /\
+    (forall x : D.Point, D.orbit x = {y | y.1 = x.1}) /\
+    Function.Injective D.boxGroup /\
+    (forall i, Nonempty (MulEquiv (D.Weyl i) (D.Fiber i))) /\
+    D.r = n /\ D.kappa = n /\ D.capitalLambda = 0 /\
+    Group.rank D.automorphisms = 2 /\ (exists B : D.Bases, D.Valid B) /\
+    forall B : D.Bases, D.Valid B -> D.packets B = n /\
+      D.preprint B = (n : Int) /\ D.journal B = (n : Int) + 1
+\end{verbatim}}
+\noindent (In the files, \texttt{/} in \texttt{Weyl} is the quotient group,
+\texttt{top} is the whole group and \texttt{!=} is $\ne$.) The equivariant
+group is the centralizer of the action in the full permutation group (for
+Theorems~\ref{thm:two} and~\ref{thm:five} the files also prove that this is
+the set of permutations $p$ with $p(g\cdot x)=g\cdot p(x)$). Stabilizers,
+orbits, boxes, the quotients $N_G(H)/H=G/H$ ($G$ is abelian), $r$,
+$\kappa_G(X)$, $\omega_G(X)$, $R_G(X)$, $\Lambda_G(X)$, $\delta_G(X)$ (in its
+displayed form) and $\lmin_G(X)$ are computed from the action as in
+Section~\ref{sec:defs} (for Theorem~\ref{thm:gap} only $r$, $\kappa_G(X)$,
+$\Lambda_G(X)$ and $\lmin_G(X)$ occur), and the expressions are evaluated in
+the integers.
+The rank of a quotient uses nonempty generating sets, matching the convention
+that the trivial group has rank~$1$; Mathlib's \texttt{Group.rank} gives the
+trivial group rank $0$, which does not matter as the equivariant groups are
+nontrivial. For Theorems~\ref{thm:two} and~\ref{thm:five} the files fix one
+generating set per quotient (\texttt{selectedBasis}) and prove that it
+has minimal cardinality (\texttt{BasesValid}); this loses nothing, since the
+quotients that occur, $C_2$ and the trivial group, each have a unique nonempty
+generating set of minimal cardinality. \texttt{UnboundedGap} quantifies over every valid choice and
+asserts that one exists; packets are encoded as colour classes. The Lean
+statements give the parameter values, the inequalities and the ranks; the
+isomorphism types named in the proofs ($C_2\times S_3$ and
+$\mathbb Z/M\times\mathbb Z/M$) are written arguments and not part of them.
+
+\paragraph{Review and freezing.}
+The statement file for Theorems~\ref{thm:two} and~\ref{thm:five} was reviewed
+against both versions of the source by a Codex agent that had not written it,
+and frozen, by recording its SHA-256 hash, on 18 November 2026 at 00:07~UTC;
+the statement file for Theorem~\ref{thm:gap} was reviewed by the same agent and
+frozen at 00:22~UTC. The same agent had also checked the reading of the source
+(see the last section). The development logs record no compilation of a
+proof file before the corresponding freeze (the earliest are at 00:08 and
+00:23~UTC), and the statement files were not changed afterwards.
+
+\paragraph{The proofs.}
+For Theorems~\ref{thm:two} and~\ref{thm:five} the parameter values are
+computed with \texttt{decide~+kernel}, the rank of the five-point group is
+bounded below by showing that it is not abelian, and the frozen statements are
+proved by \texttt{TaskJ.\allowbreak Rank.\allowbreak Proof.\allowbreak
+TwoPointCounterexample} and
+\texttt{TaskJ.\allowbreak Rank.\allowbreak Proof.\allowbreak
+FivePointCounterexample} (and four further theorems with the names of the
+other targets). For Theorem~\ref{thm:gap}, the labels are
+$p_{ij}={}$\texttt{Nat.nth Nat.Prime (Nat.pair i j)} for $i\ne j$, and
+\texttt{TaskJ.\allowbreak Rank.\allowbreak Extension.\allowbreak Proof.\allowbreak
+UnboundedGap} combines the arithmetic of the labels
+(\texttt{Arithmetic.lean}), the orbits and stabilizers
+(\texttt{OrbitStructure.lean}), faithfulness by the Chinese remainder theorem
+(\texttt{RankCRT.lean}), the identification of the equivariant group with the
+product of the translation groups (\texttt{FiberAutomorphisms.lean}), the rank
+of $C_M\times C_M$ (\texttt{SquareRank.lean}) and the packet count for every
+valid choice (\texttt{PacketRank.lean}). The test files
+\texttt{CheckRank.lean} and \texttt{CheckExtension.lean} state each frozen
+target with its frozen type, as \texttt{theorem check\_X : Challenge.X :=
+Proof.X} (for \texttt{UnboundedGap} also under its full frozen name). The axioms of every proof and check theorem, printed by the files,
+are exactly \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound}. No file uses \texttt{sorry}, \texttt{native\_\allowbreak
+decide}, \texttt{bv\_\allowbreak decide} or an \texttt{axiom} declaration;
+\texttt{decide~+kernel} is checked by the kernel and adds no axiom.
+
+\paragraph{Checks.}
+Each of the two packages was compiled module by module, from its sources, in
+two new empty output directories on the author's Mac, with the pinned
+toolchain and Mathlib; every module was replayed with \texttt{leanchecker} in
+a separate process, and each directory also built the whole package. Mathlib
+and its dependencies were taken from a shared prebuilt cache at the pinned
+commits and were not rechecked; the \texttt{leanchecker} replay covers the
+$15$ project modules. The package for Theorems~\ref{thm:two}
+and~\ref{thm:five} ($5$ modules) was checked on 18 November 2026 from 00:14 to
+00:16~UTC with $22$ commands, and the package for Theorem~\ref{thm:gap}
+($10$ modules) from 00:29 to 00:32~UTC with $42$ commands. All $64$ commands
+ended with exit code~$0$, all \texttt{leanchecker} outputs were empty, the
+builds printed nothing except the requested axiom lists, and the compiled
+modules of the two directories have the same SHA-256 hashes. (Of two earlier runs of the
+first package, at 00:10 and 00:11~UTC, the first stopped before compiling
+because the Mathlib cache was not found and the second passed.)
+In the repository the files have module names under \texttt{Research.TaskJ} and differ from the checked files only in their \texttt{import} lines; these versions were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac (18 November 2026, 19:12--19:21~UTC), with identical \texttt{.olean} files and the same axiom lists. In the whole-project rebuild of version~1.23.0 of the repository (18--19 November 2026, on the author's Windows computer), these files were compiled and replayed with \texttt{leanchecker} again, together with the rest of the project, each at the first attempt (details in the repository). The formalization has not been checked with comparator or with
+an independent kernel.
+
+\section*{How this paper was produced}
+This work was carried out from 17 to 19 November 2026 (UTC) in a workflow
+directed by the author, using OpenAI Codex with the model GPT-6.2-Astra
+(reasoning level ultra) and Anthropic Claude Code with the model Claude
+Opus~5.5. The author asked for a search for open problems with the newest
+Codex model, and Claude Code passed this request to Codex. Between 19:34 and
+20:23~UTC on 17 November, Codex screened $45$ problems and sub-questions from
+the recent literature, wrote proof sketches for three of them and proposed
+them; the author chose this one and one other. From 23:49~UTC on 17 November
+Codex agents with the same model did the following. One agent, which wrote
+neither the statement files nor the proofs, checked the reading of both
+versions of the source and then reviewed the two statement files before they
+were frozen; these three checks were thus done by a single agent and are not
+independent of each other. Other agents wrote the statement files, the written
+proofs and the Lean proofs, and ran the checks, which ended at 00:32~UTC on
+18 November. The results were then reviewed by an independent Claude Code
+agent (model Claude Opus~5.5) that had written none of the files. It read the
+preprint itself and the journal version in an archived copy (it could not
+open the publisher's page), read the statement files, the check files and the main
+proof files, read the receipts and the raw logs of the checks, and recomputed
+the parameters of the examples with its own programs; it did not read the files \texttt{OrbitStructure.lean} and
+\texttt{FiberAutomorphisms.lean} line by line. On 18 November at 01:10~UTC it
+approved the formal results (APPROVE\_FORMAL) with five minor remarks on
+wording and attribution, which were applied to Codex's written proofs and to
+this text. Claude Code (model Claude Opus~5.5) checked the passages of the
+sources cited here (those of the journal version in the same archived copy)
+and wrote this text from Codex's manuscript and the Lean
+files. An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied. Throughout, ``we''
+refers to this workflow; the reading and searching described in the paper
+were done by the agents. The author is not a professional mathematician.
+The author has read this paper and, using a side-by-side table, compared its Lean statements with Theorems~\ref{thm:two}, \ref{thm:five} and~\ref{thm:gap}. No human mathematician has reviewed this paper. The correctness
+of Theorems~\ref{thm:two}, \ref{thm:five} and~\ref{thm:gap} rests on the Lean
+proofs and on the agreement of the Lean statements with the definitions
+of~\cite{lrr,rlr}; the written proofs are given for the reader, and the
+remarks marked as written arguments are not formally verified. AI systems are
+not authors of this paper; the author takes full responsibility for its
+content.
+
+\medskip
+\noindent Thanks are due to Victor M. Lara-G\'omez, Gerardo Romero-Rosales and
+Ram\'on H. Ruiz-Medina for their paper and its explicit constructions, on
+which this note relies throughout.
+
+\begin{thebibliography}{9}
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{lrr} V.~M. Lara-G\'omez, G.~Romero-Rosales and R.~H. Ruiz-Medina,
+Finite generating sets for monoids of $G$-equivariant functions,
+\emph{Semigroup Forum}, published online 2 November 2026,
+\url{https://doi.org/10.1007/s00233-026-10690-y}.
+\bibitem{lu} J.~Lu, Generation of generalised wreath products of symmetric
+groups, arXiv:2604.16141v1, 2026.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{rlr} R.~H. Ruiz-Medina, V.~M. Lara-G\'omez and G.~Romero-Rosales,
+Finite generating sets for monoids of $G$-equivariant functions,
+arXiv:2607.04053v1, 2026.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,711 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={The maximum Manhattan length of a path through all lattice points of a box},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.23.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\ind}{\mathbf 1}
+
+\title{The maximum Manhattan length of a path\\ through all lattice points of a box}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{19 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+List the $N$ lattice points of a box $[d_1]\times\dots\times[d_r]$ in some
+order and add up the Manhattan distances between consecutive points; let
+$M(D)$ be the largest possible total. Yuan recently determined $M$ for
+rectangles, gave a coordinatewise upper bound $U_r(D)$ in every dimension, and
+asked for the gap $\kappa_r(D)=U_r(D)-M(D)$ when $r\ge3$; from six computed
+three-dimensional values he observed that the gap might be $2^{e-1}-1$, where
+$e$ is the number of even sides. We determine $M(D)$ for all positive integer
+side lengths. If at least three sides exceed $1$, then
+\[
+M(D)=\sum_{i=1}^r\frac{N}{d_i}\Big\lfloor\frac{d_i^2}{2}\Big\rfloor-e-
+\begin{cases}1,&e=0,\\ 2^{e-1}-1,&e\ge1,\end{cases}
+\]
+so $\kappa_r(D)=1$ when all sides are odd and $\kappa_r(D)=2^{e-1}-1$
+otherwise; for example $M(2\times3\times4)=101$. Boxes with at most two sides
+larger than $1$ are covered as well. The upper bound comes from measuring
+coordinates from the centre of the box; equality is attained by explicit
+orderings built from a few small seeds. As a consequence we determine exactly
+when one ordering attains all coordinatewise maxima at once, which answers
+and clarifies a conjecture of Jiang on $n$-dimensional grids. The result is
+formally verified in Lean~4. The proofs were found and formalized by AI
+agents working under the author's direction; their role is described at the
+end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+For a positive integer $d$ write $[d]=\{0,1,\dots,d-1\}$. For a list
+$D=(d_1,\dots,d_r)$ of positive integers let $B(D)=[d_1]\times\dots\times[d_r]$
+be the corresponding box, with $N=\prod_i d_i$ points, and let
+$\mu_i=N/d_i$. An \emph{ordering} of $B(D)$ is a sequence $v_1,\dots,v_N$ in
+which every point of $B(D)$ occurs exactly once, and its length is
+\[
+L(v_1,\dots,v_N)=\sum_{s=1}^{N-1}\|v_{s+1}-v_s\|_1 .
+\]
+Both endpoints are free, the distance from $v_N$ back to $v_1$ is not counted,
+and steps of any length are allowed. Let $M(D)$ be the maximum of $L$ over all
+orderings. (We number coordinates from $0$; Yuan~\cite{yuan} uses
+$\{1,\dots,d\}$, which changes nothing.) In graph-theoretic language $M(D)$ is
+the \emph{upper traceable number} of the grid graph
+$P_{d_1}\square\cdots\square P_{d_r}$~\cite{osz,kkt}.
+
+Let $A(k;\mu)$ be the largest value of $\sum_s|\tau_{s+1}-\tau_s|$ over all
+arrangements $\tau$ of the multiset consisting of $\mu$ copies of each element
+of $[k]$. Yuan~\cite[Theorem~2.3]{yuan} proved that for $k\ge2$ and $\mu\ge1$
+\begin{equation}\label{eq:A}
+A(k;\mu)=\mu\Big\lfloor\frac{k^2}{2}\Big\rfloor-\ind[k\text{ even}]
+-\ind[\mu=1\text{ and }k\text{ odd}],
+\end{equation}
+extending a lemma of Fried~\cite{fried} (stated for $\mu\ge2$) and the case
+$\mu=1$ of Bulteau, Giraudo and Vialette~\cite{bgv}. The $i$-th coordinates of
+an ordering form an arrangement of $\mu_i$ copies of $[d_i]$, so summing over
+the coordinates gives Yuan's bound~\cite[(6)]{yuan}
+\begin{equation}\label{eq:U}
+M(D)\le U_r(D)=\sum_{i=1}^r\Big(\mu_i\Big\lfloor\frac{d_i^2}{2}\Big\rfloor
+-\ind[d_i\text{ even}]-\ind[\mu_i=1\text{ and }d_i\text{ odd}]\Big),
+\end{equation}
+where, as printed, $\mu_i$ multiplies only the floor term, as
+in~\eqref{eq:A}. Yuan defines
+$\kappa_r(D)=U_r(D)-M(D)$, proves that $\kappa_r(D)\ge1$ when $r\ge2$, all
+$\mu_i\ge2$, and either all sides are odd or at least two are even
+\cite[Proposition~6.1]{yuan}, determines $\kappa_2$ completely
+\cite[Section~6.2]{yuan}, and lists six three-dimensional values computed by
+dynamic programming:
+$\kappa_3=3,1,3,1,0,0$ for $2\times2\times2$, $2\times2\times3$,
+$2\times2\times4$, $2\times2\times5$, $2\times3\times3$, $3\times3\times2$.
+He notes that these are consistent with $\kappa_3=2^{e-1}-1$, $e$ the number
+of even sides, and that he can neither prove nor refute this. His first open
+problem~\cite[Section~6.3]{yuan} reads:
+\begin{quote}
+Determine $\kappa_r(D)$ for $r\ge3$.
+\end{quote}
+We answer this question for every list of positive side lengths.
+
+Call an axis \emph{effective} if $d_i\ge2$, and let $t$ be the number of
+effective axes and $e$ the number of even sides (sides equal to $1$ are odd,
+so every even side is effective). Define
+\begin{equation}\label{eq:kappa}
+\kappa(D)=\begin{cases}
+-r,& t=0,\\
+0,& t=1,\\
+0,& t=2\text{ and the effective sides are an odd side and an even side}\ge4,\\
+1,& t=2\text{ otherwise},\\
+1,& t\ge3\text{ and }e=0,\\
+2^{e-1}-1,& t\ge3\text{ and }e\ge1.
+\end{cases}
+\end{equation}
+
+\begin{theorem}\label{thm:main}
+Let $D=(d_1,\dots,d_r)$ be a list of positive integers, $r\ge0$.
+\begin{enumerate}
+\item[(a)] Every ordering of $B(D)$ has length at most $U_r(D)-\kappa(D)$.
+\item[(b)] Some ordering of $B(D)$ has length exactly $U_r(D)-\kappa(D)$.
+\item[(c)] Consequently $M(D)=U_r(D)-\kappa(D)$, and every ordering of maximal
+length $L$ satisfies $U_r(D)-L=\kappa(D)$; that is, $\kappa_r(D)=\kappa(D)$.
+\end{enumerate}
+\end{theorem}
+
+Parts (a), (b) and (c) are the three statements \texttt{LengthUpperBound},
+\texttt{LengthAttained} and \texttt{YuanGapAtLongest} of the Lean files
+(Section~\ref{sec:lean}). They are meant to be read together: (c) speaks about
+orderings of maximal length, and it is (a) and (b) that show that such
+orderings exist and have length $U_r(D)-\kappa(D)$.
+
+When $t\ge2$, every effective axis has $\mu_i\ge2$ and every axis with
+$d_i=1$ contributes $0$ to~\eqref{eq:U}, so $U_r(D)=\sum_i\mu_i\lfloor
+d_i^2/2\rfloor-e$. This gives the closed form.
+
+\begin{corollary}\label{cor:closed}
+If at least three sides of $D$ exceed $1$ and $e$ sides are even, then
+\[
+M(D)=\sum_{i=1}^r\frac{N}{d_i}\Big\lfloor\frac{d_i^2}{2}\Big\rfloor-e-
+\begin{cases}1,&e=0,\\ 2^{e-1}-1,&e\ge1.\end{cases}
+\]
+If $t=2$ with effective sides $m,n$, then $M(D)=\mu\lfloor m^2/2\rfloor+
+\mu'\lfloor n^2/2\rfloor-e-1+\ind[\{m,n\}=\{\text{odd},\text{even}\ge4\}]$,
+with $\mu=N/m$, $\mu'=N/n$; this is equivalent to Yuan's planar
+theorem~\cite[Theorem~1.1]{yuan}. If $t=1$ with
+effective side $d$, then $M(D)=\lfloor d^2/2\rfloor-1$, the path formula
+of~\cite{bgv}. If $t=0$, then $M(D)=0$.
+\end{corollary}
+
+The value $\kappa(D)=-r$ for the single-point box ($t=0$) is a convention
+artefact, not a negative deficit: the box has one ordering, of length $0$, and
+every true coordinate maximum is $0$, but read literally~\eqref{eq:U} charges
+the correction $-\ind[\mu_i=1\text{ and }d_i\text{ odd}]$ to each of the $r$
+axes, although~\eqref{eq:A} is only stated for $k\ge2$; so $U_r(D)=-r$ and the
+signed gap is $-r$. For $N\ge2$, every axis with $d_i=1$ has $\mu_i=N\ge2$ and
+contributes exactly $0$ to~\eqref{eq:U}, and no such artefact occurs.
+
+Table~\ref{tab:values} lists some values. Yuan names $2\times3\times4$ ($N=24$)
+as the smallest unresolved case; it has two even sides, so
+Proposition~6.1 of~\cite{yuan} gives $\kappa_3\ge1$ there, and
+Theorem~\ref{thm:main}, which covers all parity types, gives $U_3=102$, $\kappa_3=1$ and
+$M(2\times3\times4)=101$; an ordering of length $101$ is shown in
+Remark~\ref{rem:234}.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+$D$ & $N$ & $e$ & $U_r(D)$ & $\kappa(D)$ & $M(D)$\\
+\midrule
+$2\times2\times2$ & 8 & 3 & 21 & 3 & 18\\
+$2\times2\times3$ & 12 & 2 & 38 & 1 & 37\\
+$2\times2\times4$ & 16 & 3 & 61 & 3 & 58\\
+$2\times2\times5$ & 20 & 2 & 86 & 1 & 85\\
+$2\times3\times3$ & 18 & 1 & 65 & 0 & 65\\
+$2\times3\times4$ & 24 & 2 & 102 & 1 & 101\\
+$3\times3\times3$ & 27 & 0 & 108 & 1 & 107\\
+$2\times2\times2\times2$ & 16 & 4 & 60 & 7 & 53\\
+$2\times2\times2\times3$ & 24 & 3 & 101 & 3 & 98\\
+$4\times4\times4$ & 64 & 3 & 381 & 3 & 378\\
+$1\times2\times3$ & 6 & 1 & 13 & 1 & 12\\
+$1\times3\times4$ & 12 & 1 & 39 & 0 & 39\\
+$1\times1\times1$ & 1 & 0 & $-3$ & $-3$ & 0\\
+\bottomrule
+\end{tabular}
+\caption{Some values of Theorem~\ref{thm:main}. The first five rows, together
+with $3\times3\times2$, are Yuan's computed data~\cite{yuan}. All rows except the
+$4\times4\times4$ row were also confirmed by exhaustive search
+(see the final section).}\label{tab:values}
+\end{table}
+
+\paragraph{Simultaneous coordinate maxima.}
+For $N\ge2$ the $i$-th term of~\eqref{eq:U} is the largest possible
+contribution of the $i$-th coordinate alone: for $d_i\ge2$ it is
+$A(d_i;\mu_i)$, every arrangement of $\mu_i$ copies of $[d_i]$ occurs as the
+$i$-th coordinate sequence of some ordering, and for $d_i=1$ both are $0$.
+Hence $M(D)=U_r(D)$ exactly when a single ordering attains all coordinatewise
+maxima at once, and Theorem~\ref{thm:main} gives the following.
+
+\begin{corollary}\label{cor:simul}
+Let $N\ge2$. Some ordering of $B(D)$ attains the maximum contribution of every
+coordinate simultaneously if and only if $t=1$; or $t=2$ and the effective
+sides are an odd side and an even side $\ge4$; or $t\ge3$ and exactly one side
+is even.
+\end{corollary}
+
+Jiang~\cite[Section~7]{jiang} conjectured that on an $n$-dimensional grid with
+at least one odd side the upper traceable number equals the sum of the
+coordinatewise maxima, ``if we can suitably place $u_1$ and $u_n$'' (the first
+and last points of the ordering). Read with
+free endpoints, as the maximum over all orderings, the condition that some
+side is odd is not sufficient: $2\times2\times3$, $2\times2\times5$,
+and $2\times3\times4$ (and also $3\times3\times3$) each have an odd side
+and $\kappa=1$; the first two already appear in Yuan's data. In the plane,
+Jiang's own Theorem~3.1 already conflicts with this literal reading: for
+$3\times3$ it gives $t^+=23$, while the coordinatewise maxima sum to $24$.
+Since the clause on placing the endpoints is not made precise, we do not regard this as refuting
+the conjecture; Corollary~\ref{cor:simul} answers it in the free-endpoint
+reading and clarifies it by stating exactly when simultaneous attainment is
+possible.
+
+\subsection*{Prior work}
+
+The maximum length of an ordering in a graph metric was studied as the upper
+traceable number by Okamoto, Zhang and Saenpholphat~\cite{osz}, and appears in
+work on radio labellings, where Kchikech, Khennoufa and Togni~\cite{kkt} use
+the notation $t^+(G)$ and prove (their Lemma~2) that the hypercube $H_n$, the box with all
+$n\ge2$ sides equal to $2$, has $t^+(H_n)=2^{n-1}(2n-1)-(n-1)$; this agrees with
+Corollary~\ref{cor:closed} for $D=(2,\dots,2)$, and that case is theirs. In one
+dimension the value is the path formula of Bulteau, Giraudo and
+Vialette~\cite[Theorem~8]{bgv} on disorders of permutations. In the plane, Jiang~\cite[Theorem~3.1]{jiang} determined
+$t^+(P_a\square P_b)$ for $a,b>2$ in the course of computing radio numbers of
+grids; Fried~\cite{fried} determined the planar maximum up to an additive error
+of one; and Yuan~\cite[Theorem~1.1]{yuan} determined it for all $m,n\ge2$,
+settling a conjecture of McNeil on square grids (OEIS A179094). In the
+overlap $a,b\ge3$ the formulas of Jiang and Yuan agree. The case $t=2$ of
+Theorem~\ref{thm:main} is therefore known, and the case $t\le1$ follows
+from~\cite{bgv} and~\eqref{eq:A}.
+
+Simmons~\cite{simmons} studied Hamilton circuits through the $d^n$ points of
+the cube $[d]^n$, maximizing either the minimum or the sum of the taxicab
+distances between successive points, around the whole closed circuit. We could
+consult only the first two pages of this paper (pp.~290--291). There Simmons
+states (p.~291) that he solves completely the problem of maximizing the
+circuit sum, reports the maximum $380$ for $d=4$, $n=3$, and proves (his Theorem~1, the case $n=1$)
+that $2|x-y|$ is at most the sum of the distances from $x$ and $y$ to their
+reflections in the midpoint, with strict inequality when $x$ and $y$ lie
+strictly on the same side of the midpoint and equality when they lie on
+opposite sides. This is the one-coordinate form of the centring identity of
+Lemma~\ref{lem:centre} below, and the idea should be credited to him. For
+closed circuits each point is counted twice and there are no endpoint terms,
+so neither maximum follows directly from the other; for $4\times4\times4$ they
+are $380$ and $378$. For the equal-sided cubes $[d]^n$ the closed-circuit
+value is therefore Simmons's, and our contribution there is the open-path
+value. We do not know whether
+the remaining pages (pp.~292--299) treat open paths or boxes with unequal
+sides.
+
+For points in $\mathbb R^d$ with $d$ fixed and a polyhedral norm, including
+the Manhattan norm, Barvinok, Fekete, Johnson, Tamir, Woeginger and
+Woodroofe~\cite{bfjtww} showed that a maximum-length tour can be found in
+polynomial time; this is an algorithm for closed tours and gives no closed
+formula for boxes.
+
+The upper bound below generalizes the arguments of Yuan's Proposition~6.1: the
+endpoint condition in its part~(b) and the alternation of even coordinates in
+its part~(a). The insertion of antipodal pairs in Lemma~\ref{lem:inflate} is
+reminiscent of the hypercube construction of~\cite{kkt}, which alternates the
+points of a Hamiltonian path of $H_{n-1}$ with their antipodes. To our
+knowledge (literature checked on 19 November 2026), the exact value of $M(D)$ for boxes
+with three or more sides larger than $1$ was not known except for the
+hypercubes of~\cite{kkt}; for the equal-sided cubes $[d]^n$ our contribution
+is the open-path value, the closed-circuit value being Simmons's~\cite{simmons};
+in particular Yuan's guessed expression had not been
+proved, and the all-odd and one-even cases had not been settled.
+
+\section{The upper bound}\label{sec:upper}
+
+Fix $D$ with $N\ge2$. Measure the $i$-th coordinate from the centre: for
+$x\in B(D)$ put $\hat x_i=x_i-(d_i-1)/2$, so $\hat x_i$ is an integer when
+$d_i$ is odd and lies in $\mathbb Z+\frac12$ when $d_i$ is even, and the map
+$x\mapsto-x$ (meaning $\hat x\mapsto-\hat x$) is the reflection of the box in
+its centre. Let $R(x)=\sum_i|\hat x_i|$ and, for two points $x,y$,
+\[
+\lambda(x,y)=\sum_{i:\ \hat x_i\hat y_i>0}2\min(|\hat x_i|,|\hat y_i|).
+\]
+Since $|a-b|=|a|+|b|$ unless $a,b$ are nonzero of the same sign, in which case
+$|a-b|=|a|+|b|-2\min(|a|,|b|)$, we have
+\begin{equation}\label{eq:dist}
+\|x-y\|_1=R(x)+R(y)-\lambda(x,y).
+\end{equation}
+We call $\lambda(x,y)$ the \emph{loss} of the step $xy$, and the step
+\emph{clean} if $\lambda(x,y)=0$, i.e.\ no coordinate of $x$ and $y$ is
+nonzero with the same sign.
+
+\begin{lemma}[centring identity]\label{lem:centre}
+For every ordering $v_1,\dots,v_N$ of $B(D)$,
+\[
+L(v_1,\dots,v_N)=S(D)-R(v_1)-R(v_N)-\sum_{s=1}^{N-1}\lambda(v_s,v_{s+1}),
+\]
+where
+\[
+S(D)=2\sum_{x\in B(D)}R(x)=\sum_{i=1}^r\mu_i\Big\lfloor\frac{d_i^2}{2}\Big\rfloor.
+\]
+\end{lemma}
+
+\begin{proof}
+Sum~\eqref{eq:dist} over the steps: every point except the two endpoints is
+an end of two steps. For the value of $S$, each value of the $i$-th coordinate
+occurs $\mu_i$ times, and $2\sum_{x=0}^{d-1}|x-\frac{d-1}2|$ equals
+$2\cdot2(\frac12+\frac32+\dots+\frac{d-1}2)=d^2/2$ for even $d$ and
+$2\cdot2(1+2+\dots+\frac{d-1}2)=(d^2-1)/2$ for odd $d$.
+\end{proof}
+
+\begin{proposition}\label{prop:upper}
+Let $N\ge2$, let $e$ be the number of even sides and put $\delta(0)=1$ and
+$\delta(e)=2^{e-1}-1$ for $e\ge1$. Every ordering of $B(D)$ satisfies
+$R(v_1)+R(v_N)+\sum_s\lambda(v_s,v_{s+1})\ge e+\delta(e)$, so
+$L\le S(D)-e-\delta(e)$.
+\end{proposition}
+
+\begin{proof}
+On an even axis $|\hat x_i|\ge\frac12$ for every point, so
+$R(v_1)+R(v_N)\ge e$. If $e=0$, the only point with $R=0$ is the centre, and
+$v_1\ne v_N$, so $R(v_1)+R(v_N)\ge1=e+\delta(0)$.
+
+Let $e\ge1$. On the even axes every coordinate $\hat x_i$ is nonzero, so each
+point has a sign vector in $\{+,-\}^e$; call two points equivalent if their
+sign vectors are equal or opposite. There are $2^{e-1}$ classes, and each of
+them occurs, since every sign vector occurs. If consecutive points $x,y$ lie in
+different classes, their sign vectors are neither equal nor opposite, so some
+even axis has $\hat x_i$ and $\hat y_i$ of the same sign, and
+$\lambda(x,y)\ge2\cdot\frac12=1$. An ordering visits all $2^{e-1}$ classes, so
+it changes class at least $2^{e-1}-1$ times, and the total loss is at least
+$\delta(e)$. Lemma~\ref{lem:centre} gives the bound on $L$.
+\end{proof}
+
+For two effective axes of sides $2$ and an odd number, one more unit is lost.
+
+\begin{proposition}\label{prop:narrow}
+Let the effective sides of $D$ be $2$ and $2m+1$ with $m\ge1$. Then every
+ordering satisfies $L\le S(D)-2$.
+\end{proposition}
+
+\begin{proof}
+Ignore the unit axes, which do not affect $L$, $R$ or $\lambda$. Write a point
+as $(a,y)$ with $a\in\{\pm\frac12\}$ the centred even coordinate and
+$y\in\{-m,\dots,m\}$ the centred odd one. By Proposition~\ref{prop:upper}
+with $e=1$, $L\le S-1$, and equality requires $R(v_1)+R(v_N)=1$ and all steps
+clean. Then both endpoints have $y=0$; as there are exactly two points with
+$y=0$, every interior point has $y\ne0$. Cleanness on the even axis forces $a$
+to change sign at every step. Put $z=y$ when $a=\frac12$ and $z=-y$ when
+$a=-\frac12$. The interior points form a contiguous block of the ordering in
+which $z\ne0$, and both signs of $z$ occur there (take $y=\pm1$ with
+$a=\frac12$), so some step goes directly from $z>0$ to $z<0$ or back. Since $a$
+changes sign at that step, the two values of $y$ are nonzero with the same
+sign, and the step is not clean. Hence $L\le S-2$, as $L$ is an integer.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}(a)]
+If $t=0$ then $L=0=U_r(D)-\kappa(D)$, since $U_r(D)=-r$. Let $t\ge1$. If
+$t=1$, the effective side $d$ has $\mu=1$ and receives exactly one of the two
+corrections in~\eqref{eq:U}, so $U_r(D)=S(D)-1$; and $e+\delta(e)=1$ for
+$e\in\{0,1\}$, so Proposition~\ref{prop:upper} gives $L\le U_r(D)$. If $t\ge2$
+then $U_r(D)=S(D)-e$ (see before Corollary~\ref{cor:closed}), and
+Proposition~\ref{prop:upper} gives $L\le U_r(D)-\delta(e)$. For $t\ge3$, and
+for $t=2$ with $e\ne1$, this is $U_r(D)-\kappa(D)$. For $t=2$ and $e=1$,
+$\kappa(D)=0$ if the even side is at least $4$, and otherwise the sides are
+$2$ and an odd number and Proposition~\ref{prop:narrow} gives
+$L\le S(D)-2=U_r(D)-1$.
+\end{proof}
+
+\section{Constructions}\label{sec:lower}
+
+By Lemma~\ref{lem:centre} an ordering has length $S(D)-\rho-\Lambda$, where
+$\rho=R(v_1)+R(v_N)$ is its \emph{endpoint cost} and $\Lambda$ its total loss.
+The proof of Theorem~\ref{thm:main}(a) shows that for $t\ge1$ we need
+orderings with
+\begin{equation}\label{eq:target}
+\rho+\Lambda=\begin{cases}
+2,& \text{effective sides }2\text{ and odd},\\
+1,& \text{effective sides odd and even}\ge4,\\
+e+\delta(e),&\text{all other boxes with }t\ge1.
+\end{cases}
+\end{equation}
+We call an ordering \emph{supported} if every point is an end of at least one
+clean step of the ordering. Permuting the axes and inserting or deleting axes
+of side $1$ (with the coordinate $0$) are bijections that preserve all
+distances, $R$ and $\lambda$, so we may assume that all sides are at least $2$.
+
+\begin{lemma}[inflation]\label{lem:inflate}
+Let $C\subseteq B(D)$ be a central sub-box: on each axis $C$ keeps a centred
+interval of $c_i\ge2$ consecutive values with $c_i\equiv d_i\pmod 2$. If $C$
+has a supported ordering with endpoint cost $\rho$ and loss $\Lambda$, then so
+does $B(D)$.
+\end{lemma}
+
+\begin{proof}
+Both $B(D)$ and $C$ are symmetric under $x\mapsto-x$, and the centre, if it is
+a lattice point, lies in $C$; so $B(D)\setminus C$ splits into pairs
+$\{z,-z\}$ with $z\ne-z$. Every sign vector in $\{+,0,-\}^r$ that occurs in
+$B(D)$ occurs in $C$, because $C$ keeps both signs on every axis and the value
+$0$ on every odd axis. Insert the pairs one at a time. Given a supported
+ordering of the points placed so far and a new pair $\{z,-z\}$, choose a placed
+point $x$ with the same sign vector as $z$ and a clean step $xy$ of the
+ordering (reading the ordering backwards if $y$ precedes $x$), and replace the
+step $x,y$ by $x,-z,z,y$. The step $x,-z$ is clean because $x$ and $-z$ have
+opposite signs on every axis where they are nonzero; $-z,z$ is clean; and $z,y$
+is clean because $z$ has the same signs as $x$ and $xy$ is clean. The endpoints
+and the old losses are unchanged, the new points lie on clean steps, and $x$
+and $y$ still do.
+\end{proof}
+
+\begin{lemma}[adding an odd axis]\label{lem:odd}
+Let $C$ be a box and let $w_1,\dots,w_h$, $h\ge3$, be a cyclic ordering of
+$C$ (all $h$ steps, including $w_hw_1$, are counted) whose steps are all clean,
+with the step $w_h w_1$ designated. Then $C\times[3]$ has a cyclic ordering with
+all steps clean that contains the step $(w_h,0)\to(w_1,0)$ (centred new
+coordinate), and every coordinate of $C$ that changes sign at every step of the
+old cycle changes sign at every step of the new one.
+\end{lemma}
+
+\begin{proof}
+Let $s$ be the permutation of $\{-1,0,1\}$ that swaps $\pm1$ and fixes $0$, and
+$g$ the cyclic permutation $-1\mapsto0\mapsto1\mapsto-1$. Neither maps $1$ to
+$1$ or $-1$ to $-1$. Attach to the steps $w_1w_2,\dots,w_hw_1$ permutations
+$\pi_1,\dots,\pi_h$ as follows: for $h=3$ take $g,s,s$; for $h=4$ take
+$g,g,s,s$; for $h+2$ put an extra pair $s,s$ at the front. Then $\pi_h=s$ and
+the composite $\pi_h\cdots\pi_1$ is $g$ or $g^2$, a $3$-cycle. Starting from
+$(w_1,0)$, let the successor of $(w_j,z)$ be $(w_{j+1},\pi_j(z))$ (indices mod
+$h$). After $h$ steps the old coordinates return and the new coordinate has
+moved by a $3$-cycle, so the walk visits all $3h$ points once before closing.
+Every step is clean: the old coordinates make an old clean step, and the new
+coordinates never have the same nonzero sign. The step from $(w_h,0)$ uses
+$\pi_h=s$ and goes to $(w_1,0)$. The old coordinates follow the old steps.
+\end{proof}
+
+\begin{lemma}[adding an even axis]\label{lem:even}
+Let $C$ be a box whose $k\ge1$ even sides all equal $2$, and let
+$v_1,\dots,v_h$ be a supported
+ordering of $C$ such that (i) some even coordinate $j$ changes sign at every
+step, (ii) both endpoints have all odd coordinates equal to $0$, and (iii) the
+total loss is $2^{k-1}-1$. Then $C\times[2]$, whose $k+1$ even sides all equal $2$, has a
+supported ordering with the same properties.
+\end{lemma}
+
+\begin{proof}
+Write the new centred coordinate last. Since every even side of $C$ is $2$,
+each $\hat v_{\ell,j}\in\{\pm\frac12\}$ is a valid centred value of the new
+coordinate. Take first the points
+$(v_1,\hat v_{1,j}),\dots,(v_h,\hat v_{h,j})$, whose new coordinate copies
+the $j$-th one, and then the points $(u,-\hat u_j)$ for
+$u=-v_h,-v_{h-1},\dots,-v_1$. The first block covers the points whose new
+coordinate equals their $j$-th coordinate, the second the others. Inside each
+block the new coordinate changes sign at every step, so the steps have the
+same losses as in the original ordering (reversed and reflected in the second
+block): $2(2^{k-1}-1)$ in total. The middle step goes from
+$(v_h,\hat v_{h,j})$ to $(-v_h,\hat v_{h,j})$; all old coordinates change sign
+and the new one is the same nonzero value, so its loss is exactly $1$. The
+total is $2^k-1$. The endpoints $(v_1,\hat v_{1,j})$ and $(-v_1,\hat v_{1,j})$
+have odd coordinates $0$; coordinate $j$ still changes sign at every step; and
+every point lies on a clean step inside its block.
+\end{proof}
+
+Under (ii) the endpoint cost of such an ordering is exactly $k$, since every
+even coordinate is $\pm\frac12$, so Lemma~\ref{lem:even} produces $\rho+\Lambda=
+k+2^{k-1}-1$. We use the following seeds, written in uncentred coordinates
+from $[d_i]$, one digit per coordinate; each can be checked step by step.
+\begin{itemize}
+\item[(S1)] $3$: the cycle $1,0,2$, all of whose steps (including $2\to1$)
+are clean; designate the step $2\to1$.
+\item[(S2)] $2$: the ordering $0,1$ ($j$ is its coordinate).
+\item[(S3)] $2\times2\times3$: \texttt{111 000 112 001 110 002 010 102 011 100
+012 101}. The second coordinate changes sign at every step, the third
+coordinates of the endpoints are central, the only step with positive loss is
+\texttt{002}$\to$\texttt{010}, with loss $1$, and its ends also lie on clean
+steps.
+\item[(S4)] $2\times3\times3$: \texttt{111 010 121 002 110 022 100 021 101 012
+120 001 122 000 112 020 102 011}. All steps are clean, the first coordinate
+changes sign at every step, and the endpoints \texttt{111} and \texttt{011} are
+the two points next to the centre, so adding the clean step
+\texttt{011}$\to$\texttt{111} gives a clean cycle.
+\item[(S5)] $4\times3$: \texttt{21 00 22 01 20 02 30 12 31 10 32 11}, all
+steps clean, endpoint cost $1$.
+\item[(S6)] $2\times3$: \texttt{11 00 12 01 10 02}, all steps clean, endpoint
+cost $2$.
+\end{itemize}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}(b)]
+For $t=0$ there is nothing to prove. Otherwise assume all sides are at least
+$2$, let $q=t-e$ be the number of odd sides, and build a supported ordering of
+a central sub-box with the cost~\eqref{eq:target}; Lemma~\ref{lem:inflate}
+then transfers it to $B(D)$.
+\begin{itemize}
+\item $e=0$ (all sides odd, $q\ge1$): apply Lemma~\ref{lem:odd} $q-1$ times to
+(S1) and delete the designated step. The result is a supported ordering of
+$[3]^q$ with all steps clean whose endpoints are the centre and a point at
+distance $1$ from it, so $\rho+\Lambda=1$.
+\item $q=0$ (all sides even): apply Lemma~\ref{lem:even} $e-1$ times to (S2).
+\item $q=1$, $e\ge2$: apply Lemma~\ref{lem:even} $e-2$ times to (S3).
+\item $q\ge2$, $e\ge1$: close (S4) into a clean cycle with the new step
+designated, apply Lemma~\ref{lem:odd} $q-2$ times, and delete the designated
+step. This gives a supported ordering of $[2]\times[3]^q$ with all steps
+clean, endpoint cost $1$, in which the even coordinate changes sign at every
+step and the odd coordinates of the endpoints are $0$. Then apply
+Lemma~\ref{lem:even} $e-1$ times.
+\item $q=1$, $e=1$ ($t=2$): use (S5) if the even side is at least $4$ and (S6)
+if it is $2$.
+\end{itemize}
+In the first four cases $\rho+\Lambda=e+\delta(e)$, which is the target
+in~\eqref{eq:target}, and they cover every box with $t\ge1$ other than the
+mixed planar ones. Deleting a step of a cycle of length at least $3$ leaves
+every point on a clean step, so all orderings are supported.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}(c)]
+By (b) the maximum is at least $U_r(D)-\kappa(D)$, and by (a) every ordering,
+in particular every ordering of maximal length, has length at most this value.
+\end{proof}
+
+\begin{remark}\label{rem:234}
+For $D=(2,3,4)$, the ordering
+\texttt{012 121 003 111 022 101 023 100 013 110 002 120 001 113 000 123 010 122
+011 103 020 102 021 112} has length $101=M(2\times3\times4)$. Here
+$S=104$, the endpoint cost is $2$ and the only lossy step,
+\texttt{120}$\to$\texttt{001}, has loss $1$.
+\end{remark}
+
+\section{Formal verification}\label{sec:lean}
+
+Theorem~\ref{thm:main} is formally verified in Lean~4 (version 4.34.1) with
+Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}). The $28$ files are in
+version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/Research/TaskJ/Grid/}.
+
+\paragraph{The statements.}
+The statement file \texttt{Challenge.lean} contains only definitions and
+statements, no proofs. In ASCII notation (\texttt{Point} is \texttt{List Nat}):
+{\footnotesize
+\begin{verbatim}
+def vertices : List Nat -> List Point
+  | [] => [[]]
+  | d :: ds => (List.range d).flatMap fun x => (vertices ds).map (x :: .)
+def Order (ds : List Nat) (p : List Point) : Prop := p.Perm (vertices ds)
+def manhattan (x y : Point) : Nat := (List.zipWith Nat.dist x y).sum
+def pathLength : List Point -> Nat
+  | [] => 0
+  | [_] => 0
+  | x :: y :: rest => manhattan x y + pathLength (y :: rest)
+def PositiveSides (ds : List Nat) : Prop := forall d in ds, 0 < d
+def rawTerm (N d : Nat) : Int :=
+  ((N / d * (d ^ 2 / 2) : Nat) : Int) - (if d % 2 = 0 then 1 else 0)
+    - (if N / d = 1 /\ d % 2 = 1 then 1 else 0)
+def rawUpper (ds : List Nat) : Int := (ds.map (rawTerm ds.prod)).sum
+def activeCount (ds : List Nat) : Nat := (ds.filter (fun d => 1 < d)).length
+def evenCount (ds : List Nat) : Nat := (ds.filter (fun d => d % 2 = 0)).length
+def gapFormula (ds : List Nat) : Int :=
+  match activeCount ds with
+  | 0 => -(ds.length : Int)
+  | 1 => 0
+  | 2 => if evenCount ds = 1 /\ (exists d in ds, d % 2 = 0 /\ 4 <= d)
+         then 0 else 1
+  | _ + 3 => if evenCount ds = 0 then 1 else (2 : Int) ^ (evenCount ds - 1) - 1
+def optimumFormula (ds : List Nat) : Int := rawUpper ds - gapFormula ds
+def IsLongest (ds : List Nat) (p : List Point) : Prop :=
+  Order ds p /\ forall q, Order ds q -> pathLength q <= pathLength p
+def LengthUpperBound : Prop := forall ds, PositiveSides ds ->
+  forall p, Order ds p -> (pathLength p : Int) <= optimumFormula ds
+def LengthAttained : Prop := forall ds, PositiveSides ds ->
+  exists p, Order ds p /\ (pathLength p : Int) = optimumFormula ds
+def YuanGapAtLongest : Prop := forall ds, PositiveSides ds ->
+  forall p, IsLongest ds p -> rawUpper ds - (pathLength p : Int) = gapFormula ds
+\end{verbatim}}
+\noindent An ordering is a permutation of the list of all points of the box,
+with coordinates numbered from $0$; \texttt{pathLength} adds the distances of
+consecutive points only, with no closing step. \texttt{rawUpper} is
+$U_r(D)$ of~\eqref{eq:U}, computed in the integers with natural-number floor
+division, and \texttt{gapFormula} is $\kappa(D)$ of~\eqref{eq:kappa}; since a
+side $1$ is odd, \texttt{evenCount} counts only effective sides. The three
+statements are parts (a), (b) and (c) of Theorem~\ref{thm:main}; the last
+quantifies over orderings of maximal length, whose existence follows from the
+first two. Corollaries~\ref{cor:closed} and~\ref{cor:simul} are not stated in Lean: the first rewrites Theorem~\ref{thm:main}, and the second, like the comparison with Jiang's conjecture, also uses the single-coordinate maxima of~\cite[Theorem~2.3]{yuan}, which are not formalized.
+
+\paragraph{Review and freezing.}
+\texttt{Challenge.lean} was reviewed against Yuan's paper by a Codex agent that
+had not written it, and frozen, by recording its SHA-256 hash, on 18 November
+2026 at 00:03~UTC; the development logs record no compilation of a proof file
+before that time, and the file was not changed afterwards.
+
+\paragraph{The proofs.}
+In \texttt{Proof.lean}, \texttt{Proof.LengthUpperBound} is
+\texttt{Grid.upper\_\allowbreak complete}, which combines
+\texttt{Grid.upper\_\allowbreak of\_\allowbreak narrow} (the bound of
+Proposition~\ref{prop:upper} in all cases, via
+\texttt{Grid.basic\_\allowbreak bound}, \texttt{Grid.plane\_\allowbreak upper\_\allowbreak regular}
+and \texttt{Grid.high\_\allowbreak upper}, reducing the rest to boxes $2\times$odd)
+with \texttt{Grid.Narrow.bound} (Proposition~\ref{prop:narrow}, for every odd
+side);
+\texttt{Proof.LengthAttained} is obtained from
+\texttt{Grid.Attainment.normalized\_\allowbreak attained} (the constructions of
+Section~\ref{sec:lower} for boxes without unit sides, with the seeds and
+Lemmas~\ref{lem:inflate}--\ref{lem:even} proved for arbitrary numbers of axes
+by induction) by \texttt{Grid.Finish.restore}, which reinserts the unit axes;
+and \texttt{Proof.YuanGapAtLongest} is
+\texttt{Grid.Finish.gap\_\allowbreak of\_\allowbreak bounds} applied to the first
+two. The test file \texttt{CheckGrid.lean} restates the three theorems with
+the frozen types (\texttt{check\_\allowbreak LengthUpperBound},
+\texttt{check\_\allowbreak LengthAttained},
+\texttt{check\_\allowbreak YuanGapAtLongest}). The axioms of these theorems,
+printed by the files, are exactly \texttt{propext}, \texttt{Classical.choice}
+and \texttt{Quot.sound}. No file uses \texttt{sorry},
+\texttt{native\_\allowbreak decide}, \texttt{bv\_\allowbreak decide} or an
+\texttt{axiom} declaration; \texttt{decide} is used for the fixed seeds and for
+finite case splits, and is checked by the kernel. A development file,
+\texttt{GridLowerPrep.lean}, that nothing imports and that was not part of the
+checks is not included.
+
+\paragraph{Checks.}
+The $28$ files ($25$ proof modules, \texttt{Challenge.lean},
+\texttt{Proof.lean} and \texttt{CheckGrid.lean}) were compiled module by module
+in two new empty directories on the author's Mac, with the pinned toolchain,
+on 18 November 2026 (00:23--00:30~UTC), and every module was replayed with
+\texttt{leanchecker}; each directory also ran one build of the whole package.
+All $114$ commands ($57$ per directory) ended with exit code~$0$, the
+\texttt{leanchecker} runs printed nothing, and the builds printed nothing except
+the requested axiom lists. The receipt records identical \texttt{.olean}
+digests for the two directories. Mathlib and its dependencies were taken from
+a shared prebuilt cache at the pinned commits and were not rechecked; the
+\texttt{leanchecker} replay covers the $28$ project modules. In the repository the files have module names under \texttt{Research.TaskJ} and differ from the checked files only in their \texttt{import} lines; these versions were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac (18 November 2026, 19:12--19:21~UTC), with identical \texttt{.olean} files and the same axiom lists. In the whole-project rebuild of version~1.23.0 of the repository (18--19 November 2026, on the author's Windows computer), these files were compiled and replayed with \texttt{leanchecker} again, together with the rest of the project, each at the first attempt (details in the repository). The
+formalization has not been checked with comparator or with an independent
+kernel.
+
+\section*{How this paper was produced}
+This work was carried out from 17 to 19 November 2026 (UTC) in a workflow
+directed by the author, using OpenAI Codex with the model GPT-6.2-Astra
+(reasoning level ultra) and Anthropic Claude Code with the model Claude
+Opus~5.5. The author asked for a search for open problems with the newest
+Codex model, and Claude Code passed this request to Codex. Between 19:34 and
+20:23~UTC on 17 November, Codex screened $45$ problems and sub-questions from
+the recent literature, wrote proof sketches for three of them and proposed
+them; the author chose this one and one other. Codex agents (same model) checked the reading of the
+source, searched for prior work, wrote the statement file, the written proof
+and the Lean proof, and ran the checks. The reading of the source was checked,
+and the statement file reviewed before it was frozen, by one Codex agent that
+had not taken part in the search for problems and wrote neither the statement
+nor the proofs; these two checks were thus done by a single agent and are not
+independent of each other. After the checks, an independent Claude Code agent (model
+Claude Opus~5.5) that had written none of the files gave the final review. It
+read the source itself, compared the statement file with it, read the written
+proof, the main proof files and the raw logs of the checks, and independently
+verified the formula by exhaustive search on small boxes: all $67$ boxes with
+$N\le8$ and at most three sides (sides $1$ allowed), all $40$ boxes with all sides at least $2$ and
+$N\le20$ in any dimension, and further boxes including $2\times3\times4$,
+$2\times2\times2\times3$ and $3\times3\times3$. It did not read every Lean
+module line by line. Its decision was APPROVE\_WITH\_CHANGES: the formal
+result was approved unchanged, and changes to the attribution were required,
+in particular adding the paper of Simmons and the conjecture of Jiang, which
+the earlier searches had missed or understated; these changes were applied.
+Claude Code (Claude Opus~5.5) checked the references and wrote this text from
+Codex's manuscript and the Lean files. An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied. Throughout, ``we'' refers
+to this workflow; the reading and searching described in the paper were done
+by the agents. The author is not a professional mathematician. The author has read this paper and, using a side-by-side table,
+compared its Lean statements with Theorem~\ref{thm:main}.
+No human mathematician has reviewed this paper. The correctness of the result
+rests on the Lean proofs and on the agreement of the Lean statements with the
+question of~\cite{yuan}; the written proofs are given for the reader. AI
+systems are not authors of this paper; the author takes full responsibility
+for its content.
+
+\medskip
+\noindent Thanks are due to Jiajun Yuan for the question.
+
+\begin{thebibliography}{9}
+\bibitem{bfjtww} A.~Barvinok, S.~P. Fekete, D.~S. Johnson, A.~Tamir,
+G.~J. Woeginger and R.~Woodroofe, The geometric maximum traveling salesman
+problem, \emph{J. ACM} 50 (2003), no.~5, 641--664,
+\url{https://doi.org/10.1145/876638.876640}.
+\bibitem{bgv} L.~Bulteau, S.~Giraudo and S.~Vialette, Disorders and
+permutations, in \emph{32nd Annual Symposium on Combinatorial Pattern Matching
+(CPM 2021)}, LIPIcs 191 (2021), 11:1--11:15,
+\url{https://doi.org/10.4230/LIPIcs.CPM.2021.11}.
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{fried} S.~Fried, On a conjecture of McNeil, \emph{Math. Commun.} 31
+(2026), no.~1, 1--10, \url{https://doi.org/10.64785/mc.31.1.1};
+arXiv:2208.03788.
+\bibitem{jiang} T.-S.~A. Jiang, The radio number of grid graphs,
+arXiv:1401.6583v1, 2014.
+\bibitem{kkt} M.~Kchikech, R.~Khennoufa and O.~Togni, Radio $k$-labelings for
+Cartesian products of graphs, \emph{Discuss. Math. Graph Theory} 28 (2008),
+no.~1, 165--178, \url{https://doi.org/10.7151/dmgt.1399}.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{osz} F.~Okamoto, P.~Zhang and V.~Saenpholphat, The upper traceable
+number of a graph, \emph{Czechoslovak Math. J.} 58 (2008), no.~1, 271--287,
+\url{https://doi.org/10.1007/s10587-008-0016-9}.
+\bibitem{simmons} G.~J. Simmons, An application of maximum-minimum distance
+circuits on hypercubes, in D.~A. Holton and J.~Seberry (eds.),
+\emph{Combinatorial Mathematics}, Lecture Notes in Math.~686, Springer, Berlin,
+1978, 290--299, \url{https://doi.org/10.1007/BFb0062544}.
+\bibitem{yuan} J.~Yuan, The maximum length of a Hamiltonian path in the grid
+graph $P_m\times P_n$, arXiv:2611.19908v1, 2026.
+\end{thebibliography}
+\end{document}

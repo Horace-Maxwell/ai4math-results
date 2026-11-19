@@ -1,0 +1,50 @@
+{
+ "package": "lattice-box-paths",
+ "codex_acceptance": {
+  "receipts": [
+   "grid/acceptance/2026-11-18T002327Z/receipt.json"
+  ],
+  "note": "Codex acceptance runs on the author's Mac, in the archive codex-acceptance-logs.tar.gz; local paths replaced by <workspace>."
+ },
+ "repository_recheck": {
+  "computer": "the author's Mac",
+  "lean": "Lean 4.34.1 (arm64-apple-darwin)",
+  "start_utc": "2026-11-18T19:12:19Z",
+  "end_utc": "2026-11-18T19:21:09Z",
+  "procedure": "The repository versions (module names under Research.TaskJ; only import lines differ from the accepted files) compiled module by module with lean -DautoImplicit=false -DrelaxedAutoImplicit=false -R <lean dir>, each module then replayed with leanchecker, in two new empty output directories one after the other (root1 19:12:19-19:16:35Z, root2 19:16:35-19:21:09Z), by repository-recheck-logs.tar.gz/mac_compile_taskj.py. Mathlib from the pinned prebuilt packages, not rebuilt.",
+  "olean_identical": true,
+  "root1": {
+   "modules": 28,
+   "compile_rc0": 28,
+   "leanchecker_rc0": 28,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "Grid.upper_complete": "propext, Classical.choice, Quot.sound",
+    "Proof.LengthUpperBound": "propext, Classical.choice, Quot.sound",
+    "Proof.LengthAttained": "propext, Classical.choice, Quot.sound",
+    "Proof.YuanGapAtLongest": "propext, Classical.choice, Quot.sound",
+    "check_LengthUpperBound": "propext, Classical.choice, Quot.sound",
+    "check_LengthAttained": "propext, Classical.choice, Quot.sound",
+    "check_YuanGapAtLongest": "propext, Classical.choice, Quot.sound"
+   }
+  },
+  "root2": {
+   "modules": 28,
+   "compile_rc0": 28,
+   "leanchecker_rc0": 28,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "Grid.upper_complete": "propext, Classical.choice, Quot.sound",
+    "Proof.LengthUpperBound": "propext, Classical.choice, Quot.sound",
+    "Proof.LengthAttained": "propext, Classical.choice, Quot.sound",
+    "Proof.YuanGapAtLongest": "propext, Classical.choice, Quot.sound",
+    "check_LengthUpperBound": "propext, Classical.choice, Quot.sound",
+    "check_LengthAttained": "propext, Classical.choice, Quot.sound",
+    "check_YuanGapAtLongest": "propext, Classical.choice, Quot.sound"
+   }
+  }
+ },
+ "whole_project": "logs/clean-replay-v1.23.0-receipt.json"
+}

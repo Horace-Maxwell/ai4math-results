@@ -58,3 +58,6 @@ import Research.TaskH.Six.CaseSixElaboration
 import Research.TaskH.OriginalQuestionTwoTests
 import Research.TaskH.Fan.Tests
 import Research.TaskH.Gao.Tests
+import Research.TaskJ.Rank.CheckRank
+import Research.TaskJ.Rank.Extension.CheckExtension
+import Research.TaskJ.Grid.CheckGrid

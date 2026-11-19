@@ -1,0 +1,361 @@
+{
+ "module_count": 28,
+ "entrypoints": [
+  "Research.TaskJ.Grid.CheckGrid"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskJ.Grid.CheckGrid": [
+   "check_LengthUpperBound",
+   "check_LengthAttained",
+   "check_YuanGapAtLongest"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskJ/Grid/Challenge.lean",
+   "frozen_utc": "2026-11-18T00:03:17Z",
+   "freeze_record": "grid/FREEZE.json",
+   "sha256": "6b0ad9f9e4c04187d51d1f0176dec5dd6b684ae9859615c0cb7cf236934a5e07"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskJ/Grid/Challenge.lean",
+   "module": "Research.TaskJ.Grid.Challenge",
+   "sha256": "6b0ad9f9e4c04187d51d1f0176dec5dd6b684ae9859615c0cb7cf236934a5e07",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/Challenge.lean",
+   "codex_source_sha256": "6b0ad9f9e4c04187d51d1f0176dec5dd6b684ae9859615c0cb7cf236934a5e07",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.Data.Nat.Dist",
+    "Mathlib.Data.List.Perm.Basic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/CheckGrid.lean",
+   "module": "Research.TaskJ.Grid.CheckGrid",
+   "sha256": "77933813b56040fe49fa9e1e10253271cc3ea0725bfdd394cedf868b9fd655a4",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/CheckGrid.lean",
+   "codex_source_sha256": "d9ff7e1f346f2215cb37e3a9e063fa3fdc8553f18b6db36d958bf63aef4b2a72",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridAttainmentCases.lean",
+   "module": "Research.TaskJ.Grid.GridAttainmentCases",
+   "sha256": "ccf4d68f3d3e0295f484bfb2542c9b76d598bde84a8f948953769cd824360839",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridAttainmentCases.lean",
+   "codex_source_sha256": "51792acf959a8281c0798c587e0fc35ce0a7b797a75af1631892a4d7c25332f4",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridAttainmentFormula"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridAttainmentFormula.lean",
+   "module": "Research.TaskJ.Grid.GridAttainmentFormula",
+   "sha256": "8154780685bcb028000cbcb14fb6d93271aba18c35c81a8bc40e3a58c0c7831c",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridAttainmentFormula.lean",
+   "codex_source_sha256": "f336e6d559d60b16f24d95faa970adb9d8f46eb1fcabb46911d1e551db2e0e32",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridUpper"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridCanonical.lean",
+   "module": "Research.TaskJ.Grid.GridCanonical",
+   "sha256": "5e60f5983985cb1f4e857eb39dd1d765474823a4b27c9f426ae5c63a95be67f5",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridCanonical.lean",
+   "codex_source_sha256": "1990cf8ffbf287194154a1645bb8d67cde900eef6340447e03167dbe265a2c06",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridPadding",
+    "Research.TaskJ.Grid.GridNormalize",
+    "Research.TaskJ.Grid.GridFormula"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridClasses.lean",
+   "module": "Research.TaskJ.Grid.GridClasses",
+   "sha256": "c839dea055bcbe193c69b868cd86853e0213b6b2f9ff11baca659a8fa898f047",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridClasses.lean",
+   "codex_source_sha256": "3a162d00b6c68374adeffd600d5d12a33863e9a84331fd087557148036e7d8e7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridSigns"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridCore.lean",
+   "module": "Research.TaskJ.Grid.GridCore",
+   "sha256": "191c3ddbd38547fbf2456f2c6be2ade513bb24d6e4ea52f8acd12cc7e867249f",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridCore.lean",
+   "codex_source_sha256": "d4f7f79d43aa462c508e96898516de7be1e6ae518adc457925e52d9011a60f36",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridSplice",
+    "Research.TaskJ.Grid.GridOddCore"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridDouble.lean",
+   "module": "Research.TaskJ.Grid.GridDouble",
+   "sha256": "eb01cbef905a33b80b6f5caca648cb6808dffe4328377b825aeb31d0db7e5660",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridDouble.lean",
+   "codex_source_sha256": "0ef5168a056874f52713b3813a83f3113f0949ebf9b39281a06841fd39570ab2",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridPathEdges",
+    "Research.TaskJ.Grid.GridSymmetry",
+    "Research.TaskJ.Grid.GridEndpoints"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridEndpoints.lean",
+   "module": "Research.TaskJ.Grid.GridEndpoints",
+   "sha256": "ce7aef03c7ac1a79d00387f7c4604eac1b4d387ed1af9183aca802a3d2585968",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridEndpoints.lean",
+   "codex_source_sha256": "b770d5a975cd872fd4b9894dcd09cab873d65d8616615af555da3d78851812a6",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridMass",
+    "Research.TaskJ.Grid.GridSigns",
+    "Mathlib.Data.List.Nodup"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridFinish.lean",
+   "module": "Research.TaskJ.Grid.GridFinish",
+   "sha256": "6d178309b18e207bf67b6f664908847e4f7aa1132218d97315248cd0bffedb5b",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridFinish.lean",
+   "codex_source_sha256": "3987bdcce20bb4011de68bec61f1b3b26aff03d5e1c88de93cb883c0ddcfaa14",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridUpperComplete"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridFormula.lean",
+   "module": "Research.TaskJ.Grid.GridFormula",
+   "sha256": "9115a606679067544e14f00f990ea116adb02fd7cb5d10d5338416dbfbdc9dc9",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridFormula.lean",
+   "codex_source_sha256": "3b4347c9f04e7cfdaf6608faf935e4f4697c149922555c3bd85f57870a0650b7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridMass",
+    "Research.TaskJ.Grid.GridSigns"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridLowerNormalized.lean",
+   "module": "Research.TaskJ.Grid.GridLowerNormalized",
+   "sha256": "b27777d8d10d20e09f781cabd0f13f174678dcd8a9c780ed0c0527b201ac2b7a",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridLowerNormalized.lean",
+   "codex_source_sha256": "7708d8469e5b442cf1525cd4b74e58187f0c5c7f09b6ba0c0c8b21787cdafbc6",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridAttainmentCases",
+    "Research.TaskJ.Grid.GridCanonical",
+    "Research.TaskJ.Grid.GridCore"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridMass.lean",
+   "module": "Research.TaskJ.Grid.GridMass",
+   "sha256": "e29a88d676cd229d3998a8396541eee6e5c6c32b9415976c9a70fe56f0f0ea56",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridMass.lean",
+   "codex_source_sha256": "a210cf3097117042dc9762bddd25cbe99a90c5e52cd95718c4972c29deb3d5e4",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridMetric"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridMetric.lean",
+   "module": "Research.TaskJ.Grid.GridMetric",
+   "sha256": "5ee8a1b8af6c804c5ef88086d40e38aaa506a892995bae3702b467721ae7bdcc",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridMetric.lean",
+   "codex_source_sha256": "b96d3291c2ae60a4c1aa7f5d3477cfd295299537d852d4ec918b46a95cb76f8e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.Challenge",
+    "Mathlib.Algebra.BigOperators.Group.List.Lemmas",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridNarrow.lean",
+   "module": "Research.TaskJ.Grid.GridNarrow",
+   "sha256": "35cdd5943ec497860794f5f59b69d93ceaaee002fa0f57e8b2d31393e8c68050",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridNarrow.lean",
+   "codex_source_sha256": "6b6afe6f0e13f2a7a5193ebc02a73c0a0d978b52414a4e16052b5412b6167700",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridEndpoints",
+    "Research.TaskJ.Grid.GridNormalize",
+    "Mathlib.Data.List.Chain"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridNormalize.lean",
+   "module": "Research.TaskJ.Grid.GridNormalize",
+   "sha256": "71ad0bbbcb602730e99cc6a853bae90ab963c1a9c9aaa2b76f97103236caa878",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridNormalize.lean",
+   "codex_source_sha256": "adda16238a9eaee3e845599ab8071cc9eb9aad4d454ca9b349c2141e8443f23e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridTransport",
+    "Mathlib.Algebra.BigOperators.Group.List.Basic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridOddCore.lean",
+   "module": "Research.TaskJ.Grid.GridOddCore",
+   "sha256": "518f5327355be04670b68fbbf987a0194cf31951382bf0ea3700797f3d3366e4",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridOddCore.lean",
+   "codex_source_sha256": "d27b8cf840f33936545622754a560657c4c28e010ae248d5a0b9335d9d1fa7fb",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridOddLift",
+    "Research.TaskJ.Grid.GridDouble"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridOddLift.lean",
+   "module": "Research.TaskJ.Grid.GridOddLift",
+   "sha256": "7b0ed75049fc350d5c8249805c4e406b8981cfe98a520cb99c7cc7fd6968ccfa",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridOddLift.lean",
+   "codex_source_sha256": "a4d279750fc3e36f5ff8377a582e93774a6d41eb1fdd2955ea4db538163e43cf",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridSheets",
+    "Research.TaskJ.Grid.GridSymmetry",
+    "Research.TaskJ.Grid.GridEndpoints"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridPadding.lean",
+   "module": "Research.TaskJ.Grid.GridPadding",
+   "sha256": "c6fd4797ef171a0e18e99144a4c6c77bc7f40f6b75cd49ee4f8afb2c5c5ca32f",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridPadding.lean",
+   "codex_source_sha256": "18e8f9f631037c744b214c9a5cbc431e9568efed5ef7c4138a72a4b2132cefaf",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridSymmetry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridPathEdges.lean",
+   "module": "Research.TaskJ.Grid.GridPathEdges",
+   "sha256": "846fd341b0748b014740b70a8d8f5a803cb78184fc1314f24eef224306c6a740",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridPathEdges.lean",
+   "codex_source_sha256": "c35432dfcd5239a06baa7f07cd78a09be606aa907d8a320f6805949ffa8a3519",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridMetric",
+    "Mathlib.Data.List.Chain"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridSheets.lean",
+   "module": "Research.TaskJ.Grid.GridSheets",
+   "sha256": "9760986357b3a7886039500c2593bdbecda0f61bacfdebec14d40c5a16f43684",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridSheets.lean",
+   "codex_source_sha256": "9760986357b3a7886039500c2593bdbecda0f61bacfdebec14d40c5a16f43684",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.Data.List.Perm.Basic",
+    "Mathlib.Data.List.Chain"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridSigns.lean",
+   "module": "Research.TaskJ.Grid.GridSigns",
+   "sha256": "23094b32a3942dd16e1391fe4e239cc901df90121789526163ccf535cac43a7d",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridSigns.lean",
+   "codex_source_sha256": "15f4b737a0014ecf1251516c94dae44f3b2e4e97a7d0ffbd60dfdf5a75bcba1f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridMetric"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridSplice.lean",
+   "module": "Research.TaskJ.Grid.GridSplice",
+   "sha256": "37af0cd7d17715d70148007f6d1a560077621980ce8583773a1c3e201eb2873c",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridSplice.lean",
+   "codex_source_sha256": "ce89f812609f8513434efabda32f0e4c0603791fa2f8d5b221269155a795d064",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridPadding",
+    "Research.TaskJ.Grid.GridEndpoints"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridSymmetry.lean",
+   "module": "Research.TaskJ.Grid.GridSymmetry",
+   "sha256": "ff1786675a275261230655ecf66b35b69e1c7f428e96bb07505f72f16a4d5400",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridSymmetry.lean",
+   "codex_source_sha256": "64cb254054fb8153750859724a44caa402b43ee8e915c95a176a0f004fc95e7f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridPathEdges"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridTransport.lean",
+   "module": "Research.TaskJ.Grid.GridTransport",
+   "sha256": "a272b37761078fd90bc3a9aef718cf0f69b055d325f1c2cf66ecb83a357a3a6b",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridTransport.lean",
+   "codex_source_sha256": "722088b3ca115360c03fede62961895bed5534e0faa906842c0e0d8adcb77d11",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.Challenge",
+    "Mathlib.Data.List.Perm.Basic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridUpper.lean",
+   "module": "Research.TaskJ.Grid.GridUpper",
+   "sha256": "aadae65173a02d90b0c67d01bc045d38bd6696c8134224f21fd884aa3ff12af0",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridUpper.lean",
+   "codex_source_sha256": "ce2d632e4d4b8159163f598309ecf54b4d204a043a2ac62df754f9f967eb12c0",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridClasses",
+    "Research.TaskJ.Grid.GridEndpoints",
+    "Research.TaskJ.Grid.GridFormula",
+    "Research.TaskJ.Grid.GridNormalize"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/GridUpperComplete.lean",
+   "module": "Research.TaskJ.Grid.GridUpperComplete",
+   "sha256": "0228718e53b0ca0c71c25713457680ef87abc19292d5db67d833c3ac96b32f28",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/GridUpperComplete.lean",
+   "codex_source_sha256": "481358b49f1eb7448ccbb29a6c5e9b02f86fc3be9d34d8391ded6e88d4bd34e9",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridUpper",
+    "Research.TaskJ.Grid.GridNarrow"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskJ/Grid/Proof.lean",
+   "module": "Research.TaskJ.Grid.Proof",
+   "sha256": "04498258f77a37030b5beaf6ac0631e08de963409d7410a9fd602a59e0cae344",
+   "codex_source": "work/codex-r3/phase18/taskJ/grid/Proof.lean",
+   "codex_source_sha256": "a1c6ecb64b5650a2a519366b09345d0017a2c83d596581b589582e013d1c714b",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskJ.Grid.GridFinish",
+    "Research.TaskJ.Grid.GridLowerNormalized"
+   ]
+  }
+ ]
+}
