@@ -1,0 +1,623 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={The decomposition lengths of a numerical semigroup form an interval},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.24.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\N}{\mathbb N}
+\DeclareMathOperator{\SG}{SG}
+\DeclareMathOperator{\G}{G}
+\newcommand{\F}{\mathrm F}
+
+\title{The decomposition lengths of a numerical semigroup\\ form an interval}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{20 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Every numerical semigroup is an irredundant intersection of finitely many
+irreducible numerical semigroups, often in several ways, and the number of
+components can vary. García-Sánchez conjectured that, for each numerical
+semigroup, the set of these numbers is an interval, and García-Sánchez and
+O'Neill proved this when the multiplicity is at most six. We prove the
+conjecture for every numerical semigroup. One component can be exchanged for
+another with the same Frobenius number, and when this leaves a special gap
+uncovered, one component with a smaller Frobenius number repairs it. This
+changes the length by at most one at each step, and every such process ends in
+a normal form whose length depends only on the semigroup. We also show that a
+numerical semigroup of even multiplicity $2k$ has a decomposition with at most
+$k$ components, which together with the first result proves a second
+conjecture of García-Sánchez and O'Neill. Both results are formally verified
+in Lean~4. The proofs were found and formalized by AI agents working under the
+author's direction; their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+Let $\N=\{0,1,2,\dots\}$. A \emph{numerical semigroup} is a subset
+$S\subseteq\N$ that contains $0$, is closed under addition and has finite
+complement $\G(S)=\N\setminus S$, the set of \emph{gaps} of~$S$. If
+$S\ne\N$, its \emph{Frobenius number} $\F(S)$ is the largest gap; its
+\emph{multiplicity} $m(S)$ is the smallest positive element. A numerical
+semigroup is \emph{irreducible} if it is not the intersection of two numerical
+semigroups properly containing it.
+
+Every numerical semigroup is the intersection of finitely many irreducible
+ones~\cite[Chapter~3, Proposition~4.44]{rg}. Following
+García-Sánchez~\cite{g} and García-Sánchez and O'Neill~\cite{go}, a
+\emph{decomposition} of $S$ (into irreducibles) is an expression
+$S=S_1\cap\dots\cap S_n$ with every $S_i$ irreducible that is
+\emph{irredundant}: $S\ne\bigcap_{i\in I}S_i$ for every proper subset
+$I\subsetneq\{1,\dots,n\}$. The number $n$ is the \emph{length} of the
+decomposition, and we write $\mathcal L(S)$ for the set of lengths of all
+decompositions of $S$.
+
+The set $\mathcal L(S)$ is finite: a decomposition of $S$ has at most
+$\#\SG(S)\le m(S)-1$ components, where $\SG(S)$ is the set of special gaps
+defined in Section~\ref{sec:prelim} (see~\cite[Section~2]{go}, or
+Lemma~\ref{lem:private} and the remark after Theorem~\ref{thm:even} below). García-Sánchez~\cite{g}, who calls
+decompositions factorizations, showed that for every $k\ge2$ the union of all
+sets $\mathcal L(S)$ containing $k$ is $\{2,3,\dots\}$; he reported that he had
+found no numerical semigroup whose set of lengths is not an interval, and suggested
+proving that it always is~\cite[Section~3]{g}. García-Sánchez and
+O'Neill~\cite{go} state:
+
+\begin{quote}
+\textbf{Conjecture 1.1 of~\cite{go}.} The set of decomposition lengths of any
+numerical semigroup is an interval.
+\end{quote}
+
+\noindent They proved it for multiplicity at most six~\cite[Section~3]{go},
+found large intervals of lengths for ordinary numerical
+semigroups~\cite[Section~4]{go}, and proposed a refinement for even
+multiplicity:
+
+\begin{quote}
+\textbf{Conjecture 3.9 of~\cite{go}.} Fix a numerical semigroup $S$ of
+multiplicity $m=2k$ with $k\in\mathbb Z$. If $S$ has a decomposition of
+length $j$ with $k<j<m$, then $S$ has a decomposition of length $j-1$.
+\end{quote}
+
+\noindent For $m=6$ this is their Theorem~3.5, and they report computational
+evidence for $m=8$. We prove both conjectures.
+
+For $S\ne\N$ let
+\[
+r(S)=\#\{g\in\SG(S): 2g>\F(S)\}
+\]
+be the number of special gaps in the upper half. (The empty family has
+intersection $\N$ by convention, so $\mathcal L(\N)=\{0\}$; with the
+alternative convention that $\N$, being irreducible, is its own decomposition
+of length $1$, one gets $\{1\}$. Either way it is an interval; for $S\ne\N$
+the two conventions agree.)
+
+\begin{theorem}\label{thm:interval}
+For every numerical semigroup $S$, the set $\mathcal L(S)$ is a nonempty set
+of consecutive integers: if $a,b\in\mathcal L(S)$ and $a\le j\le b$, then
+$j\in\mathcal L(S)$.
+\end{theorem}
+
+\begin{theorem}\label{thm:even}
+Let $S$ be a numerical semigroup of multiplicity $2k$. Then $S$ has a
+decomposition of length at most $k$.
+\end{theorem}
+
+\begin{corollary}\label{cor:descent}
+Conjecture~3.9 of~\cite{go} holds. More precisely, if $S$ has multiplicity
+$2k$ and a decomposition of length $j>k$, then it has a decomposition of
+length $j-1$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:even}, $\min\mathcal L(S)\le k\le j-1<j$, so $j-1$ lies
+between two elements of $\mathcal L(S)$ and belongs to $\mathcal L(S)$ by
+Theorem~\ref{thm:interval}.
+\end{proof}
+
+The proof of Theorem~\ref{thm:interval} is elementary. It uses the
+description of decompositions by special gaps from the book of Rosales and
+García-Sánchez~\cite{rg} and an exchange that keeps the Frobenius number of
+an irreducible semigroup fixed, of the kind used by Blanco and
+Rosales~\cite{br}. We apply the exchange to one component of a decomposition
+at a time. When it leaves a special gap of $S$ uncovered, we add one
+irreducible component with a smaller Frobenius number, and then remove
+redundant components; the length changes by at most one
+(Lemma~\ref{lem:step}). The process ends at a decomposition in which every
+component is in a normal form, and all such decompositions have exactly $r(S)$ components (Lemma~\ref{lem:normal});
+in particular $r(S)\in\mathcal L(S)$ for $S\ne\N$ (Remark~\ref{rem:r}). Starting from a shortest and from
+a longest decomposition then gives every length in between. Theorem~\ref{thm:even}
+generalizes the pairing of residue classes in the proof
+of~\cite[Theorem~3.5]{go}.
+
+\subsection*{Prior work}
+The existence of decompositions, the criterion by special gaps
+(Lemma~\ref{lem:cover}) and an algorithm that finds a decomposition of
+minimum length are in~\cite[Chapter~3, Section~4]{rg}. Rosales and
+Branco~\cite{rb} gave bounds on the minimum length; as quoted by Bogart and
+Seyed Fakhari~\cite[Theorem~2.1]{bsf}, from Corollaries~10 and~18
+of~\cite{rb}, every numerical semigroup has a
+decomposition with at most $r(S)$ components (the pseudo-Frobenius numbers
+larger than $\F(S)/2$ used there are exactly the special gaps counted by
+$r(S)$). We have not seen the full text of~\cite{rb}, which may also contain a
+decomposition of length exactly $r(S)$; we do not claim this part of
+Lemma~\ref{lem:normal} as new. Bogart and Seyed Fakhari~\cite{bsf} showed that
+the minimum length is unbounded. In~\cite[Theorem~4.3]{go} decompositions of
+the ordinary semigroups $\{0,m,m+1,\dots\}$ are changed step by step, each step
+keeping the number of components or adding one, towards a decomposition
+indexed by the special gaps; our argument works with the same kind of steps
+for arbitrary $S$. The exchange of Lemma~\ref{lem:swap} is a special case of
+the operations of Blanco and Rosales~\cite[Proposition~5]{br}, who build the
+tree of irreducible numerical semigroups with a fixed Frobenius number. As far
+as we know, the general cases of the two conjectures have not been treated
+elsewhere; the searches are described in the final section.
+
+\section{Special gaps and covers}\label{sec:prelim}
+
+Throughout, $S\ne\N$ is a numerical semigroup. An \emph{oversemigroup} of $S$
+is a numerical semigroup $T\supseteq S$; there are only finitely many, since
+$T\setminus S\subseteq\G(S)$. A gap $g$ of $S$ is \emph{special} if
+$S\cup\{g\}$ is a numerical semigroup, that is, if $2g\in S$ and $g+s\in S$
+for every $s\in S\setminus\{0\}$; we write $\SG(S)$ for the set of special
+gaps. The Frobenius number is special.
+
+\begin{lemma}[{\cite[Chapter~3, Lemma~4.35]{rg}}]\label{lem:max}
+If $T\supsetneq S$ is an oversemigroup, then $\max(T\setminus S)\in\SG(S)$.
+\end{lemma}
+
+\begin{proof}
+Let $g=\max(T\setminus S)$. For $s\in S\setminus\{0\}$ the numbers $g+s$ and
+$2g$ lie in $T$ and exceed $g$, so they lie in $S$.
+\end{proof}
+
+\begin{lemma}[{\cite[Chapter~3, Proposition~4.48]{rg}}]\label{lem:cover}
+Let $S_1,\dots,S_n$ be oversemigroups of $S$. Then $S=S_1\cap\dots\cap S_n$
+if and only if every special gap of $S$ is a gap of some $S_i$.
+\end{lemma}
+
+\begin{proof}
+A special gap of $S$ is not in $S$, hence not in the intersection if the
+intersection is $S$. Conversely, if the intersection $T$ properly contains $S$,
+then $\max(T\setminus S)$ is a special gap of $S$ lying in every $S_i$, by
+Lemma~\ref{lem:max}.
+\end{proof}
+
+\begin{remark}\label{rem:sg}
+The condition is that $\SG(S)\subseteq\bigcup_i\G(S_i)$, and it cannot be
+replaced by $\SG(S)\subseteq\bigcup_i\SG(S_i)$. For example, let $S$, $U$ and
+$V$ be the numerical semigroups with gaps $\{1,2,3,5\}$, $\{1,2\}$ and
+$\{1,3,5\}$. Then $U$ and $V$ are irreducible and $S=U\cap V$, while
+$\SG(S)=\{2,3,5\}$, $\SG(U)=\{2\}$ and $\SG(V)=\{5\}$. (The second form is
+printed in~\cite[(2.5)]{go}; we use the first, as in~\cite{rg}.)
+\end{remark}
+
+For an oversemigroup $T$ of $S$ let $E(T)=\SG(S)\cap\G(T)$ be the set of
+special gaps of $S$ that $T$ \emph{covers}. By Lemma~\ref{lem:cover},
+oversemigroups $S_1,\dots,S_n$ intersect in $S$ exactly when their sets
+$E(S_i)$ cover $\SG(S)$. A special gap $h\in E(S_i)$ is a \emph{private}
+point of $S_i$ in the family if no other $S_j$ covers it.
+
+\begin{lemma}\label{lem:private}
+Let $S_1,\dots,S_n$ be oversemigroups of $S$ with intersection $S$. The
+expression $S=S_1\cap\dots\cap S_n$ is irredundant if and only if every $S_i$
+has a private point. In particular a decomposition of $S$ has at most
+$\#\SG(S)$ components, and none of them is $\N$.
+\end{lemma}
+
+\begin{proof}
+If $S_i$ has a private point $h$, then $h$ lies in every $S_j$ with $j\ne i$,
+so a subfamily without $S_i$ does not intersect in $S$; every proper
+subfamily omits some index, so the expression is irredundant. If $S_i$ has no
+private point, the family without $S_i$ still covers $\SG(S)$ and intersects
+in $S$ by Lemma~\ref{lem:cover}. Private points of different components are
+different, and $E(\N)=\emptyset$.
+\end{proof}
+
+Removing components without private points one at a time, we may turn every
+family of oversemigroups intersecting in $S$ into an irredundant one; a
+component that has a private point keeps it when others are removed. (If the
+family is a list with repetitions, repeated members have no private points
+and are removed.)
+
+We use the following classical facts about irreducible numerical semigroups
+(see~\cite[Chapter~3, Theorem~4.2 and Proposition~4.4]{rg}
+and~\cite[Section~1]{go}). Let $Q$ be a numerical
+semigroup with Frobenius number $f$. Then $Q$ is irreducible if and only if
+it is maximal among the numerical semigroups not containing $f$, if and only
+if
+\begin{equation}\label{eq:sym}
+\text{for all integers }0\le x\le f\text{ with }2x\ne f:\qquad
+x\in Q\iff f-x\notin Q .
+\end{equation}
+(For the first equivalence: if $Q$ is maximal and $Q=A\cap B$ with
+$A,B\supsetneq Q$, then $A$ and $B$ contain $f$ by maximality, so $f\in Q$, a
+contradiction. Conversely, if $Q$ is irreducible and $T\supsetneq Q$ is a
+numerical semigroup with $f\notin T$, then $Q\cup\{f\}$ is a numerical
+semigroup, since $f$ is the largest gap of $Q$, and $Q=T\cap(Q\cup\{f\})$ with
+both properly containing $Q$, a contradiction.) Moreover, if $B$ is a numerical
+semigroup with $f\notin B$, then $B\cup\{n\in\N:n>f\}$ is a numerical
+semigroup not containing $f$, and among the finitely many numerical semigroups
+containing it and not containing $f$ there is a maximal one; this is an
+irreducible numerical semigroup with Frobenius number $f$ containing $B$.
+
+\section{An exchange with fixed Frobenius number}\label{sec:swap}
+
+\begin{definition}
+Let $Q$ be an irreducible oversemigroup of $S$ with Frobenius number $f$. We
+call $Q$ \emph{normal} (with respect to $S$) if every integer $x$ with
+$0<x<f/2$ that lies in $Q$ also lies in $S$.
+\end{definition}
+
+\begin{lemma}\label{lem:swap}
+Let $Q$ be an irreducible oversemigroup of $S$ with Frobenius number $f$ that
+is not normal. Let $u$ be the smallest integer with $0<u<f/2$ and $u\in
+Q\setminus S$, and let $v=f-u$. Then
+$Q'=(Q\setminus\{u\})\cup\{v\}$ is an irreducible oversemigroup of $S$ with
+Frobenius number $f$, and $\G(Q')=(\G(Q)\setminus\{v\})\cup\{u\}$.
+\end{lemma}
+
+\begin{proof}
+First, $u$ is not a sum of two positive elements of $Q$: these would be
+positive elements of $Q$ smaller than $u$, hence in $S$ by the choice of $u$,
+and then $u\in S$. So $Q\setminus\{u\}$ is closed under addition. By
+\eqref{eq:sym}, $v\notin Q$, and $v>f/2>u$. We check that sums involving $v$
+lie in $Q'$. We have $2v>f$. Let $q\in Q\setminus\{u\}$ be positive. If
+$q>u$, then $v+q>f$. If $q<u$, then $u-q\notin Q$ (otherwise
+$u=q+(u-q)$), and $0<u-q<f/2$, so $v+q=f-(u-q)\in Q$ by~\eqref{eq:sym}; as
+$v+q>u$, it lies in $Q'$. Hence $Q'$ is a numerical semigroup. It contains
+$S$ because $u\notin S$, its largest gap is still $f$, and it
+satisfies~\eqref{eq:sym} because only the pair $\{u,f-u\}$ has changed. So
+$Q'$ is irreducible.
+\end{proof}
+
+Since $u\in\G(Q')$, the exchange lowers the number of integers below $f/2$
+that lie in $Q\setminus S$ by one; repeating it with the same $f$ ends at a
+normal semigroup. For a decomposition of $S$ the exchange may destroy the
+cover of $\SG(S)$, and we repair it as follows.
+
+\section{Exchange and repair in a decomposition}\label{sec:step}
+
+\begin{lemma}\label{lem:step}
+Let $D$ be a decomposition of $S$ with $n$ components, one of which, $Q$, is
+not normal. Then $S$ has a decomposition $D'$ with $n-1$, $n$ or $n+1$
+components, obtained from $D$ by replacing $Q$ by the semigroup $Q'$ of
+Lemma~\ref{lem:swap}, possibly adding one irreducible oversemigroup $R$ of $S$
+with $R\supsetneq Q$, and removing components without private points.
+\end{lemma}
+
+\begin{proof}
+Let $f$, $u$ and $v$ be as in Lemma~\ref{lem:swap}. By the lemma,
+$E(Q')=(E(Q)\setminus\{v\})\cup(\{u\}\cap\SG(S))$: compared with $Q$, the new
+component may cover $u$ and no longer covers $v$.
+
+\emph{Case 1: $v$ is not a private point of $Q$ in $D$.} Then the family
+$D_1$ obtained by replacing $Q$ by $Q'$ still covers $\SG(S)$, so it
+intersects in $S$. The private points of $Q$ in $D$ are different from $v$
+and are still covered by $Q'$ and by no other component, so $Q'$ has a private
+point. Another component $P$ can lose private points only if $u$ was one of
+them; this happens for at most one $P$, since $u$ was private to at most one
+component. Removing components without private points therefore removes at
+most one component, and gives a decomposition with $n$ or $n-1$ components.
+
+\emph{Case 2: $v$ is a private point of $Q$ in $D$.} Then $v\in\SG(S)$ is not
+covered by $D_1$. Let $B=Q\cup\{x\in\N:x>v\}$, a numerical semigroup not
+containing $v$, and let $R\supseteq B$ be an irreducible numerical semigroup
+with Frobenius number $v$ (Section~\ref{sec:prelim}). Since $v<f$ and
+$f\notin Q$, we have $R\supsetneq Q\supseteq S$, so $E(R)\subseteq E(Q)$, and
+$v\in E(R)$. The family $D_2=D_1\cup\{R\}$ covers $\SG(S)$ and intersects in
+$S$, and $v$ is a private point of $R$ in it. A component of $D_2$ other than
+$Q'$ and $R$ keeps its private points from $D$, unless one of them is $u$,
+which, as before, happens for at most one component $P$: the points covered by
+$R$ were covered by $Q$, hence were not private points of other components.
+So at most two components ($Q'$ and $P$) may lack private points, and removing
+components without private points gives a decomposition with $n+1$, $n$ or
+$n-1$ components.
+\end{proof}
+
+\begin{lemma}\label{lem:terminate}
+Starting from any decomposition of $S$ and applying Lemma~\ref{lem:step}
+repeatedly, one reaches after finitely many steps a decomposition in which
+every component is normal.
+\end{lemma}
+
+\begin{proof}
+For a numerical semigroup $T$ let $b(T)=\sum_{g\in\G(T)}(g+1)$, and for a
+family $D$ let $\phi(D)=\sum_{T\in D}3^{b(T)}$. In Lemma~\ref{lem:step},
+$b(Q')=b(Q)-(v-u)<b(Q)$, and $b(R)<b(Q)$ because $R\supsetneq Q$. So
+replacing $Q$ by $Q'$ and $R$ replaces the term $3^{b(Q)}$ by at most
+$2\cdot3^{b(Q)-1}<3^{b(Q)}$, and removing components lowers $\phi$ further.
+Hence $\phi$ decreases strictly at each step, and the process stops; it stops
+only when no component is non-normal.
+\end{proof}
+
+\section{The normal form and the proof of Theorem~\ref{thm:interval}}\label{sec:normal}
+
+\begin{lemma}\label{lem:normal}
+Let $D$ be a decomposition of $S$ in which every component is normal. Then
+$D$ has exactly $r(S)$ components.
+\end{lemma}
+
+\begin{proof}
+Let $F=\F(S)$. First let $Q$ be a normal irreducible oversemigroup of $S$ with
+Frobenius number $f$. We claim that
+\[
+E(Q)=\{g\in\SG(S):2g<f\}\cup(\{f\}\cap\SG(S)).
+\]
+Let $g\in\SG(S)$. If $2g<f$, then $g\notin Q$ since $Q$ is normal and
+$g\notin S$ (and $g>0$). If $g=f$, then $g\notin Q$. If $f/2<g<f$ and
+$g\notin Q$, then $f-g\in Q$ by~\eqref{eq:sym}, and $0<f-g<f/2$, so $f-g\in S$
+by normality; as $g$ is special, $f=g+(f-g)\in S\subseteq Q$, a
+contradiction. The case $2g=f$ does not occur, since $2g\in S\subseteq Q$ for
+a special gap $g$. Finally, $g>f$ implies $g\in Q$. This proves the claim.
+
+Since $Q\supseteq S$, every Frobenius number $f$ of a component is at most
+$F$. Let $g\in\SG(S)$ with $2g>F$. Then $2g>f$ for every component, so by the
+claim $g$ is covered only by components with Frobenius number $g$, and $D$
+contains such a component $Q_g$. These $r(S)$ components are distinct. Since
+$F$ is special and $2F>F$, the component $Q_F$ covers every special gap $g$
+with $2g<F$, and no special gap satisfies $2g=F$. Hence the components $Q_g$
+already cover $\SG(S)$; any further component would have no private point. So
+$D=\{Q_g: g\in\SG(S),\ 2g>F\}$ has $r(S)$ components.
+\end{proof}
+
+\begin{remark}\label{rem:r}
+A decomposition of $S$ exists~\cite[Chapter~3, Proposition~4.44]{rg} (after
+removing redundant components), and Lemma~\ref{lem:terminate} turns it into one
+with all components normal; so $r(S)\in\mathcal L(S)$ for every $S\ne\N$. This
+consequence is not stated in the Lean files (Section~\ref{sec:lean}).
+\end{remark}
+
+\begin{proof}[Proof of Theorem~\ref{thm:interval}]
+For $S=\N$ we have $\mathcal L(\N)=\{0\}$. Let $S\ne\N$. The set
+$\mathcal L(S)$ is nonempty and finite (Lemma~\ref{lem:private}); let
+$a$ and $b$ be its minimum and maximum, so $a\le r(S)\le b$ by
+Remark~\ref{rem:r}. Start from a decomposition of length $a$ and apply
+Lemma~\ref{lem:step} until all components are normal
+(Lemma~\ref{lem:terminate}). The lengths along the way change by at most one at
+each step and end at $r(S)$ (Lemma~\ref{lem:normal}), so every integer between
+$a$ and $r(S)$ is the length of a decomposition. In the same way, starting from
+a decomposition of length $b$ gives every integer between $r(S)$ and $b$.
+\end{proof}
+
+\section{Even multiplicity}\label{sec:even}
+
+\begin{proof}[Proof of Theorem~\ref{thm:even}]
+Let $m=2k$ be the multiplicity of $S$; then $S\ne\N$. If $g<h$ are special
+gaps with $g\equiv h\pmod m$, then $h-g$ is a positive multiple of $m$, so
+$h-g\in S$ and $h=g+(h-g)\in S$, a contradiction. So each residue class
+modulo $m$ contains at most one special gap, and the class of $0$ contains
+none. Group the residue classes into the $k$ pairs $\{i,i+k\}$,
+$0\le i<k$. We show that for each pair there is an irreducible oversemigroup
+of $S$ that covers all special gaps of $S$ in the pair. Then these at most
+$k$ oversemigroups intersect in $S$ by Lemma~\ref{lem:cover}, and removing
+redundant ones gives a decomposition with at most $k$ components.
+
+If the pair contains no special gap, there is nothing to do. If it contains
+exactly one, $f$, take an irreducible numerical semigroup with Frobenius
+number $f$ containing $S$ (Section~\ref{sec:prelim}). If it contains two,
+$g<f$, let $d=f-g$. Then $d\equiv k\pmod{2k}$, so $2d$ is a positive multiple
+of $m$ and lies in $S$. Let $B=\{s+td:s\in S,\ t\in\N\}$, the numerical
+semigroup generated by $S$ and $d$. We claim $f\notin B$. Suppose $f=s+td$.
+If $t$ is even, then $td\in S$ and $f\in S$. If $t$ is odd, then
+$(t-1)d\in S$ and $g=f-d=s+(t-1)d\in S$. Both are impossible. Let $R$ be an
+irreducible numerical semigroup with Frobenius number $f$ containing $B$
+(Section~\ref{sec:prelim}). Then $f\notin R$, and $g\notin R$ because
+otherwise $f=g+d\in R$. So $R$ covers both special gaps.
+\end{proof}
+
+\begin{remark}
+For $m=6$ this is the pairing of the classes $\{1,4\}$ and $\{2,5\}$ in the
+proof of~\cite[Theorem~3.5]{go}. The first paragraph of the proof does not use
+that $m$ is even, so $\#\SG(S)\le m-1$ for every multiplicity $m$, as noted
+in~\cite[Section~2]{go}; with Lemma~\ref{lem:private}, every decomposition has
+at most $m-1$ components. Theorem~\ref{thm:even} bounds only the minimum
+length; the normal form of Lemma~\ref{lem:normal} can be longer than $k$. For
+example, $S=\langle 4,9,10,11\rangle$ has gaps $\{1,2,3,5,6,7\}$,
+$\SG(S)=\{5,6,7\}$, $r(S)=3>k=2$ and $\mathcal L(S)=\{2,3\}$.
+\end{remark}
+
+{\sloppy
+\section{Formal verification}\label{sec:lean}
+
+Theorems~\ref{thm:interval} and~\ref{thm:even} and Corollary~\ref{cor:descent}, the latter in the form of Conjecture~3.9 ($k<j<2k$), are formally verified in Lean~4 (version 4.34.1)
+with Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}). The $12$ files are in
+version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/Research/TaskL/Semigroup/}.
+
+\paragraph{The statements.}
+The statement file \texttt{Challenge.lean} contains only definitions and
+statements, no proofs. In ASCII notation:
+{\footnotesize
+\begin{verbatim}
+def Numerical (S : AddSubmonoid Nat) : Prop := ((S : Set Nat)^c).Finite
+def Irreducible (Q : AddSubmonoid Nat) : Prop :=
+  Numerical Q /\ forall A B : AddSubmonoid Nat, Numerical A -> Numerical B ->
+    Q = A inf B -> Q = A \/ Q = B
+def Represents (S : AddSubmonoid Nat) (D : Finset (AddSubmonoid Nat)) : Prop :=
+  forall n : Nat, n in S <-> forall Q in D, n in Q
+def Decomposition (S : AddSubmonoid Nat) (D : Finset (AddSubmonoid Nat)) : Prop :=
+  (forall Q in D, Irreducible Q) /\ Represents S D /\
+    forall E : Finset (AddSubmonoid Nat), E ssubset D -> not Represents S E
+def HasLength (S : AddSubmonoid Nat) (j : Nat) : Prop :=
+  exists D : Finset (AddSubmonoid Nat), Decomposition S D /\ D.card = j
+def HasMultiplicity (S : AddSubmonoid Nat) (m : Nat) : Prop :=
+  0 < m /\ m in S /\ forall s in S, 0 < s -> m <= s
+def LengthsExist : Prop :=
+  forall S : AddSubmonoid Nat, Numerical S -> exists j, HasLength S j
+def LengthsInterval : Prop :=
+  forall S : AddSubmonoid Nat, Numerical S -> forall a b j : Nat,
+    HasLength S a -> HasLength S b -> a <= j -> j <= b -> HasLength S j
+def PositiveLengthsInterval : Prop :=
+  forall S : AddSubmonoid Nat, Numerical S -> forall a b j : Nat,
+    (0 < a /\ HasLength S a) -> (0 < b /\ HasLength S b) ->
+    a <= j -> j <= b -> 0 < j /\ HasLength S j
+def EvenMultiplicityDescent : Prop :=
+  forall S : AddSubmonoid Nat, Numerical S -> forall k j : Nat,
+    HasMultiplicity S (2*k) -> k < j -> j < 2*k -> HasLength S j -> HasLength S (j-1)
+\end{verbatim}}
+\noindent Here \texttt{\^{}c} is the complement, \texttt{inf} the
+intersection of submonoids and \texttt{ssubset} strict inclusion. A numerical
+semigroup is an additive submonoid of $\N$ with finite complement. Irreducibility is stated literally: if $Q=A\cap B$ for numerical
+semigroups $A$ and $B$ (which then contain $Q$), then $Q=A$ or $Q=B$. A
+decomposition is a finite set of irreducible numerical semigroups whose
+intersection is $S$, such that no proper subset has intersection $S$; the
+empty set has intersection $\N$. Using a set rather than a list loses nothing,
+since a repeated component is redundant. \texttt{LengthsExist} and
+\texttt{LengthsInterval} together state Conjecture~1.1 of~\cite{go} for every
+numerical semigroup, including $\N$, for which the only decomposition is the
+empty one; \texttt{PositiveLengthsInterval} is the same statement for positive
+lengths, as in~\cite{g}; \texttt{EvenMultiplicityDescent} is Conjecture~3.9 of~\cite{go} as quoted above, with $k<j<2k$; the case $j\ge 2k$ of Corollary~\ref{cor:descent} is not stated in the Lean files and rests on the written proof above. The frozen statements do not include the bound of Theorem~\ref{thm:even},
+which is proved in the Lean files on the way as \texttt{short\_\allowbreak
+even\_\allowbreak decomposition}; Lemma~\ref{lem:normal} (every decomposition
+with all components normal has $r(S)$ components) is proved as
+\texttt{terminal\_\allowbreak card}. The assertion $r(S)\in\mathcal L(S)$ of
+Remark~\ref{rem:r} and the finiteness of $\mathcal L(S)$ are not stated in the
+Lean files; they rest on the written proofs.
+
+\paragraph{Review and freezing.}
+\texttt{Challenge.lean} was reviewed against~\cite{go} and~\cite{g} by a Codex
+agent that had not written it, and frozen, by recording its SHA-256 hash, on
+18 November 2026 at 23:47~UTC. The development logs record no compilation of a
+proof file before that time, and the file was not changed afterwards.
+
+\paragraph{The proofs.}
+In \texttt{Proof.lean}, \texttt{Proof.LengthsInterval} is
+\texttt{lengthsInterval} (file \texttt{Interval.lean}), which follows the
+proof of Sections~\ref{sec:swap}--\ref{sec:normal}, except that the final step
+is argued by contradiction: if a length $j$ between two lengths of
+decompositions were missing, every decomposition would lie on the same side
+of $j$ as $r(S)$ (\texttt{side\_\allowbreak of\_\allowbreak missing}, by strong
+induction on $\phi$); the exchange of Lemma~\ref{lem:swap} is
+\texttt{exchange\_\allowbreak of\_\allowbreak nonstandard}, the repair
+component is \texttt{repair\_\allowbreak component}, the step of
+Lemma~\ref{lem:step} is \texttt{rebalance} with the termination measure
+$\phi$ of Lemma~\ref{lem:terminate} (\texttt{score}), and
+Lemma~\ref{lem:normal} is \texttt{terminal\_\allowbreak card}.
+\texttt{Proof.EvenMultiplicityDescent} is \texttt{even\_\allowbreak
+of\_\allowbreak interval} applied to \texttt{lengthsInterval}, and uses
+\texttt{short\_\allowbreak even\_\allowbreak decomposition}
+(Theorem~\ref{thm:even}). \texttt{Proof.LengthsExist} is
+\texttt{lengthsExist}, and \texttt{Proof.PositiveLengthsInterval} follows
+from \texttt{lengthsInterval}. The test file \texttt{CheckSemigroup.lean}
+restates the four theorems with the frozen types
+(\texttt{check\_\allowbreak LengthsExist}, \texttt{check\_\allowbreak
+LengthsInterval}, \texttt{check\_\allowbreak PositiveLengthsInterval},
+\texttt{check\_\allowbreak EvenMultiplicityDescent}). The axioms of these
+theorems, printed by \texttt{CheckSemigroup.lean}, are exactly \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. No file uses
+\texttt{sorry}, \texttt{native\_\allowbreak decide},
+\texttt{bv\_\allowbreak decide} or an \texttt{axiom} declaration.
+
+\paragraph{Checks.}
+The $12$ files ($9$ proof modules, \texttt{Challenge.lean},
+\texttt{Proof.lean} and \texttt{CheckSemigroup.lean}) were compiled module by
+module in two new empty directories on the author's Mac, with the pinned
+toolchain, on 18 November 2026 (23:55--23:59~UTC), and every module was
+replayed with \texttt{leanchecker}; each directory also ran one build of the
+whole package. All $50$ commands ($25$ per directory) ended with exit
+code~$0$, the \texttt{leanchecker} runs printed nothing, and the two
+directories produced identical \texttt{.olean} files. The final reviewer (see
+the next section) compiled the $12$ files again in a third new directory on
+19 November 2026 (01:36--01:41~UTC), with warnings treated as errors, and
+replayed every module with \texttt{leanchecker}; all runs ended with exit
+code~$0$. Mathlib and its dependencies were taken from a shared prebuilt cache
+at the pinned commits and were not rechecked; the \texttt{leanchecker} replays
+cover the $12$ project modules. In the repository the files have module names under
+\texttt{Research.TaskL.Semigroup} and differ from the checked files only in
+their \texttt{import} lines (\texttt{Challenge.lean} is unchanged); these
+versions were compiled and replayed with \texttt{leanchecker} again, module by
+module, in two new empty directories on the author's Mac (19 November 2026,
+02:11--02:17~UTC), with identical \texttt{.olean} files and the same axiom
+lists. In the whole-project rebuild of version~1.24.0 of the repository (19--20 November 2026, on the author's Windows computer), these files were compiled and replayed with \texttt{leanchecker} again, together with the rest of the project, each at the first attempt; runs of other modules that failed for lack of memory or file access, without a Lean verdict, were run again and passed (details in the repository). The
+formalization has not been checked with comparator or with an independent
+kernel.
+
+\par}
+
+\section*{How this paper was produced}
+This work was carried out from 18 to 20 November 2026 (UTC) in a workflow
+directed by the author, using OpenAI Codex with the model GPT-6.2-Astra
+(reasoning level ultra) and Anthropic Claude Code with the model Claude
+Opus~5.5. The author asked for a search for substantial open problems, and
+Claude Code passed this request to Codex. On 18 November, between 19:22 and
+19:50~UTC, Codex screened $50$ problems from the literature, wrote proof
+sketches for three of them, had the proofs of this problem read by two other
+Codex agents (same model) and checked the statements by exact computation for
+all $1249$ numerical semigroups other than $\N$ with Frobenius number at most
+$17$; the author chose this problem and one other. From 23:38~UTC, Codex agents
+(same model) checked the reading of the sources, searched again for prior
+work, wrote the statement file, the written proof and the Lean proof, and ran
+the checks. The reading of the sources was checked, and the statement file
+reviewed before it was frozen, by one Codex agent that had not taken part in
+the search for problems and had not written the statement; this agent then
+wrote some of the proof files. After the checks, an independent Claude Code
+agent (model Claude Opus~5.5) that had written none of the files gave the
+final review. It read the sources itself, compared the statement file with
+them, read the written proof, the proof files and the raw logs of the checks,
+verified the example of Remark~\ref{rem:sg} by hand and rebuilt the
+formalization as described above. Its decision was APPROVE\_FORMAL, with six
+minor remarks on the written account, which were taken into account here. According to the
+session records, the proof files were written after the freeze by several Codex agents working in
+parallel; their compilation logs cover 23:49--23:55~UTC, and the written proof
+they follow had been prepared before, in the search for problems. Claude Code (Claude Opus~5.5) checked the sources and
+wrote this text from Codex's manuscript and the Lean files. An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied.
+Throughout, ``we'' refers to this workflow; the reading and searching described
+in the paper were done by the agents. Codex agents searched for prior work on 18 November 2026, and Claude Code searched again on 19 and 20 November 2026; they found no proof of either conjecture beyond multiplicity~$6$ (details in the repository). This reports the coverage of the search, not a guarantee that it was complete. The author is not a
+professional mathematician. The author has read this paper and, using a side-by-side table,
+compared its Lean statements with Theorems~\ref{thm:interval} and~\ref{thm:even}
+and Corollary~\ref{cor:descent}. No human mathematician has reviewed
+this paper. The correctness of the results rests on the Lean proofs and on the
+agreement of the Lean statements with the conjectures of~\cite{go}; the
+written proofs are given for the reader. AI systems are not authors of this
+paper; the author takes full responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Pedro A. García-Sánchez and Christopher O'Neill
+for the questions.
+
+\begin{thebibliography}{9}
+\bibitem{br} V.~Blanco and J.~C. Rosales, The tree of irreducible numerical
+semigroups with fixed Frobenius number, \emph{Forum Math.} 25 (2013),
+1249--1261; arXiv:1105.2147v1 (2011). Proposition numbers refer to the arXiv
+version.
+\bibitem{bsf} T.~Bogart and S.~A. Seyed Fakhari, Unboundedness of irreducible
+decompositions of numerical semigroups, \emph{Comm. Algebra} 53 (2025),
+1361--1364; arXiv:2405.11080.
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{g} P.~A. García-Sánchez, Factorizations into irreducible numerical
+semigroups, \emph{Commun. Korean Math. Soc.} 40 (2025), no.~3, 587--592,
+\url{https://doi.org/10.4134/CKMS.c240257}; arXiv:2410.13729.
+\bibitem{go} P.~A. García-Sánchez and C.~O'Neill, Lengths of irreducible
+decompositions of numerical semigroups, arXiv:2602.00404v1, 2026.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{rb} J.~C. Rosales and M.~B. Branco, Decomposition of a numerical
+semigroup as an intersection of irreducible numerical semigroups,
+\emph{Bull. Belg. Math. Soc. Simon Stevin} 9 (2002), 373--381.
+\bibitem{rg} J.~C. Rosales and P.~A. García-Sánchez, \emph{Numerical
+Semigroups}, Developments in Mathematics~20, Springer, New York, 2009,
+\url{https://doi.org/10.1007/978-1-4419-0160-6}.
+\end{thebibliography}
+\end{document}

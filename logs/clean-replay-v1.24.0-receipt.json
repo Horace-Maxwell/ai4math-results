@@ -1,0 +1,56 @@
+{
+ "purpose": "Whole-project clean rebuild of the Lean project of release v1.24.0 (adds Paper 16).",
+ "start_utc": "2026-11-19T12:40:51Z",
+ "end_utc": "2026-11-20T01:27:01Z",
+ "result": "3790 of 3790 modules compiled; 3789 of 3790 replayed with leanchecker; the module Research has no constants and was exempted; 0 audit problems. Two passes: see runs.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.23.0-receipt.json",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs); OpenAI Codex did not use it during the rebuild: according to a recursive file listing taken after the rebuild, no file in its directories there (.codex and ai4math-codex*) was written after 18 November 2026, 23:35:36 UTC, before the run started",
+ "procedure": [
+  "New empty output directory; sources copied from the release tree lean/ (Research.lean and Research/, 3792 files, of which 3790 are Lean modules and 2 are Python scripts of Paper 3). The archive was made on the author's Mac on 2026-11-19 at 12:40:04 UTC, eight minutes before the release commit of version 1.23.0 (12:48:59 UTC), which changed no Lean file, from the Lean files of that commit plus the 12 files of Paper 16 and one import line; after the build the SHA-256 hashes of the rebuilt sources were compared with the release tree: no difference. The directory Comparator/ was not built here; it is unchanged since version 1.13.0, and the CI workflow checks it.",
+  "Each module compiled with lean -DautoImplicit=false -DrelaxedAutoImplicit=false, then each module replayed with leanchecker, by the driver build6.py of version 1.16.0. This is not a lake build.",
+  "Warnings are recorded and do not fail a module; an error, sorry or non-zero exit code does. The driver reruns a module automatically (up to five times in each pass) when an attempt ends in a memory or file-read failure rather than a Lean verdict; logs of earlier attempts are kept with the suffix .attemptN. It starts a new Lean process only while enough commit charge (memory reserved by Windows) is free.",
+  "In the published logs the local workspace directory is replaced by <workspace> and the directory of the pinned toolchain and packages (ai4math-lean-worker) by <worker>, Windows line endings of status*.json, plan.json, research-olean-constants.txt and run.log are written as Unix line endings, and the byte-order mark at the start of research-olean-constants.txt is removed; nothing else is changed. run.log is empty: the driver writes its progress to status.json."
+ ],
+ "runs": [
+  {
+   "pass": 1,
+   "start_utc": "2026-11-19T12:40:51Z",
+   "end_utc": "2026-11-20T01:16:57Z",
+   "jobs": "up to 12 (free-commit threshold 14 GiB, 6 GiB reserved per start)",
+   "note": "One start, no restart. Compile phase from 2026-11-19T12:40:52Z to 20:11:58Z: 26 compile attempts in 5 modules of Paper 7 (Research.Backfill.Paper7.MomentB4Type112Middle*) failed for lack of memory or file access, not because of a proof (5 std::bad_alloc, 21 `failed to read file` at an import); two of these modules compiled when run again automatically, at the fourth and sixth attempt, and three still failed at their sixth attempt, so the 11 modules that depend on them (including the module Research) were skipped. Leanchecker phase from 20:11:58Z to 2026-11-20T01:16:57Z: every module that had compiled passed at its first attempt. status-pass1.json is the status at the end of pass 1. No attempt in either pass ended with a Lean error."
+  },
+  {
+   "pass": 2,
+   "start_utc": "2026-11-20T01:18:42Z",
+   "end_utc": "2026-11-20T01:27:01Z",
+   "jobs": 5,
+   "note": "Started by a watcher script only after pass 1 had written its end marker (01:16:57Z); the two drivers never ran at the same time. The same driver with --retry-failed and a free-commit threshold of 20 GiB: the 14 modules not recorded as passed in status-pass1.json (the 3 failed and the 11 skipped) were compiled, and the 13 of them other than Research replayed with leanchecker (01:18:44Z to 01:27:01Z), every one at the first attempt of this pass. Modules that had passed in pass 1 were not rerun."
+  }
+ ],
+ "module_Research": {
+  "lines": "only import lines",
+  "constants": 0,
+  "extra_constants": 0,
+  "imports": 66,
+  "how_counted": "readModuleData on Research.olean (research-olean-constants.txt in the log archive)",
+  "consequence": "leanchecker has nothing to replay in this module. It was exempted before the run, as for versions 1.15.0 to 1.23.0."
+ },
+ "audit": {
+  "modules": 3790,
+  "compile_ok": 3790,
+  "check_ok": 3789,
+  "check_exempt": 1,
+  "axiom_lists": 116801,
+  "axiom_lists_empty": 8574,
+  "warnings": 97,
+  "problem_count": 0
+ },
+ "warnings": "97 lines in 15 older modules, the same lines as for versions 1.21.0 to 1.23.0; none in Paper 16.",
+ "axioms": "every printed axiom list in the final logs is a subset of propext, Classical.choice and Quot.sound. The lists printed for the check theorems of Paper 16 (TaskL.Semigroup.check_LengthsExist, check_LengthsInterval, check_PositiveLengthsInterval, check_EvenMultiplicityDescent, and the four theorems of TaskL.Semigroup.Proof they restate, by Research.TaskL.Semigroup.CheckSemigroup) are each exactly these three axioms.",
+ "forbidden_tokens": "logs/clean-replay-v1.24.0-forbidden-tokens.log: outside comments, only the intentional sorry statements of the comparator challenge files lean/Comparator/ (the same hits as for version 1.23.0; none in the new files).",
+ "lean_errors": "No attempt ended in a Lean error. Every failed attempt was a memory or file-read failure (the compile attempts that could not read a file print `error: failed to read file` at the import line, which is not a verdict on a proof), and every module passed in the end.",
+ "source_manifest": "logs/lean-sources-sha256.txt, 3800 files",
+ "logs": "logs/clean-replay-v1.24.0-logs.tar.gz (status.json, status-pass1.json, plan.json, research-olean-constants.txt, run.log and the log of every attempt)"
+}

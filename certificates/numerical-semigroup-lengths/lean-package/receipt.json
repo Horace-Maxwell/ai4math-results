@@ -1,0 +1,54 @@
+{
+ "package": "numerical-semigroup-lengths",
+ "codex_acceptance": {
+  "receipts": [
+   "semigroup/acceptance/2026-11-18T235517Z/receipt.json"
+  ],
+  "start_utc": "2026-11-18T23:55:17Z",
+  "end_utc": "2026-11-18T23:59:31Z",
+  "note": "Codex acceptance run on the author's Mac, in the archive codex-acceptance-logs.tar.gz (logs only; the build directories are not included); local paths replaced by <workspace>."
+ },
+ "repository_recheck": {
+  "computer": "the author's Mac",
+  "lean": "Lean 4.34.1 (arm64-apple-darwin)",
+  "start_utc": "2026-11-19T02:11Z",
+  "end_utc": "2026-11-19T02:17Z",
+  "procedure": "The repository versions (module names under Research.TaskL.Semigroup; only import lines differ from the accepted files) compiled module by module with lean -DautoImplicit=false -DrelaxedAutoImplicit=false -R <lean dir>, each module then replayed with leanchecker, in two new empty output directories one after the other (root1 02:11-02:14Z, root2 02:14-02:17Z), by repository-recheck-logs.tar.gz/mac_compile_taskl.py. Mathlib from the pinned prebuilt packages, not rebuilt.",
+  "olean_identical": true,
+  "root1": {
+   "modules": 12,
+   "compile_rc0": 12,
+   "leanchecker_rc0": 12,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskL.Semigroup.Proof.LengthsExist": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.Proof.LengthsInterval": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.Proof.PositiveLengthsInterval": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.Proof.EvenMultiplicityDescent": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.check_LengthsExist": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.check_LengthsInterval": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.check_PositiveLengthsInterval": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.check_EvenMultiplicityDescent": "propext, Classical.choice, Quot.sound"
+   }
+  },
+  "root2": {
+   "modules": 12,
+   "compile_rc0": 12,
+   "leanchecker_rc0": 12,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskL.Semigroup.Proof.LengthsExist": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.Proof.LengthsInterval": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.Proof.PositiveLengthsInterval": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.Proof.EvenMultiplicityDescent": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.check_LengthsExist": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.check_LengthsInterval": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.check_PositiveLengthsInterval": "propext, Classical.choice, Quot.sound",
+    "TaskL.Semigroup.check_EvenMultiplicityDescent": "propext, Classical.choice, Quot.sound"
+   }
+  }
+ },
+ "whole_project": "logs/clean-replay-v1.24.0-receipt.json"
+}

@@ -1,6 +1,6 @@
-# Research papers formalized in Lean 4: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras, word-representability, distance eigenvalues of cographs, Frobenius forms of axial algebras, cycles of length 0 modulo k in critical graphs, the rank of groups of equivariant permutations and the longest Manhattan paths through boxes
+# Research papers formalized in Lean 4: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras, word-representability, distance eigenvalues of cographs, Frobenius forms of axial algebras, cycles of length 0 modulo k in critical graphs, the rank of groups of equivariant permutations, the longest Manhattan paths through boxes and the decomposition lengths of numerical semigroups
 
-This repository contains fifteen papers, their Lean 4 formalizations and
+This repository contains sixteen papers, their Lean 4 formalizations and
 computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254); version 1.0.0
 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255); version 1.1.0
@@ -27,12 +27,13 @@ computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.24150853](https://doi.org/10.5281/zenodo.24150853); version 1.20.0
 [10.5281/zenodo.24201129](https://doi.org/10.5281/zenodo.24201129); version 1.21.0
 [10.5281/zenodo.24321346](https://doi.org/10.5281/zenodo.24321346); version 1.22.0
-[10.5281/zenodo.24352560](https://doi.org/10.5281/zenodo.24352560).
+[10.5281/zenodo.24352560](https://doi.org/10.5281/zenodo.24352560); version 1.23.0
+[10.5281/zenodo.24370025](https://doi.org/10.5281/zenodo.24370025).
 
-> **Verification status (version 1.23.0, 19 November 2026).** No human
-> mathematician has reviewed these papers. All fifteen papers are formalized
+> **Verification status (version 1.24.0, 20 November 2026).** No human
+> mathematician has reviewed these papers. All sixteen papers are formalized
 > completely: Paper 1 in its version 3, Papers 2, 3, 4, 5, 6, 7 and 8 in their
-> versions 2, Papers 10 and 13 in their versions 2, and Papers 9, 11, 12, 14 and 15. Every mathematical result in them has a Lean
+> versions 2, Papers 10 and 13 in their versions 2, and Papers 9, 11, 12, 14, 15 and 16. Every mathematical result in them has a Lean
 > proof, checked against independently reviewed and frozen statement files. In
 > Paper 11, Remark 1, which derives its answer from a lemma of Conde, Dratman
 > and Grippo, is not formalized; it is not needed for Theorem 1, the paper's
@@ -49,7 +50,12 @@ computational certificates. It is archived on Zenodo: all versions
 > theorems, which are formalized. In Paper 15, the formal result is Theorem 1;
 > Corollary 2 (when one ordering attains the largest contribution of every
 > coordinate at once) also uses Yuan's formula for a single coordinate, which
-> is not formalized. For
+> is not formalized. In Paper 16, the frozen statements are Theorem 1 and
+> Corollary 1, the latter in the form of Conjecture 3.9 of the source
+> (`k < j < 2k`); the bound of Theorem 2 is proved in Lean on the way, but is
+> not one of the frozen statements, and the assertion `r(S) ∈ L(S)` of
+> Remark 2 and the finiteness of `L(S)` are not formalized; they are not
+> needed for Theorem 1 and Corollary 1. For
 > Paper 2 this includes the existence and uniqueness of the normalized series
 > and their first terms. It does not include what the paper says about the OEIS
 > entries and the literature: no Lean statement mentions the OEIS, and the
@@ -108,6 +114,7 @@ computational certificates. It is archived on Zenodo: all versions
 | Paper 13 (version 2) | Critical graphs with the fewest cycles of length 0 modulo k | answer: Question 8 of Choi and Sieniawski (arXiv:2611.13580v1) answered yes for every `k ≥ 4` (`K_{k+1}` is the only `(k+1)`-critical graph with exactly `(k+1)!/(2k)` cycles of length 0 modulo `k`); version 1 (v1.21.0) covered `k = 4, 5, 6, 7`; completely formalized (not checked with comparator, see below) | `TaskH.original_question_two_all_k` | [`papers/critical-cycles-mod-k`](papers/critical-cycles-mod-k/note.pdf) |
 | Paper 14 | On the rank of groups of equivariant permutations: a counterexample to an upper bound | Theorem 4 of Lara-Gómez, Romero-Rosales and Ruiz-Medina (Semigroup Forum, published online 2 November 2026; the right-hand side of Theorem 5 of arXiv:2607.04053v1), an upper bound for the rank of the group of `G`-equivariant permutations of a finite `G`-set, fails for the group of order 2 acting on two points; a five-point example and, for every `n ≥ 3`, a cyclic action show that their packet expression, which they expected to be the exact rank, can exceed the rank by any amount (their own 21-point example already shows that it is not always exact); completely formalized, except four remarks marked as written arguments (not checked with comparator, see below) | `TaskJ.Rank.check_TwoPointCounterexample`, `check_FivePointCounterexample`, `TaskJ.Rank.Extension.check_UnboundedGap` (7 checked statements) | [`papers/equivariant-rank`](papers/equivariant-rank/note.pdf) |
 | Paper 15 | The maximum Manhattan length of a path through all lattice points of a box | answer to the first open question of §6.3 of Yuan (arXiv:2611.19908v1): the exact maximum for every box with positive integer sides, in every dimension, with orderings attaining it; with at least three sides larger than 1, the gap to Yuan's coordinatewise bound is 1 when all sides are odd and `2^(e−1) − 1` when `e ≥ 1` sides are even, the expression Yuan had suggested from computed data; the hypercube, the plane and closed circuits on equal-sided cubes were treated earlier (see below); completely formalized, except Corollaries 1 and 2 (Corollary 2 uses Theorem 2.3 of Yuan) (not checked with comparator, see below) | `check_LengthUpperBound`, `check_LengthAttained`, `check_YuanGapAtLongest` | [`papers/lattice-box-paths`](papers/lattice-box-paths/note.pdf) |
+| Paper 16 | The decomposition lengths of a numerical semigroup form an interval | answer: Conjecture 1.1 of García-Sánchez and O'Neill (arXiv:2602.00404v1), that the lengths of the irredundant decompositions of a numerical semigroup into irreducible numerical semigroups form an interval, proved for every numerical semigroup (they had proved it for multiplicity at most 6), and their Conjecture 3.9 on even multiplicity, through a decomposition with at most `k` components when the multiplicity is `2k`; the tools used (special gaps, an exchange of Blanco and Rosales, a bound of Rosales and Branco) are earlier work (see below); completely formalized, except Remark 2 (`r(S) ∈ L(S)`) and the case `j ≥ 2k` of Corollary 1; the bound for even multiplicity is proved in Lean but is not a frozen statement (not checked with comparator, see below) | `TaskL.Semigroup.check_LengthsExist`, `check_LengthsInterval`, `check_EvenMultiplicityDescent` (4 checked statements) | [`papers/numerical-semigroup-lengths`](papers/numerical-semigroup-lengths/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
@@ -974,6 +981,86 @@ upper bound.* 9 pages.
   nothing imports and which was not checked, is not included. See the
   disclosure below for the reviews.
 
+**Paper 16: [`papers/numerical-semigroup-lengths`](papers/numerical-semigroup-lengths/note.pdf).**
+*The decomposition lengths of a numerical semigroup form an interval.* 9 pages.
+
+- A numerical semigroup `S` is a set of non-negative integers that contains
+  0, is closed under addition and misses only finitely many integers, its
+  gaps. Every numerical semigroup is an irredundant intersection of finitely
+  many irreducible numerical semigroups (Rosales and García-Sánchez,
+  *Numerical Semigroups*, 2009, Chapter 3, Proposition 4.44), often in
+  several ways; the number of components is the length of the decomposition,
+  and `L(S)` is the set of all lengths. García-Sánchez (Commun. Korean Math.
+  Soc. 40 (2025); arXiv:2410.13729v1, §3), who calls decompositions
+  factorizations, reported that he had found no numerical semigroup whose set
+  of lengths is not an interval and suggested proving that it always is.
+  García-Sánchez and O'Neill (arXiv:2602.00404v1) state this as their
+  Conjecture 1.1 and prove it for multiplicity at most 6; their Conjecture 3.9
+  says that a numerical semigroup of multiplicity `m = 2k` with a
+  decomposition of length `j`, `k < j < m`, also has one of length `j − 1`
+  (for `m = 6` this is their Theorem 3.5; they report computational evidence
+  for `m = 8`).
+- **Theorem 1.** For every numerical semigroup `S`, `L(S)` is a nonempty set
+  of consecutive integers. In one component at a time, the proof exchanges an
+  integer below half the Frobenius number of the component for its
+  complement, which keeps the Frobenius number; when this leaves a special
+  gap of `S` uncovered, one irreducible component with a smaller Frobenius
+  number repairs it, and redundant components are removed. Each step changes
+  the length by at most one, and the process ends in a normal form with
+  exactly `r(S)` components, the number of special gaps of `S` larger than
+  half its Frobenius number.
+- **Theorem 2.** A numerical semigroup of multiplicity `2k` has a
+  decomposition with at most `k` components: each residue class modulo `2k`
+  contains at most one special gap, and one irreducible component covers the
+  special gaps of two classes that differ by `k`. This generalizes the
+  pairing of residue classes in the proof of Theorem 3.5 of García-Sánchez
+  and O'Neill.
+- **Corollary 1.** Conjecture 3.9 holds; more precisely, if `S` has
+  multiplicity `2k` and a decomposition of length `j > k`, it has one of
+  length `j − 1`.
+- Scope and earlier results: the criterion by special gaps, the existence of
+  decompositions and an algorithm for a decomposition of minimum length are
+  in the book of Rosales and García-Sánchez (Chapter 3, Section 4); the
+  exchange is a special case of Proposition 5 of Blanco and Rosales (Forum
+  Math. 25 (2013); arXiv:1105.2147v1); that every numerical semigroup has a
+  decomposition with at most `r(S)` components is due to Rosales and Branco
+  (2002, Corollaries 10 and 18), as quoted by Bogart and Seyed Fakhari (Comm.
+  Algebra 53 (2025), Theorem 2.1). The full text of the paper of Rosales and
+  Branco could not be read; it may also contain a decomposition of length
+  exactly `r(S)`, which Paper 16 does not claim as new. Theorem 4.3 of
+  García-Sánchez and O'Neill changes decompositions of the ordinary
+  semigroups `{0, m, m + 1, …}` by the same kind of steps. Remark 1 of the
+  paper notes, with an example, that the condition printed in (2.5) of
+  arXiv:2602.00404v1 (`SG(S) ⊆ ⋃ SG(S_i)`) cannot replace the criterion of
+  the book (`SG(S) ⊆ ⋃ G(S_i)`), which the paper uses. Remark 2
+  (`r(S) ∈ L(S)` for `S ≠ ℕ`), the finiteness of `L(S)` and the examples of
+  Remarks 1 and 3 are written arguments and are not formalized.
+- Lean: `lean/Research/TaskL/Semigroup/` (12 modules: the statement file, 9
+  proof modules, `Proof.lean` and `CheckSemigroup.lean`). The statement file
+  `Challenge.lean` defines a numerical semigroup as an additive submonoid of
+  `ℕ` with finite complement, irreducibility literally (if `Q = A ⊓ B` for
+  numerical semigroups `A` and `B`, then `Q = A` or `Q = B`), a decomposition
+  of `S` as a finite set of irreducible numerical semigroups whose
+  intersection is `S` and no proper subset of which has intersection `S` (the
+  empty set has intersection `ℕ`), its length as the number of its elements,
+  and the multiplicity. It states `LengthsExist` and `LengthsInterval`, which
+  together are Conjecture 1.1 for every numerical semigroup, including `ℕ`,
+  whose only decomposition is the empty one; `PositiveLengthsInterval`, the
+  same for positive lengths, as in the paper of García-Sánchez; and
+  `EvenMultiplicityDescent`, Conjecture 3.9 as stated (`k < j < 2k`). The
+  bound of Theorem 2 is proved on the way as `short_even_decomposition`, and
+  Lemma 7 of the paper (every decomposition with all components normal has
+  `r(S)` components) as `terminal_card`; neither is a frozen statement. A
+  Codex agent that had not written it reviewed the statement file against
+  the papers of García-Sánchez and O'Neill and of García-Sánchez, and it was
+  frozen on 18 November 2026 at 23:47:45 UTC; the session records and file
+  times show no proof file before that time. The same agent had
+  checked the reading of the sources, and it then wrote some of the proof
+  files. OpenAI Codex wrote the statements and the proofs and checked the
+  package in two new empty directories on the author's Mac
+  (`certificates/numerical-semigroup-lengths/lean-package/`); the text was
+  written by Claude Code. See the disclosure below for the reviews.
+
 **Also formalized (known results): OEIS A246056 and A376230.** Both are
 Hanna conjectures listed as open on the OEIS, but their content follows from
 published theorems, so we claim no new mathematics here:
@@ -1201,6 +1288,7 @@ no error of version 2.
 | Paper 13 (version 2): Theorem 2 for every `k ≥ 4` (a `(k+1)`-critical graph with exactly `(k+1)!/(2k)` cycles of length 0 modulo `k` is `K_{k+1}`), with the lemmas of Sections 2–7 of the paper, including Theorem 3.1 of Gao, Huo, Liu and Ma | `TaskH.original_question_two_all_k` (`lean/Research/TaskH/OriginalQuestionTwoAssembly.lean`), whose type is the frozen statement `TaskH.Challenge.Question2` (`Challenge.lean` SHA-256 `a139c7e6…22a3b`), restated in `OriginalQuestionTwoTests.lean`, which also proves that the frozen counterexample statement is false; the theorems of version 1, `TaskH.case_four`, `case_five`, `case_six`, `case_seven` (types `CaseFour`, …, `CaseSeven`; `CaseFive.lean` `640313d2…9495e`, `CaseSix.lean` `68ec2193…61d3f`, `CaseSeven.lean` `d982be01…4691b`), restated in `ExactTests.lean` … `ExactTestsSeven.lean`; `TaskH.lower_bound_seven` (Theorem 3 of Choi and Sieniawski for `k = 7` and 8-critical graphs) | version 1: for each `k` the modules of that case (49, 120, 236, 240) built and checked with `leanchecker` in two new empty directories (identical `.olean` files; for `k = 6`, 13 attempts without a Lean verdict were run again by the driver and passed); all `k`: the 717 files of Codex's package built and checked in two new empty directories on the author's Mac (2868 commands with exit code 0, identical `.olean` files); all 716 files together in the whole-project rebuild of version 1.22.0 (`certificates/critical-cycles-mod-k/lean-package/`); the axiom lists of the main theorems are exactly the three standard axioms; tests of `K_{k+1}` for `k = 4, …, 7`; not checked with comparator or nanoda (see below). Not formalized: that `K_{k+1}` has exactly `(k+1)!/(2k)` such cycles for `k ≥ 8` (that it is `(k+1)`-critical is formalized for every `k`), the remark citing Bai, Grzesik, Li and Prorok, Proposition 1 of the paper for `k ≥ 6` and Lemmas 7 and 8 for `k ≥ 6` (they are used, and formalized, only for `k = 4, 5` and for `k = 5`), and what the paper says about the literature |
 | Paper 14: Theorems 1, 2 and 3 (for the two-point and the five-point action of `C_2`: the parameters of the source, the rank of the equivariant group, the failure of the bound of Theorem 4 for the first, and for the second the rank below both packet expressions; for every `n ≥ 3`: a faithful action of a cyclic group with `r = κ = n`, `Λ = 0`, rank 2 and `n` packets for every valid choice of generating sets) | `TaskJ.Rank.check_TwoPointParameters`, `check_FivePointParameters`, `check_TwoPointRank`, `check_FivePointRank`, `check_TwoPointCounterexample`, `check_FivePointCounterexample` (`lean/Research/TaskJ/Rank/CheckRank.lean`) and `TaskJ.Rank.Extension.check_UnboundedGap` (`lean/Research/TaskJ/Rank/Extension/CheckExtension.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `5ebdebf7…21e5`) and `Extension/Challenge.lean` (`efa3009d…ad72`); proved by the theorems of the same names in `TaskJ.Rank.Proof` and `TaskJ.Rank.Extension.Proof` | the 5 and the 10 modules built and checked with `leanchecker` by Codex in two new empty directories each (22 and 42 commands with exit code 0, identical `.olean` files), the repository versions again by Claude Code in two new empty directories on the author's Mac (18 November 2026, 19:12–19:21 UTC), and all 15 in the whole-project rebuild of version 1.23.0 (`certificates/equivariant-rank/lean-package/`); the axiom lists of the seven checks are exactly the three standard axioms; the parameter values are computed with `decide +kernel`, no `native_decide`; the parameters of the examples were also recomputed by the final reviewer, and the 21-point example of the source by a Codex program, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: the four remarks marked as written arguments (transitive actions, the corrected bound, the second reading of `δ` in the preprint, the smaller variant of the family), the isomorphism types `C_2 × S_3` and `Z/M × Z/M` named in the written proofs, the 21-point example of the source, and what the paper says about the literature |
 | Paper 15: Theorem 1 (for every finite list of positive side lengths: every ordering of the points of the box has length at most `U_r(D) − κ(D)`, some ordering attains it, and every longest ordering has gap exactly `κ(D)` to the bound `U_r(D)` printed in (6) of Yuan's paper), with the steps of its proof (Propositions 1 and 2, the constructions of Section 3) | `check_LengthUpperBound`, `check_LengthAttained`, `check_YuanGapAtLongest` (root namespace, `lean/Research/TaskJ/Grid/CheckGrid.lean`), whose types are the frozen statements `Challenge.LengthUpperBound`, `Challenge.LengthAttained` and `Challenge.YuanGapAtLongest` (`Challenge.lean` SHA-256 `6b0ad9f9…5e07`); proved by `Proof.LengthUpperBound`, `Proof.LengthAttained` and `Proof.YuanGapAtLongest` in `Proof.lean` | the 28 modules built and checked with `leanchecker` by Codex in two new empty directories (114 commands with exit code 0, identical `.olean` files), the repository versions again by Claude Code in two new empty directories on the author's Mac (18 November 2026, 19:12–19:21 UTC), and all 28 in the whole-project rebuild of version 1.23.0 (`certificates/lattice-box-paths/lean-package/`); the axiom lists of the three checks are exactly the three standard axioms; `decide` is used for the fixed seeds and finite case splits, no `native_decide`; the formula was also checked by the final reviewer by exhaustive search on small boxes (all 67 boxes with at most 8 points and at most three sides, all 40 boxes with sides at least 2 and at most 20 points, and further boxes including `2 × 3 × 4`, `2 × 2 × 2 × 3` and `3 × 3 × 3`), with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Corollary 2 and the comparison with Jiang's conjecture (they also use Yuan's formula for a single coordinate, Theorem 2.3 of his paper), the closed forms of Corollary 1 as separate statements (they are rewritings of the formula of Theorem 1), the particular ordering printed in Remark 3 (the instance of `LengthAttained` for `2 × 3 × 4` gives some ordering of length 101), and what the paper says about the literature |
+| Paper 16: Theorem 1 (for every numerical semigroup `S`, the set of lengths of its decompositions into irreducible numerical semigroups is nonempty and contains every integer between two of its elements; the same for positive lengths) and Corollary 1 in the form of Conjecture 3.9 (multiplicity `2k`: a length `j` with `k < j < 2k` gives the length `j − 1`), with the steps of the proof (the cover criterion, the exchange of Lemma 4, the step of Lemma 5 and its termination, Lemma 7) and Theorem 2 | `TaskL.Semigroup.check_LengthsExist`, `check_LengthsInterval`, `check_PositiveLengthsInterval`, `check_EvenMultiplicityDescent` (`lean/Research/TaskL/Semigroup/CheckSemigroup.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `a0269ad5…6662`); proved by the theorems of the same names in `TaskL.Semigroup.Proof`; Theorem 2 is `short_even_decomposition` and Lemma 7 is `terminal_card` | the 12 modules built and checked with `leanchecker` by Codex in two new empty directories (18 November 2026, 23:55–23:59 UTC; 50 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory, with warnings treated as errors (19 November 2026, 01:36–01:41 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (19 November 2026, 02:11–02:17 UTC), and all 12 in the whole-project rebuild of version 1.24.0 (`certificates/numerical-semigroup-lengths/lean-package/`); the axiom lists of the four checks are exactly the three standard axioms; `decide` is used only for three numerical side facts, no `native_decide`; the statements were also checked by Codex by exact computation for all 1249 numerical semigroups other than `ℕ` with Frobenius number at most 17, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: the assertion `r(S) ∈ L(S)` (Remark 2), the finiteness of `L(S)` (at most `m − 1` components, Remark 3), the stronger form of Corollary 1 for every `j > k` (it follows at once from Theorems 1 and 2, but is not stated in Lean), the examples of Remarks 1 and 3, and what the paper says about the literature |
 
 Each OEIS theorem is stated for every integer power series satisfying the
 defining equation. The energy is `∑ |eigenvalues|`, using
@@ -1664,13 +1752,47 @@ lists are subsets of the three axioms above, and the lists printed for the ten
 check theorems of Papers 14 and 15 consist of exactly these three. Outside
 comments, the forbidden tokens occur only as the intentional `sorry`s of the
 comparator challenge files (`logs/clean-replay-v1.23.0-forbidden-tokens.log`).
-`logs/lean-sources-sha256.txt` lists 3788 files. The full record is in
+`logs/lean-sources-sha256.txt` listed 3788 files. The full record is in
 `logs/clean-replay-v1.23.0-receipt.json`, and the logs of every module are in
 `logs/clean-replay-v1.23.0-logs.tar.gz`.
 
+For version 1.24.0, which adds the 12 Lean files of Paper 16 (in
+`lean/Research/TaskL/Semigroup/`) and one `import` line in `lean/Research.lean`
+(`Research.TaskL.Semigroup.CheckSemigroup`), the whole project was rebuilt from a new
+empty directory on the author's Windows computer (63 GB of memory), from 12:40
+UTC on 19 November 2026 to 01:27 UTC on 20 November 2026, with `lean` and
+`leanchecker` run on one module at a time rather than with `lake`; OpenAI Codex
+did not use the computer during the rebuild (no file in its directories there
+was written after 23:35 UTC on 18 November, according to a recursive file
+listing taken after the rebuild). The sources were archived before the release
+commit; they agree byte for byte with `lean/Research.lean` and
+`lean/Research/`; the directory `lean/Comparator/` was not rebuilt here. It
+took two passes. In the first, with up to 12 jobs, 26 compile attempts in 5
+modules of Paper 7 failed for lack of memory or file access (5 ran out of
+memory with `std::bad_alloc`, 21 could not read a compiled file); two of these
+modules compiled when the driver ran them again automatically, three still
+failed at their sixth attempt, and the 11 modules that depend on them were
+skipped. Every module that had compiled passed `leanchecker` at its first
+attempt. No attempt ended with a Lean error. The second pass, started only
+after the first had ended, with up to 5 jobs, compiled the 14 remaining modules
+and replayed 13 of them with `leanchecker`, each at the first attempt. All 3790
+modules (the 3778 of version 1.23.0 and the 12 new ones) compiled, with the
+same 97 warning lines in 15 older modules as for version 1.23.0, none in Paper
+16, and, in their final runs, no error and no `sorry`, and 3789 modules passed
+`leanchecker`; the remaining one is the module `Research`, which has only
+imports and no constants and was exempted, as before. All 116,801 printed
+axiom lists are subsets of the three axioms above, and the lists printed for
+the four check theorems of Paper 16 consist of exactly these three. Outside
+comments, the forbidden tokens occur only as the intentional `sorry`s of the
+comparator challenge files (`logs/clean-replay-v1.24.0-forbidden-tokens.log`).
+`logs/lean-sources-sha256.txt` lists 3800 files. The full record, with both
+passes, is in `logs/clean-replay-v1.24.0-receipt.json`, and the logs of every
+module, including those of the failed attempts (suffix `.attemptN`), are in
+`logs/clean-replay-v1.24.0-logs.tar.gz`.
+
 ### Comparator check of the completely formalized papers
 
-The completely formalized papers other than Papers 1, 2, 7, 11, 12, 13, 14 and 15 are also checked with
+The completely formalized papers other than Papers 1, 2, 7, 11, 12, 13, 14, 15 and 16 are also checked with
 [comparator](https://github.com/leanprover/comparator). For each such paper,
 a challenge file in `lean/Comparator/` states the
 checked theorems with `sorry` proofs and imports only the paper's frozen
@@ -1720,8 +1842,10 @@ for version 1.20.0 for the same papers
 ([run 43452408163](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/43452408163)),
 for version 1.21.0 for the same papers
 ([run 44136540421](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44136540421)),
-and for version 1.22.0 for the same papers
-([run 44371642744](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44371642744)).
+for version 1.22.0 for the same papers
+([run 44371642744](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44371642744)),
+and for version 1.23.0 for the same papers
+([run 44530821691](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44530821691)).
 Paper 6 is not in the workflow: a comparator run of its 35 theorems takes much
 longer than those of the other papers (more than 30 minutes on the computer
 used for version 1.13.0), and we have not tried it on GitHub's machines. It was
@@ -1787,6 +1911,15 @@ project described above, but not by an independent kernel; the files
 `lean/Research/TaskJ/Rank/CheckRank.lean`,
 `lean/Research/TaskJ/Rank/Extension/CheckExtension.lean` and
 `lean/Research/TaskJ/Grid/CheckGrid.lean` restate the frozen statements.
+
+**Paper 16 has not been checked with comparator or nanoda.** It has no
+challenge file in `lean/Comparator/` and no configuration in `ci/comparator/`.
+Its proofs have been replayed by the Lean kernel with `leanchecker` in Codex's
+two builds of its package, in the build of the final reviewer, in the two
+builds of the repository versions on the author's Mac and in the rebuild of
+the whole project described above, but not by an independent kernel;
+`lean/Research/TaskL/Semigroup/CheckSemigroup.lean` restates the frozen
+statements.
 
 For version 1.13.0, the same comparator, lean4export and nanoda versions were
 run locally by OpenAI Codex on 9 October 2026, on macOS, where the landrun
@@ -1880,6 +2013,7 @@ lake build Research.TaskH.OriginalQuestionTwoTests  # Paper 13: restates Questio
 lake build Research.TaskH.ExactTests Research.TaskH.ExactTestsFive Research.TaskH.ExactTestsSix Research.TaskH.Seven.SevenCheck  # Paper 13, version 1: restate CaseFour..CaseSeven, test K_5..K_8
 lake build Research.TaskJ.Rank.CheckRank Research.TaskJ.Rank.Extension.CheckExtension  # Paper 14: restate the seven frozen statements, printing the axioms
 lake build Research.TaskJ.Grid.CheckGrid  # Paper 15: restates the three frozen statements, printing the axioms
+lake build Research.TaskL.Semigroup.CheckSemigroup  # Paper 16: restates the four frozen statements, printing the axioms
 ```
 
 Toolchain: Lean 4.34.1, mathlib v4.34.1 (commit `d13f23b723b8a846827a245b89c10fc7d3f11612`).
@@ -2044,7 +2178,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Layout
 
-- `papers/`: LaTeX sources and PDFs of the fifteen papers.
+- `papers/`: LaTeX sources and PDFs of the sixteen papers.
 - `ATTEMPTS.md`: every problem we worked on, and what became of it.
 - `certificates/icg-q3-general/`: programs, logs and reviews for versions 1.1 to 1.5 of Paper 1, kept as records and not used by versions 2 and 3; `certificates/icg-q3-general/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 1, version 2; `certificates/icg-q3-general/lean-package-v3/`: the same for version 3 (115 modules: the 70 of version 2 and the 45 of `lean/Research/TaskE/`).
 - `certificates/icg-equal-parity/`: programs, logs and a negative control for Theorem 3 and Proposition 15 of Paper 1, version 1.5 (Proposition 15 is withdrawn in version 2); `PROOF-working-note.md` is the working note.
@@ -2064,10 +2198,11 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 - `certificates/critical-cycles-mod-k/lean-package/`: the manifest, receipt and build logs of the Lean packages of Paper 13 (the four packages for `k = 4, 5, 6, 7` and the package for all `k`).
 - `certificates/equivariant-rank/lean-package/`: the manifest, Codex's acceptance logs, and the receipt and logs of the recheck of the repository versions, for the Lean files of Paper 14.
 - `certificates/lattice-box-paths/lean-package/`: the same for the Lean files of Paper 15.
+- `certificates/numerical-semigroup-lengths/lean-package/`: the same for the Lean files of Paper 16.
 - `certificates/oeis-hanna/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 2, version 2.
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
-- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper1/` (Paper 1, version 2; statement files `Challenge.lean` and `SupplementStatements.lean`, tests `ChallengeTests.lean` and `NarrowContractTests.lean`, the proof modules in the same directory, with no `Proof/` folder, and the check file `FinalContractAudit.lean`; the proofs also use the older modules `lean/Research/ICG*.lean`), `lean/Research/TaskE/` (Paper 1, version 3; the main statement file `Challenge.lean`, six auxiliary statement files `Challenge*.lean`, the tests `StatementTests.lean`, the proof modules in the same directory, with no `Proof/` folder, `Main.lean` with the main theorem, and the check file `FinalTaskEAudit.lean`; the proofs also use the modules of version 2), `lean/Research/Backfill/Paper2/` (Paper 2, version 2; the proof modules are in the same directory, with no `Proof/` folder), `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9), `lean/Research/WordRepTensor/` (Paper 10; version 2 adds `TaskF/`) and `lean/Research/CographDist/` (Paper 11; the statement file `Challenge.lean`, the tests `ChallengeTests.lean`, the proof modules `Family.lean`, `Eigen.lean` and `Main.lean` in the same directory, with no `Proof/` folder, and the check file `Audit.lean`) and `lean/Research/TaskG/` (Paper 12; the statement file `Challenge.lean`, which reuses the definitions of `lean/Research/AxialMSZ/Challenge.lean`, the proof modules `Data.lean`, `Axes.lean`, `Forms.lean`, `Automorphism.lean`, `Simplicity.lean` and `Main.lean` in the same directory, with no `Proof/` folder and no separate tests, and the check file `Check.lean`) and `lean/Research/TaskH/` (Paper 13; the statement files `Challenge.lean`, `CaseFive.lean`, `CaseSix.lean` and `CaseSeven.lean`, the tests `ExactTests.lean`, `ExactTestsFive.lean`, `ExactTestsSix.lean` and `ExactTestsSeven.lean`, the main files `MainFour.lean` to `MainSeven.lean`, the proof modules in the same directory and in `Five/`, `Six/` and `Seven/`; `Seven/SevenCheck.lean` restates the case `k = 7`; for all `k` (version 2), the assembly `OriginalQuestionTwoAssembly.lean`, the tests `OriginalQuestionTwoTests.lean`, and the proof modules in `General/`, `Gao/`, `Fan/` and `Bai/`), `lean/Research/TaskJ/Rank/` (Paper 14; the statement file `Challenge.lean` for Theorems 1 and 2, the proof modules `Parameters.lean`, `RankValues.lean` and `Proof.lean` and the check file `CheckRank.lean`, and in `Extension/` the statement file `Challenge.lean` for Theorem 3, eight proof modules and the check file `CheckExtension.lean`; no separate tests) and `lean/Research/TaskJ/Grid/` (Paper 15; the statement file `Challenge.lean`, the 25 proof modules `Grid*.lean`, `Proof.lean` and the check file `CheckGrid.lean`; no separate tests). `lean/Comparator/` holds the challenge files for the comparator check below.
-- `.github/workflows/comparator.yml` and `ci/comparator/`: the comparator check of the completely formalized papers (see below; the workflow does not include Paper 6, whose configuration `ci/comparator/paper6.json` was used locally, and Papers 1, 2, 7, 11, 12, 13, 14 and 15 have no configuration).
+- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper1/` (Paper 1, version 2; statement files `Challenge.lean` and `SupplementStatements.lean`, tests `ChallengeTests.lean` and `NarrowContractTests.lean`, the proof modules in the same directory, with no `Proof/` folder, and the check file `FinalContractAudit.lean`; the proofs also use the older modules `lean/Research/ICG*.lean`), `lean/Research/TaskE/` (Paper 1, version 3; the main statement file `Challenge.lean`, six auxiliary statement files `Challenge*.lean`, the tests `StatementTests.lean`, the proof modules in the same directory, with no `Proof/` folder, `Main.lean` with the main theorem, and the check file `FinalTaskEAudit.lean`; the proofs also use the modules of version 2), `lean/Research/Backfill/Paper2/` (Paper 2, version 2; the proof modules are in the same directory, with no `Proof/` folder), `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9), `lean/Research/WordRepTensor/` (Paper 10; version 2 adds `TaskF/`) and `lean/Research/CographDist/` (Paper 11; the statement file `Challenge.lean`, the tests `ChallengeTests.lean`, the proof modules `Family.lean`, `Eigen.lean` and `Main.lean` in the same directory, with no `Proof/` folder, and the check file `Audit.lean`) and `lean/Research/TaskG/` (Paper 12; the statement file `Challenge.lean`, which reuses the definitions of `lean/Research/AxialMSZ/Challenge.lean`, the proof modules `Data.lean`, `Axes.lean`, `Forms.lean`, `Automorphism.lean`, `Simplicity.lean` and `Main.lean` in the same directory, with no `Proof/` folder and no separate tests, and the check file `Check.lean`) and `lean/Research/TaskH/` (Paper 13; the statement files `Challenge.lean`, `CaseFive.lean`, `CaseSix.lean` and `CaseSeven.lean`, the tests `ExactTests.lean`, `ExactTestsFive.lean`, `ExactTestsSix.lean` and `ExactTestsSeven.lean`, the main files `MainFour.lean` to `MainSeven.lean`, the proof modules in the same directory and in `Five/`, `Six/` and `Seven/`; `Seven/SevenCheck.lean` restates the case `k = 7`; for all `k` (version 2), the assembly `OriginalQuestionTwoAssembly.lean`, the tests `OriginalQuestionTwoTests.lean`, and the proof modules in `General/`, `Gao/`, `Fan/` and `Bai/`), `lean/Research/TaskJ/Rank/` (Paper 14; the statement file `Challenge.lean` for Theorems 1 and 2, the proof modules `Parameters.lean`, `RankValues.lean` and `Proof.lean` and the check file `CheckRank.lean`, and in `Extension/` the statement file `Challenge.lean` for Theorem 3, eight proof modules and the check file `CheckExtension.lean`; no separate tests), `lean/Research/TaskJ/Grid/` (Paper 15; the statement file `Challenge.lean`, the 25 proof modules `Grid*.lean`, `Proof.lean` and the check file `CheckGrid.lean`; no separate tests) and `lean/Research/TaskL/Semigroup/` (Paper 16; the statement file `Challenge.lean`, the 9 proof modules `Foundations.lean`, `FBase.lean`, `AlgebraCore.lean`, `AlgebraSwap.lean`, `Algebra.lean`, `CoverStep.lean`, `Terminal.lean`, `Interval.lean` and `Even.lean`, `Proof.lean` and the check file `CheckSemigroup.lean`; no separate tests). `lean/Comparator/` holds the challenge files for the comparator check below.
+- `.github/workflows/comparator.yml` and `ci/comparator/`: the comparator check of the completely formalized papers (see below; the workflow does not include Paper 6, whose configuration `ci/comparator/paper6.json` was used locally, and Papers 1, 2, 7, 11, 12, 13, 14, 15 and 16 have no configuration).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
   rebuilds. `roldan-q3-lean-build-receipt.json` predates the formalization of
@@ -2482,6 +2617,52 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
   record of Yuan's paper at the time of the first search, and the full text of
   the paper of Fried was not read by the agent that wrote the paper. This
   reports the coverage of the search, not a guarantee that it was complete.
+- Paper 16: the conjectures are Conjectures 1.1 and 3.9 of P. A.
+  García-Sánchez and C. O'Neill (*Lengths of irreducible decompositions of
+  numerical semigroups*, arXiv:2602.00404v1, 2026), who proved them for
+  multiplicity at most 6 (Section 3) and found large intervals of lengths for
+  ordinary numerical semigroups (Section 4). The question was raised in §3 of
+  P. A. García-Sánchez (*Factorizations into irreducible numerical
+  semigroups*, Commun. Korean Math. Soc. 40 (2025), 587–592;
+  arXiv:2410.13729v1), whose main result concerns the union of the sets of
+  lengths of all numerical semigroups. The criterion by special gaps, the
+  existence of decompositions and an algorithm for a decomposition of minimum
+  length are in J. C. Rosales and P. A. García-Sánchez (*Numerical
+  Semigroups*, Springer, 2009, Chapter 3, Section 4); the exchange that keeps
+  the Frobenius number is a special case of Proposition 5 of V. Blanco and
+  J. C. Rosales (Forum Math. 25 (2013); arXiv:1105.2147v1); the bound `r(S)`
+  for the minimum length is from J. C. Rosales and M. B. Branco (Bull. Belg.
+  Math. Soc. Simon Stevin 9 (2002), Corollaries 10 and 18), as quoted in
+  Theorem 2.1 of T. Bogart and S. A. Seyed Fakhari (Comm. Algebra 53 (2025);
+  arXiv:2405.11080), who also show that the minimum length is unbounded; and
+  the pairing of residue classes for multiplicity 6 is in the proof of
+  Theorem 3.5 of García-Sánchez and O'Neill. The full text of the paper of
+  Rosales and Branco could not be read, so a decomposition of length exactly
+  `r(S)` may already be there; Paper 16 does not claim it as new. Codex
+  agents searched on 18 November 2026, during the search for problems
+  (19:22–19:50 UTC) and again before the statement file was frozen: the
+  arXiv (both preprints had only version 1), OpenAlex (one citing work each
+  for the 2026 and the 2024 preprints; the first, a survey of Tringali, was
+  checked), Crossref, DataCite, MathDB, MathOverflow and Mathematics Stack
+  Exchange, web search, the research page
+  of O'Neill (which lists the 2026 paper as submitted), the abstracts of the
+  biennial congress of the Real Sociedad Matemática Española of January 2026,
+  and GitHub (issues, commits, repositories and code), including trureturing
+  (three of its issues ask other questions on numerical semigroups, among
+  them lengths of factorizations of elements) and the lists of other
+  repositories of AI-assisted mathematics. They also found an undergraduate
+  project of 2025/26 at the University of Granada supervised by
+  García-Sánchez, whose public proposal asks for a survey of known results;
+  no final report of it was found. Claude Code checked again on 19 November
+  2026, 12:42–12:43 UTC (the arXiv API, OpenAlex, GitHub searches of issues,
+  commits and repositories, the issues and recent commits of trureturing, and
+  the latest updates of openai/math and astrafala/Conjectures), and found
+  nothing new. Claude Code checked again on the day of the release, 20 November 2026, 01:30–01:31 UTC, in the same places, and found nothing new. No proof of either conjecture beyond multiplicity 6
+  was found. The Crossref record of the 2025 journal paper could not be
+  retrieved, OpenAlex does not record that the 2026 preprint cites it, so the
+  citation data are incomplete, and work in progress of the authors and
+  their students cannot be seen. This reports the coverage of the search,
+  not a guarantee that it was complete.
 - Roldán's conjecture, case q = 3 (the formalization here is of a known
   result):
   - S. Park, *Exact Energy Maximisation for Integral Circulant Graphs of
@@ -2527,7 +2708,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Tool and computational resource disclosure
 
-This work was carried out from 25 September 2026 to 19 November 2026 (UTC) in a
+This work was carried out from 25 September 2026 to 20 November 2026 (UTC) in a
 workflow directed by the author, using two AI coding agents:
 
 - OpenAI Codex (desktop app; models `gpt-6-astra`, `gpt-6-sol`, `gpt-6.1-sol`,
@@ -2963,6 +3144,47 @@ Lean project. An independent Claude Code agent (model Claude Opus 5.5), which ha
 side-by-side table, compared their Lean statements with the theorems of the
 papers.
 
+Paper 16 (version 1.24.0) was produced from 18 to 20 November 2026. The
+author asked for a search for substantial open problems, and Claude Code
+passed this request to OpenAI Codex (model GPT-6.2-Astra, reasoning level
+ultra). Between 19:22 and 19:50 UTC on 18 November, Codex screened 50
+problems from the literature, wrote proof sketches for three of them, had
+the proofs for the question of Paper 16 read by two other Codex agents (same
+model) and checked its statements by exact computation for all 1249
+numerical semigroups other than `ℕ` with Frobenius number at most 17; the
+author chose two of the three problems, the question of Paper 16 and a
+question on two-dimensional subtraction games, which the author later set
+aside (see ATTEMPTS.md). From 23:38 UTC on 18 November, Codex agents (same
+model) checked the reading of the sources, searched again for prior work,
+wrote the statement file, the written proof and the Lean files, and checked
+the package in two new empty directories on the author's Mac; the checks
+ended at 23:59 UTC. One Codex agent, which had not taken part in the search
+for problems and had not written the statement file, checked the reading of
+the sources and then reviewed the statement file before it was frozen;
+after the freeze, this agent also wrote four of the proof files
+(`AlgebraCore.lean`, `AlgebraSwap.lean`, `Algebra.lean` and
+`Interval.lean`); the reading of the sources and the review of the
+statement file were done by this single agent and are not independent of
+each other. According to the session records, the proof
+files were written after the freeze by several Codex agents working in
+parallel; their compilation logs cover 23:49–23:55 UTC, and the written
+proof they follow had been prepared before, in the search for problems.
+After the checks, an independent Claude Code agent (model Claude Opus 5.5),
+which had written none of the files, gave the final review; its model
+family differs from Codex's. It read the sources itself, compared the
+statement file with them, read the written proof, every Lean module and the
+raw logs, verified the example of Remark 1 by hand, and compiled the 12
+files again in a new directory, with warnings treated as errors, replaying
+every module with `leanchecker`; it approved the formal result with six
+minor remarks on the written account, which were applied. Claude Code
+checked the cited passages of the sources, searched the literature again,
+wrote the paper from Codex's manuscript and the Lean files, moved the Lean
+files into the repository (changing only their `import` lines), compiled
+the repository versions again and checked them with `leanchecker` on the
+author's Mac, and rebuilt the whole Lean project. An independent Claude Code agent (model Claude Opus 5.5), which had written none of the files, reviewed the paper, and another reviewed the release (the README, the certificates, the receipts and the release notes); their corrections were applied. The author has
+read Paper 16 and, using a side-by-side table, compared its Lean statements
+with Theorems 1 and 2 and Corollary 1 of the paper.
+
 For versions 1.9.0 and 1.10.0 the final review before release was done by
 an independent Claude Code agent instead of OpenAI Codex, whose usage quota
 had run out (the author's decision; version 1.4.0 was handled the same way).
@@ -3045,7 +3267,13 @@ no part in this rebuild. For version 1.23.0, Claude Code (model Claude Opus
 and rebuilt the whole Lean project from a new empty directory, as described
 above, and drafted the changes to the README and ATTEMPTS.md, which the second independent agent named in the disclosure of Papers 14 and 15 reviewed with the certificates, the receipts and the release notes;
 OpenAI Codex made the statement files and the Lean proofs of Papers 14 and 15,
-as described above, and took no part in this rebuild.
+as described above, and took no part in this rebuild. For version 1.24.0,
+Claude Code (model Claude Opus 5.5) rechecked the Lean files of Paper 16 in
+their repository versions and rebuilt the whole Lean project from a new
+empty directory, as described above, and drafted the changes to the README
+and ATTEMPTS.md, which the second independent agent named in the disclosure of Paper 16 reviewed with the certificates, the receipts and the release notes; OpenAI Codex made the statement file and the
+Lean proofs of Paper 16, as described above, and took no part in this
+rebuild.
 
 AI systems are not authors. The author takes full responsibility for the content.
 

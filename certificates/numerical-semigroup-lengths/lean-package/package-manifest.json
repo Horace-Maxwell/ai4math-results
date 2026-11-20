@@ -1,0 +1,164 @@
+{
+ "module_count": 12,
+ "entrypoints": [
+  "Research.TaskL.Semigroup.CheckSemigroup"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskL.Semigroup.CheckSemigroup": [
+   "TaskL.Semigroup.check_LengthsExist",
+   "TaskL.Semigroup.check_LengthsInterval",
+   "TaskL.Semigroup.check_PositiveLengthsInterval",
+   "TaskL.Semigroup.check_EvenMultiplicityDescent"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskL/Semigroup/Challenge.lean",
+   "frozen_utc": "2026-11-18T23:47:45Z",
+   "freeze_record": "semigroup/FREEZE.json",
+   "sha256": "a0269ad5fb0b13489ed09a445075e3abd30c0c627a9406bdf4bbe776047e6662"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskL/Semigroup/Algebra.lean",
+   "module": "Research.TaskL.Semigroup.Algebra",
+   "sha256": "947971015ce6a97ec3059d3e8e46f0810a3717276051a2528d2d67fa5acce620",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/Algebra.lean",
+   "codex_source_sha256": "af606af99a634a34f5b7c1d2b81fcd58e5bd4c01d5378db892ab2870ac4809b7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.AlgebraSwap",
+    "Research.TaskL.Semigroup.FBase"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/AlgebraCore.lean",
+   "module": "Research.TaskL.Semigroup.AlgebraCore",
+   "sha256": "508e4fc28588bf8d3eec860a8f176875f48f61ca108eb1d9148ef11ce8f96d8f",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/AlgebraCore.lean",
+   "codex_source_sha256": "9eb4014e9816112b4c02dba88faaa192e79ed7de7a426d79d60bf5d3cb84c193",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/AlgebraSwap.lean",
+   "module": "Research.TaskL.Semigroup.AlgebraSwap",
+   "sha256": "70e81b51efdafc18f21e7645fe1c53bf3c2165a948c2666109347a4f0fcb800d",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/AlgebraSwap.lean",
+   "codex_source_sha256": "3a3111b6dbb6722f53852e4322e5e24b194a57104e920b050fcb894a57bd07d3",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.AlgebraCore"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/Challenge.lean",
+   "module": "Research.TaskL.Semigroup.Challenge",
+   "sha256": "a0269ad5fb0b13489ed09a445075e3abd30c0c627a9406bdf4bbe776047e6662",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/Challenge.lean",
+   "codex_source_sha256": "a0269ad5fb0b13489ed09a445075e3abd30c0c627a9406bdf4bbe776047e6662",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/CheckSemigroup.lean",
+   "module": "Research.TaskL.Semigroup.CheckSemigroup",
+   "sha256": "51296c0e3678ba264a407eb5b3716eba4288a6d4954b0a7ae15d93f1ea22191d",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/CheckSemigroup.lean",
+   "codex_source_sha256": "828c0eb9f1b7e70178db7ad65068173233f9b188848b7f2dd3b8072f977a885d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/CoverStep.lean",
+   "module": "Research.TaskL.Semigroup.CoverStep",
+   "sha256": "fd9dbade6c5c058240d7dc494440f26614009548d9d63ef0260ca9edd67506a3",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/CoverStep.lean",
+   "codex_source_sha256": "df8a5a48044db9bf75ba7b3624decb13c5b25646e392ff8be7e97e7511cda6be",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.Foundations"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/Even.lean",
+   "module": "Research.TaskL.Semigroup.Even",
+   "sha256": "d975b0c12f19f522a457b5a1d43a64799ce619fdd88884f0a7c65bcaed3f90a6",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/Even.lean",
+   "codex_source_sha256": "bd7a8c1e156faa2327294f97ecbfd6d1a18d269a88f8be1f940061cbf4f62dd0",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.Foundations",
+    "Research.TaskL.Semigroup.AlgebraCore"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/FBase.lean",
+   "module": "Research.TaskL.Semigroup.FBase",
+   "sha256": "d28b04c3c5ee442b765c79c895d139dba0a819c87da6dcd8d4475d3274bddbeb",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/FBase.lean",
+   "codex_source_sha256": "4a5fcd228da849372a2bcbdc1206d60c20129953f4cd0af829ad2f8899676ab3",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/Foundations.lean",
+   "module": "Research.TaskL.Semigroup.Foundations",
+   "sha256": "8732b35b6960612f08c601be0a3c8729d348f4c47e2851ff4e741c39d3b3711b",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/Foundations.lean",
+   "codex_source_sha256": "535edd3de537d0a09d7435dbf906360697647a1a02589dfd2950c90bea12d158",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.FBase"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/Interval.lean",
+   "module": "Research.TaskL.Semigroup.Interval",
+   "sha256": "061539e9ac36705f9078855261328e172b9eb0263c2ad9cf02aa275f9f6325f1",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/Interval.lean",
+   "codex_source_sha256": "c4c017a0d83456f9ce46cf766cbd803dc07e8d44219a86ea8d593ae5b0337378",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.Algebra",
+    "Research.TaskL.Semigroup.Terminal",
+    "Research.TaskL.Semigroup.CoverStep"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/Proof.lean",
+   "module": "Research.TaskL.Semigroup.Proof",
+   "sha256": "d56e672a68d63d418ded7e547092bba3d9c29be74eeea5610ac55e0968ff617c",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/Proof.lean",
+   "codex_source_sha256": "0ccff4fb973ca8787fcaf120f345aec81612990b6e026b65df1df87be340b874",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.Interval",
+    "Research.TaskL.Semigroup.Even"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskL/Semigroup/Terminal.lean",
+   "module": "Research.TaskL.Semigroup.Terminal",
+   "sha256": "f19193e51ab48b3e22c0db66ddae8b82f0c3c3b4255f887da54fa4fa22db1519",
+   "codex_source": "work/codex-r3/phase19/taskL/semigroup/Terminal.lean",
+   "codex_source_sha256": "46da06bfd7b82eb0a3dc101f336bfcf12bdcb33b15cb6ab76bda2ec38f3542db",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskL.Semigroup.Algebra",
+    "Research.TaskL.Semigroup.Foundations"
+   ]
+  }
+ ]
+}

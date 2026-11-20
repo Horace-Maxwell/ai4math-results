@@ -61,3 +61,4 @@ import Research.TaskH.Gao.Tests
 import Research.TaskJ.Rank.CheckRank
 import Research.TaskJ.Rank.Extension.CheckExtension
 import Research.TaskJ.Grid.CheckGrid
+import Research.TaskL.Semigroup.CheckSemigroup

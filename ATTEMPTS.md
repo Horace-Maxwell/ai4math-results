@@ -7,8 +7,8 @@ problems that were dropped without a result. It gives the denominator behind
 the results in this repository: how many problems were tried, and what
 became of each.
 
-Status: 19 November 2026, covering the work of 25 September 2026 to 19 November 2026 up to version
-1.23.0. All dates are UTC.
+Status: 20 November 2026, covering the work of 25 September 2026 to 20 November 2026 up to version
+1.24.0. All dates are UTC.
 
 ## How to read this file
 
@@ -28,7 +28,7 @@ Status: 19 November 2026, covering the work of 25 September 2026 to 19 November 
 
 ## (a) Published
 
-The column "Lean" describes the formal verification in version 1.23.0; the
+The column "Lean" describes the formal verification in version 1.24.0; the
 README has the details.
 
 | # | Problem | Source | Published in | What was proved | Lean |
@@ -61,6 +61,7 @@ README has the details.
 | 32 | Question 8 of Choi and Sieniawski: for `k ≥ 4`, is `K_{k+1}` the only `(k+1)`-critical graph with exactly `(k+1)!/(2k)` cycles of length 0 modulo `k`? | arXiv:2611.13580 | v1.21.0 (Paper 13, `k = 4, 5, 6, 7`); v1.22.0 (Paper 13 version 2, all `k`) | Answer: yes for every `k ≥ 4`. Version 1 answered `k = 4, 5, 6, 7`; version 2 proves the general case (minimum degree at least `2k − 1`, then a long cycle of length 0 modulo `k` from a theorem of Gao, Huo, Liu and Ma) | all results; that `K_{k+1}` attains the bound only for `k ≤ 7` |
 | 33 | Theorem 4 of Lara-Gómez, Romero-Rosales and Ruiz-Medina, an upper bound for the rank of the group of `G`-equivariant permutations of a finite `G`-set, and their expectation (the Open problem after their Example 1) that the refined packet bound is the exact rank | Semigroup Forum (published online 2026-11-02, doi:10.1007/s00233-026-10690-y); arXiv:2607.04053 | v1.23.0 (Paper 14) | Theorem 4 fails for the group of order 2 acting regularly on two points (bound 0, rank 1). A five-point action with rank 2 and packet expressions 3 and 4, and, for every `n ≥ 3`, a faithful cyclic action with rank 2 and packet expressions `n` and `n + 1` for every admissible choice of generators. The authors' own 21-point example already shows that the packet expression is not always exact, and the rank of the five-point group also follows from a theorem of Lu (arXiv:2604.16141) | all results (Theorems 1–3); four remarks marked as written arguments are not formalized |
 | 34 | First open problem of §6.3 of Yuan: determine `κ_r(D)`, the gap between his coordinatewise bound and the maximum Manhattan length of an ordering of the lattice points of a box, for `r ≥ 3` | arXiv:2611.19908 | v1.23.0 (Paper 15) | Answer: the exact maximum for every box with positive integer sides, with orderings attaining it; with at least three sides larger than 1 the gap is 1 when all sides are odd and `2^(e−1) − 1` when `e ≥ 1` sides are even. Treated earlier: the hypercube (Kchikech, Khennoufa and Togni, 2008), the plane (Jiang 2014, Fried, Yuan), closed circuits on equal-sided cubes (Simmons 1978). Also answers, with free endpoints, a conjecture of Jiang (arXiv:1401.6583, §7) | Theorem 1; Corollaries 1 and 2 are not formalized (Corollary 2 uses Theorem 2.3 of Yuan) |
+| 35 | Conjectures 1.1 and 3.9 of García-Sánchez and O'Neill: is the set of lengths of the irredundant decompositions of a numerical semigroup into irreducible numerical semigroups always an interval (a question of García-Sánchez, arXiv:2410.13729, §3), and does a semigroup of multiplicity `2k` with a decomposition of length `j`, `k < j < 2k`, also have one of length `j − 1`? | arXiv:2602.00404 | v1.24.0 (Paper 16) | Answer: yes to both, for every numerical semigroup (the authors had proved both for multiplicity at most 6). Also: a numerical semigroup of multiplicity `2k` has a decomposition with at most `k` components. The tools are earlier work: the criterion by special gaps (Rosales and García-Sánchez), an exchange of Blanco and Rosales, and the bound `r(S)` for the minimum length of Rosales and Branco (2002), whose full text we could not read | Theorems 1 and 2 and Corollary 1, the latter in the form of Conjecture 3.9 (Theorem 2 is proved but is not a frozen statement); Remark 2 (`r(S) ∈ L(S)`) is not formalized |
 
 ## (b) Dropped because earlier work was found
 
@@ -80,6 +81,8 @@ items is claimed as a result in this repository.
 | 9 | Conjectures 2.5 and 3.7 of Lee and Liu on the integer {2}-domination number of 3 × n and 4 × n grids (2 conjectures) | arXiv:2502.00134 | Computer-assisted proofs of both (transfer matrices with periodicity certificates), checked by independent programs and a referee agent | Computer-assisted proofs of both had already been posted in the GitHub repository [JMK-vineetarora/integer2proofs](https://github.com/JMK-vineetarora/integer2proofs) (2026-08-12), with the same method and certificates as ours | 2026-09-26 |
 | 10 | Problems 6.4, 6.2(a), 6.3 and 3.9 of T. Amdeberhan on the AIM problem list "Polyhedral geometry and partition theory" (4 problems) | AIM problem list | Proofs of 6.4, 6.2(a) and 6.3; partial results on 3.9; some of it in Lean | T. Amdeberhan had posted these problems on MathOverflow, and solutions had already been posted there: 6.4 by Ofir Gorodetsky in 2016 ([question 250609](https://mathoverflow.net/q/250609)), 6.2(a) by D.B. Cooper in 2016 ([question 252156](https://mathoverflow.net/q/252156)), 6.3 by Richard Stanley in 2016 ([question 255252](https://mathoverflow.net/q/255252)), and the first of the three ratios in 3.9 by Fedor Petrov in 2021 ([question 382485](https://mathoverflow.net/q/382485)). The rest of our work on 3.9 was set aside as low in value | 2026-09-26 |
 | 11 | Problem 3.9 of Gorshkov and Shpectorov (= Question 9.3 of Mamontov, Shpectorov and Zhelyabin): can dominance between axial blocks be non-symmetric? | arXiv:2606.30048; arXiv:2602.11984 | A further example (Theorem B of Paper 9) and a Lean proof for the earlier example (Proposition 4.1 of Paper 9, credited to its authors); we do not claim the answer | Two-dimensional axial algebras with properly nested blocks were already in print, without mention of blocks: B. Peng (arXiv:2608.28653, 2026-08-20) and I. Kaygorodov, C. Martín González and P. Páez-Guillán (arXiv:2211.00334, 2022; J. Algebra 662 (2025)) | 2026-09-27 |
+| 12 | Bajnok (arXiv:1512.03038v2, §1.2): classify the sets `A` of size `m` whose `h`-fold sumset `hA` has exactly `p` elements when `p = h(m − 1) + 1` is the smallest prime divisor of the order of a finite abelian group | arXiv:1512.03038v2 | A written classification (by Codex) and a check script; no Lean work | The classification is a short consequence of published structure theorems (Bajnok 2022, Theorem 4, arXiv:2211.01893; Kemperman's theorem in the form of Lev, arXiv:math/0508179), so it was not pursued | 2026-11-18 |
+| 13 | Bajnok (arXiv:1512.03038v2, §1.3, Conjecture 8): the restricted sumset `Σ_h(A)` has exactly `p` elements only if `A` lies in a coset of a subgroup of order `p` | arXiv:1512.03038v2 | A written proof (by Codex) for the parameters with `(h − 1)(m − h − 1) + 1 ≥ p`, using a theorem of Du and Pan (arXiv:2403.03549); no Lean work | A public preprint of Cavalcante (Zenodo record 21724408, 31 July 2026) claims the full conjecture; Codex read its main theorem but did not review the whole paper | 2026-11-18 |
 
 ## (c) Dropped without a result
 
@@ -91,24 +94,27 @@ items is claimed as a result in this repository.
 | 4 | Hu's question on nonflexible finite generalized polygons | arXiv:2609.28550 | Checked all known projective planes of orders 16 and 25 (22 and 193 planes): all are flexible, so none answers the question | Finite check done, no new result: the same fact can already be read off published tables (arXiv:2506.14060v16). The question remains open. Stopped on 2026-09-26 |
 | 5 | Conjecture 6.2 of Khasraw, McInroy and Shpectorov: the question of row 26 for axial algebras of Monster type M(1/4, 1/32) | Trans. Amer. Math. Soc. 373 (2020); arXiv:1809.10132 | Tried to build a counterexample by gluing two copies of a suitable algebra; tested one candidate, the 18-dimensional algebra of McInroy and Shpectorov with Miyamoto group S3 × S3 (arXiv:1804.00587) | The tested algebra does not have the property that the construction needs, and we know no other candidate. Stopped on 2026-09-27 |
 | 6 | Problems 5.2–5.4 of Alshammari: the question of row 28 for `μ(C_{2n+1}) × μ′(C_{2m+1})` and `μ′(C_{2n+1}) × μ′(C_{2m+1})`, and whether a tensor product of two non-word-representable graphs can be word-representable | arXiv:2609.20881 | Computer checks of small cases with a SAT solver: the 9 products tested for Problems 5.2 and 5.3, and all 496 products of two graphs from a pool of 31 non-word-representable graphs for Problem 5.4, are non-word-representable | No proof found; the small-case evidence is not published. Stopped on 2026-09-27. Problems 5.2 and 5.3 were taken up again in November and answered (row 30, v1.19.0); Problem 5.4 remains open |
+| 7 | Problem 58 of Larsson, Saha and Yokoo: are all two-dimensional eventually periodic subtraction games strongly eventually periodic? | arXiv:2307.12458v4 (Theoretical Computer Science 1016 (2024), 114775) | A written proof, and Lean proofs (by Codex) of three statements frozen on 18 November 2026, checked in two new empty directories: for the game with the single move `(1, 1)`, that it is eventually periodic but not strongly eventually periodic in the sense of Definition 56 of the source, and that its least onset on the lines `(2t, M + t)` is exactly `M`; and, for every finite nonempty ruleset whose moves are positive in both coordinates, a family of parallel lines along which the least onset grows linearly with the intercept. An independent final review (Claude Code) approved the Lean proofs but not their reading as an answer to Problem 58 | The final review found that with Definition 56 as printed, and as stated in Lean, no ruleset, not even the empty one, is strongly eventually periodic: on a line of slope `p/q` the period must be a multiple of `q`, so no bound holds for all slopes. The frozen counterexample therefore answers Problem 58 only vacuously; the exact onset for the move `(1, 1)` follows directly from Lemma 18 of the source, and no repaired definition was formalized. On 19 November 2026 the author decided to set the problem aside; nothing is published |
+| 8 | Question (4) of §5.3 of Binyamin and Kniffen on the game Pyranim: the probability `p_n` that two randomly selected game states of width `n` are isomorphic, its `n`-th root and its decay | arXiv:2611.16153v1 | A written proof (by Codex) that `p_n^(1/n) → 1`, an exact formula for `p_n` and the leading term `(log 4)·n log log n / log n` of `−log p_n`, which uses a theorem of the source (Theorem 2.6); a second agent of the same model checked the leading term, and an exhaustive computation from the rules of the game up to width 10 agreed with the formula. No Lean work | Not chosen on 17 November 2026, and deferred again on 18 November in favour of other problems: the public project AFTD (rainwangphy/aftd-platform) already defines the same probability in Lean and states `p_1 = 1/2`; its 20 files named after Pyranim, at the commits we read, contain no general limit or decay rate. Not continued so far; nothing is published |
+| 9 | Csernák and Soukup, Theorem 6.13 (under ASH): every `W_k`, `k ≥ 3`, is perfectly pebblable; an unconditional sparser family | arXiv:2610.09650v1 | A written proof (by Codex) that `K_1 ∨ C_m^2` (`m ≥ 5`, `3m` edges) has pebbling number `m + 2`, read by a second agent of the same model, and an exact check of the critical configurations for `m = 5, …, 8`. No Lean work | The unconditional result for every `W_k` already follows from public work of J. Fairfax-Ball (Proposition 82 of S014 in the repository jfairfaxball-348/Almost-Stacked-Proof); the single-centre family was kept only as a backup and not chosen on 18 November 2026. Nothing is published |
 
 ## Counts
 
-- Listed in total: 51 items.
-  - Published: 34 items (section a). Of these, 3 are known results that we
+- Listed in total: 57 items.
+  - Published: 35 items (section a). Of these, 3 are known results that we
     only formalized (rows 15, 18 and 19), and 12 of the 14 OEIS entries of
     Paper 2 turned out to follow quickly from classical results or from
     identities stated in the entries (rows 3–14). Several of the other items
     are partial answers.
-  - Dropped because earlier work was found: 11 items (section b). For 4 of
+  - Dropped because earlier work was found: 13 items (section b). For 4 of
     them (rows 4–7) our own work was small: screening checks, a numerical
     check or a statement contract.
-  - Dropped without a result: 6 items (section c).
+  - Dropped without a result: 9 items (section c).
 - Work in progress is not listed here. With version 2 of Paper 1 (v1.16.0),
   all ten papers then published were formalized completely in Lean; version 3
   of Paper 1 (v1.17.0), Paper 11 (v1.18.0), version 2 of Paper 10 (v1.19.0), Paper 12
-  (v1.20.0), Paper 13 (v1.21.0 for `k = 4, 5, 6, 7`, version 2 in v1.22.0 for all `k`) and Papers 14 and 15
-  (v1.23.0) are also formalized completely, except Remark 1 of Paper 11, the remarks of Paper 14 marked as written arguments and Corollaries 1 and 2 of Paper 15.
+  (v1.20.0), Paper 13 (v1.21.0 for `k = 4, 5, 6, 7`, version 2 in v1.22.0 for all `k`), Papers 14 and 15
+  (v1.23.0) and Paper 16 (v1.24.0) are also formalized completely, except Remark 1 of Paper 11, the remarks of Paper 14 marked as written arguments, Corollaries 1 and 2 of Paper 15, and Remark 2 and the case `j ≥ 2k` of Corollary 1 of Paper 16.
 - Scouted but not attempted: 60 candidates. This counts the candidates that
   scouting agents wrote up and ranked in their reports but on which no
   research was done. Problems rejected during bulk screening (for example,
