@@ -1,0 +1,60 @@
+{
+ "package": "css-covering-minima",
+ "codex_acceptance": {
+  "receipts": [
+   "conj-b/acceptance/2026-11-20T223418Z/receipt.json",
+   "conj-c/acceptance/2026-11-20T223322Z/receipt.json",
+   "conj-c/acceptance/2026-11-20T223851Z/receipt.json"
+  ],
+  "note": "Codex acceptance runs on the author's Mac (logs only; build directories not included); local paths replaced by <workspace>, the reviewers' scratch directory by <claude-scratch> and the working directory of Claude Code on the author's Windows computer by <windows-workspace>."
+ },
+ "repository_recheck": {
+  "computer": "the author's Mac",
+  "lean": "Lean 4.34.1 (arm64-apple-darwin)",
+  "start_utc": "2026-11-20T23:11Z",
+  "end_utc": "2026-11-20T23:18Z",
+  "procedure": "The 25 repository files (Research.TaskS.B, Research.TaskS.C, Research.TaskS.Shared; only import lines differ from the accepted files) compiled module by module with lean -DautoImplicit=false -DrelaxedAutoImplicit=false -R <lean dir>, each module replayed with leanchecker, in two new empty output directories (root1 23:11Z-23:15Z, root2 23:15Z-23:18Z), by repository-recheck-logs.tar.gz/mac_compile_s.py.",
+  "olean_identical": true,
+  "root1": {
+   "modules": 25,
+   "compile_rc0": 25,
+   "leanchecker_rc0": 25,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskS.B.Proof.ConjectureB": "propext, Classical.choice, Quot.sound",
+    "TaskS.B.check_ConjectureB": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.Proof.conjectureC": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.check_conjectureC": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.ProjectionLattice.exists_adapted": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.ProjectionLattice.edge_determinant": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.ProjectionLattice.projected_volume": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.image_simplex_eq_image_opposite": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.MeasureModel.measured_conjectureC": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.MeasureAudit.check_conjectureC": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.MeasureModel.normalized_measure": "propext, Classical.choice, Quot.sound"
+   }
+  },
+  "root2": {
+   "modules": 25,
+   "compile_rc0": 25,
+   "leanchecker_rc0": 25,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskS.B.Proof.ConjectureB": "propext, Classical.choice, Quot.sound",
+    "TaskS.B.check_ConjectureB": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.Proof.conjectureC": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.check_conjectureC": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.ProjectionLattice.exists_adapted": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.ProjectionLattice.edge_determinant": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.ProjectionLattice.projected_volume": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.image_simplex_eq_image_opposite": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.MeasureModel.measured_conjectureC": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.MeasureAudit.check_conjectureC": "propext, Classical.choice, Quot.sound",
+    "TaskS.C.MeasureModel.normalized_measure": "propext, Classical.choice, Quot.sound"
+   }
+  }
+ },
+ "whole_project": "logs/clean-replay-v1.25.0-receipt.json"
+}

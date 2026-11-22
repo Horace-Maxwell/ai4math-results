@@ -1,0 +1,772 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={Lattice simplices whose Minkowski length exceeds the lattice diameter, and dilates whose Minkowski length is not quasi-linear},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.25.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\pyr}{pyr}
+
+\title{Lattice simplices whose Minkowski length exceeds\\ the lattice diameter, and
+dilates whose Minkowski length\\ is not quasi-linear}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The Minkowski length $L(P)$ of a lattice polytope $P$ is the largest number of
+lattice polytopes of positive dimension whose Minkowski sum is contained in
+$P$; the lattice diameter $\ell(P)$ is one less than the largest number of
+collinear lattice points in $P$. Soprunov and Soprunova proved that
+$L(tP)$ is eventually quasi-linear in $t$, and asked whether $L(tP)$ is always
+quasi-linear (their Problem~2) and whether $L=\ell$ for every simplex
+(their Problem~3). We answer both questions in the negative. The lattice
+tetrahedron with vertices $(1,0,1)$, $(3,3,1)$, $(2,0,3)$, $(0,3,3)$ has
+$\ell=1$ and $L=2$. The empty lattice tetrahedron $U$ with vertices $0$,
+$(1,0,0)$, $(0,0,1)$, $(13,18,1)$ has $L(U)=1$ and $L(tU)=3t$ for every
+integer $t\ge2$, so $L(tU)$ is not quasi-linear. Lattice pyramids carry both
+examples to every dimension $d\ge3$. Since equality $L=\ell$ is known for
+lattice triangles, the answer to Problem~3 is: true for $d\le2$, false for
+every $d\ge3$. The results for $d\ge3$ are formally verified in Lean~4. The
+proofs were found and formalized by AI agents working under the author's
+direction; their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+We work in $\R^d$ with the integer lattice $\Z^d$. A \emph{lattice polytope}
+is the convex hull of finitely many points of $\Z^d$; it has positive
+dimension if it contains two distinct points. For a lattice polytope
+$P\subset\R^d$, Soprunov and Soprunova~\cite[Definition~1.1]{ss} define the
+\emph{Minkowski length} $L(P)$ as ``the largest number of lattice polytopes
+$Q_1,\dots,Q_L$ of positive dimension whose Minkowski sum is contained in
+$P$''. The \emph{lattice diameter} $\ell(P)$ is one less than the largest
+number of collinear lattice points in $P$~\cite[Introduction and p.~5]{ss}.
+Always $\ell(P)\le L(P)$, since $\ell(P)$ is the case of collinear summands
+($\ell(P)=L_1(P)$ in the notation of~\cite[Definition~2.5]{ss}). For an
+integer $t\ge1$, $tP=\{tx\mid x\in P\}$.
+
+Following~\cite[Definition~1.3]{ss}, a function $f\colon\N\to\Q$ is
+\emph{quasi-linear} if there are $k\in\N$ and linear polynomials
+$p_0,\dots,p_{k-1}\in\Q[t]$ such that $f(t)=p_r(t)$ whenever $t\equiv r\bmod
+k$, and \emph{eventually quasi-linear} if $f$ agrees with a quasi-linear
+function for all large enough $t$. The main theorem of~\cite{ss}
+(Theorem~2.20) states that $t\mapsto L(tP)$ is eventually quasi-linear for
+every lattice polytope $P$. The introduction of~\cite{ss} describes this
+result as ``eventually quasi-polynomial with linear constituents (we say
+`quasi-linear' for short)'', keeping the word `eventually'; Definition~1.3 and
+the discussion before Problem~2 distinguish the two notions, and the authors
+note that a certain identity ``would imply that $L(tP)$ is not just
+eventually quasi-linear, but quasi-linear''~\cite[p.~12]{ss}. In Section~4
+of~\cite{ss} they ask:
+
+\begin{quote}
+\textbf{Problem 2 of~\cite{ss}.} Prove that $L(tP)$ is quasi-linear or give an
+example of a lattice polytope $P$ for which $L(tP)$ is not quasi-linear.
+
+\textbf{Problem 3 of~\cite{ss}.} Prove or disprove that for any simplex in
+$\R^d$ its Minkowski length coincides with its lattice diameter.
+\end{quote}
+
+\noindent Here ``simplex'' means a lattice simplex, since $L$ is defined for
+lattice polytopes. Numbers and page numbers of items in~\cite{ss} refer to
+its arXiv version (arXiv:1412.4404v2, 23 May 2016), where Problems~1--3 are
+on p.~12. We checked
+that Problems~1--3 have the same numbers and wording in arXiv:1412.4404v1. A
+Codex agent reported checking the numbers and wording against Section~4 of
+the journal version; we have not seen the publisher's text ourselves.
+
+Problem~3 was motivated by two cases in which equality holds: the dilates
+$t\Delta$ of a unimodular simplex, for which $L(t\Delta)=\ell(t\Delta)=t$
+\cite[Theorem~2.1, Example~2.6]{ss}, and lattice triangles~\cite[Corollary~3.2]{ss}.
+We show that it fails in every dimension $d\ge3$, and that Problem~2 has a
+negative answer.
+
+\begin{theorem}\label{thm:diam}
+Let $T=\conv\{(1,0,1),(3,3,1),(2,0,3),(0,3,3)\}\subset\R^3$. Then $T$ is a
+$3$-dimensional lattice simplex with $\ell(T)=1$ and $L(T)=2$. More generally,
+for every $d\ge3$ there is a $d$-dimensional lattice simplex $S\subset\R^d$
+with $\ell(S)=1$ and $L(S)=2$.
+\end{theorem}
+
+\begin{theorem}\label{thm:dil}
+Let $U=\conv\{(0,0,0),(1,0,0),(0,0,1),(13,18,1)\}\subset\R^3$. Then $U$ is a
+$3$-dimensional lattice simplex with $L(U)=1$ and $L(tU)=3t$ for every integer
+$t\ge2$; in particular $t\mapsto L(tU)$ ($t\ge1$) is not quasi-linear. More
+generally, for every $d\ge3$ there is a $d$-dimensional lattice simplex
+$S\subset\R^d$ with $L(S)=1$ and $L(tS)=3t$ for all integers $t\ge2$, so that
+$L(tS)$ is not quasi-linear.
+\end{theorem}
+
+Both theorems are formally verified in Lean~4 (Section~\ref{sec:lean}). The
+sequence $L(tU)$ is linear from $t=2$ on, in agreement with the eventual
+quasi-linearity proved in~\cite{ss} (Remark~\ref{rem:period}); only its first
+term breaks quasi-linearity. Together with the known cases $d\le2$ we obtain
+the following answer to Problem~3. Only the part $d\ge3$ is in the Lean files.
+
+\begin{corollary}\label{cor:p3}
+Every lattice simplex $S\subset\R^d$ with $d\le2$ satisfies $L(S)=\ell(S)$:
+for $d=1$ this is trivial, and for $d=2$ it is~\cite[Corollary~3.2]{ss}. For
+every $d\ge3$ there is a $d$-dimensional lattice simplex with $L(S)\neq\ell(S)$.
+\end{corollary}
+
+\subsection*{Prior work}
+The Minkowski length was introduced by Soprunov and Soprunova in connection
+with toric surface codes (see~\cite{ss} and the references there); in
+dimension three it can be computed by the algorithm of Beckwith, Grimm,
+Soprunova and Weaver~\cite{bgsw}. Both tetrahedra above are known objects.
+The tetrahedron $T$ has $8$ lattice points and lattice width~$2$
+(Section~\ref{sec:T}), so its lattice equivalence class is one of the $193$
+tetrahedra among the $2675$ lattice $3$-polytopes of width larger than one
+with $8$ lattice points enumerated by Blanco and Santos~\cite[Theorem~4 and
+Table~2]{bs} (more precisely, since $T$ has four interior lattice points, one
+of the $90$ such tetrahedra with four interior lattice points,
+\cite[Table~5]{bs}). Their Section~5.6 treats the polytopes of Minkowski length one
+(the ``dps'' polytopes); $T$ has Minkowski length two and is not among them.
+We have not identified the entry of $T$ in their database. The tetrahedron $U$
+is empty, that is, its only lattice points are its vertices
+(Lemma~\ref{lem:Upoints}); empty lattice tetrahedra were classified by
+White~\cite{white}, and $U$ has normalized volume~$18$. The closest later work
+we know is by Meyer, Soprunov and Soprunova~\cite{mss}, who study maximal
+decompositions in $3$-polytopes and, in particular, $L(P+Q)$ for empty
+tetrahedra $P,Q$ \cite[Lemma~3.2 and Theorem~3.4]{mss}. Their Theorem~3.4,
+with $P=Q$, together with superadditivity, gives $L(2P)\ge3$ for every empty
+tetrahedron $P$ not equivalent to one of their two tetrahedra of normalized
+volume $1$ and~$2$, hence for $U$. It says nothing about the whole sequence
+$L(tU)$ or about quasi-linearity, and~\cite{mss} does not discuss Problems~2
+or~3 of~\cite{ss}. As far as we know, Problems~2 and~3 have not been answered
+elsewhere; the searches are described in the final section.
+
+\section{Segments and corners}\label{sec:prelim}
+
+As noted in~\cite[p.~3]{ss}, each summand may be shrunk to a lattice segment.
+We use the following form of this remark. For lattice points
+$a_1,\dots,a_k,b_1,\dots,b_k$ and $\varepsilon\in\{0,1\}^k$, call
+$\sum_i c_i$ with $c_i=a_i$ if $\varepsilon_i=0$ and $c_i=b_i$ if
+$\varepsilon_i=1$ a \emph{corner}.
+
+\begin{lemma}\label{lem:corners}
+Let $P\subseteq\R^d$ be convex and $k\ge1$. Then $P$ contains a Minkowski sum
+of $k$ lattice polytopes of positive dimension if and only if there are lattice
+points $a_i\ne b_i$ $(1\le i\le k)$ all of whose $2^k$ corners lie in $P$.
+The same holds if the corners are only known to lie in $P$ after adding a fixed
+lattice vector $g$.
+\end{lemma}
+
+\begin{proof}
+If $Q_1+\dots+Q_k\subseteq P$, choose two distinct lattice points $a_i,b_i$ of
+$Q_i$; every corner lies in the sum. Conversely, the sum
+$[a_1,b_1]+\dots+[a_k,b_k]$ is the convex hull of the corners, hence contained
+in $P$. A lattice vector $g$ is absorbed by replacing $a_1,b_1$ with
+$a_1+g,b_1+g$.
+\end{proof}
+
+Thus $L(P)$ is the largest $k$ for which such points exist; in particular a
+lattice translation of the whole sum is allowed, but not a translation by a
+non-lattice vector.
+
+\section{The tetrahedron \texorpdfstring{$T$}{T}}\label{sec:T}
+
+\begin{lemma}\label{lem:Tpoints}
+For $p=(x,y,z)\in\R^3$ put
+\[
+\beta(p)=\bigl(39-6x-4y-9z,\ 6x+4y-3z-3,\ 6x-4y+9z-15,\ -6x+4y+3z+3\bigr).
+\]
+Then $\beta(p)/24$ is the vector of barycentric coordinates of $p$ with respect
+to the vertices of $T$, in the order listed, so $T=\{p:\beta(p)\ge0\}$. The
+determinant of the edge vectors at $(1,0,1)$ is $-24$, so $T$ is
+$3$-dimensional. The lattice points of $T$ are its four vertices and
+$(1,1,2)$, $(1,2,2)$, $(2,1,2)$, $(2,2,2)$.
+\end{lemma}
+
+\begin{proof}
+The four components are affine, sum to $24$, and take the value $24$ at the
+corresponding vertex and $0$ at the other three. From $\beta\ge0$,
+$\beta_0+\beta_1=36-12z$, $\beta_2+\beta_3=12z-12$, $\beta_1+\beta_3=8y$ and
+$\beta_0+\beta_2=24-8y$ give $1\le z\le3$ and $0\le y\le3$. For $z=1$,
+$\beta_2,\beta_3\ge0$ force $6x=4y+6$, so $(x,y)\in\{(1,0),(3,3)\}$; for $z=3$,
+$\beta_0,\beta_1\ge0$ force $6x+4y=12$, so $(x,y)\in\{(2,0),(0,3)\}$; for $z=2$
+the conditions $9\le6x+4y\le21$ and $-3\le6x-4y\le9$ leave exactly
+$x,y\in\{1,2\}$.
+\end{proof}
+
+The four points at height $2$ form a unit square; all components of $\beta$
+are positive at them, so they are interior points of $T$. Hence
+every primitive linear functional takes at least three values on $T\cap\Z^3$,
+and the lattice width of $T$ is $2$ (attained by $z$).
+
+\begin{proposition}\label{prop:T}
+$\ell(T)=1$ and $L(T)=2$.
+\end{proposition}
+
+\begin{proof}
+\emph{$\ell(T)=1$.} The eight lattice points of $T$ lie in eight different
+classes modulo~$2$. If three lattice points of $T$ were collinear, let $p$ and
+$q$ be the outer two and $v$ the primitive vector in the direction $q-p$; then
+$q=p+mv$ with $m\ge2$, and $p$ and $p+2v$ are distinct lattice points of $T$
+(by convexity) that are congruent modulo~$2$, a contradiction. Two vertices
+give two distinct lattice points.
+
+\emph{$L(T)\ge2$.} The square $(1,1,2)+[0,e_1]+[0,e_2]$ lies in $T$.
+
+\emph{$L(T)\le2$.} Suppose $T$ contains a sum of three or more summands. By
+Lemma~\ref{lem:corners}, keeping three of the segments and fixing an endpoint
+of each of the others, there are a lattice point $p$ and nonzero lattice
+vectors $u_1,u_2,u_3$ such that $p+\sum_{i\in I}u_i\in T$ for all
+$I\subseteq\{1,2,3\}$. Choose a linear functional $\varphi$ with
+$\varphi(u_i)\ne0$ for all $i$; replacing $p$ by $p+u_i$ and $u_i$ by $-u_i$
+does not change the set of these eight points, so we may assume
+$\varphi(u_i)>0$. If $u_1,u_2,u_3$ are linearly dependent modulo~$2$, some
+nonempty $I$ has $\sum_{i\in I}u_i\equiv0\bmod 2$; this sum is nonzero since
+its value under $\varphi$ is positive, so $p$ and $p+\sum_{i\in I}u_i$ are
+distinct congruent lattice points of $T$, which is impossible. Otherwise the
+eight points are pairwise incongruent modulo~$2$, hence they are exactly the
+eight lattice points of $T$, including its vertices. The zonotope
+$Z=p+[0,u_1]+[0,u_2]+[0,u_3]$ is then contained in $T$ and contains its
+vertices, so $Z=T$. But $Z$ is centrally symmetric and $T$ is not: a central
+symmetry of $T$ would permute the vertices without fixed points (the centre is
+an interior point), so the four vertices would form two pairs with a common
+midpoint, that is, a parallelogram, and would be coplanar.
+\end{proof}
+
+The Lean proof of $L(T)\le2$ uses a different, finite argument. Let
+$\kappa(x,y,z)=x+32y+1024z$. On the eight lattice points of $T$, $\kappa$
+takes the values $\kappa_1,\dots,\kappa_8$ given by
+\[
+\begin{array}{@{}c|cccccccc@{}}
+\text{point} & (1,0,1)&(3,3,1)&(2,0,3)&(0,3,3)&(1,1,2)&(1,2,2)&(2,1,2)&(2,2,2)\\
+\kappa & 1025&1123&3074&3168&2081&2113&2082&2114
+\end{array}
+\]
+With $p,u_i$ as above, let
+$p,p+u_1,p+u_2,p+u_3$ be the points number $i,j,k,l$ of this list; since
+$u_1,u_2,u_3\ne0$, $i$ differs from $j$, $k$ and $l$. By linearity, the values
+of $\kappa$ at the other four points $p+u_1+u_2,\dots,p+u_1+u_2+u_3$ are
+$\kappa_j+\kappa_k-\kappa_i$, $\kappa_j+\kappa_l-\kappa_i$,
+$\kappa_k+\kappa_l-\kappa_i$ and $\kappa_j+\kappa_k+\kappa_l-2\kappa_i$, so
+these four numbers must occur in the list. A computation over all $8^4$
+quadruples $(i,j,k,l)$, carried out by the Lean kernel, shows that this happens
+only when $i\in\{j,k,l\}$. Only the linearity of $\kappa$
+is used, not its injectivity on~$\Z^3$; the $u_i$ need not be distinct.
+
+\section{The tetrahedron \texorpdfstring{$U$}{U}}\label{sec:U}
+
+For $p=(x,y,z)\in\R^3$ put
+\[
+F(p)=\bigl(-18z-18x+13y,\ 18x-13y,\ 18z-y,\ y\bigr).
+\]
+The components of $F$ are linear and sum to~$0$. At the vertices $0$, $e_1$,
+$e_3$, $(13,18,1)$ of $U$, $F$ takes the values $(0,0,0,0)$, $(-18,18,0,0)$,
+$(-18,0,18,0)$, $(-18,0,0,18)$, so for an integer $t\ge1$ the numbers
+$\bigl(18t+F_0(p),F_1(p),F_2(p),F_3(p)\bigr)/(18t)$ are the barycentric
+coordinates of $p$ with respect to the vertices of $tU$, and
+\begin{equation}\label{eq:tU}
+tU=\{p\in\R^3 : F_0(p)\ge-18t,\ F_1(p)\ge0,\ F_2(p)\ge0,\ F_3(p)\ge0\}.
+\end{equation}
+The determinant of the edge vectors at $0$ is $-18$, so $U$ is
+$3$-dimensional.
+
+\begin{lemma}\label{lem:Upoints}
+The only lattice points of $U$ are its four vertices, and $L(U)=1$.
+\end{lemma}
+
+\begin{proof}
+By~\eqref{eq:tU} with $t=1$, $F_0+F_1=-18z\ge-18$ and $F_2+F_3=18z\ge0$ give
+$z\in\{0,1\}$, and $0\le y\le18z$. For $z=0$ we get $y=0$ and $0\le18x\le18$;
+for $z=1$ we get $13y\le18x\le13y$, so $18x=13y$ and $y\in\{0,18\}$. This
+leaves the four vertices. The edge $[0,e_1]$ gives $L(U)\ge1$. If $U$
+contained a sum of two summands, Lemma~\ref{lem:corners} would give lattice
+points $a,b,c,d$ of $U$ with $a+d=b+c$, $a\ne b$ and $a\ne c$. Among four
+affinely independent points this is impossible: it would give either three
+distinct collinear points ($b=c$ or $a=d$) or four coplanar ones.
+\end{proof}
+
+For a lattice vector $u\ne0$ let
+\[
+\operatorname{cost}(u)=\sum_{j=0}^{3}\max\bigl(0,-F_j(u)\bigr)
+=\tfrac12\sum_{j=0}^{3}|F_j(u)| .
+\]
+
+\begin{lemma}\label{lem:cost}
+$\operatorname{cost}(u)\ge6$ for every $u\in\Z^3\setminus\{0\}$.
+\end{lemma}
+
+\begin{proof}
+Let $u=(x,y,z)$. If $z\ne0$, then
+$\sum_j|F_j(u)|\ge|F_0(u)+F_1(u)|+|F_2(u)+F_3(u)|=36|z|$, so
+$\operatorname{cost}(u)\ge18$. If $z=0$, then
+$\operatorname{cost}(u)=|18x-13y|+|y|$. This is at least $18$ if $y=0$ (then
+$x\ne0$) and at least $6$ if $|y|\ge6$. For $|y|=1,2,3,4,5$ the distance from
+$13|y|$ to the nearest multiple of $18$ is $5,8,3,2,7$, which gives
+$\operatorname{cost}(u)\ge6,10,6,6,12$.
+\end{proof}
+
+\begin{proposition}\label{prop:U}
+$L(tU)=3t$ for every integer $t\ge2$, and $t\mapsto L(tU)$ $(t\ge1)$ is not
+quasi-linear.
+\end{proposition}
+
+\begin{proof}
+\emph{Upper bound, for every $t\ge1$.} Let $[a_i,b_i]$ $(1\le i\le k)$ be
+lattice segments, $a_i\ne b_i$, all of whose corners lie in $tU$. Fix $j$ and
+choose for each $i$ the endpoint at which $F_j$ is smaller; the corresponding
+corner lies in $tU$, so by~\eqref{eq:tU}
+\[
+\sum_{i=1}^k\min\bigl(F_j(a_i),F_j(b_i)\bigr)\ge-18t\ \text{ for } j=0,
+\qquad \ge0\ \text{ for } j=1,2,3 .
+\]
+Add the four inequalities and use $\sum_jF_j(a_i)=0$:
+$\sum_i\sum_j\bigl(F_j(a_i)-\min(F_j(a_i),F_j(b_i))\bigr)\le18t$. The inner
+sum is $\operatorname{cost}(b_i-a_i)\ge6$ by Lemma~\ref{lem:cost}, so
+$6k\le18t$, i.e.\ $k\le3t$. The argument allows arbitrary lattice translations
+and directions.
+
+\emph{Lower bound, for every $t\ge2$.} By~\eqref{eq:tU}, the points $(1,0,1)$
+and $(13,18,1)=(1,0,1)+6\,(2,3,0)$ lie in $2U$, and $(0,0,2)$ and
+$(27,36,2)=(0,0,2)+9\,(3,4,0)$ lie in $3U$. So $2U$ contains a sum of $6$
+lattice segments and $3U$ a sum of $9$. Every $t\ge2$ can be written as
+$t=2i+3j$ with $i,j\ge0$, and $tU=i\cdot2U+j\cdot3U$ by convexity, so $tU$
+contains a sum of $6i+9j=3t$ lattice segments.
+
+\emph{Not quasi-linear.} Suppose $L(tU)=\alpha_rt+\gamma_r$ for $t\equiv r\bmod k$,
+with $k\ge1$ and rational $\alpha_r,\gamma_r$. The integers $1$, $1+k$ and
+$1+2k$ lie in one residue class. Since $L(tU)=3t$ at $t=1+k$ and $t=1+2k$,
+that class has $\alpha=3$ and $\gamma=0$, so $L(U)=3$, contradicting
+Lemma~\ref{lem:Upoints}.
+\end{proof}
+
+\begin{remark}\label{rem:period}
+The sequence agrees with~\cite[Theorem~2.20]{ss}. By
+Proposition~\ref{prop:U}, the rational Minkowski length
+$\lambda(U)=\sup_tL(tU)/t$ \cite[Definition~2.7]{ss} equals $3$, and the
+period of $U$ in the sense of~\cite[Definition~2.17]{ss} is $k=2$. Theorem~2.20
+of~\cite{ss} then gives $L(tU)=6\lfloor t/2\rfloor+c_r$ for large
+$t\equiv r\bmod2$, with $L(rU)\le c_r\le 3r$; here $c_0=0$ and $c_1=3$, while
+$L(U)=1$. This remark is not stated in the Lean files.
+\end{remark}
+
+\section{Lattice pyramids}\label{sec:pyr}
+
+Let $P=\conv\{v_0,\dots,v_d\}\subset\R^d$ ($d\ge1$) be a $d$-dimensional
+lattice simplex. Write points of $\R^{d+1}$ as $(h,y)$ with $h\in\R$ and
+$y\in\R^d$, and let
+\[
+\pyr P=\conv\{(1,0),(0,v_0),\dots,(0,v_d)\}\subset\R^{d+1},
+\]
+the lattice pyramid of height one over $P$ with apex $(1,0)$.
+
+\begin{lemma}\label{lem:pyr}
+(a) $\pyr P$ is a $(d+1)$-dimensional lattice simplex.
+(b) For every integer $t\ge1$,
+$t\pyr P=\{(h,y): 0\le h\le t,\ y\in(t-h)P\}$, where $0P=\{0\}$.
+(c) The lattice points of $\pyr P$ are the apex $(1,0)$ and the points $(0,q)$
+with $q\in P\cap\Z^d$.
+\end{lemma}
+
+\begin{proof}
+(a) An affine dependence among the vertices has zero apex weight (look at the
+coordinate $h$), and then it is an affine dependence among the $v_i$. (b) A
+point of $t\pyr P$ is a combination of the vertices with nonnegative weights
+of total mass $t$; the apex weight is $h$, and the base weights have total
+mass $t-h$ and combine to $y$. (c) follows from (b) with $t=1$, since a
+lattice point has $h\in\{0,1\}$.
+\end{proof}
+
+\begin{proposition}\label{prop:pyrdiam}
+If $\ell(P)=1$, then $\ell(\pyr P)=1$.
+\end{proposition}
+
+\begin{proof}
+Two distinct lattice points of $P$ give two of $\pyr P$. Let three lattice
+points of $\pyr P$ be collinear. If all lie at height $0$, they come from three
+collinear lattice points of $P$, two of which coincide. Otherwise one of them
+is the apex; a line through the apex meets the hyperplane $h=0$ in at most one
+point, so the other two coincide.
+\end{proof}
+
+\begin{proposition}\label{prop:pyrlen}
+For every integer $t\ge1$, $L(t\pyr P)=L(tP)$.
+\end{proposition}
+
+\begin{proof}
+If segments $[a_i,b_i]$ have all corners in $tP$, the segments
+$[(0,a_i),(0,b_i)]$ have all corners in $t\pyr P$ by Lemma~\ref{lem:pyr}(b).
+Conversely, let $[a_i,b_i]$ $(1\le i\le k)$ be lattice segments in
+$\Z^{d+1}$, $a_i\ne b_i$, with all corners in $t\pyr P$, labelled so that
+$h(b_i)\ge h(a_i)$. Call a segment \emph{rising} if $h(b_i)>h(a_i)$, and let
+$m$ be the number of rising segments. All corners in which every rising
+segment takes its upper endpoint $b_i$ have the same height $H$, because the
+other segments are horizontal. The lowest corner has height $\ge0$ and each
+rising segment adds at least~$1$, so $m\le H\le t$. By
+Lemma~\ref{lem:pyr}(b), for every choice of endpoints on the horizontal
+segments, the $y$-parts of these corners lie in $(t-H)P$; they are
+$g+\sum_{i\text{ horizontal}}y(c_i)$, where $g$ is the sum of the $y$-parts
+of the upper endpoints of the rising segments. Now replace each rising
+segment by $[v_0,v_d]$ and add the lattice vector $g+(H-m)v_0$. Every corner
+of the new configuration of $k$ segments lies in $(t-H)P+HP=tP$, by convexity
+of $P$. By Lemma~\ref{lem:corners}, $L(tP)\ge k$.
+\end{proof}
+
+\begin{proof}[Proof of Theorems~\ref{thm:diam} and~\ref{thm:dil}]
+The statements about $T$ and $U$ are Lemma~\ref{lem:Tpoints},
+Proposition~\ref{prop:T}, Lemma~\ref{lem:Upoints} and
+Proposition~\ref{prop:U}. Put $S_3=T$ (respectively $S_3=U$) and
+$S_{d+1}=\pyr S_d$. By Lemma~\ref{lem:pyr}(a), $S_d$ is a $d$-dimensional
+lattice simplex; by Proposition~\ref{prop:pyrlen}, $L(tS_d)=L(tS_3)$ for every
+$t\ge1$, and by Proposition~\ref{prop:pyrdiam}, $\ell(S_d)=\ell(S_3)$ when
+$S_3=T$. The argument that $L(tU)$ is not quasi-linear uses only $L(U)=1$
+and $L(tU)=3t$ for $t\ge2$, so it applies to $S_d$.
+\end{proof}
+
+\section{Remarks}\label{sec:remarks}
+
+\paragraph{The identity \texorpdfstring{$L_1(P)=\lfloor\lambda_1(P)\rfloor$}{L1(P)=floor(lambda1(P))}.}
+In Definition~2.10 the source introduces the rational diameter $s(P)$,
+defined through segments $[0,sv]$ contained in $P$ ``after a translation by a
+rational vector''; after it, the source shows $s(P)=\lambda_1(P)$ and
+concludes
+$L_1(P)=\lfloor\lambda_1(P)\rfloor$ from $\ell(P)=\lfloor s(P)\rfloor$
+\cite[p.~6]{ss} (the same text is in v1). The simplex $U$ shows that this
+identity does not hold in general. By Lemma~\ref{lem:Upoints},
+$L_1(U)=\ell(U)=1$. On the other hand, the seven lattice points
+$(1,0,1)+j(2,3,0)$, $0\le j\le6$, lie in $2U$, so $L_1(2U)\ge6$ and
+$\lambda_1(U)\ge3$; with Proposition~\ref{prop:U}, $\lambda_1(U)=3$. The
+segment $\frac12(1,0,1)+[0,3(2,3,0)]$ lies in $U$ but has non-integral
+endpoints. The cause is that $s(P)$ allows a translation by a rational vector,
+whereas $\ell(P)$ counts lattice points, that is, allows only lattice
+translations of lattice segments; the step $\ell(P)=\lfloor s(P)\rfloor$
+fails for $U$. Remark~2.21 of~\cite{ss} uses this identity to conclude that
+``the function $L_1(tP)$ is, in fact, quasi-linear''. That conclusion is
+therefore not supported in general. (This paper does not formalize the
+values of $L_1(tU)$.) The main
+theorem~\cite[Theorem~2.20]{ss} is not affected; its proof does not use the
+identity. Nor is \cite[Corollary~3.2]{ss}, used in Corollary~\ref{cor:p3}: in
+a triangle a longest chord in a given direction can be chosen with a vertex as
+an endpoint, so the segment used there is a lattice translate of
+$[0,\lfloor s(T)\rfloor v]$. This paragraph is not part of the Lean files.
+
+\paragraph{What remains open.}
+Problem~1 of~\cite{ss}, on the supremum of $\lambda(P)-L(P)$, is not
+addressed here. Our answer to Problem~2 is a $3$-dimensional example and its
+pyramids. In dimension one $L(tP)=tL(P)$ is linear. For lattice polygons the
+authors report that $L(tP)$ was quasi-linear in all examples they
+computed~\cite[p.~12]{ss}; whether this holds for every lattice polygon is,
+as far as we know, still open.
+
+{\sloppy
+\section{Formal verification}\label{sec:lean}
+
+Theorems~\ref{thm:diam} and~\ref{thm:dil} are formally verified in Lean~4
+(version 4.34.1) with Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}). The
+$16$ files are in version~\repoversion{} of the repository~\cite{repo},
+directory \texttt{lean/Research/TaskP/GeomSimplex/}. Corollary~\ref{cor:p3}
+for $d\le2$, Remark~\ref{rem:period} and Section~\ref{sec:remarks} are not
+formalized.
+
+\paragraph{The statements.}
+The statement file \texttt{Challenge.lean} contains only definitions and
+statements, no proofs. In ASCII transliteration (the docstrings and the
+\texttt{import}, \texttt{namespace} and \texttt{end} lines omitted; the file
+itself uses Unicode, e.g.\ $\mathbb Z$, $\mathbb R$, $\sum$, $\to$ and $\ne$):
+{\footnotesize
+\begin{verbatim}
+abbrev Lattice (d : Nat) := Fin d -> Int
+abbrev Space (d : Nat) := Fin d -> Real
+def realPoint {d : Nat} (a : Lattice d) : Space d := fun i => a i
+def polytope {d : Nat} (vertices : Finset (Lattice d)) : Set (Space d) :=
+  convexHull Real (realPoint '' (vertices : Set (Lattice d)))
+def simplex {d : Nat} (vertices : Fin (d + 1) -> Lattice d) : Set (Space d) :=
+  convexHull Real (Set.range (realPoint o vertices))
+def fullSimplex {d : Nat} (vertices : Fin (d + 1) -> Lattice d) : Prop :=
+  AffineIndependent Real (realPoint o vertices)
+def dilate {d : Nat} (t : Nat) (P : Set (Space d)) : Set (Space d) :=
+  (fun x => (t : Real) smul x) '' P
+def packs {d : Nat} (P : Set (Space d)) (k : Nat) : Prop :=
+  exists V : Fin k -> Finset (Lattice d),
+    (forall i, 1 < (V i).card) /\
+    forall x : Fin k -> Space d, (forall i, x i in polytope (V i)) -> sum i, x i in P
+def lengthIs {d : Nat} (P : Set (Space d)) (n : Nat) : Prop :=
+  packs P n /\ forall k, packs P k -> k <= n
+def diameterOne {d : Nat} (P : Set (Space d)) : Prop :=
+  (exists a b : Lattice d, a != b /\ realPoint a in P /\ realPoint b in P) /\
+  forall a b c : Lattice d, realPoint a in P -> realPoint b in P -> realPoint c in P ->
+    Collinear Real ({realPoint a, realPoint b, realPoint c} : Set (Space d)) ->
+    a = b \/ a = c \/ b = c
+def quasiLinearLengths {d : Nat} (P : Set (Space d)) : Prop :=
+  exists k : Nat, 0 < k /\ exists slope intercept : Nat -> Rat,
+    forall t : Nat, 0 < t -> exists n : Nat, lengthIs (dilate t P) n /\
+      (n : Rat) = slope (t % k) * t + intercept (t % k)
+def verticesT : Fin 4 -> Lattice 3 :=
+  ![![1, 0, 1], ![3, 3, 1], ![2, 0, 3], ![0, 3, 3]]
+def verticesU : Fin 4 -> Lattice 3 :=
+  ![![0, 0, 0], ![1, 0, 0], ![0, 0, 1], ![13, 18, 1]]
+def problemThreeWitness {d : Nat} (v : Fin (d + 1) -> Lattice d) : Prop :=
+  fullSimplex v /\ lengthIs (simplex v) 2 /\ diameterOne (simplex v)
+def problemTwoWitness {d : Nat} (v : Fin (d + 1) -> Lattice d) : Prop :=
+  fullSimplex v /\ lengthIs (simplex v) 1 /\
+    (forall t : Nat, 2 <= t -> lengthIs (dilate t (simplex v)) (3 * t)) /\
+    not quasiLinearLengths (simplex v)
+def TetrahedronDiameter : Prop := problemThreeWitness verticesT
+def TetrahedronDilations : Prop := problemTwoWitness verticesU
+def EveryDimensionDiameter : Prop :=
+  forall d : Nat, 3 <= d -> exists v : Fin (d + 1) -> Lattice d, problemThreeWitness v
+def EveryDimensionDilations : Prop :=
+  forall d : Nat, 3 <= d -> exists v : Fin (d + 1) -> Lattice d, problemTwoWitness v
+\end{verbatim}}
+\noindent Here \texttt{o} stands for composition $\circ$, \texttt{smul} for
+scalar multiplication, \verb|''| is the image of a set, \texttt{sum} a
+finite sum, \verb|!=| stands for $\ne$, \verb|/\|, \verb|\/|,
+\texttt{forall}, \texttt{exists}, \texttt{in}, \verb|<=| and \texttt{not}
+stand for $\wedge,\vee,\forall,\exists,\in,\le,\neg$, \verb|![...]| is a vector
+literal, and \verb|t % k| is the remainder of $t$ modulo $k$. A point of
+\texttt{Lattice d} is a point of $\Z^d$ and \texttt{realPoint} views it in
+$\R^d$. \texttt{polytope V} and \texttt{simplex v} are real convex hulls of
+lattice points; \texttt{fullSimplex v} says that the $d+1$ vertices are
+affinely independent, so the simplex is $d$-dimensional; \texttt{dilate t P}
+is $tP$. \texttt{packs P k} says that $P$ contains the Minkowski sum of $k$
+lattice polytopes $\conv(V_i)$, each with at least two lattice points, that
+is, of positive dimension: every choice of one real point in each factor sums
+into $P$. \texttt{lengthIs P n} says that $L(P)=n$: some packing with $n$
+summands exists and every packing has at most $n$. \texttt{diameterOne P}
+says that $\ell(P)=1$. \texttt{quasiLinearLengths P} says that, for some
+period $k>0$ and rational slopes and intercepts depending on $t\bmod k$,
+$L(tP)$ exists and equals the corresponding linear function for every
+$t\ge1$; this is Definition~1.3 of~\cite{ss}. The four targets are
+Theorem~\ref{thm:diam} for $T$, Theorem~\ref{thm:dil} for $U$, and the two
+``more generally'' statements.
+
+The final reviewer (see the last section) checked the following points.
+(i)~\texttt{packs} is literal containment of the Minkowski sum, as in
+Definition~1.1 of~\cite{ss}; each factor sits at its own lattice position,
+and translations by non-lattice vectors are not allowed. (ii)~Since
+\texttt{lengthIs} asks for an attained maximum, the value is unique (Lean
+lemma \texttt{length\_\allowbreak unique}), and the case $k=0$ of
+\texttt{packs} plays no role because all values claimed are at least~$1$.
+(iii)~\texttt{problemTwoWitness} fixes $L(U)=1$ and $L(tU)=3t$ for $t\ge2$ as
+separate conjuncts, so \texttt{not quasiLinearLengths} cannot hold merely
+because some maximum fails to exist. The negation is stated for $t\ge1$; a
+quasi-linear function on $\N$ including $0$ would restrict to one on $t\ge1$,
+and real instead of rational coefficients would make no difference, so the
+Lean statement is at least as strong as the negation of the source's notion.
+(iv)~\texttt{fullSimplex} makes every witness a genuine $d$-dimensional
+simplex in $\R^d$, not a lower-dimensional one padded with zeros.
+
+\paragraph{Review and freezing.}
+\texttt{Challenge.lean} was reviewed against~\cite{ss} by a Codex agent that
+had written neither the statement nor the proofs, and frozen, by recording its
+SHA-256 hash, on 20 November 2026 at 18:06~UTC. The development logs record no
+compilation of a proof file before that time (the only earlier compilation is
+of \texttt{Challenge.lean} itself, at 18:04~UTC), and the file was not changed
+afterwards.
+
+\paragraph{The proofs.}
+The two targets for every $d\ge3$ are proved in \texttt{Proof.lean} by
+induction on $d$ (\texttt{Nat.le\_\allowbreak induction}), starting from
+\texttt{Proof.TetrahedronDiameter} (file \texttt{TTetrahedron.lean}) and
+\texttt{Proof.TetrahedronDilations} (file \texttt{UTetrahedron.lean}) and
+applying \texttt{pyramid\_\allowbreak length} with $t=1$ and with every
+$t\ge2$. In the Lean files the new coordinate of the pyramid is the first one
+and the apex is $(1,0,\dots,0)$ (\texttt{pyrVertices}).
+Table~\ref{tab:lean} lists the Lean counterparts of the steps of the written
+proof (names in the namespace \texttt{TaskP.GeomSimplex.Proof}).
+
+\begin{table}[ht]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.42\textwidth}>{\raggedright\arraybackslash}p{0.54\textwidth}@{}}
+\hline
+Step of the written proof & Lean (file) \\
+\hline
+Lemma~\ref{lem:corners} &
+\texttt{pack\_endpoints}, \texttt{pack\_of\_endpoints} (\texttt{Packing});
+lattice translation: \texttt{translated\_pack} (\texttt{PyramidCorners}) \\
+Uniqueness of $L$ & \texttt{length\_unique} (\texttt{Packing}) \\
+Lemma~\ref{lem:Tpoints}: barycentric description and dimension of $T$ &
+\texttt{tcoords}, \texttt{simplexT\_facets}, \texttt{simplexT\_int},
+\texttt{fullT} (\texttt{TCoordinates}) \\
+Lemma~\ref{lem:Tpoints}: the eight lattice points &
+\texttt{tpoints}, \texttt{points\_of\_T} (\texttt{TCoordinates}) \\
+Proposition~\ref{prop:T}, $\ell(T)=1$ (in Lean: a $2\times2$ minor is
+nonzero for every triple of distinct points, checked by \texttt{decide}) &
+\texttt{diameterT}, from the private \texttt{collinear\_minors} and
+\texttt{diameter\_table} (\texttt{TDiameter}) \\
+Proposition~\ref{prop:T}, $L(T)\ge2$ and $L(T)\le2$ (in Lean: the
+certificate with $\kappa$) &
+\texttt{lowerT}, \texttt{upperT}, from the private \texttt{no\_cube} and
+\texttt{noCubeTable} (\texttt{TLength}) \\
+Equation~\eqref{eq:tU} and dimension of $U$ &
+\texttt{uform}, \texttt{budget}, \texttt{simplexU\_facets},
+\texttt{dilateU\_facets}, \texttt{dilateU\_int}, \texttt{fullU}
+(\texttt{UCoordinates}) \\
+Lemma~\ref{lem:Upoints} &
+\texttt{length\_oneU}, from the private \texttt{only\_vertices} and
+\texttt{no\_parallelogram} (\texttt{UTetrahedron}) \\
+Lemma~\ref{lem:cost} &
+\texttt{cost\_nonzero}, from the private \texttt{edge\_cost} (\texttt{UUpper}) \\
+Proposition~\ref{prop:U}, upper bound & \texttt{upperU} (\texttt{UUpper}) \\
+Proposition~\ref{prop:U}, lower bound &
+\texttt{lowerU}, from the private \texttt{six}, \texttt{nine},
+\texttt{witness\_add}, \texttt{witness\_all} (\texttt{ULower}) \\
+Proposition~\ref{prop:U}, not quasi-linear &
+\texttt{not\_quasiLinear} (\texttt{Packing}) \\
+Lemma~\ref{lem:pyr} &
+\texttt{pyrVertices}, \texttt{full\_pyramid}, \texttt{mass\_pyramid},
+\texttt{mem\_dilate\_mass} (\texttt{PyramidGeometry});
+\texttt{pyramid\_base\_mem}, \texttt{pyramid\_lattice\_cases}
+(\texttt{PyramidDiameter}) \\
+Proposition~\ref{prop:pyrdiam} &
+\texttt{diameter\_pyramid} (\texttt{PyramidDiameter}) \\
+Proposition~\ref{prop:pyrlen} &
+\texttt{pyramid\_length}, from the private \texttt{lift\_pack} and
+\texttt{descend\_pack} (\texttt{PyramidTransport}) and
+\texttt{replace\_rising} (\texttt{PyramidCorners}) \\
+Induction on the dimension & \texttt{Proof.EveryDimensionDiameter},
+\texttt{Proof.EveryDimensionDilations}, private \texttt{one\_level}
+(\texttt{Proof}) \\
+\hline
+\end{tabular}
+\caption{Lean counterparts of the steps of the proof.}
+\label{tab:lean}
+\end{table}
+
+\noindent The test file \texttt{CheckSimplex.lean} restates the four targets
+with the frozen types, as four theorems named \texttt{check\_} followed by
+the name of the target. The axioms of these four
+theorems and of the four \texttt{Proof} theorems, printed by
+\texttt{CheckSimplex.lean}, are exactly \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. No file uses
+\texttt{sorry}, \texttt{native\_\allowbreak decide},
+\texttt{bv\_\allowbreak decide} or an \texttt{axiom} declaration. The finite
+tables (the $8^3$ triples for $\ell(T)$, the $8^4$ quadruples for $L(T)\le2$
+and the $4^4$ quadruples for $L(U)=1$) and the witness inequalities for $2U$
+and $3U$ are checked by \texttt{decide}, that is, by the kernel; two of these
+proofs raise the \texttt{maxHeartbeats} limit (and one the recursion depth).
+
+\paragraph{Checks.}
+All $16$ files, that is, the $13$ proof modules together with the
+statement file, \texttt{Proof.lean} and the test file, were compiled module by
+module in two new empty directories on the author's Mac, with the pinned
+toolchain and with warnings treated as errors, on 20 November 2026
+(18:25--18:31~UTC), and every module was replayed with \texttt{leanchecker};
+each directory also ran one build of the whole package. All $66$ commands
+($33$ per directory) ended with exit code~$0$, the \texttt{leanchecker} runs
+printed nothing, and the two directories produced identical \texttt{.olean}
+files. The final reviewer (see the next section) compiled the $16$ files again,
+together with a short audit file of its own, in a third new directory on the
+author's Mac on 20 November 2026 (20:57--21:00~UTC), with warnings treated as
+errors, and replayed every module with \texttt{leanchecker}; all runs ended
+with exit code~$0$ and the \texttt{leanchecker} runs printed nothing. Mathlib
+and its dependencies were taken from a shared prebuilt cache at the pinned
+commits and were not rechecked; the \texttt{leanchecker} replays cover the
+$16$ project modules. The receipts are in the folder
+\texttt{certificates/minkowski-length-simplices} of the repository. In the
+repository the files have module names under
+\texttt{Research.TaskP.GeomSimplex} and differ from the checked files only in
+their \texttt{import} lines (\texttt{Challenge.lean} is unchanged).
+The repository versions were made by a script that changed only the local \texttt{import} lines, and on 20 November 2026 (21:04--21:16~UTC) they were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac, one after the other, together with the files of two other papers of version~\repoversion{} ($48$ modules in all); there were no warnings, and the two directories produced identical \texttt{.olean} files and the same axiom lists. In the whole-project rebuild of version~\repoversion{} of the repository (on the author's Windows computer, in two passes on 20 and 21 November 2026), these files were compiled and replayed with \texttt{leanchecker} again in pass~2 (21 November 2026), which built the files not included in pass~1 on top of its results; no module needed a second attempt (details in the repository). The formalization has not been checked with
+comparator or with an independent kernel.
+
+\par}
+
+\section*{How this paper was produced}
+This work was carried out from 20 to 22 November 2026 (UTC) in a workflow directed by
+the author, using OpenAI Codex with the model GPT-6.2-Astra (reasoning level
+ultra) and Anthropic Claude Code with the model Claude Opus~5.5. The author
+asked for a further search for substantial open problems, and Claude Code
+passed this request to Codex at 17:23~UTC (according to the file timestamp of
+the request). Between 17:23 and 17:53~UTC, Codex recorded $111$ problems from
+the literature and wrote proofs for five candidates; for the problems of this
+paper, the lattice points of $T$, the absence of three-segment sums in $T$,
+the segments in $2U$ and $3U$ and the residues in Lemma~\ref{lem:cost} were
+checked by exact computation, and the proofs were read by another Codex agent
+(same model) that had not taken part in them. The author had asked in advance
+that the five most important candidates be formalized at once, without
+waiting for a choice; this problem was among the five selected at 18:00~UTC.
+From then on, Codex agents (same model) checked the reading of the source,
+searched again for prior work, wrote the statement file, the Lean proof and
+the written proof, and ran the checks. The reading of the source was checked
+by a Codex agent that had not taken part in the written proof, and the
+statement file was reviewed before it was frozen by a Codex agent that had
+written neither the proofs nor the statement. According to the file
+timestamps and the development logs, the proof files were created after the
+freeze and compiled between 18:06 and 18:24~UTC; they follow the written proofs
+prepared in the search for problems. After the checks, an independent Claude
+Code agent (model Claude Opus~5.5) that had written none of the files gave the
+final review. It read both arXiv versions of the source itself, compared the
+statement file with them, read the written proof, the proof files and the raw
+logs of the checks, recomputed the lattice points, the possible segment sums
+in $T$ and $U$ and the bound of Lemma~\ref{lem:cost} in Python, and rebuilt
+the formalization as described above. Its decision was APPROVE\_FORMAL, with
+five minor remarks on the written account (two optional); they were taken
+into account in this paper, except the one about the duplicate-check file,
+which concerns an internal record. Claude Code (Claude Opus~5.5) checked the sources and wrote this
+text from Codex's manuscript and the Lean files. An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied. Throughout,
+``we'' refers to this workflow; the reading and searching described in the
+paper were done by the agents. Codex agents searched for prior work on
+20 November 2026, in the search for problems and again before the statement
+was frozen, and the final reviewer read the closest later works it found,
+including~\cite{bs,mss}; they found no answer to Problems~2 or~3
+of~\cite{ss} (details in the repository). Claude Code searched again on 21 November 2026 (17:54--18:21~UTC; the arXiv, Semantic Scholar, Crossref, DataCite, Zenodo, MathDB, GitHub and repositories of AI-assisted mathematics, including the works citing~\cite{mss} and its published code) and found no new related work; that day the citation index OpenAlex refused to list the works citing~\cite{ss} (rate limit). Claude Code searched again on 22 November 2026 (05:39--05:51~UTC), when the OpenAlex lists of citing works refused on 21 November were retrieved, and found nothing new. This reports the
+coverage of the searches, not a guarantee that they were complete. The author
+is not a professional mathematician. The author has read this paper and, using a side-by-side table, compared its Lean statements with the main theorems: Theorems~\ref{thm:diam} and~\ref{thm:dil}. No human mathematician has
+reviewed this paper. The correctness of the results rests on the Lean proofs
+and on the agreement of the Lean statements with the problems of~\cite{ss};
+the written proofs are given for the reader. AI systems are not authors of
+this paper; the author takes full responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Ivan Soprunov and Jenya Soprunova for the
+questions.
+
+{\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{1pt}
+\bibitem{bgsw} O.~Beckwith, M.~Grimm, J.~Soprunova and B.~Weaver, Minkowski
+length of 3D lattice polytopes, \emph{Discrete Comput. Geom.} 48 (2012),
+no.~4, 1137--1158, \url{https://doi.org/10.1007/s00454-012-9433-5}.
+\bibitem{bs} M.~Blanco and F.~Santos, Enumeration of lattice 3-polytopes by
+their number of lattice points, \emph{Discrete Comput. Geom.} 60 (2018),
+no.~3, 756--800, \url{https://doi.org/10.1007/s00454-017-9932-5};
+arXiv:1601.02577v3.
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{mss} K.~Meyer, I.~Soprunov and J.~Soprunova, $\mathbb F_q$-zeros of
+sparse trivariate polynomials and toric 3-fold codes, \emph{SIAM J. Appl.
+Algebra Geom.} 6 (2022), no.~3, 432--467,
+\url{https://doi.org/10.1137/21M1436890}; arXiv:2105.10071v2.
+\bibitem{ss} I.~Soprunov and J.~Soprunova, Eventual quasi-linearity of the
+Minkowski length, \emph{European J. Combin.} 58 (2016), 107--117,
+\url{https://doi.org/10.1016/j.ejc.2016.05.009}; arXiv:1412.4404v2 (2016).
+\bibitem{white} G.~K. White, Lattice tetrahedra, \emph{Canad. J. Math.} 16
+(1964), 389--396, \url{https://doi.org/10.4153/CJM-1964-040-2}.
+\end{thebibliography}}
+\end{document}

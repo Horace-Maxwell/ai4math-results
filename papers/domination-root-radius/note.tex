@@ -1,0 +1,794 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={The largest domination roots of friendship graphs and of joins with repeated petals},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.25.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Log}{\operatorname{Log}}
+
+\title{The largest domination roots of friendship graphs\\ and of joins with repeated petals}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The domination polynomial $D(G,x)$ of a graph $G$ counts the dominating sets
+of $G$ by size. Alikhani, Brown and Jahari asked for a good upper bound on the
+modulus of the domination roots of the friendship graph $F_m=K_1\vee mK_2$.
+Fix a simple graph $B$ with at least one vertex and an integer $a\ge1$, and let $J_m$ be the
+join of the complete graph $K_a$ with $m$ disjoint copies of $B$. We show that
+the largest modulus $M_m$ of a complex root of $D(J_m,x)$ is attained and
+satisfies $M_m\sim\bigl(c\,s\,m/(a\log m)\bigr)^{1/c}$ as $m\to\infty$, where
+$c=1+\delta(B)$ and $s$ is the number of distinct closed neighbourhoods of size
+$c$ in $B$. For friendship graphs this gives $M_m\sim\sqrt{2m/\log m}$. In
+this case the upper half of the asymptotics already follows, by a short
+computation, from a recent implicit bound of Rather; what is added there is
+the matching lower bound, which shows that Rather's implicit bound is
+asymptotically sharp, while his explicit bound is not. The convergence is
+slow. The three main statements are formally verified in Lean~4. The proofs
+were found and formalized by AI agents working under the author's direction;
+their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+All graphs are finite, simple and undirected. A set $S$ of vertices of a graph
+$G$ is \emph{dominating} if every vertex of $G$ lies in $S$ or has a neighbour
+in $S$. The \emph{domination polynomial} of $G$ is
+\[
+D(G,x)=\sum_{S\ \text{dominating}} x^{|S|}=\sum_{i\ge0} d(G,i)\,x^i ,
+\]
+where $d(G,i)$ is the number of dominating sets of size $i$; its roots are the
+\emph{domination roots} of $G$. The \emph{friendship graph} $F_m$ consists of
+$m$ triangles with one common vertex; equivalently $F_m=K_1\vee mK_2$, the
+join of one vertex with $m$ disjoint edges. It has $2m+1$ vertices, and
+\begin{equation}\label{eq:friend}
+D(F_m,x)=(x^2+2x)^m+x(1+x)^{2m}
+\end{equation}
+\cite[Theorem~2.1]{abj}. Alikhani, Brown and Jahari showed that the limits of
+the domination roots of $F_m$ are $0$ and a hyperbola~\cite[Theorem~2.5]{abj},
+so that the moduli of the roots are unbounded, and asked:
+
+\begin{quote}
+\textbf{Question 3.2 of~\cite{abj}.} What is a good upper bound on the
+modulus of the roots of $F_n$?
+\end{quote}
+
+\noindent They added that some calculations seemed to indicate that the
+moduli grow quite slowly, ``perhaps like ln n''~\cite[p.~176]{abj}. We use
+the numbering of the journal version~\cite{abj}, where the question is on
+p.~176. In the arXiv version (arXiv:1401.2092v2) the same question is
+Question~2 of Section~3, with the same wording, and Theorems~2.1 and~2.5 are
+Theorems~1 and~4 (the statement of the latter contains misprints).
+
+Rather~\cite[Section~4]{ra} proved that every domination root $z$ of $F_m$
+with $|z|>1$ satisfies $(|z|-1)^2\log|z|\le m$ \cite[Theorem~4.1]{ra}. He
+deduced the explicit bound $|z|\le 1+\sqrt{m/\log 2}$
+\cite[Corollary~4.2]{ra} and noted the sharper implicit bound $|z|\le R_m$,
+where $R_m>1$ is the solution of $(R_m-1)^2\log R_m=m$ \cite[Remark~4.3]{ra}.
+He wrote that his estimate is ``not expected to be asymptotically
+sharp''~\cite[p.~10]{ra}, and in his conclusion~\cite[Section~7]{ra} he left open whether
+the
+modulus bound for friendship graphs is asymptotically optimal.
+
+We determine the first-order asymptotics of the largest modulus, for the
+friendship graphs and for a larger family. Let $B$ be a fixed graph with at
+least one vertex (it may be disconnected and may have isolated vertices), and
+let $a\ge1$ be a fixed integer. For $m\ge1$ let
+\[
+J_m=J_m(a,B)=K_a\vee mB
+\]
+be the graph obtained from a complete graph $K_a$ (the \emph{centre}) and $m$
+disjoint copies of $B$ (the \emph{petals}) by joining every centre vertex to
+every petal vertex. Let $b=|V(B)|$, let $\delta(B)$ be the minimum degree of
+$B$, and put
+\[
+c=1+\delta(B),\qquad s=\#\{N_B[v]:v\in V(B),\ |N_B[v]|=c\},
+\]
+where $N_B[v]$ is the closed neighbourhood of $v$ in $B$; thus $c$ is the
+smallest size of a closed neighbourhood, and $s$ counts the \emph{distinct}
+closed neighbourhoods of that size (a set that is the closed neighbourhood of
+several vertices is counted once). For $m\ge2$ let
+\[
+S_m=\Bigl(\frac{c\,s\,m}{a\log m}\Bigr)^{1/c},
+\]
+with the natural logarithm. The friendship graph is $F_m=J_m(1,K_2)$; for
+$B=K_2$ both closed neighbourhoods are the whole vertex set, so $c=2$, $s=1$
+and $S_m=\sqrt{2m/\log m}$.
+
+\begin{theorem}\label{thm:attain}
+For every graph $B$ with at least one vertex and all integers $a,m\ge1$, the
+set $\{|z|: z\in\C,\ D(J_m,z)=0\}$ has a largest element. We denote it by
+$M_m=M_m(a,B)$.
+\end{theorem}
+
+\begin{theorem}\label{thm:main}
+For every graph $B$ with at least one vertex and every integer $a\ge1$,
+\[
+\lim_{m\to\infty}\frac{M_m(a,B)}{S_m}=1 .
+\]
+Equivalently, for every $\varepsilon>0$ there is $m_0$ such that for every
+$m\ge m_0$ every domination root $z$ of $J_m$ satisfies
+$|z|\le(1+\varepsilon)S_m$, and some domination root $z$ of $J_m$ satisfies
+$|z|\ge(1-\varepsilon)S_m$.
+\end{theorem}
+
+\begin{corollary}\label{cor:friend}
+The largest modulus $M_m$ of a domination root of the friendship graph $F_m$
+satisfies $M_m/\sqrt{2m/\log m}\to1$ as $m\to\infty$.
+\end{corollary}
+
+\noindent Theorems~\ref{thm:attain} and~\ref{thm:main} (in the limit form)
+and Corollary~\ref{cor:friend} are the three statements verified in Lean
+(Section~\ref{sec:lean}); the $\varepsilon$-form of Theorem~\ref{thm:main} is
+equivalent to the limit form by Theorem~\ref{thm:attain} and is what the Lean
+proof establishes on the way. Remark~\ref{rem:rather}, the examples of
+$(c,s)$ other than $B=K_2$, the consequence $M_m/\log m\to\infty$ and the
+numerical values in Table~\ref{tab:num} are not part of the Lean statements.
+
+Thus Question~3.2 of~\cite{abj} has a sharp answer in the asymptotic sense:
+the roots of $F_m$ have modulus at most $(1+o(1))\sqrt{2m/\log m}$, and no
+upper bound of the form $(1-\varepsilon)\sqrt{2m/\log m}$ holds for large $m$.
+This does not give an explicit bound for each fixed $m$; for those, Rather's
+bounds remain the available ones. By Corollary~\ref{cor:friend},
+$M_m/\log m\to\infty$, so the
+moduli grow faster than the logarithmic growth suggested by the numerical
+data in~\cite{abj} (a consequence of Corollary~\ref{cor:friend} that is not
+stated separately in Lean).
+
+Some further examples of $(c,s)$; Theorem~\ref{thm:main} applies to each of
+them, and the values of $(c,s)$ were computed by hand (only for $B=K_2$ is
+this evaluation also done in Lean): $B=K_1$ gives $c=s=1$ and $S_m=m/(a\log m)$; the graph of $b$
+isolated vertices gives $c=1$, $s=b$; $B=K_b$ gives $c=b$, $s=1$, so for the
+windmill graphs $K_1\vee mK_b$ the largest modulus is asymptotic to
+$(bm/\log m)^{1/b}$; the path $P_3$ gives $(2,2)$, the star $K_{1,3}$ gives
+$(2,3)$ and the cycle $C_4$ gives $(3,4)$. For $B=K_3$, counting vertices of
+minimum degree instead of distinct closed neighbourhoods would give $s=3$
+instead of $s=1$ and the wrong constant.
+
+\subsection*{Prior work and what this paper adds}
+The friendship formula~\eqref{eq:friend}, the limiting hyperbola and the
+question are from~\cite{abj}. The formula for $D(J_m,x)$ used below
+(Lemma~\ref{lem:join}) follows from standard facts: the domination polynomial
+is multiplicative over disjoint unions~\cite[Theorem~1]{ap},
+\cite[Section~1]{kpstt}, and the join satisfies
+$D(G_1\vee G_2,x)=\bigl((1+x)^{n_1}-1\bigr)\bigl((1+x)^{n_2}-1\bigr)+D(G_1,x)+D(G_2,x)$
+for graphs of orders $n_1$ and $n_2$~\cite[Theorem~2]{ap}; both facts are
+used in the proof of~\cite[Theorem~2.1]{abj}, and for $a=1$ the formula also
+follows from the corona formula~\cite[Theorem~3.12]{kpstt}, since
+$K_1\vee mB$ is the corona $K_1\circ mB$. Only the
+Lean derivation of Lemma~\ref{lem:join} from the definition is ours.
+
+For friendship graphs, Rather's implicit bound $R_m$ already gives the upper
+half of Corollary~\ref{cor:friend}, because $R_m\sim\sqrt{2m/\log m}$
+(Remark~\ref{rem:rather}; this short computation is not in~\cite{ra} and not
+in Lean). The parts not covered by~\cite{ra} or by the other work we found are: the
+matching lower bound, that is, actual roots
+of modulus $(1-o(1))\sqrt{2m/\log m}$ for every large $m$, which shows that
+$M_m/R_m\to1$; and Theorem~\ref{thm:main} for every fixed petal $B$ and every
+fixed centre $K_a$, with both bounds. A phenomenon of the same kind is known
+for chromatic polynomials: Brown, Hickman, Sokal and Wagner~\cite{bhsw}
+proved that the chromatic roots of $k$-ary generalized theta graphs lie in
+$|z-1|\le(1+o(1))\,k/\log k$ and that $K_{2,k}$ has a chromatic root of that
+modulus. Searches up to 20 November 2026 found no earlier sharp asymptotic
+for the largest domination roots of friendship graphs and no matching lower
+bound (see the final section).
+
+\section{From dominating sets to a root equation}\label{sec:equation}
+
+Throughout, $B$, $a$, $b$, $c$, $s$ are as in the introduction, and all
+polynomials have complex coefficients.
+
+\begin{lemma}[join formula]\label{lem:join}
+For $m\ge1$,
+\[
+D(J_m,z)=\bigl((1+z)^a-1\bigr)(1+z)^{bm}+D(B,z)^m .
+\]
+\end{lemma}
+
+\begin{proof}
+Let $S$ be a set of vertices of $J_m$. If $S$ contains a centre vertex, then
+$S$ is dominating, since a centre vertex is adjacent to every other vertex;
+these sets contribute $((1+z)^a-1)(1+z)^{bm}$. If $S$ contains no centre
+vertex, then a petal vertex is dominated only from its own copy of $B$, so
+$S$ is dominating if and only if its intersection with each copy is a
+dominating set of that copy. In this case $S$ is nonempty (a dominating set
+of a graph with a vertex is nonempty, and $m\ge1$), so it also dominates the
+centre. Choosing the intersections independently for the $m$ copies gives the
+contribution $D(B,z)^m$.
+\end{proof}
+
+\paragraph{Bad sets.}
+Call a set $T\subseteq V(B)$ \emph{bad} if $N_B[v]\subseteq T$ for some vertex
+$v$. A set $S$ fails to dominate $B$ exactly when some vertex has no element
+of $N_B[v]$ in $S$, that is, when $V(B)\setminus S$ is bad. Every bad set has
+at least $c$ elements, and the bad sets with exactly $c$ elements are exactly
+the $s$ distinct closed neighbourhoods of size $c$. Define
+\[
+Q(w)=1-\sum_{T\ \text{bad}} w^{|T|}(1-w)^{b-|T|}.
+\]
+
+\begin{lemma}[leading missing term]\label{lem:Q}
+\begin{enumerate}
+\item[(a)] $Q(w)=\sum_{S\ \text{dominating in}\ B}(1-w)^{|S|}w^{b-|S|}$.
+\item[(b)] For $y\ne0$, $y^b\,Q(1/y)=D(B,y-1)$.
+\item[(c)] There is a polynomial $E$ such that
+$Q(w)=1-s\,w^c+w^{c+1}E(w)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) The weights $(1-w)^{|S|}w^{b-|S|}$ of all subsets $S$ of $V(B)$ add up to
+$((1-w)+w)^b=1$. The non-dominating sets are the complements of bad sets, and
+the complement of $T$ has weight $w^{|T|}(1-w)^{b-|T|}$; subtracting their
+weights from $1$ leaves the sum over dominating sets. (b) By (a),
+$y^bQ(1/y)=\sum_S (1-1/y)^{|S|}y^{-(b-|S|)}y^b=\sum_S (y-1)^{|S|}$, the sum over
+dominating sets $S$. (c) A bad set $T$ with $|T|=c$ contributes
+$w^c(1-w)^{b-c}=w^c-w^{c+1}(\cdots)$, and there are $s$ of them; a bad set with
+$|T|>c$ contributes a multiple of $w^{c+1}$.
+\end{proof}
+
+\begin{lemma}[root equation]\label{lem:rooteq}
+Let $m\ge1$ and $y\ne0$. Then $y-1$ is a domination root of $J_m$ if and only
+if
+\[
+Q(1/y)^m=1-y^a .
+\]
+\end{lemma}
+
+\begin{proof}
+By Lemmas~\ref{lem:join} and~\ref{lem:Q}(b),
+$D(J_m,y-1)=(y^a-1)y^{bm}+\bigl(y^bQ(1/y)\bigr)^m
+=y^{bm}\bigl(y^a-1+Q(1/y)^m\bigr)$, and $y^{bm}\ne0$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:attain}]
+For any graph $G$ with $n\ge1$ vertices, the only dominating set of size $n$
+is the whole vertex set, so $D(G,x)$ has leading coefficient $1$ in degree
+$n$ and is a nonzero polynomial; its root set is therefore finite. The empty
+set dominates no graph with a vertex, so $D(G,0)=0$ and the root set is
+nonempty. A finite nonempty set of moduli has a largest element. Apply this
+to $G=J_m$, which has $a+bm\ge1$ vertices.
+\end{proof}
+
+\section{The upper bound}\label{sec:upper}
+
+\begin{lemma}[the scale]\label{lem:scale}
+For $m\ge2$, $S_m>0$ and $S_m^c=c\,s\,m/(a\log m)$. Moreover
+$\log S_m/\log m\to1/c$ and $S_m\to\infty$ as $m\to\infty$.
+\end{lemma}
+
+\begin{proof}
+The first two claims are immediate. Since
+$c\log S_m=\log(cs/a)+\log m-\log\log m$ and $\log\log m/\log m\to0$, we get
+$\log S_m/\log m\to1/c$, and then $\log S_m\to\infty$.
+\end{proof}
+
+\begin{proposition}[upper bound]\label{prop:upper}
+For every $\varepsilon>0$ there is $m_0$ such that for every $m\ge m_0$ every
+domination root $z$ of $J_m$ satisfies $|z|\le(1+\varepsilon)S_m$.
+\end{proposition}
+
+\begin{proof}
+Let $E$ be as in Lemma~\ref{lem:Q}(c), let $K\ge0$ bound $|E(w)|$ on the
+closed unit disc, and let $\beta=1+\varepsilon/2$ and $T=T_m=\beta S_m$.
+Consider $y\in\C$ with $|y|=r\ge T$, where $m$ is so large that $T\ge1$ and
+$T^a\ge2$. With
+$w=1/y$ we have $|w|\le1/T\le1$, so
+\[
+|Q(1/y)|\le 1+|w|^c\bigl(s+|w|\,|E(w)|\bigr)\le 1+\frac{s+K/T}{T^c},
+\qquad
+|Q(1/y)|^m\le\exp\Bigl(\frac{m\,(s+K/T)}{T^c}\Bigr).
+\]
+By Lemma~\ref{lem:scale}, $m\,s/T^c=a\log m/(c\beta^c)$ and
+$m\,K/T^{c+1}=(K/(sT))\,a\log m/(c\beta^c)$, so the exponent divided by
+$\log m$ tends to $a/(c\beta^c)$. On the other hand $\log(T^a/2)/\log m\to a/c$,
+which is strictly larger because $\beta>1$. Hence for all large $m$,
+\[
+|Q(1/y)|^m<T^a/2\le T^a-1\le r^a-1\le|1-y^a| ,
+\]
+so $y$ does not satisfy the root equation of Lemma~\ref{lem:rooteq}. Therefore
+every domination root $z=y-1$ of $J_m$ with $y\ne0$ has $|y|<T$, and the root
+$z=-1$ (if it is one) has $|z|=1$. In both cases
+$|z|\le|y|+1\le\beta S_m+1\le(1+\varepsilon)S_m$ as soon as
+$S_m\ge2/\varepsilon$, which holds for large $m$ by Lemma~\ref{lem:scale}.
+\end{proof}
+
+\section{Roots of the predicted size}\label{sec:lower}
+
+\begin{proposition}[lower bound]\label{prop:lower}
+For every $\varepsilon>0$ there is $m_0$ such that for every $m\ge m_0$ some
+domination root $z$ of $J_m$ satisfies $|z|\ge(1-\varepsilon)S_m$.
+\end{proposition}
+
+The idea is to look for roots $y=S_m\omega v$ of the root equation, where
+$\omega^c=-1$ and $v$ is close to~$1$. After taking logarithms and dividing by
+$\log m$, the root equation becomes $H_m(v)=0$ for analytic functions $H_m$
+that converge to $H(v)=\frac ac(v^{-c}-1)$, which vanishes at $v=1$; a
+maximum-modulus argument then produces an actual zero of $H_m$ near~$1$.
+
+\paragraph{The functions $H_m$.}
+Fix $\omega\in\C$ with $\omega^c=-1$ (so $|\omega|=1$), and let $\Log u=\log|u|+i\operatorname{Arg}u$ with
+$\operatorname{Arg}u\in(-\pi,\pi]$ be the principal logarithm of $u\ne0$ (as in
+Mathlib); it satisfies $\exp(\Log u)=u$ and is holomorphic on the slit plane
+$\C\setminus(-\infty,0]$. Write $Q(w)=1+\Delta(w)$ with
+$\Delta(w)=w^c\bigl(-s+wE(w)\bigr)$, as in Lemma~\ref{lem:Q}(c). For $m\ge2$
+and $v\ne0$ put $w=w_m(v)=(S_m\omega v)^{-1}$ and
+\[
+H_m(v)=\frac{m}{\log m}\Log\bigl(1+\Delta(w)\bigr)-a\,\frac{\log S_m}{\log m}
+-\frac{a\Log v+\Log(-\omega^a)+\Log(1-w^a)}{\log m},
+\]
+for $v\ne0$; it is holomorphic in $v$ wherever $v$, $1+\Delta(w)$ and $1-w^a$
+lie in the slit plane (the constant $\Log(-\omega^a)$ needs no such
+condition).
+
+\begin{lemma}[recovering a root]\label{lem:recover}
+If $v$, $1+\Delta(w)$ and $1-w^a$ lie in the slit plane and $H_m(v)=0$,
+then $y=S_m\omega v$ satisfies $Q(1/y)^m=1-y^a$.
+\end{lemma}
+
+\begin{proof}
+Multiply $H_m(v)=0$ by $\log m$ and exponentiate: since $\exp(m\Log u)=u^m$ and
+$\exp(a\Log v)=v^a$,
+$Q(w)^m=S_m^a\,v^a\,(-\omega^a)(1-w^a)=-y^a(1-y^{-a})=1-y^a$, and $w=1/y$.
+\end{proof}
+
+\begin{lemma}[joint limit]\label{lem:limit}
+Let $p\ne0$ lie in the slit plane. As $m\to\infty$ and $v\to p$ jointly,
+$H_m(v)\to\frac ac\,(p^{-c}-1)$.
+\end{lemma}
+
+\begin{proof}
+As $m\to\infty$ and $v\to p$, $w\to0$ and hence $\Delta(w)\to0$. Write
+$\Log(1+t)=t\,L(t)$ with $L(t)\to1$ as $t\to0$. By Lemma~\ref{lem:scale},
+$\frac m{\log m}w^c=\frac m{\log m}(\omega v)^{-c}S_m^{-c}
+=\frac a{cs}(\omega v)^{-c}$, so the first term equals
+$\frac a{cs}(\omega v)^{-c}\bigl(-s+wE(w)\bigr)L(\Delta(w))
+\to-\frac ac\,\omega^{-c}p^{-c}=\frac ac\,p^{-c}$. The second term tends to
+$-a/c$ by Lemma~\ref{lem:scale}. In the third term the numerator tends to the
+finite value $a\Log p+\Log(-\omega^a)$, so the term tends to~$0$.
+\end{proof}
+
+\begin{lemma}[a zero from a dip]\label{lem:dip}
+Let $F_m$ be functions that are holomorphic on an open disc
+$U=\{|v-v_0|<r\}$ and continuous on its closure, for all large $m$. Suppose
+$F_m(v_0)\to0$ and, for every $u$ with $|u-v_0|=r$, $F_m(v)$ tends to a
+nonzero limit as $m\to\infty$ and $v\to u$ jointly. Then for all large $m$,
+$F_m$ has a zero in $\overline U$.
+\end{lemma}
+
+\begin{proof}
+By the joint limits and compactness of the circle (finitely many
+neighbourhoods of points of the circle suffice), there is $\eta>0$ such that
+for all large $m$, $|F_m(u)|\ge\eta$ on the circle while $|F_m(v_0)|<\eta$;
+thus $|F_m(v_0)|<|F_m(u)|$ for every $u$ on the circle. If such an $F_m$ had no
+zero in $\overline U$, then $1/F_m$ would be holomorphic on $U$, continuous on
+$\overline U$, and larger in modulus at the centre than everywhere on the
+boundary, contradicting the maximum modulus principle.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:lower}]
+Choose $r$ with $0<r<\varepsilon/2$ such that the closed disc
+$\{|v-1|\le r\}$ lies in the slit plane and the circle $|v-1|=r$ contains no
+$c$-th root of unity (there are finitely many, and $1$ is the centre). Since
+$w_m(v)\to0$ uniformly on the disc, for all large $m$ the numbers
+$1+\Delta(w)$ and $1-w^a$ lie in the slit plane for every $v$ in the closed
+disc, so $H_m$ is holomorphic on a neighbourhood of it. By
+Lemma~\ref{lem:limit}, $H_m(1)\to0$, and at each point $u$ of the circle
+$H_m(v)\to\frac ac(u^{-c}-1)\ne0$ jointly. By Lemma~\ref{lem:dip}, for all
+large $m$ there is $v$ with $|v-1|\le r$ and $H_m(v)=0$. By
+Lemmas~\ref{lem:recover} and~\ref{lem:rooteq}, $z=S_m\omega v-1$ is a
+domination root of $J_m$, and
+$|z|\ge S_m|v|-1\ge(1-\varepsilon/2)S_m-1\ge(1-\varepsilon)S_m$ once
+$S_m\ge2/\varepsilon$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main} and Corollary~\ref{cor:friend}]
+By Theorem~\ref{thm:attain}, $M_m$ is the modulus of an actual root, so
+Propositions~\ref{prop:upper} and~\ref{prop:lower} give
+$1-\varepsilon\le M_m/S_m\le1+\varepsilon$ for all large $m$. For the
+corollary take $a=1$ and $B=K_2$, where $c=2$, $s=1$ and
+$S_m=\sqrt{2m/\log m}$.
+\end{proof}
+
+\section{Comparison with Rather's bounds, and numerics}\label{sec:rather}
+
+\begin{remark}[not in Lean]\label{rem:rather}
+Let $f(t)=(t-1)^2\log t$, which is strictly increasing on $(1,\infty)$, let
+$R_m$ be defined by $f(R_m)=m$ as in~\cite[Remark~4.3]{ra}, and let
+$T_m=\sqrt{2m/\log m}$. For fixed $\lambda>0$ we have
+$(\lambda T_m-1)^2=\lambda^2\,\frac{2m}{\log m}(1+o(1))$ and
+$\log(\lambda T_m)=\frac12\log m\,(1+o(1))$, so $f(\lambda T_m)/m\to\lambda^2$.
+Taking $\lambda=1\pm\varepsilon$ with $0<\varepsilon<1$ and using monotonicity
+gives
+$(1-\varepsilon)T_m<R_m<(1+\varepsilon)T_m$ for large $m$, so
+$R_m\sim T_m$. Together with Corollary~\ref{cor:friend}:
+\begin{enumerate}
+\item[(i)] Rather's implicit bound $|z|\le R_m$ already implies
+$\limsup M_m/T_m\le1$, the upper half of Corollary~\ref{cor:friend};
+\item[(ii)] this implicit bound is asymptotically sharp: $M_m/R_m\to1$;
+\item[(iii)] the explicit bound of~\cite[Corollary~4.2]{ra} is not:
+$(1+\sqrt{m/\log2})/M_m\sim\sqrt{\log m/(2\log2)}\to\infty$.
+\end{enumerate}
+So the question in~\cite{ra} whether the modulus bound is asymptotically
+optimal has the answer ``yes'' for the implicit bound $R_m$ of Remark~4.3 and
+``no'' for the explicit bound of Corollary~4.2.
+\end{remark}
+
+\paragraph{Slow convergence.}
+The convergence in Corollary~\ref{cor:friend} is slow, so tables for small
+$m$ can be misleading about the constant. Table~\ref{tab:num} lists, for the
+friendship graphs, the ratios of $M_m$ and of $R_m$ to $T_m=\sqrt{2m/\log m}$.
+For $m\le80$, $M_m$ was computed from all roots of~\eqref{eq:friend}; the
+values $M_{10}=3.0650$ and $M_{20}=3.8428$ agree with Table~2 of~\cite{ra}.
+For $m\ge10^4$ the entry is the modulus of a root of the root equation found
+by Newton's method near the predicted location, which is a lower bound for
+$M_m$; at $m=80$ the same method finds the root of largest modulus. At
+every tabulated $m$ from $20$ to $10^8$ the computed ratio lies between $1.05$
+and $1.06$; it approaches $1$ only slowly; the values are consistent with a relative error of order
+$\log\log m/\log m$, which we have not proved. All these values were
+computed in floating-point arithmetic (the final section says by whom) and
+are not part of the Lean development.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}lcccccccccc@{}}
+\hline
+$m$ & $5$ & $10$ & $20$ & $40$ & $80$ & $10^4$ & $10^8$ & $10^{20}$ &
+$10^{50}$ & $10^{100}$\\
+\hline
+$M_m/T_m$ & $1.004$ & $1.040$ & $1.052$ & $1.055$ & $1.055$ & $1.059$ &
+$1.054$ & $1.034$ & $1.018$ & $1.010$\\
+$R_m/T_m$ & $1.244$ & $1.273$ & $1.263$ & $1.240$ & $1.214$ & $1.103$ &
+$1.063$ & $1.035$ & $1.018$ & $1.010$\\
+\hline
+\end{tabular}
+\caption{Friendship graphs: the largest modulus $M_m$ and Rather's implicit
+bound $R_m$, divided by $T_m=\sqrt{2m/\log m}$ (floating point; for
+$m\ge10^4$ the first row uses the root found by Newton's method). Not
+verified in Lean.}
+\label{tab:num}
+\end{table}
+
+{\sloppy
+\section{Formal verification}\label{sec:lean}
+
+Theorems~\ref{thm:attain} and~\ref{thm:main} and Corollary~\ref{cor:friend}
+are formally verified in Lean~4 (version 4.34.1) with Mathlib~\cite{mathlib}
+(commit \texttt{d13f23b7}). The $14$ files are in version~\repoversion{} of
+the repository~\cite{repo}, directory
+\texttt{lean/Research/TaskP/RootRadius/}.
+
+\paragraph{The statements.}
+The statement file \texttt{Challenge.lean} contains only definitions and
+statements, no proofs apart from the two short proofs that the adjacency
+relation of \texttt{petalJoin} is symmetric and irreflexive. In ASCII
+transliteration (the \texttt{import}, \texttt{open}, \texttt{namespace} and
+\texttt{end} lines, the module docstring and the other docstrings omitted;
+the file itself uses Unicode, e.g.\ $\mathbb C$, $\mathbb N$, $\mathbb R$, $\sum$, $\forall$,
+$\exists$, $\in$, $\to$, $\vee$, $\wedge$, $\ne$, $\mathcal N$, $\oplus$, $\times$, $\langle\,\rangle$, $\top$ and
+$\|z\|$):
+{\footnotesize
+\begin{verbatim}
+def Dominates {V : Type*} (G : SimpleGraph V) (S : Finset V) : Prop :=
+  forall v, v in S \/ exists u in S, G.Adj v u
+noncomputable def dominationPolynomial {V : Type*} [Fintype V]
+    (G : SimpleGraph V) : Complex[X] := by
+  classical
+  exact sum S : Finset V, if Dominates G S then X ^ S.card else 0
+def petalJoin {V : Type*} (a m : Nat) (B : SimpleGraph V) :
+    SimpleGraph (Fin a (+) (Fin m x V)) where
+  Adj
+    | .inl i, .inl j => i != j
+    | .inl _, .inr _ => True
+    | .inr _, .inl _ => True
+    | .inr x, .inr y => x.1 = y.1 /\ B.Adj x.2 y.2
+  symm := by
+    constructor
+    rintro (i | x) (j | y) h
+    . exact Ne.symm h
+    . trivial
+    . trivial
+    . exact <h.1.symm, h.2.symm>
+  loopless := by
+    constructor
+    rintro (i | x)
+    . exact fun h => h rfl
+    . exact fun h => B.loopless.irrefl _ h.2
+noncomputable def closedNeighborhood {V : Type*} [Fintype V]
+    (B : SimpleGraph V) (v : V) : Finset V := by
+  classical
+  exact insert v (B.neighborFinset v)
+noncomputable def minimumSize {V : Type*} [Fintype V] (B : SimpleGraph V) : Nat := by
+  classical
+  exact B.minDegree + 1
+noncomputable def minimumCount {V : Type*} [Fintype V] (B : SimpleGraph V) : Nat := by
+  classical
+  exact ((Finset.univ.image (closedNeighborhood B)).filter
+    (fun S => S.card = minimumSize B)).card
+noncomputable def rootRadius {V : Type*} [Fintype V] (G : SimpleGraph V) : Real :=
+  sSup {r : Real | exists z : Complex, (dominationPolynomial G).eval z = 0 /\ norm z = r}
+noncomputable def scale (a c s m : Nat) : Real :=
+  ((c : Real) * s * m / (a * Real.log m)) ^ (1 / (c : Real))
+def Attainment : Prop :=
+  forall {V : Type} [Fintype V] [Nonempty V] (B : SimpleGraph V)
+    (a m : Nat), 0 < a -> 0 < m ->
+      IsGreatest {r : Real | exists z : Complex,
+        (dominationPolynomial (petalJoin a m B)).eval z = 0 /\ norm z = r}
+        (rootRadius (petalJoin a m B))
+def GeneralAsymptotic : Prop :=
+  forall {V : Type} [Fintype V] [Nonempty V] (B : SimpleGraph V)
+    (a : Nat), 0 < a ->
+      Tendsto (fun m : Nat =>
+        rootRadius (petalJoin a m B) / scale a (minimumSize B) (minimumCount B) m)
+        atTop (nhds 1)
+abbrev friendshipGraph (m : Nat) := petalJoin 1 m (top : SimpleGraph (Fin 2))
+def FriendshipAsymptotic : Prop :=
+  Tendsto (fun m : Nat => rootRadius (friendshipGraph m) /
+    Real.sqrt (2 * (m : Real) / Real.log m)) atTop (nhds 1)
+\end{verbatim}}
+\noindent Here \texttt{Complex[X]} is the ring of complex polynomials,
+\texttt{sum} a sum over all subsets of the vertex set, \texttt{(+)} and
+\texttt{x} stand for the disjoint sum $\oplus$ and the product $\times$ of
+types, \texttt{.} for the bullet $\cdot$, \texttt{<\,>} for the anonymous
+constructor $\langle\,\rangle$, \texttt{!=} for $\ne$, \texttt{norm z} for
+$\|z\|$, \texttt{nhds 1} for Mathlib's $\mathcal N\,1$, the neighbourhood filter
+of~$1$, and \texttt{top} for
+$\top$, the complete graph. \texttt{Dominates G S} is the definition of a
+dominating set, and \texttt{dominationPolynomial G} is $D(G,x)$, the sum of
+$x^{|S|}$ over the dominating sets $S$ of the actual graph. The vertex set of
+\texttt{petalJoin a m B} is the disjoint sum of $\{0,\dots,a-1\}$ (the centre)
+and the pairs (copy index, vertex of $B$); two centre vertices are adjacent
+when distinct, centre and petal vertices are always adjacent, and two petal
+vertices are adjacent when they lie in the same copy and are adjacent in $B$.
+So \texttt{petalJoin a m B} is $J_m(a,B)$, and \texttt{friendshipGraph m} is
+$K_1\vee mK_2=F_m$. \texttt{minimumSize B} is $c=1+\delta(B)$ (the vertex set
+is nonempty, so the minimum degree is the true minimum), and
+\texttt{minimumCount B} first takes the image of $v\mapsto N_B[v]$, which
+removes repetitions, and then counts the sets of size $c$, which is $s$.
+\texttt{scale a c s m} is $S_m$, with the natural logarithm and the real
+power; its values for $m\le1$ do not affect a limit as $m\to\infty$.
+\texttt{rootRadius G} is the supremum of the moduli of all complex roots, not
+only of the real ones. \texttt{Attainment} is Theorem~\ref{thm:attain},
+\texttt{GeneralAsymptotic} is Theorem~\ref{thm:main} and
+\texttt{FriendshipAsymptotic} is Corollary~\ref{cor:friend}, stated directly
+with $\sqrt{2m/\log m}$.
+
+The final reviewer (see the last section) checked three points.
+(1)~\emph{The supremum is a maximum.} On its own, a supremum of a set of
+reals could take a default value; \texttt{Attainment} asserts, for every
+$a,m\ge1$ and every $B$, that \texttt{rootRadius} is the greatest element of
+the set of moduli of roots, so in \texttt{GeneralAsymptotic} it is the
+modulus of an actual root. Together the two targets give both directions of
+the $\varepsilon$-form of Theorem~\ref{thm:main}, including the existence of
+a root of modulus at least $(1-\varepsilon)S_m$; the reviewer derived this
+unfolded form for friendship graphs from the frozen targets in its own audit
+file. (2)~\emph{The constant.} \texttt{minimumCount} counts distinct closed
+neighbourhoods, not vertices; for $B=K_2$ or $K_3$ the two counts differ, and
+the reviewer's numerical checks separate them. (3)~\emph{Quantifiers.}
+\texttt{GeneralAsymptotic} holds for every finite nonempty vertex type, every
+simple graph $B$ on it (disconnected graphs and isolated vertices allowed)
+and every $a\ge1$, with no further hypotheses.
+
+\paragraph{Review and freezing.}
+\texttt{Challenge.lean} was reviewed against~\cite{abj} by a Codex agent that
+had not written it, and frozen, by recording its SHA-256 hash, on 20 November
+2026 at 18:06~UTC. The development logs record no compilation of a proof file
+before that time, and the file was not changed afterwards.
+
+\paragraph{The proofs.}
+In \texttt{Proof.lean}, \texttt{Proof.Attainment} is \texttt{attainment};
+\texttt{Proof.GeneralAsymptotic} combines \texttt{lower\_\allowbreak bound}
+(file \texttt{LowerBound.lean}) and \texttt{upper\_\allowbreak bound} (file
+\texttt{Proof.lean}, from \texttt{roots\_\allowbreak upper} and
+\texttt{root\_\allowbreak equation}) with Mathlib's
+\texttt{tendsto\_\allowbreak order}; and \texttt{Proof.FriendshipAsymptotic}
+is \texttt{friendship\_\allowbreak of\_\allowbreak general} applied to it,
+which computes $c=2$ and $s=1$ for $K_2$. Table~\ref{tab:lean} lists the Lean
+counterparts of the steps of the written proof (names in the namespace
+\texttt{TaskP.GraphRootRadius.Proof}).
+
+\begin{table}[ht]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.56\textwidth}@{}}
+\hline
+Step of the written proof & Lean (file) \\
+\hline
+Theorem~\ref{thm:attain} &
+\texttt{top\_coefficient}, \texttt{poly\_ne\_zero}, \texttt{zero\_root},
+\texttt{attain\_graph}, \texttt{attainment} (\texttt{RootData}) \\
+Lemma~\ref{lem:join}: dominating sets of $J_m$ &
+\texttt{dominates\_join\_iff}, \texttt{dominates\_nonempty}, with
+\texttt{bundle}, \texttt{familyEquiv}, \texttt{card\_bundle}
+(\texttt{JoinDecomposition}) \\
+Lemma~\ref{lem:join}: the formula & \texttt{eval\_join}
+(\texttt{JoinPolynomial}) \\
+Bad sets and complements & \texttt{Misses}, \texttt{misses\_iff},
+\texttt{bad}, \texttt{min\_le\_misses}, \texttt{bad\_count}
+(\texttt{PetalCoefficient}) \\
+Lemma~\ref{lem:Q}(a), (b) & \texttt{normalized} (\texttt{PetalCoefficient});
+\texttt{normalized\_eval}, \texttt{normalized\_at\_inverse}
+(\texttt{PetalEvaluation}) \\
+Lemma~\ref{lem:Q}(c), and $s\ge1$ & \texttt{normalized\_tail}
+(\texttt{PetalCoefficient}); \texttt{minimumCount\_pos}
+(\texttt{PetalEvaluation}); in the form $Q=1+\Delta$:
+\texttt{normalized\_eq\_one\_delta} (\texttt{LowerBound}), with
+\texttt{delta} (\texttt{LogLimit}) \\
+Lemma~\ref{lem:rooteq} & \texttt{root\_equation} (\texttt{JoinPolynomial}) \\
+Lemma~\ref{lem:scale} & \texttt{scale\_pos}, \texttt{scale\_pow},
+\texttt{scale\_log\_limit}, \texttt{scale\_atTop} (\texttt{Scale}) \\
+Proposition~\ref{prop:upper} & \texttt{upper\_Q},
+\texttt{upper\_separation}, \texttt{roots\_upper} (\texttt{UpperEstimate});
+\texttt{upper\_bound} (\texttt{Proof}) \\
+The functions $H_m$ and Lemma~\ref{lem:limit} & \texttt{warg},
+\texttt{residual}, \texttt{logSlope}, \texttt{log\_id},
+\texttt{warg\_limit}, \texttt{delta\_limit}, \texttt{scaled\_log},
+\texttt{residual\_limit} (\texttt{LogLimit}) \\
+Lemma~\ref{lem:dip} & \texttt{zero\_of\_dip}, \texttt{compact\_eventually},
+\texttt{eventual\_zero\_of\_dip} (\texttt{DiskZero}) \\
+Choice of the disc; holomorphy; zeros of $H_m$ & \texttt{root\_disk},
+\texttt{good\_disk}, \texttt{residual\_diff}, \texttt{residual\_zeros}
+(\texttt{RootDisk}) \\
+Lemma~\ref{lem:recover}; Proposition~\ref{prop:lower} &
+\texttt{recover\_root}, \texttt{lower\_bound} (\texttt{LowerBound}) \\
+Theorem~\ref{thm:main}; Corollary~\ref{cor:friend} &
+\texttt{Proof.GeneralAsymptotic}, \texttt{Proof.FriendshipAsymptotic}
+(\texttt{Proof}); \texttt{friendship\_of\_general} (\texttt{RootData}) \\
+\hline
+\end{tabular}
+\caption{Lean counterparts of the steps of the proof.}
+\label{tab:lean}
+\end{table}
+
+\noindent In Lean, $H_m$ is \texttt{residual} and $w_m(v)$ is
+\texttt{warg}; the principal logarithm, the finiteness of the root set of a
+nonzero polynomial, the existence of $\omega$ (algebraic closedness of $\C$)
+and the maximum modulus principle are taken from Mathlib. The test file
+\texttt{CheckRootRadius.lean} restates the three targets with the frozen
+types (\texttt{check\_\allowbreak Attainment},
+\texttt{check\_\allowbreak GeneralAsymptotic},
+\texttt{check\_\allowbreak FriendshipAsymptotic}). The axioms of these three
+theorems and of \texttt{Proof.Attainment}, \texttt{Proof.GeneralAsymptotic}
+and \texttt{Proof.FriendshipAsymptotic}, printed by
+\texttt{CheckRootRadius.lean}, are exactly \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. No file uses
+\texttt{sorry}, \texttt{native\_\allowbreak decide},
+\texttt{bv\_\allowbreak decide} or an \texttt{axiom} declaration; the one use
+of \texttt{decide} (proving $0<1$ for natural numbers) is checked by the
+kernel.
+
+\paragraph{Checks.}
+The $14$ files ($11$ proof modules, \texttt{Challenge.lean},
+\texttt{Proof.lean} and \texttt{CheckRootRadius.lean}) were compiled module
+by module in two new empty directories on the author's Mac, with the pinned
+toolchain and with warnings treated as errors, on 20 November 2026
+(18:24--18:30~UTC), and every module was replayed with \texttt{leanchecker};
+each directory also ran one build of the whole package. All $58$ commands
+($29$ per directory) ended with exit code~$0$, the \texttt{leanchecker} runs
+printed nothing, and the two directories produced identical \texttt{.olean}
+files. The final reviewer (see the next section) compiled the $14$ files
+again, together with a short audit file of its own, in a third new directory
+on the author's Mac on 20 November 2026 (about 20:53--20:56~UTC, according to
+the times of its output files), with its own compilation script and without
+the project's build tool, and replayed every module with
+\texttt{leanchecker}. Every reviewed module compiled and replayed with exit
+code~$0$, with no errors or warnings reported; a first draft of the audit
+file contained an error in the reviewer's own example and was corrected and
+recompiled, and no reviewed file was changed. Mathlib and its dependencies
+were taken from a shared prebuilt cache at the pinned commits and were not
+rechecked; the \texttt{leanchecker} replays cover the $14$ project modules.
+In the repository the files have module names under
+\texttt{Research.TaskP.RootRadius} and differ from the checked files only in
+their \texttt{import} lines (\texttt{Challenge.lean} and
+\texttt{DiskZero.lean}, which import only Mathlib, are unchanged).
+The repository versions were made by a script that changed only the local \texttt{import} lines, and on 20 November 2026 (21:04--21:16~UTC) they were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac, one after the other, together with the files of two other papers of version~\repoversion{} ($48$ modules in all); there were no warnings, and the two directories produced identical \texttt{.olean} files and the same axiom lists. In the whole-project rebuild of version~\repoversion{} of the repository (on the author's Windows computer, in two passes on 20 and 21 November 2026), these files were compiled and replayed with \texttt{leanchecker} again in pass~2 (21 November 2026), which built the files not included in pass~1 on top of its results; no module needed a second attempt (details in the repository). The formalization has not been checked with
+comparator or with an independent kernel.
+
+\par}
+
+\section*{How this paper was produced}
+This work was carried out from 20 to 22 November 2026 (UTC) in a workflow directed by
+the author, using OpenAI Codex with the model GPT-6.2-Astra (reasoning level
+ultra) and Anthropic Claude Code with the model Claude Opus~5.5. The author
+asked for a further search for substantial open problems, and Claude Code
+passed this request to Codex at 17:23~UTC. Between 17:23 and 17:53~UTC, Codex
+recorded $111$ problems from the literature and wrote proofs for five
+candidates. For the problem of this paper, the formula for the leading
+missing term (Lemma~\ref{lem:Q}(c)) was checked by exact computation on all
+$1{,}099$ labelled graphs with $1$ to $5$ vertices, the join formula on $300$
+small instances, and, for $F_8$, $F_{32}$ and $F_{128}$, the presence of a
+non-real root in an explicit small disc was certified in integer
+arithmetic; the proof was read by another Codex agent (same model)
+that had not taken part in it. The author had asked in advance that the five
+most important candidates be formalized at once, without waiting for a
+choice; this problem was among the five selected at 18:00~UTC. From then on,
+Codex agents (same model) checked the reading of the sources, searched again
+for prior work, wrote the statement file, the Lean proof and the written
+proof, and ran the checks. The reading of the sources was checked, and the
+statement file reviewed before it was frozen, by one Codex agent that had not
+taken part in the proof or in drafting the statement. According to the file
+timestamps and the development logs, the proof files were created after the
+freeze and compiled between 18:07 and 18:24~UTC. They follow the written
+proof prepared in the search for problems, except that the existence of roots
+of the predicted size is obtained from the maximum modulus principle
+(Lemma~\ref{lem:dip}) instead of the contraction-mapping argument of that
+draft. After the checks, an independent Claude Code agent (model Claude
+Opus~5.5) that had written none of the files gave the final review. It read
+the arXiv version of~\cite{abj} and the relevant section of~\cite{ra} itself,
+compared the statement file with them, read the written proof, the proof
+files and the acceptance records, checked the formula of
+Lemma~\ref{lem:join} against brute-force enumeration of dominating sets for
+nine small petals, computed root moduli for several petals in Python
+(including the values in Table~\ref{tab:num} for $m\le80$ and the Newton
+values for $m\ge10^4$), and rebuilt the formalization as described above. Its
+decision was APPROVE\_FORMAL, with six minor remarks on the written account
+(two optional), all taken into account here. Claude Code (Claude Opus~5.5)
+checked the sources, including the journal version of~\cite{abj}, recomputed
+the values in Table~\ref{tab:num}, and wrote this text from Codex's
+manuscript and the Lean files. An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied. Throughout, ``we'' refers to
+this workflow; the reading and searching described in the paper were done by
+the agents. Codex agents searched for prior work on 20 November 2026, in the
+search for problems and again before the statement was frozen; they found
+the bounds of~\cite{ra}, but no sharp asymptotic for the largest domination
+roots of friendship graphs and no matching lower bound (details in the
+repository). Claude Code searched again on 21 November 2026 (17:54--18:21~UTC; the arXiv, Semantic Scholar, Crossref, DataCite, Zenodo, MathDB, GitHub and repositories of AI-assisted mathematics) and found no work on the largest domination roots of friendship graphs; the closest new finds, a note on Zenodo on the real domination roots of book graphs and a Lean formalization of the general bound $|z|\le n$ for the domination roots of graphs of order~$n$, do not overlap with the results here. Claude Code searched again on 22 November 2026 (05:39--05:51~UTC), when the OpenAlex lists of citing works refused on 21 November were retrieved, and found nothing new. This reports the coverage of the searches,
+not a guarantee that they were complete. The author is not a professional
+mathematician. The author has read this paper and, using a side-by-side table, compared its Lean statements with the main theorems: Theorems~\ref{thm:attain} and~\ref{thm:main} and Corollary~\ref{cor:friend}. No human mathematician has reviewed this paper.
+The correctness of the results rests on the Lean proofs and on the agreement
+of the Lean statements with the question of~\cite{abj}; the written proofs
+are given for the reader. AI systems are not authors of this paper; the
+author takes full responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Saeid Alikhani, Jason I. Brown and Somayeh Jahari
+for the question.
+
+{\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{0pt}
+\bibitem{abj} S.~Alikhani, J.~I. Brown and S.~Jahari, On the domination
+polynomials of friendship graphs, \emph{Filomat} 30 (2016), no.~1, 169--178,
+\url{https://doi.org/10.2298/FIL1601169A}; arXiv:1401.2092v2 (2014).
+\bibitem{ap} S.~Alikhani and Y.~H. Peng, Introduction to domination
+polynomial of a graph, \emph{Ars Combin.} 114 (2014), 257--266;
+arXiv:0905.2251v1 (2009). Theorem numbers refer to the arXiv version.
+\bibitem{bhsw} J.~I. Brown, C.~Hickman, A.~D. Sokal and D.~G. Wagner, On the
+chromatic roots of generalized theta graphs, \emph{J. Combin. Theory Ser. B}
+83 (2001), no.~2, 272--297, \url{https://doi.org/10.1006/jctb.2001.2057};
+arXiv:math/0012033.
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{kpstt} T.~Kotek, J.~Preen, F.~Simon, P.~Tittmann and M.~Trinks,
+Recurrence relations and splitting formulas for the domination polynomial,
+\emph{Electron. J. Combin.} 19 (2012), no.~3, \#P47; arXiv:1206.5926v2.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{ra} B.~A. Rather, On roots of domination polynomials for friendship
+and book graphs, arXiv:2604.08998v2, 2026.
+\end{thebibliography}}
+\end{document}

@@ -1,0 +1,124 @@
+{
+ "module_count": 9,
+ "entrypoints": [
+  "Research.TaskP.GradedWilf.CheckWilf"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskP.GradedWilf.CheckWilf": [
+   "TaskP.GradedWilf.check_Wilf"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskP/GradedWilf/Challenge.lean",
+   "frozen_utc": "2026-11-20T18:04:44Z",
+   "freeze_record": "graded-wilf/FREEZE.json",
+   "sha256": "b7db38db3648c24f3bbde4ddd5a453240d02ac3a7dcb77fe09870959c7ef83e6"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskP/GradedWilf/Challenge.lean",
+   "module": "Research.TaskP.GradedWilf.Challenge",
+   "sha256": "b7db38db3648c24f3bbde4ddd5a453240d02ac3a7dcb77fe09870959c7ef83e6",
+   "codex_source": "work/codex-r3/phase23/taskP/graded-wilf/Challenge.lean",
+   "codex_source_sha256": "b7db38db3648c24f3bbde4ddd5a453240d02ac3a7dcb77fe09870959c7ef83e6",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GradedWilf/CheckWilf.lean",
+   "module": "Research.TaskP.GradedWilf.CheckWilf",
+   "sha256": "812dd87a50778343a2871bd9b53b7a820d11c1c80f2eae9d7f01e25016264793",
+   "codex_source": "work/codex-r3/phase23/taskP/graded-wilf/CheckWilf.lean",
+   "codex_source_sha256": "622f6e202bf6a76313d602a72f1627a2bdc304c918838e99fa08c1210bdf66dd",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GradedWilf.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GradedWilf/Proof.lean",
+   "module": "Research.TaskP.GradedWilf.Proof",
+   "sha256": "e4e9de15f3a0a292a72e252824aa49aebfbd29d1f3b59d064219db21e59f5384",
+   "codex_source": "work/codex-r3/phase23/taskP/graded-wilf/Proof.lean",
+   "codex_source_sha256": "0083311c5fac8eb31c53b0fbb4705f737068b249c77dd7a45675410d1830ade7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GradedWilf.WilfAtoms",
+    "Research.TaskP.GradedWilf.WilfLow"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GradedWilf/WilfAtoms.lean",
+   "module": "Research.TaskP.GradedWilf.WilfAtoms",
+   "sha256": "5cb9f313678bc4506554e51773e6d16a5444502d2622f5e487fbbe4683f6443e",
+   "codex_source": "work/codex-r3/phase23/taskP/graded-wilf/WilfAtoms.lean",
+   "codex_source_sha256": "e88c99ed91e6d99eaad6640c091ec7b4adf13b8d47f8af250462c2db00c595bd",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GradedWilf.WilfLayers"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GradedWilf/WilfBasis.lean",
+   "module": "Research.TaskP.GradedWilf.WilfBasis",
+   "sha256": "3d950703855f0b0362c4d211f2c251408c688f5e84981ab0d637c9bc766c28ce",
+   "codex_source": "work/codex-r3/phase23/taskP/graded-wilf/WilfBasis.lean",
+   "codex_source_sha256": "c3277cf5c0ef25d04471dbfc0826deec38f2794e47b5c8b6957582bd2f9518d1",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GradedWilf.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GradedWilf/WilfHigh.lean",
+   "module": "Research.TaskP.GradedWilf.WilfHigh",
+   "sha256": "93c7e89112bf3de4b47fa3b0c3e4faa5be0fbad6fd383522476517ac9ee82256",
+   "codex_source": "work/codex-r3/phase23/taskP/graded-wilf/WilfHigh.lean",
+   "codex_source_sha256": "d68876d853434b57e83082d81afc52c1b12b0b2024eb475cacd33c562af7f9b6",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GradedWilf.WilfLayers"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GradedWilf/WilfLayers.lean",
+   "module": "Research.TaskP.GradedWilf.WilfLayers",
+   "sha256": "e5befe16f54fb36f00b357c4831bf75b209724432d06b84ea7ba7de481974990",
+   "codex_source": "work/codex-r3/phase23/taskP/graded-wilf/WilfLayers.lean",
+   "codex_source_sha256": "55ba7c1e5018f59de8c3cb59cf62f36a2cf82904a1016a879fb928a2de73aa56",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GradedWilf.WilfBasis",
+    "Research.TaskP.GradedWilf.WilfScalar"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GradedWilf/WilfLow.lean",
+   "module": "Research.TaskP.GradedWilf.WilfLow",
+   "sha256": "75c011828ff37fdf7b529c261cf9736083d01220dff23fa8445cdfacb528c509",
+   "codex_source": "work/codex-r3/phase23/taskP/graded-wilf/WilfLow.lean",
+   "codex_source_sha256": "b55b756a5131c23818c78e349ff8e7cb155a9941b0d118c37543399a453787dc",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GradedWilf.WilfHigh"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GradedWilf/WilfScalar.lean",
+   "module": "Research.TaskP.GradedWilf.WilfScalar",
+   "sha256": "a654b208545b49e3d21728c876a9f00bd5da0e0fc52e2c4e010da5af7a5845b5",
+   "codex_source": "work/codex-r3/phase23/taskP/graded-wilf/WilfScalar.lean",
+   "codex_source_sha256": "67841e60cfaa7e2da326f0d949db10a26c880aa85d76178363f5323357386268",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GradedWilf.Challenge"
+   ]
+  }
+ ]
+}

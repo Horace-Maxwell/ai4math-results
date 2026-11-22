@@ -1,0 +1,173 @@
+{
+ "module_count": 13,
+ "entrypoints": [
+  "Research.TaskP.PrimeMedialRacks.CheckRack"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskP.PrimeMedialRacks.CheckRack": [
+   "TaskP.PrimeMedialRacks.check_RackCount",
+   "TaskP.PrimeMedialRacks.check_QuandleCount",
+   "TaskP.PrimeMedialRacks.check_AutomaticIdempotence"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskP/PrimeMedialRacks/Challenge.lean",
+   "frozen_utc": "2026-11-20T18:04:44Z",
+   "freeze_record": "prime-medial-racks/FREEZE.json",
+   "sha256": "36167e3c9902291eeca9d7aa2ab222655a9d5b3ff939c6ad6a9a1fb527f9c0d5"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/Affine.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.Affine",
+   "sha256": "caada7358ba771dcbcf837c399bc07faf3baf13ba97c3ec7e975821cf551f0b6",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/Affine.lean",
+   "codex_source_sha256": "808ca0238e08c6c40cefef96efda0adbee4e97210f27bbddb46c13334162cb76",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/Challenge.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.Challenge",
+   "sha256": "36167e3c9902291eeca9d7aa2ab222655a9d5b3ff939c6ad6a9a1fb527f9c0d5",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/Challenge.lean",
+   "codex_source_sha256": "36167e3c9902291eeca9d7aa2ab222655a9d5b3ff939c6ad6a9a1fb527f9c0d5",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/CheckRack.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.CheckRack",
+   "sha256": "0f507e7485cd24c5daf5f4ea4251960ba0a8dffc1ee9e1a273b87b26db247fb9",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/CheckRack.lean",
+   "codex_source_sha256": "06240b6af7267081af36f4ff3b4ff608af28d40ed18bcec7f7894cb7df0a14a5",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/ClassCount.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.ClassCount",
+   "sha256": "efa076d13557ce79a84aa00b7cfb12a7e1e985a147012587ced81ceee20ac868",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/ClassCount.lean",
+   "codex_source_sha256": "1e40718e4dc6ea7b5a8d9aa09bccebfea6667714d7af3ae7455681aaaced7982",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.Affine",
+    "Research.TaskP.PrimeMedialRacks.IsoTransfer"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/Coordinates.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.Coordinates",
+   "sha256": "183e07de59f7d17fcec9e79636998cc3cb56571b3fa8c58333085e6b22986443",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/Coordinates.lean",
+   "codex_source_sha256": "560e4947343d16673efe5589584a738535b157a1c36fddb1f4459ef02e266ea9",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.CoordinatesCore",
+    "Research.TaskP.PrimeMedialRacks.DisplacementData"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/CoordinatesCore.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.CoordinatesCore",
+   "sha256": "161ed4e4b48632d1e19029bfb84bffa33aaed261d8ca11305c870bbcaff5cd45",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/CoordinatesCore.lean",
+   "codex_source_sha256": "72b252bc56c8d8235db6e4cd76c35809b112c8f35ada1ddaba56581b7c1121f7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.Enumeration"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/DisplacementData.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.DisplacementData",
+   "sha256": "894b794324e6b94349b28a669c66ce0b943ca26f777d2efa45763781393fff08",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/DisplacementData.lean",
+   "codex_source_sha256": "d8f51fe0f8a8dee54fe1e8106a835424ceba4ac5d546cdf35e94e2edac536222",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/DisplacementGroup.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.DisplacementGroup",
+   "sha256": "a4ba316b69a07bb6ad3a2222467669dd76d9b6c6c68633f7330c241fe97bdc5d",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/DisplacementGroup.lean",
+   "codex_source_sha256": "1309ba7bd0879a096b8069f9324b6e45cd7c9969135c1d84bbefe8bd08547d87",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.DisplacementData"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/Enumeration.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.Enumeration",
+   "sha256": "818cd06a6d7756602c9286fd493737f5899443e954d5a89dc955d4454b5807e6",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/Enumeration.lean",
+   "codex_source_sha256": "941d9ee2d440ef116cb916d8e918a1573468871f2a696dc3c6d7d83082d3c36d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.ClassCount"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/IsoTransfer.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.IsoTransfer",
+   "sha256": "533056acbb10ec6a84ee51466b8e07a722626c49c39eaa0b532f97226b36a6a5",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/IsoTransfer.lean",
+   "codex_source_sha256": "3f5677756a4ca088ed394de768508c707ddde12e1296085ccb7c204d44878c60",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/PrimeAction.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.PrimeAction",
+   "sha256": "c7c41e49058766f488d4208f0a7594d14e1eb4e7d7eef51a4166500314c2bed4",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/PrimeAction.lean",
+   "codex_source_sha256": "5d30a140bf14b46169511f9b686760fef86eceba9cf8d940f134a42e232194aa",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.DisplacementData"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/PrimeOrbits.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.PrimeOrbits",
+   "sha256": "fe6eb3aa65c10ef41bc49d398aabe9f1b89e5fcd7599927835e2ad644cd6debd",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/PrimeOrbits.lean",
+   "codex_source_sha256": "944d21e8c58e5f50b42d621623a944c51ed3f4c8b9293c2bccc55b7d708f7176",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.DisplacementGroup",
+    "Research.TaskP.PrimeMedialRacks.PrimeAction"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/PrimeMedialRacks/Proof.lean",
+   "module": "Research.TaskP.PrimeMedialRacks.Proof",
+   "sha256": "400391f4f22ab01d26089322237a366dc17793ea20243b5ebfd24b54c33b0dfe",
+   "codex_source": "work/codex-r3/phase23/taskP/prime-medial-racks/Proof.lean",
+   "codex_source_sha256": "6a50f7c575650bbf1bd247f89fc5be4da470f0c6ef9f3e53b2713e88fdd6f42d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.PrimeMedialRacks.Coordinates",
+    "Research.TaskP.PrimeMedialRacks.PrimeOrbits",
+    "Research.TaskP.PrimeMedialRacks.Enumeration"
+   ]
+  }
+ ]
+}

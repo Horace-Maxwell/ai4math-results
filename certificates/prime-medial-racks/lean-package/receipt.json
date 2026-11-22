@@ -1,0 +1,50 @@
+{
+ "package": "prime-medial-racks",
+ "codex_acceptance": {
+  "receipts": [
+   "prime-medial-racks/acceptance/2026-11-20T181646Z/receipt.json"
+  ],
+  "start_utc": "2026-11-20T18:16:47Z",
+  "end_utc": "2026-11-20T18:21:29Z",
+  "note": "Codex acceptance run on the author's Mac, in the archive codex-acceptance-logs.tar.gz (logs only; the build directories are not included); local paths replaced by <workspace> and the reviewers' scratch directory by <claude-scratch>."
+ },
+ "repository_recheck": {
+  "computer": "the author's Mac",
+  "lean": "Lean 4.34.1 (arm64-apple-darwin)",
+  "start_utc": "2026-11-20T19:55Z",
+  "end_utc": "2026-11-20T20:07Z",
+  "procedure": "The repository versions of all 39 files of Papers 19-22 (module names under Research.TaskP.PrimeMedialRacks, Research.TaskP.GradedWilf, Research.TaskR.CSS and Research.TaskR.A7; only import lines differ from the accepted files) compiled module by module with lean -DautoImplicit=false -DrelaxedAutoImplicit=false -R <lean dir>, each module then replayed with leanchecker, in two new empty output directories one after the other (root1 19:55Z-20:01Z, root2 20:01Z-20:07Z), by repository-recheck-logs.tar.gz/mac_compile_pr.py. Mathlib from the pinned prebuilt packages, not rebuilt. Figures below are for the modules of this package.",
+  "olean_identical": true,
+  "root1": {
+   "modules": 13,
+   "compile_rc0": 13,
+   "leanchecker_rc0": 13,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskP.PrimeMedialRacks.Proof.RackCount": "propext, Classical.choice, Quot.sound",
+    "TaskP.PrimeMedialRacks.Proof.QuandleCount": "propext, Classical.choice, Quot.sound",
+    "TaskP.PrimeMedialRacks.Proof.AutomaticIdempotence": "propext, Classical.choice, Quot.sound",
+    "TaskP.PrimeMedialRacks.check_RackCount": "propext, Classical.choice, Quot.sound",
+    "TaskP.PrimeMedialRacks.check_QuandleCount": "propext, Classical.choice, Quot.sound",
+    "TaskP.PrimeMedialRacks.check_AutomaticIdempotence": "propext, Classical.choice, Quot.sound"
+   }
+  },
+  "root2": {
+   "modules": 13,
+   "compile_rc0": 13,
+   "leanchecker_rc0": 13,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskP.PrimeMedialRacks.Proof.RackCount": "propext, Classical.choice, Quot.sound",
+    "TaskP.PrimeMedialRacks.Proof.QuandleCount": "propext, Classical.choice, Quot.sound",
+    "TaskP.PrimeMedialRacks.Proof.AutomaticIdempotence": "propext, Classical.choice, Quot.sound",
+    "TaskP.PrimeMedialRacks.check_RackCount": "propext, Classical.choice, Quot.sound",
+    "TaskP.PrimeMedialRacks.check_QuandleCount": "propext, Classical.choice, Quot.sound",
+    "TaskP.PrimeMedialRacks.check_AutomaticIdempotence": "propext, Classical.choice, Quot.sound"
+   }
+  }
+ },
+ "whole_project": "logs/clean-replay-v1.25.0-receipt.json"
+}

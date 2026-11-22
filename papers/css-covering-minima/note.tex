@@ -1,0 +1,990 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={Covering minima of the standard terminal simplex and a discrete surface area bound for the covering radius of simplices},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{thmprime}{Theorem}
+\renewcommand{\thethmprime}{2$'$}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}{Conjecture}
+\renewcommand{\theconjecture}{\Alph{conjecture}}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\repoversion}{1.25.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\Surf}{\operatorname{Surf}}
+\newcommand{\fr}[1]{\{#1\}}
+
+\title{Covering minima of the standard terminal simplex\\ and a discrete surface area bound\\ for the covering radius of simplices}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The covering radius $\mu(K,\Lambda)$ of a convex body $K$ with respect to a
+lattice $\Lambda$ is the least $\mu\ge0$ such that $\mu K+\Lambda$ is the whole
+space, and the $i$-th covering minimum $\mu_i(K)$ is the largest covering
+radius of a linear projection of $K$ to dimension $i$ under which $\Z^n$ is
+mapped onto a lattice. González Merino and Schymura conjectured that the
+standard terminal simplex $T_n=\conv\{-\one,e_1,\dots,e_n\}$ satisfies
+$\mu_i(T_n)=i/2$ for $1\le i\le n$. Codenotti, Santos and Schymura stated this
+as their Conjecture~B, proved it for $i\le3$, and proposed a discrete analogue
+of Hadwiger's inequality (their Conjecture~C): every $d$-simplex $S$ with the
+origin in its interior and rational vertex directions satisfies
+$\mu(S)\le\frac12\Surf(S)/\Vol(S)$, where $\Surf$ is a discrete surface area
+obtained by projecting along the vertex directions. Conjecture~C was known for
+$d\le2$ and, in general, up to a constant factor. We give proofs of both
+conjectures in all dimensions. The proofs are elementary. They average
+sawtooth functions over their jump points; for Conjecture~B this is combined
+with an induction that splits a rational kernel along the support of a
+nonnegative vector, and for Conjecture~C with determinant identities for the
+barycentric coordinates of the origin. Both theorems are formally verified in
+Lean~4. By published arguments of Codenotti, Santos and Schymura, which are
+not formalized here, either theorem implies the inequality $\mu(P)\le d/2$ of
+their Conjecture~A for every lattice $d$-polytope $P$ with an interior lattice
+point. The equality characterization in Conjecture~A does not follow, and
+another paper in this series shows that it fails in dimension four. The proofs
+were found and formalized by AI agents working under the author's direction,
+as described at the end of the paper; no human mathematician has yet read
+them.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{Covering radius and covering minima}
+A lattice in $\R^d$ is the image of $\Z^d$ under an invertible linear map.
+Following Codenotti, Santos and Schymura~\cite{css}, the covering radius of a
+convex body $K\subseteq\R^d$ with respect to a lattice $\Lambda$ is
+\[
+\mu(K,\Lambda)=\min\{\mu\ge0:\ \mu K+\Lambda=\R^d\},
+\]
+and $\mu(K)=\mu(K,\Z^d)$. For $K\subseteq\R^n$ and $1\le i\le n$, the $i$-th
+covering minimum, introduced by Kannan and Lovász~\cite{kl}, can be written
+as~\cite[p.~3]{css}
+\[
+\mu_i(K,\Lambda)=\max_\pi\ \mu(\pi(K),\pi(\Lambda)),
+\]
+where $\pi$ runs over the linear maps $\R^n\to\R^i$ for which $\pi(\Lambda)$ is
+a lattice in $\R^i$. González Merino and Schymura define $\mu_i$ through affine
+subspaces and use the equivalent description by projections onto lattice
+planes due to Kannan and Lovász~\cite[eq.~(14)]{gms}; we use the form
+of~\cite{css}, which is also the form formalized in Lean. A lattice polytope
+is a polytope with vertices in $\Z^d$; it is \emph{non-hollow} if its interior
+contains a lattice point. The \emph{standard terminal simplex} is
+\[
+T_n=S(\one_{n+1})=\conv\{-\one_n,e_1,\dots,e_n\}\subseteq\R^n ,
+\qquad \one_n=(1,\dots,1).
+\]
+We write $\Vol_\Lambda$ for the normalized volume, the Euclidean volume scaled
+so that a unimodular simplex of $\Lambda$ has volume one~\cite[p.~3]{css}.
+Throughout, $\fr t=t-\lfloor t\rfloor\in[0,1)$ denotes the fractional part of
+a real number $t$.
+
+\subsection{The conjectures}
+We cite~\cite{gms} by the numbering of arXiv:1605.00443v1, whose second
+author is listed there under the name Henze; Codenotti, Santos and Schymura
+cite the journal version, apparently with numbers shifted by one: our
+Proposition~4.8 and Remark~4.9 are cited in~\cite{css} as Prop.~4.9 and
+Rem.~4.10. We could not consult the journal text. The coordinate projection $\R^n\to\R^i$ maps
+$T_n$ onto $T_i$ and $\Z^n$ onto $\Z^i$, and $\mu(T_i)=i/2$
+\cite[Prop.~4.8]{gms}; hence $\mu_i(T_n)\ge i/2$. González Merino and
+Schymura derived this lower bound and conjectured that it is an
+identity~\cite[Remark~4.9]{gms}.
+
+\setcounter{conjecture}{1}
+\begin{conjecture}[{\cite[Remark~4.9]{gms}; \cite[Conjecture~B]{css}}]\label{conj:B}
+For all integers $1\le i\le n$, $\mu_i(T_n)=i/2$.
+\end{conjecture}
+
+\noindent (The case $i=0$ is trivial.) Codenotti, Santos and Schymura showed
+that Conjecture~B is equivalent to the inequality part of their
+Conjecture~A~\cite[Theorem~1.2]{css}:
+
+\begin{quote}
+\textbf{Conjecture A of~\cite{css}.} Let $P\subseteq\R^d$ be a non-hollow
+lattice $d$-polytope. Then $\mu(P)\le d/2$, with equality if and only if $P$
+is obtained by direct sums and/or translations of simplices of the form
+$S(\one_l)$.
+\end{quote}
+
+\noindent More precisely, \cite[Theorem~1.2]{css} states that, for each $d$,
+the inequality $\mu(P)\le\ell/2$ holds for every non-hollow lattice
+$\ell$-polytope and every $\ell\le d$ if and only if $\mu_\ell(T_n)=\ell/2$ for
+all $\ell\le d\le n$.
+
+For a $d$-simplex $S=\conv\{v_0,\dots,v_d\}$ with the origin in its interior,
+$S$ has \emph{rational vertex directions} if each line $\R v_i$ has rational
+direction~\cite[Definition~1.5]{css}. Writing $\pi_i\colon\R^d\to\R^{d-1}$ for
+a linear projection vanishing at $v_i$, the \emph{discrete surface area} is
+\[
+\Surf_{\Z^d}(S)=\sum_{i=0}^d\Vol_{\pi_i(\Z^d)}(\pi_i(S))
+\quad\text{\cite[Definition~1.5]{css}}.
+\]
+
+\setcounter{conjecture}{2}
+\begin{conjecture}[{\cite[Conjecture~C]{css}}]\label{conj:C}
+Let $S$ be a $d$-simplex with the origin in its interior and with rational
+vertex directions. Then
+\[
+\mu(S)\le\frac12\,\frac{\Surf_{\Z^d}(S)}{\Vol_{\Z^d}(S)} .
+\]
+\end{conjecture}
+
+\noindent Let $\ell_i$ be the lattice length of the chord $S\cap\R v_i$. Then
+$1/\ell_i=\Vol_{\pi_i(\Z^d)}(\pi_i(S))/\Vol_{\Z^d}(S)$, so Conjecture~C reads
+$\mu(S)\le\frac12\sum_i1/\ell_i$ \cite[Lemma~4.1, eq.~(6)]{css}. Codenotti,
+Santos and Schymura showed that Conjecture~C implies the inequality part of
+Conjecture~A~\cite[Corollary~4.3 and its proof]{css}. Corollary~4.3
+of~\cite{css} is stated as ``Conjecture~C $\Rightarrow$ Conjecture~A'', but its
+proof gives only the inequality; by Theorem~\ref{thm:C} and~\cite[Remark~3]{p21}
+the equality clause cannot follow.
+
+\paragraph{What was known.} Conjecture~B holds for $i=n$~\cite[Prop.~4.8]{gms},
+for $i=1$ (the lattice width of $T_n$ is $2$; see~\cite[p.~8]{kr}), and for
+$i\le3$ and all $n$, since Conjecture~A holds in dimension at most
+three~\cite[Theorem~1.3]{css}. Krivokuća~\cite{kr} proved general upper bounds,
+for example $\mu_i(T_n)\le\frac i2\bigl(1+\frac{n-i}{n+1}\bigr)$
+\cite[Corollary~5.9]{kr} (written there with $d$ for $n$), which equals $7/3$
+for $(n,i)=(5,4)$; she lists Conjecture~B as open~\cite[Conjecture~4.2]{kr}.
+Conjecture~C holds in dimension two~\cite[Theorem~4.9 and Corollary~4.11]{css};
+in every dimension it holds with equality for the simplices
+$S(\omega)=\conv\{-\omega_0\one_d,\omega_1e_1,\dots,\omega_de_d\}$
+\cite[Theorem~1.4]{css}, it holds for simplices whose primitive vertex
+directions sum to zero~\cite[Corollary~5.1]{css}, and it holds in general with the constant $\frac12$
+replaced by $1$~\cite[Proposition~4.4]{css} or by
+$\frac{2d-1}{2d+2}$~\cite[Remark~4.5]{css}. In dimension one Conjecture~C is
+an equality and easy; \cite{css} gives no explicit range of $d$.
+
+\subsection{Results}
+
+\begin{theorem}\label{thm:B}
+Let $1\le i\le n$ be integers.
+\begin{enumerate}
+\item[\textup{(a)}] For every linear surjection $p\colon\R^n\to\R^i$ such that
+$p(\Z^n)$ is a lattice, $p(\Z^n)+\frac i2\,p(T_n)=\R^i$.
+\item[\textup{(b)}] There is a linear surjection $p\colon\R^n\to\R^i$ such that
+$p(\Z^n)$ is a lattice and $i/2$ is the least $r\ge0$ with
+$p(\Z^n)+r\,p(T_n)=\R^i$.
+\end{enumerate}
+Consequently $\mu_i(T_n)=i/2$; that is, Conjecture~B holds.
+\end{theorem}
+
+\noindent In the proof of~(b), $p$ is the coordinate projection, as
+in~\cite{gms}. Part~(a) says that $\mu(p(T_n),p(\Z^n))\le i/2$ for every
+admissible $p$, and (b) that the maximum $i/2$ is attained.
+
+For Conjecture~C we use coordinates. A vector $u\in\Z^d$ is \emph{primitive}
+if its coordinates have greatest common divisor~$1$. If $S$ has the origin in
+its interior, its vertices are nonzero, and a vertex $v$ with rational
+direction can be written uniquely as $v=\omega u$ with $u\in\Z^d$ primitive
+and $\omega>0$ real; so the simplices of Conjecture~C are exactly the
+simplices of the following theorem. For vectors $w_1,\dots,w_k$ we write
+$[w_1;\dots;w_k]$ for the matrix with rows $w_1,\dots,w_k$.
+
+\begin{theorem}\label{thm:C}
+Let $d\ge1$, let $u_0,\dots,u_d\in\Z^d$ be primitive, let
+$\omega_0,\dots,\omega_d>0$, put $v_i=\omega_iu_i$ and
+$S=\conv\{v_0,\dots,v_d\}$, and assume that the origin is an interior point
+of~$S$. Put
+\[
+V=\bigl|\det[(1,v_0);\dots;(1,v_d)]\bigr|,\qquad
+D_i=\bigl|\det[u_i;\,v_{s(1)}-v_{s(0)};\dots;v_{s(d-1)}-v_{s(0)}]\bigr|,
+\]
+where $s(0)<\dots<s(d-1)$ are the indices different from $i$. Then
+\[
+\Z^d+r\,S=\R^d\qquad\text{with}\qquad r=\frac{D_0+\dots+D_d}{2V}.
+\]
+\end{theorem}
+
+\noindent The hypothesis implies $V>0$, which the Lean statement also lists.
+The number $V$ is $d!\,\vol(S)=\Vol_{\Z^d}(S)$, and
+$D_i=\Vol_{\pi_i(\Z^d)}(\pi_i(S))$ for every linear surjection $\pi_i$ with
+kernel $\R v_i$ (Lemma~\ref{lem:vol}). Hence $r=\frac12\Surf_{\Z^d}(S)/\Vol_{\Z^d}(S)$,
+$\mu(S)\le r$, and Theorem~\ref{thm:C} is Conjecture~C. Primitivity matters
+here: replacing $u_i$ by $mu_i$ would multiply $D_i$ by $m$. The proof of
+Theorem~\ref{thm:C} does not use primitivity; primitivity is what makes $r$
+equal to the bound of Conjecture~C (Lemma~\ref{lem:vol}). Lean also proves
+a form of Theorem~\ref{thm:C} in which the volumes are ratios of Lebesgue
+measures of the actual projected sets (Theorem~\ref{thm:Cm} in
+Section~\ref{sec:C}).
+
+\begin{corollary}[not formalized]\label{cor:A}
+For every $d\ge1$, every non-hollow lattice $d$-polytope $P\subseteq\R^d$
+satisfies $\mu(P)\le d/2$.
+\end{corollary}
+
+\noindent Corollary~\ref{cor:A} follows from Theorem~\ref{thm:B} by the proof
+of \cite[Theorem~1.2]{css}, direction (ii)$\Rightarrow$(i), and independently
+from Theorem~\ref{thm:C} by the proof of \cite[Corollary~4.3]{css}; both use
+the reduction to simplices in~\cite[Corollary~3.2]{css}. We recall the argument
+in Section~\ref{sec:cons}. It is not part of the Lean proofs. The bound is
+attained by the direct sums of simplices $S(\one_l)$~\cite[eq.~(1) and
+Corollary~2.2]{css}. Corollary~\ref{cor:A} is the inequality part of
+Conjecture~A only. The ``only if'' part of its equality clause does not
+follow, and it fails: the $4$-simplex $\conv\{e_1,e_2,e_3,e_4,-(2,1,1,1)\}$
+has covering radius $2$ and normalized volume $6$ and is not obtained from
+the simplices $S(\one_l)$ by direct sums and lattice translations~\cite{p21}.
+That simplex satisfies Conjecture~C with equality~\cite[Remark~3]{p21}.
+
+\subsection{Method and prior work}
+Both proofs rest on an averaging lemma for sawtooth functions
+(Lemma~\ref{lem:saw}): for positive integers $q_j$, positive weights $c_j$ and
+real $x_j$ there is a real $t$ with
+\[
+\sum_jc_j\fr{x_j+q_jt}\le\frac12\Bigl(\sum_jc_j-\frac{\sum_jq_jc_j^2}{\sum_jq_jc_j}\Bigr).
+\]
+It is proved by averaging over the points where some $x_j+q_jt$ is an integer,
+using Hermite's identity. The lemma is elementary, averaging arguments of
+this kind are classical, and we make no claim of novelty for it.
+
+For Theorem~\ref{thm:B} we write the projected vertices in a basis of the image
+lattice. This gives an integer matrix $A$ with $A\one=0$, and the problem
+becomes the rounding of a real vector modulo the real kernel of~$A$
+(Lemma~\ref{lem:round}). The rounding lemma is proved by induction, splitting
+the rational kernel along the support of a nonnegative kernel vector with a
+zero entry; the averaging lemma is the base case. The lower bound is the
+coordinate projection of~\cite{gms}.
+
+For Theorem~\ref{thm:C}, Cramer's rule gives positive integers $q_i$,
+proportional to $\beta_i\omega_i$ where $\beta$ are the barycentric coordinates
+of the origin, with $\sum_iq_iu_i=0$, and a cofactor expansion gives
+$D_i/V=(1-\beta_i)/\omega_i$. Both facts are close to~\cite{css}: the
+primitive positive integer relation among the vertex directions is used
+in~\cite[Section~4.3]{css}, of which $(q_i)$ is a positive multiple, and
+$(1-\beta_i)/\omega_i=1/\ell_i$ appears in the proof of~\cite[Corollary~4.3]{css},
+so that the second identity is the chord form of~\cite[Lemma~4.1]{css}. The
+averaging lemma with weights $c_i=1/\omega_i$ then gives exactly
+$\frac12\sum_i(1-\beta_i)/\omega_i$. This argument, in chord form, was already
+written in the search for problems that preceded the formalization
+(Section~\ref{sec:cons}).
+
+As far as we know, Conjecture~B for $4\le i<n$, Conjecture~C for $d\ge3$ and the
+bound of Corollary~\ref{cor:A} for $d\ge4$ have not been proved before; the
+searches, which cover the literature up to 20 November 2026, are described in
+the final section. The closest earlier work on Conjecture~B that we know of
+is Krivokuća's paper~\cite{kr}, which narrows the gap between the bounds; the
+paper of Codenotti, Freyer and Krivokuća on minimal covering
+bodies~\cite{cfk} is related but does not address Conjectures A--C.
+
+\section{An averaging lemma}\label{sec:saw}
+
+\begin{lemma}[Hermite's identity]\label{lem:hermite}
+For every real $a$ and every integer $m\ge1$,
+$\sum_{k=0}^{m-1}\lfloor a+k/m\rfloor=\lfloor ma\rfloor$, and hence
+\[
+\sum_{k=0}^{m-1}\fr{a+k/m}=\fr{ma}+\frac{m-1}2 .
+\]
+\end{lemma}
+
+\noindent The first identity is in Mathlib; the second follows from
+$\sum_{k<m}k/m=(m-1)/2$.
+
+\begin{lemma}\label{lem:saw}
+Let $J$ be a finite nonempty set, and for $j\in J$ let $q_j\ge1$ be an
+integer, $c_j>0$ and $x_j$ real. Put $W=\sum_jq_jc_j$. There is $t\in\R$ with
+\[
+\sum_{j\in J}c_j\fr{x_j+q_jt}\le\frac12\Bigl(\sum_{j}c_j-\frac1W\sum_{j}q_jc_j^2\Bigr).
+\]
+In particular, if all $c_j=1$, there is $t$ with
+$\sum_j\fr{x_j+q_jt}\le(|J|-1)/2$.
+\end{lemma}
+
+\begin{proof}
+Let $B(s)=\fr s-\frac12$. For $j\in J$ and $0\le k<q_j$ put
+$e_{j,k}=-(x_j+k)/q_j$; these are the points where $x_j+q_jt$ is an integer.
+Coincident points with different labels $(j,k)$ are kept separate and counted
+with multiplicity. Since $t-e_{j,k}=t+x_j/q_j+k/q_j$, Lemma~\ref{lem:hermite}
+gives
+\begin{equation}\label{eq:jumps}
+B(x_j+q_jt)=\sum_{k=0}^{q_j-1}B(t-e_{j,k})\qquad(t\in\R).
+\end{equation}
+Let $F(t)=\sum_jc_jB(x_j+q_jt)$ and, for $i,j\in J$,
+$E_{ij}=\sum_kB(x_j+q_je_{i,k})$. By~\eqref{eq:jumps},
+$E_{ij}=\sum_{k,l}B(e_{i,k}-e_{j,l})$, so
+\[
+E_{ij}+E_{ji}=\sum_{k,l}\bigl(B(z_{kl})+B(-z_{kl})\bigr),\qquad z_{kl}=e_{i,k}-e_{j,l}.
+\]
+Now $B(z)+B(-z)$ is $0$ if $z\notin\Z$ and $-1$ if $z\in\Z$; hence
+$E_{ij}+E_{ji}\le0$. For $i=j$, $x_i+q_ie_{i,k}=-k$ is an integer, so
+$E_{ii}=-q_i/2$. Give the point $e_{i,k}$ the weight $c_i$; the total weight is
+$W$. Then
+\[
+2\sum_{i,k}c_iF(e_{i,k})=2\sum_{i,j}c_ic_jE_{ij}
+=\sum_{i,j}c_ic_j(E_{ij}+E_{ji})\le\sum_ic_i^2\cdot2E_{ii}=-\sum_iq_ic_i^2 .
+\]
+So some point $t=e_{i,k}$ has $F(t)\le-\frac1{2W}\sum_iq_ic_i^2$, and
+$\sum_jc_j\fr{x_j+q_jt}=F(t)+\frac12\sum_jc_j$. For $c_j=1$ the bound is
+$\frac12(|J|-1)$.
+\end{proof}
+
+\section{Proof of Theorem~\ref{thm:B}}\label{sec:B}
+
+\begin{lemma}[kernel rounding]\label{lem:round}
+Let $I$ be a finite nonempty set with $m$ elements, let $K\subseteq\Q^I$ be a
+subspace of dimension $k$ that contains a vector with all coordinates
+positive, and let $H\subseteq\R^I$ be a real subspace containing $K$. Then for
+every $x\in\R^I$ there is $h\in H$ with
+\[
+\sum_{j\in I}\fr{x_j+h_j}\le\frac{m-k}2 .
+\]
+\end{lemma}
+
+\begin{proof}
+By strong induction on $m$. Let $\eta\in K$ have positive coordinates; then
+$k\ge1$.
+
+If $k=1$, then $K=\Q\eta$, and clearing denominators gives $w\in K$ with
+positive integer coordinates. By Lemma~\ref{lem:saw} with all $c_j=1$ there is
+$t$ with $\sum_j\fr{x_j+w_jt}\le(m-1)/2$; take $h=tw$.
+
+Let $k\ge2$ and choose $u\in K$ not proportional to $\eta$. Let
+$a=\min_ju_j/\eta_j$ and $\nu=u-a\eta\in K$. Then $\nu\ge0$, some coordinate
+of $\nu$ vanishes, and $\nu\ne0$. Let $I_+=\{j:\nu_j>0\}$ and
+$I_0=I\setminus I_+$; both are nonempty, so $|I_+|,|I_0|<m$. For a subset
+$X\subseteq I$ let $\rho_X$ denote restriction of coordinates to $X$. Put
+\[
+K_0=\rho_{I_0}(K),\qquad K_+=\rho_{I_+}\bigl(K\cap\ker\rho_{I_0}\bigr),
+\]
+and define $H_0$ and $H_+$ from $H$ in the same way; then $K_0\subseteq H_0$
+and $K_+\subseteq H_+$. The space $K_0$ contains $\rho_{I_0}(\eta)>0$, and
+$K_+$ contains $\rho_{I_+}(\nu)>0$. The kernel of $\rho_{I_0}|_K$ is
+$K\cap\ker\rho_{I_0}$, on which $\rho_{I_+}$ is injective; by rank--nullity,
+$\dim K_0+\dim K_+=k$.
+
+By induction on $I_0$, there is $g\in H$ with
+$\sum_{j\in I_0}\fr{x_j+g_j}\le(|I_0|-\dim K_0)/2$. By induction on $I_+$,
+applied to $\rho_{I_+}(x+g)$, there is $f\in H$ with $\rho_{I_0}(f)=0$ and
+$\sum_{j\in I_+}\fr{x_j+g_j+f_j}\le(|I_+|-\dim K_+)/2$. Then $h=g+f\in H$
+agrees with $g$ on $I_0$, and adding the two bounds gives $(m-k)/2$.
+\end{proof}
+
+Let $v_0=-\one_n$ and $v_j=e_j$ ($1\le j\le n$) be the vertices of $T_n$, so
+that $\sum_jv_j=0$.
+
+\begin{proposition}[upper bound]\label{prop:upper}
+Let $1\le i\le n$ and let $p\colon\R^n\to\R^i$ be a linear surjection such
+that $p(\Z^n)$ is the lattice generated by a basis $b_1,\dots,b_i$ of $\R^i$.
+Then $p(\Z^n)+\frac i2\,p(T_n)=\R^i$.
+\end{proposition}
+
+\begin{proof}
+Since $v_j\in\Z^n$, we can write $p(v_j)=\sum_kA_{kj}b_k$ with an integer
+matrix $A$ of size $i\times(n+1)$. Each row of $A$ sums to zero, that is
+$A\one=0$, because $\sum_jv_j=0$. Let $K=\ker_\Q A\subseteq\Q^{n+1}$ and
+$H=\ker_\R A$. Then $\one\in K$ and $\dim K\ge n+1-i$.
+
+Let $y\in\R^i$. Since $p$ is onto and $v_1,\dots,v_n=e_1,\dots,e_n$ span $\R^n$, we have $y=p(\sum_jx_jv_j)$
+for some $x\in\R^{n+1}$. Lemma~\ref{lem:round} gives $h\in H$ with
+$s:=\sum_j\fr{x_j+h_j}\le i/2$. Since $Ah=0$, we have $p(\sum_jh_jv_j)=0$. Put
+$z=\sum_j\lfloor x_j+h_j\rfloor v_j\in\Z^n$ and $a_j=\fr{x_j+h_j}\ge0$; then
+$y=p(z)+p(\sum_ja_jv_j)$. With $r=i/2$ and
+$w_j=\bigl(a_j+(r-s)/(n+1)\bigr)/r$ we have $w_j\ge0$, $\sum_jw_j=1$ and,
+since $\sum_jv_j=0$, $r\sum_jw_jv_j=\sum_ja_jv_j$. Hence
+$y=p(z)+r\,p(y')$ with $y'=\sum_jw_jv_j\in T_n$.
+\end{proof}
+
+\begin{proposition}[lower bound]\label{prop:lower}
+Let $1\le i\le n$ and let $p(x)=(x_1,\dots,x_i)$. Then $p(\Z^n)=\Z^i$, and if
+$r\ge0$ and $\Z^i+r\,p(T_n)=\R^i$, then $r\ge i/2$.
+\end{proposition}
+
+\begin{proof}
+The first claim is clear. Let $x\in\R^i$ have coordinates $x_k=k/(i+1)$ and
+suppose $x=p(z)+r\,p(y)$ with $z\in\Z^n$ and $y\in T_n$. Write
+$y=\sum_{j=0}^nw_jv_j$ with $w_j\ge0$ and $\sum_jw_j=1$, so that
+$y_k=w_k-w_0$. Put $a=rw_0$. For $1\le k\le i$ the $k$-th coordinate gives
+$a+k/(i+1)=z_k+rw_k$, so $\fr{a+k/(i+1)}=\fr{rw_k}\le rw_k$; also
+$\fr a\le a=rw_0$. Summing over $k=0,\dots,i$ and using Lemma~\ref{lem:hermite},
+\[
+\fr{(i+1)a}+\frac i2=\sum_{k=0}^{i}\fr{a+\tfrac k{i+1}}\le r\sum_{k=0}^iw_k\le r .
+\qedhere
+\]
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:B}]
+A lattice in $\R^i$ is the set of integer combinations of a basis, so (a) is
+Proposition~\ref{prop:upper}. For (b), the coordinate projection is a
+surjection with $p(\Z^n)=\Z^i$; by (a), $i/2$ is a covering scale, and by
+Proposition~\ref{prop:lower} no smaller nonnegative scale is. Hence
+$\mu(p(T_n),p(\Z^n))\le i/2$ for every admissible $p$, with equality for the
+coordinate projection, so $\mu_i(T_n)=i/2$.
+\end{proof}
+
+\section{Proof of Theorem~\ref{thm:C}}\label{sec:C}
+
+Let $d$, $u_i$, $\omega_i$, $v_i$, $S$, $V$ and $D_i$ be as in
+Theorem~\ref{thm:C}. Since the origin is an interior point of $S$, the
+vertices $v_0,\dots,v_d$ are affinely independent, every $y\in\R^d$ is a
+combination $\sum_ia_iv_i$, and the barycentric coordinates
+$\beta_0,\dots,\beta_d$ of the origin are positive with $\sum_i\beta_i=1$ and
+$\sum_i\beta_iv_i=0$. As $d\ge1$, each $\beta_i<1$. Let $M$ be the matrix with
+rows $(1,v_0),\dots,(1,v_d)$, so $V=|\det M|>0$.
+
+\begin{lemma}\label{lem:freq}
+Let $q_i=|\det[u_j]_{j\ne i}|$, the absolute value of the determinant of the
+$d\times d$ matrix with rows $u_j$, $j\ne i$, in increasing order. Then
+$q_i=m\beta_i\omega_i$ with $m=V/\prod_j\omega_j$. In particular the $q_i$ are
+positive integers and $\sum_iq_iu_i=0$.
+\end{lemma}
+
+\begin{proof}
+Replacing the row $(1,v_i)$ of $M$ by $(1,0)=\sum_j\beta_j(1,v_j)$ multiplies
+the determinant by $\beta_i$. Expanding the new matrix along the replaced row
+gives $\pm\det[v_j]_{j\ne i}$. Hence
+$|\det[v_j]_{j\ne i}|=\beta_iV$, and
+$\det[v_j]_{j\ne i}=\prod_{j\ne i}\omega_j\cdot\det[u_j]_{j\ne i}$. Finally
+$\sum_iq_iu_i=m\sum_i\beta_i\omega_iu_i=m\sum_i\beta_iv_i=0$.
+\end{proof}
+
+\begin{lemma}\label{lem:proj}
+For every $i$, $D_i=V(1-\beta_i)/\omega_i$.
+\end{lemma}
+
+\begin{proof}
+Let $\zeta=(0,u_i)$. Then $(1,v_i)=\omega_i\zeta+\sum_j\beta_j(1,v_j)$, so by
+multilinearity of the determinant in row $i$,
+$\det M=\omega_i\det M_{i\leftarrow\zeta}+\beta_i\det M$, where
+$M_{i\leftarrow\zeta}$ is $M$ with row $i$ replaced by~$\zeta$. Thus
+$|\det M_{i\leftarrow\zeta}|=V(1-\beta_i)/\omega_i$. In
+$M_{i\leftarrow\zeta}$, subtract the row $(1,v_{s(0)})$ from the other rows
+$(1,v_{s(k)})$ and expand along the first column; up to sign this gives the
+determinant of $[u_i;\,v_{s(1)}-v_{s(0)};\dots;v_{s(d-1)}-v_{s(0)}]$.
+\end{proof}
+
+\begin{lemma}\label{lem:vol}
+$V=\Vol_{\Z^d}(S)$, and $D_i=\Vol_{\pi(\Z^d)}(\pi(S))$ for every linear
+surjection $\pi\colon\R^d\to\R^{d-1}$ with $\pi(v_i)=0$.
+\end{lemma}
+
+\begin{proof}
+The first claim is the usual determinant formula for the volume of a simplex.
+Since $u_i$ is primitive, there is $U\in GL_d(\Z)$ with $Uu_i=e_1$. Let
+$p_i(x)$ be the vector of the last $d-1$ coordinates of $Ux$. Then $p_i$ is
+surjective, $p_i(\Z^d)=\Z^{d-1}$ and $p_i(v_i)=0$. Since
+$0=\sum_j\beta_jp_i(v_j)$ with $\beta_j>0$, the point $p_i(v_i)=0$ lies in
+$\conv\{p_i(v_j):j\ne i\}$, so $p_i(S)$ is the image of the facet opposite
+$v_i$, a simplex with edge vectors $p_i(v_{s(k)}-v_{s(0)})$. Multiplying the
+matrix in the definition of $D_i$ on the right by $U^{\mathsf T}$ changes its
+determinant only by a sign and turns its top row into $e_1$; expanding along
+that row gives
+$D_i=|\det[p_i(v_{s(1)}-v_{s(0)});\dots;p_i(v_{s(d-1)}-v_{s(0)})]|
+=\Vol_{\Z^{d-1}}(p_i(S))$ (for $d=1$ both sides are~$1$). Any other $\pi$ as
+in the statement is $\phi\circ p_i$ for a linear isomorphism $\phi$ of
+$\R^{d-1}$, and $\Vol_{\phi(\Lambda)}(\phi(X))=\Vol_\Lambda(X)$.
+\end{proof}
+
+\noindent Lean proves Lemma~\ref{lem:vol} for the projections $p_i$ of the
+proof, as part of Theorem~\ref{thm:Cm} below; the last sentence of the proof,
+the independence of the choice of projection, is not formalized.
+
+\begin{proof}[Proof of Theorem~\ref{thm:C}]
+By Lemma~\ref{lem:proj},
+\[
+r=\frac{\sum_iD_i}{2V}=\frac12\sum_i\frac{1-\beta_i}{\omega_i}>0 .
+\]
+Let $c_i=1/\omega_i$. By Lemma~\ref{lem:freq}, $W=\sum_iq_ic_i=m\sum_i\beta_i=m$
+and $\sum_iq_ic_i^2=m\sum_i\beta_i/\omega_i$, so the bound of
+Lemma~\ref{lem:saw} is
+$\frac12\bigl(\sum_ic_i-\sum_i\beta_ic_i\bigr)=r$.
+
+Let $y\in\R^d$ and write $y=\sum_ia_iv_i=\sum_ix_iu_i$ with
+$x_i=a_i\omega_i$. Lemma~\ref{lem:saw} gives $t$ with
+$\sum_ic_i\fr{x_i+q_it}\le r$. As $\sum_iq_iu_i=0$, we have
+$y=\sum_i(x_i+q_it)u_i$. Put $z=\sum_i\lfloor x_i+q_it\rfloor u_i\in\Z^d$
+and $\alpha_i=c_i\fr{x_i+q_it}\ge0$. Then $y-z=\sum_i\alpha_iv_i$ and
+$\sum_i\alpha_i\le r$. With $w_i=\bigl(\alpha_i+(r-\sum_j\alpha_j)\beta_i\bigr)/r$
+we get $w_i\ge0$, $\sum_iw_i=1$ and $r\sum_iw_iv_i=y-z$, because
+$\sum_i\beta_iv_i=0$. So $y\in z+rS$.
+\end{proof}
+
+The following form uses Lebesgue measures of the actual projected sets. Let
+$\lambda_k$ be Lebesgue measure on $\R^k$ ($\lambda_0$ is the unit point mass
+on $\R^0$) and $\Delta_k=\conv\{0,e_1,\dots,e_k\}$. If $\Lambda=\Z^k$ and
+$X\subseteq\R^k$, then $\Vol_\Lambda(X)=\lambda_k(X)/\lambda_k(\Delta_k)$.
+
+\begin{thmprime}\label{thm:Cm}
+Under the hypotheses of Theorem~\ref{thm:C} there are linear surjections
+$p_0,\dots,p_d\colon\R^d\to\R^{d-1}$ such that, for every $i$, $p_i(v_i)=0$,
+$p_i(\Z^d)=\Z^{d-1}$ and $\lambda_{d-1}(p_i(S))/\lambda_{d-1}(\Delta_{d-1})=D_i$,
+and
+\[
+\Z^d+r'S=\R^d\qquad\text{with}\qquad
+r'=\frac{\sum_i\lambda_{d-1}(p_i(S))/\lambda_{d-1}(\Delta_{d-1})}{2\,\lambda_d(S)/\lambda_d(\Delta_d)} .
+\]
+\end{thmprime}
+
+\noindent Since $p_i(\Z^d)=\Z^{d-1}$, the numerator is
+$\sum_i\Vol_{p_i(\Z^d)}(p_i(S))$ and the denominator is $2\Vol_{\Z^d}(S)$, so
+$r'$ is the right-hand side of Conjecture~C computed with the particular
+projections $p_i$.
+
+\section{Consequences and remarks (not formalized)}\label{sec:cons}
+
+The statements in this section are written arguments; none of them is part of
+the Lean statements.
+
+\paragraph{Corollary~\ref{cor:A}.} The following argument is that
+of~\cite[Section~3.1]{css}; we recall it to make explicit which part of
+Theorem~\ref{thm:B} it uses. Let $P\subseteq\R^d$ be a non-hollow lattice
+polytope; after a lattice translation the origin is an interior point. By
+Carathéodory's theorem, $P$ contains a lattice simplex $S$, spanned by vertices of $P$, of some
+dimension $1\le\ell\le d$ (the origin is not a vertex) with the origin in its
+relative interior~\cite[Lemma~3.1]{css}.
+
+Suppose first $\ell=d$, so $\mu(P)\le\mu(S)$. Write $S=\conv\{w_0,\dots,w_d\}$.
+The barycentric coordinates of the origin are positive and rational, so
+$0=\sum_ib_iw_i$ with positive integers $b_i$; let $N=\sum_ib_i\ge d+1$. The
+$N$ vertices $-\one,e_1,\dots,e_{N-1}$ of $T_{N-1}$ sum to zero, so there is a
+linear map $\pi\colon\R^{N-1}\to\R^d$ sending exactly $b_i$ of them to $w_i$
+for each $i$. Then $\pi(T_{N-1})=S$, and $\pi(\Z^{N-1})\subseteq\Z^d$ is a
+lattice because $S$ is full-dimensional. Theorem~\ref{thm:B}(a) and the
+inclusion of lattices give
+$\mu(S,\Z^d)\le\mu(S,\pi(\Z^{N-1}))\le d/2$.
+
+If $\ell<d$, let $L$ be the linear span of $S$ and $\pi'$ the orthogonal
+projection with kernel $L$. By~\cite[Lemma~2.1]{css} and $S\subseteq P\cap L$,
+$\mu(P)\le\mu(S,\Z^d\cap L)+\mu(\pi'(P),\pi'(\Z^d))$. The first term is at
+most $\ell/2$ by the full-dimensional case applied in $L$, and the second is
+at most $(d-\ell)/2$ by induction on $d$, since $\pi'(P)$ is a non-hollow
+lattice polytope with respect to $\pi'(\Z^d)$ (identifying $\pi'(\Z^d)$ with
+$\Z^{d-\ell}$ by a linear isomorphism)~\cite[Corollary~3.2]{css}.
+
+From Theorem~\ref{thm:C} the same bound follows as in the proof
+of~\cite[Corollary~4.3]{css}: for a lattice simplex with the origin in its
+interior, each $\omega_i$ is a positive integer, so
+$\frac12\sum_i(1-\beta_i)/\omega_i\le\frac12\sum_i(1-\beta_i)=d/2$; the
+reduction to simplices is the one just described. Conversely, the inequality
+of Corollary~\ref{cor:A} in all dimensions implies Conjecture~B by
+\cite[Theorem~1.2]{css}, direction (i)$\Rightarrow$(ii). So
+Theorem~\ref{thm:C} implies Theorem~\ref{thm:B} through published arguments;
+we do not know a deduction in the other direction. The two Lean proofs are
+independent of each other except that they share Lemma~\ref{lem:saw}.
+
+\paragraph{Equality.} The equality clause of Conjecture~A is not addressed by
+Theorems~\ref{thm:B} and~\ref{thm:C}. Its ``if'' direction was known~\cite[eq.~(1)
+and Corollary~2.2]{css}; its ``only if'' direction fails in dimension four by
+the example of~\cite{p21}. For that simplex all $\omega_i=1$ and
+$\beta=\frac16(2,1,1,1,1)$, so $\frac12\sum_i(1-\beta_i)=2=\mu$: it is an
+equality case of Conjecture~C that is not unimodularly equivalent to any
+$S(\omega)$~\cite[Remark~5]{p21} (other equality cases are noted
+after~\cite[Corollary~5.1]{css}). Corollary~\ref{cor:A}
+should therefore not be read as a proof of Conjecture~A, only of its
+inequality. Conjecture~D of~\cite{css}, on polytopes with $k$ interior lattice
+points, is not addressed either, nor is the extension of Conjecture~C to
+simplices with the origin on the boundary~\cite[Section~4.4]{css}.
+
+\paragraph{Other written arguments.} The search for problems in which these
+conjectures were selected also produced written arguments. For Conjecture~B it
+gave a proof by averaging over the common zeros on a torus of systems of
+integer linear forms, with determinant weights; the proof of
+Theorem~\ref{thm:B} given here, by kernel splitting, is different and does not
+use it. For Conjecture~C a note of that search already contained the argument
+of Section~\ref{sec:C} in chord form: the weighted averaging over the jump
+points (with a gcd computation in place of Hermite's identity), the positive
+integer relation among the vertex directions, and the identity
+$1/\ell_i=(1-\beta_i)/\omega_i$. A review note and a second note of the
+search gave an integral version of the averaging and, in the second note, with
+all weights equal to~$1$, the bound $\mu(S)\le d/2$ for non-hollow lattice
+simplices. The determinant form of Lemmas~\ref{lem:freq}--\ref{lem:vol},
+Theorem~\ref{thm:Cm} and the Lean proofs come from the later session. These
+notes have not been reviewed for this paper and are not claims of this paper.
+
+{\sloppy
+\section{Formal verification}\label{sec:lean}
+
+Theorems~\ref{thm:B}, \ref{thm:C} and~\ref{thm:Cm} are formally verified in
+Lean~4 (version 4.34.1) with Mathlib~\cite{mathlib} (commit
+\texttt{d13f23b7}). The deduction of $\mu_i(T_n)=i/2$ from (a) and (b) and of
+$\mu(S)\le r$ from the covering statement is immediate from the definition of
+$\mu$ as a minimum. The identification of $V$ and $D_i$ with the volumes
+of~\cite{css} is formalized in Theorem~\ref{thm:Cm} and
+\texttt{MeasureModel.normalized\_\allowbreak measure}, except for the
+independence of the choice of projection (Lemma~\ref{lem:vol}).
+Corollary~\ref{cor:A} and Section~\ref{sec:cons} are not formalized. In
+version~\repoversion{} of the repository~\cite{repo} the files are in the
+directories \texttt{lean/Research/TaskS/B/} ($11$ files),
+\texttt{lean/Research/TaskS/C/} ($13$ files) and
+\texttt{lean/Research/TaskS/Shared/} (\texttt{Sawtooth.lean}, used by both);
+records of the freezing and of the checks are in the folder
+\texttt{certificates/css-covering-minima}.
+
+\paragraph{The statement for Conjecture~B.}
+The statement file \texttt{B/Challenge.lean} contains only definitions and
+statements, no proofs. In ASCII transliteration (the docstrings and the
+\texttt{import}, \texttt{open}, \texttt{namespace} and \texttt{end} lines
+omitted; the file itself uses Unicode, e.g.\ $\mathbb R$, $\to$, $\forall$,
+$\exists$, $\in$, $\le$, $\wedge$, $\sum$, $\bullet$):
+{\footnotesize
+\begin{verbatim}
+abbrev Space (n : Nat) := Fin n -> Real
+abbrev Lattice (n : Nat) := Fin n -> Int
+def embed {n : Nat} (z : Lattice n) : Space n := fun j => z j
+noncomputable def vertex (n : Nat) : Fin (n + 1) -> Space n :=
+  Fin.cases (fun _ => -1) (fun j => Pi.single j 1)
+noncomputable def terminal (n : Nat) : Set (Space n) :=
+  convexHull Real (Set.range (vertex n))
+def LatticeProjection {n i : Nat} (p : Space n ->l[Real] Space i) : Prop :=
+  Function.Surjective p /\ exists b : Module.Basis (Fin i) Real (Space i),
+    Set.range (fun z : Lattice n => p (embed z)) =
+      Set.range (fun w : Lattice i => sum j, (w j : Real) * b j)
+def Covers {n i : Nat} (p : Space n ->l[Real] Space i) (r : Real) : Prop :=
+  forall x : Space i, exists z : Lattice n, exists y in terminal n,
+    x = p (embed z) + r * p y
+def ConjectureB : Prop :=
+  forall (n i : Nat), 0 < i -> i <= n ->
+    (forall p : Space n ->l[Real] Space i, LatticeProjection p -> Covers p ((i : Real) / 2)) /\
+    exists p : Space n ->l[Real] Space i, LatticeProjection p /\
+      IsLeast {r : Real | 0 <= r /\ Covers p r} ((i : Real) / 2)
+\end{verbatim}}
+\noindent Here \texttt{->l[Real]} is the type of real-linear maps (written
+$\to_{\ell}[\mathbb R]$ in the file), \texttt{*} between a scalar and a vector
+stands for the scalar multiple $\bullet$, \texttt{sum j} is a sum over
+$\{0,\dots,i-1\}$, and \texttt{IsLeast A c} says that $c\in A$ and $c\le r$
+for all $r\in A$. \texttt{vertex n} lists $-\one_n,e_1,\dots,e_n$ and
+\texttt{terminal n} is $T_n$. \texttt{LatticeProjection p} says that $p$ is
+onto and that $p(\Z^n)$ is the set of integer combinations of some real basis
+of $\R^i$, that is, a lattice; every lattice, with any basis, is allowed, and
+dense images such as that of $(x,y)\mapsto x+\sqrt2\,y$ are excluded
+(surjectivity follows from the second clause). \texttt{Covers p r} says that
+$p(\Z^n)+r\,p(T_n)=\R^i$. \texttt{ConjectureB} is Theorem~\ref{thm:B}(a) and~(b)
+for all $1\le i\le n$. The final reviewers checked in particular that the
+universal bound ranges over all admissible $p$ while the witness appears only
+in the attainment clause; the stronger reading that every admissible
+projection has covering radius $i/2$ would be false, since
+$(x_1,x_2)\mapsto x_1+x_2$ maps $T_2$ onto $[-2,1]$, of covering radius
+$1/3$. One reviewer restated \texttt{ConjectureB} fully unfolded, using only
+Mathlib's standard notions, and derived it from the checked theorem.
+
+\paragraph{The statement for Conjecture~C.}
+In the same transliteration, \texttt{C/Challenge.lean} reads ($\omega$ is
+written \texttt{omega}):
+{\footnotesize
+\begin{verbatim}
+abbrev Space (d : Nat) := Fin d -> Real
+abbrev Lattice (d : Nat) := Fin d -> Int
+def embed {d : Nat} (u : Lattice d) : Space d := fun k => (u k : Real)
+def Primitive {d : Nat} (u : Lattice d) : Prop :=
+  exists a : Lattice d, sum k, a k * u k = 1
+def vertices {d : Nat} (u : Fin (d+1) -> Lattice d) (omega : Fin (d+1) -> Real)
+    (j : Fin (d+1)) : Space d := omega j * embed (u j)
+noncomputable def simplex {d : Nat} (v : Fin (d+1) -> Space d) : Set (Space d) :=
+  convexHull Real (range v)
+noncomputable def volume {d : Nat} (v : Fin (d+1) -> Space d) : Real :=
+  |(Matrix.of (fun i => Fin.cons (1 : Real) (v i))).det|
+noncomputable def projectedVolume {n : Nat} (v : Fin (n+2) -> Space (n+1))
+    (u : Fin (n+2) -> Lattice (n+1)) (i : Fin (n+2)) : Real :=
+  |(Matrix.of (Fin.cons (embed (u i)) (fun k : Fin n =>
+    v (i.succAbove k.succ) - v (i.succAbove 0)))).det|
+def Covers {d : Nat} (K : Set (Space d)) (r : Real) : Prop :=
+  forall x : Space d, exists z : Lattice d, exists y in K, x = embed z + r * y
+def conjectureC : Prop :=
+  forall (n : Nat) (u : Fin (n+2) -> Lattice (n+1)) (omega : Fin (n+2) -> Real),
+    (forall i, Primitive (u i)) -> (forall i, 0 < omega i) ->
+    let v := vertices u omega
+    0 < volume v -> (0 : Space (n+1)) in interior (simplex v) ->
+    Covers (simplex v) ((sum i, projectedVolume v u i) / (2 * volume v))
+\end{verbatim}}
+\noindent Here \texttt{range} is \texttt{Set.range}, \texttt{a k * u k} is a
+product of integers, \texttt{omega j * embed (u j)} and \texttt{r * y} are
+scalar multiples, \texttt{|...|} is the absolute value, and
+\texttt{interior} is the topological interior in $\R^d$. \texttt{Primitive u}
+says that the coordinates of $u$ generate the unit ideal of $\Z$, that is,
+$u$ is primitive. \texttt{Matrix.of (fun i => Fin.cons 1 (v i))} is the matrix
+with rows $(1,v_i)$, so \texttt{volume v} is $V$; this \texttt{volume} is the
+file's own definition, not Mathlib's measure. In \texttt{projectedVolume},
+\texttt{i.succAbove} enumerates the indices other than $i$ in increasing
+order, and the matrix has top row $u_i$ followed by the rows
+$v_{s(k)}-v_{s(0)}$, so \texttt{projectedVolume v u i} is $D_i$.
+\texttt{conjectureC} is Theorem~\ref{thm:C} for $d=n+1$, so every $d\ge1$ is
+covered. The final reviewers noted the following points. (i)~The
+parametrization $v_i=\omega_iu_i$ with primitive $u_i$ and real $\omega_i>0$
+gives exactly the simplices of Definition~1.5 of~\cite{css}, including
+irrational vertex lengths. (ii)~Primitivity is needed: with merely integral
+$u_i$ the right-hand side could be larger. (iii)~The hypothesis
+\texttt{0 < volume v} follows from the interior hypothesis and restricts
+nothing. (iv)~For $d=1$ each $D_i$ is $1$, the normalized volume of a point,
+and the bound is an equality. (v)~\texttt{Covers (simplex v) r} implies
+$\mu(S)\le r$; one reviewer derived the form with the infimum of covering
+scales in Lean, and another proved by \texttt{Iff.rfl} that
+\texttt{conjectureC} unfolds to the statement written out by hand.
+
+\paragraph{The measured form.} Theorem~\ref{thm:Cm} is the theorem
+\texttt{TaskS.C.MeasureModel.measured\_\allowbreak conjectureC} in
+\texttt{ProjectionModel.lean}, stated for the hypotheses of
+\texttt{conjectureC}. Its conclusion asserts the existence of linear maps
+\texttt{p i} that are surjective, vanish at $v_i$ and map the image of $\Z^d$
+onto the image of $\Z^{d-1}$, with
+\texttt{volume (p i \textquotesingle\textquotesingle{} S) / volume (unit n) = ENNReal.ofReal (projectedVolume v u i)},
+and the covering of $\R^d$ at the scale in which the sum of the real parts
+(\texttt{toReal}) of these quotients is divided by twice that of
+\texttt{volume S / volume (unit (n+1))}. Here \texttt{volume} is Lebesgue
+measure (with values in $[0,\infty]$) and \texttt{unit k} is $\Delta_k$.
+
+\paragraph{Review and freezing.}
+Both statement files were written by Codex agents. The reading of the sources
+(\cite{css}, and~\cite{gms} for Conjecture~B) was checked by a Codex agent that
+had written neither statement and had not taken part in the earlier search for
+problems; its report is dated 20 November 2026, 22:29:40~UTC. The same agent
+reviewed both statement files and approved them for freezing at
+22:30:07~UTC, after checking that each compiled without diagnostics. Both were
+frozen by recording their SHA-256 hashes (\texttt{458363b3\ldots} for
+Conjecture~B, \texttt{607e2915\ldots} for Conjecture~C) at 22:30:34~UTC. An
+earlier draft of the statement for Conjecture~B had failed to compile at
+22:28:45~UTC (the identifier \texttt{Basis} needed the prefix
+\texttt{Module.}); the frozen file compiled at 22:29:23~UTC, and the statement
+for Conjecture~C at 22:28:56~UTC. According to the development logs, no proof
+file was compiled before 22:30:49~UTC, after the freeze. The statement files
+were not changed afterwards.
+
+\paragraph{The proofs.}
+\texttt{Proof.ConjectureB} combines \texttt{Upper.upper} (part~(a)) with
+\texttt{exists\_\allowbreak projection\_\allowbreak lower} (part~(b)).
+\texttt{Proof.conjectureC} applies \texttt{geometry} to
+\texttt{TaskS.Shared.sawtooth\_\allowbreak weighted} with weights
+$1/\omega_i$. Table~\ref{tab:lean} lists the Lean counterparts of the steps of
+the written proofs; names are relative to the namespaces \texttt{TaskS.B},
+\texttt{TaskS.C} and \texttt{TaskS.Shared}, and ``private'' marks private
+declarations. The $12$ files used for Theorem~\ref{thm:B} have $636$ lines
+in all, and the $13$ files of \texttt{TaskS/C} have $754$ lines.
+
+\begin{table}[ht]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}@{}}
+\hline
+Step of the written proof & Lean (file) \\
+\hline
+Lemma~\ref{lem:hermite} & \texttt{grid\_sum} (\texttt{Shared/Sawtooth}), from
+Mathlib's \texttt{Int.sum\_floor\_add\_div} \\
+Lemma~\ref{lem:saw} & \texttt{sawtooth\_weighted}, \texttt{sawtooth\_unweighted};
+private \texttt{event}, \texttt{grid\_deviation}, \texttt{dev}, \texttt{dev\_diag},
+\texttt{dev\_pair} (\texttt{Shared/Sawtooth}) \\
+\hline
+Lemma~\ref{lem:round}, case $k=1$ & \texttt{Rounding.integer\_direction}
+(\texttt{RationalLine}) \\
+Lemma~\ref{lem:round}, splitting and rank--nullity &
+\texttt{Rounding.positive\_split}, \texttt{Rounding.part}, \texttt{Rounding.supported},
+\texttt{Rounding.part\_rank} (\texttt{Split}) \\
+Lemma~\ref{lem:round} & \texttt{Rounding.round}, with the one-dimensional input
+\texttt{Rounding.LineBound} as a hypothesis (\texttt{KernelRounding}); it is
+discharged by \texttt{sawtooth\_unweighted} in \texttt{Upper.round\_matrix}
+(\texttt{Balanced}) \\
+Proposition~\ref{prop:upper}: the matrix $A$, $A\one=0$, $Ah=0$, the lattice point $z$ &
+\texttt{Coordinates.decompose}, \texttt{Coordinates.intcoords},
+\texttt{Coordinates.balanced}, \texttt{Coordinates.annihilates},
+\texttt{Coordinates.lift\_int} (\texttt{BasisCoordinates}) \\
+Proposition~\ref{prop:upper}: $\dim K\ge n+1-i$; padding &
+\texttt{Upper.round\_matrix} (\texttt{Balanced}); \texttt{Hull.sum\_vertex},
+\texttt{Hull.scaled} (\texttt{Hull}) \\
+Proposition~\ref{prop:upper} & \texttt{Upper.upper} (\texttt{Upper}) \\
+Proposition~\ref{prop:lower} & \texttt{exists\_projection\_lower}; private
+\texttt{coordProjection}, \texttt{coord\_admissible}, \texttt{terminal\_weights},
+\texttt{fract\_le\_id} (\texttt{Lower}) \\
+\hline
+Barycentric coordinates and spanning & \texttt{coordinates}, \texttt{origin\_row}
+(\texttt{Coordinates}) \\
+Lemma~\ref{lem:freq} & \texttt{frequency}, \texttt{frequency\_ratio}; private
+\texttt{replaced\_minor} (\texttt{Frequencies}) \\
+Lemma~\ref{lem:proj} & \texttt{projected\_eq}; private \texttt{facet\_det},
+\texttt{updated\_facet} (\texttt{Projected}) \\
+Rounding and padding in the proof of Theorem~\ref{thm:C} &
+\texttt{rounded\_cover}, \texttt{scaled\_combination} (\texttt{Lift}) \\
+Proof of Theorem~\ref{thm:C} & \texttt{geometry} (\texttt{Geometry}),
+\texttt{Proof.conjectureC} (\texttt{Proof}) \\
+Lemma~\ref{lem:vol} for $p_i$: $U$, $p_i$, $p_i(\Z^d)=\Z^{d-1}$ &
+\texttt{ProjectionLattice.exists\_adapted} (\texttt{ProjectionLattice});
+\texttt{MeasureModel.project}, private \texttt{projection\_surj},
+\texttt{projection\_lattice} (\texttt{ProjectionModel}) \\
+Lemma~\ref{lem:vol} for $p_i$: image of $S$, expansion, measures &
+\texttt{image\_simplex\_eq\_image\_opposite} (\texttt{ProjectionBody});
+\texttt{ProjectionLattice.edge\_determinant},
+\texttt{ProjectionLattice.projected\_volume};
+\texttt{MeasureModel.volume\_edges}, \texttt{MeasureModel.measure\_simplex},
+\texttt{MeasureModel.normalized\_measure} (\texttt{SimplexMeasure}) \\
+Theorem~\ref{thm:Cm} & \texttt{MeasureModel.projection\_measure},
+\texttt{MeasureModel.measured\_conjectureC} (\texttt{ProjectionModel}) \\
+\hline
+\end{tabular}
+\caption{Lean counterparts of the steps of the proofs (files in
+\texttt{TaskS/B}, \texttt{TaskS/C} and \texttt{TaskS/Shared}).}
+\label{tab:lean}
+\end{table}
+
+\noindent The test file \texttt{CheckB.lean} contains
+\texttt{theorem check\_\allowbreak ConjectureB : Challenge.ConjectureB :=
+Proof.ConjectureB}, and \texttt{CheckC.lean} and
+\texttt{MeasureAudit/CheckC.lean} contain the corresponding line
+\texttt{check\_\allowbreak conjectureC} for \texttt{Challenge.conjectureC}.
+No file other than the statement files defines anything in the namespaces
+\texttt{TaskS.B.Challenge} and \texttt{TaskS.C.Challenge}. The axioms of
+\texttt{Proof.ConjectureB}, \texttt{check\_\allowbreak ConjectureB},
+\texttt{Proof.conjectureC}, \texttt{check\_\allowbreak conjectureC},
+\texttt{measured\_\allowbreak conjectureC} and of the other declarations
+audited in the checks are exactly \texttt{propext}, \texttt{Classical.choice}
+and \texttt{Quot.sound}. No file uses \texttt{sorry},
+\texttt{native\_\allowbreak decide}, \texttt{bv\_\allowbreak decide},
+\texttt{decide} or an \texttt{axiom} declaration.
+
+\paragraph{Checks.}
+Each formalization was compiled module by module, with the pinned toolchain
+and with warnings treated as errors, in two new empty directories on the
+author's Mac, and every module was replayed with \texttt{leanchecker}; each
+directory also ran one build of the whole package. Theorem~\ref{thm:B}
+($12$ modules: the $11$ files of \texttt{B} and \texttt{Sawtooth.lean}) was
+checked on 20 November 2026 between 22:34:18 and 22:39:44~UTC ($50$
+commands), Theorem~\ref{thm:C} ($9$ modules) between 22:33:22 and
+22:37:34~UTC ($38$ commands), and Theorem~\ref{thm:Cm} ($14$ modules, which
+include the $9$ unchanged modules of Theorem~\ref{thm:C}) between 22:38:51
+and 22:44:28~UTC ($58$ commands). All $146$ commands ended with exit
+code~$0$, the \texttt{leanchecker} runs printed nothing, and in each check
+the two directories produced identical \texttt{.olean} files and axiom lists.
+The SHA-256 hashes of the three receipts begin with \texttt{a3307acd},
+\texttt{df9cf4b1} and \texttt{4f37b409}. Each of the four final reviewers
+(see the last section) compiled the files again, together with an audit file
+of its own, in a new directory on the same Mac with plain \texttt{lean}
+invocations, and replayed every module with \texttt{leanchecker}; all runs
+ended with exit code~$0$ and no warnings (one reviewer's audit file first
+failed on an ambiguous name in its own text and was corrected). Mathlib and its
+dependencies were taken from a shared prebuilt cache at the pinned commits and
+were not rechecked; the \texttt{leanchecker} replays cover the project
+modules. In the repository the files have module names under
+\texttt{Research.TaskS} and differ from the checked files only in their
+\texttt{import} lines (the two statement files, \texttt{Split.lean},
+\texttt{RationalLine.lean} and \texttt{Sawtooth.lean} are unchanged).
+The repository versions were made by a script that changed only the local \texttt{import} lines, and on 20 November 2026 (23:11--23:18~UTC) the $25$ modules were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac, one after the other; there were no warnings, and the two directories produced identical \texttt{.olean} files and the same axiom lists. In the whole-project rebuild of version~\repoversion{} of the repository (on the author's Windows computer, in two passes on 20 and 21 November 2026), these files were compiled and replayed with \texttt{leanchecker} again in pass~2 (21 November 2026), which built the files not included in pass~1 on top of its results; no module needed a second attempt (details in the repository). The formalization has not been checked with
+comparator or with an independent kernel.
+
+\par}
+
+\section*{How this paper was produced}
+This work was carried out from 20 to 22 November 2026 (UTC) in a workflow directed by
+the author, using OpenAI Codex with the model GPT-6.2-Astra (reasoning level
+ultra) and Anthropic Claude Code with the model Claude Opus~5.5. The author
+asked for a search for hard and substantial open problems, and Claude Code
+passed this request to Codex. In a separate Codex session, which ended at
+18:53~UTC, Codex screened $78$ candidate problems and prepared detailed notes
+on eight; Conjectures~B and~C were among them. According to the file times,
+the written arguments of this search described in Section~\ref{sec:cons} were
+completed by 18:41~UTC (Conjecture~B, torus route), 18:46~UTC (Conjecture~C,
+the weighted averaging used in this paper, in chord form; a review note of
+18:46~UTC added the integral version) and 18:50~UTC (the second note with the
+integral version), and were read by other Codex agents of the search; the counterexample of~\cite{p21}
+was found in the same search. At about 22:27~UTC the author asked for
+complete Lean proofs of Conjectures~B and~C. In another separate Codex session,
+Codex agents (same model) wrote the two statement files, checked the reading
+of the sources, searched again for prior work, wrote the Lean proofs and the
+written proofs, and ran the checks; the review and freezing of the statements
+are described in Section~\ref{sec:lean}. According to the development logs
+and the file times, all proof files were created after the freeze; the
+modules of Theorems~\ref{thm:B} and~\ref{thm:C} were compiled during
+development between 22:30:49 and 22:34:08~UTC and the additional modules of
+Theorem~\ref{thm:Cm} between 22:35 and 22:39~UTC. For Conjecture~B
+the Lean route differs from the earlier written proof; for Conjecture~C it
+follows the earlier note, with the volumes identified through determinants.
+Codex's written proofs of the Lean routes, from which Sections~\ref{sec:saw}--\ref{sec:C}
+were written, date from the same period (file times 22:30--22:40~UTC).
+Because of the significance of the results, each of the two theorems was given
+two independent final reviews by Claude Code agents (model Claude Opus~5.5),
+four reviewers in all, none of which had written any of the files; each
+second reviewer read the first report only after writing its own analysis.
+The reviews took place between 22:43 and 23:16~UTC. Each reviewer read the
+sources itself, compared the statement file with them, read the written
+proof, the proof files and the raw logs of the checks, rebuilt the
+formalization as described above; the reviewers between them tested the
+statements numerically: the averaging lemma in exact rational arithmetic on
+random instances (two reviews); for Conjecture~B, covering radii of sampled
+projections with $i\le3$ in one review and of random and adversarially chosen
+projections with $n\le5$ and $i\le4$, more than $11{,}000$, in the other,
+including the cases $(n,i)=(5,3)$ and $(5,4)$, which earlier results we know
+of do not cover; for Conjecture~C, the expressions for the bound (the
+determinant formula and the chord form in both reviews, and Definition~1.5
+of~\cite{css} with orthogonal projections in one) and lower estimates of
+$\mu(S)$ for random simplices in dimensions $2$ to $4$. No
+violation was found. All four decisions were APPROVE\_FORMAL, with no
+blocking or major remarks; their minor remarks on the written account
+($4$ and $5$ for Conjecture~B, $5$ and $7$ for Conjecture~C) are taken into
+account here, among them the statement of the consequence for Conjecture~A
+with its limits, the numbering of~\cite{gms}, the role of primitivity, and
+the status of Lemma~\ref{lem:saw}. Claude Code (Claude Opus~5.5) checked the
+sources, checked Lemmas~\ref{lem:saw}, \ref{lem:freq} and~\ref{lem:proj}
+numerically in Python, and wrote this text from Codex's manuscripts and the
+Lean files. An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied. Throughout, ``we'' refers to this workflow; the
+reading and searching described in the paper were done by the agents. Codex
+agents searched for prior work in the search for problems and again before
+the statements were frozen, and the final reviewers searched again; up to
+20 November 2026 these searches found no earlier proof of Conjecture~B for
+$4\le i<n$, of Conjecture~C for $d\ge3$, or of the bound of
+Corollary~\ref{cor:A} for $d\ge4$ (details in the repository). One citation
+index refused the queries for works citing~\cite{css} (rate limit), so a
+further search of works citing~\cite{css}, \cite{gms} and~\cite{kr} was
+planned for the release. Claude Code made this search on 21 November 2026 (17:54--18:21~UTC), together with searches of the arXiv, Crossref, DataCite, Zenodo, MathDB, GitHub and repositories of AI-assisted mathematics: the same citation index again refused to list the works citing~\cite{css}, Semantic Scholar listed the same ten citing works as before, the works citing~\cite{gms} and~\cite{kr} were unchanged since 20 November, and no new related work was found. Claude Code searched again on 22 November 2026 (05:39--05:51~UTC), when the OpenAlex lists of citing works refused on 21 November were retrieved, and found nothing new. This reports the coverage of the
+searches, not a guarantee that they were complete. The author is not a
+professional mathematician. The author has read this paper and, using a side-by-side table, compared its Lean statements with the main theorems: Theorems~\ref{thm:B}, \ref{thm:C} and~\ref{thm:Cm}. No human mathematician has read the
+proofs or reviewed this paper. The correctness of Theorems~\ref{thm:B},
+\ref{thm:C} and~\ref{thm:Cm} rests on the Lean proofs and on the agreement of
+the Lean statements with the conjectures of~\cite{gms,css}; the written proofs
+are given for the reader. Corollary~\ref{cor:A}, the consequence for
+Conjecture~A, is not formalized and rests in addition on the published
+arguments of~\cite{css}. AI systems are not authors of this paper; the author
+takes full responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Bernardo González Merino and Matthias Schymura,
+and to Giulia Codenotti, Francisco Santos and Matthias Schymura, for the
+conjectures.
+
+{\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{1pt}
+\bibitem{cfk} G.~Codenotti, A.~Freyer and K.~Krivokuća, Minimal covering
+bodies and Brunn--Minkowski type inequalities for the covering radius,
+arXiv:2606.14442, 2026.
+\bibitem{css} G.~Codenotti, F.~Santos and M.~Schymura, The covering radius and
+a discrete surface area for non-hollow simplices, \emph{Discrete Comput.
+Geom.} 67 (2022), no.~1, 65--111,
+\url{https://doi.org/10.1007/s00454-021-00330-3}; arXiv:1903.02866v2 (2021).
+\bibitem{p21} H.~Dong, A non-hollow lattice $4$-simplex of covering radius $2$
+outside the equality list of a conjecture of Codenotti, Santos and Schymura,
+paper in~\cite{repo}, version~\repoversion{} (2026).
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{gms} B.~González Merino and M.~Schymura, On densities of lattice
+arrangements intersecting every $i$-dimensional affine subspace,
+\emph{Discrete Comput. Geom.} 58 (2017), no.~3, 663--685,
+\url{https://doi.org/10.1007/s00454-017-9911-x}; arXiv:1605.00443v1 (2016),
+with author line ``B.~González Merino and M.~Henze''.
+\bibitem{kl} R.~Kannan and L.~Lovász, Covering minima and lattice-point-free
+convex bodies, \emph{Ann. of Math. (2)} 128 (1988), no.~3, 577--602,
+\url{https://doi.org/10.2307/1971436}.
+\bibitem{kr} K.~Krivokuća, Upper bounds on covering minima of convex bodies,
+arXiv:2601.15173v1, 2026.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\end{thebibliography}}
+\end{document}

@@ -1,0 +1,765 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={A non-hollow lattice 4-simplex of covering radius 2 outside the equality list of a conjecture of Codenotti, Santos and Schymura},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.25.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\G}{\mathcal G}
+\newcommand{\tot}{\operatorname{tot}}
+
+\title{A non-hollow lattice $4$-simplex of covering radius $2$\\ outside the
+equality list of a conjecture of\\ Codenotti, Santos and Schymura}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The covering radius $\mu(P)$ of a convex body $P\subseteq\R^d$ is the least
+$\mu\ge0$ such that the lattice translates of $\mu P$ cover $\R^d$. Codenotti,
+Santos and Schymura conjectured that every non-hollow lattice $d$-polytope $P$
+satisfies $\mu(P)\le d/2$, with equality if and only if $P$ is obtained by
+direct sums and/or translations of the standard terminal simplices
+$S(\one_l)$ (their Conjecture~A); they proved this for $d\le3$. We show that
+the $4$-simplex $P=\conv\{e_1,e_2,e_3,e_4,-(2,1,1,1)\}$, whose only interior
+lattice point is the origin, has covering radius exactly $2=d/2$ and
+normalized volume~$6$, and that it is not obtained from the simplices
+$S(\one_l)$ by direct sums and lattice translations. So the inequality of
+Conjecture~A holds with equality for $P$, while the ``only if'' part of its
+equality clause fails. The simplex itself is known from toric geometry.
+Lean~4 verifies that the origin is an interior point of $P$, that
+$\mu(P)=2$, that the normalized volume is~$6$, and that $P$ lies outside a
+family which, by a short argument on the definitions given in the text,
+contains all direct sums and lattice translations of the simplices
+$S(\one_l)$. The proofs were found and formalized by AI agents working under
+the author's direction, as described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+Let $K\subseteq\R^d$ be a convex body and let $\Lambda$ be a lattice. Codenotti,
+Santos and Schymura~\cite{css} write the covering radius as
+\[
+\mu(K,\Lambda)=\min\{\mu\ge0:\ \mu K+\Lambda=\R^d\},
+\]
+and $\mu(K)=\mu(K,\Z^d)$. A lattice polytope is a polytope whose vertices are
+lattice points; it is \emph{non-hollow} if its interior contains a lattice
+point. The covering radius is invariant under unimodular transformations
+$x\mapsto Ux+z$ ($U\in GL_d(\Z)$, $z\in\Z^d$)~\cite[p.~2]{css}. For
+$\omega\in\R^{d+1}_{>0}$ the authors define
+$S(\omega)=\conv\{-\omega_0\one_d,\omega_1e_1,\dots,\omega_de_d\}$, where
+$\one_d=(1,\dots,1)$. The \emph{standard terminal simplex} is
+$S(\one_{d+1})=\conv\{-\one_d,e_1,\dots,e_d\}$, and
+$\mu(S(\one_{d+1}))=d/2$~\cite[Eq.~(1)]{css}. If $K\subseteq V$ and
+$L\subseteq W$ are convex bodies containing the origin in complementary linear
+subspaces $V$ and $W$ of $\R^d$, their direct sum is
+$K\oplus L=\{\lambda x+(1-\lambda)y: x\in K,\ y\in L,\ \lambda\in[0,1]\}$,
+taken with the direct sum of the two lattices~\cite[Section~2.1]{css}; the
+covering radius is additive on direct sums~\cite[Corollary~2.2]{css}. Hence,
+as the authors note, ``direct sums of simplices of the form $S(\one_l)$ or
+lattice translates thereof'' have covering radius $d/2$~\cite[p.~2]{css}. They
+conjectured:
+
+\begin{quote}
+\textbf{Conjecture A of~\cite{css}.} Let $P\subseteq\R^d$ be a non-hollow
+lattice $d$-polytope. Then $\mu(P)\le d/2$, with equality if and only if $P$
+is obtained by direct sums and/or translations of simplices of the form
+$S(\one_l)$.
+\end{quote}
+
+\noindent The wording is the same in arXiv:1903.02866v2 and in the journal
+version; page numbers refer to arXiv:1903.02866v2. The authors prove
+Conjecture~A for $d\le3$~\cite[Theorem~1.3]{css}; in dimension three the
+equality cases are nine polytopes up to unimodular
+equivalence~\cite[Example~1.1 and Lemma~3.8]{css}. Example~1.1 of~\cite{css}
+translates a factor before the direct sum, so that the origin can lie on the
+boundary of a factor. A later restatement reads the equality list up to
+unimodular transformation, as ``direct sums of translates of standard terminal
+simplices''~\cite[p.~2 and Conjecture~4.1]{kr}.
+
+Throughout, $u=(2,1,1,1)$ and
+\[
+P=\conv\{e_1,e_2,e_3,e_4,-u\}\subseteq\R^4,
+\]
+with the lattice $\Z^4$. We write $\Vol(K)$ for the normalized volume, that is
+the Euclidean volume divided by the volume of a unimodular simplex, as
+in~\cite[p.~3]{css}.
+
+\begin{theorem}\label{thm:main}
+\begin{enumerate}
+\item[\textup{(a)}] The origin lies in the interior of $P$; so $P$ is a
+non-hollow lattice $4$-polytope.
+\item[\textup{(b)}] $\mu(P)=2$: the lattice translates of $2P$ cover $\R^4$,
+and for every $0\le r<2$ some point of $\R^4$ lies in no lattice translate of
+$rP$.
+\item[\textup{(c)}] $\Vol(P)=6$, that is, $\vol(P)=6\,\vol(\conv\{0,e_1,e_2,e_3,e_4\})$.
+\item[\textup{(d)}] $P$ does not belong to the family $\G$ of
+Definition~\ref{def:G}.
+\end{enumerate}
+\end{theorem}
+
+\noindent All four parts are formally verified in Lean
+(Section~\ref{sec:lean}). The family $\G$ is generated from finite sets of at
+least two lattice points with sum zero by lattice translations and by convex
+hulls of unions. Lemma~\ref{lem:G} shows that $\G$ contains every polytope
+obtained from simplices $S(\one_l)$ by direct sums and lattice translations,
+and every unimodular image of such a polytope. Lemma~\ref{lem:G} is an
+argument about the definitions in~\cite{css}; it is not a Lean theorem,
+because the Lean files do not define direct sums. With it,
+Theorem~\ref{thm:main} gives:
+
+\begin{corollary}\label{cor:A}
+$P$ is a non-hollow lattice $4$-polytope with $\mu(P)=2=d/2$ that is not
+obtained, even up to a unimodular transformation, by direct sums and/or
+lattice translations of simplices $S(\one_l)$. Every unimodular image of $P$
+has the same properties. So the ``only if'' direction of the equality clause
+in Conjecture~A of~\cite{css} fails in dimension~$4$, the smallest dimension
+not covered by~\cite[Theorem~1.3]{css}, when ``translations'' are read as
+lattice translations, as on p.~2 of~\cite{css}.
+\end{corollary}
+
+\noindent The inequality $\mu(P)\le d/2$ of Conjecture~A holds for $P$, with
+equality; the example concerns only the equality clause. If arbitrary real
+translations are allowed in the equality clause, $P$ is still not in the
+list, by a volume argument that is not formalized (Remark~\ref{rem:real}).
+The same example also contradicts the equality clause for $k=1$ of
+Conjecture~D of~\cite{css}, and it does not refute their Conjecture~C
+(Section~\ref{sec:remarks}); neither statement is in Lean.
+
+\subsection*{Prior work}
+The simplex $P$ is not new. Its vertices are primitive, they span $\Z^4$, and
+they satisfy $2e_1+e_2+e_3+e_4+(-u)=0$; so $P$ is, up to a unimodular
+transformation, the simplex spanned by the primitive ray generators of the
+fan of the weighted projective space $\mathbb P(1,1,1,1,2)$. Kasprzyk's thesis
+shows that a Gorenstein Fano weighted projective space of dimension four with
+at worst terminal singularities is $\mathbb P^4$ or
+$\mathbb P(1,1,1,1,2)$~\cite[Proposition~9.7.10]{kas}. Lee~\cite[Appendix~C]{lee} uses
+the simplex $\conv\{e_1,e_2,e_3,e_4,(-1,-1,-1,-2)\}$, which is $P$ after a
+permutation of the coordinates, as an example in mirror symmetry; he lists
+its lattice points and facet normals and notes that its normalized volume is
+six. The value $\Vol(P)=6$ is therefore known; we include it because it
+separates $P$ from the equality list when arbitrary translations are allowed.
+
+Codenotti, Santos and Schymura give a closed formula for the covering radius
+of the simplices $S(\omega)$~\cite[Theorem~1.4]{css}. It does not apply to $P$,
+because $P$ is not a unimodular image of any $S(\omega)$
+(Remark~\ref{rem:somega}). Their Appendix~B computes covering radii of lattice
+simplices from the diameter of a Cayley digraph~\cite[Lemmas~B.1
+and~B.2]{css}; for $P$ this is a digraph on $216$ vertices, and our proof of
+$\mu(P)\le2$ is a short certificate of the same kind (Remark~\ref{rem:cayley}).
+As far as we know, the covering radius of $P$ and its relation to the
+equality clause of Conjecture~A have not been stated before; the searches are
+described in the final section. Recent work on related questions includes
+Krivokuća's bounds on covering minima~\cite{kr} and the paper of Codenotti,
+Freyer and Krivokuća on minimal covering bodies~\cite{cfk}.
+
+\section{Coordinates and lattice points}\label{sec:coord}
+
+For $x\in\R^4$ write $\tot(x)=x_1+x_2+x_3+x_4$, and let $\one=(1,1,1,1)$. Let
+\[
+M=I+u\one^{\mathsf T}=\begin{pmatrix}3&2&2&2\\1&2&1&1\\1&1&2&1\\1&1&1&2\end{pmatrix},
+\qquad \det M=1+\tot(u)=6 .
+\]
+Since $\tot(u)=5$ we have $Mu=6u$ and $\tot(Mb)=6\tot(b)$. For $r\in\R$ define the
+affine map $X_r(b)=Mb-ru$. Let $\Delta=\{b\in\R^4: b_i\ge0,\ \tot(b)\le1\}$ be the
+standard simplex $\conv\{0,e_1,\dots,e_4\}$.
+
+\begin{lemma}\label{lem:coord}
+\begin{enumerate}
+\item[\textup{(i)}] $X_r$ is a bijection of $\R^4$ (since $\det M=6\ne0$). Its inverse sends $x$ to
+$b$ with $b_i=x_i+t\,u_i$, where $t=(r-\tot(x))/6$; moreover $\tot(b)=r-t$.
+\item[\textup{(ii)}] $X_1(\Delta)=P$, and $b_1,\dots,b_4,1-\tot(b)$ are the
+barycentric coordinates of $X_1(b)$ with respect to $e_1,\dots,e_4,-u$. Hence
+$y\in P$ if and only if $t\ge0$ and $b_i\ge0$ for all $i$, where $b,t$ are
+computed from $y$ as in~\textup{(i)} with $r=1$.
+\item[\textup{(iii)}] For $r>0$, $X_r(b)=r\,X_1(b/r)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) If $x=Mb-ru$ then $\tot(x)=6\tot(b)-5r$, so $t=r-\tot(b)$ and
+$x_i+tu_i=b_i+\tot(b)u_i-ru_i+(r-\tot(b))u_i=b_i$. (ii)
+$X_1(b)=\sum_ib_ie_i+(1-\tot(b))(-u)$, a convex combination of the vertices
+exactly when $b\in\Delta$. (iii) $rX_1(b/r)=Mb-ru$.
+\end{proof}
+
+\begin{lemma}\label{lem:points}
+The origin is an interior point of $P$, and
+$P\cap\Z^4=\{0,-u,e_1,e_2,e_3,e_4\}$. No subset of $P\cap\Z^4$ with at least
+two elements has a lattice point as its centroid.
+\end{lemma}
+
+\begin{proof}
+For $y=0$ and $r=1$ the coordinates of Lemma~\ref{lem:coord} are
+$(b,t)=\frac16(2,1,1,1;1)$, all positive. They depend continuously on $y$, so
+they stay positive on a neighbourhood of $0$, which lies in $P$.
+
+Let $z\in P\cap\Z^4$ and $s=\tot(z)\in\Z$. By Lemma~\ref{lem:coord}(ii), $s\le1$,
+$6z_1+2(1-s)\ge0$ and $6z_i+(1-s)\ge0$ for $i=2,3,4$. Adding the four
+inequalities gives $6s+5(1-s)\ge0$, so $s\ge-5$; checking the seven values
+$s=-5,\dots,1$ leaves exactly the six points listed, and all of them lie in
+$P$.
+
+Let $E\subseteq P\cap\Z^4$ with $|E|\ge2$ have an integral centroid. The
+second, third and fourth coordinate sums of $E$ lie in $\{-1,0,1\}$ and are
+divisible by $|E|$, so they vanish; hence each of $e_2,e_3,e_4$ is in $E$ if
+and only if $-u$ is. If $-u\notin E$, then $E=\{0,e_1\}$, with first
+coordinate sum $1$. If $-u\in E$, then $|E|\in\{4,5,6\}$ and the first
+coordinate sum is $-2$ or $-1$. In both cases the first coordinate sum is not
+divisible by $|E|$.
+\end{proof}
+
+\noindent Lean proves $P\cap\Z^4\subseteq\{0,-u,e_1,\dots,e_4\}$ with the same
+case analysis, and checks the $64$ subsets of this six-point set by kernel
+computation (Section~\ref{sec:lean}). The five vertices lie on the boundary,
+so the origin is the only interior lattice point of $P$; this is used only in
+Section~\ref{sec:remarks} and is not stated in Lean.
+
+\section{The covering radius}\label{sec:radius}
+
+\begin{lemma}\label{lem:residue}
+For $f\in\Z^4$ and $k\in\Z$ let
+$\sigma(f,k)=\sum_{i=1}^4\bigl((f_i+ku_i)\bmod 6\bigr)$, with residues in
+$\{0,\dots,5\}$.
+\begin{enumerate}
+\item[\textup{(i)}] For every $f\in\Z^4$ there is $k\in\{0,\dots,5\}$ with
+$\sigma(f,k)\le8$.
+\item[\textup{(ii)}] For $p=(1,1,2,4)$ and every $k\in\Z$, $\sigma(p,k)\ge8$;
+for $k\equiv0,1,2,3,4,5\pmod 6$ the values are $8,13,12,11,10,9$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+$\sigma(f,k)$ depends only on $f\bmod 6$ and $k\bmod6$, so (i) is a finite
+statement about $6^4=1296$ residue vectors and six values of~$k$. It was
+checked exhaustively; in Lean by kernel evaluation (the private theorem \texttt{box} in
+\texttt{Residues.lean}),
+and independently by the following Python lines, which print~$8$:
+{\footnotesize
+\begin{verbatim}
+from itertools import product
+u = (2, 1, 1, 1)
+score = lambda f, k: sum((a + k*w) % 6 for a, w in zip(f, u))
+print(max(min(score(f, k) for k in range(6)) for f in product(range(6), repeat=4)))
+\end{verbatim}}
+\noindent (ii) is a direct computation.
+\end{proof}
+
+\begin{proposition}\label{prop:upper}
+Every $x\in\R^4$ can be written as $x=z+2y$ with $z\in\Z^4$ and $y\in P$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:coord}(i), $x=X_2(a)$ for some $a\in\R^4$. Let
+$f_i=\lfloor6a_i\rfloor$, choose $k$ by Lemma~\ref{lem:residue}(i), and put
+$t_i=\lfloor(f_i+ku_i)/6\rfloor$ and $b_i=a_i+ku_i/6-t_i$. Then
+\[
+6b_i=(6a_i-f_i)+\bigl((f_i+ku_i)\bmod6\bigr),
+\]
+where the first term lies in $[0,1)$. Hence $b_i\ge0$ and
+$6\tot(b)<4+\sigma(f,k)\le12$, so $b/2\in\Delta$. Let
+$z=t+(\tot(t)-k)u\in\Z^4$. Since $Mt=t+\tot(t)u$ and $Mu=6u$,
+\[
+X_2(a)-X_2(b)=M(a-b)=M\bigl(t-\tfrac k6u\bigr)=t+\tot(t)u-ku=z .
+\]
+By Lemma~\ref{lem:coord}(iii) and~(ii), $X_2(b)=2X_1(b/2)=2y$ with $y\in P$.
+\end{proof}
+
+\begin{proposition}\label{prop:lower}
+Let $0\le r<2$, $p=(1,1,2,4)$ and $a_i=(p_i+r/2)/6$. Then $X_r(a)$ is not of
+the form $z+ry$ with $z\in\Z^4$ and $y\in P$.
+\end{proposition}
+
+\begin{proof}
+Suppose $X_r(a)=z+ry$. Write $y=X_1(c)$ with $c\in\Delta$
+(Lemma~\ref{lem:coord}(ii)). Then $Ma-ru=z+rMc-ru$, so $M(a-rc)=z$. Since
+$M^{-1}=I-\frac16u\one^{\mathsf T}$, this gives
+$a_i-rc_i=z_i-\tot(z)u_i/6$. With $k=\tot(z)$ and $n_i=p_i+ku_i-6z_i\in\Z$ we get
+\[
+6rc_i=n_i+r/2 .
+\]
+The left side is nonnegative and $r/2<1$, so $n_i\ge0$; as
+$n_i\equiv p_i+ku_i\pmod6$, also $n_i\ge(p_i+ku_i)\bmod6$. By
+Lemma~\ref{lem:residue}(ii), $\tot(n)\ge8$, and therefore
+\[
+6r\ \ge\ 6r\,\tot(c)\ =\ \tot(n)+2r\ \ge\ 8+2r,
+\]
+that is, $r\ge2$, a contradiction.
+\end{proof}
+
+\noindent Propositions~\ref{prop:upper} and~\ref{prop:lower} give
+Theorem~\ref{thm:main}(b): $2$ is the least $r\ge0$ such that
+$rP+\Z^4=\R^4$.
+
+\begin{remark}\label{rem:cayley}
+By Lemmas~B.1 and~B.2 of~\cite{css}, taking $v_0=-u$ and the volume vector
+$(1;2,1,1,1)$ of the origin (six times its barycentric coordinates),
+$\mu(P)=(\delta+4)/6$, where $\delta$ is the directed diameter of the Cayley
+digraph of $(\Z/6)^4/\langle(2,1,1,1)\rangle$ with respect to the standard
+generators. A breadth-first search over its
+$216$ vertices gives $\delta=8$, in agreement with $\mu(P)=2$; this computation
+is not part of the Lean proof. The search for problems also produced a
+different written proof of $\mu(P)\le2$, which uses a sawtooth function and
+the Cauchy--Schwarz inequality; it is not used here.
+\end{remark}
+
+\section{Volume and the equality list}\label{sec:list}
+
+\paragraph{Volume.} The affine map $b\mapsto Mb-u$ sends $0$ to $-u$ and $e_i$
+to $e_i$, hence $\conv\{0,e_1,\dots,e_4\}$ onto $P$. Its linear part has
+determinant~$6$, so $\vol(P)=6\vol(\Delta)$. $\Delta$ is compact, so $\vol(\Delta)<\infty$,
+and $\vol(\Delta)=\vol(P)/6>0$ because $P$ has interior points; hence $\Vol(P)=6$. This is
+Theorem~\ref{thm:main}(c).
+
+\begin{definition}\label{def:G}
+Let $\G$ be the smallest family of subsets of $\R^4$ such that
+\begin{enumerate}
+\item[(L)] $\conv(s)\in\G$ for every finite set $s\subseteq\Z^4$ with
+$|s|\ge2$ and $\sum_{z\in s}z=0$;
+\item[(T)] if $K\in\G$ and $z\in\Z^4$, then $z+K\in\G$;
+\item[(J)] if $K,L\in\G$, then $\conv(K\cup L)\in\G$.
+\end{enumerate}
+\end{definition}
+
+\noindent Rule~(J) imposes no condition on subspaces, lattices or the
+position of the origin, so $\G$ is designed to be larger than the list of
+Conjecture~A (Lemma~\ref{lem:G}).
+
+\begin{lemma}[not in Lean]\label{lem:G}
+Every polytope in $\R^4$ that is obtained from simplices $S(\one_l)$ by direct
+sums and/or lattice translations, as in~\cite{css}, belongs to $\G$, and so
+does its image under any unimodular transformation.
+\end{lemma}
+
+\begin{proof}
+In the construction of~\cite{css} each intermediate polytope $Q$ lies in a
+real vector space $V_Q$ with a lattice $\Lambda_Q$: a simplex $S(\one_l)$
+lies in $\R^{l-1}$ with $\Z^{l-1}$; a lattice translate $\lambda+K$
+($\lambda\in\Lambda_K$) lies in $(V_K,\Lambda_K)$; and $K\oplus L$ lies in
+$V_K\oplus V_L$ with $\Lambda_K\oplus\Lambda_L$. The final polytope becomes a
+polytope in $\R^4$ when $(V_Q,\Lambda_Q)$ is identified with $(\R^4,\Z^4)$ by
+a linear isomorphism. We show by induction on the construction: \emph{for
+every injective linear map $\phi\colon V_Q\to\R^4$ with
+$\phi(\Lambda_Q)\subseteq\Z^4$, we have $\phi(Q)\in\G$.} If $Q=S(\one_l)$
+with $l\ge2$, put $b_j=\phi(e_j)$. Then
+$\phi(Q)=\conv\{-\sum_jb_j,b_1,\dots,b_{l-1}\}$, and these $l$ points are
+distinct lattice points (the $b_j$ are linearly independent) with sum zero,
+so $\phi(Q)\in\G$ by~(L). The point $S(\one_1)=\{0\}$ satisfies
+$K\oplus\{0\}=K$ and can be omitted. If $Q=\lambda+K$ with
+$\lambda\in\Lambda_K$, then $\phi(Q)=\phi(\lambda)+\phi(K)$ with
+$\phi(\lambda)\in\Z^4$, which is~(T). If $Q=K\oplus L$, then
+$Q=\conv(K\cup L)$: every point $\lambda x+(1-\lambda)y$ lies in the hull,
+and conversely a convex combination of points of $K$ and of $L$ can be
+grouped as $\lambda x+(1-\lambda)y$ with $x\in K$, $y\in L$, by convexity of
+$K$ and $L$. This uses neither the origin nor the lattices, so it also holds
+when the origin lies on the boundary of a factor. Hence
+$\phi(Q)=\conv(\phi(K)\cup\phi(L))$. The restrictions of $\phi$ to $V_K$ and
+$V_L$ are injective and map $\Lambda_K$ and $\Lambda_L$ into $\Z^4$, so the
+induction hypothesis and~(J) apply. Taking for $\phi$ the identifying
+isomorphism gives the first claim. For the second, a matrix $U\in GL_4(\Z)$ maps sets as in~(L) to
+sets as in~(L), and commutes with convex hulls and maps $z+K$ to $Uz+UK$; so
+$U\G\subseteq\G$ by induction, and a final translation by a lattice vector is
+rule~(T).
+\end{proof}
+
+\begin{proposition}\label{prop:outside}
+$P\notin\G$.
+\end{proposition}
+
+\begin{proof}
+By induction on the generation of $K\in\G$, there are a finite set
+$s\subseteq\Z^4$ with $|s|\ge2$ and $\sum_{z\in s}z=0$, and a vector
+$t\in\Z^4$, such that $t+s\subseteq K$: for~(L) take $t=0$; for~(T) replace
+$t$ by $z+t$; for~(J) keep the set found for $K$. If $P\in\G$, then $t+s$ is a
+set of $|s|\ge2$ distinct lattice points of $P$ whose centroid is the lattice
+point $t$. This contradicts Lemma~\ref{lem:points}.
+\end{proof}
+
+\noindent This proves Theorem~\ref{thm:main}(d), and with
+Lemma~\ref{lem:G}, Corollary~\ref{cor:A}. The exclusion does not use the
+volume.
+
+\section{Further remarks (not in Lean)}\label{sec:remarks}
+
+The statements in this section are written arguments. None of them is part
+of the Lean statements.
+
+\begin{remark}[arbitrary translations]\label{rem:real}
+If ``translations'' in Conjecture~A are read as arbitrary real translations,
+while direct sums keep the conditions of~\cite[Section~2.1]{css} (both factors
+contain the origin, and the lattice is the direct sum of the factor lattices),
+then $P$ is still not in the list, by the following volume argument, which is
+not formalized. Translations preserve volume. For a direct sum, triangulate
+each factor into simplices with apex at the origin over a triangulation of
+the facets of the factor that do not contain the origin (only full-dimensional pieces are kept, so this also
+works when the origin is on the boundary). The direct sum of two such pieces
+is a simplex whose edge matrix is block diagonal in a basis of the direct sum
+lattice, so normalized volumes multiply, and these simplices tile $K\oplus L$
+with disjoint interiors. Hence normalized volume is multiplicative on direct
+sums. Since $\Vol(S(\one_{j+1}))=j+1$, the polytopes of the list in dimension
+four have normalized volume $5,8,9,12$ or $16$, for the dimension partitions
+$4$, $3+1$, $2+2$, $2+1+1$, $1+1+1+1$. None of these is $6=\Vol(P)$.
+\end{remark}
+
+\begin{remark}[Conjecture C and Corollary~4.3 of~\cite{css}]\label{rem:C}
+For a $d$-simplex $S$ with the origin in its interior and rational vertex
+directions, Conjecture~C of~\cite{css} states $\mu(S)\le\frac12\,\mathrm{Surf}(S)/\Vol(S)$,
+which by~\cite[Lemma~4.1]{css} is equivalent to
+$\mu(S)\le\frac12\sum_i1/\ell_i$, where $\ell_i$ is the lattice length of the
+segment from the vertex $v_i$ through the origin to the opposite facet.
+Corollary~4.3 of~\cite{css} is stated as ``Conjecture~C $\Rightarrow$
+Conjecture~A''; its proof derives the inequality $\mu(S)\le d/2$ for lattice
+simplices and does not address the equality clause. For $P$ every vertex is
+primitive, so $\ell_i=1/(1-\lambda_i)$, where $\lambda=\frac16(2,1,1,1,1)$ are
+the barycentric coordinates of the origin, and
+$\frac12\sum_i(1-\lambda_i)=\frac12(5-1)=2=\mu(P)$. So $P$ satisfies the
+inequality of Conjecture~C with equality and does not refute it. So Conjecture~C,
+if true, cannot imply the equality clause of Conjecture~A, which fails for
+$P$; Corollary~4.3 holds for the inequality, which is what its proof
+shows.
+\end{remark}
+
+\begin{remark}[Conjecture D of~\cite{css}]\label{rem:D}
+Conjecture~D of~\cite{css} states that a lattice $d$-polytope with $k$
+interior lattice points has $\mu(P)\le\frac{d-1}2+\frac1{k+1}$, and that for
+$k=1$ equality holds if and only if $P$ is obtained by direct sums and/or
+translations of simplices $S(\one_l)$. Our $P$ has exactly one interior
+lattice point (Section~\ref{sec:coord}) and $\mu(P)=2=\frac32+\frac12$, so it
+also contradicts the equality clause of Conjecture~D for $k=1$, with the same
+reading of ``translations''. The Lean lemma \texttt{Exclusion.lattice\_point}
+determines the lattice points of $P$, but Conjecture~D is not a Lean target.
+\end{remark}
+
+\begin{remark}[the simplices $S(\omega)$]\label{rem:somega}
+Theorem~1.4 of~\cite{css} gives $\mu(S(\omega))$ in closed form. Suppose a
+unimodular transformation $\phi$ mapped some $S(\omega)$ onto $P$. The origin is
+an interior lattice point of $S(\omega)$, so $\phi(0)$ is an interior lattice
+point of $P$, hence $\phi(0)=0$ and $\phi$ is linear. The vertices
+$\omega_ie_i$ and $-\omega_0\one_d$ are mapped to vertices of $P$, which are
+lattice points; so they are lattice points, and the $\omega_i$ are positive
+integers. Since the vertices of $P$ are primitive, so are their preimages, and
+all $\omega_i=1$. But $S(\one_5)$ has normalized volume $5\ne6$. So $P$ is not
+of the form $S(\omega)$ up to unimodular equivalence, and Theorem~1.4
+of~\cite{css} does not give $\mu(P)$.
+\end{remark}
+
+\begin{remark}[other written material]
+The search for problems in which this example was found also produced written
+arguments for related statements, among them variants of the example in every
+dimension $d\ge4$ and an example concerning the equality clause of
+Conjecture~D for $k\ge2$. These are written arguments, have not been verified
+in Lean or reviewed for this paper, and are not claims of this paper.
+\end{remark}
+
+{\sloppy
+\section{Formal verification}\label{sec:lean}
+
+Theorem~\ref{thm:main} is formally verified in Lean~4 (version 4.34.1) with
+Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}). Lemma~\ref{lem:G},
+Corollary~\ref{cor:A} beyond Theorem~\ref{thm:main}, and
+Section~\ref{sec:remarks} are not in Lean. The $9$ files are in
+version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/Research/TaskR/CSS/}.
+
+\paragraph{The statements.}
+The statement file \texttt{Challenge.lean} contains only definitions and
+statements, no proofs. In ASCII transliteration (the docstrings and the
+\texttt{import}, \texttt{namespace} and \texttt{end} lines omitted; the file
+itself uses Unicode, e.g.\ $\mathbb R$, $\to$, $\forall$, $\exists$, $\in$,
+$\le$, $\wedge$, $\neg$, $\cup$, $\sum$):
+{\footnotesize
+\begin{verbatim}
+open Set MeasureTheory
+open scoped BigOperators ENNReal
+abbrev Space := Fin 4 -> Real
+abbrev Lattice := Fin 4 -> Int
+def embed (z : Lattice) : Space := fun i => (z i : Real)
+def weight : Lattice := ![2, 1, 1, 1]
+def e (i : Fin 4) : Lattice := Pi.single i 1
+def vertices : Set Space := insert (embed (-weight)) (range fun i => embed (e i))
+noncomputable def P : Set Space := convexHull Real vertices
+noncomputable def unitSimplex : Set Space :=
+  convexHull Real (insert 0 (range fun i => embed (e i)))
+noncomputable def normalizedVolume (K : Set Space) : ENNReal := volume K / volume unitSimplex
+def Covers (K : Set Space) (r : Real) : Prop :=
+  forall x : Space, exists z : Lattice, exists y in K, x = embed z + r * y
+inductive Generated : Set Space -> Prop
+  | leaf (s : Finset Lattice) (hcard : 2 <= s.card) (hsum : sum z in s, z = 0) :
+      Generated (convexHull Real (embed '' (s : Set Lattice)))
+  | translate {K : Set Space} (h : Generated K) (z : Lattice) :
+      Generated ((fun x => embed z + x) '' K)
+  | join {K L : Set Space} (hK : Generated K) (hL : Generated L) :
+      Generated (convexHull Real (K union L))
+def NonHollow : Prop := (0 : Space) in interior P
+def Radius : Prop := IsLeast {r : Real | 0 <= r /\ Covers P r} 2
+def Volume : Prop := normalizedVolume P = 6
+def OutsideList : Prop := not Generated P
+\end{verbatim}}
+\noindent Here \texttt{ENNReal} is the type of extended nonnegative reals,
+$[0,\infty]$, written in the file with the notation
+$\mathbb R{\ge}0\infty$, which needs the scope
+\texttt{ENNReal} opened in the second line; \texttt{r * y} stands for the
+scalar multiple $r\bullet y$; \texttt{embed '' s} is the image of $s$ under \texttt{embed}
+(the coercion arrow before \texttt{s} is omitted above); \texttt{volume} is
+Lebesgue measure on $\R^4$; and \texttt{IsLeast A 2} says that $2\in A$ and
+$2\le r$ for all $r\in A$. \texttt{P} is the convex hull of $-u$ and
+$e_1,\dots,e_4$. \texttt{NonHollow} is Theorem~\ref{thm:main}(a); it implies
+that $P$ is $4$-dimensional and non-hollow. \texttt{Covers P r} says that
+$rP+\Z^4=\R^4$, so \texttt{Radius} says that the minimum in the definition of
+$\mu(P)$ exists and equals~$2$, which is Theorem~\ref{thm:main}(b).
+\texttt{normalizedVolume} divides by the volume of the unimodular simplex
+$\conv\{0,e_1,\dots,e_4\}$; \texttt{Volume} is Theorem~\ref{thm:main}(c).
+\texttt{Generated} is the family $\G$ of Definition~\ref{def:G}, and
+\texttt{OutsideList} is Theorem~\ref{thm:main}(d).
+
+The final reviewer (see the last section) checked the following points. (i)~The
+covering radius is the minimum of~\cite{css}, not a finite proxy, and the
+reviewer restated \texttt{Radius} with its own vertex list and an explicit
+$\exists z\,\exists y$ and derived it from the checked theorem. (ii)~The
+quotient in \texttt{normalizedVolume} could be degenerate only if the volume of
+the unit simplex were $0$ or $\infty$; the proof excludes both. (iii)~The
+family \texttt{Generated} is not empty (it contains the segment
+$[-e_1,e_1]$), so \texttt{OutsideList} is not vacuous; it contains the list
+of Conjecture~A with lattice translations (Lemma~\ref{lem:G}), so
+\texttt{OutsideList} is at least as strong as ``$P$ is not in that list''.
+(iv)~\texttt{Generated} uses lattice translations only, matching p.~2
+of~\cite{css}; real translations are covered only by
+Remark~\ref{rem:real}.
+
+\paragraph{Review and freezing.}
+The statement went through two versions. Version~1 of \texttt{Challenge.lean}
+(SHA-256 \texttt{7fff04f3\ldots}) was checked against~\cite{css}, together
+with the reading of the source, by a Codex agent that had written neither the
+statement nor any proof and had not taken part in the earlier proofs of this
+example; it approved the file on 20 November 2026 at 19:31:21~UTC. The file
+had not been compiled before this approval. Its compilation (log
+19:31:49--19:32:19~UTC) failed with a parse error, because the notation for
+extended nonnegative reals needs the \texttt{ENNReal} scope. Version~2
+(SHA-256 \texttt{1dbf0ce8\ldots}) differs from version~1 only in line~6,
+where \texttt{open scoped BigOperators} became \texttt{open scoped
+BigOperators ENNReal}; all definitions and the four target lines are
+byte-identical. Version~2 compiled without diagnostics (19:32:27--19:32:45~UTC).
+A second Codex agent, which had not written the statement or the proofs for
+this problem (it was writing the Lean proof of another problem in the same
+task), compared the two versions and approved version~2 at 19:33:19~UTC, and
+version~2 was frozen by recording its SHA-256 hash at 19:33:34~UTC. Between the
+approval of version~1 and the freeze, two proof files were created (file
+creation times): \texttt{Geometry.lean} at 19:31:49~UTC, which was revised
+after the freeze (last change 19:34:14~UTC), and \texttt{Residues.lean} at
+19:32:14~UTC, which was not changed afterwards and is the checked file.
+\texttt{Residues.lean} uses none of the definitions of \texttt{Challenge.lean}. According to the development logs, no
+proof file was compiled before 19:33:41~UTC, after the freeze. The statement file was not changed after
+the freeze. The final reviewer diffed the two versions and judged the
+difference immaterial: opening the scope adds only notation, and the
+mathematical content that the proofs target was approved before any proof
+file existed. A process rule was recorded for later tasks: a statement must
+compile without diagnostics before it is approved for freezing.
+
+\paragraph{The proofs.}
+\texttt{Proof.lean} defines \texttt{Proof.NonHollow} as
+\texttt{Geometry.nonHollow}, \texttt{Proof.Radius} as \texttt{radius}
+(file \texttt{Radius.lean}, namespace \texttt{TaskR.CSS.Proof}) and
+\texttt{Proof.Volume} as \texttt{VolumeCalc.volume\_\allowbreak
+from\_\allowbreak nonHollow} applied to \texttt{Proof.NonHollow};
+\texttt{Proof.OutsideList} is proved in \texttt{Exclusion.lean}.
+Table~\ref{tab:lean} lists the Lean counterparts of the steps of the written
+proof (names relative to the namespace \texttt{TaskR.CSS}; ``private''
+marks private declarations).
+
+\begin{table}[ht]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.42\textwidth}>{\raggedright\arraybackslash}p{0.54\textwidth}@{}}
+\hline
+Step of the written proof & Lean (file) \\
+\hline
+$\tot(x)$, $t$, $b$ and $X_r$ of Lemma~\ref{lem:coord}(i) &
+\texttt{Geometry.total}, \texttt{slack}, \texttt{coeff}, \texttt{mix};
+\texttt{coeff\_mix}, \texttt{mix\_coeff}, \texttt{total\_coeff},
+\texttt{total\_mix} (\texttt{Geometry}) \\
+Lemma~\ref{lem:coord}(ii): $X_1(\Delta)\subseteq P$ and the converse &
+\texttt{Geometry.mem\_mix}, \texttt{Geometry.constraints},
+\texttt{Geometry.mem\_of\_constraints} (\texttt{Geometry}) \\
+Lemma~\ref{lem:points}: origin interior &
+\texttt{Geometry.nonHollow} (\texttt{Geometry}) \\
+Lemma~\ref{lem:points}: lattice points of $P$ &
+\texttt{Exclusion.lattice\_point} (\texttt{Exclusion}), from
+\texttt{Exclusion.finite\_classification} and the private
+\texttt{coord\_cases} (\texttt{ExclusionFinite}) \\
+Lemma~\ref{lem:points}: no integral centroid ($64$ subsets) &
+private \texttt{nonintegral\_subsets}, \texttt{Exclusion.points}
+(\texttt{ExclusionFinite}) \\
+Lemma~\ref{lem:residue} &
+\texttt{Residues.score}, private \texttt{box}, \texttt{Residues.upper},
+\texttt{Residues.lower} (\texttt{Residues}) \\
+Proposition~\ref{prop:upper} &
+private \texttt{upper\_coordinates}, \texttt{coversTwo} (\texttt{Radius}) \\
+Proposition~\ref{prop:lower} &
+private \texttt{base}, \texttt{lower\_coordinates} (\texttt{Radius}) \\
+Theorem~\ref{thm:main}(b) & \texttt{Proof.radius} (\texttt{Radius}) \\
+Volume: $M$, $\det M=6$, image of $\Delta$ &
+private \texttt{edges}, \texttt{det\_edges}, \texttt{placement},
+\texttt{image\_body}; \texttt{VolumeCalc.volume\_from\_nonHollow}
+(\texttt{Volume}) \\
+Proposition~\ref{prop:outside}: induction and centroid &
+private \texttt{contains\_leaf} (\texttt{Exclusion}),
+\texttt{Exclusion.no\_translated\_leaf} (\texttt{ExclusionFinite}),
+\texttt{Proof.OutsideList} (\texttt{Exclusion}) \\
+\hline
+\end{tabular}
+\caption{Lean counterparts of the steps of the proof.}
+\label{tab:lean}
+\end{table}
+
+\noindent The test file \texttt{CheckCSS.lean} restates the four targets with
+the frozen types (\texttt{check\_\allowbreak NonHollow},
+\texttt{check\_\allowbreak Radius}, \texttt{check\_\allowbreak Volume},
+\texttt{check\_\allowbreak OutsideList}, each of the form
+\texttt{theorem check\_X : Challenge.X := Proof.X}). The axioms of these four
+theorems and of the four \texttt{Proof.*} theorems, printed during
+compilation, are exactly \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound}. No file uses \texttt{sorry}, \texttt{native\_\allowbreak
+decide}, \texttt{bv\_\allowbreak decide} or an \texttt{axiom} declaration.
+The two finite checks use \texttt{decide +kernel} and are checked by the
+kernel: \texttt{box} (\texttt{Residues.lean}; $6^4=1296$ residue vectors, six values of
+$k$; the only place with raised \texttt{maxRecDepth} and
+\texttt{maxHeartbeats}) and \texttt{nonintegral\_\allowbreak subsets}
+($64$ subsets). The other uses of \texttt{decide} prove facts such as
+$(6:\Z)\ne0$.
+
+\paragraph{Checks.}
+The $9$ files ($6$ proof modules, \texttt{Challenge.lean},
+\texttt{Proof.lean} and \texttt{CheckCSS.lean}) were compiled module by
+module in two new empty directories on the author's Mac, with the pinned
+toolchain and with warnings treated as errors, on 20 November 2026
+(19:35:47--19:40:41~UTC), and every module was replayed with
+\texttt{leanchecker}; each directory also ran one build of the whole package.
+All $38$ commands ($19$ per directory) ended with exit code~$0$, the
+\texttt{leanchecker} runs printed nothing, and the two directories produced
+identical \texttt{.olean} files and axiom lists. The final reviewer (see the
+next section) compiled the $9$ files again, together with a short audit file
+of its own, in a third new directory on the same Mac on 20 November 2026
+(between 19:48 and 19:52~UTC, the times of its lock on the machine), and
+replayed every module with \texttt{leanchecker}; all runs ended with exit
+code~$0$, with no warnings and no \texttt{leanchecker} output, and the axiom
+lists were the same. Mathlib and its dependencies were taken from a shared
+prebuilt cache at the pinned commits and were not rechecked; the
+\texttt{leanchecker} replays cover the $9$ project modules. In the repository
+the files have module names under \texttt{Research.TaskR.CSS} and differ from
+the checked files only in their \texttt{import} lines
+(\texttt{Challenge.lean} is unchanged). The repository versions were made by a script that changed only the local \texttt{import} lines, and on 20 November 2026 (19:55--20:07~UTC) they were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac, one after the other, together with the files of three other papers of version~\repoversion{} ($39$ modules in all); there were no warnings, and the two directories produced identical \texttt{.olean} files and the same axiom lists. In the whole-project rebuild of version~\repoversion{} of the repository (on the author's Windows computer, in two passes on 20 and 21 November 2026), these files were compiled and replayed with \texttt{leanchecker} again in pass~2 (21 November 2026), which built the files not included in pass~1 on top of its results; no module needed a second attempt (details in the repository). The
+formalization has not been checked with comparator or with an independent
+kernel.
+
+\par}
+
+\section*{How this paper was produced}
+This work was carried out from 20 to 22 November 2026 (UTC) in a workflow directed by
+the author, using OpenAI Codex with the model GPT-6.2-Astra (reasoning level
+ultra) and Anthropic Claude Code with the model Claude Opus~5.5. The author
+asked for a search for hard and substantial open problems, and Claude Code
+passed this request to Codex. Between 18:36 and 18:54~UTC, in a separate Codex
+session, Codex screened $78$ candidate problems and prepared detailed notes on
+eight of them. The example of this paper was found and written up in this
+search, checked by exact computation, and read by another Codex agent (same
+model) working in a parallel lane of the search, which gave an independent
+written proof of the upper bound. After reading the report, the author chose
+this problem and one other. From 19:29~UTC (time of the task description),
+Codex agents (same model) checked the reading of the source, searched again for
+prior work, wrote the statement file, the Lean proof and the written proof,
+and ran the checks; the review and freezing of the statement, with its two
+versions, are described in Section~\ref{sec:lean}. According to the file
+timestamps and the development logs, two proof files were created between the
+approval of version~1 and the freeze of version~2 (one of them in its final
+form), all other proof files were
+created after the freeze, the six proof modules were compiled during
+development between 19:33:41 and 19:35:33~UTC, and \texttt{Proof.lean} and
+\texttt{CheckCSS.lean} were first compiled in the acceptance run; they follow the written proof prepared in the search for
+problems. After the checks, an independent Claude Code agent (model Claude
+Opus~5.5) that had written none of the files and had taken no part in the
+search or the formalization gave the final review. It read the source itself
+(arXiv versions~1 and~2 and the journal text), compared the statement file
+with it, read the written proof, the proof files, the freeze records and the
+raw logs of the checks, recomputed the lattice points, facet normals
+and determinant in Python and checked the covering radius numerically on
+fine grids, and rebuilt the formalization as
+described above. Its decision was APPROVE\_FORMAL, with four minor remarks on
+the written account, all taken into account here: the reading of
+Corollary~4.3 and Conjecture~D (Remarks~\ref{rem:C} and~\ref{rem:D}), the
+lattice translations (Remark~\ref{rem:real}), the earlier appearances of the
+simplex and the simplices $S(\omega)$ (Prior work and
+Remark~\ref{rem:somega}), and the freezing procedure
+(Section~\ref{sec:lean}). Claude Code (Claude Opus~5.5) checked the sources,
+repeated the finite computations of Lemmas~\ref{lem:points}
+and~\ref{lem:residue} and Remark~\ref{rem:cayley} in Python, and wrote this
+text from Codex's manuscript and the Lean files.
+An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied. Throughout, ``we'' refers to this workflow; the reading and
+searching described in the paper were done by the agents. Codex agents
+searched for prior work on 20 November 2026, in the search for problems and
+again before the statement was frozen, and the final reviewer searched again;
+they found no earlier statement of the covering radius of $P$ and no
+counterexample to the equality clause of Conjecture~A of~\cite{css} (details
+in the repository). Claude Code searched for works citing~\cite{css} on 20 November 2026 (23:17--23:43~UTC) and again, together with the arXiv, Semantic Scholar, Crossref, DataCite, Zenodo, MathDB, GitHub and repositories of AI-assisted mathematics, on 21 November 2026 (17:54--18:21~UTC), and found no new related work; on 21 November the citation index OpenAlex refused to list the works citing~\cite{css} (rate limit), and Semantic Scholar listed the same ten citing works as before. Claude Code searched again on 22 November 2026 (05:39--05:51~UTC), when the OpenAlex lists of citing works refused on 21 November were retrieved, and found nothing new. This reports the coverage of the
+searches, not a guarantee that they were complete. The author is not a
+professional mathematician. The author has read this paper and, using a side-by-side table, compared its Lean statements with the main theorem, Theorem~\ref{thm:main}. No human mathematician has reviewed
+this paper. The correctness of the results rests on the Lean proofs and on the
+agreement of the Lean statements with Conjecture~A of~\cite{css}, together with
+the argument of Lemma~\ref{lem:G}; the written proofs are given for the
+reader. AI systems are not authors of this paper; the author takes full
+responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Giulia Codenotti, Francisco Santos and Matthias
+Schymura for the conjecture.
+
+{\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{1pt}
+\bibitem{css} G.~Codenotti, F.~Santos and M.~Schymura, The covering radius and
+a discrete surface area for non-hollow simplices, \emph{Discrete Comput.
+Geom.} 67 (2022), no.~1, 65--111,
+\url{https://doi.org/10.1007/s00454-021-00330-3}; arXiv:1903.02866v2 (2021).
+\bibitem{cfk} G.~Codenotti, A.~Freyer and K.~Krivokuća, Minimal covering
+bodies and Brunn--Minkowski type inequalities for the covering radius,
+arXiv:2606.14442, 2026.
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{kas} A.~M. Kasprzyk, \emph{Toric Fano varieties and convex
+polytopes}, PhD thesis, University of Bath, 2006,
+\url{https://purehost.bath.ac.uk/ws/portalfiles/portal/187944797/kasprzyk_20thesis_202006.pdf}.
+\bibitem{kr} K.~Krivokuća, Upper bounds on covering minima of convex bodies,
+arXiv:2601.15173v1, 2026.
+\bibitem{lee} T.-J. Lee, On the hyperplane conjecture, arXiv:2610.26186v2,
+2026 (Appendix~C; the same appendix is in v1).
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\end{thebibliography}}
+\end{document}

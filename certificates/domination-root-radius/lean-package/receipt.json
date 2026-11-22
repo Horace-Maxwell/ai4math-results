@@ -1,0 +1,50 @@
+{
+ "package": "domination-root-radius",
+ "codex_acceptance": {
+  "receipts": [
+   "graph-root-radius/acceptance/2026-11-20T182447Z/receipt.json"
+  ],
+  "start_utc": "2026-11-20T18:24:47Z",
+  "end_utc": "2026-11-20T18:29:53Z",
+  "note": "Codex acceptance run on the author's Mac, in the archive codex-acceptance-logs.tar.gz (logs only; the build directories are not included); local paths replaced by <workspace> and the reviewers' scratch directory by <claude-scratch>."
+ },
+ "repository_recheck": {
+  "computer": "the author's Mac",
+  "lean": "Lean 4.34.1 (arm64-apple-darwin)",
+  "start_utc": "2026-11-20T21:04Z",
+  "end_utc": "2026-11-20T21:16Z",
+  "procedure": "The repository versions of all 48 files of Papers 23-25 (module names under Research.TaskP.RootRadius, Research.TaskP.RectangleDefect and Research.TaskP.GeomSimplex; only import lines differ from the accepted files) compiled module by module with lean -DautoImplicit=false -DrelaxedAutoImplicit=false -R <lean dir>, each module then replayed with leanchecker, in two new empty output directories one after the other (root1 21:04Z-21:10Z, root2 21:10Z-21:16Z), by repository-recheck-logs.tar.gz/mac_compile_p3.py. Mathlib from the pinned prebuilt packages, not rebuilt. Figures below are for the modules of this package.",
+  "olean_identical": true,
+  "root1": {
+   "modules": 14,
+   "compile_rc0": 14,
+   "leanchecker_rc0": 14,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskP.GraphRootRadius.Proof.Attainment": "propext, Classical.choice, Quot.sound",
+    "TaskP.GraphRootRadius.Proof.GeneralAsymptotic": "propext, Classical.choice, Quot.sound",
+    "TaskP.GraphRootRadius.Proof.FriendshipAsymptotic": "propext, Classical.choice, Quot.sound",
+    "TaskP.GraphRootRadius.check_Attainment": "propext, Classical.choice, Quot.sound",
+    "TaskP.GraphRootRadius.check_GeneralAsymptotic": "propext, Classical.choice, Quot.sound",
+    "TaskP.GraphRootRadius.check_FriendshipAsymptotic": "propext, Classical.choice, Quot.sound"
+   }
+  },
+  "root2": {
+   "modules": 14,
+   "compile_rc0": 14,
+   "leanchecker_rc0": 14,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskP.GraphRootRadius.Proof.Attainment": "propext, Classical.choice, Quot.sound",
+    "TaskP.GraphRootRadius.Proof.GeneralAsymptotic": "propext, Classical.choice, Quot.sound",
+    "TaskP.GraphRootRadius.Proof.FriendshipAsymptotic": "propext, Classical.choice, Quot.sound",
+    "TaskP.GraphRootRadius.check_Attainment": "propext, Classical.choice, Quot.sound",
+    "TaskP.GraphRootRadius.check_GeneralAsymptotic": "propext, Classical.choice, Quot.sound",
+    "TaskP.GraphRootRadius.check_FriendshipAsymptotic": "propext, Classical.choice, Quot.sound"
+   }
+  }
+ },
+ "whole_project": "logs/clean-replay-v1.25.0-receipt.json"
+}

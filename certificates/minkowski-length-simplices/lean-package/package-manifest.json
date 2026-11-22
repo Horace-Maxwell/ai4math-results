@@ -1,0 +1,208 @@
+{
+ "module_count": 16,
+ "entrypoints": [
+  "Research.TaskP.GeomSimplex.CheckSimplex"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskP.GeomSimplex.CheckSimplex": [
+   "TaskP.GeomSimplex.check_TetrahedronDiameter",
+   "TaskP.GeomSimplex.check_TetrahedronDilations",
+   "TaskP.GeomSimplex.check_EveryDimensionDiameter",
+   "TaskP.GeomSimplex.check_EveryDimensionDilations"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskP/GeomSimplex/Challenge.lean",
+   "frozen_utc": "2026-11-20T18:06:09Z",
+   "freeze_record": "geom-simplex/FREEZE.json",
+   "sha256": "98fdde3850a978f245d5cd8cd499e49f9ffb4d5586704a0c3c0a1798675e80a4"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/Challenge.lean",
+   "module": "Research.TaskP.GeomSimplex.Challenge",
+   "sha256": "98fdde3850a978f245d5cd8cd499e49f9ffb4d5586704a0c3c0a1798675e80a4",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/Challenge.lean",
+   "codex_source_sha256": "98fdde3850a978f245d5cd8cd499e49f9ffb4d5586704a0c3c0a1798675e80a4",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/CheckSimplex.lean",
+   "module": "Research.TaskP.GeomSimplex.CheckSimplex",
+   "sha256": "da3bc0011d07ca1270a648a8e647b159c12c4ac472aa4d0d9659e13851e3f024",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/CheckSimplex.lean",
+   "codex_source_sha256": "e862841b1c433d4ae382282c153a1933f0144d99c5302759b493d6721cbcdccc",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/Packing.lean",
+   "module": "Research.TaskP.GeomSimplex.Packing",
+   "sha256": "ad17c6763b257fb3dbba54ad881db1ff6caea4f2eda01f9177a0693fabccd493",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/Packing.lean",
+   "codex_source_sha256": "1c0e89097f56828b682f0e48b62721aed4e9644a095c828945876b6b1348bb9f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/Proof.lean",
+   "module": "Research.TaskP.GeomSimplex.Proof",
+   "sha256": "10ded7d2d8a01967c3abd35641751bfb5098fe6158097a873d9da07a66adfb03",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/Proof.lean",
+   "codex_source_sha256": "4d7413cdc5c6ca6e7e17d858da4c45725c55e9299bcfd58e19d4538aeea2e36d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.TTetrahedron",
+    "Research.TaskP.GeomSimplex.UTetrahedron",
+    "Research.TaskP.GeomSimplex.PyramidTransport",
+    "Research.TaskP.GeomSimplex.PyramidDiameter"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/PyramidCorners.lean",
+   "module": "Research.TaskP.GeomSimplex.PyramidCorners",
+   "sha256": "5e681d4cd60f6d281d58b00f30a03540dc8ba9b84ad5aa97aad9d7d1784c730a",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/PyramidCorners.lean",
+   "codex_source_sha256": "7ce1f7584c6059c2d271b64e93d7f878c74675999266ea92f2fb65830a603e4f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.Packing"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/PyramidDiameter.lean",
+   "module": "Research.TaskP.GeomSimplex.PyramidDiameter",
+   "sha256": "b935905d775060e44f939403a30bfc81a915db25f0930966a3a90dacec89a58a",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/PyramidDiameter.lean",
+   "codex_source_sha256": "d77c31102daafeb674f79ef70edf364839cbef7a3b8430768b398ab41515b4a8",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.PyramidGeometry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/PyramidGeometry.lean",
+   "module": "Research.TaskP.GeomSimplex.PyramidGeometry",
+   "sha256": "a6ba6ca380f7ad939476c179928bcb4cf758161a2e2af3a50d3bd6b6a314371c",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/PyramidGeometry.lean",
+   "codex_source_sha256": "10dd200539d525902dc09ac8e3736eb0e256338abd8d07ccaec0ec10e0e590a2",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.Packing"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/PyramidTransport.lean",
+   "module": "Research.TaskP.GeomSimplex.PyramidTransport",
+   "sha256": "26eabf6c6317c69a71ff608d4cd60bed74d9761c18f72b439c938dbf46b66648",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/PyramidTransport.lean",
+   "codex_source_sha256": "2c432f2d764f8cd044605abb200aefee7541be1ae29b2d2ad589db8ed4e9e8c1",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.PyramidCorners",
+    "Research.TaskP.GeomSimplex.PyramidGeometry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/TCoordinates.lean",
+   "module": "Research.TaskP.GeomSimplex.TCoordinates",
+   "sha256": "02c9078b42c0ef8c2835ebc650252879a8cc27b2e4831be85b810523d4164498",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/TCoordinates.lean",
+   "codex_source_sha256": "a69de0c83b27d08f2aec5d5935f81c73f93f4da835f87ef70e6ff408b43fd6ea",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.Packing"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/TDiameter.lean",
+   "module": "Research.TaskP.GeomSimplex.TDiameter",
+   "sha256": "e5615cd4b0f65d984427a099ac527902b160d02f97ee0e4f0bc8cf4d4d208970",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/TDiameter.lean",
+   "codex_source_sha256": "b533f99d6f36411a808a062728e27e4e1ba37b8e973b904038b5548c41aced81",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.TCoordinates"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/TLength.lean",
+   "module": "Research.TaskP.GeomSimplex.TLength",
+   "sha256": "b06fcb2563dcbb9b8d4bb6577585bf80540e76b5d727dcb13e5a0e1ac1c3eca1",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/TLength.lean",
+   "codex_source_sha256": "9bd4711e8455ae2106552074bc6587a60f183a82bcfc2993ed0da013f5846ddf",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.TCoordinates"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/TTetrahedron.lean",
+   "module": "Research.TaskP.GeomSimplex.TTetrahedron",
+   "sha256": "673e0b690740d1e22cdcb28d162dbb3ddee2d28eb3e7f83cdf44b0563d4cbd1e",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/TTetrahedron.lean",
+   "codex_source_sha256": "4bcf8476b255499af92631a1a702c52aeadbf970c65c814fa4ec16f6cd5b6ef9",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.TLength",
+    "Research.TaskP.GeomSimplex.TDiameter"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/UCoordinates.lean",
+   "module": "Research.TaskP.GeomSimplex.UCoordinates",
+   "sha256": "5baf9186e31b0a427b55e2c1bc677d0dd94470b52963cf8b4eac04beb745b756",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/UCoordinates.lean",
+   "codex_source_sha256": "8231dadc259358252c67372ab6da58f5d8bb2c40200b4a210c11aeb14a90f221",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.Packing"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/ULower.lean",
+   "module": "Research.TaskP.GeomSimplex.ULower",
+   "sha256": "f14c8711fa109f3133d7184c55b73520f8fbce4d1d3cbf020408ffef7658c309",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/ULower.lean",
+   "codex_source_sha256": "bc8aab784caf3a0104081f38d7be42657c4d37eaa7b2436e1f68929604181e1c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.UCoordinates"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/UTetrahedron.lean",
+   "module": "Research.TaskP.GeomSimplex.UTetrahedron",
+   "sha256": "82270c07fc28e676de0cf15765cefa0f0bc6816e2325ead8a06368c8ce636d68",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/UTetrahedron.lean",
+   "codex_source_sha256": "4d29f617721091ab8ed604e846bba99024640a37b4eb0ec60a906c7588afb401",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.UUpper",
+    "Research.TaskP.GeomSimplex.ULower"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/GeomSimplex/UUpper.lean",
+   "module": "Research.TaskP.GeomSimplex.UUpper",
+   "sha256": "33e26890c6b20fa684952a061acc6d3083392f52b5e12fff5cc452fcc90cfdc8",
+   "codex_source": "work/codex-r3/phase23/taskP/geom-simplex/UUpper.lean",
+   "codex_source_sha256": "2f9acaf67f4a12cb3a6032875ce6d2fd84fc8f7422ad03c8e90ea31093d13da9",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.GeomSimplex.UCoordinates"
+   ]
+  }
+ ]
+}

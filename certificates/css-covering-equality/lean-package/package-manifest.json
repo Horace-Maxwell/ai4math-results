@@ -1,0 +1,129 @@
+{
+ "module_count": 9,
+ "entrypoints": [
+  "Research.TaskR.CSS.CheckCSS"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskR.CSS.CheckCSS": [
+   "TaskR.CSS.check_NonHollow",
+   "TaskR.CSS.check_Radius",
+   "TaskR.CSS.check_Volume",
+   "TaskR.CSS.check_OutsideList"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskR/CSS/Challenge.lean",
+   "frozen_utc": "2026-11-20T19:33:34Z",
+   "freeze_record": "css-counterexample/FREEZE.json",
+   "sha256": "1dbf0ce8747f85337df077147c06a97ba2cd349e201b38a5d647122ca8818161"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskR/CSS/Challenge.lean",
+   "module": "Research.TaskR.CSS.Challenge",
+   "sha256": "1dbf0ce8747f85337df077147c06a97ba2cd349e201b38a5d647122ca8818161",
+   "codex_source": "work/codex-r3/phase25/taskR/css-counterexample/Challenge.lean",
+   "codex_source_sha256": "1dbf0ce8747f85337df077147c06a97ba2cd349e201b38a5d647122ca8818161",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/CSS/CheckCSS.lean",
+   "module": "Research.TaskR.CSS.CheckCSS",
+   "sha256": "19748f1b9ac9fbed0a87dae302bf51cc35b1a2c67776cf5d40dac78db99c4ce1",
+   "codex_source": "work/codex-r3/phase25/taskR/css-counterexample/CheckCSS.lean",
+   "codex_source_sha256": "9a46571399c52ba3b53ab63a0d953484d622f69ca1afb3b71bf00f82ec910279",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.CSS.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/CSS/Exclusion.lean",
+   "module": "Research.TaskR.CSS.Exclusion",
+   "sha256": "a044b0ed17aaaaed66de62636445b9b257d52ac889bb22b29c28256c42074180",
+   "codex_source": "work/codex-r3/phase25/taskR/css-counterexample/Exclusion.lean",
+   "codex_source_sha256": "dfaabc7c772f0aa2d4c2a622f823cddd6025118ab4e54e7b860360bb069192a0",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.CSS.Geometry",
+    "Research.TaskR.CSS.ExclusionFinite"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/CSS/ExclusionFinite.lean",
+   "module": "Research.TaskR.CSS.ExclusionFinite",
+   "sha256": "a1ca5c2b57973d561c4af6f544105c2444e2de9f6904abd576c183d8f56fcac9",
+   "codex_source": "work/codex-r3/phase25/taskR/css-counterexample/ExclusionFinite.lean",
+   "codex_source_sha256": "6a90c3d98ad747b49a84c05cd42182fc32ba9286bdd5c6be3e66ff5a85ee03fe",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.CSS.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/CSS/Geometry.lean",
+   "module": "Research.TaskR.CSS.Geometry",
+   "sha256": "10a849ee3ef5ca50440031a73b3499181104c104d1bafbbea4c57a3b09ebf536",
+   "codex_source": "work/codex-r3/phase25/taskR/css-counterexample/Geometry.lean",
+   "codex_source_sha256": "328ebdc2ff864ed0f061e5306d0108dcda74e4f59a06ec08a486a3298173265f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.CSS.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/CSS/Proof.lean",
+   "module": "Research.TaskR.CSS.Proof",
+   "sha256": "8f7c4baa6e52032e129d7427bc436e9cffcc92ebac962413a82ce1b2743860c6",
+   "codex_source": "work/codex-r3/phase25/taskR/css-counterexample/Proof.lean",
+   "codex_source_sha256": "b9eea1ae6c568d72fe25f8e815b484c00669cf5245be2ed2b276b958fbdecda8",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.CSS.Radius",
+    "Research.TaskR.CSS.Volume",
+    "Research.TaskR.CSS.Exclusion"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/CSS/Radius.lean",
+   "module": "Research.TaskR.CSS.Radius",
+   "sha256": "038838cc15a96d853adf3abaef6a3a32377a0fd7615db6518f6bc0e4eafac89d",
+   "codex_source": "work/codex-r3/phase25/taskR/css-counterexample/Radius.lean",
+   "codex_source_sha256": "f40d45095ec33870cf2b5d1957319ce218a1ae2b5146daf42611f4340d859d41",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.CSS.Geometry",
+    "Research.TaskR.CSS.Residues"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/CSS/Residues.lean",
+   "module": "Research.TaskR.CSS.Residues",
+   "sha256": "516cab742bbd054cc081b9678a4db2646b91c253a604709cb260b2d5827ca83b",
+   "codex_source": "work/codex-r3/phase25/taskR/css-counterexample/Residues.lean",
+   "codex_source_sha256": "fe8ed30e45bae13cd662ac992f3ac97b92ac0cee202f785087e3cfdc592b5ff4",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.CSS.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/CSS/Volume.lean",
+   "module": "Research.TaskR.CSS.Volume",
+   "sha256": "66ba57d5091a1c1211d25ce65b665617e8d5dc51f36aed0fc6f6772570cb365f",
+   "codex_source": "work/codex-r3/phase25/taskR/css-counterexample/Volume.lean",
+   "codex_source_sha256": "465f95cee80927d0a05db0c8b7747392ec6f7f6e894775cf9943719ff2e8cfdf",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.CSS.Challenge"
+   ]
+  }
+ ]
+}

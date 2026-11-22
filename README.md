@@ -1,6 +1,6 @@
-# Research papers formalized in Lean 4: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras, word-representability, distance eigenvalues of cographs, Frobenius forms of axial algebras, cycles of length 0 modulo k in critical graphs, the rank of groups of equivariant permutations, the longest Manhattan paths through boxes and the decomposition lengths of numerical semigroups
+# Research papers formalized in Lean 4: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras, word-representability, distance eigenvalues of cographs, Frobenius forms of axial algebras, cycles of length 0 modulo k in critical graphs, the rank of groups of equivariant permutations, the longest Manhattan paths through boxes, the decomposition lengths of numerical semigroups, antichains of trees in the independence polynomial order, invariant parking with cars of different lengths, medial racks of prime order, the generalized Wilf conjecture for graded semigroups, the covering radius of a lattice simplex, a terrace for the alternating group A7, the largest domination roots of friendship graphs, bars that do not tile a 2 × n rectangle, the Minkowski length of lattice simplices, the covering minima of the standard terminal simplex and the integer group determinants of the Heisenberg group of order 125
 
-This repository contains sixteen papers, their Lean 4 formalizations and
+This repository contains twenty-seven papers, their Lean 4 formalizations and
 computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254); version 1.0.0
 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255); version 1.1.0
@@ -28,12 +28,13 @@ computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.24201129](https://doi.org/10.5281/zenodo.24201129); version 1.21.0
 [10.5281/zenodo.24321346](https://doi.org/10.5281/zenodo.24321346); version 1.22.0
 [10.5281/zenodo.24352560](https://doi.org/10.5281/zenodo.24352560); version 1.23.0
-[10.5281/zenodo.24370025](https://doi.org/10.5281/zenodo.24370025).
+[10.5281/zenodo.24370025](https://doi.org/10.5281/zenodo.24370025); version 1.24.0
+[10.5281/zenodo.24399110](https://doi.org/10.5281/zenodo.24399110).
 
-> **Verification status (version 1.24.0, 20 November 2026).** No human
-> mathematician has reviewed these papers. All sixteen papers are formalized
+> **Verification status (version 1.25.0, 22 November 2026).** No human
+> mathematician has reviewed these papers. All twenty-seven papers are formalized
 > completely: Paper 1 in its version 3, Papers 2, 3, 4, 5, 6, 7 and 8 in their
-> versions 2, Papers 10 and 13 in their versions 2, and Papers 9, 11, 12, 14, 15 and 16. Every mathematical result in them has a Lean
+> versions 2, Papers 10 and 13 in their versions 2, and Papers 9, 11, 12 and 14 to 27. Every mathematical result in them has a Lean
 > proof, checked against independently reviewed and frozen statement files. In
 > Paper 11, Remark 1, which derives its answer from a lemma of Conde, Dratman
 > and Grippo, is not formalized; it is not needed for Theorem 1, the paper's
@@ -55,7 +56,57 @@ computational certificates. It is archived on Zenodo: all versions
 > (`k < j < 2k`); the bound of Theorem 2 is proved in Lean on the way, but is
 > not one of the frozen statements, and the assertion `r(S) ∈ L(S)` of
 > Remark 2 and the finiteness of `L(S)` are not formalized; they are not
-> needed for Theorem 1 and Corollary 1. For
+> needed for Theorem 1 and Corollary 1. In Paper 17, the bound 5 on the
+> maximum degree of the trees (Remark 1) is a written argument and is not
+> formalized, and the last sentence of its Theorem 1 (the trees have pairwise
+> different independence polynomials) is derived in the paper from the formal
+> statement and is not stated separately in Lean. In Paper 18, the three
+> remarks of Section 5 (the whole set `W(y)` under Chen's necessary
+> condition, the invariant parking assortments in the equality case, and the
+> cost of computing `W(y)`) are written arguments and are not formalized;
+> they are not needed for its Theorems 1 and 2, which are formalized. In
+> Paper 19, the frozen statements are the three parts of Theorem 1 (the
+> conjecture of Vojtěchovský and Yang); the classification of Theorem 2 is
+> proved in Lean on the way, but is not one of the frozen statements. In
+> Paper 20, the deduction of Corollary 1 from Theorem 1 is a few lines of
+> text and is not a separate Lean statement. In Paper 21, Lean proves that
+> the simplex lies outside a family `Generated`; that this family contains
+> every polytope of the equality list of Conjecture A of Codenotti, Santos
+> and Schymura (Lemma 4) is a written argument, and so are the remarks of
+> its Section 5. In Paper 22, the consequences for the conjectures of
+> Bailey and Anderson (Section 4) combine the Lean result with published
+> theorems and are not formalized, nor is the remark that the terrace is not
+> directed (Remark 1). In Paper 23, the frozen statements are
+> limits as `m → ∞`; no explicit bound for a fixed `m` is claimed, and the
+> comparison with the bounds of Rather (Remark 1), the numerical values, the
+> examples of `(c, s)` other than `K_2` and the consequence `M_m/log m → ∞`
+> are not formalized. In Paper 24, the matching lower bound is claimed only
+> along subsequences of widths, as in its frozen statement; the two-row
+> criterion for tileability is proved in Lean on the way, but is not one of
+> the frozen statements; Corollary 1 (the case `k ≤ 8`) is not a separate Lean
+> statement, and the computed small values (Remark 1 and Table 1) are not in
+> Lean. In
+> Paper 25, the Lean statements cover dimension `d ≥ 3`; the positive answer
+> to Problem 3 for `d ≤ 2` is a result of the source, and the periodicity
+> remark and the remarks of Section 6 (on Remark 2.21 of the source) are not
+> formalized. In Paper 26,
+> the frozen statements are Theorem 1 (Conjecture B of González Merino and
+> Schymura, as stated by Codenotti, Santos and Schymura) and Theorem 2
+> (Conjecture C of Codenotti, Santos and Schymura); Theorem 2′, a form with
+> Lebesgue measures of the projected sets, is also proved in Lean but is
+> not a frozen statement; Corollary 3, the d/2 bound of Conjecture A for
+> every non-hollow lattice polytope, follows by published arguments of
+> Codenotti, Santos and Schymura and is not formalized, nor are the remarks
+> of Section 5 and the independence of the projected volumes from the choice
+> of projection (Lemma 11); the equality clause of Conjecture A is false
+> (Paper 21). In Paper 27, the frozen
+> statements are Theorem 1 (the whole set of integer group determinants of
+> the Heisenberg group of order 125) and Corollary 1 (the least positive
+> value divisible by 5, stated and verified separately, before Theorem 1);
+> Corollary 2 (the exponent 33) follows from Theorem 1 in two lines and is
+> not a separate Lean statement, and Remark 1 (on the density of the
+> visible primes, with a numerical observation) and Lemma 2 (not needed for
+> Theorem 1) are not formalized. For
 > Paper 2 this includes the existence and uniqueness of the normalized series
 > and their first terms. It does not include what the paper says about the OEIS
 > entries and the literature: no Lean statement mentions the OEIS, and the
@@ -115,6 +166,17 @@ computational certificates. It is archived on Zenodo: all versions
 | Paper 14 | On the rank of groups of equivariant permutations: a counterexample to an upper bound | Theorem 4 of Lara-Gómez, Romero-Rosales and Ruiz-Medina (Semigroup Forum, published online 2 November 2026; the right-hand side of Theorem 5 of arXiv:2607.04053v1), an upper bound for the rank of the group of `G`-equivariant permutations of a finite `G`-set, fails for the group of order 2 acting on two points; a five-point example and, for every `n ≥ 3`, a cyclic action show that their packet expression, which they expected to be the exact rank, can exceed the rank by any amount (their own 21-point example already shows that it is not always exact); completely formalized, except four remarks marked as written arguments (not checked with comparator, see below) | `TaskJ.Rank.check_TwoPointCounterexample`, `check_FivePointCounterexample`, `TaskJ.Rank.Extension.check_UnboundedGap` (7 checked statements) | [`papers/equivariant-rank`](papers/equivariant-rank/note.pdf) |
 | Paper 15 | The maximum Manhattan length of a path through all lattice points of a box | answer to the first open question of §6.3 of Yuan (arXiv:2611.19908v1): the exact maximum for every box with positive integer sides, in every dimension, with orderings attaining it; with at least three sides larger than 1, the gap to Yuan's coordinatewise bound is 1 when all sides are odd and `2^(e−1) − 1` when `e ≥ 1` sides are even, the expression Yuan had suggested from computed data; the hypercube, the plane and closed circuits on equal-sided cubes were treated earlier (see below); completely formalized, except Corollaries 1 and 2 (Corollary 2 uses Theorem 2.3 of Yuan) (not checked with comparator, see below) | `check_LengthUpperBound`, `check_LengthAttained`, `check_YuanGapAtLongest` | [`papers/lattice-box-paths`](papers/lattice-box-paths/note.pdf) |
 | Paper 16 | The decomposition lengths of a numerical semigroup form an interval | answer: Conjecture 1.1 of García-Sánchez and O'Neill (arXiv:2602.00404v1), that the lengths of the irredundant decompositions of a numerical semigroup into irreducible numerical semigroups form an interval, proved for every numerical semigroup (they had proved it for multiplicity at most 6), and their Conjecture 3.9 on even multiplicity, through a decomposition with at most `k` components when the multiplicity is `2k`; the tools used (special gaps, an exchange of Blanco and Rosales, a bound of Rosales and Branco) are earlier work (see below); completely formalized, except Remark 2 (`r(S) ∈ L(S)`) and the case `j ≥ 2k` of Corollary 1; the bound for even multiplicity is proved in Lean but is not a frozen statement (not checked with comparator, see below) | `TaskL.Semigroup.check_LengthsExist`, `check_LengthsInterval`, `check_EvenMultiplicityDescent` (4 checked statements) | [`papers/numerical-semigroup-lengths`](papers/numerical-semigroup-lengths/note.pdf) |
+| Paper 17 | Arbitrarily large antichains of trees of equal order in the independence polynomial order | answer: Question 6 of Beaton and Cameron (Open J. Discrete Appl. Math. 5 (2022); Question 5.3 of arXiv:2006.05511v2) answered yes: for every `n ≥ 11` there are `⌊n/11⌋ + 1` trees on `n` vertices that are pairwise incomparable in Csikvári's order `⪯` by the independence polynomial (Beaton and Cameron had given pairs of incomparable trees at infinitely many orders); completely formalized, except the bound 5 on the maximum degree (Remark 1); the last sentence of Theorem 1 is derived in the paper and is not a separate Lean statement (not checked with comparator, see below) | `TaskN.Antichain.check_WidthLowerBound`, `check_ArbitrarilyLarge` | [`papers/tree-antichains`](papers/tree-antichains/note.pdf) |
+| Paper 18 | The equality case of Chen's bound for invariant parking with one special preference | answer: a necessary and sufficient condition for equality in Theorem E(b) of Chen (arXiv:2311.15699v1), the bound `2^(n−1)` for the number of elements of `W(y)`, for every number of cars; it closes the gap between his sufficient condition E(c) and his necessary condition E(d), which his Remark 4.7 shows is not sufficient (Chen does not list this among his open problems); also, for a fixed tail, the number of first-car lengths that attain equality; the bound, the necessary condition and the gap reduction are earlier work (see below); completely formalized, except the three remarks of Section 5, marked as written arguments (not checked with comparator, see below) | `TaskN.Parking.check_ExtremalClassification`, `check_FirstLengthCount` | [`papers/variable-length-parking`](papers/variable-length-parking/note.pdf) |
+| Paper 19 | Medial racks and quandles of prime order: a proof of a conjecture of Vojtěchovský and Yang | answer: Conjecture 6.5 of Vojtěchovský and Yang (Math. Comp. 88 (2019)) proved for every prime `p`: the medial racks of order `p` exceed the 2-reductive ones by exactly `p − 2` isomorphism classes, the same holds for quandles, and every medial rack of order `p` that is not 2-reductive is a quandle; connectedness and idempotence are not assumed (the classification of connected quandles of prime order, due to Etingof, Soloviev and Guralnick, is earlier work, see below); completely formalized; the classification behind it (Theorem 2) is proved in Lean but is not a frozen statement (not checked with comparator, see below) | `TaskP.PrimeMedialRacks.check_RackCount`, `check_QuandleCount`, `check_AutomaticIdempotence` | [`papers/prime-medial-racks`](papers/prime-medial-racks/note.pdf) |
+| Paper 20 | The generalized Wilf conjecture for semigroups graded by a two-generated numerical semigroup | answer: the generalized Wilf conjecture holds for every `T`-graded generalized numerical semigroup with `T = ⟨a, b⟩`, in every dimension, the class that Cisto and Navarra (An. Ştiinţ. Univ. Ovidius Constanţa 33 (2025), §6) left open for `a > 2`; new only for dimension `d ≥ 3`, `a ≥ 3` and the parameters not covered by Theorem 5.6 of Bhardwaj, Cisto and Deshpande (arXiv:2611.20086v1), the other cases being known (see below); completely formalized (not checked with comparator, see below) | `TaskP.GradedWilf.check_Wilf` | [`papers/graded-wilf`](papers/graded-wilf/note.pdf) |
+| Paper 21 | A non-hollow lattice 4-simplex of covering radius 2 outside the equality list of a conjecture of Codenotti, Santos and Schymura | answer (counterexample): the 4-simplex `conv{e_1, e_2, e_3, e_4, −(2,1,1,1)}`, known from toric geometry, has covering radius exactly `2 = d/2` and normalized volume 6, and is not obtained by direct sums and lattice translations of standard terminal simplices, so the "only if" part of the equality clause of Conjecture A (Discrete Comput. Geom. 67 (2022)) fails in dimension 4; the inequality of Conjecture A and Conjecture C are not refuted; completely formalized, except Lemma 4 (that the family excluded in Lean contains the equality list) and the remarks of Section 5 (not checked with comparator, see below) | `TaskR.CSS.check_NonHollow`, `check_Radius`, `check_Volume`, `check_OutsideList` | [`papers/css-covering-equality`](papers/css-covering-equality/note.pdf) |
+| Paper 22 | A terrace for the alternating group `A_7` | new verified case: an explicit terrace of `A_7` (order 2520), a group that none of the terraced families listed in Ollis's 2025 survey is known to contain, apart from an asymptotic theorem without explicit bound; with a theorem of Anderson and Ihrig it gives symmetric sequencings for the binary groups of the `A_7` branch of their reduction; Bailey's conjecture and Anderson's conjecture are not settled, and the terrace is not directed, so whether `A_7` is sequenceable remains open; completely formalized, except Remark 1 (the terrace is not directed) and the consequences of Section 4 (not checked with comparator, see below) | `TaskR.A7.check_HasTerrace` | [`papers/a7-terrace`](papers/a7-terrace/note.pdf) |
+| Paper 23 | The largest domination roots of friendship graphs and of joins with repeated petals | answer, in a sharp asymptotic sense, to Question 3.2 of Alikhani, Brown and Jahari (Filomat 30 (2016)) on the modulus of the domination roots of friendship graphs: for `K_a ∨ mB` the largest modulus of a domination root is attained and is asymptotic to `(c s m/(a log m))^(1/c)`, where `c = 1 + δ(B)` and `s` counts the distinct closed neighbourhoods of size `c`; for friendship graphs `√(2m/log m)`; the upper half for friendship graphs already follows from an implicit bound of Rather (arXiv:2604.08998), and the new parts are the matching lower bound and the general family; no explicit bound for a fixed `m` (see below); completely formalized, except the comparison with Rather's bounds, the numerical values and the examples of `(c, s)` other than `K_2` (not checked with comparator, see below) | `TaskP.GraphRootRadius.check_Attainment`, `check_GeneralAsymptotic`, `check_FriendshipAsymptotic` | [`papers/domination-root-radius`](papers/domination-root-radius/note.pdf) |
+| Paper 24 | Multisets of bars that do not tile a `2 × n` rectangle: the optimal growth order | answer to the question of Remark 5.11 of Gajdzica, Visser and Zakarczemny (Ann. Comb., 2026) in the sense of the optimal polynomial order: the number of multisets of bars of lengths at most `k` and total area `2n` that do not tile the `2 × n` rectangle is 0 for `k ≤ 2` and `O(n^(e_k))` for `k ≥ 3`, `e_k = max(0, ⌊k/2⌋ − 2)`, and the exponent cannot be lowered; the lower bound is claimed only along subsequences of `n`; completely formalized, the specialization to `k ≤ 8` and the computed values excepted (not checked with comparator, see below) | `TaskP.RectangleDefect.check_SharpBound` | [`papers/bar-tiling-defect`](papers/bar-tiling-defect/note.pdf) |
+| Paper 25 | Lattice simplices whose Minkowski length exceeds the lattice diameter, and dilates whose Minkowski length is not quasi-linear | answer (counterexamples) to Problems 2 and 3 of Soprunov and Soprunova (European J. Combin. 58 (2016)): a lattice tetrahedron with lattice diameter 1 and Minkowski length 2, and an empty tetrahedron `U` with `L(U) = 1` and `L(tU) = 3t` for `t ≥ 2`, carried to every dimension `d ≥ 3` by lattice pyramids; with the known case `d ≤ 2`, Problem 3 is true for `d ≤ 2` and false for every `d ≥ 3`; both tetrahedra are known objects (see below); Problem 1 is not addressed; completely formalized for `d ≥ 3`, except the periodicity remark and the remarks of Section 6 (not checked with comparator, see below) | `TaskP.GeomSimplex.check_TetrahedronDiameter`, `check_TetrahedronDilations`, `check_EveryDimensionDiameter`, `check_EveryDimensionDilations` | [`papers/minkowski-length-simplices`](papers/minkowski-length-simplices/note.pdf) |
+| Paper 26 | Covering minima of the standard terminal simplex and a discrete surface area bound for the covering radius of simplices | answer: Conjecture B of González Merino and Schymura (Discrete Comput. Geom. 58 (2017); Conjecture B of Codenotti, Santos and Schymura), `μ_i(T_n) = i/2` for all `1 ≤ i ≤ n`, proved (known before for `i ≤ 3`, `i = n` and `i = 1`), and Conjecture C of Codenotti, Santos and Schymura (Discrete Comput. Geom. 67 (2022)), the discrete surface area bound for simplices with the origin in the interior and rational vertex directions, proved in every dimension (known for `d ≤ 2` and up to a constant factor); by published arguments of these authors either gives the d/2 bound of Conjecture A for non-hollow lattice polytopes (not formalized; the equality clause of Conjecture A is false, Paper 21); the averaging lemma is elementary and claimed as no novelty; completely formalized, except Corollary 3, Section 5 and Lemma 11 (the independence of the projected volumes from the choice of projection); two independent final reviews per conjecture (not checked with comparator, see below) | `TaskS.B.check_ConjectureB`, `TaskS.C.check_conjectureC`, `TaskS.C.MeasureModel.measured_conjectureC` | [`papers/css-covering-minima`](papers/css-covering-minima/note.pdf) |
+| Paper 27 | The integer group determinants of the Heisenberg group of order 125 | answer: Olga Taussky-Todd's integer group determinant question for the Heisenberg group `H_5` of order 125, whose multiples of 5 Mossinghoff and Pinner (Michigan Math. J. 74 (2024)) had left undetermined: the whole value set `S(H_5)` consists of the integers `m` with `m^4 ≡ 1 (mod 125)` (their result), all multiples of `5^33`, and the integers `5^28·n` with `n ≠ 0` divisible by a visible prime (a prime `ℓ ≡ 1 (mod 5)` for which an element of norm `ℓ` in `Z[ζ_5]` is not congruent modulo 5 to a unit); the least positive value divisible by 5 is `11·5^28`; the factorization, the values prime to 5 and the bound `5^28` are due to Mossinghoff and Pinner, and the seeds of the constructions to Panraksa (see below); completely formalized, except Corollary 2 (a two-line deduction), Remark 1 and Lemma 2 (not needed for Theorem 1); one final review of the minimum and two independent final reviews of the classification (not checked with comparator, see below) | `TaskU.H5.Check.check_witnessValue`, `TaskU.H5.Check.check_leastPositiveMultiple`, `TaskU.H5.check_fullSpectrum` | [`papers/heisenberg-125-determinants`](papers/heisenberg-125-determinants/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
@@ -1061,6 +1123,691 @@ upper bound.* 9 pages.
   (`certificates/numerical-semigroup-lengths/lean-package/`); the text was
   written by Claude Code. See the disclosure below for the reviews.
 
+**Paper 17: [`papers/tree-antichains`](papers/tree-antichains/note.pdf).**
+*Arbitrarily large antichains of trees of equal order in the independence polynomial order.* 10 pages.
+
+- The independence polynomial `I(G, x)` of a graph counts its independent
+  sets by size, the empty set included. Beaton and Cameron define `ξ(G)` as
+  the independence root of smallest modulus and note, citing Csikvári, that
+  it is real and is the largest real root. Csikvári (J. Graph Theory 74
+  (2013), Section 8) introduced the relation `H ⪯ G`, which in the form used
+  by Beaton and Cameron (Open J. Discrete Appl. Math. 5 (2022), no. 3,
+  30–46; arXiv:2006.05511v2) holds when `I(H, x) ≥ I(G, x)` for all `x` in
+  `[ξ(G), 0]`; it is a partial order on the classes of graphs with the same
+  independence polynomial, and among the trees of a given order the path is
+  its minimum and the star its maximum (Csikvári). Beaton and Cameron
+  disproved Oboudi's conjecture that any two trees of the same order are
+  comparable, with two incomparable trees of order 8 and, by the graph star
+  operation, a pair at each order `2^(k+3)`, and asked (their Question 6;
+  Question 5.3 of the arXiv versions): can there be arbitrarily large
+  antichains with respect to `⪯` among trees of equal order?
+- **Theorem 1.** For every `n ≥ 11` there are `⌊n/11⌋ + 1` trees on `n`
+  vertices that are pairwise incomparable; their independence polynomials
+  are pairwise different, so they are pairwise non-isomorphic and their
+  classes form an antichain. **Corollary 1:** for every `k`, some `k` trees
+  of one order (for instance `11k`) are pairwise incomparable; this answers
+  Question 6. The trees are paths in which each of `⌊n/11⌋` vertices carries
+  one of two ten-vertex gadgets `A` or `B`, which differ only in where one
+  vertex is attached, and up to ten further vertices carry nothing.
+  Replacing one `B` by an `A` lowers the independence polynomial at `−1/10`
+  and raises it at `−1/6`; a transfer recursion along the path and three
+  polynomial inequalities with explicit certificates show that no
+  independence polynomial of the family vanishes on `[−1/6, 0]`, so both
+  points lie in the comparison interval of every tree of the family.
+- Scope and earlier results: the relation, its transitivity and the extremal
+  trees are due to Csikvári; Beaton and Cameron's pair of order 8 is
+  certified in the same way, by two points of the common comparison interval
+  (they use `−0.1` and `−0.2`), and their pairs give antichains of size two
+  at infinitely many orders. The trees of Theorem 1 have maximum degree 5
+  (Remark 1); this is a written argument and is not formalized. The largest
+  size of an antichain among the trees of order `n` is not known; Theorem 1
+  shows only that it is at least `⌊n/11⌋ + 1`.
+- Lean: `lean/Research/TaskN/Antichain/` (11 modules: the statement file, 8
+  proof modules, `Proof.lean` and `CheckAntichain.lean`). The statement file
+  `Challenge.lean` defines the independence polynomial of a finite simple
+  graph as the sum of `X^|s|` over its independent vertex sets `s`;
+  `LargestRoot G r` (`r` is the largest real root of `I(G, x)`);
+  `Precedes H G` (`I(G, x) ≤ I(H, x)` for all `x` in `[r, 0]`, where `r` is
+  the largest real root of `G`, the graph on the right); and
+  `HasAntichain n k` (`k`
+  graphs on the vertex set `{0, …, n − 1}`, each a tree with a largest real
+  root, pairwise incomparable). It states `WidthLowerBound` (Theorem 1
+  without its last sentence) and `ArbitrarilyLarge` (Question 6, as in
+  Corollary 1). Since every member must have a largest real root, which is
+  unique, incomparability cannot hold merely because a root is missing; and
+  two members with the same polynomial would be comparable, so isomorphic
+  copies cannot be counted twice. The Lean statement uses the largest real
+  root, which the source states to be the same as its root of smallest
+  modulus; the Lean files do not depend on that equivalence. A Codex agent
+  that had not written it reviewed the statement file against the journal
+  version and the arXiv versions of the source, and it was frozen on 20
+  November 2026 at 14:25:12 UTC; the file times and the development logs show
+  no proof file before that time. The same agent had checked the reading of
+  the source. OpenAI Codex wrote the statements and the proofs and checked
+  the package in two new empty directories on the author's Mac
+  (`certificates/tree-antichains/lean-package/`); the text was written by
+  Claude Code. See the disclosure below for the reviews.
+
+**Paper 18: [`papers/variable-length-parking`](papers/variable-length-parking/note.pdf).**
+*The equality case of Chen's bound for invariant parking with one special preference.* 11 pages.
+
+- In the parking model of Chen, Harris, Martínez Mori, Pabón-Cancel and
+  Sargent (Enumer. Combin. Appl. 4:1 (2024), Article S2R4;
+  arXiv:2211.01063v2), `n` cars of positive integer lengths `y_1, …, y_n`
+  arrive in order on a one-way street with `y_1 + … + y_n` spots; each car
+  takes the first run of free spots of its length that starts at or after
+  its preferred spot, and parking fails if there is none. D. M. Chen
+  (arXiv:2311.15699v1, the only version) studied the set `W(y)` of
+  preferences `w` such that every car parks whichever car is given the
+  preference `w` while every other car prefers the first spot. His Theorem E
+  shows that `W(y)` has at most `2^(n−1)` elements (b), that equality holds
+  when every length exceeds the sum of the later ones (c), and that equality
+  implies `y_1 ≥ y_2` and the same condition for the tail `y_2, …, y_n` (d,
+  his condition (3)); his Remark 4.7 shows with `y = (7, 5, 3, 1)` that (3)
+  is not sufficient. He does not list the equality case among his open
+  problems.
+- **Theorem 1.** `W(y)` has `2^(n−1)` elements if and only if `n = 1`, or
+  `n ≥ 2` and (i) `y_1 ≥ y_2`, (ii) the tail `y_2, …, y_n` is
+  superdecreasing (each length exceeds the sum of the later ones), and (iii)
+  `y_1 − y_2 ≥ D`, or `D − (y_1 − y_2)` is symmetric for the set `T` of
+  subset sums of `y_3, …, y_n`; here `D = y_3 + … + y_n`, and `z` is
+  symmetric for `T` if `z ∈ T` and `z − s ∈ T` for every `s ∈ T` with
+  `s ≤ z`. Conditions (i) and (ii) are Chen's condition (3); (iii) is the
+  new part. For example `(8, 5, 3, 1)` attains the bound and `(7, 5, 3, 1)`
+  does not.
+- **Theorem 2** (an addition, not a statement of Chen). For a fixed
+  superdecreasing tail `(b, y_3, …, y_n)`, the number of first-car lengths
+  `a` in `[b, b + D]` for which equality holds is `1 + Σ(2^(L_i) − 1)`,
+  where the `L_i` are the lengths of the maximal runs of equal consecutive
+  terms of the jumps `h_i = u_i − (u_1 + … + u_(i−1))`, with `u_1 = y_n`,
+  `u_2 = y_(n−1)`, …, `u_(n−2) = y_3`. By Theorem 1, no `a < b` and every
+  `a > b + D` attains equality.
+- Scope and earlier results: the model, Theorem E and the example are due to
+  Chen and to Chen, Harris, Martínez Mori, Pabón-Cancel and Sargent; the gap
+  reduction (Lemma 1 of the paper) is essentially their Corollary 4.4 and its
+  proof; the bound is Chen's Theorem E(b), and the necessity of (i) and (ii)
+  is his Theorem E(d), which the paper reproves by a counting variant of his
+  argument. As far as we know, condition (iii) and Theorem 2 are new. The
+  three remarks of Section 5 (the whole set `W(y)` under Chen's condition
+  (3), the invariant parking assortments in the equality case, and the
+  computation of `W(y)` with `O(n² 2^(n−1))` integer operations) are written
+  arguments and are not formalized. The paper says nothing about the open
+  problems of Chen or of Chen, Harris, Martínez Mori, Pabón-Cancel and
+  Sargent.
+- Lean: `lean/Research/TaskN/Parking/` (12 modules: the statement file, 9
+  proof modules, `Proof.lean` and `CheckParking.lean`). The statement file
+  `Challenge.lean` encodes Chen's parking rule directly: spots are numbered
+  from offset 0; a street is the list of finite gaps of free spots together
+  with a frontier from which on every spot is free; `park` places a car in
+  the first gap in which it fits at or after its preference, or else at the
+  frontier; and `drive` runs the cars in arrival order. The run succeeds on
+  the street of length `m` if and only if the final frontier is at most `m`;
+  the argument for this is in the paper and is not part of the Lean proof.
+  `allPositions` gives the special preference to each car in turn, the
+  others getting preference 1, without reordering the lengths, and `W`
+  collects the admissible preferences in `[1, m]`. `ExtremalClassification`
+  states the bound and Theorem 1 for every nonempty list of positive lengths,
+  with the conditions defined from the lengths alone (subset sums and the
+  predicate `dominant`, which is "superdecreasing"); `FirstLengthCount`
+  states Theorem 2 (its statements about `a < b` and `a > b + D` follow from
+  `ExtremalClassification` but are not stated separately). A Codex agent
+  that had not written it and had not worked on this problem before reviewed
+  the statement file against Chen's paper, and it was frozen on 20 November
+  2026 at 14:25:56 UTC; the development logs record no compilation of a
+  proof file before that time (the first is at 14:26:55 UTC). The same agent
+  had checked the reading of the source. OpenAI Codex wrote the statements
+  and the proofs and checked the package in two new empty directories on the
+  author's Mac (`certificates/variable-length-parking/lean-package/`); the
+  text was written by Claude Code. See the disclosure below for the reviews.
+
+**Paper 19: [`papers/prime-medial-racks`](papers/prime-medial-racks/note.pdf).**
+*Medial racks and quandles of prime order: a proof of a conjecture of Vojtěchovský and Yang.* 10 pages.
+
+- A rack is a set with a binary operation `*` whose left translations are
+  bijections and which satisfies `x * (y * z) = (x * y) * (x * z)`; a quandle
+  is an idempotent rack; a rack is medial if
+  `(x * u) * (v * y) = (x * v) * (u * y)` and 2-reductive if
+  `(x * u) * v = (y * u) * v` for all elements. Vojtěchovský and Yang
+  (*Enumeration of racks and quandles up to isomorphism*, Math. Comp. 88
+  (2019); arXiv:1911.04991v1) counted racks and quandles of order at most 13
+  up to isomorphism and stated, as their Conjecture 6.5, that for every
+  prime `p` the number of medial racks of order `p` exceeds the number of
+  2-reductive racks by `p − 2`, that the same holds for quandles, and that
+  every medial rack of order `p` that is not 2-reductive is a quandle.
+- **Theorem 1.** The conjecture holds for every prime `p` (its three parts).
+  **Theorem 2:** every medial rack of prime order `p` that is not
+  2-reductive is isomorphic to exactly one of the affine quandles
+  `x * y = (1 − λ)x + λy` on `F_p` with `λ ≠ 0, 1`. Connectedness and
+  idempotence are not assumed: every point stabilizer of the displacement
+  group lies in one subgroup, whose index divides every orbit size, and for
+  a rack that is not 2-reductive this index is larger than 1; when the order
+  is prime this forces the displacement group to be transitive, hence
+  regular, and coordinates then give the affine form.
+- Scope and earlier results: the conjecture, the enumeration and the
+  counts of 2-reductive racks and quandles (Jedlička, Pilitowska, Stanovský
+  and Zamojska-Dzienio) are earlier work; that a rack is medial if and only
+  if its displacement group is abelian is Proposition 2.4 of Hulpke,
+  Stanovský and Vojtěchovský (J. Pure Appl. Algebra 220 (2016)); that every
+  connected quandle of prime order is affine is due to Etingof, Soloviev and
+  Guralnick (J. Algebra 242 (2001)), and the isomorphism criterion for
+  connected affine quandles is in Hulpke, Stanovský and Vojtěchovský. What
+  the conjecture needs in addition is that a medial rack of prime order that
+  is not 2-reductive is connected and idempotent. Theorem 2 is proved in
+  Lean, for operations on `{0, …, p − 1}`, on the way to Theorem 1, but it is
+  not one of the frozen statements. The values of the tables of the source
+  are not used and are not in Lean.
+- Lean: `lean/Research/TaskP/PrimeMedialRacks/` (13 modules: the statement
+  file, 10 proof modules, `Proof.lean` and `CheckRack.lean`). The statement
+  file `Challenge.lean` defines racks, idempotence, mediality and
+  2-reductivity for binary operations, isomorphism by one bijection, and
+  `classCount n P`, the number of isomorphism classes of binary operations
+  on `{0, …, n − 1}` that contain an operation with property `P`; its only
+  proof is the short check that isomorphism is an equivalence relation,
+  needed to form the quotient. It states `RackCount` and `QuandleCount`
+  (parts (a) and (b) of Theorem 1, the two equations in additive form, for
+  every prime including 2) and `AutomaticIdempotence` (part (c), for every
+  operation on `{0, …, p − 1}`). The four properties are invariant under
+  isomorphism, so the counts are those of the source. A Codex agent that had
+  written neither the proofs nor the Lean statement reviewed the statement
+  file against the source, and it was frozen on 20 November 2026 at 18:04:44
+  UTC; the file times and the development logs show no proof file before
+  that time. OpenAI Codex wrote the statements and the proofs and checked the
+  package in two new empty directories on the author's Mac
+  (`certificates/prime-medial-racks/lean-package/`); the text was written by
+  Claude Code. See the disclosure below for the reviews.
+
+**Paper 20: [`papers/graded-wilf`](papers/graded-wilf/note.pdf).**
+*The generalized Wilf conjecture for semigroups graded by a two-generated numerical semigroup.* 9 pages.
+
+- A generalized numerical semigroup is a submonoid `S` of `N^d` with finite
+  complement. Cisto, DiPasquale, Failla, Flores, Peterson and Utano
+  (Semigroup Forum 101 (2020)) conjectured that `e(S) n(S) ≥ d c(S)`, where
+  `e(S)` is the number of minimal generators and `n(S)` and `c(S)` count the
+  elements of `S`, respectively of `N^d`, that lie below some gap. For a
+  numerical semigroup `T`, the `T`-graded semigroup consists of the points
+  of `N^d` whose coordinate sum lies in `T`. Cisto and Navarra (An. Ştiinţ.
+  Univ. Ovidius Constanţa 33 (2025); arXiv:2212.12467v1) proved the
+  conjecture for `T = ⟨2, b⟩`, `b ≥ 5` odd, and wrote that it remains open
+  for `T = ⟨a, b⟩` with `2 < a < b`. In November 2026 Bhardwaj, Cisto and
+  Deshpande (arXiv:2611.20086v1) proved it for `d = 2` (their Theorem 5.5)
+  and for `d ≥ 3` under a condition that requires `b` to be large compared
+  with `a` and `d` (their Theorem 5.6).
+- **Theorem 1.** For every `d ≥ 1` and all coprime `2 ≤ a < b`, the set `C`
+  of points below a gap and the set `A` of atoms of `S` are finite, `A`
+  generates `S`, every generating set contains `A`, and
+  `d·|C| ≤ |A|·|C ∩ S|`. **Corollary 1:** every `T`-graded generalized
+  numerical semigroup with `T` two-generated satisfies the generalized Wilf
+  conjecture. The proof bounds `n(S)` below by the single layer of total
+  degree `F(T) − 1`, which lies in `S` because `1 ∉ T`, and compares it with
+  the exact value of `c(S)`.
+- Scope and earlier results: the case `a = 2` was known in every dimension
+  (Cisto and Navarra), `d = 1` is classical, `d = 2` is Theorem 5.5 of
+  Bhardwaj, Cisto and Deshpande, and `d ≥ 3`, `a ≥ 3` under their condition
+  is their Theorem 5.6, whose proof already uses a single layer of `N(S)`
+  (another one). So the new part is only `d ≥ 3`, `3 ≤ a < b`, with their
+  condition failing (infinitely many triples, for example `(a, b, d) = (3,
+  4, 3)`); for the other parameters the paper gives re-proofs. The
+  formulas for the minimal generators and for `n(S)` are due to Cisto and
+  Navarra. The paper does not claim the generalized Wilf conjecture for any
+  other class.
+- Lean: `lean/Research/TaskP/GradedWilf/` (9 modules: the statement file, 6
+  proof modules, `Proof.lean` and `CheckWilf.lean`). The statement file
+  `Challenge.lean` defines points of `N^d`, their total degree, the
+  submonoid `⟨a, b⟩` of `N`, the graded semigroup, the set of points below a
+  gap of the true complement, and the atoms, and states `Wilf`: Theorem 1
+  for all `a`, `b`, `d` as above. Because the atoms are shown to generate
+  `S` and to lie in every generating set, their number is `e(S)` without any
+  formula being assumed, and because `C` and `A` are shown to be finite,
+  the counts are true cardinalities. A Codex agent that had not written it
+  reviewed the statement file against the paper of Cisto and Navarra, and it
+  was frozen on 20 November 2026 at 18:04:44 UTC; the file times and the
+  development logs show no proof file before that time. OpenAI Codex wrote
+  the statements and the proofs and checked the package in two new empty
+  directories on the author's Mac (`certificates/graded-wilf/lean-package/`);
+  the text was written by Claude Code. See the disclosure below for the
+  reviews.
+
+**Paper 21: [`papers/css-covering-equality`](papers/css-covering-equality/note.pdf).**
+*A non-hollow lattice 4-simplex of covering radius 2 outside the equality list of a conjecture of Codenotti, Santos and Schymura.* 10 pages.
+
+- The covering radius `μ(P)` of a convex body is the least `μ ≥ 0` such
+  that the lattice translates of `μP` cover space. Codenotti, Santos and
+  Schymura (Discrete Comput. Geom. 67 (2022); arXiv:1903.02866v2)
+  conjectured that every non-hollow lattice `d`-polytope `P` satisfies
+  `μ(P) ≤ d/2`, with equality if and only if `P` is obtained by direct sums
+  and/or translations of the standard terminal simplices `S(1_l)` (their
+  Conjecture A), and proved this for `d ≤ 3`.
+- **Theorem 1.** For `P = conv{e_1, e_2, e_3, e_4, −(2,1,1,1)}`: (a) the
+  origin lies in the interior of `P`; (b) `μ(P) = 2`; (c) the normalized
+  volume of `P` is 6; (d) `P` does not belong to a family `G` generated from
+  finite sets of at least two lattice points with sum zero by lattice
+  translations and convex hulls of unions. **Lemma 4**, a written argument
+  about the definitions of the source, shows that `G` contains every
+  polytope obtained from the simplices `S(1_l)` by direct sums and lattice
+  translations, and every unimodular image of one. **Corollary 1:** the
+  "only if" direction of the equality clause of Conjecture A fails in
+  dimension 4, the smallest dimension not covered by the authors, with
+  translations read as lattice translations, as on p. 2 of the source.
+- Scope and earlier results: the simplex is not new: up to a unimodular map
+  it is the simplex of the weighted projective space `P(1,1,1,1,2)`
+  (Kasprzyk's thesis, Proposition 9.7.10), and Lee (arXiv:2610.26186,
+  Appendix C) uses it and notes that its normalized volume is 6. The
+  inequality `μ(P) ≤ d/2` of Conjecture A holds for `P`, with equality;
+  only the equality clause is contradicted. `P` satisfies the inequality of
+  Conjecture C of the same paper with equality and does not refute it. The
+  remarks of Section 5 (arbitrary real translations, by a volume argument;
+  Conjecture C and Corollary 4.3 of the source; the equality clause of
+  Conjecture D for `k = 1`; the simplices `S(ω)`) are written arguments, and
+  so is Lemma 4; none of them is in Lean. Further written variants found in
+  the same search (in every dimension `d ≥ 4`, and for Conjecture D with
+  `k ≥ 2`) are not claims of the paper.
+- Lean: `lean/Research/TaskR/CSS/` (9 modules: the statement file, 6 proof
+  modules, `Proof.lean` and `CheckCSS.lean`). The statement file
+  `Challenge.lean` defines `P` in `R^4` as a convex hull, the normalized
+  volume as a quotient of Lebesgue measures, `Covers P r` (`rP + Z^4 =
+  R^4`) and the inductive family `Generated`, and states `NonHollow`,
+  `Radius` (2 is the least `r ≥ 0` with `Covers P r`), `Volume` and
+  `OutsideList` (`P` is not in `Generated`). **Freezing, in two versions.**
+  Version 1 of the statement file was checked against the source, together
+  with the reading of the source, by a Codex agent that had written neither
+  the statement nor any proof, and approved on 20 November 2026 at 19:31:21
+  UTC before it had been compiled; its compilation then failed with a parse
+  error (a notation scope was not opened). Version 2 differs from version 1
+  only in that line (all definitions and the four target lines are
+  byte-identical), compiled without diagnostics, was approved at 19:33:19
+  UTC by a second Codex agent that had not written the statement or the
+  proofs for this problem, and was frozen at 19:33:34 UTC. Between the
+  approval of version 1 and the freeze two proof files were created:
+  `Geometry.lean`, revised after the freeze, and `Residues.lean`, which uses none of the definitions of the statement file and was created in its final form; the
+  development logs record no compilation of a proof file before 19:33:41
+  UTC, after the freeze. OpenAI Codex wrote the statements and the proofs
+  and checked the package in two new empty directories on the author's Mac
+  (`certificates/css-covering-equality/lean-package/`); the text was written
+  by Claude Code. See the disclosure below for the reviews.
+
+**Paper 22: [`papers/a7-terrace`](papers/a7-terrace/note.pdf).**
+*A terrace for the alternating group `A_7`.* 9 pages.
+
+- An arrangement `a_1, …, a_n` of the elements of a finite group is a
+  terrace if, among the quotients `a_i^(−1) a_(i+1)`, every involution occurs
+  exactly once and every other non-identity element `g` occurs, together
+  with `g^(−1)`, exactly twice in total. Bailey conjectured that every finite
+  group except the non-cyclic elementary abelian 2-groups has a terrace; the
+  families of terraced groups are collected in Ollis's dynamic survey
+  (Electron. J. Combin. DS10, version 3, 2025, Theorem 32).
+- **Theorem 1.** There is a basic terrace of `A_7`, the group of even
+  permutations of `{0, …, 6}` (order 2520). It is explicit, found by a
+  hill-climbing search in the style of Ollis and stored in the Lean file
+  `Data.lean`. As far as the searches show, none of the families of
+  Theorem 32 of the survey is known to contain `A_7` (it is simple, its
+  order exceeds the computer searches, which reach order 511, and it is not
+  known to be sequenceable); a theorem of Müyesser and Pokrovskiy covers all
+  sufficiently large non-abelian groups, without an explicit bound. So this
+  is a further verified case of Bailey's conjecture. **Corollary 1**, with
+  Theorem 9 of the survey (Anderson and Ihrig): every group with a unique
+  involution `G` with `G/O(G)Λ(G) ≅ A_7` has a symmetric sequencing, the
+  `A_7` case of their reduction of Anderson's conjecture.
+- Scope and earlier results: the search method is that of Ollis, and the
+  reduction is due to Anderson and Ihrig, whose paper was read only in
+  Ollis's paraphrase. Bailey's conjecture, Anderson's conjecture and the
+  cases `PSL(2, q)` and `PGL(2, q)` of the reduction are not settled. The
+  terrace is not directed (Remark 1: some quotients occur twice), so it says
+  nothing about whether `A_7` is sequenceable (Keedwell's conjecture). The
+  consequences of Section 4 combine the Lean result with published theorems
+  and are not formalized; Remark 1 is a computation outside Lean.
+- Lean: `lean/Research/TaskR/A7/` (8 modules: the statement file, 5 proof
+  modules, `Proof.lean` and `CheckA7.lean`). The statement file
+  `Challenge.lean` takes Mathlib's `alternatingGroup (Fin 7)` and states
+  `HasTerrace`: there is a bijection `a` from `{0, …, 2519}` onto the group
+  with `a 0 = 1` such that, for every `g ≠ 1`, the number of `i` with
+  `a_i^(−1) a_(i+1) = g` or `= g^(−1)` is 1 if `g = g^(−1)` and 2 otherwise.
+  The statement does not contain the terrace. The proof checks a certificate
+  (the rows, a matching of the quotients) with a checking program that is
+  proved correct and evaluated by the Lean kernel (`decide +kernel` on 79
+  blocks), and a counting lemma (Lemma 1 of the paper) turns the certificate
+  into the statement. A newly started Codex agent that had taken no part in
+  finding the terrace and had written neither the statement nor the proofs
+  checked the reading of the sources and reviewed the statement file
+  against Ollis's paper and survey, and it was frozen on 20 November 2026 at
+  19:32:16 UTC; the development logs record only a compilation of the
+  statement file itself before that time. OpenAI Codex found the terrace,
+  wrote the statements, the encoder and the proofs, and checked the package
+  in two new empty directories on the author's Mac
+  (`certificates/a7-terrace/lean-package/`); the text was written by Claude
+  Code. See the disclosure below for the reviews.
+
+**Paper 23: [`papers/domination-root-radius`](papers/domination-root-radius/note.pdf).**
+*The largest domination roots of friendship graphs and of joins with repeated petals.* 11 pages.
+
+- The domination polynomial `D(G, x)` counts the dominating sets of a graph
+  by size. The friendship graph `F_m = K_1 ∨ mK_2` consists of `m` triangles
+  with a common vertex. Alikhani, Brown and Jahari (*On the domination
+  polynomials of friendship graphs*, Filomat 30 (2016); Question 2 of §3 of
+  arXiv:1401.2092v2) showed that the moduli of its domination roots are
+  unbounded and asked (Question 3.2): what is a good upper bound on the
+  modulus of the roots? Rather (arXiv:2604.08998v2) proved the explicit
+  bound `1 + √(m/log 2)` and an implicit bound `R_m` with
+  `(R_m − 1)² log R_m = m`, which he did not expect to be asymptotically
+  sharp.
+- **Theorems 1 and 2.** For a fixed graph `B` with at least one vertex and a
+  fixed `a ≥ 1`, let `J_m = K_a ∨ mB`. The largest modulus `M_m` of a complex
+  root of `D(J_m, x)` is attained, and `M_m/S_m → 1` as `m → ∞`, where
+  `S_m = (c s m/(a log m))^(1/c)`, `c = 1 + δ(B)` and `s` is the number of
+  distinct closed neighbourhoods of size `c` in `B`. **Corollary 1:** for
+  friendship graphs `M_m/√(2m/log m) → 1`; so the moduli grow faster than
+  the logarithm suggested by the numerical data of the source.
+- Scope and earlier results: the friendship formula, the hyperbola of
+  limits and the question are from Alikhani, Brown and Jahari; the formula
+  for `D(J_m, x)` follows from standard facts on domination polynomials of
+  disjoint unions and joins (Alikhani and Peng; Kotek, Preen, Simon,
+  Tittmann and Trinks). For friendship graphs the upper half of Corollary 1
+  already follows from Rather's implicit bound, since `R_m ∼ √(2m/log m)`
+  (Remark 1, a short computation not in Lean); what is new there is the
+  matching lower bound, which shows that Rather's implicit bound is
+  asymptotically sharp and his explicit bound is not. The general family is
+  new as far as the searches show. A similar phenomenon is known for
+  chromatic roots of generalized theta graphs (Brown, Hickman, Sokal and
+  Wagner). The results are limits: no explicit bound for a fixed `m` is
+  given, and for those Rather's bounds remain the available ones. The
+  convergence is slow; the numerical values of the paper are not in Lean.
+- Lean: `lean/Research/TaskP/RootRadius/` (14 modules: the statement file,
+  11 proof modules, `Proof.lean` and `CheckRootRadius.lean`; namespace
+  `TaskP.GraphRootRadius`). The statement file `Challenge.lean` defines
+  dominating sets, the domination polynomial over `ℂ` as a sum over the
+  dominating sets of the actual graph, the join `petalJoin a m B`, the
+  numbers `c` and `s` (`s` counts distinct closed neighbourhoods), the
+  largest modulus `rootRadius` as a supremum over all complex roots, and the
+  scale `S_m`; it states `Attainment` (the supremum is a maximum, for all
+  `a, m ≥ 1` and every `B`), `GeneralAsymptotic` (Theorem 2, for every
+  finite nonempty `B` and every `a ≥ 1`) and `FriendshipAsymptotic`
+  (Corollary 1). Its only proofs are the two short checks that the
+  adjacency of `petalJoin` is symmetric and irreflexive. One Codex agent,
+  which had taken part neither in the proof nor in drafting the statement,
+  checked the reading of the source and reviewed the statement file against
+  it, and it was frozen on 20 November 2026 at 18:06:37 UTC; the file times
+  and the development logs show no proof file before that time. OpenAI
+  Codex wrote the statements and the proofs and checked the package in two
+  new empty directories on the author's Mac
+  (`certificates/domination-root-radius/lean-package/`); the text was
+  written by Claude Code. See the disclosure below for the reviews.
+
+**Paper 24: [`papers/bar-tiling-defect`](papers/bar-tiling-defect/note.pdf).**
+*Multisets of bars that do not tile a `2 × n` rectangle: the optimal growth order.* 10 pages.
+
+- Gajdzica, Visser and Zakarczemny (*Rectangle partitions generalizing
+  integer partitions*, Ann. Comb., published online 28 April 2026;
+  arXiv:2509.20495v2) count partitions of a rectangle into blocks. Let
+  `D_k(n) = p_k(2n) − p_{k,1}(2, n)` be the number of multisets of bars
+  `1 × ℓ`, `ℓ ≤ k`, of total area `2n` that cannot be arranged to tile the
+  `2 × n` rectangle. In Remark 5.11, from conjectured formulas for
+  `4 ≤ k ≤ 8`, they observe that this difference is `O(1)` for `k ≤ 5`,
+  `O(n)` for `k = 6, 7` and `O(n²)` for `k = 8`, and they ask for a tight
+  upper bound for all `k`.
+- **Theorem 1.** With `e_k = max(0, ⌊k/2⌋ − 2)`: (a) `D_k(n) = 0` for
+  `k ≤ 2`; (b) for every `k ≥ 3`, `D_k(n) ≤ C (n + 1)^(e_k)` for all
+  `n ≥ 1`; (c) for every `k ≥ 3`, `(n + 1)^(e_k) ≤ C D_k(n)` for arbitrarily
+  large `n`; (d) for `k ≥ 6`, the same for every large odd `n`. **Corollary
+  1:** the three observations of Remark 5.11 hold unconditionally and are
+  sharp. The proof uses a two-row criterion for tileability, a bounded
+  Bézout argument and families of bars of even length.
+- Scope and earlier results: the counts, the explicit formulas for
+  `k, l ≤ 3` and the conjectured formulas of Table 2 are those of the
+  source; Shaikh (arXiv:2609.13305) proved the neighbouring Conjecture 5.10
+  and does not address Remark 5.11; three other 2026 papers on rectangle
+  partitions (Gajdzica and Zakarczemny, twice; Shukla) treat different
+  questions. The answer is in the sense of the optimal polynomial order; the
+  matching lower bound is claimed only along subsequences (every large odd
+  `n` for `k ≥ 6`, every `n ≡ 2 (mod 3)` for `3 ≤ k ≤ 5`), nothing is
+  claimed about the lower limit, and the constants are not explicit. The
+  two-row criterion is proved in Lean on the way but is not a frozen
+  statement; the specialization of Corollary 1 and the computed values are
+  not in Lean.
+- Lean: `lean/Research/TaskP/RectangleDefect/` (18 modules: the statement
+  file, 15 proof modules, `Proof.lean` and `CheckRectangle.lean`). The
+  statement file `Challenge.lean` describes a multiset of bars by its vector
+  of counts and defines `tiles m n` geometrically, as in Definition 1.2 of
+  the source: every bar occurrence gets its own real anchor and direction,
+  the closed bars cover exactly `[0, 2] × [0, n]` and distinct occurrences
+  have disjoint interiors; `defect k n` is `D_k(n)`, and `SharpBound` states
+  the finiteness of the sets counted (so the counts are true cardinalities)
+  and parts (a)–(d) of Theorem 1, for `n > 0` as in the source. **An earlier
+  draft** of the statement (`candidate-01`) used cells with natural-number
+  anchors; its reviewer returned it, asking that the real-coordinate
+  definition of the source be covered. The revised file was reviewed against
+  the source by a Codex agent that had written neither the statement nor the
+  proofs, and frozen on 20 November 2026 at 18:06:09 UTC; the file times and
+  the development logs show no proof file before that time. OpenAI Codex
+  wrote the statements and the proofs and checked the package in two new
+  empty directories on the author's Mac
+  (`certificates/bar-tiling-defect/lean-package/`); the text was written by
+  Claude Code. See the disclosure below for the reviews.
+
+**Paper 25: [`papers/minkowski-length-simplices`](papers/minkowski-length-simplices/note.pdf).**
+*Lattice simplices whose Minkowski length exceeds the lattice diameter, and dilates whose Minkowski length is not quasi-linear.* 11 pages.
+
+- The Minkowski length `L(P)` of a lattice polytope is the largest number of
+  lattice polytopes of positive dimension whose Minkowski sum is contained
+  in `P`; the lattice diameter `ℓ(P)` is one less than the largest number of
+  collinear lattice points in `P`. Soprunov and Soprunova (*Eventual
+  quasi-linearity of the Minkowski length*, European J. Combin. 58 (2016);
+  arXiv:1412.4404v2) proved that `L(tP)` is eventually quasi-linear and
+  asked whether it is always quasi-linear (Problem 2) and whether `L = ℓ`
+  for every lattice simplex (Problem 3).
+- **Theorem 1.** `T = conv{(1,0,1), (3,3,1), (2,0,3), (0,3,3)}` has
+  `ℓ(T) = 1` and `L(T) = 2`, and in every dimension `d ≥ 3` there is a lattice
+  simplex with `ℓ = 1` and `L = 2`. **Theorem 2.** The empty tetrahedron
+  `U = conv{0, (1,0,0), (0,0,1), (13,18,1)}` has `L(U) = 1` and `L(tU) = 3t`
+  for every `t ≥ 2`, so `L(tU)` is not quasi-linear; the same holds in every
+  dimension `d ≥ 3`. Lattice pyramids carry both examples to higher
+  dimensions. **Corollary 1:** with the source's result for triangles,
+  Problem 3 is true for `d ≤ 2` and false for every `d ≥ 3`.
+- Scope and earlier results: both tetrahedra are known objects: `T` is one
+  of the tetrahedra with eight lattice points enumerated by Blanco and
+  Santos (its entry in their database was not identified), and `U` is an
+  empty tetrahedron (White's classification); Meyer, Soprunov and Soprunova
+  (2022) give `L(2U) ≥ 3`, without discussing the whole sequence or the
+  problems. The sequence `L(tU)` is linear from `t = 2` on, in agreement with
+  the eventual quasi-linearity of the source; only its first term breaks
+  quasi-linearity. Problem 1 of the source is not addressed. The paper notes
+  that the identity `L_1(P) = ⌊λ_1(P)⌋` used in Remark 2.21 of the source
+  fails for `U`, so that the conclusion of that remark is not supported in
+  general (it is not shown to be false); the main theorem of the source is
+  not affected. This remark, Corollary 1 for `d ≤ 2` and the periodicity
+  remark are not formalized.
+- Lean: `lean/Research/TaskP/GeomSimplex/` (16 modules: the statement file,
+  13 proof modules, `Proof.lean` and `CheckSimplex.lean`). The statement file
+  `Challenge.lean` defines lattice polytopes and simplices in `ℝ^d` as real
+  convex hulls of lattice points, full-dimensionality by affine
+  independence, dilates, `packs P k` (`P` contains the Minkowski sum of `k`
+  lattice polytopes with at least two lattice points each), `lengthIs P n`
+  (`L(P) = n`), `diameterOne P` (`ℓ(P) = 1`) and `quasiLinearLengths P`
+  (Definition 1.3 of the source), and states `TetrahedronDiameter`,
+  `TetrahedronDilations`, `EveryDimensionDiameter` and
+  `EveryDimensionDilations`. A Codex agent that had written neither the
+  statement nor the proofs reviewed the statement file against the source,
+  and it was frozen on 20 November 2026 at 18:06:09 UTC; the development logs
+  record no compilation of a proof file before that time. OpenAI Codex wrote
+  the statements and the proofs and checked the package in two new empty
+  directories on the author's Mac
+  (`certificates/minkowski-length-simplices/lean-package/`); the text was
+  written by Claude Code. See the disclosure below for the reviews.
+
+**Paper 26: [`papers/css-covering-minima`](papers/css-covering-minima/note.pdf).**
+*Covering minima of the standard terminal simplex and a discrete surface area bound for the covering radius of simplices.* 13 pages.
+
+- The covering radius `μ(K, Λ)` of a convex body is the least `μ ≥ 0` such
+  that `μK + Λ` is the whole space, and the `i`-th covering minimum `μ_i(K)`
+  (Kannan and Lovász) is the largest covering radius of a linear projection
+  of `K` to dimension `i` under which `Z^n` is mapped onto a lattice.
+  González Merino and Schymura (*On densities of lattice arrangements
+  intersecting every i-dimensional affine subspace*, Discrete Comput. Geom.
+  58 (2017); arXiv:1605.00443v1, Remark 4.9) conjectured that the standard
+  terminal simplex `T_n = conv{−1, e_1, …, e_n}` satisfies `μ_i(T_n) = i/2`
+  for `1 ≤ i ≤ n`. Codenotti, Santos and Schymura (*The covering radius and
+  a discrete surface area for non-hollow simplices*, Discrete Comput. Geom.
+  67 (2022); arXiv:1903.02866v2) stated this as their Conjecture B, showed
+  that it is equivalent to the inequality part of their Conjecture A
+  (`μ(P) ≤ d/2` for non-hollow lattice `d`-polytopes), proved it for
+  `i ≤ 3`, and proposed Conjecture C, a discrete analogue of Hadwiger's
+  inequality: `μ(S) ≤ (1/2) Surf(S)/Vol(S)` for every `d`-simplex with the
+  origin in its interior and rational vertex directions, where `Surf` is a
+  discrete surface area obtained by projecting along the vertex directions.
+  Conjecture C was known for `d ≤ 2`, for some families, and in general up
+  to a constant factor; Krivokuća (arXiv:2601.15173, 2026) proved weaker
+  general bounds for Conjecture B and listed it as open.
+- **Theorem 1** (Conjecture B). For all `1 ≤ i ≤ n`: every projection
+  `p` with `p(Z^n)` a lattice satisfies `p(Z^n) + (i/2) p(T_n) = R^i`, and
+  for the coordinate projection `i/2` is the least such scale; so
+  `μ_i(T_n) = i/2`. **Theorem 2** (Conjecture C). For primitive integer
+  vectors `u_0, …, u_d`, positive reals `ω_i` and `S = conv{ω_i u_i}` with
+  the origin in its interior, `Z^d + rS = R^d` with
+  `r = (D_0 + … + D_d)/(2V)`, where `V` and `D_i` are explicit determinants
+  equal to the normalized volume of `S` and of its projections along the
+  vertex directions. **Theorem 2′** gives the same with the volumes taken as
+  Lebesgue measures of actual projected sets. Both proofs average sawtooth
+  functions over their jump points (Lemma 5, elementary, for which no
+  novelty is claimed); for Theorem 1 this is combined with an induction that
+  splits a rational kernel along the support of a nonnegative vector, for
+  Theorem 2 with determinant identities for the barycentric coordinates of
+  the origin.
+- **Corollary 3** (not formalized). Every non-hollow lattice `d`-polytope
+  satisfies `μ(P) ≤ d/2`: this is the d/2 bound of Conjecture A, and it
+  follows from either theorem by published arguments of Codenotti, Santos
+  and Schymura (the proof of their Theorem 1.2, or of their Corollary 4.3,
+  with their reduction to simplices). The equality clause of Conjecture A
+  does not follow, and it fails in dimension 4 (Paper 21); Corollary 3 is
+  not a proof of Conjecture A. Conjecture D of the same paper and the case
+  of simplices with the origin on the boundary are not addressed.
+- Scope and earlier results: Conjecture B was known for `i = n` (González
+  Merino and Schymura), `i = 1` and `i ≤ 3`; the primitive integer relation
+  among the vertex directions and the chord form of the bound are in
+  Codenotti, Santos and Schymura. The paper records that the search for
+  problems in which the conjectures were selected had already produced
+  written arguments: for Conjecture B by a different route, and for
+  Conjecture C the argument of the paper in chord form (see the disclosure
+  below); these notes are not claims of the paper. Section 5 (Corollary 3,
+  the remarks on equality and the other written arguments) is not
+  formalized, and neither is the independence of the projected volumes from
+  the choice of projection (Lemma 11).
+- Lean: `lean/Research/TaskS/` (25 modules: `B/` with the statement file,
+  8 proof modules, `Proof.lean` and `CheckB.lean`; `C/` with the statement
+  file, 9 proof modules, `Proof.lean`, `CheckC.lean` and
+  `MeasureAudit/CheckC.lean`; and `Shared/Sawtooth.lean`, the averaging
+  lemma, used by both). `B/Challenge.lean` defines `T_n` as a real convex
+  hull, `LatticeProjection p` (a linear surjection mapping `Z^n` onto the
+  integer combinations of some real basis of `R^i`, that is, onto a
+  lattice) and `Covers p r` (`p(Z^n) + r p(T_n) = R^i`), and states
+  `ConjectureB`: for all `0 < i ≤ n`, every admissible `p` covers at scale
+  `i/2`, and for some admissible `p`, `i/2` is the least such scale.
+  `C/Challenge.lean` defines primitive vectors, the simplex with vertices
+  `ω_i u_i`, the determinants `V` (`volume`, the file's own definition) and
+  `D_i` (`projectedVolume`) and `Covers`, and states `conjectureC` for every
+  dimension `d = n + 1 ≥ 1`. The reading of the sources was checked by a
+  Codex agent that had written neither statement and had not taken part in
+  the earlier search for problems; the same agent reviewed both statement
+  files, after checking that each compiled without diagnostics, and both
+  were frozen on 20 November 2026 at 22:30:34 UTC; according to the
+  development logs no proof file was compiled before 22:30:49 UTC. An
+  earlier draft of the statement for Conjecture B had failed to compile
+  before the review. OpenAI Codex wrote the statements and the proofs and
+  checked them in two new empty directories on the author's Mac
+  (`certificates/css-covering-minima/lean-package/`); the text was written
+  by Claude Code. See the disclosure below for the reviews.
+
+**Paper 27: [`papers/heisenberg-125-determinants`](papers/heisenberg-125-determinants/note.pdf).**
+*The integer group determinants of the Heisenberg group of order 125.* 13 pages.
+
+- For a finite group `G` and an integer-valued function `f` on `G`, the
+  group determinant is `det(f(g h⁻¹))` with rows `g` and columns `h`, and
+  `S(G)` is the set of its values. Olga Taussky-Todd asked in 1977 which
+  integers are circulant determinants with integer entries; the same
+  question is asked for every finite group. Complete answers are known for
+  all groups of order at most 14 (Pinner and Smyth, Ramanujan J. 51 (2020))
+  and, according to Panraksa, for all groups of order less than 20 and both
+  groups of order 25. Mossinghoff and Pinner (*The integer group
+  determinants for the Heisenberg group of order p³*, Michigan Math. J. 74
+  (2024); arXiv:2108.04870v1, whose numbering the paper cites) determined
+  `S(H_3)`; for `p = 5` they showed that the values prime to 5 are the
+  integers `m` with `m^4 ≡ 1 (mod 125)` (Corollary 3.2) and that every
+  nonzero value divisible by 5 is divisible by `5^28`, with `5^28` exactly
+  dividing some value (Theorem 3.4). The multiples of 5 in `S(H_5)` were
+  left undetermined; their example for `p = 5` has a cofactor of about
+  `2.3·10^69`.
+- A prime `ℓ` is *visible* if `ℓ ≡ 1 (mod 5)` and some element of
+  `Z[ζ_5]` of norm `ℓ` is not congruent modulo 5 to a unit of `Z[ζ_5]`
+  (Definition 1; by Lemma 2, "some" can be replaced by "every"). Below 600
+  the primes `ℓ ≡ 1 (mod 5)` that are not visible are 211, 281, 421, 461
+  and 521.
+- **Theorem 1.** `S(H_5)` consists of the integers `m` with
+  `m^4 ≡ 1 (mod 125)`, all multiples of `5^33` (0 included), and the
+  integers `5^28·n` with `n ≠ 0` divisible by a visible prime.
+  Equivalently, for `m ≠ 0` with `v = v_5(m)`: if `v = 0`, `m` is a value
+  if and only if `m^4 ≡ 1 (mod 125)`; if `1 ≤ v ≤ 27`, it is not; if
+  `28 ≤ v ≤ 32`, it is if and only if `m` has a visible prime factor; if
+  `v ≥ 33`, it is. **Corollary 1.** The least positive value divisible by 5
+  is `11·5^28 = 409781932830810546875`, the group determinant of
+  `1 + x + y + y² + xy²`. **Corollary 2.** `5^32` is not a value, so 33 is
+  the least `k` with `5^k Z ⊆ S(H_5)`. For example `11·5^28`, `31·5^30` and
+  `211·11·5^28` are values, while `211·5^28`, `3·5^29` and `5^28` are not.
+- The proofs use the factorization of Mossinghoff and Pinner into the
+  augmentation, the norms of six "ray" values and the fifth power of the
+  norm of a five-dimensional factor `D`, and their congruence for `D`. For
+  necessity, a phase argument shows that if every ray value is `π = 1 − ζ`
+  times an element congruent modulo 5 to a unit, then the valuation is at
+  least 33; a visible prime is what breaks this balance. For sufficiency,
+  three elements of `Z[C_5 × C_5]` found by Panraksa serve as seeds; a row
+  shift inserts an element of `Z[ζ_5]` into one ray, and an exact lift
+  fixes `D` by explicit cofactor certificates.
+- Scope and earlier results: the factorization, the congruence, both
+  directions of the description of the values prime to 5 and the bound
+  `5^28` are due to Mossinghoff and Pinner; the seeds are from Panraksa
+  (arXiv:2608.04267v1, Proposition 3.1), who used them to prove
+  `S(C_5^2) ∩ 5Z = 5^8 Z`; his description of the two lowest valuations for
+  `C_7 × C_7` by conditions on ideals of `Z[ζ_7]` (arXiv:2609.09542v1) is a
+  precedent for a criterion of this kind; and membership of a given integer
+  in `S(G)` can in principle be decided by the lattice isomorphism
+  algorithms of Bley, Hofmann and Johnston, which give no explicit
+  description. What is new is the description of the multiples of 5: the
+  inclusion `5^33 Z ⊆ S(H_5)`, the visible-prime criterion at the
+  valuations 28 to 32, and the minimum. Corollary 1 is a special case of
+  Theorem 1, but it was stated and verified separately, before Theorem 1.
+  Corollary 2 is not a separate Lean statement. Remark 1 (by class field
+  theory the visible primes have density 4/5 among the primes
+  `ℓ ≡ 1 (mod 5)`, and, as a numerical observation for the primes below
+  20,000, `ℓ` is visible exactly when the golden-ratio unit is not a fifth
+  power modulo a prime above `ℓ`) is not formalized and not used. Lemma 2
+  is proved in the text but not in Lean; Theorem 1 does not need it, since
+  visibility is defined with "some".
+- Lean: `lean/Research/TaskU/` (63 modules: `H5/` with the 37 files of the
+  minimum, that is, the statement file `Challenge.lean`, 33 proof modules,
+  the audit file `Audit.lean` and the check files `CheckWitness.lean` and
+  `Check.lean`; `H5B/` with the 26 further files of the classification, that
+  is, the statement file `ChallengeB.lean`, 23 proof modules, `ProofB.lean`
+  and `CheckB.lean`). `Challenge.lean` defines `H` as triples `⟨a, b, c⟩`
+  over `ZMod 5`, standing for `x^a y^b z^c`, with the product
+  `⟨a + a′, b + b′, c + c′ + b·a′⟩`, the witness, and
+  `groupDet f = det(f(g * h⁻¹))` for every `f : H → ℤ`, and states
+  `witnessValue` (`groupDet witness = 11 * 5 ^ 28`) and
+  `leastPositiveMultiple` (`11 * 5 ^ 28` is the least element of the set of
+  positive values divisible by 5). `ChallengeB.lean` uses `H` and
+  `groupDet` and, from `Cyc5.lean`, the arithmetic of `Z[ζ_5]` in the basis
+  `1, ζ, ζ², ζ³` (`Cyc5.mul` and `Cyc5.norm`, the full field norm); it
+  defines `congrFive` (congruence modulo `5Z[ζ_5]`), `unitImage` (the residue
+  is that of an element with an inverse) and `visible q`, and states
+  `fullSpectrum`: for every integer `m`, `m` is a value if and only if
+  `m^4 ≡ 1 (mod 125)`, `5^33 ∣ m`, or `m = 5^28·n` with `n ≠ 0` and a
+  visible prime dividing `n`. Each statement file was checked against the
+  source by a Codex agent that had not written it and frozen on 21 November
+  2026, `Challenge.lean` at 01:32:25 UTC and `ChallengeB.lean` at 03:22:48
+  UTC; according to the development logs no proof file was compiled before
+  these times, and the 37 files of the minimum were not changed when the
+  classification was added. The witness value is computed by the kernel
+  through a proved triangular certificate. OpenAI Codex wrote the
+  statements and the proofs and checked them in two new empty directories
+  on the author's Mac (`certificates/heisenberg-125-determinants/lean-package/`);
+  the text was written by Claude Code. See the disclosure below for the
+  reviews.
+
 **Also formalized (known results): OEIS A246056 and A376230.** Both are
 Hanna conjectures listed as open on the OEIS, but their content follows from
 published theorems, so we claim no new mathematics here:
@@ -1289,6 +2036,17 @@ no error of version 2.
 | Paper 14: Theorems 1, 2 and 3 (for the two-point and the five-point action of `C_2`: the parameters of the source, the rank of the equivariant group, the failure of the bound of Theorem 4 for the first, and for the second the rank below both packet expressions; for every `n ≥ 3`: a faithful action of a cyclic group with `r = κ = n`, `Λ = 0`, rank 2 and `n` packets for every valid choice of generating sets) | `TaskJ.Rank.check_TwoPointParameters`, `check_FivePointParameters`, `check_TwoPointRank`, `check_FivePointRank`, `check_TwoPointCounterexample`, `check_FivePointCounterexample` (`lean/Research/TaskJ/Rank/CheckRank.lean`) and `TaskJ.Rank.Extension.check_UnboundedGap` (`lean/Research/TaskJ/Rank/Extension/CheckExtension.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `5ebdebf7…21e5`) and `Extension/Challenge.lean` (`efa3009d…ad72`); proved by the theorems of the same names in `TaskJ.Rank.Proof` and `TaskJ.Rank.Extension.Proof` | the 5 and the 10 modules built and checked with `leanchecker` by Codex in two new empty directories each (22 and 42 commands with exit code 0, identical `.olean` files), the repository versions again by Claude Code in two new empty directories on the author's Mac (18 November 2026, 19:12–19:21 UTC), and all 15 in the whole-project rebuild of version 1.23.0 (`certificates/equivariant-rank/lean-package/`); the axiom lists of the seven checks are exactly the three standard axioms; the parameter values are computed with `decide +kernel`, no `native_decide`; the parameters of the examples were also recomputed by the final reviewer, and the 21-point example of the source by a Codex program, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: the four remarks marked as written arguments (transitive actions, the corrected bound, the second reading of `δ` in the preprint, the smaller variant of the family), the isomorphism types `C_2 × S_3` and `Z/M × Z/M` named in the written proofs, the 21-point example of the source, and what the paper says about the literature |
 | Paper 15: Theorem 1 (for every finite list of positive side lengths: every ordering of the points of the box has length at most `U_r(D) − κ(D)`, some ordering attains it, and every longest ordering has gap exactly `κ(D)` to the bound `U_r(D)` printed in (6) of Yuan's paper), with the steps of its proof (Propositions 1 and 2, the constructions of Section 3) | `check_LengthUpperBound`, `check_LengthAttained`, `check_YuanGapAtLongest` (root namespace, `lean/Research/TaskJ/Grid/CheckGrid.lean`), whose types are the frozen statements `Challenge.LengthUpperBound`, `Challenge.LengthAttained` and `Challenge.YuanGapAtLongest` (`Challenge.lean` SHA-256 `6b0ad9f9…5e07`); proved by `Proof.LengthUpperBound`, `Proof.LengthAttained` and `Proof.YuanGapAtLongest` in `Proof.lean` | the 28 modules built and checked with `leanchecker` by Codex in two new empty directories (114 commands with exit code 0, identical `.olean` files), the repository versions again by Claude Code in two new empty directories on the author's Mac (18 November 2026, 19:12–19:21 UTC), and all 28 in the whole-project rebuild of version 1.23.0 (`certificates/lattice-box-paths/lean-package/`); the axiom lists of the three checks are exactly the three standard axioms; `decide` is used for the fixed seeds and finite case splits, no `native_decide`; the formula was also checked by the final reviewer by exhaustive search on small boxes (all 67 boxes with at most 8 points and at most three sides, all 40 boxes with sides at least 2 and at most 20 points, and further boxes including `2 × 3 × 4`, `2 × 2 × 2 × 3` and `3 × 3 × 3`), with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Corollary 2 and the comparison with Jiang's conjecture (they also use Yuan's formula for a single coordinate, Theorem 2.3 of his paper), the closed forms of Corollary 1 as separate statements (they are rewritings of the formula of Theorem 1), the particular ordering printed in Remark 3 (the instance of `LengthAttained` for `2 × 3 × 4` gives some ordering of length 101), and what the paper says about the literature |
 | Paper 16: Theorem 1 (for every numerical semigroup `S`, the set of lengths of its decompositions into irreducible numerical semigroups is nonempty and contains every integer between two of its elements; the same for positive lengths) and Corollary 1 in the form of Conjecture 3.9 (multiplicity `2k`: a length `j` with `k < j < 2k` gives the length `j − 1`), with the steps of the proof (the cover criterion, the exchange of Lemma 4, the step of Lemma 5 and its termination, Lemma 7) and Theorem 2 | `TaskL.Semigroup.check_LengthsExist`, `check_LengthsInterval`, `check_PositiveLengthsInterval`, `check_EvenMultiplicityDescent` (`lean/Research/TaskL/Semigroup/CheckSemigroup.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `a0269ad5…6662`); proved by the theorems of the same names in `TaskL.Semigroup.Proof`; Theorem 2 is `short_even_decomposition` and Lemma 7 is `terminal_card` | the 12 modules built and checked with `leanchecker` by Codex in two new empty directories (18 November 2026, 23:55–23:59 UTC; 50 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory, with warnings treated as errors (19 November 2026, 01:36–01:41 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (19 November 2026, 02:11–02:17 UTC), and all 12 in the whole-project rebuild of version 1.24.0 (`certificates/numerical-semigroup-lengths/lean-package/`); the axiom lists of the four checks are exactly the three standard axioms; `decide` is used only for three numerical side facts, no `native_decide`; the statements were also checked by Codex by exact computation for all 1249 numerical semigroups other than `ℕ` with Frobenius number at most 17, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: the assertion `r(S) ∈ L(S)` (Remark 2), the finiteness of `L(S)` (at most `m − 1` components, Remark 3), the stronger form of Corollary 1 for every `j > k` (it follows at once from Theorems 1 and 2, but is not stated in Lean), the examples of Remarks 1 and 3, and what the paper says about the literature |
+| Paper 17: Theorem 1 without its last sentence (for every `n ≥ 11`, `⌊n/11⌋ + 1` trees on `n` vertices, each with a largest real independence root, pairwise incomparable under `⪯`) and Corollary 1 (Question 6 of Beaton and Cameron: for every `k`, some order has `k` pairwise incomparable trees), with the steps of the proof (the gadget polynomials and their difference, the transfer recursion, the site bounds and the zero-free interval `[−1/6, 0]`, the existence of the largest real root for the trees used, the exchange, and the strict monotonicity at `−1/10` and `−1/6`) | `TaskN.Antichain.check_WidthLowerBound`, `check_ArbitrarilyLarge` (`lean/Research/TaskN/Antichain/CheckAntichain.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `fb8861ac…5d58`); proved by `TaskN.Antichain.Proof.WidthLowerBound` and `Proof.ArbitrarilyLarge` | the 11 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (20 November 2026, 14:33–14:40 UTC; 46 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory, with warnings treated as errors (17:17–17:27 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (17:42–17:52 UTC), and all 11 in the whole-project rebuild of version 1.25.0 (`certificates/tree-antichains/lean-package/`); the axiom lists of the two checks are exactly the three standard axioms; `decide` is used only twice, on the one-element type `Unit`, no `native_decide`; the construction was also checked by Codex by exact computation at both test points for every order from 11 to 88, and the final reviewer recomputed the polynomials, the test values and the largest roots in Python for six orders, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: the bound 5 on the maximum degree (Remark 1), the last sentence of Theorem 1 as a separate statement (the paper derives it from the formal statement), and what the paper says about the literature |
+| Paper 18: Theorem 1 (for every nonempty list of positive car lengths, `W(y)` has at most `2^(n−1)` elements, with equality if and only if `n = 1` or conditions (i)–(iii) hold) and Theorem 2 (for a fixed superdecreasing tail, the number of first-car lengths in `[b, b + D]` that attain equality is `1 + Σ(2^(L_i) − 1)`), with the steps of the proof (the gap reduction, the properties of the residual and of subset sums, the bound, the criterion for equality, the necessity of a superdecreasing tail, the reduction to the first two positions, the symmetry condition, the ruler word and its palindromic prefixes) | `TaskN.Parking.check_ExtremalClassification`, `check_FirstLengthCount` (`lean/Research/TaskN/Parking/CheckParking.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `7f0d8043…e46e`); proved by `TaskN.Parking.Proof.ExtremalClassification` and `Proof.FirstLengthCount`; the gap reduction is `allPositions_iff` | the 12 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (20 November 2026, 14:35–14:44 UTC; 50 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory, with warnings treated as errors (17:19–17:26 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (17:42–17:52 UTC), and all 12 in the whole-project rebuild of version 1.25.0 (`certificates/variable-length-parking/lean-package/`); the axiom lists of the two checks are exactly the three standard axioms; no `decide` and no `native_decide`; Theorem 1 was also compared by Codex with a simulation of the parking rule for all 37,440 length vectors with 2 to 5 cars of lengths at most 8, and the final reviewer compared a computable copy of the statement file's parking model with its own simulation of Chen's rule, Theorem 1 with the simulation on 4,679 length vectors and Theorem 2 on 411 fixed tails, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: the three remarks of Section 5, the argument that a run on the street of the statement file (finite gaps and a frontier, infinite to the right) succeeds on Chen's finite street exactly when the final frontier is at most its length (given in the paper), the statements about `a < b` and `a > b + D` in Theorem 2 as separate statements (they follow from Theorem 1), and what the paper says about the literature |
+| Paper 19: Theorem 1 (for every prime `p`, the number of isomorphism classes of medial racks of order `p` equals that of 2-reductive racks plus `p − 2`; the same for quandles; every medial rack of order `p` that is not 2-reductive is a quandle), with the steps of the proof (invariance under isomorphism, the displacement group and its properties, the stabilizers and the divisibility argument, transitivity and regularity in prime order, the affine coordinates, the affine models and their uniqueness, the counting of classes) and Theorem 2 | `TaskP.PrimeMedialRacks.check_RackCount`, `check_QuandleCount`, `check_AutomaticIdempotence` (`lean/Research/TaskP/PrimeMedialRacks/CheckRack.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `36167e3c…c0d5`); proved by the theorems of the same names in `TaskP.PrimeMedialRacks.Proof`; Theorem 2 is `Proof.classified` with `affine_parameter_unique` | the 13 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (20 November 2026, 18:16–18:21 UTC; 54 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory, with warnings treated as errors (18:32–18:35 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (19:55–20:07 UTC), and all 13 in the whole-project rebuild of version 1.25.0 (`certificates/prime-medial-racks/lean-package/`); the axiom lists of the three checks are exactly the three standard axioms; no `decide` and no `native_decide`; the final reviewer also recomputed all racks and quandles of order at most 5 by brute force in Python, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: the values of the tables of the source, and what the paper says about the literature |
+| Paper 20: Theorem 1 (for every `d ≥ 1` and all coprime `2 ≤ a < b`, for `S = {x ∈ N^d : x_1 + … + x_d ∈ ⟨a, b⟩}`: the set `C` of points below a gap and the set `A` of atoms are finite, `A` generates `S`, every generating set contains `A`, and `d` times the number of elements of `C` is at most the number of elements of `A` times that of `C ∩ S`), with the steps of the proof (the reflection in the Frobenius number, the layers and their sizes, `C` as the points of degree at most `F`, the formula for `n(S)`, the atoms as two layers, the high-dimensional and the low-dimensional inequalities) | `TaskP.GradedWilf.check_Wilf` (`lean/Research/TaskP/GradedWilf/CheckWilf.lean`), whose type is the frozen statement of `Challenge.lean` (SHA-256 `b7db38db…83e6`); proved by `TaskP.GradedWilf.Proof.Wilf` | the 9 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (20 November 2026, 18:21–18:24 UTC; 38 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory, with warnings treated as errors (18:31–18:34 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (19:55–20:07 UTC), and all 9 in the whole-project rebuild of version 1.25.0 (`certificates/graded-wilf/lean-package/`); the axiom lists are exactly the three standard axioms; no `decide` and no `native_decide`; the inequality was also checked by Codex by exact computation for 6,204 parameter triples and by the final reviewer for 18,096, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: the deduction of Corollary 1 as a separate statement (a few lines), and what the paper says about the literature |
+| Paper 21: Theorem 1 (for `P = conv{e_1, e_2, e_3, e_4, −(2,1,1,1)}`: the origin is interior, the covering radius is exactly 2, the normalized volume is 6, and `P` is not in the family `Generated`), with the steps of the proof (coordinates and the lattice points of `P`, the residue certificate for `μ(P) ≤ 2` over 1296 residue vectors, the lower bound, the determinant, the centroid argument for the exclusion) | `TaskR.CSS.check_NonHollow`, `check_Radius`, `check_Volume`, `check_OutsideList` (`lean/Research/TaskR/CSS/CheckCSS.lean`), whose types are the frozen statements of `Challenge.lean` (version 2, SHA-256 `1dbf0ce8…8161`); proved by the theorems of the same names in `TaskR.CSS.Proof` | the 9 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (20 November 2026, 19:35–19:41 UTC; 38 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory (19:48–19:52 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (19:55–20:07 UTC), and all 9 in the whole-project rebuild of version 1.25.0 (`certificates/css-covering-equality/lean-package/`); the axiom lists of the four checks are exactly the three standard axioms; two finite checks use `decide +kernel` (the 1296 residue vectors and 64 subsets of lattice points), no `native_decide`; the final reviewer also recomputed the lattice points, facet normals and determinant in Python and checked the covering radius numerically, and Claude Code repeated the finite computations, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Lemma 4 (the family `Generated` contains every polytope of the equality list of Conjecture A and its unimodular images), hence the step from Theorem 1 to Corollary 1; the remarks of Section 5; and what the paper says about the literature |
+| Paper 22: Theorem 1 (there is a bijection `a` from `{0, …, 2519}` onto `A_7` with `a_0 = e` such that every involution occurs exactly once among the quotients `a_i^(−1) a_(i+1)` and every other non-identity `g` occurs, with `g^(−1)`, exactly twice), with the steps of the proof (the tables, the kernel-evaluated checks of the rows and of a matching of the quotients, the bijection onto `A_7`, the counting lemma) | `TaskR.A7.check_HasTerrace` (`lean/Research/TaskR/A7/CheckA7.lean`), whose type is the frozen statement of `Challenge.lean` (SHA-256 `27895ac5…37bb`); proved by `TaskR.A7.Proof.HasTerrace` | the 8 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (20 November 2026, 19:36–19:40 UTC; 34 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory (19:43–19:45 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (19:55–20:07 UTC), and all 8 in the whole-project rebuild of version 1.25.0 (`certificates/a7-terrace/lean-package/`); the axiom lists are exactly the three standard axioms; the certificate is checked by 79 calls of `decide +kernel` in `Cert.lean`, no `native_decide`; the terrace was also checked by two Python programs of Codex, by the final reviewer and by Claude Code, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: that the terrace is not directed (Remark 1), the consequences for the conjectures of Bailey, Anderson and Keedwell (Section 4), and what the paper says about the literature |
+| Paper 23: Theorem 1 (for every graph `B` with at least one vertex and all `a, m ≥ 1`, the moduli of the domination roots of `K_a ∨ mB` have a largest element), Theorem 2 (its ratio to `(c s m/(a log m))^(1/c)` tends to 1) and Corollary 1 (friendship graphs, `√(2m/log m)`), with the steps of the proof (the domination polynomial of the join, the leading missing term, the root equation, the upper bound, the disc and the maximum modulus principle for roots of the predicted size) | `TaskP.GraphRootRadius.check_Attainment`, `check_GeneralAsymptotic`, `check_FriendshipAsymptotic` (`lean/Research/TaskP/RootRadius/CheckRootRadius.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `d6663c9f…222d`); proved by the theorems of the same names in `TaskP.GraphRootRadius.Proof` | the 14 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (20 November 2026, 18:24–18:30 UTC; 58 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory (about 20:53–20:56 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (21:04–21:16 UTC), and all 14 in the whole-project rebuild of version 1.25.0 (`certificates/domination-root-radius/lean-package/`); the axiom lists of the three checks are exactly the three standard axioms; `decide` only for `0 < 1`, no `native_decide`; the leading term was also checked by Codex on all 1,099 labelled graphs with at most 5 vertices, and the final reviewer and Claude Code computed root moduli in Python, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: the comparison with Rather's bounds (Remark 1), the numerical values, the examples of `(c, s)` other than `K_2`, and what the paper says about the literature |
+| Paper 24: Theorem 1 (for `D_k(n)`, the number of multisets of bars of lengths at most `k` and total area `2n` that do not tile the `2 × n` rectangle, with tiling defined by real positions: `D_k(n) = 0` for `k ≤ 2`; `D_k(n) ≤ C (n + 1)^(e_k)` for `k ≥ 3`; `(n + 1)^(e_k) ≤ C D_k(n)` for arbitrarily large `n`, and for every large odd `n` when `k ≥ 6`), with the steps of the proof (the two-row criterion, the cases `k ≤ 2`, the bounded Bézout argument and the counting for the upper bound, the families of even bars for the lower bounds) | `TaskP.RectangleDefect.check_SharpBound` (`lean/Research/TaskP/RectangleDefect/CheckRectangle.lean`), whose type is the frozen statement of `Challenge.lean` (SHA-256 `906da3fa…29d9`); proved by `TaskP.RectangleDefect.Proof.SharpBound` | the 18 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (20 November 2026, 18:35–18:42 UTC; 74 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory (about 20:55–20:58 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (21:04–21:16 UTC), and all 18 in the whole-project rebuild of version 1.25.0 (`certificates/bar-tiling-defect/lean-package/`); the axiom lists are exactly the three standard axioms; `decide` only for four closed numerical facts, no `native_decide`; the criterion was also compared with enumeration of tilings by Codex (4308 count vectors, `k ≤ 8`, `n ≤ 10`) and by the final reviewer (`k ≤ 11`, `n ≤ 18`), with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Corollary 1 as a separate statement, the computed values (Remark 1 and Table 1), any statement about the lower limit of `D_k(n)/n^(e_k)`, and what the paper says about the literature |
+| Paper 25: Theorem 1 (`T` is a lattice 3-simplex with lattice diameter 1 and Minkowski length 2; for every `d ≥ 3` such a `d`-simplex exists) and Theorem 2 (`U` has `L(U) = 1` and `L(tU) = 3t` for every `t ≥ 2`, so `L(tU)` is not quasi-linear; the same in every dimension `d ≥ 3`), with the steps of the proof (segments and corners, the lattice points and the absence of three-segment sums in `T`, the cost bound and the segments in `2U` and `3U`, lattice pyramids) | `TaskP.GeomSimplex.check_TetrahedronDiameter`, `check_TetrahedronDilations`, `check_EveryDimensionDiameter`, `check_EveryDimensionDilations` (`lean/Research/TaskP/GeomSimplex/CheckSimplex.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `98fdde38…80a4`); proved by the theorems of the same names in `TaskP.GeomSimplex.Proof` | the 16 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (20 November 2026, 18:25–18:31 UTC; 66 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory, with warnings treated as errors (20:57–21:00 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (21:04–21:16 UTC), and all 16 in the whole-project rebuild of version 1.25.0 (`certificates/minkowski-length-simplices/lean-package/`); the axiom lists of the four checks are exactly the three standard axioms; the finite tables (triples and quadruples of lattice points) and the witness inequalities are checked by `decide` in the kernel, no `native_decide`; the final reviewer also recomputed the lattice points and segment sums in Python, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Corollary 1 for `d ≤ 2` (a result of the source), the periodicity remark, the remarks of Section 6 (the identity `L_1(P) = ⌊λ_1(P)⌋` and Remark 2.21 of the source), and what the paper says about the literature |
+| Paper 26: Theorem 1 (Conjecture B: for all `1 ≤ i ≤ n`, every linear surjection `p` with `p(Z^n)` a lattice satisfies `p(Z^n) + (i/2) p(T_n) = R^i`, and for some such `p` the scale `i/2` is the least one), Theorem 2 (Conjecture C: `Z^d + rS = R^d` with `r = (D_0 + … + D_d)/(2V)` for every simplex with primitive vertex directions and the origin in its interior, in every dimension `d ≥ 1`) and Theorem 2′ (the same with Lebesgue measures of projected sets), with the steps of the proofs (Hermite's identity and the averaging lemma, the kernel rounding by splitting, the upper and lower bounds for `T_n`, the integer relation and the determinant identities, the rounding and padding, the projections and their measures) | `TaskS.B.check_ConjectureB` (`lean/Research/TaskS/B/CheckB.lean`) and `TaskS.C.check_conjectureC` (`lean/Research/TaskS/C/CheckC.lean`) and `TaskS.C.MeasureAudit.check_conjectureC` (`lean/Research/TaskS/C/MeasureAudit/CheckC.lean`), whose types are the frozen statements of `B/Challenge.lean` (SHA-256 `458363b3…58b7`) and `C/Challenge.lean` (SHA-256 `607e2915…1a57e`); proved by `TaskS.B.Proof.ConjectureB` and `TaskS.C.Proof.conjectureC`; Theorem 2′ is `TaskS.C.MeasureModel.measured_conjectureC` | built and checked with `leanchecker` by Codex in two new empty directories each, with warnings treated as errors (20 November 2026: Theorem 1, 12 modules, 22:34–22:40 UTC, 50 commands; Theorem 2, 9 modules, 22:33–22:38 UTC, 38 commands; Theorem 2′, 14 modules, 22:38–22:44 UTC, 58 commands; all with exit code 0 and identical `.olean` files), again by each of the four final reviewers in a new directory (22:43–23:16 UTC), the 25 repository versions again by Claude Code in two new empty directories on the author's Mac (23:11–23:18 UTC), and all 25 in the whole-project rebuild of version 1.25.0 (`certificates/css-covering-minima/lean-package/`); the axiom lists are exactly the three standard axioms; no `decide`, no `native_decide`; the final reviewers also tested the averaging lemma, covering radii of more than 11,000 projections of `T_n` (`n ≤ 5`, `i ≤ 4`) and the bound of Conjecture C numerically, and Claude Code checked three lemmas numerically, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Corollary 3 (the d/2 bound of Conjecture A), the remarks of Section 5, the independence of the projected volumes from the choice of projection (Lemma 11), and what the paper says about the literature |
+| Paper 27: Theorem 1 (the value set `S(H_5)`: for every integer `m`, `m` is a group determinant of `H_5` with integer entries if and only if `m^4 ≡ 1 (mod 125)`, `5^33 ∣ m`, or `m = 5^28·n` with `n ≠ 0` divisible by a visible prime) and Corollary 1 (the least positive value divisible by 5 is `11·5^28`, attained by `1 + x + y + y² + xy²`), with the steps of the proofs (the factorization derived from the matrix itself, the normalization, the congruence for `D`, the bound `5^28`, the phases and the cancellation of the trace, the residues of the units, the prime extraction, both directions for the values prime to 5, the seeds, the exact lift and the constructions) | `TaskU.H5.Check.check_witnessValue` and `TaskU.H5.Check.check_leastPositiveMultiple` (`lean/Research/TaskU/H5/Check.lean`) and `TaskU.H5.check_fullSpectrum` (`lean/Research/TaskU/H5B/CheckB.lean`), whose types are the frozen statements of `H5/Challenge.lean` (SHA-256 `9a9a0e18…1343`) and `H5B/ChallengeB.lean` (frozen version SHA-256 `2a5066bf…9ea6`; the repository version differs only in its `import` lines); proved by `TaskU.H5.Proof.witnessValue`, `TaskU.H5.Proof.leastPositiveMultiple` and `TaskU.H5.ProofB.fullSpectrum`; the class number one of `Q(ζ_5)` is taken from Mathlib's proved theorem | built and checked with `leanchecker` by Codex in two new empty directories each, with warnings treated as errors (21 November 2026: the minimum, 37 modules, 01:42:55–01:56:09 UTC, 150 commands; the classification, all 63 modules, 03:33:17–03:55:22 UTC, 254 commands; all with exit code 0 and identical `.olean` files), again by each of the three final reviewers in a new directory (03:21–04:55 UTC), the 63 repository versions again by Claude Code in two new empty directories on the author's Mac (17:02–17:22 UTC), and all 63 in the whole-project rebuild of version 1.25.0 (`certificates/heisenberg-125-determinants/lean-package/`); the axiom lists are exactly the three standard axioms (two audit lemmas use fewer); all uses of `decide`, including the large tables, are checked by the kernel, and there is no `native_decide`; the final reviewers recomputed the witness determinant by exact elimination on the 125 × 125 matrix and tested the classification on random integer functions (4,650 exact determinants in one review; about 300,000 evaluations through the factorization, checked against 140 full determinants, in the other) without finding a counterexample, and Claude Code recomputed the determinants of the witness and of the example of Mossinghoff and Pinner, the group `U` and the visible primes below 6000, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Corollary 2 (a two-line deduction from Theorem 1), Remark 1, Lemma 2 (not needed for Theorem 1), and what the paper says about the literature |
 
 Each OEIS theorem is stated for every integer power series satisfying the
 defining equation. The energy is `∑ |eigenvalues|`, using
@@ -1785,14 +2543,62 @@ axiom lists are subsets of the three axioms above, and the lists printed for
 the four check theorems of Paper 16 consist of exactly these three. Outside
 comments, the forbidden tokens occur only as the intentional `sorry`s of the
 comparator challenge files (`logs/clean-replay-v1.24.0-forbidden-tokens.log`).
-`logs/lean-sources-sha256.txt` lists 3800 files. The full record, with both
+`logs/lean-sources-sha256.txt` listed 3800 files. The full record, with both
 passes, is in `logs/clean-replay-v1.24.0-receipt.json`, and the logs of every
 module, including those of the failed attempts (suffix `.attemptN`), are in
 `logs/clean-replay-v1.24.0-logs.tar.gz`.
 
+For version 1.25.0, which adds the 198 Lean files of Papers 17 to 27 (in
+`lean/Research/TaskN/`, `lean/Research/TaskP/`, `lean/Research/TaskR/`,
+`lean/Research/TaskS/` and `lean/Research/TaskU/`) and fourteen `import`
+lines in `lean/Research.lean`
+(`Research.TaskN.Antichain.CheckAntichain`,
+`Research.TaskN.Parking.CheckParking`,
+`Research.TaskP.PrimeMedialRacks.CheckRack`,
+`Research.TaskP.GradedWilf.CheckWilf`, `Research.TaskR.CSS.CheckCSS`,
+`Research.TaskR.A7.CheckA7`, `Research.TaskP.RootRadius.CheckRootRadius`,
+`Research.TaskP.RectangleDefect.CheckRectangle`,
+`Research.TaskP.GeomSimplex.CheckSimplex`, `Research.TaskS.B.CheckB`,
+`Research.TaskS.C.CheckC`, `Research.TaskS.C.MeasureAudit.CheckC`,
+`Research.TaskU.H5.Check` and `Research.TaskU.H5B.CheckB`), the whole
+project, 3988 modules (the 3790 of version 1.24.0 and the 198 new ones),
+was rebuilt from a new empty directory on the author's Windows computer (63 GB of memory),
+with `lean` and `leanchecker` run on one module at a time rather than with
+`lake`, in two passes in the same output directory. Pass 1, from 17:44
+UTC on 20 November 2026 to 06:32 UTC on 21 November 2026, with up to 12 jobs,
+built the 3813 modules of version 1.24.0 and of Papers 17 and 18 (compilation
+until 01:20 UTC, then `leanchecker`). For pass 2 the 175 Lean files of
+Papers 19 to 27 and the final `lean/Research.lean` were added to the same
+source directory, and the same driver, started only after pass 1 had ended, built and checked the 175 new modules and the module `Research` from
+17:23 to 17:49 UTC on 21 November 2026, skipping the modules that had passed in pass 1. In both passes every module compiled and passed `leanchecker` without a second attempt; no attempt ended with a Lean error or for lack of memory
+or file access. OpenAI Codex used the same computer during pass 1, for two development
+compiles of Paper 24 after that paper's statement had been frozen (18:06:09
+UTC on 20 November), from 18:27:02 to 18:29:13 and from 18:33:52 to 18:44:09
+UTC, in its own directory (`ai4math-lean-worker\taskP`); according to a
+recursive file listing taken after the rebuild, the 72 files there were
+created between 18:27:03 and 18:44:07 UTC (the unpacked sources keep their
+earlier modification times, from 18:05:14 UTC). They did not touch the
+rebuild directory, and no file in Codex's directories there was written
+during pass 2. After pass 2 the SHA-256 hashes of all 3988 rebuilt sources
+were compared with `lean/Research.lean` and `lean/Research/`: no difference;
+the directory `lean/Comparator/` was not rebuilt here (it is unchanged since
+version 1.13.0, and the CI workflow checks it). All 3988 modules compiled, with
+the same 97 warning lines in 15 older modules as for versions 1.21.0 to
+1.24.0, none in Papers 17 to 27, and with no error and no `sorry`, and 3987
+modules passed `leanchecker`; the remaining one is the module `Research`,
+which has only imports and no constants and was exempted, as before. All
+116,874 printed axiom lists are subsets of the three axioms above, and the
+lists printed for the check theorems of Papers 17 to 27 consist of exactly
+these three. Outside comments, the forbidden tokens occur only as the
+intentional `sorry`s of the comparator challenge files
+(`logs/clean-replay-v1.25.0-forbidden-tokens.log`).
+`logs/lean-sources-sha256.txt` lists 3998 files. The full record, with both
+passes, is in `logs/clean-replay-v1.25.0-receipt.json`, and the logs of every
+module are in `logs/clean-replay-v1.25.0-logs.tar.gz`.
+
 ### Comparator check of the completely formalized papers
 
-The completely formalized papers other than Papers 1, 2, 7, 11, 12, 13, 14, 15 and 16 are also checked with
+The completely formalized papers other than Papers 1, 2, 7 and 11 to 27 are also checked with
 [comparator](https://github.com/leanprover/comparator). For each such paper,
 a challenge file in `lean/Comparator/` states the
 checked theorems with `sorry` proofs and imports only the paper's frozen
@@ -1844,8 +2650,10 @@ for version 1.21.0 for the same papers
 ([run 44136540421](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44136540421)),
 for version 1.22.0 for the same papers
 ([run 44371642744](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44371642744)),
-and for version 1.23.0 for the same papers
-([run 44530821691](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44530821691)).
+for version 1.23.0 for the same papers
+([run 44530821691](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44530821691)),
+and for version 1.24.0 for the same papers
+([run 44671967866](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44671967866)).
 Paper 6 is not in the workflow: a comparator run of its 35 theorems takes much
 longer than those of the other papers (more than 30 minutes on the computer
 used for version 1.13.0), and we have not tried it on GitHub's machines. It was
@@ -1920,6 +2728,27 @@ builds of the repository versions on the author's Mac and in the rebuild of
 the whole project described above, but not by an independent kernel;
 `lean/Research/TaskL/Semigroup/CheckSemigroup.lean` restates the frozen
 statements.
+
+**Papers 17 to 27 have not been checked with comparator or nanoda.** They
+have no challenge files in `lean/Comparator/` and no configuration in
+`ci/comparator/`. Their proofs have been replayed by the Lean kernel with
+`leanchecker` in Codex's two builds of each package, in the build of each
+final reviewer, in the two builds of the repository versions on the
+author's Mac and in the rebuild of the whole project described above, but
+not by an independent kernel; the files
+`lean/Research/TaskN/Antichain/CheckAntichain.lean`,
+`lean/Research/TaskN/Parking/CheckParking.lean`,
+`lean/Research/TaskP/PrimeMedialRacks/CheckRack.lean`,
+`lean/Research/TaskP/GradedWilf/CheckWilf.lean`,
+`lean/Research/TaskR/CSS/CheckCSS.lean`,
+`lean/Research/TaskR/A7/CheckA7.lean`,
+`lean/Research/TaskP/RootRadius/CheckRootRadius.lean`,
+`lean/Research/TaskP/RectangleDefect/CheckRectangle.lean`,
+`lean/Research/TaskP/GeomSimplex/CheckSimplex.lean`,
+`lean/Research/TaskS/B/CheckB.lean`, `lean/Research/TaskS/C/CheckC.lean`,
+`lean/Research/TaskS/C/MeasureAudit/CheckC.lean`,
+`lean/Research/TaskU/H5/Check.lean` and `lean/Research/TaskU/H5B/CheckB.lean`
+restate the frozen statements.
 
 For version 1.13.0, the same comparator, lean4export and nanoda versions were
 run locally by OpenAI Codex on 9 October 2026, on macOS, where the landrun
@@ -2014,6 +2843,20 @@ lake build Research.TaskH.ExactTests Research.TaskH.ExactTestsFive Research.Task
 lake build Research.TaskJ.Rank.CheckRank Research.TaskJ.Rank.Extension.CheckExtension  # Paper 14: restate the seven frozen statements, printing the axioms
 lake build Research.TaskJ.Grid.CheckGrid  # Paper 15: restates the three frozen statements, printing the axioms
 lake build Research.TaskL.Semigroup.CheckSemigroup  # Paper 16: restates the four frozen statements, printing the axioms
+lake build Research.TaskN.Antichain.CheckAntichain  # Paper 17: restates the two frozen statements, printing the axioms
+lake build Research.TaskN.Parking.CheckParking  # Paper 18: restates the two frozen statements, printing the axioms
+lake build Research.TaskP.PrimeMedialRacks.CheckRack  # Paper 19: restates the three frozen statements, printing the axioms
+lake build Research.TaskP.GradedWilf.CheckWilf  # Paper 20: restates the frozen statement, printing the axioms
+lake build Research.TaskR.CSS.CheckCSS  # Paper 21: restates the four frozen statements, printing the axioms
+lake build Research.TaskR.A7.CheckA7  # Paper 22: restates the frozen statement, printing the axioms (the kernel evaluates the certificate)
+lake build Research.TaskP.RootRadius.CheckRootRadius  # Paper 23: restates the three frozen statements, printing the axioms
+lake build Research.TaskP.RectangleDefect.CheckRectangle  # Paper 24: restates the frozen statement, printing the axioms
+lake build Research.TaskP.GeomSimplex.CheckSimplex  # Paper 25: restates the four frozen statements, printing the axioms
+lake build Research.TaskS.B.CheckB  # Paper 26, Theorem 1: restates the frozen statement ConjectureB, printing the axioms
+lake build Research.TaskS.C.CheckC  # Paper 26, Theorem 2: restates the frozen statement conjectureC, printing the axioms
+lake build Research.TaskS.C.MeasureAudit.CheckC  # Paper 26, Theorem 2′: the measured form and conjectureC, printing the axioms
+lake build Research.TaskU.H5.Check  # Paper 27, Corollary 1: restates the two frozen statements witnessValue and leastPositiveMultiple, printing the axioms
+lake build Research.TaskU.H5B.CheckB  # Paper 27, Theorem 1: restates the frozen statement fullSpectrum, printing the axioms
 ```
 
 Toolchain: Lean 4.34.1, mathlib v4.34.1 (commit `d13f23b723b8a846827a245b89c10fc7d3f11612`).
@@ -2178,7 +3021,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Layout
 
-- `papers/`: LaTeX sources and PDFs of the sixteen papers.
+- `papers/`: LaTeX sources and PDFs of the twenty-seven papers.
 - `ATTEMPTS.md`: every problem we worked on, and what became of it.
 - `certificates/icg-q3-general/`: programs, logs and reviews for versions 1.1 to 1.5 of Paper 1, kept as records and not used by versions 2 and 3; `certificates/icg-q3-general/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 1, version 2; `certificates/icg-q3-general/lean-package-v3/`: the same for version 3 (115 modules: the 70 of version 2 and the 45 of `lean/Research/TaskE/`).
 - `certificates/icg-equal-parity/`: programs, logs and a negative control for Theorem 3 and Proposition 15 of Paper 1, version 1.5 (Proposition 15 is withdrawn in version 2); `PROOF-working-note.md` is the working note.
@@ -2199,10 +3042,21 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 - `certificates/equivariant-rank/lean-package/`: the manifest, Codex's acceptance logs, and the receipt and logs of the recheck of the repository versions, for the Lean files of Paper 14.
 - `certificates/lattice-box-paths/lean-package/`: the same for the Lean files of Paper 15.
 - `certificates/numerical-semigroup-lengths/lean-package/`: the same for the Lean files of Paper 16.
+- `certificates/tree-antichains/lean-package/`: the same for the Lean files of Paper 17.
+- `certificates/variable-length-parking/lean-package/`: the same for the Lean files of Paper 18.
+- `certificates/prime-medial-racks/lean-package/`: the same for the Lean files of Paper 19.
+- `certificates/graded-wilf/lean-package/`: the same for the Lean files of Paper 20.
+- `certificates/css-covering-equality/lean-package/`: the same for the Lean files of Paper 21, with both versions of its statement file.
+- `certificates/a7-terrace/lean-package/`: the same for the Lean files of Paper 22, with the encoder that writes the terrace into `Data.lean`.
+- `certificates/domination-root-radius/lean-package/`: the same for the Lean files of Paper 23.
+- `certificates/bar-tiling-defect/lean-package/`: the same for the Lean files of Paper 24, with an erratum to its final review.
+- `certificates/minkowski-length-simplices/lean-package/`: the same for the Lean files of Paper 25.
+- `certificates/css-covering-minima/lean-package/`: the same for the Lean files of Paper 26 (both statements, three acceptance receipts and the four final reviews).
+- `certificates/heisenberg-125-determinants/lean-package/`: the same for the Lean files of Paper 27 (both statement files, the acceptance receipts, among them that of an earlier attempt that was stopped, and the three final reviews).
 - `certificates/oeis-hanna/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 2, version 2.
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
-- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper1/` (Paper 1, version 2; statement files `Challenge.lean` and `SupplementStatements.lean`, tests `ChallengeTests.lean` and `NarrowContractTests.lean`, the proof modules in the same directory, with no `Proof/` folder, and the check file `FinalContractAudit.lean`; the proofs also use the older modules `lean/Research/ICG*.lean`), `lean/Research/TaskE/` (Paper 1, version 3; the main statement file `Challenge.lean`, six auxiliary statement files `Challenge*.lean`, the tests `StatementTests.lean`, the proof modules in the same directory, with no `Proof/` folder, `Main.lean` with the main theorem, and the check file `FinalTaskEAudit.lean`; the proofs also use the modules of version 2), `lean/Research/Backfill/Paper2/` (Paper 2, version 2; the proof modules are in the same directory, with no `Proof/` folder), `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9), `lean/Research/WordRepTensor/` (Paper 10; version 2 adds `TaskF/`) and `lean/Research/CographDist/` (Paper 11; the statement file `Challenge.lean`, the tests `ChallengeTests.lean`, the proof modules `Family.lean`, `Eigen.lean` and `Main.lean` in the same directory, with no `Proof/` folder, and the check file `Audit.lean`) and `lean/Research/TaskG/` (Paper 12; the statement file `Challenge.lean`, which reuses the definitions of `lean/Research/AxialMSZ/Challenge.lean`, the proof modules `Data.lean`, `Axes.lean`, `Forms.lean`, `Automorphism.lean`, `Simplicity.lean` and `Main.lean` in the same directory, with no `Proof/` folder and no separate tests, and the check file `Check.lean`) and `lean/Research/TaskH/` (Paper 13; the statement files `Challenge.lean`, `CaseFive.lean`, `CaseSix.lean` and `CaseSeven.lean`, the tests `ExactTests.lean`, `ExactTestsFive.lean`, `ExactTestsSix.lean` and `ExactTestsSeven.lean`, the main files `MainFour.lean` to `MainSeven.lean`, the proof modules in the same directory and in `Five/`, `Six/` and `Seven/`; `Seven/SevenCheck.lean` restates the case `k = 7`; for all `k` (version 2), the assembly `OriginalQuestionTwoAssembly.lean`, the tests `OriginalQuestionTwoTests.lean`, and the proof modules in `General/`, `Gao/`, `Fan/` and `Bai/`), `lean/Research/TaskJ/Rank/` (Paper 14; the statement file `Challenge.lean` for Theorems 1 and 2, the proof modules `Parameters.lean`, `RankValues.lean` and `Proof.lean` and the check file `CheckRank.lean`, and in `Extension/` the statement file `Challenge.lean` for Theorem 3, eight proof modules and the check file `CheckExtension.lean`; no separate tests), `lean/Research/TaskJ/Grid/` (Paper 15; the statement file `Challenge.lean`, the 25 proof modules `Grid*.lean`, `Proof.lean` and the check file `CheckGrid.lean`; no separate tests) and `lean/Research/TaskL/Semigroup/` (Paper 16; the statement file `Challenge.lean`, the 9 proof modules `Foundations.lean`, `FBase.lean`, `AlgebraCore.lean`, `AlgebraSwap.lean`, `Algebra.lean`, `CoverStep.lean`, `Terminal.lean`, `Interval.lean` and `Even.lean`, `Proof.lean` and the check file `CheckSemigroup.lean`; no separate tests). `lean/Comparator/` holds the challenge files for the comparator check below.
-- `.github/workflows/comparator.yml` and `ci/comparator/`: the comparator check of the completely formalized papers (see below; the workflow does not include Paper 6, whose configuration `ci/comparator/paper6.json` was used locally, and Papers 1, 2, 7, 11, 12, 13, 14, 15 and 16 have no configuration).
+- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper1/` (Paper 1, version 2; statement files `Challenge.lean` and `SupplementStatements.lean`, tests `ChallengeTests.lean` and `NarrowContractTests.lean`, the proof modules in the same directory, with no `Proof/` folder, and the check file `FinalContractAudit.lean`; the proofs also use the older modules `lean/Research/ICG*.lean`), `lean/Research/TaskE/` (Paper 1, version 3; the main statement file `Challenge.lean`, six auxiliary statement files `Challenge*.lean`, the tests `StatementTests.lean`, the proof modules in the same directory, with no `Proof/` folder, `Main.lean` with the main theorem, and the check file `FinalTaskEAudit.lean`; the proofs also use the modules of version 2), `lean/Research/Backfill/Paper2/` (Paper 2, version 2; the proof modules are in the same directory, with no `Proof/` folder), `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9), `lean/Research/WordRepTensor/` (Paper 10; version 2 adds `TaskF/`) and `lean/Research/CographDist/` (Paper 11; the statement file `Challenge.lean`, the tests `ChallengeTests.lean`, the proof modules `Family.lean`, `Eigen.lean` and `Main.lean` in the same directory, with no `Proof/` folder, and the check file `Audit.lean`) and `lean/Research/TaskG/` (Paper 12; the statement file `Challenge.lean`, which reuses the definitions of `lean/Research/AxialMSZ/Challenge.lean`, the proof modules `Data.lean`, `Axes.lean`, `Forms.lean`, `Automorphism.lean`, `Simplicity.lean` and `Main.lean` in the same directory, with no `Proof/` folder and no separate tests, and the check file `Check.lean`) and `lean/Research/TaskH/` (Paper 13; the statement files `Challenge.lean`, `CaseFive.lean`, `CaseSix.lean` and `CaseSeven.lean`, the tests `ExactTests.lean`, `ExactTestsFive.lean`, `ExactTestsSix.lean` and `ExactTestsSeven.lean`, the main files `MainFour.lean` to `MainSeven.lean`, the proof modules in the same directory and in `Five/`, `Six/` and `Seven/`; `Seven/SevenCheck.lean` restates the case `k = 7`; for all `k` (version 2), the assembly `OriginalQuestionTwoAssembly.lean`, the tests `OriginalQuestionTwoTests.lean`, and the proof modules in `General/`, `Gao/`, `Fan/` and `Bai/`), `lean/Research/TaskJ/Rank/` (Paper 14; the statement file `Challenge.lean` for Theorems 1 and 2, the proof modules `Parameters.lean`, `RankValues.lean` and `Proof.lean` and the check file `CheckRank.lean`, and in `Extension/` the statement file `Challenge.lean` for Theorem 3, eight proof modules and the check file `CheckExtension.lean`; no separate tests), `lean/Research/TaskJ/Grid/` (Paper 15; the statement file `Challenge.lean`, the 25 proof modules `Grid*.lean`, `Proof.lean` and the check file `CheckGrid.lean`; no separate tests), `lean/Research/TaskL/Semigroup/` (Paper 16; the statement file `Challenge.lean`, the 9 proof modules `Foundations.lean`, `FBase.lean`, `AlgebraCore.lean`, `AlgebraSwap.lean`, `Algebra.lean`, `CoverStep.lean`, `Terminal.lean`, `Interval.lean` and `Even.lean`, `Proof.lean` and the check file `CheckSemigroup.lean`; no separate tests), `lean/Research/TaskN/Antichain/` (Paper 17; the statement file `Challenge.lean`, the 8 proof modules `Numeric.lean`, `TreeCode.lean`, `GraphTransport.lean`, `TreeRoot.lean`, `BridgeWeights.lean`, `SequenceGraph.lean`, `TreePolynomial.lean` and `CompareCore.lean`, `Proof.lean` and the check file `CheckAntichain.lean`; no separate tests), `lean/Research/TaskN/Parking/` (Paper 18; the statement file `Challenge.lean`, the 9 proof modules `ParkGaps.lean`, `ParkSums.lean`, `ParkClassification.lean`, `SpacingWord.lean`, `SpacingPalCount.lean`, `ParkWalk.lean`, `ParkPrefix.lean`, `ParkBand.lean` and `SpacingCount.lean`, `Proof.lean` and the check file `CheckParking.lean`; no separate tests), `lean/Research/TaskP/PrimeMedialRacks/` (Paper 19; the statement file `Challenge.lean`, the 10 proof modules `IsoTransfer.lean`, `DisplacementData.lean`, `DisplacementGroup.lean`, `PrimeOrbits.lean`, `PrimeAction.lean`, `Coordinates.lean`, `CoordinatesCore.lean`, `Affine.lean`, `ClassCount.lean` and `Enumeration.lean`, `Proof.lean` and the check file `CheckRack.lean`; no separate tests), `lean/Research/TaskP/GradedWilf/` (Paper 20; the statement file `Challenge.lean`, the 6 proof modules `WilfScalar.lean`, `WilfLayers.lean`, `WilfAtoms.lean`, `WilfBasis.lean`, `WilfLow.lean` and `WilfHigh.lean`, `Proof.lean` and the check file `CheckWilf.lean`; no separate tests), `lean/Research/TaskR/CSS/` (Paper 21; the statement file `Challenge.lean`, the 6 proof modules `Geometry.lean`, `Residues.lean`, `Radius.lean`, `Volume.lean`, `ExclusionFinite.lean` and `Exclusion.lean`, `Proof.lean` and the check file `CheckCSS.lean`; no separate tests), `lean/Research/TaskR/A7/` (Paper 22; the statement file `Challenge.lean`, the 5 proof modules `Data.lean` (the terrace and its tables), `Kernel.lean`, `Cert.lean`, `Interpret.lean` and `Counting.lean`, `Proof.lean` and the check file `CheckA7.lean`; no separate tests), `lean/Research/TaskP/RootRadius/` (Paper 23, namespace `TaskP.GraphRootRadius`; the statement file `Challenge.lean`, the 11 proof modules `JoinDecomposition.lean`, `JoinPolynomial.lean`, `PetalCoefficient.lean`, `PetalEvaluation.lean`, `RootData.lean`, `Scale.lean`, `LogLimit.lean`, `UpperEstimate.lean`, `DiskZero.lean`, `RootDisk.lean` and `LowerBound.lean`, `Proof.lean` and the check file `CheckRootRadius.lean`; no separate tests), `lean/Research/TaskP/RectangleDefect/` (Paper 24; the statement file `Challenge.lean`, the 15 proof modules `RectCounts.lean`, `RowPlacement.lean`, `RowSplit.lean`, `StripLayout.lean`, `SmallRows.lean`, `BoundaryRows.lean`, `BoundaryWidths.lean`, `IntervalPacking.lean`, `BoundedBezout.lean`, `BalanceCases.lean`, `BalanceConstruction.lean`, `UpperCount.lean`, `UpperSparse.lean`, `LowerFamily.lean` and `MatchingLower.lean`, `Proof.lean` and the check file `CheckRectangle.lean`; no separate tests), `lean/Research/TaskP/GeomSimplex/` (Paper 25; the statement file `Challenge.lean`, the 13 proof modules `Packing.lean`, `TCoordinates.lean`, `TDiameter.lean`, `TLength.lean`, `TTetrahedron.lean`, `UCoordinates.lean`, `ULower.lean`, `UUpper.lean`, `UTetrahedron.lean`, `PyramidGeometry.lean`, `PyramidCorners.lean`, `PyramidDiameter.lean` and `PyramidTransport.lean`, `Proof.lean` and the check file `CheckSimplex.lean`; no separate tests), `lean/Research/TaskS/` (Paper 26; in `B/` the statement file `Challenge.lean`, the 8 proof modules `RationalLine.lean`, `Split.lean`, `KernelRounding.lean`, `BasisCoordinates.lean`, `Balanced.lean`, `Hull.lean`, `Upper.lean` and `Lower.lean`, `Proof.lean` and the check file `CheckB.lean`; in `C/` the statement file `Challenge.lean`, the 9 proof modules `Coordinates.lean`, `Frequencies.lean`, `Projected.lean`, `Lift.lean`, `Geometry.lean`, `ProjectionLattice.lean`, `ProjectionBody.lean`, `SimplexMeasure.lean` and `ProjectionModel.lean`, `Proof.lean` and the check files `CheckC.lean` and `MeasureAudit/CheckC.lean`; and `Shared/Sawtooth.lean`, used by both; no separate tests) and `lean/Research/TaskU/` (Paper 27; in `H5/` the statement file `Challenge.lean` of the minimum, the 33 proof modules `Fourier.lean`, `Blocks.lean`, `WitnessRows.lean`, `WitnessBase.lean`, `WitnessEval.lean`, `Witness.lean`, `Cyc5.lean`, `CycEval.lean`, `CycPos.lean`, `CycNorm.lean`, `CycPhase.lean`, `CycMoments.lean`, `Profile.lean`, `Normalize.lean`, `Phase.lean`, `RayMoments.lean`, `Factors.lean`, `ProfileEval.lean`, `TraceWords.lean`, `TraceProfile.lean`, `IntegerFactors.lean`, `CycRoots.lean`, `RayCancellation.lean`, `TraceLower.lean`, `TraceOrbit.lean`, `TraceCongruence.lean`, `TraceIntegral.lean`, `SmallMultiples.lean`, `Quotient.lean`, `Divisibility.lean`, `TraceFinal.lean`, `TraceAugment.lean` and `Minimum.lean` (`Witness.lean` and `Minimum.lean` contain the theorems `Proof.witnessValue` and `Proof.leastPositiveMultiple`; there is no `Proof.lean`), the audit file `Audit.lean` and the check files `CheckWitness.lean` and `Check.lean`; in `H5B/` the statement file `ChallengeB.lean` of the classification, the 23 proof modules `LiftRing.lean`, `BTrace.lean`, `Residues.lean`, `UnitTable.lean`, `UnitResidues.lean`, `BTraceImage.lean`, `Seeds.lean`, `SeedMarginals.lean`, `Insert.lean`, `RowsValue.lean`, `LiftBlock.lean`, `LiftData.lean`, `LiftColumns.lean`, `LiftCorrection.lean`, `LiftShift.lean`, `Construct.lean`, `PrimeOrbit.lean`, `PrimeBasis.lean`, `PrimeRing.lean`, `PrimeExtract.lean`, `Necessity.lean`, `CoprimeCongruence.lean` and `CoprimeSeeds.lean`, `ProofB.lean` and the check file `CheckB.lean`; no separate tests). `lean/Comparator/` holds the challenge files for the comparator check below.
+- `.github/workflows/comparator.yml` and `ci/comparator/`: the comparator check of the completely formalized papers (see below; the workflow does not include Paper 6, whose configuration `ci/comparator/paper6.json` was used locally, and Papers 1, 2, 7 and 11 to 27 have no configuration).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
   rebuilds. `roldan-q3-lean-build-receipt.json` predates the formalization of
@@ -2663,6 +3517,269 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
   citation data are incomplete, and work in progress of the authors and
   their students cannot be seen. This reports the coverage of the search,
   not a guarantee that it was complete.
+- Paper 17: the question is Question 6 of I. Beaton and B. Cameron (*On the
+  largest real root of the independence polynomial of a unicyclic graph*,
+  Open J. Discrete Appl. Math. 5 (2022), no. 3, 30–46; Question 5.3 of
+  arXiv:2006.05511, which has versions 1 and 2), who also found two
+  incomparable trees of order 8 and a pair of incomparable trees at each
+  order `2^(k+3)` (their Figure 16 and Theorem 16), disproving a conjecture
+  of M. R. Oboudi (arXiv:1303.3222; Ars Combin. 137 (2018)). The relation
+  `⪯`, its transitivity and the extremal trees are due to P. Csikvári (J.
+  Graph Theory 74 (2013), Section 8), and that the independence root of
+  smallest modulus is real to Csikvári (Combin. Probab. Comput. 22 (2013)).
+  Codex agents searched on 20 November 2026, during the search for problems
+  (04:04–04:25 UTC) and again before the statement file was frozen (from
+  14:20 UTC): the arXiv, OpenAlex (one merged record for the journal paper
+  and the preprint, with no citing works), Crossref (no citing works
+  registered for the journal DOI), DataCite, the publication lists of both
+  authors (in OpenAlex and on Cameron's web page), web search with several
+  phrasings, MathDB, MathOverflow and Mathematics Stack Exchange, and GitHub
+  (issues, pull requests, repositories and commits, with positive controls),
+  including trureturing, vibemathing, astrafala/Conjectures, OEIS-Settled,
+  openai/math, SCOPE, formal-conjectures and cmu-l3/reuF2F. MathDB lists two
+  neighbouring problems from the same papers, a question on chain lengths
+  (325170) and Oboudi's conjecture on starlike trees of fixed degree
+  (325171), for which a ten-vertex counterexample had already been posted
+  there (our agents found the same one independently; it is not claimed
+  here); neither concerns antichains among trees of equal order. Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places, including the OpenAlex list of citing works (still empty), and found no new related work.
+  No answer to Question 6 and no construction of arbitrarily large
+  antichains among trees of equal order was found. Citation databases record
+  only what they index, and work in progress cannot be seen. This reports
+  the coverage of the search, not a guarantee that it was complete.
+- Paper 18: the question is the equality case of Theorem E(b) of D. M. Chen
+  (*On the structure of permutation invariant parking*, arXiv:2311.15699v1,
+  2023; only version 1 exists), whose sufficient condition E(c) and
+  necessary condition E(d) differ, as his Remark 4.7 shows; Chen does not
+  list the equality case among the open problems of his Section 5. The
+  parking model, the reduction to one special preference and the minimally
+  invariant length vectors are from D. M. Chen, P. E. Harris, J. C. Martínez
+  Mori, E. J. Pabón-Cancel and G. Sargent (*Permutation invariant parking
+  assortments*, Enumer. Combin. Appl. 4:1 (2024), Article S2R4;
+  arXiv:2211.01063v2), whose Corollary 4.4 is essentially the gap reduction
+  of the paper. Codex agents searched on 20 November 2026, during the search
+  for problems (04:04–04:25 UTC) and again before the statement file was
+  frozen (from 14:20 UTC): the arXiv, OpenAlex (the twelve works of Chen it
+  lists; one work citing the 2023 preprint, J. Bown, P. Kagey, A. Kappler,
+  M. E. Orrison and J. Thadani, *Preference-restricted parking functions*,
+  arXiv:2507.11701, which studies a different question; and the 16 works it
+  returns as citing the paper of 2024), Crossref and DataCite, web search
+  with several phrasings, MathDB, MathOverflow and Mathematics Stack
+  Exchange, the OEIS, and GitHub as for Paper 17. The repository
+  cmu-l3/reuF2F, a benchmark for AI agents, contains at commit `230023d8` a
+  Lean statement of the four-car Conjecture 6.1 of Chen, Harris, Martínez
+  Mori, Pabón-Cancel and Sargent with an unfinished proof; MathDB 356727 is
+  the same four-car question, and OEIS A355645 concerns classical parking
+  functions; none of them treats the equality case of Theorem E(b).
+  Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places, including the OpenAlex lists of citing works, which could not be retrieved on 21 November, and found no new related work. No earlier statement of condition (iii) of Theorem 1 or of
+  Theorem 2 was found. The Crossref record of Chen's preprint could not be
+  retrieved, and work in progress cannot be seen. This reports the coverage
+  of the search, not a guarantee that it was complete.
+- Paper 19: the conjecture is Conjecture 6.5 of P. Vojtěchovský and S. Y.
+  Yang (*Enumeration of racks and quandles up to isomorphism*, Math. Comp.
+  88 (2019), 2523–2540; arXiv:1911.04991v1), whose enumeration relies in part
+  on counts of 2-reductive racks and quandles of P. Jedlička, A. Pilitowska,
+  D. Stanovský and A. Zamojska-Dzienio (J. Algebra 443 (2015)). That a rack
+  is medial if and only if its displacement group is abelian is Proposition
+  2.4 of A. Hulpke, D. Stanovský and P. Vojtěchovský (J. Pure Appl. Algebra
+  220 (2016)); that every connected quandle of prime order is affine is due
+  to P. Etingof, A. Soloviev and R. Guralnick (J. Algebra 242 (2001)), as
+  stated in Theorem 9.3 of Hulpke, Stanovský and Vojtěchovský, who also give
+  the isomorphism criterion for connected affine quandles; the corollaries
+  of Jedlička et al. on orbit sizes concern quandles and do not give
+  2-reductivity directly. Codex agents searched on 20 November 2026, during
+  the search for problems (17:23–17:53 UTC) and again before the statement
+  file was frozen (until 18:04 UTC): the arXiv, OpenAlex (14 works citing the
+  paper), Crossref, MathDB, MathOverflow and Mathematics Stack Exchange, and
+  GitHub (issues, pull requests, repositories and commits, with a positive
+  control), including trureturing, vibemathing, astrafala/Conjectures,
+  SCOPE, OEIS-Settled, openai/math, formal-conjectures, Epoch and
+  cmu-l3/reuF2F. MathDB lists the conjecture as open (problem 344474, with
+  no solution), and trureturing issue 27945 cites the same paper for a
+  different question. Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places, including the OpenAlex list of citing works (which names 14 of the 16 works it counts), and found no new related work. No proof of Conjecture 6.5 was found. This
+  reports the coverage of the search, not a guarantee that it was complete.
+- Paper 20: the conjecture is the generalized Wilf conjecture of C. Cisto,
+  M. DiPasquale, G. Failla, Z. Flores, C. Peterson and R. Utano (Semigroup
+  Forum 101 (2020)), and the class is the one left open in §6 of C. Cisto
+  and F. Navarra (*On some classes of generalized numerical semigroups*, An.
+  Ştiinţ. Univ. Ovidius Constanţa Ser. Mat. 33 (2025); arXiv:2212.12467v1),
+  who also determined the minimal generators and `n(S)`. O. P. Bhardwaj, C.
+  Cisto and P. Deshpande (*Structure of gaps and generalized Wilf's
+  conjecture*, arXiv:2611.20086v1, November 2026) proved the case `d = 2`
+  and the case `d ≥ 3` under a condition, with a single-layer bound of the
+  same kind. Codex agents searched on 20 November 2026, during the search for
+  problems (17:23–17:53 UTC) and again before the statement file was frozen
+  (until 18:04 UTC): the arXiv, OpenAlex (4 works citing the preprint of
+  2022, none citing that of 2026), Crossref, DataCite, MathDB, MathOverflow
+  and Mathematics Stack Exchange, and GitHub as for Paper 19. Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places, including the OpenAlex lists of citing works, and found no new related work and no new version of arXiv:2611.20086. No
+  proof of the inequality for the parameters left open by Bhardwaj, Cisto
+  and Deshpande was found; work in progress of these authors, who published
+  their partial result five days before the search, cannot be seen. This
+  reports the coverage of the search, not a guarantee that it was complete.
+- Paper 21: the conjecture is Conjecture A of G. Codenotti, F. Santos and
+  M. Schymura (*The covering radius and a discrete surface area for
+  non-hollow simplices*, Discrete Comput. Geom. 67 (2022), 65–111;
+  arXiv:1903.02866, versions 1 and 2), restated by K. Krivokuća
+  (arXiv:2601.15173v1, Conjecture 4.1). The simplex is in A. M. Kasprzyk's
+  thesis (University of Bath, 2006, Proposition 9.7.10, as the simplex of
+  `P(1,1,1,1,2)`) and in Appendix C of T.-J. Lee (arXiv:2610.26186), who
+  notes its normalized volume; Appendix B of Codenotti, Santos and Schymura
+  computes covering radii of lattice simplices from the diameter of a Cayley
+  digraph. Recent related work includes G. Codenotti, A. Freyer and K.
+  Krivokuća (arXiv:2606.14442). Codex agents searched on 20 November 2026,
+  during the search for problems (18:36–18:54 UTC) and again before the
+  statement file was frozen (19:32 UTC): the arXiv (with queries for the last
+  six months), bibliographic records, MathDB (the problem pages of
+  Conjectures A, B and C list no solutions), GitHub (issues, pull requests,
+  commits and repositories) and seven repositories of AI-assisted or formal
+  mathematics, openai/math, astrafala/Conjectures and recent repositories of
+  vibemathing; the final reviewer searched again. Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places; on 22 November the OpenAlex list of works citing the paper of Codenotti, Santos and Schymura, refused on 21 November (rate limit), was retrieved and contained the same ten works as before, and no new related work was found. No earlier
+  statement of the covering radius of this simplex and no counterexample to
+  the equality clause of Conjecture A was found. The citation search of
+  OpenAlex was refused (rate limit) during the second search, and anonymous
+  GitHub code search was not available. This reports the coverage of the
+  search, not a guarantee that it was complete.
+- Paper 22: the definitions and the context are from M. A. Ollis (*Terraces
+  for small groups*, J. Combin. Math. Combin. Comput. 108 (2019);
+  arXiv:1603.01496v1) and his dynamic survey (*Sequenceable groups and
+  related topics*, Electron. J. Combin. DS10, version 3, 2025); Bailey's
+  paper of 1984 and the papers of B. A. Anderson and E. C. Ihrig (1993) were
+  not consulted and are cited after Ollis. The hill-climbing method is that
+  of Ollis, building on Anderson; A. Müyesser and A. Pokrovskiy (Invent.
+  Math. 240 (2025), Theorem 6.12 of arXiv:2204.09666v3) proved that every
+  sufficiently large non-abelian group is sequenceable, without an explicit
+  bound; a dataset of H. Yang (Zenodo 10.5281/zenodo.22785373, September
+  2026) gives terraces for all non-abelian groups of orders 256 and 384, not
+  for `A_7`. Codex agents searched on 20 November 2026, during the search for
+  problems (from 18:39 UTC) and again before the statement file was frozen
+  (19:32 UTC), as for Paper 21; the final reviewer searched again and asked
+  for a further check of Yang's dataset and website before release.
+  Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places, including the OpenAlex lists of citing works, and found no new related work; the Zenodo dataset of Yang was unchanged (still version 1.0.0, for orders 256 and 384). No terrace, directed terrace or sequencing of `A_7` and no
+  non-asymptotic theorem that covers it was found. The website with Ollis's
+  search programs and the full text of the paper of Anderson and Ihrig could
+  not be reached, and some search services refused or limited automated
+  queries. This reports the coverage of the search, not a guarantee that it
+  was complete.
+- Paper 23: the question is Question 3.2 of S. Alikhani, J. I. Brown and S.
+  Jahari (*On the domination polynomials of friendship graphs*, Filomat 30
+  (2016), 169–178; Question 2 of §3 of arXiv:1401.2092v2). B. A. Rather (*On
+  roots of domination polynomials for friendship and book graphs*,
+  arXiv:2604.08998v2, 2026) proved the explicit bound `1 + √(m/log 2)` and an
+  implicit bound `R_m`, and asked whether the bound is asymptotically
+  optimal; the upper half of Corollary 1 follows from his implicit bound by a
+  short computation, given in the paper. The formulas for domination
+  polynomials of disjoint unions and joins are due to S. Alikhani and Y. H.
+  Peng and appear also in T. Kotek, J. Preen, F. Simon, P. Tittmann and M.
+  Trinks; the analogous result for chromatic roots of generalized theta
+  graphs is due to J. I. Brown, C. Hickman, A. D. Sokal and D. G. Wagner.
+  Codex agents searched on 20 November 2026, during the search for problems
+  (17:23–17:53 UTC) and again before the statement file was frozen: the
+  arXiv (both papers have two versions), OpenAlex (23 works citing the paper
+  of Alikhani, Brown and Jahari, one citing Rather's), web search, MathDB,
+  MathOverflow and Mathematics Stack Exchange, SCOPE, and GitHub as for Paper
+  19 (trureturing issue 23025 concerns real domination roots of book graphs,
+  a different question). Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places, including the OpenAlex lists of citing works, and found no work on the largest domination roots of friendship graphs; the closest finds are still a Zenodo note on the real domination roots of book graphs and a general bound |z| ≤ n for all domination roots of graphs of order n, neither of which overlaps with the results here. No earlier sharp asymptotic for the
+  largest domination roots of friendship graphs and no matching lower bound
+  were found. Two OpenAlex queries were rate-limited. This reports the
+  coverage of the search, not a guarantee that it was complete.
+- Paper 24: the question is in Remark 5.11 of K. Gajdzica, R. Visser and M.
+  Zakarczemny (*Rectangle partitions generalizing integer partitions*, Ann.
+  Comb., published online 28 April 2026; arXiv:2509.20495v2). M. Shaikh
+  (arXiv:2609.13305v1) proved their Conjecture 5.10 and does not address
+  Remark 5.11; K. Gajdzica and M. Zakarczemny (arXiv:2608.08762 and
+  arXiv:2608.22955) and C. K. Shukla (XSci Preprints, 14 November 2026)
+  treat other questions on rectangle partitions. Codex agents searched on 20
+  November 2026, during the search for problems (17:23–17:53 UTC) and again
+  before the statement file was frozen: the arXiv, OpenAlex (4 works citing
+  the preprint), web search, MathDB, MathOverflow and Mathematics
+  Stack Exchange, and GitHub as for Paper 19 (a record of trureturing on
+  column partitions of Li and Uncu concerns a different definition); the
+  final reviewer made a spot check. Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places, including the OpenAlex lists of citing works, and found no work on Remark 5.11 of the source; the closest find is still a result in the repository 1337isnot1337/solved-conjectures on a different question from a neighbouring paper (Remark 5.9 of Gajdzica and Zakarczemny, arXiv:2608.08762). No answer to the question of
+  Remark 5.11 and no work on the order of `D_k(n)` were found. This reports
+  the coverage of the search, not a guarantee that it was complete.
+- Paper 25: the problems are Problems 2 and 3 of I. Soprunov and J.
+  Soprunova (*Eventual quasi-linearity of the Minkowski length*, European J.
+  Combin. 58 (2016), 107–117; arXiv:1412.4404v2), whose problem numbers and
+  wording were checked in both arXiv versions (the journal text was checked
+  by a Codex agent, not by the agent that wrote the paper). The tetrahedron
+  `T` is one of the lattice 3-polytopes with eight lattice points enumerated
+  by M. Blanco and F. Santos (Discrete Comput. Geom. 60 (2018)); `U` is an
+  empty tetrahedron in the sense of G. K. White; K. Meyer, I. Soprunov and
+  J. Soprunova (SIAM J. Appl. Algebra Geom. 6 (2022)) study maximal
+  decompositions in 3-polytopes, and their Theorem 3.4 gives `L(2U) ≥ 3`;
+  three-dimensional Minkowski lengths can be computed by the algorithm of
+  Beckwith, Grimm, Soprunova and Weaver. Codex agents searched on 20 November
+  2026, during the search for problems (17:23–17:53 UTC) and again before the
+  statement file was frozen: the arXiv (the preprint has two versions),
+  OpenAlex (8 citing works), web search with two phrasings of Problem 2, the
+  authors' published code, MathDB, MathOverflow and Mathematics Stack
+  Exchange, and GitHub as for Paper 19; the final reviewer read the closest
+  later works. Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places, including the works citing Meyer, Soprunov and Soprunova, their MAGMA repository and the OpenAlex list of works citing the source (which names 8 of the 9 works it counts), and found no new related work. No answer to Problems 2 or 3 was found. This
+  reports the coverage of the search, not a guarantee that it was complete.
+- Paper 26: Conjecture B is from B. González Merino and M. Schymura
+  (Discrete Comput. Geom. 58 (2017), 663–685; arXiv:1605.00443v1, Remark
+  4.9, where the second author is listed as Henze), with covering minima as
+  defined by R. Kannan and L. Lovász (Ann. of Math. 128 (1988)), and
+  Conjectures A, B and C are from G. Codenotti, F. Santos and M. Schymura
+  (Discrete Comput. Geom. 67 (2022), 65–111; arXiv:1903.02866v2), who proved
+  them in low dimensions, showed the equivalence of B with the inequality
+  of A and the implication from C to that inequality, and proved C up to a
+  constant factor. K. Krivokuća (arXiv:2601.15173, January 2026) proved
+  weaker general bounds for Conjecture B and listed it as open; G.
+  Codenotti, A. Freyer and K. Krivokuća (arXiv:2606.14442) treat related
+  questions. Codex agents searched during the search for problems (18:36–18:54
+  UTC on 20 November 2026) and again before the statement files were frozen,
+  and the final reviewers searched again. A deeper search by a Claude Code
+  agent (20 November 2026, 23:17–23:43 UTC) covered the works citing the two
+  source papers and Krivokuća's paper (Semantic Scholar, scite,
+  OpenCitations; 10, 16 and 1 citing works), whose arXiv full texts were
+  downloaded and searched; arXiv searches for the main terms; web search;
+  MathOverflow; the web pages and repositories of the authors and of
+  Krivokuća, including her master's thesis; and GitHub (code, issue and
+  commit search, and the trees of trureturing, openai/math,
+  formal-conjectures, astrafala/Conjectures, OEIS-Settled, SCOPE and other
+  repositories of AI-assisted mathematics). The repository chy4pro/automath
+  listed the paper of Codenotti, Santos and Schymura as a candidate in a
+  selection note of August 2026, with no further work on it in its public
+  files. Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places; on 22 November the OpenAlex list of works citing the paper of Codenotti, Santos and Schymura, refused on 21 November (rate limit), was retrieved and contained the same ten works as before, the works citing González Merino and Schymura were unchanged, and no new related work was found. No earlier proof of Conjecture B for `4 ≤ i < n`, of
+  Conjecture C for `d ≥ 3`, or of the d/2 bound of Conjecture A for `d ≥ 4`
+  was found. The OpenAlex list of citing works (rate limit), Google Scholar
+  (bot wall) and the full text of Codenotti's thesis of 2020 could not be
+  retrieved; zbMATH and MathSciNet were not searched. This reports the
+  coverage of the search, not a guarantee that it was complete.
+- Paper 27: the problem is from M. J. Mossinghoff and C. Pinner (Michigan
+  Math. J. 74 (2024), 551–569; arXiv:2108.04870v1, the only arXiv version;
+  the paper cites its numbering, since the journal version could not be
+  read), after the question of O. Taussky-Todd (1977) as described by C.
+  Pinner and C. Smyth (Ramanujan J. 51 (2020)). C. Panraksa found the three
+  elements of `Z[C_5 × C_5]` used as seeds and proved
+  `S(C_5^2) ∩ 5Z = 5^8 Z` (arXiv:2608.04267v1); his papers on
+  `C_7 × C_7` (arXiv:2609.09542v1) and on `C_p × C_p` for `p ≥ 7`
+  (arXiv:2610.15262v1, whose Proposition 4.7 gives a structural
+  obstruction at the lowest valuation) treat abelian groups. W. Bley, T.
+  Hofmann and H. Johnston (Forum Math. Sigma 10 (2022)) give lattice
+  isomorphism algorithms that decide membership in principle, without an
+  explicit description; White (arXiv:2607.14379) treats the Davenport
+  constant of the same group. Codex agents searched on 21 November 2026
+  during the search for problems (01:00–01:22 UTC), again from 01:28 UTC
+  before the statement of the minimum was frozen, with further searches
+  for the classification at 01:39 and 01:42 UTC, and once more at
+  03:28–03:31 UTC, after the statement of the classification had been
+  frozen: the arXiv, OpenAlex (6 citing works of the source), Crossref,
+  zbMATH, MathDB, MathOverflow and Mathematics Stack Exchange, web search,
+  and GitHub (code, repository, commit, issue and pull request searches,
+  the trees of 23 repositories, and the full text of 13 local checkouts,
+  among them trureturing, astrafala/Conjectures, formal-conjectures and
+  OEIS-Settled). The three final reviewers searched again (the arXiv,
+  web search and DataCite, including the series of classifications of
+  group determinants of small orders posted on Zenodo by A. Radolović,
+  none of which concerns order 125). Claude Code searched again on 21 November 2026 (17:54–18:21 UTC) and on the day of the release, 22 November 2026 (05:39–05:51 UTC), in the same places, including the OpenAlex list of citing works and the Zenodo series of group-determinant classifications by Radolović (no new record since 13 September 2026), and found no new related work. No earlier determination
+  of the multiples of 5 in `S(H_5)`, of its least positive multiple of 5,
+  or of a prime-factor criterion of the kind in Theorem 1 for `H_5` was
+  found (Panraksa gives a criterion of this kind for `C_7 × C_7`). The journal
+  version of the source could not be read (access was blocked), Google
+  Scholar returned nothing usable, and OpenAlex refused some queries of
+  the reviewers (rate limit). This reports the coverage of the search, not
+  a guarantee that it was complete.
 - Roldán's conjecture, case q = 3 (the formalization here is of a known
   result):
   - S. Park, *Exact Energy Maximisation for Integral Circulant Graphs of
@@ -2708,7 +3825,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Tool and computational resource disclosure
 
-This work was carried out from 25 September 2026 to 20 November 2026 (UTC) in a
+This work was carried out from 25 September 2026 to 22 November 2026 (UTC) in a
 workflow directed by the author, using two AI coding agents:
 
 - OpenAI Codex (desktop app; models `gpt-6-astra`, `gpt-6-sol`, `gpt-6.1-sol`,
@@ -3185,6 +4302,337 @@ author's Mac, and rebuilt the whole Lean project. An independent Claude Code age
 read Paper 16 and, using a side-by-side table, compared its Lean statements
 with Theorems 1 and 2 and Corollary 1 of the paper.
 
+Papers 17 and 18 (version 1.25.0) were produced from 19 to 22 November 2026.
+The author asked for a further search for open problems, and Claude Code
+passed this request to OpenAI Codex (model GPT-6.2-Astra, reasoning level
+ultra) on 19 November at 17:58 UTC. Codex's records of the search are dated
+20 November, 04:04–04:25 UTC: it screened 42 problems and wrote proofs or
+proof attempts for three groups of candidates. For the question of Paper 17
+it checked the construction by exact computation at both test points for
+every order from 11 to 88, and another Codex agent (same model) that had not
+taken part in it recomputed the gadget polynomials and both test values by
+enumerating vertex subsets; for the question of Paper 18 its proofs covered
+both theorems, other Codex agents (same model) read them, and it compared
+Theorem 1 with a simulation of the parking rule for all 37,440 length
+vectors with 2 to 5 cars of lengths at most 8. The third group, on the
+parity of the stable exceptional sets for sums of positive powers, was
+dropped because the same target had been registered publicly before (see
+ATTEMPTS.md). The author chose the problems of Papers 17 and 18. From 14:20
+UTC on 20 November, Codex agents (same model) checked the reading of the
+sources, searched again for prior work, wrote the statement files, the
+written proofs and the Lean files, and checked the packages in two new empty
+directories on the author's Mac; the checks ended at 14:44 UTC. For each
+paper one Codex agent, which had not worked on that problem in the search
+for problems and had written neither the statement file nor the proofs,
+checked the reading of the source and then reviewed the statement file
+before it was frozen; for each paper these two checks were done by a single
+agent and are not independent of each other. According to the file times
+and the development logs, the proof files of Paper 17 were created after the
+freeze and compiled between 14:27 and 14:33 UTC. According to the session
+records, the statement file and the proof files of Paper 18 were written
+between 14:23 and 14:34 UTC by the main Codex agent and by the Codex agent
+that had worked on this problem in the search, and the development logs
+record no compilation of a proof file before the freeze (14:25:56 UTC). Both
+formalizations follow written proofs prepared in the search for problems.
+During development, Codex also compiled the files of both papers on the
+author's Windows computer (20 November 2026, 14:32–14:41 UTC); these runs
+are not counted among the checks. After the checks, independent Claude Code
+agents (model Claude Opus 5.5), which had written none of the files, gave
+the final reviews, one for each paper, from 17:16 UTC; their model family
+differs from Codex's. Each read the source itself (the reviewer of Paper 17
+the journal version and arXiv version 2), compared the statement file with
+it, read the written proof, the proof files and the raw logs, and compiled
+the files again in a new directory, with warnings treated as errors,
+replaying every module with `leanchecker`. The reviewer of Paper 17
+recomputed the polynomials, the test values and the largest roots in
+Python; the reviewer of Paper 18 compared a computable copy of the statement
+file's parking model with its own simulation of Chen's rule and checked both
+theorems against the simulation. Both approved the formal results, each with
+five minor remarks on the written account, which were applied (the reviewer
+of Paper 18 added a sixth, on contacting the author of the source). The
+reviewer of Paper 18 asked that the public text say that the paper closes
+the gap between Chen's conditions E(c) and E(d), not that it solves an open
+problem of Chen. Claude Code checked the cited passages of the sources,
+searched the literature again, wrote both papers from Codex's manuscripts
+and the Lean files, moved the Lean files into the repository (changing only
+their `import` lines), compiled the repository versions again and checked
+them with `leanchecker` on the author's Mac, and rebuilt the whole Lean
+project.
+
+Papers 19 and 20 (version 1.25.0) were produced from 20 to 22 November 2026. The author asked for a further search for substantial open
+problems, and Claude Code passed this request to OpenAI Codex (model
+GPT-6.2-Astra, reasoning level ultra) at 17:23 UTC on 20 November. Between
+17:23 and 17:53 UTC Codex recorded 111 problems from the literature and wrote
+complete proofs for the five top-ranked candidates, each read by another
+Codex agent (same model) that had not taken part in it; for the question of
+Paper 20 it also checked the inequality by exact computation for 6,204
+parameter triples. While the search was still running, the author asked that
+the five most important candidates be formalized at once, without waiting
+for the author's choice, and Claude Code passed this request to Codex at
+17:48 UTC; at 18:00 UTC Codex ranked the candidates, and the questions of
+Papers 19 and 20 were among the five; the other three are those of Papers
+23, 24 and 25, described below. From 18:00 UTC, Codex agents (same model) checked
+the reading of the sources, searched again for prior work, wrote the
+statement files, the written proofs and the Lean files, and checked the
+packages in two new empty directories on the author's Mac (18:16–18:25 UTC).
+For each paper the reading of the sources was checked by a Codex agent that
+had taken part neither in the proof nor in drafting the statement, and the
+statement file was reviewed before it was frozen by a Codex agent that had
+written neither the proofs nor the statement; both statement files were
+frozen at 18:04:44 UTC. According to the file times and the development
+logs, the proof files were created after the freeze and compiled between
+18:05 and 18:18 UTC; they follow written proofs prepared in the search for
+problems. After the checks, independent Claude Code agents (model Claude
+Opus 5.5), which had written none of the files, gave the final reviews, one
+for each paper, from 18:28 UTC; their model family differs from Codex's.
+Each read the sources itself, compared the statement file with them, read
+the written proof, the proof files and the raw logs, and compiled the files
+again in a new directory, with warnings treated as errors, replaying every
+module with `leanchecker`. The reviewer of Paper 19 recomputed by brute force
+all racks and quandles of order at most 5 up to isomorphism, reproducing the
+corresponding entries of the tables of Vojtěchovský and Yang; the reviewer
+of Paper 20 checked the invariants by enumeration and the inequality on
+18,096 parameter triples in Python. Both approved the formal results, each
+with five minor remarks on the written account, which were applied; the
+reviewer of Paper 20 asked in particular that the known cases (`a = 2`,
+`d ≤ 2`, and Theorem 5.6 of Bhardwaj, Cisto and Deshpande) be credited and
+the novelty be limited to the remaining parameters. Claude Code checked the
+cited passages of the sources, searched the literature again, wrote both
+papers from Codex's manuscripts and the Lean files, moved the Lean files
+into the repository (changing only their `import` lines), compiled the
+repository versions again and checked them with `leanchecker` on the
+author's Mac, and rebuilt the whole Lean project.
+
+Papers 21 and 22 (version 1.25.0) were produced from 20 to 22 November 2026. The author asked for a search for hard and substantial open
+problems; Claude Code wrote this request for Codex at about 18:04 UTC, and
+from about 18:36 UTC it was carried out in a Codex session separate from the
+main one (model GPT-6.2-Astra, reasoning level ultra), in which Codex
+screened 78 candidate problems by 18:54 UTC and prepared detailed notes on
+eight of them. The example of Paper 21 was found and written up in this
+search, checked by exact computation, and read by another Codex agent (same
+model) of a parallel lane of the search, which gave an independent written
+proof of the upper bound. The terrace of Paper 22 was found in this search
+by a hill-climbing program written by Codex (the witness file is dated 18:38
+UTC) and checked with two separately written Python programs. After reading
+the report, the author chose these two problems. In a second separate Codex
+session, from 19:29 UTC, Codex agents (same model) checked the reading of
+the sources, searched again for prior work, wrote the statement files, the
+written proofs, the Lean files and, for Paper 22, a deterministic encoder
+that writes the terrace into `Data.lean`, and checked the packages in two new
+empty directories on the author's Mac (19:35–19:41 UTC). For Paper 22, one
+newly started Codex agent, which had taken no part in finding the terrace and
+had written neither the statement nor the proofs, checked the reading of the
+sources and reviewed the statement file before it was frozen (19:32:16 UTC);
+the proof files were compiled between 19:32 and 19:36 UTC, after the freeze.
+For Paper 21, the statement file went through two versions, as described in
+the section on Paper 21 above: version 1 was approved, before it had been
+compiled, by a Codex agent that had written neither the statement nor any
+proof and had also checked the reading of the source; it failed to compile
+because a notation scope was not opened; version 2, which differs only in
+that line, was approved by a second Codex agent and frozen at 19:33:34 UTC.
+Two proof files were created between the first approval and the freeze, one
+of them (`Residues.lean`, which uses no definition of the statement file) in
+its final form; no proof file was compiled before the freeze. A rule was
+recorded for later tasks that a statement file must compile without
+diagnostics before it is approved. Both formalizations follow proofs or
+certificates prepared in the search for problems. After the checks,
+independent Claude Code agents (model Claude Opus 5.5), which had written
+none of the files and had taken no part in the search, gave the final
+reviews, one for each paper, from 19:42 UTC; their model family differs from
+Codex's. Each read the sources itself, compared the statement file with
+them, read the written proof, the proof files and the raw logs, and compiled
+the files again in a new directory, replaying every module with
+`leanchecker`. The reviewer of Paper 21 also read the freeze records,
+diffed the two versions of the statement file and judged the difference
+immaterial, recomputed the lattice points, the facet normals and the
+determinant in Python and checked the covering radius numerically; the
+reviewer of Paper 22 checked the terrace in Python from `Data.lean` and
+against Codex's witness file. Both approved the formal results: the reviewer
+of Paper 21 with four minor remarks on the written account, the reviewer of
+Paper 22 with six (five on the written account and one asking for a further
+priority check before release); the remarks on the written account were
+applied. The reviewer of Paper 22 asked in particular that the paper say
+that the terrace is not directed and present it as a further verified case
+of Bailey's conjecture as well as the `A_7` case of the reduction of
+Anderson and Ihrig. Claude Code
+checked the cited passages of the sources, repeated the finite computations
+of Paper 21 and decoded the terrace of Paper 22 with its own Python
+programs, searched the literature again, wrote both papers from Codex's
+manuscripts and the Lean files, moved the Lean files into the repository
+(changing only their `import` lines), compiled the repository versions again
+and checked them with `leanchecker` on the author's Mac, and rebuilt the
+whole Lean project.
+
+Papers 23, 24 and 25 (version 1.25.0) were produced from 20 to 22 November 2026. They come from the same search for problems (17:23–17:53 UTC on 20
+November) and the same request to formalize the five most important
+candidates at once as Papers 19 and 20. In the search, Codex checked the
+leading term of Paper 23 by exact computation on all 1,099 labelled graphs
+with at most 5 vertices and certified roots in small discs for three
+friendship graphs, compared the two-row criterion of Paper 24 with an
+enumeration of tilings for 4308 count vectors, and checked the finite facts
+of Paper 25 by exact computation; each written proof was read by another
+Codex agent (same model) that had not taken part in it. From 18:00 UTC,
+Codex agents (same model) checked the reading of the sources, searched again
+for prior work, wrote the statement files, the written proofs and the Lean
+files, and checked the packages in two new empty directories on the author's
+Mac (18:24–18:42 UTC). For Paper 23, one Codex agent that had taken part
+neither in the proof nor in drafting the statement checked the reading of
+the source and reviewed the statement file; for Papers 24 and 25 the reading
+of the source was checked by a Codex agent that had not written the proof,
+and the statement file was reviewed by a Codex agent that had written
+neither the statement nor the proofs. For Paper 24 an earlier draft of the
+statement file, with natural-number positions, was returned by its reviewer
+and replaced by the real-coordinate version. The statement files were frozen
+at 18:06:37 UTC (Paper 23) and 18:06:09 UTC (Papers 24 and 25). According to
+the file times and the development logs, the proof files were created after
+the freeze and compiled between 18:06 and 18:44 UTC; for Paper 24 two development jobs also compiled files on the author's Windows
+computer (18:27–18:29 and 18:33–18:44 UTC), while the rebuild of the whole
+project for this version was running there (see the rebuild section); they are
+not counted among the checks. The formalizations follow the written proofs prepared in the
+search, except that Paper 23 obtains roots of the predicted size from the
+maximum modulus principle instead of a contraction argument and Paper 24
+uses a different family for its lower bound when `k ≥ 6`. After the checks,
+independent Claude Code agents (model Claude Opus 5.5), which had written
+none of the files, gave the final reviews, one for each paper, from 20:52
+UTC; their model family differs from Codex's. Each read the sources itself,
+compared the statement file with them, read the written proof, the proof
+files and the raw logs, and compiled the files again in a new directory,
+replaying every module with `leanchecker`. The reviewer of Paper 23 checked
+the join formula against enumeration of dominating sets for nine small
+petals and computed root moduli in Python; the reviewer of Paper 24 compared
+exhaustive tilings with the two-row criterion for `k ≤ 11` and `n ≤ 18`; the
+reviewer of Paper 25 recomputed the lattice points, the segment sums and the
+cost bound in Python. All three approved the formal results, with six, four
+and five minor remarks on the written account, which were applied (one
+remark on Paper 25 concerns an internal record of Codex). The reviewer of
+Paper 24 later issued an erratum to one sentence of its report, about the
+rejected draft of the statement, after the independent review of the paper
+found the error; it does not affect the frozen statement, the Lean proof or
+the verdict (`certificates/bar-tiling-defect/lean-package/`). Claude Code
+checked the cited passages of the sources, searched the literature again,
+wrote Papers 23 to 25 from Codex's manuscripts and the Lean files, moved
+the Lean files into the repository (changing only their `import` lines),
+compiled the repository versions again and checked them with `leanchecker`
+on the author's Mac, checked that the new entry points of this version can
+be imported together, and rebuilt the whole Lean project.
+
+Paper 26 (version 1.25.0) was produced from 20 to 22 November 2026.
+Conjectures B and C were among the eight problems on which Codex prepared
+detailed notes in the separate search session of Papers 21 and 22 (18:36–18:54
+UTC on 20 November). According to the file times, that search had written
+arguments by 18:41 UTC for Conjecture B (by averaging over the common zeros
+of integer linear forms on a torus, a route that the Lean proof does not
+use), by 18:46 UTC for Conjecture C (the weighted averaging used in the
+paper, in chord form; a review note of the same time added an integral
+version) and by 18:50 UTC (a second note with the integral version); they
+were read by other Codex agents of that search. At about 22:27 UTC the
+author asked for complete Lean proofs of Conjectures B and C, and Claude
+Code passed this request to OpenAI Codex (model GPT-6.2-Astra, reasoning
+level ultra), which carried it out in another separate session. Codex
+agents (same model) wrote the two statement files, checked the reading of
+the sources, searched again for prior work, wrote the Lean proofs and the
+written proofs, and checked the packages in two new empty directories on the
+author's Mac (22:33–22:44 UTC). The reading of the sources was checked
+(22:29:40 UTC) by a Codex agent that had written neither statement and had
+not taken part in the earlier search; the same agent reviewed both statement
+files, after checking that each compiled without diagnostics, and approved
+them at 22:30:07 UTC; both were frozen at 22:30:34 UTC. According to the
+development logs and the file times, all proof files were created after the
+freeze, and they were compiled during development between 22:30:49 and 22:39
+UTC. For Conjecture B the Lean route, by kernel splitting, differs from the
+earlier written proof; for Conjecture C it follows the earlier note, with the
+volumes identified through determinants. Because of the significance of the
+results, each of the two theorems was given two independent final reviews by
+Claude Code agents (model Claude Opus 5.5), four reviewers in all, none of
+which had written any of the files and each second reviewer reading the first
+report only after writing its own analysis (22:43–23:16 UTC); their model
+family differs from Codex's. Each reviewer read the sources itself, compared
+the statement file with them, read the written proof, the proof files and
+the raw logs, and rebuilt the formalization in a new directory, replaying
+every module with `leanchecker`; between them they tested the averaging
+lemma in exact rational arithmetic, the covering radii of more than 11,000
+random and adversarially chosen projections of `T_n` with `n ≤ 5` and
+`i ≤ 4`, and the bound of Conjecture C for random simplices in dimensions 2
+to 4, and found no violation. All four decisions were APPROVE_FORMAL, with no
+blocking or major remarks; their minor remarks on the written account (4 and
+5 for Conjecture B, 5 and 7 for Conjecture C) were applied. Claude Code
+checked the cited passages of the sources, checked three lemmas numerically
+in Python, wrote the paper from Codex's manuscripts and the Lean files, had
+a further Claude Code agent search the literature in depth (see the prior-work
+section), moved the Lean files into the repository (changing only their
+`import` lines), compiled the repository versions again and checked them
+with `leanchecker` on the author's Mac, checked that the fourteen new entry
+points of Papers 17 to 27 can be imported together, and rebuilt the whole
+Lean project. No human mathematician has read the proofs of Paper 26.
+
+Paper 27 (version 1.25.0) was produced on 21 and 22 November 2026.
+The author asked for a new search for substantial open problems, and Claude
+Code passed this request to OpenAI Codex (model GPT-6.2-Astra, reasoning
+level ultra) at 01:00 UTC on 21 November. In that search Codex screened 72
+problems not screened in earlier rounds and prepared notes on eight of
+them, this one among them. According to the file times, by 01:12 UTC a
+Codex agent had written the proof of the minimum (Corollary 1) and checked
+the value of the witness by exact elimination on the full matrix, and
+another Codex agent (same model) that had not derived it had read the
+proof, recomputed the witness value and approved it; the search ended at
+01:22 UTC. After reading its report, the author asked, at about 01:27 UTC,
+that Codex take up this problem and one other, which is not part of this
+version, each in its own Codex session, separate from the search. Codex
+agents (same model) checked the reading of the source, searched again for
+prior work, wrote the statement files, the written proofs and the Lean
+files, and checked the packages in two new empty directories on the
+author's Mac. The statement file of the minimum was reviewed against the
+source by a Codex agent that had not written it (approved at 01:31:57 UTC)
+and frozen at 01:32:25 UTC; according to the file times and the
+development logs, its proof files were created after the freeze and
+compiled during development between 01:32 and 01:42 UTC, and the package
+of 37 files was checked at 01:42:55–01:56:09 UTC. An earlier attempt,
+started 35 seconds before, had been stopped by the acceptance script, which
+misread two informational messages of Lake; it is kept on record, and the
+script was corrected only in this respect. In parallel, Codex wrote a
+proof of the classification (file times 01:36 to 01:41 UTC), which was read by
+Codex agents that had not derived it (reviews at 01:39, 01:42 and 01:44
+UTC); one of them rebuilt the coefficients of 25 constructed elements and
+recomputed their full 125 × 125 determinants. As the task description
+allowed, Claude Code asked Codex at 03:20 UTC to formalize the
+classification. Its statement file was reviewed against the source by a
+Codex agent that had not written it (approved at 03:22:01 UTC) and frozen
+at 03:22:48 UTC; its proof files were created after the freeze and
+compiled during development between 03:23 and 03:34 UTC, and all 63 files
+were checked at 03:33:17–03:55:22 UTC, the 37 files of the minimum
+unchanged. The Lean route follows the written classification, except that
+the exact lift (Lemma 8) uses explicit cofactor certificates in place of a
+general lifting argument. The final reviews were done by Claude Code
+agents (model Claude Opus 5.5) that had written none of the files: one for
+the minimum (03:20–03:27 UTC) and, because of the significance of the
+result, two independent ones for the classification (03:57–04:55 UTC),
+neither of which read the other's report; their model family differs from
+Codex's. Each reviewer read the source itself, compared the statement
+files with it, read the written proofs, the proof files and the receipts,
+and rebuilt the formalization in a new directory, replaying every module
+with `leanchecker`; the reviewers of the classification tested it on
+random integer functions (4,650 exact determinants in one review; about
+300,000 evaluations through the factorization, checked against 140 full
+determinants, in the other) and found no counterexample. All three
+decisions were APPROVE_FORMAL, with no blocking or major remarks; their
+minor remarks on the written account (6, 5 and 5) were taken into account
+where they concern the paper; the others concern internal records of
+Codex. The author decided to include Paper 27 in version 1.25.0. Claude
+Code checked the cited passages of the source, recomputed in Python the
+determinants of the witness and of the example of Mossinghoff and Pinner,
+the group `U` and the visible primes below 6000, wrote the paper from
+Codex's manuscripts and the Lean files, moved the Lean files into the
+repository (changing only their `import` lines), compiled the repository
+versions again and checked them with `leanchecker` on the author's Mac,
+and rebuilt the whole Lean project. No human mathematician has read the
+proofs of Paper 27. Eleven further independent Claude Code agents (model Claude Opus 5.5), which had written none of the files, reviewed the papers, one each, and another reviewed the release (the README, the certificates, the receipts and the release notes); their corrections were applied. The author has read Papers 17–27 and, using a
+side-by-side table, compared their Lean statements with the main theorems
+of each paper: Theorem 1 (apart from its last sentence) and Corollary 1 of Paper 17, Theorems 1 and 2 of
+Paper 18, Theorem 1 of Papers 19, 20, 21 and 22, Theorems 1 and 2 and
+Corollary 1 of Paper 23, Theorem 1 of Paper 24, Theorems 1 and 2 of Paper
+25, Theorems 1, 2 and 2′ of Paper 26, and Theorem 1 and Corollary 1 of
+Paper 27.
+
 For versions 1.9.0 and 1.10.0 the final review before release was done by
 an independent Claude Code agent instead of OpenAI Codex, whose usage quota
 had run out (the author's decision; version 1.4.0 was handled the same way).
@@ -3273,7 +4721,13 @@ their repository versions and rebuilt the whole Lean project from a new
 empty directory, as described above, and drafted the changes to the README
 and ATTEMPTS.md, which the second independent agent named in the disclosure of Paper 16 reviewed with the certificates, the receipts and the release notes; OpenAI Codex made the statement file and the
 Lean proofs of Paper 16, as described above, and took no part in this
-rebuild.
+rebuild. For version 1.25.0,
+Claude Code (model Claude Opus 5.5) rechecked the Lean files of Papers 17
+to 27 in their repository versions and rebuilt the whole Lean project from
+a new empty directory, as described above, and drafted the changes to the
+README and ATTEMPTS.md, which the independent agent named in the disclosure of Papers 17 to 27 as the reviewer of the release reviewed with the certificates, the receipts and the release notes; OpenAI Codex made the statement files
+and the Lean proofs of Papers 17 to 27, as described above, and took no
+part in this rebuild.
 
 AI systems are not authors. The author takes full responsibility for the content.
 

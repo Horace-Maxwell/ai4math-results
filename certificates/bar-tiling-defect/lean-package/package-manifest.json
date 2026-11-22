@@ -1,0 +1,229 @@
+{
+ "module_count": 18,
+ "entrypoints": [
+  "Research.TaskP.RectangleDefect.CheckRectangle"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskP.RectangleDefect.CheckRectangle": [
+   "TaskP.RectangleDefect.check_SharpBound"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskP/RectangleDefect/Challenge.lean",
+   "frozen_utc": "2026-11-20T18:06:09Z",
+   "freeze_record": "rectangle-defect/FREEZE.json",
+   "sha256": "906da3fa8ff5800a0d1dd1a2b7f74be45784858f93eef10acf7aa19d666d29d9"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/BalanceCases.lean",
+   "module": "Research.TaskP.RectangleDefect.BalanceCases",
+   "sha256": "08b94d76da8d7c2b58657b907b61c53153b9c4263119ce512510e80e264a9a49",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/BalanceCases.lean",
+   "codex_source_sha256": "9f19b66608cba356c440606cafaeabe6a1f4e8a047e8e366797968abb93c9abc",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.BalanceConstruction",
+    "Research.TaskP.RectangleDefect.UpperCount"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/BalanceConstruction.lean",
+   "module": "Research.TaskP.RectangleDefect.BalanceConstruction",
+   "sha256": "79ae14f24333a1aa39edb3a62502418025500d53d38b61f4f860b936cd65ae48",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/BalanceConstruction.lean",
+   "codex_source_sha256": "fde6a48db87d27584807a5454420f80322571ea92c396fb07d20f392894de532",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.BoundedBezout"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/BoundaryRows.lean",
+   "module": "Research.TaskP.RectangleDefect.BoundaryRows",
+   "sha256": "6d053b0d2b94891ba72ea47f7aef81719ac81a3ca2ec32601f970e92ee5faaa3",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/BoundaryRows.lean",
+   "codex_source_sha256": "09459e185a81cbe380a8b8ede93c3edb84c209020ef77fd66a8404f45212e1d3",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.BoundaryWidths"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/BoundaryWidths.lean",
+   "module": "Research.TaskP.RectangleDefect.BoundaryWidths",
+   "sha256": "f16b25ee7f2f4b86515bd22f8552a3b463e053147aedc537e8b2108ecada65ee",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/BoundaryWidths.lean",
+   "codex_source_sha256": "504827ad0cbe8b45ce32919445eb1be1ff60d3ce87c4dfb657d05270928fd55b",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.RowSplit"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/BoundedBezout.lean",
+   "module": "Research.TaskP.RectangleDefect.BoundedBezout",
+   "sha256": "5d942396be6ceae7763c795914d7e3a49405e71435a065f4e4dd4fd3097f0b49",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/BoundedBezout.lean",
+   "codex_source_sha256": "570ddb9681f9770c3f679cc924dd43a164cea57edcde3277f527af8b107ff53f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.RowSplit"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/Challenge.lean",
+   "module": "Research.TaskP.RectangleDefect.Challenge",
+   "sha256": "906da3fa8ff5800a0d1dd1a2b7f74be45784858f93eef10acf7aa19d666d29d9",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/Challenge.lean",
+   "codex_source_sha256": "906da3fa8ff5800a0d1dd1a2b7f74be45784858f93eef10acf7aa19d666d29d9",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/CheckRectangle.lean",
+   "module": "Research.TaskP.RectangleDefect.CheckRectangle",
+   "sha256": "1007744341b4e3f7a2e946716babda8f8e0e5a91d171a5d6c0e13109671bfc02",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/CheckRectangle.lean",
+   "codex_source_sha256": "8e8466798b836f2230d2c70e58abc018938d2ed68e8479678f4dcbd81258eae4",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/IntervalPacking.lean",
+   "module": "Research.TaskP.RectangleDefect.IntervalPacking",
+   "sha256": "9684bf2a3277338feb595f075e55885e09eb05480e0b30b919c2fc8e44f3a883",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/IntervalPacking.lean",
+   "codex_source_sha256": "9909d2f6566c4bec83f0cf0125490482af4d1f41da16e62d3cabbf9ba51ab30c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.RowSplit"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/LowerFamily.lean",
+   "module": "Research.TaskP.RectangleDefect.LowerFamily",
+   "sha256": "41895e63e12eedea50e8666e0e7fd7a72313b22eabcea45e80de15e472809f33",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/LowerFamily.lean",
+   "codex_source_sha256": "14763519bde74b1c74cbf6f8fed644cdc4692655a9a280e82778a4ed72875ef8",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.RectCounts",
+    "Research.TaskP.RectangleDefect.RowSplit"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/MatchingLower.lean",
+   "module": "Research.TaskP.RectangleDefect.MatchingLower",
+   "sha256": "634f1dae43aad069314f74d9b942da551bf6c412f3658cb5b6602de2deb18e6c",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/MatchingLower.lean",
+   "codex_source_sha256": "6fa35536a8bf9bc9ddc51aae7762a618e39cbaf6a8374f77a5198788529a2452",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.LowerFamily",
+    "Research.TaskP.RectangleDefect.BoundaryRows"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/Proof.lean",
+   "module": "Research.TaskP.RectangleDefect.Proof",
+   "sha256": "1bb2d5daf2947d4c1e85d080af45ade666d95e96bec7945c798e2b5fa6249a2a",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/Proof.lean",
+   "codex_source_sha256": "3d758b0b9c6c7aaab840349489a48d941dcd34be42aa01beaf92505836e7f4cf",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.UpperSparse",
+    "Research.TaskP.RectangleDefect.SmallRows",
+    "Research.TaskP.RectangleDefect.BalanceCases",
+    "Research.TaskP.RectangleDefect.RowPlacement",
+    "Research.TaskP.RectangleDefect.MatchingLower"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/RectCounts.lean",
+   "module": "Research.TaskP.RectangleDefect.RectCounts",
+   "sha256": "1ea21d62886265a18a879c2a575182af0ca1f13218e31a7f60e3de1740ba2829",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/RectCounts.lean",
+   "codex_source_sha256": "6026916f6539e9f54f8de7bdf2c136b7f4dab226339a868f9e069a676baeb487",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/RowPlacement.lean",
+   "module": "Research.TaskP.RectangleDefect.RowPlacement",
+   "sha256": "b047563659c074d25244dcb5e7c965296430972755b3a711e886ddd507684c42",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/RowPlacement.lean",
+   "codex_source_sha256": "34995b9f49203972eac001dbfd03050044d0377737b6824a157ac6b0378194a0",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.StripLayout",
+    "Research.TaskP.RectangleDefect.BoundaryRows"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/RowSplit.lean",
+   "module": "Research.TaskP.RectangleDefect.RowSplit",
+   "sha256": "378cee43dbe255cc62769b7ea36999c459b6088754627c0ca15b2be1809efe58",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/RowSplit.lean",
+   "codex_source_sha256": "04299e7581d40dc421294e93d2f46e9e4efead889c0890655b310701dabc02e6",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/SmallRows.lean",
+   "module": "Research.TaskP.RectangleDefect.SmallRows",
+   "sha256": "692bf49b0fdf7eba937711475ec802b66e11f783d9f4633c4d360573d7d808b2",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/SmallRows.lean",
+   "codex_source_sha256": "ff8c9d1130568142915cbd566546354d929363acc639497b6593755bbe594059",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.RowSplit"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/StripLayout.lean",
+   "module": "Research.TaskP.RectangleDefect.StripLayout",
+   "sha256": "88396216bca5f75f7ff6f26574ac22d1e9828b23db9d26137d77c9438f7433cd",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/StripLayout.lean",
+   "codex_source_sha256": "87d3a647c66e1dbb17facdb60fe7b2a726ea40a1391f316c2a67c82f2fadfb9c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.IntervalPacking"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/UpperCount.lean",
+   "module": "Research.TaskP.RectangleDefect.UpperCount",
+   "sha256": "58cb920f8fdc3b3e2795198caedf6ba7ea115480fdc7fd93bd0f91a81e43059b",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/UpperCount.lean",
+   "codex_source_sha256": "2b283dbd1bcb57cc062a103654f3570d0c98a3c3aa8afedb36bffebe34ef5756",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.RectCounts"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RectangleDefect/UpperSparse.lean",
+   "module": "Research.TaskP.RectangleDefect.UpperSparse",
+   "sha256": "296178e1f9ecc0ec3bdb9dfba448d314d3d5e3c10922de950e07f59dbb721c37",
+   "codex_source": "work/codex-r3/phase23/taskP/rectangle-defect/UpperSparse.lean",
+   "codex_source_sha256": "ed11e4053a0a8e948c508dc887ef751c5d6b37815bc12ebab420d0cd996f5d62",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RectangleDefect.UpperCount"
+   ]
+  }
+ ]
+}

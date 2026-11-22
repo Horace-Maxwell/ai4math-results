@@ -1,0 +1,825 @@
+{
+ "module_count": 63,
+ "entrypoints": [
+  "Research.TaskU.H5.Check",
+  "Research.TaskU.H5B.CheckB"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskU.H5.Check": [
+   "TaskU.H5.Check.check_witnessValue",
+   "TaskU.H5.Check.check_leastPositiveMultiple"
+  ],
+  "Research.TaskU.H5B.CheckB": [
+   "TaskU.H5.check_fullSpectrum"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskU/H5/Challenge.lean",
+   "frozen_utc": "2026-11-21T01:32:25Z",
+   "freeze_record": "FREEZE.json",
+   "frozen_sha256": "9a9a0e18767ccf7efa7f6ea676d8aab883846444a66f4ffa27f1fdb3982f1343",
+   "repository_sha256": "9a9a0e18767ccf7efa7f6ea676d8aab883846444a66f4ffa27f1fdb3982f1343",
+   "repository_identical_to_frozen": true,
+   "targets": [
+    "TaskU.H5.Challenge.witnessValue",
+    "TaskU.H5.Challenge.leastPositiveMultiple"
+   ]
+  },
+  {
+   "file": "lean/Research/TaskU/H5B/ChallengeB.lean",
+   "frozen_utc": "2026-11-21T03:22:48Z",
+   "freeze_record": "FREEZE-B.json",
+   "frozen_sha256": "2a5066bfefb308bffbf31bdc568709a23f9177cb5ae3298cba198cf28cdf9ea6",
+   "repository_sha256": "f49432a2f5ab9b415b23ca564607d8e51548ce68ecef1d837d14286936b07263",
+   "repository_identical_to_frozen": false,
+   "targets": [
+    "TaskU.H5.ChallengeB.fullSpectrum"
+   ]
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskU/H5/Audit.lean",
+   "module": "Research.TaskU.H5.Audit",
+   "sha256": "b62651eecc2a17db088531088e9ac903fe240c16b7028aaec4f77cb39a4eff23",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Audit.lean",
+   "codex_source_sha256": "8aa1cf8d0438410ab7f4c0b3995bdbd9a196e02e463828148ebc9aae9478bf5d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Blocks.lean",
+   "module": "Research.TaskU.H5.Blocks",
+   "sha256": "aec5603c98a97e03dbd7dd38d684fba4fb1503083bfc93b43ba4ad5d64942642",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Blocks.lean",
+   "codex_source_sha256": "a3f8861797884d1d8d8b96f3d9c7ffb92ecd5ce1e9ee0c0d01748d0e4d0d25b7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Fourier"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Challenge.lean",
+   "module": "Research.TaskU.H5.Challenge",
+   "sha256": "9a9a0e18767ccf7efa7f6ea676d8aab883846444a66f4ffa27f1fdb3982f1343",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Challenge.lean",
+   "codex_source_sha256": "9a9a0e18767ccf7efa7f6ea676d8aab883846444a66f4ffa27f1fdb3982f1343",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+    "Mathlib.Data.ZMod.Basic",
+    "Mathlib.Tactic.DeriveFintype",
+    "Mathlib.Tactic.Ring"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Check.lean",
+   "module": "Research.TaskU.H5.Check",
+   "sha256": "e93275de80b86dcc4fffa0082fb428aaf715731a2b22f1aaa97a16ee0d63e952",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Check.lean",
+   "codex_source_sha256": "5142f6c395ba28728c965baf3518e417b7f4bea3d66500a6532ae11140b34025",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Audit",
+    "Research.TaskU.H5.CheckWitness",
+    "Research.TaskU.H5.CycPos",
+    "Research.TaskU.H5.Minimum"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/CheckWitness.lean",
+   "module": "Research.TaskU.H5.CheckWitness",
+   "sha256": "0ece54b43f252205f9a1f6e54fa1a443f7a67b564da0cd0417ebceb65153b4a2",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/CheckWitness.lean",
+   "codex_source_sha256": "16071fdf39bf60a50426e8fd8d060a39d72471eba650e9ec90946bbbb1253c41",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Witness"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Cyc5.lean",
+   "module": "Research.TaskU.H5.Cyc5",
+   "sha256": "9061b2ada36d376f82f9985eabbe7460bc66db7c900b11722bbce1ced54e6cf9",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Cyc5.lean",
+   "codex_source_sha256": "9061b2ada36d376f82f9985eabbe7460bc66db7c900b11722bbce1ced54e6cf9",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/CycEval.lean",
+   "module": "Research.TaskU.H5.CycEval",
+   "sha256": "0951e7f43746c6c85b08f292a9f0ece776258c692ac9a1947fa858590920d626",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/CycEval.lean",
+   "codex_source_sha256": "a1dd60823b711f77a0862c09e8305792362d0ee7167e487fe975e56b9955f9d7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Cyc5"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/CycMoments.lean",
+   "module": "Research.TaskU.H5.CycMoments",
+   "sha256": "c27af3a1bf7f958a5ed5137acc633a16ab2d70f31ace8996c7ddd2d47d0323ac",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/CycMoments.lean",
+   "codex_source_sha256": "c0ce2ab7f299448048029b80e0ebcb5a72d2606d6c479790e534fc0c07aa2bd0",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.CycPhase"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/CycNorm.lean",
+   "module": "Research.TaskU.H5.CycNorm",
+   "sha256": "44b8fec8f539dcbdd11c2c69006ed1a5ea837ef7a75414928e4fb60e9a56dfbf",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/CycNorm.lean",
+   "codex_source_sha256": "8e254ee700d6bef26c5c2a4d30a2b5b89a6eb47a41c2c4675f192198d5a30eae",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Cyc5",
+    "Mathlib.Algebra.Field.ZMod"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/CycPhase.lean",
+   "module": "Research.TaskU.H5.CycPhase",
+   "sha256": "7efcf425ea6a673280e39950fd7e5e548d40f50e6d7466dff1ea23055362b854",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/CycPhase.lean",
+   "codex_source_sha256": "1a1838546531da0ac0f55ae801b32f5f64e92099afd558a453711aae62bd060d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.CycNorm"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/CycPos.lean",
+   "module": "Research.TaskU.H5.CycPos",
+   "sha256": "f464df99ac1a719c6843a07dedeb2ede1b5cf57186e78d0417e95aaa11f94415",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/CycPos.lean",
+   "codex_source_sha256": "0d892209086a8509dded6697430c7ffab7fba0aabdcdfa2a94e53fc575a51851",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.CycEval"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/CycRoots.lean",
+   "module": "Research.TaskU.H5.CycRoots",
+   "sha256": "d6d8f7552c9fd21c2c596b5c82e89542cd022823351e007c13fa11163cf3a128",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/CycRoots.lean",
+   "codex_source_sha256": "eb357630ab0b55fc7e65ef66750c74f92b77925c6d6d2d9d0f02529ac478680e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.CycPhase",
+    "Research.TaskU.H5.CycEval"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Divisibility.lean",
+   "module": "Research.TaskU.H5.Divisibility",
+   "sha256": "de78292f14c782e19ba28f8787a8519e728efbcc0062325de8aa59ffd59999b7",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Divisibility.lean",
+   "codex_source_sha256": "052765d9e0dda24f055e7c097802f16fba4d325d2fe9622253c37405db9fb9d3",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.IntegerFactors",
+    "Research.TaskU.H5.Normalize",
+    "Research.TaskU.H5.TraceIntegral",
+    "Research.TaskU.H5.Quotient"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Factors.lean",
+   "module": "Research.TaskU.H5.Factors",
+   "sha256": "6ce2ea093e41d631bf5b8a1ea126bd1729984a5b740f004de8fc8507b7895518",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Factors.lean",
+   "codex_source_sha256": "f3f78a4530316f902f3e1538a0fbe408802c4f592d7a76ad5c22eea158f335a4",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Blocks",
+    "Mathlib.Algebra.Field.ZMod"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Fourier.lean",
+   "module": "Research.TaskU.H5.Fourier",
+   "sha256": "dc32329b30abed124b59b0e98b4f11d414b890d1ce16c9ddd7ebb6f95e8b72ee",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Fourier.lean",
+   "codex_source_sha256": "235b6a442e46384fb745ec36dfb860df9606d58591a287110935f151f274f31d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Challenge",
+    "Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar",
+    "Mathlib.NumberTheory.LegendreSymbol.AddCharacter",
+    "Mathlib.Data.Fintype.BigOperators",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/IntegerFactors.lean",
+   "module": "Research.TaskU.H5.IntegerFactors",
+   "sha256": "45aac8074b8305089f0ac34ec46af565bae3464dd0e59cde5600bdaa33e4dd79",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/IntegerFactors.lean",
+   "codex_source_sha256": "480aaffccc68dee602b615a6aa795541161120718be892c53b9d6162816b03ae",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Factors",
+    "Research.TaskU.H5.ProfileEval",
+    "Research.TaskU.H5.TraceProfile"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Minimum.lean",
+   "module": "Research.TaskU.H5.Minimum",
+   "sha256": "6587ce288da7211bc8d4bb5205f4c4dd0ad0739e1db59734fcb2c225ebcdab84",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Minimum.lean",
+   "codex_source_sha256": "7843196fac1f92ae550bb19c85b93b269392e0b34c9cc10bd31c13fb34b97bb9",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.TraceFinal",
+    "Research.TaskU.H5.TraceAugment",
+    "Research.TaskU.H5.Divisibility"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Normalize.lean",
+   "module": "Research.TaskU.H5.Normalize",
+   "sha256": "38f1dfb3c952b489b8157ba403de9fdead5a9c7e7cea3e12e7a35de23c9136f1",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Normalize.lean",
+   "codex_source_sha256": "68b54e718f9f13f94cc3beff1ce0cb0dcdb412f63c38f8625fbef063be95a79e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Fourier",
+    "Mathlib.Algebra.Field.ZMod"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Phase.lean",
+   "module": "Research.TaskU.H5.Phase",
+   "sha256": "97cfba2eb7a817060c3bbd14d7ab8858a49bce3a2f3c779e25ff33581a999911",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Phase.lean",
+   "codex_source_sha256": "84cb72c08f688ac66e6d0a9bdeefa2719b43f7c0d3e3e332e6707644b61ce03a",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Challenge",
+    "Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Profile.lean",
+   "module": "Research.TaskU.H5.Profile",
+   "sha256": "f89abe5ce9acaa6bd848e0740a2df9d7b968d9f6e6b6be92a57dea101895dcee",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Profile.lean",
+   "codex_source_sha256": "8aae000b12a86d5278655abffb286e55bde72cf527422180a5d9e5775f46914b",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Cyc5",
+    "Research.TaskU.H5.Fourier"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/ProfileEval.lean",
+   "module": "Research.TaskU.H5.ProfileEval",
+   "sha256": "77b9c6c2bd0274491129f7d3c7727dd8b02f3a84cdeb7662c9b0cbd2f6439e3c",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/ProfileEval.lean",
+   "codex_source_sha256": "3ed05d27c4429f0427f9d04d520d96e8f547175b9ef15399c3b2dec4aa3745c8",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Profile",
+    "Research.TaskU.H5.CycEval"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Quotient.lean",
+   "module": "Research.TaskU.H5.Quotient",
+   "sha256": "920e31d14abf4ed05d65d2cb573e2a0ca832afe069f0317dacde207a4571ae76",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Quotient.lean",
+   "codex_source_sha256": "e304ea454dd7f13f8ffd883857c93ee08ea3d5a6f6025626c3daaa5a255f4d62",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.SmallMultiples"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/RayCancellation.lean",
+   "module": "Research.TaskU.H5.RayCancellation",
+   "sha256": "c9394e1f88aa5d31eeac121b34cf12dff60a8238ed05f9cdf9445e39f5a074fd",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/RayCancellation.lean",
+   "codex_source_sha256": "666a4f7017f39ad48ec99f99bf3de392df1ba466257d6a0ff44069fb7a9bc38e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.RayMoments",
+    "Research.TaskU.H5.IntegerFactors",
+    "Research.TaskU.H5.CycRoots"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/RayMoments.lean",
+   "module": "Research.TaskU.H5.RayMoments",
+   "sha256": "4470480ca2feba75fdfd0534be468b095163165dfd1be4b2551a0703c8257a98",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/RayMoments.lean",
+   "codex_source_sha256": "c6a47d47bd77e1f77868d25fa197eab21e9e170a8789dcf2be6b4dda356d4f6e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.CycMoments",
+    "Research.TaskU.H5.Profile",
+    "Research.TaskU.H5.Normalize",
+    "Research.TaskU.H5.Phase"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/SmallMultiples.lean",
+   "module": "Research.TaskU.H5.SmallMultiples",
+   "sha256": "6cb25cca1554a338fb1b12a0af1cf6ec246550900c35ea2d1b3d4e5d597f0dd3",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/SmallMultiples.lean",
+   "codex_source_sha256": "7857f523138fd50a2355daf1f941fe4298ab3a88c7082433bff476519ddca522",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Witness",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/TraceAugment.lean",
+   "module": "Research.TaskU.H5.TraceAugment",
+   "sha256": "ed8a7cc9bfef2644465c69762679235c1fa02e7753dcd002bdc106df05063066",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/TraceAugment.lean",
+   "codex_source_sha256": "5dd3b32e80df9cb13fd2d34f77c07562a9907777f0f6e47c39269dd2f0f2c31e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.TraceIntegral",
+    "Research.TaskU.H5.Factors",
+    "Research.TaskU.H5.ProfileEval"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/TraceCongruence.lean",
+   "module": "Research.TaskU.H5.TraceCongruence",
+   "sha256": "14a3ff37c326155fed7d37c307e1a778aa8ac718c10e1b013af556ef8ded86a8",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/TraceCongruence.lean",
+   "codex_source_sha256": "2dbe2141eeae678790447ecc35166ee50ab11f4056d260428f5d755060c1d4e5",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.TraceOrbit"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/TraceFinal.lean",
+   "module": "Research.TaskU.H5.TraceFinal",
+   "sha256": "62a0725dd7e57157d48868daf78461c4e6c79dfc2593df3f35848c1c63faa60f",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/TraceFinal.lean",
+   "codex_source_sha256": "0d772bacfa271d1d42675943a91d41a94cfdde08f8004e6c44d24f9c8e87d341",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.TraceLower",
+    "Research.TaskU.H5.Divisibility"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/TraceIntegral.lean",
+   "module": "Research.TaskU.H5.TraceIntegral",
+   "sha256": "0714786637cc4c79e0883e9c38e003a12625e5166036dc3ccc9defa931a9b5fc",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/TraceIntegral.lean",
+   "codex_source_sha256": "f7ef443fbedacf889e7ef9ed51807c7073f02c33ecb9ebb12d8ea86504b2d809",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.TraceCongruence",
+    "Research.TaskU.H5.TraceProfile",
+    "Research.TaskU.H5.CycNorm",
+    "Mathlib.Algebra.Field.ZMod"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/TraceLower.lean",
+   "module": "Research.TaskU.H5.TraceLower",
+   "sha256": "80157a08ee502ae8a0e75ac12a94489eea2bc7457f064de934cabd0cef95df97",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/TraceLower.lean",
+   "codex_source_sha256": "db64a444e9208ed35cfc001c576bf9a8af9be79107cc1697679c78a501abd64c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.RayCancellation"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/TraceOrbit.lean",
+   "module": "Research.TaskU.H5.TraceOrbit",
+   "sha256": "0ab88465291c50c6f6951654445d8a7df23b30419e66e764b93d64c102e3a82a",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/TraceOrbit.lean",
+   "codex_source_sha256": "0561df37f2a7069d08e4e97f1c8bfdaff8d4bfeb82e8837f872364df5300e7b4",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.TraceWords",
+    "Mathlib.Algebra.Field.ZMod"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/TraceProfile.lean",
+   "module": "Research.TaskU.H5.TraceProfile",
+   "sha256": "721795e226e33d4c19865040f6c3a82f665aedcccd76a76b1a0ef6f3e63167b2",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/TraceProfile.lean",
+   "codex_source_sha256": "fe6733a595ab21aa15400198f66f80b577a71f625f6babfce92fa03bb7d7d34a",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.TraceWords",
+    "Research.TaskU.H5.Profile"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/TraceWords.lean",
+   "module": "Research.TaskU.H5.TraceWords",
+   "sha256": "2bc0ec5f3f4e6474829538011a5a3d4da4a7d118f26975f34543949cf6deb0db",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/TraceWords.lean",
+   "codex_source_sha256": "8ea1b2c50c41331e77fa8e54057e4f24f7527b07b611b977a4b86df286554a6f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Challenge",
+    "Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar",
+    "Mathlib.NumberTheory.LegendreSymbol.AddCharacter",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/Witness.lean",
+   "module": "Research.TaskU.H5.Witness",
+   "sha256": "01bf63c9bfcf2e17afaffe15bca551cc737b20b088f6ea5851e97ba1a3193d53",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/Witness.lean",
+   "codex_source_sha256": "f74d43cd327ac66215e6e809da7725480dc71dae7f9c644fa678c22ea98c557c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.WitnessEval",
+    "Mathlib.Tactic.Linarith"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/WitnessBase.lean",
+   "module": "Research.TaskU.H5.WitnessBase",
+   "sha256": "ba58e0a60c1a17dd198c0376308c662ab9d32df549aaec6a4a75207f61c36359",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/WitnessBase.lean",
+   "codex_source_sha256": "3d1a1a4f7e728eb63957749e7d7d85ce6e2d41240fe42cb4406f9f6a8fa1412f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Challenge",
+    "Research.TaskU.H5.WitnessRows",
+    "Mathlib.LinearAlgebra.Matrix.Block",
+    "Lean.Elab.Tactic.Omega"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/WitnessEval.lean",
+   "module": "Research.TaskU.H5.WitnessEval",
+   "sha256": "68a9c67b8e497b9f8e14533e601ab8738f263f88cc8b91c17dab410290927a16",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/WitnessEval.lean",
+   "codex_source_sha256": "ceb17279d9229fc243dacb4ff5bbfdae36e4eebcc6ee8fd7f8b697637f088dae",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.WitnessBase"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5/WitnessRows.lean",
+   "module": "Research.TaskU.H5.WitnessRows",
+   "sha256": "fd2faa5996bd3ea84ad81c88af8259f58ba0783c35302abeccb5b675b50987c0",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/TaskU/H5/WitnessRows.lean",
+   "codex_source_sha256": "fd2faa5996bd3ea84ad81c88af8259f58ba0783c35302abeccb5b675b50987c0",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.Data.Int.Basic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/BTrace.lean",
+   "module": "Research.TaskU.H5B.BTrace",
+   "sha256": "776ecbaca411254b3c19e2131b2af6357256315b3cc0ca3a8b0509952983a03f",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/BTrace.lean",
+   "codex_source_sha256": "3e30fa23ac339360e7af33e50964a6d90fbff26e837f5cfd4c9806bcd8fb7054",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.LiftRing",
+    "Research.TaskU.H5.RayMoments",
+    "Research.TaskU.H5.IntegerFactors"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/BTraceImage.lean",
+   "module": "Research.TaskU.H5B.BTraceImage",
+   "sha256": "e28563fa6d2173481997401568b84c99d0588d6bf0d4b74469dfcbe2174173a1",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/BTraceImage.lean",
+   "codex_source_sha256": "ff010522debdf4d4e1e8d41b21f3bd2c17ff4f26daa6232f8dd7c2c249db6f47",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.UnitResidues",
+    "Research.TaskU.H5B.BTrace",
+    "Research.TaskU.H5.Divisibility",
+    "Research.TaskU.H5.TraceFinal"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/ChallengeB.lean",
+   "module": "Research.TaskU.H5B.ChallengeB",
+   "sha256": "f49432a2f5ab9b415b23ca564607d8e51548ce68ecef1d837d14286936b07263",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/ChallengeB.lean",
+   "codex_source_sha256": "2a5066bfefb308bffbf31bdc568709a23f9177cb5ae3298cba198cf28cdf9ea6",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Challenge",
+    "Research.TaskU.H5.Cyc5"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/CheckB.lean",
+   "module": "Research.TaskU.H5B.CheckB",
+   "sha256": "b140240f92a9fabd41fcc63e502b8e3cf46295df580b4e41c4d2703be8fb8f9d",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/CheckB.lean",
+   "codex_source_sha256": "628d604fd5901aa9ee9e50be382269ed806a90ac1aeaa0d1a4afda4d3b982cf5",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.ProofB",
+    "Research.TaskU.H5.Check"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/Construct.lean",
+   "module": "Research.TaskU.H5B.Construct",
+   "sha256": "219372477bd328eaf1ca09cb6335b1ed5938eb64053dcc4db70abee1be0facd9",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/Construct.lean",
+   "codex_source_sha256": "6c469bb69b6153740fb4aaea7291f441d8190a68a46fe231088f6f9418234f90",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.Insert",
+    "Research.TaskU.H5B.RowsValue",
+    "Research.TaskU.H5B.LiftShift"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/CoprimeCongruence.lean",
+   "module": "Research.TaskU.H5B.CoprimeCongruence",
+   "sha256": "d6349d131a6fee12f6b8175dd7c481ed8750f669f31fe19eb5c4f05cac8f5d18",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/CoprimeCongruence.lean",
+   "codex_source_sha256": "69f48506aa5de5acc0b644bc380ca66e2d5bc5da32284450823e55af07881817",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.IntegerFactors",
+    "Research.TaskU.H5.TraceIntegral",
+    "Research.TaskU.H5B.ChallengeB"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/CoprimeSeeds.lean",
+   "module": "Research.TaskU.H5B.CoprimeSeeds",
+   "sha256": "f93243d7a83e31aea2db6995bc6ce2651f65df5c17c5af7166406f0088600853",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/CoprimeSeeds.lean",
+   "codex_source_sha256": "2851ac9010a89e188472df1e2d8c832afddef30ea98e94d652a33fb4cb30f948",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.IntegerFactors",
+    "Research.TaskU.H5.Audit",
+    "Research.TaskU.H5B.ChallengeB"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/Insert.lean",
+   "module": "Research.TaskU.H5B.Insert",
+   "sha256": "6ba05aa10a913562856744c4a1d2bbbc257006ff85d73db8fd05ecf34cdc93cc",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/Insert.lean",
+   "codex_source_sha256": "de54fb17347d06a7911d0e247e0429ffeeec1d2a0e11f1aa5c0470254a07a690",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.UnitResidues",
+    "Research.TaskU.H5B.SeedMarginals"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/LiftBlock.lean",
+   "module": "Research.TaskU.H5B.LiftBlock",
+   "sha256": "0bebcc0c5a96008ed99c3e50201dad67d7c4438cb84c84f4a2d459279d9095c1",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/LiftBlock.lean",
+   "codex_source_sha256": "86b3d0e588b9571458b74aa4357c44b19b345ded76c8b7e2d04532dc7034ba4d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.LiftRing",
+    "Research.TaskU.H5.IntegerFactors"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/LiftColumns.lean",
+   "module": "Research.TaskU.H5B.LiftColumns",
+   "sha256": "a3b2b51af2c7ee8e20dcc3464818cc68028dfdf857920ecfff75a001c7bbf1f5",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/LiftColumns.lean",
+   "codex_source_sha256": "80289104d0eb6413f953db52aa745177d2af8bfbd195f282f95b7e69337e99bc",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.LiftBlock",
+    "Research.TaskU.H5B.LiftData",
+    "Research.TaskU.H5B.Seeds",
+    "Mathlib.LinearAlgebra.Matrix.Adjugate"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/LiftCorrection.lean",
+   "module": "Research.TaskU.H5B.LiftCorrection",
+   "sha256": "7cac81c989054e3203a0c9a1083b03f430e026aa62f08efab27d547035345372",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/LiftCorrection.lean",
+   "codex_source_sha256": "a26ce7cd218c95606120d4d4c87844220e14d092bff7a6af6bcb08f4047d50a7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.LiftBlock"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/LiftData.lean",
+   "module": "Research.TaskU.H5B.LiftData",
+   "sha256": "48620e3272a9267665b6a219ee1e5ccf423b7159dc17e46c0a6a71fca0378131",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/LiftData.lean",
+   "codex_source_sha256": "4aa498dde84d083c81a5cc7d0b83c77fbf82ce73603ac995b4cffb20efe4bfda",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Cyc5"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/LiftRing.lean",
+   "module": "Research.TaskU.H5B.LiftRing",
+   "sha256": "60ede6fdb0a835bf095cdb9588a6daa7f58fdb58b990589fc8ffa2edbaeda13c",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/LiftRing.lean",
+   "codex_source_sha256": "046944580f6a522a126135d07cf6c65a94cc63937ec294694eb5c2e6e82e74da",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.CycRoots",
+    "Mathlib.Algebra.Group.TransferInstance"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/LiftShift.lean",
+   "module": "Research.TaskU.H5B.LiftShift",
+   "sha256": "188fb6980ad0d82b69687541d0102a73585552b122f2f73bdac5af833a913ec8",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/LiftShift.lean",
+   "codex_source_sha256": "620d1752cc818b7947a73ffd396899f2e46a8851dc96f75ec39b8987822efd20",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.LiftColumns",
+    "Research.TaskU.H5B.LiftCorrection"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/Necessity.lean",
+   "module": "Research.TaskU.H5B.Necessity",
+   "sha256": "5fc809c119032e8f5395797491034a79f479fb51807eae609d2ad0249d204012",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/Necessity.lean",
+   "codex_source_sha256": "15e06b616f4ad805f75b0350a78d4cebc0c221041c30c2e7a21d4f3aa144dab3",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.UnitResidues",
+    "Research.TaskU.H5B.PrimeExtract",
+    "Research.TaskU.H5B.BTraceImage",
+    "Research.TaskU.H5.TraceAugment"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/PrimeBasis.lean",
+   "module": "Research.TaskU.H5B.PrimeBasis",
+   "sha256": "78ed17fbcfb1425de4a08974459021f2b68ef25b342cab1f3d2e353887dd8e27",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/PrimeBasis.lean",
+   "codex_source_sha256": "efa2fc3098a3a6c558690266e2a4abaf77c3474255ca7184d8f4bb9e338932a0",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Cyc5",
+    "Mathlib.NumberTheory.NumberField.Cyclotomic.PID",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/PrimeExtract.lean",
+   "module": "Research.TaskU.H5B.PrimeExtract",
+   "sha256": "cfc5437f9c2bc38285dabb568aac04178ba9706895a0a6da59645c52723e23fc",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/PrimeExtract.lean",
+   "codex_source_sha256": "0f1359229f5b67be690d50b3238c33d5609770976350389b318b0f86578baf9b",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.PrimeOrbit",
+    "Research.TaskU.H5B.PrimeRing",
+    "Research.TaskU.H5B.UnitResidues"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/PrimeOrbit.lean",
+   "module": "Research.TaskU.H5B.PrimeOrbit",
+   "sha256": "089771192fd7c6d6c75548f12ea3772416faa6ab18aec0f02ce7344e9b5b6ef1",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/PrimeOrbit.lean",
+   "codex_source_sha256": "089771192fd7c6d6c75548f12ea3772416faa6ab18aec0f02ce7344e9b5b6ef1",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.RingTheory.UniqueFactorizationDomain.Basic",
+    "Mathlib.Data.Nat.Factorization.Induction",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/PrimeRing.lean",
+   "module": "Research.TaskU.H5B.PrimeRing",
+   "sha256": "cc68eb13dbfe711356b12d1b46a1da9935ae1c7b458a44a22233eef4df6829fa",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/PrimeRing.lean",
+   "codex_source_sha256": "2047f103d75131909956002fb6948e459a0563f49964929b48e948ba8f3de3ac",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.PrimeBasis",
+    "Research.TaskU.H5B.LiftRing",
+    "Research.TaskU.H5.CycPos"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/ProofB.lean",
+   "module": "Research.TaskU.H5B.ProofB",
+   "sha256": "94e93418ad74b2af68f02dbfeaf7f7e1206993ec80e6a147711825050c119df2",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/ProofB.lean",
+   "codex_source_sha256": "e7f5d25e44f8124cc2222e22026711411f295a7db8edec73a58dfe9596623ff1",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.Construct",
+    "Research.TaskU.H5B.Necessity",
+    "Research.TaskU.H5B.CoprimeCongruence",
+    "Research.TaskU.H5B.CoprimeSeeds"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/Residues.lean",
+   "module": "Research.TaskU.H5B.Residues",
+   "sha256": "e78557a410e3236101232b53e7b4261d94a1321cdc26c503ca976c86485d2130",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/Residues.lean",
+   "codex_source_sha256": "2dbdbc2c9ea6e92429034d846d3d8343e08abf9e25b96320c602ba86c90d2bd0",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.ChallengeB",
+    "Research.TaskU.H5.CycPhase",
+    "Research.TaskU.H5.CycPos"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/RowsValue.lean",
+   "module": "Research.TaskU.H5B.RowsValue",
+   "sha256": "7842b4cd6833b035641772c0f392bc15fc69841bfe05b1d20dac58d907d631e0",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/RowsValue.lean",
+   "codex_source_sha256": "fca98a4db6c66e1bacb5510eaceb3f3090b9b6fc501a7e7bc71173fa27334f0a",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.SeedMarginals"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/SeedMarginals.lean",
+   "module": "Research.TaskU.H5B.SeedMarginals",
+   "sha256": "ae00a01af369b73393e28b61cefe3d3b49bf7d73b69c1002029f97a3a501cae4",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/SeedMarginals.lean",
+   "codex_source_sha256": "4d13c5c304a734ea79ae6c0eddaa4fd3c0af2c7d05fd944aaae78c89f13c200a",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.Seeds",
+    "Research.TaskU.H5.Divisibility",
+    "Research.TaskU.H5.Cyc5"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/Seeds.lean",
+   "module": "Research.TaskU.H5B.Seeds",
+   "sha256": "9d8c853b70e045ad82007276f96cef0769e1fc1a9c65c3dd2ae3789314b683d2",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/Seeds.lean",
+   "codex_source_sha256": "5eeba675721cabc7cd8534e6d7a415c9600628ef4fbce6e10f44977e33ccf20a",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5.Profile",
+    "Research.TaskU.H5.CycNorm"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/UnitResidues.lean",
+   "module": "Research.TaskU.H5B.UnitResidues",
+   "sha256": "d6d6a6d92bf4edb2f801cbe1da12434212847011c41a37ccbd3e049b6614b989",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/UnitResidues.lean",
+   "codex_source_sha256": "166a6561394a9293a94d864b2734fd80236b57c2714d22cb70728dc17efc228c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.UnitTable",
+    "Research.TaskU.H5B.LiftRing"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskU/H5B/UnitTable.lean",
+   "module": "Research.TaskU.H5B.UnitTable",
+   "sha256": "bf08d5f3ff8b576f41ec0f5f141386236f6399651fd037168026f2d210305035",
+   "codex_source": "work/codex-r3/phase28/taskU/heisenberg125/formal-b/TaskU/H5B/UnitTable.lean",
+   "codex_source_sha256": "2a9f32c0634076d5e8e8e3d94d34d3542cae146e0428eaad7d8e335e3630564a",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskU.H5B.Residues"
+   ]
+  }
+ ]
+}

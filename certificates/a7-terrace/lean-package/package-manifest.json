@@ -1,0 +1,119 @@
+{
+ "module_count": 8,
+ "entrypoints": [
+  "Research.TaskR.A7.CheckA7"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskR.A7.CheckA7": [
+   "TaskR.A7.check_HasTerrace"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskR/A7/Challenge.lean",
+   "frozen_utc": "2026-11-20T19:32:16Z",
+   "freeze_record": "a7-terrace/FREEZE.json",
+   "sha256": "27895ac5df9b39265c66e5cf8cd4107e064fa590fae1048bbcdaa2d3b1e537bb"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskR/A7/Cert.lean",
+   "module": "Research.TaskR.A7.Cert",
+   "sha256": "4a9cf593cce5365cb9ba557f98abd091e2c7837803a35a17cd823b7c87582b72",
+   "codex_source": "work/codex-r3/phase25/taskR/a7-terrace/Cert.lean",
+   "codex_source_sha256": "3945f45a70b95898ca2337c377a49dcf212a1c7b05086b8342131bb4701afbd5",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.A7.Kernel"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/A7/Challenge.lean",
+   "module": "Research.TaskR.A7.Challenge",
+   "sha256": "27895ac5df9b39265c66e5cf8cd4107e064fa590fae1048bbcdaa2d3b1e537bb",
+   "codex_source": "work/codex-r3/phase25/taskR/a7-terrace/Challenge.lean",
+   "codex_source_sha256": "27895ac5df9b39265c66e5cf8cd4107e064fa590fae1048bbcdaa2d3b1e537bb",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.GroupTheory.SpecificGroups.Alternating",
+    "Mathlib.Data.Fintype.Fin"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/A7/CheckA7.lean",
+   "module": "Research.TaskR.A7.CheckA7",
+   "sha256": "f0109deca01ed29c02bcc8a6bb7a4b5ba9484890e5c9ac9f0e27f25827637ef1",
+   "codex_source": "work/codex-r3/phase25/taskR/a7-terrace/CheckA7.lean",
+   "codex_source_sha256": "d5858022200100310243b1f26851b6609a4c2154b008a216cca1e44941435ebd",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.A7.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/A7/Counting.lean",
+   "module": "Research.TaskR.A7.Counting",
+   "sha256": "83ec5e32b78c870ed1344e697545f0f518a3e1754eb11151ff9de4fcee21954b",
+   "codex_source": "work/codex-r3/phase25/taskR/a7-terrace/Counting.lean",
+   "codex_source_sha256": "e9f22c402724ac0b496ceb94571e529f249b50b85a8ce4a8842812758f9c5b64",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.A7.Challenge",
+    "Mathlib.Data.Finset.Card",
+    "Mathlib.Data.Fin.SuccPred"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/A7/Data.lean",
+   "module": "Research.TaskR.A7.Data",
+   "sha256": "a00e8ea10e48bc11fd4fbd473defe9c025b487b88acc8f98d82f5ce952289ab7",
+   "codex_source": "work/codex-r3/phase25/taskR/a7-terrace/Data.lean",
+   "codex_source_sha256": "a00e8ea10e48bc11fd4fbd473defe9c025b487b88acc8f98d82f5ce952289ab7",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.Data.Nat.Basic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/A7/Interpret.lean",
+   "module": "Research.TaskR.A7.Interpret",
+   "sha256": "0161798f3e24a72698a7094973291cddae16cf3aeb21bf98babc6a3f39f4d334",
+   "codex_source": "work/codex-r3/phase25/taskR/a7-terrace/Interpret.lean",
+   "codex_source_sha256": "6003020da9ddac3eb57bb978b751ece9fe9c2fcd8825ab31b852407ee8367450",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.A7.Kernel"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/A7/Kernel.lean",
+   "module": "Research.TaskR.A7.Kernel",
+   "sha256": "d54ddf4f655a5c68ceee7a2d83b6ba74f5197f5484d602f203e98f92dbcc37b3",
+   "codex_source": "work/codex-r3/phase25/taskR/a7-terrace/Kernel.lean",
+   "codex_source_sha256": "1c1b81ee874683c129846d7e62568aedac12dd316aa5ad5a473fa415c224b441",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.A7.Challenge",
+    "Research.TaskR.A7.Data",
+    "Mathlib.Data.Fintype.EquivFin",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskR/A7/Proof.lean",
+   "module": "Research.TaskR.A7.Proof",
+   "sha256": "10863c53f12c348c3bd7e28001872734907bc28fc1bcb833686c6ab675fe2ddc",
+   "codex_source": "work/codex-r3/phase25/taskR/a7-terrace/Proof.lean",
+   "codex_source_sha256": "97e5ac21e255c8e91bf2da999b5e50ac6451d2e061c005e31739e09ca3d9a8ab",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskR.A7.Counting",
+    "Research.TaskR.A7.Interpret",
+    "Research.TaskR.A7.Cert"
+   ]
+  }
+ ]
+}

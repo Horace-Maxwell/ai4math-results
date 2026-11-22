@@ -1,0 +1,71 @@
+{
+ "package": "heisenberg-125-determinants",
+ "codex_acceptance": {
+  "receipts": [
+   "acceptance/both/2026-11-21T014220Z/receipt.json",
+   "acceptance/both/2026-11-21T014255Z/receipt.json",
+   "acceptance/spectrum/2026-11-21T033317Z/receipt.json",
+   "acceptance/witness/2026-11-21T013430Z/receipt.json"
+  ],
+  "note": "Codex acceptance runs on the author's Mac (logs only; build directories not included); local paths replaced by <workspace> and the reviewers' scratch directory by <claude-scratch>. acceptance/both/2026-11-21T014220Z is an aborted earlier attempt kept for the record."
+ },
+ "repository_recheck": {
+  "computer": "the author's Mac",
+  "lean": "Lean 4.34.1 (arm64-apple-darwin)",
+  "start_utc": "2026-11-21T17:02Z",
+  "end_utc": "2026-11-21T17:22Z",
+  "procedure": "The 63 repository files (Research.TaskU.H5, Research.TaskU.H5B; only import lines differ from the accepted files) compiled module by module with lean -DautoImplicit=false -DrelaxedAutoImplicit=false -R <lean dir>, each module replayed with leanchecker, in two new empty output directories (root1 17:02Z-17:13Z, root2 17:13Z-17:22Z), by repository-recheck-logs.tar.gz/mac_compile_h5.py.",
+  "olean_identical": true,
+  "root1": {
+   "modules": 63,
+   "compile_rc0": 63,
+   "leanchecker_rc0": 63,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskU.H5.Audit.order_check": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.Audit.relation_check": "propext, Quot.sound",
+    "TaskU.H5.Audit.noncommuting": "propext, Quot.sound",
+    "TaskU.H5.Audit.witness_support": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.Proof.witnessValue": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.check_witnessValue": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.TraceWords.nonlinear_congruence": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.TraceWords.average_eq": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.TraceWords.average_dvd_iff_aug": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.TraceWords.norm_deep": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.Proof.leastPositiveMultiple": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.Check.check_witnessValue": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.Check.check_leastPositiveMultiple": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.PrimeExtract.visible_dvd_of_not_unitImage": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.ProofB.fullSpectrum": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.check_fullSpectrum": "propext, Classical.choice, Quot.sound"
+   }
+  },
+  "root2": {
+   "modules": 63,
+   "compile_rc0": 63,
+   "leanchecker_rc0": 63,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskU.H5.Audit.order_check": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.Audit.relation_check": "propext, Quot.sound",
+    "TaskU.H5.Audit.noncommuting": "propext, Quot.sound",
+    "TaskU.H5.Audit.witness_support": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.Proof.witnessValue": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.check_witnessValue": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.TraceWords.nonlinear_congruence": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.TraceWords.average_eq": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.TraceWords.average_dvd_iff_aug": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.TraceWords.norm_deep": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.Proof.leastPositiveMultiple": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.Check.check_witnessValue": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.Check.check_leastPositiveMultiple": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.PrimeExtract.visible_dvd_of_not_unitImage": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.ProofB.fullSpectrum": "propext, Classical.choice, Quot.sound",
+    "TaskU.H5.check_fullSpectrum": "propext, Classical.choice, Quot.sound"
+   }
+  }
+ },
+ "whole_project": "logs/clean-replay-v1.25.0-receipt.json"
+}

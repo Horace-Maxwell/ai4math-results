@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "Research papers formalized in Lean 4: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras, word-representability, distance eigenvalues of cographs, Frobenius forms of axial algebras, cycles of length 0 modulo k in critical graphs, the rank of groups of equivariant permutations, the longest Manhattan paths through boxes and the decomposition lengths of numerical semigroups"
+title: "Research papers formalized in Lean 4: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras, word-representability, distance eigenvalues of cographs, Frobenius forms of axial algebras, cycles of length 0 modulo k in critical graphs, the rank of groups of equivariant permutations, the longest Manhattan paths through boxes, the decomposition lengths of numerical semigroups, antichains of trees in the independence polynomial order, invariant parking with cars of different lengths, medial racks of prime order, the generalized Wilf conjecture for graded semigroups, the covering radius of a lattice simplex, a terrace for the alternating group A7, the largest domination roots of friendship graphs, bars that do not tile a 2 × n rectangle, the Minkowski length of lattice simplices, the covering minima of the standard terminal simplex and the integer group determinants of the Heisenberg group of order 125"
 type: software
 authors:
   - family-names: "Dong"
@@ -8,8 +8,8 @@ authors:
     affiliation: "Independent researcher"
     email: "maxwelldhx@gmail.com"
     orcid: "https://orcid.org/0009-0002-7554-7548"
-version: 1.24.0
-date-released: 2026-11-20
+version: 1.25.0
+date-released: 2026-11-22
 license: Apache-2.0
 repository-code: "https://github.com/Horace-Maxwell/ai4math-results"
 keywords:
@@ -48,3 +48,30 @@ keywords:
   - numerical semigroups
   - irreducible numerical semigroups
   - irreducible decompositions
+  - independence polynomial
+  - trees
+  - antichains
+  - parking functions
+  - parking assortments
+  - subset sums
+  - racks and quandles
+  - medial quandles
+  - generalized numerical semigroups
+  - Wilf conjecture
+  - covering radius
+  - lattice polytopes
+  - terraces
+  - alternating group
+  - domination polynomial
+  - friendship graphs
+  - rectangle partitions
+  - integer partitions
+  - Minkowski length
+  - lattice diameter
+  - covering minima
+  - terminal simplex
+  - discrete surface area
+  - geometry of numbers
+  - group determinant
+  - Heisenberg group
+  - Taussky-Todd

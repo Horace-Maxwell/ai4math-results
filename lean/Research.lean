@@ -62,3 +62,17 @@ import Research.TaskJ.Rank.CheckRank
 import Research.TaskJ.Rank.Extension.CheckExtension
 import Research.TaskJ.Grid.CheckGrid
 import Research.TaskL.Semigroup.CheckSemigroup
+import Research.TaskN.Antichain.CheckAntichain
+import Research.TaskN.Parking.CheckParking
+import Research.TaskP.PrimeMedialRacks.CheckRack
+import Research.TaskP.GradedWilf.CheckWilf
+import Research.TaskR.CSS.CheckCSS
+import Research.TaskR.A7.CheckA7
+import Research.TaskP.RootRadius.CheckRootRadius
+import Research.TaskP.RectangleDefect.CheckRectangle
+import Research.TaskP.GeomSimplex.CheckSimplex
+import Research.TaskS.B.CheckB
+import Research.TaskS.C.CheckC
+import Research.TaskS.C.MeasureAudit.CheckC
+import Research.TaskU.H5.Check
+import Research.TaskU.H5B.CheckB

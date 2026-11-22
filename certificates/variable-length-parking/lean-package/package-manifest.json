@@ -1,0 +1,159 @@
+{
+ "module_count": 12,
+ "entrypoints": [
+  "Research.TaskN.Parking.CheckParking"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskN.Parking.CheckParking": [
+   "TaskN.Parking.check_ExtremalClassification",
+   "TaskN.Parking.check_FirstLengthCount"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskN/Parking/Challenge.lean",
+   "frozen_utc": "2026-11-20T14:25:56Z",
+   "freeze_record": "parking/FREEZE.json",
+   "sha256": "7f0d8043e63b4f4f467617b1ade9d619e131350cacff9199a664c65972bce46e"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskN/Parking/Challenge.lean",
+   "module": "Research.TaskN.Parking.Challenge",
+   "sha256": "7f0d8043e63b4f4f467617b1ade9d619e131350cacff9199a664c65972bce46e",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/Challenge.lean",
+   "codex_source_sha256": "7f0d8043e63b4f4f467617b1ade9d619e131350cacff9199a664c65972bce46e",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/CheckParking.lean",
+   "module": "Research.TaskN.Parking.CheckParking",
+   "sha256": "8ba4aa65ce51c7ba670d2db4b2e16bf8b16a6bfc233c6403bd99d6d8631224a5",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/CheckParking.lean",
+   "codex_source_sha256": "ac4a4c0b65dd735284ee01533346d58b135480b03e95f712dd8e8e63a7d99986",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/ParkBand.lean",
+   "module": "Research.TaskN.Parking.ParkBand",
+   "sha256": "2184dda2ae14801515c38e418d7bacf94ad040138f932b7010871eda64832f5c",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/ParkBand.lean",
+   "codex_source_sha256": "9acd25c948bf64a8313f3f0869930a018b3245578bbde89aad6b6a7e77d1343c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.ParkPrefix"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/ParkClassification.lean",
+   "module": "Research.TaskN.Parking.ParkClassification",
+   "sha256": "5349d4bed09829957200ab783c817425aa8ae4ccd2acb71dc86dca205aab0813",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/ParkClassification.lean",
+   "codex_source_sha256": "a7997b7da84120909d952596f210c6188d24f3f1585ab29293810e4c64802850",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.ParkSums"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/ParkGaps.lean",
+   "module": "Research.TaskN.Parking.ParkGaps",
+   "sha256": "f5e155eea2da1bbdc280d2c369672b73d639416b35c3fbb119226066362670a4",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/ParkGaps.lean",
+   "codex_source_sha256": "240c533fe8cc7c8855548f69fbce5de18f6c04c8cb54e6e07b91d9a9b186f35d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/ParkPrefix.lean",
+   "module": "Research.TaskN.Parking.ParkPrefix",
+   "sha256": "1404d5e4aefa8858c881293d55b1e73c9dbeccbe0ec9845d900a0614910826b5",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/ParkPrefix.lean",
+   "codex_source_sha256": "72d2ce42c8827835db0cce47c02bfc681e76a411c7238676d37e5a3605e35c60",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.ParkWalk"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/ParkSums.lean",
+   "module": "Research.TaskN.Parking.ParkSums",
+   "sha256": "6589416c576f24106f575759b72d0a1bca598b7064bf0623273017d801a8047d",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/ParkSums.lean",
+   "codex_source_sha256": "44afa5d8827f3802073f4482bb7bafe99c6343712282c37e05ca1b29e9bf00da",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.ParkGaps"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/ParkWalk.lean",
+   "module": "Research.TaskN.Parking.ParkWalk",
+   "sha256": "ad4651b65d978fb90c994cab72356cb5da4c6fcf8ae9375c0eb969959d572b6e",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/ParkWalk.lean",
+   "codex_source_sha256": "346305629a10abe3c10fe5ddc16c2a987588264acf6a4ba5e86e8912f2f51548",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.ParkSums",
+    "Research.TaskN.Parking.SpacingWord"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/Proof.lean",
+   "module": "Research.TaskN.Parking.Proof",
+   "sha256": "cbe1c910d5651e84b9ba29df50f0fc80b65f0df17cb5837d01340d4ed1311a16",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/Proof.lean",
+   "codex_source_sha256": "e00326e3bbd575cb2c4921cbd7e457d594ec0ee459b6ad04031135ff3c0d1253",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.ParkClassification",
+    "Research.TaskN.Parking.SpacingCount"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/SpacingCount.lean",
+   "module": "Research.TaskN.Parking.SpacingCount",
+   "sha256": "0b26a6dabfe352197aafd00c5db52224fcdf4515a491e99dfe645a4ea77b5cdb",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/SpacingCount.lean",
+   "codex_source_sha256": "8f93fd96acec89a13e2e3769bc7ad015584ad46576ec7b26dd7eadf38e31aac4",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.ParkBand",
+    "Research.TaskN.Parking.SpacingPalCount"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/SpacingPalCount.lean",
+   "module": "Research.TaskN.Parking.SpacingPalCount",
+   "sha256": "73ea7fa73a93c01dfba207ac22e1eb531e57a5498af1cdedc3c4eb7cdb533ee1",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/SpacingPalCount.lean",
+   "codex_source_sha256": "bce6f213f1b341f5c4efa47a7ae9dd49a2cc42fa9d7cc0040984cc8ac8dbb8b4",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.SpacingWord"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Parking/SpacingWord.lean",
+   "module": "Research.TaskN.Parking.SpacingWord",
+   "sha256": "c9e7a7d2dbff1721c64247bb38647b73149c01ea56511968699b3a459a3db929",
+   "codex_source": "work/codex-r3/phase21/taskN/parking/SpacingWord.lean",
+   "codex_source_sha256": "e5332f11a7dc0ada52e3c3e1b29ac2d097eccb2d252378e2849839b7c8808477",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Parking.Challenge"
+   ]
+  }
+ ]
+}

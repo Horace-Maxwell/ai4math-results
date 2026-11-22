@@ -1,0 +1,183 @@
+{
+ "module_count": 14,
+ "entrypoints": [
+  "Research.TaskP.RootRadius.CheckRootRadius"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskP.RootRadius.CheckRootRadius": [
+   "TaskP.GraphRootRadius.check_Attainment",
+   "TaskP.GraphRootRadius.check_GeneralAsymptotic",
+   "TaskP.GraphRootRadius.check_FriendshipAsymptotic"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskP/RootRadius/Challenge.lean",
+   "frozen_utc": "2026-11-20T18:06:37Z",
+   "freeze_record": "graph-root-radius/FREEZE.json",
+   "sha256": "d6663c9f3b098598132eca69d3d07a53e98b9a6c5bf3c1e35a56aee78233222d"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskP/RootRadius/Challenge.lean",
+   "module": "Research.TaskP.RootRadius.Challenge",
+   "sha256": "d6663c9f3b098598132eca69d3d07a53e98b9a6c5bf3c1e35a56aee78233222d",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/Challenge.lean",
+   "codex_source_sha256": "d6663c9f3b098598132eca69d3d07a53e98b9a6c5bf3c1e35a56aee78233222d",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/CheckRootRadius.lean",
+   "module": "Research.TaskP.RootRadius.CheckRootRadius",
+   "sha256": "ff0e58d9e1dd49d4088d3c6a7c744bd09e2b28586d8fe7bca5fd85a78e99ad65",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/CheckRootRadius.lean",
+   "codex_source_sha256": "4c75276e1aab376aaa783ab7b0443eb2c4cdfcc234b62dc35b5cca37bad151c9",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/DiskZero.lean",
+   "module": "Research.TaskP.RootRadius.DiskZero",
+   "sha256": "1107556cf2028f2caffba323fc6dceb8b62495f9e3234029bba27e04b482dccf",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/DiskZero.lean",
+   "codex_source_sha256": "1107556cf2028f2caffba323fc6dceb8b62495f9e3234029bba27e04b482dccf",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/JoinDecomposition.lean",
+   "module": "Research.TaskP.RootRadius.JoinDecomposition",
+   "sha256": "88d67aacbd9a12cdcf35db06c2d0a7b44170901327e33f3847b4a5906ab475c7",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/JoinDecomposition.lean",
+   "codex_source_sha256": "6bf5a135ef8544f65706c0e6592867a39fd9ab1c009dc985fa3ca903d46e300c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.RootData"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/JoinPolynomial.lean",
+   "module": "Research.TaskP.RootRadius.JoinPolynomial",
+   "sha256": "4cb83ae999394a0ece983813c04a99dd4ec261e4443c8c78843368c18c12f2f0",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/JoinPolynomial.lean",
+   "codex_source_sha256": "37f4f04c0f9dab83780f320172e5069f5fe46369520c649a9be4181b445d4806",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.JoinDecomposition",
+    "Research.TaskP.RootRadius.PetalEvaluation"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/LogLimit.lean",
+   "module": "Research.TaskP.RootRadius.LogLimit",
+   "sha256": "a880456e5d48ef254a3754b8f53ca4b3667ed176e703318f76127e2465c5977b",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/LogLimit.lean",
+   "codex_source_sha256": "44bfc927e5616bfeaf107e493f81dfcd3948c8bf1da6801bb4be294afc61831c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.Scale"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/LowerBound.lean",
+   "module": "Research.TaskP.RootRadius.LowerBound",
+   "sha256": "7118efbabf58dbac839e4c91e257c9a061a6368c72e438e28f9348502df3748b",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/LowerBound.lean",
+   "codex_source_sha256": "63555d7ec987363e5d3d14e5d961c4729ddd3c0200b037873ddd805504b7cfcb",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.RootDisk",
+    "Research.TaskP.RootRadius.JoinPolynomial"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/PetalCoefficient.lean",
+   "module": "Research.TaskP.RootRadius.PetalCoefficient",
+   "sha256": "f593e6d7ad8aab01b3199151a9444cece37fab0fef52f597315e022e891b23a8",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/PetalCoefficient.lean",
+   "codex_source_sha256": "304c90303973b36a62ed39fc2da6337ce69ef5d22f7e08ef31404ae69760036c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/PetalEvaluation.lean",
+   "module": "Research.TaskP.RootRadius.PetalEvaluation",
+   "sha256": "d6f89e39d9834b53a64f7574fc25c20658c1dbd4940611a38f46e6bc6ba2916c",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/PetalEvaluation.lean",
+   "codex_source_sha256": "d1a86bcad743c61ddc7c5b5f0bdde9b6586eaf37dc07c687801dfab5b8e4b296",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.PetalCoefficient"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/Proof.lean",
+   "module": "Research.TaskP.RootRadius.Proof",
+   "sha256": "ea0d7d970aa4da4e50a719c952c695fdb7a408d0a8685b10e511a3281da3efe1",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/Proof.lean",
+   "codex_source_sha256": "1a4d7a1f1d7a32f24eabc970c7842c51dac291aa279cb9d83ba3bdfedd297746",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.LowerBound",
+    "Research.TaskP.RootRadius.UpperEstimate"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/RootData.lean",
+   "module": "Research.TaskP.RootRadius.RootData",
+   "sha256": "8af44e0ae340c9d6e4c9d74b0d05432745a87855abfe83be7be81dc1eebcde17",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/RootData.lean",
+   "codex_source_sha256": "73767ef37a07e84979f38b67376f91ca7692297b5609fc11d4a67e95fc2eda4d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/RootDisk.lean",
+   "module": "Research.TaskP.RootRadius.RootDisk",
+   "sha256": "d765782c8d31b9f7533d473173327ed85c976247e725302f869abdc3826fd2bb",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/RootDisk.lean",
+   "codex_source_sha256": "b67aab9710fd9506599d171cd1db02e166bfe998da7244686b943b10ac1b6ff2",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.DiskZero",
+    "Research.TaskP.RootRadius.LogLimit"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/Scale.lean",
+   "module": "Research.TaskP.RootRadius.Scale",
+   "sha256": "a737a943b2a7463cc2baa3b5fe701491f705f91f2c66f326d9550077b0c6cfb4",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/Scale.lean",
+   "codex_source_sha256": "a0fd0f396e6ca4a6a4e0f1e7f4a921aedfff40d1bab72d22c442730e5355bb39",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskP/RootRadius/UpperEstimate.lean",
+   "module": "Research.TaskP.RootRadius.UpperEstimate",
+   "sha256": "edc5d45fd78e307ced3295b23ba9b76db0a3b4fec547262736698d6962f72de2",
+   "codex_source": "work/codex-r3/phase23/taskP/graph-root-radius/UpperEstimate.lean",
+   "codex_source_sha256": "1a8a1429aa8463ba4aaa9e4b8ed270ef335cba480be7870f65b3dd69239d4eac",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskP.RootRadius.LogLimit"
+   ]
+  }
+ ]
+}

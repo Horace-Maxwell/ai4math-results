@@ -1,0 +1,330 @@
+{
+ "module_count": 25,
+ "entrypoints": [
+  "Research.TaskS.B.CheckB",
+  "Research.TaskS.C.CheckC",
+  "Research.TaskS.C.MeasureAudit.CheckC"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskS.B.CheckB": [
+   "TaskS.B.check_ConjectureB"
+  ],
+  "Research.TaskS.C.CheckC": [
+   "TaskS.C.check_conjectureC"
+  ],
+  "Research.TaskS.C.MeasureAudit.CheckC": [
+   "TaskS.C.MeasureAudit.check_conjectureC",
+   "TaskS.C.MeasureModel.measured_conjectureC",
+   "TaskS.C.MeasureModel.normalized_measure",
+   "TaskS.C.image_simplex_eq_image_opposite",
+   "TaskS.C.ProjectionLattice.exists_adapted",
+   "TaskS.C.ProjectionLattice.edge_determinant"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskS/B/Challenge.lean",
+   "frozen_utc": "2026-11-20T22:30:34Z",
+   "freeze_record": "conj-b/FREEZE.json",
+   "sha256": "458363b3baaa009cf079091bf9bec502d8740620b3083ffde0e3a4fcecb258b7"
+  },
+  {
+   "file": "lean/Research/TaskS/C/Challenge.lean",
+   "frozen_utc": "2026-11-20T22:30:34Z",
+   "freeze_record": "conj-c/FREEZE.json",
+   "sha256": "607e29157a812a0cc1a03d581f882af42766ca55aba9d087ab12a8d20b11a57e"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskS/B/Balanced.lean",
+   "module": "Research.TaskS.B.Balanced",
+   "sha256": "1ebd9ac45e166d37379abb806f17d88375ba62257807fb566bf4f43a683d78ab",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/Balanced.lean",
+   "codex_source_sha256": "ee6d212d4cf46118047a5975b66297c6e90ce44cd51a93253ec72d5b9f6d7edb",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.B.KernelRounding",
+    "Research.TaskS.Shared.Sawtooth"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/B/BasisCoordinates.lean",
+   "module": "Research.TaskS.B.BasisCoordinates",
+   "sha256": "d810ecb960140ae541e2e8fdded6fba44cb17367e6672e4be61a9d4c79f65c12",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/BasisCoordinates.lean",
+   "codex_source_sha256": "60276cfb91b651329c5f6c97f7c3c00c08e66e8e2c4f489538a80c60a4da9357",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.B.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/B/Challenge.lean",
+   "module": "Research.TaskS.B.Challenge",
+   "sha256": "458363b3baaa009cf079091bf9bec502d8740620b3083ffde0e3a4fcecb258b7",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/Challenge.lean",
+   "codex_source_sha256": "458363b3baaa009cf079091bf9bec502d8740620b3083ffde0e3a4fcecb258b7",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/B/CheckB.lean",
+   "module": "Research.TaskS.B.CheckB",
+   "sha256": "6a23983b387f5db2f871b88d8e77e984531d96c21ad9d98f8c233de0ebf1054c",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/CheckB.lean",
+   "codex_source_sha256": "19c4742af2afc7345de1ffa4f11fe936e6cf30e9ba523cead681bb3b258eeb0f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.B.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/B/Hull.lean",
+   "module": "Research.TaskS.B.Hull",
+   "sha256": "557fc7c208eb554acc238df5c446a199a9d704f353ff6a4f39bc059ddd538e7e",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/Hull.lean",
+   "codex_source_sha256": "f39f9969c3d6b0640365af89565e53a43da393744c56f0f77e927baf847de395",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.B.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/B/KernelRounding.lean",
+   "module": "Research.TaskS.B.KernelRounding",
+   "sha256": "38e23992b0c5bff13191a37ce48b26fc6c65d8355b3151111c5d18135683eede",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/KernelRounding.lean",
+   "codex_source_sha256": "2e0ed4a36a91ce2d7de43f2147060510565ac0196bcbba7b29a989b40042c8bd",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.B.Split",
+    "Research.TaskS.B.RationalLine"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/B/Lower.lean",
+   "module": "Research.TaskS.B.Lower",
+   "sha256": "3e344f95a1bda619522c52223fe11835544e936e58fa9eb0f63d101a90ad4774",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/Lower.lean",
+   "codex_source_sha256": "fb3c2f6598156eb4d5d288ac47e597b8593147f412d36b98b8814ecc0fa65a02",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.B.Challenge",
+    "Research.TaskS.Shared.Sawtooth"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/B/Proof.lean",
+   "module": "Research.TaskS.B.Proof",
+   "sha256": "04850e8e5dd200e06945f2f17f382be9cc3f8fcda1ad7abe42c21434a225b1aa",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/Proof.lean",
+   "codex_source_sha256": "cb749dc2afc9857b5f5c3d072d09b175f0a60b18fd96ec9200cde2309b4d937b",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.B.Upper",
+    "Research.TaskS.B.Lower"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/B/RationalLine.lean",
+   "module": "Research.TaskS.B.RationalLine",
+   "sha256": "cdae999ce3563e96d2f7a069a09965302bf37c6011e70c44cb40b91bd9f048bd",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/RationalLine.lean",
+   "codex_source_sha256": "cdae999ce3563e96d2f7a069a09965302bf37c6011e70c44cb40b91bd9f048bd",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/B/Split.lean",
+   "module": "Research.TaskS.B.Split",
+   "sha256": "ebb9105a70ba3c842a76f14e74194f2253621b82eddb015460c7dc8355d70d58",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/Split.lean",
+   "codex_source_sha256": "ebb9105a70ba3c842a76f14e74194f2253621b82eddb015460c7dc8355d70d58",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/Shared/Sawtooth.lean",
+   "module": "Research.TaskS.Shared.Sawtooth",
+   "sha256": "f3487fe4b73b29c14c20b1d784943a63850196ab94e2cbf4ad192684122b20dd",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/TaskS/Shared/Sawtooth.lean",
+   "codex_source_sha256": "f3487fe4b73b29c14c20b1d784943a63850196ab94e2cbf4ad192684122b20dd",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/B/Upper.lean",
+   "module": "Research.TaskS.B.Upper",
+   "sha256": "2962e37c12be871502f1dbdbaed10a1479886b1b1b458a00a28b090d0ecee883",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-b/Upper.lean",
+   "codex_source_sha256": "7c9b413d23cb1ff3c5c3bc3b8d4a9c0b45d435873987722f7ad8e2da8b9b483b",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.B.BasisCoordinates",
+    "Research.TaskS.B.Hull",
+    "Research.TaskS.B.Balanced"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/Challenge.lean",
+   "module": "Research.TaskS.C.Challenge",
+   "sha256": "607e29157a812a0cc1a03d581f882af42766ca55aba9d087ab12a8d20b11a57e",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/Challenge.lean",
+   "codex_source_sha256": "607e29157a812a0cc1a03d581f882af42766ca55aba9d087ab12a8d20b11a57e",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/CheckC.lean",
+   "module": "Research.TaskS.C.CheckC",
+   "sha256": "82d0d5de5ebbb90c7fdabaedd859880fa307e07aee558e1f6dd52f29119647a9",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/CheckC.lean",
+   "codex_source_sha256": "ba56788a93c6d3836db5924946663a298285f4a19847af122ac268fafeb9a776",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/Coordinates.lean",
+   "module": "Research.TaskS.C.Coordinates",
+   "sha256": "f45993930ae3de90b0b9a012ffa92a5c64041220a1450141b22ba59c818c220a",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/Coordinates.lean",
+   "codex_source_sha256": "67cde0a9be503caf5fd6bc620cd423ec6494df9c575f124d2cbb7596402d5c99",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/Frequencies.lean",
+   "module": "Research.TaskS.C.Frequencies",
+   "sha256": "25ff546ddaf605311cc42d0ac5b048404d25bfd0190e728fe069ed7e8707e84b",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/Frequencies.lean",
+   "codex_source_sha256": "073c2e1fa6ea2c711d944a69164eaf964f6e4872d00576439aa0435f651fcbbc",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.Coordinates"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/Geometry.lean",
+   "module": "Research.TaskS.C.Geometry",
+   "sha256": "3431891c157bf63b5ee1515face92b7449192a9cbb1b1e9c1ebbb9fd17a760bc",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/Geometry.lean",
+   "codex_source_sha256": "9bbf3c475c3fb068da83cc16ac577175ecc2a44969e5576e5d6b0ebd7c7aae14",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.Frequencies",
+    "Research.TaskS.C.Lift",
+    "Research.TaskS.C.Projected"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/Lift.lean",
+   "module": "Research.TaskS.C.Lift",
+   "sha256": "e134f89c055b74f624123bba4c657b010fd8c8a3868346a824655b30cab9ec19",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/Lift.lean",
+   "codex_source_sha256": "41fe40fb6384f910f6298ae3c7fa7323cca1297883addf02312a371624897378",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.Coordinates"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/MeasureAudit/CheckC.lean",
+   "module": "Research.TaskS.C.MeasureAudit.CheckC",
+   "sha256": "7d1dcb10664220292863a954e03b0147d54c0ed02612d190693cf9d9e6ae9b08",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/MeasureAudit/CheckC.lean",
+   "codex_source_sha256": "52f424fb584201d68b17566bd61216937745c92eacde142c7ac1d1938e511a39",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.CheckC",
+    "Research.TaskS.C.ProjectionModel"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/Projected.lean",
+   "module": "Research.TaskS.C.Projected",
+   "sha256": "1754511105abc86908b8f5445321aedf1c16e020a067af4e00ed5b9214903ac0",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/Projected.lean",
+   "codex_source_sha256": "7ce488271a4aae1db81a6f8d75d4950b1b397246e64ea3f6446a793bce3948e2",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/ProjectionBody.lean",
+   "module": "Research.TaskS.C.ProjectionBody",
+   "sha256": "babe0dbdd8e0eebe57878d412170632f85b45297f40f2c740f882553db9d46c6",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/ProjectionBody.lean",
+   "codex_source_sha256": "f34cf823f3b8172e12d163c5611aa8efc2b45c31bb08169b51ad3ddc5f1f3d8e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.Coordinates"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/ProjectionLattice.lean",
+   "module": "Research.TaskS.C.ProjectionLattice",
+   "sha256": "d6cc5fd22b7ea0d3f731ab69907e388d4b7bb3b5c5cf604965fd0a1917a8046e",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/ProjectionLattice.lean",
+   "codex_source_sha256": "aecf392f69c4ebed3721dfb35877c06701d87396211006285e2c263a1e60ace8",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/ProjectionModel.lean",
+   "module": "Research.TaskS.C.ProjectionModel",
+   "sha256": "fe4e3a6393fa5a193b4b7444ee94ef739d94d9c422cfe53b7aa75f35b55c4a0b",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/ProjectionModel.lean",
+   "codex_source_sha256": "7c7681612bc7114634b97f624256da1d4b08da4e934f23860dfc71f55093e754",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.ProjectionLattice",
+    "Research.TaskS.C.ProjectionBody",
+    "Research.TaskS.C.SimplexMeasure",
+    "Research.TaskS.C.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/Proof.lean",
+   "module": "Research.TaskS.C.Proof",
+   "sha256": "ad1f88c35fa53098e734931d1c52e998210d2225117c2350e1329c2656b9f58d",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/Proof.lean",
+   "codex_source_sha256": "3520388f4a85da785ffaaad45dd3d70c7d8245dfa9ddf6a1eadb2c44dd2392dd",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.Geometry",
+    "Research.TaskS.Shared.Sawtooth"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskS/C/SimplexMeasure.lean",
+   "module": "Research.TaskS.C.SimplexMeasure",
+   "sha256": "5fd55fd04788af7d5f12684be8f2df8f55fb0304851415f453fec7a0d88f5670",
+   "codex_source": "work/codex-r3/phase26/taskS/conj-c/SimplexMeasure.lean",
+   "codex_source_sha256": "817414c444ca1a487e67f4315b26f8fcdbf6763d44068a7185fea8933093c8dc",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskS.C.Challenge"
+   ]
+  }
+ ]
+}

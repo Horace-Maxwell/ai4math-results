@@ -1,0 +1,732 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={Medial racks and quandles of prime order},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.25.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\F}{\mathbb F}
+\newcommand{\rmed}{r_{\mathrm{med}}}
+\newcommand{\rred}{r_{\mathrm{2\text{-}red}}}
+\newcommand{\qmed}{q_{\mathrm{med}}}
+\newcommand{\qred}{q_{\mathrm{2\text{-}red}}}
+\DeclareMathOperator{\Dis}{Dis}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Sym}{Sym}
+
+\title{Medial racks and quandles of prime order:\\ a proof of a conjecture of Vojt\v{e}chovsk\'y and Yang}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A rack is a set with a binary operation whose left translations are
+bijections and which satisfies the left self-distributive law; a quandle is an
+idempotent rack. Vojt\v{e}chovsk\'y and Yang enumerated racks and quandles of
+order at most~$13$ up to isomorphism and conjectured that, for every prime
+$p$, the number of medial racks of order $p$ exceeds the number of
+$2$-reductive racks of order $p$ by exactly $p-2$, that the same holds for
+quandles, and that every medial rack of order $p$ that is not $2$-reductive is
+a quandle. We prove this conjecture. More precisely, we show that every medial
+rack of prime order $p$ that is not $2$-reductive is isomorphic to exactly one
+of the affine quandles $x*y=(1-\lambda)x+\lambda y$ on $\F_p$ with
+$\lambda\ne0,1$. Connectedness and idempotence are not assumed: they follow
+from a divisibility argument for the displacement group, whose point
+stabilizers all lie in one subgroup. The three statements of the conjecture
+are formally verified in Lean~4. The proofs were found and formalized by AI
+agents working under the author's direction; their role is described at the
+end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+A \emph{rack} is a nonempty set $X$ with a binary operation $*$ such that every
+left translation
+\[
+L_x\colon X\to X,\qquad y\mapsto x*y ,
+\]
+is a bijection, and the left self-distributive law
+\[
+x*(y*z)=(x*y)*(x*z)
+\]
+holds for all $x,y,z\in X$. A rack is a \emph{quandle} if it is idempotent,
+that is, $x*x=x$ for all $x$. A rack is \emph{medial} if
+\[
+(x*u)*(v*y)=(x*v)*(u*y)\qquad\text{for all }x,u,v,y\in X,
+\]
+and \emph{$2$-reductive} if
+\begin{equation}\label{eq:2red}
+(x*u)*v=(y*u)*v\qquad\text{for all }x,y,u,v\in X ;
+\end{equation}
+this is identity~(1.1) of Vojt\v{e}chovsk\'y and Yang~\cite[p.~2]{vy}. A rack
+that is not $2$-reductive is called \emph{non-$2$-reductive}. Every
+$2$-reductive rack is medial~\cite[p.~2]{vy} (see also Lemma~\ref{lem:redmed}).
+An isomorphism between operations $*$ on $X$ and $*'$ on $X'$ is a bijection
+$f\colon X\to X'$ with $f(x*y)=f(x)*'f(y)$. These are the definitions
+of~\cite[Section~1]{vy}; no connectedness is assumed, and the right
+translations need not be bijective.
+
+For $n\ge1$ let $\rmed(n)$, $\rred(n)$, $\qmed(n)$ and $\qred(n)$ be the
+numbers of medial racks, $2$-reductive racks, medial quandles and
+$2$-reductive quandles of order $n$ up to isomorphism. Vojt\v{e}chovsk\'y and
+Yang tabulated these numbers for $n\le13$~\cite[Tables~1 and~2]{vy} and, at the
+end of their paper, stated:
+
+\begin{quote}
+\textbf{Conjecture 6.5 of~\cite{vy}.} Let $p$ be a prime. Then
+$\rmed(p)-\rred(p)=p-2$ and $\qmed(p)-\qred(p)=p-2$. In particular, every
+medial rack of order $p$ that is not $2$-reductive is a quandle.
+\end{quote}
+
+\noindent Their data for the primes up to $13$ are reproduced in
+Table~\ref{tab:data}. We prove the conjecture.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}rrrrrrr@{}}
+\hline
+$p$ & $\rmed(p)$ & $\rred(p)$ & difference & $\qmed(p)$ & $\qred(p)$ & difference\\
+\hline
+2 & 2 & 2 & 0 & 1 & 1 & 0\\
+3 & 6 & 5 & 1 & 3 & 2 & 1\\
+5 & 68 & 65 & 3 & 18 & 15 & 3\\
+7 & 1965 & 1960 & 5 & 251 & 246 & 5\\
+11 & 35982366 & 35982357 & 9 & 1246488 & 1246479 & 9\\
+13 & 25731050872 & 25731050861 & 11 & 466087635 & 466087624 & 11\\
+\hline
+\end{tabular}
+\caption{The prime orders in Tables~1 and~2 of~\cite{vy}. These values are
+not used in the proofs and are not part of the Lean files.}
+\label{tab:data}
+\end{table}
+
+\begin{theorem}\label{thm:main}
+For every prime $p$:
+\begin{enumerate}
+\item[(a)] $\rmed(p)=\rred(p)+(p-2)$;
+\item[(b)] $\qmed(p)=\qred(p)+(p-2)$;
+\item[(c)] every medial rack of order $p$ that is not $2$-reductive is a
+quandle.
+\end{enumerate}
+\end{theorem}
+
+\noindent Since every $2$-reductive rack is medial, $\rred(p)\le\rmed(p)$ and
+$\qred(p)\le\qmed(p)$, so (a) and (b) are the two equations of the conjecture
+written as additions. Theorem~\ref{thm:main} is a consequence of the following
+classification. For a prime $p$ and $\lambda\in\F_p$ let $A_\lambda$ denote
+$\F_p$ with the operation
+\[
+x*y=(1-\lambda)x+\lambda y .
+\]
+
+\begin{theorem}\label{thm:class}
+Let $p$ be a prime. For every $\lambda\in\F_p\setminus\{0,1\}$, $A_\lambda$ is
+a medial quandle that is not $2$-reductive, and $A_\lambda\cong A_\mu$ only if
+$\lambda=\mu$. Every medial rack of order $p$ that is not $2$-reductive is
+isomorphic to $A_\lambda$ for some $\lambda\in\F_p\setminus\{0,1\}$.
+\end{theorem}
+
+\noindent Theorem~\ref{thm:class} is proved in the Lean files (for operations
+on $\{0,\dots,p-1\}$) but is not one of the frozen statements; see
+Section~\ref{sec:lean}.
+
+Thus the non-$2$-reductive medial racks of order $p$ fall into exactly $p-2$
+isomorphism classes, all of them quandles; for $p=2$ there are none. The main
+point is that the input is an arbitrary medial rack, possibly not connected and
+not idempotent. The argument uses the displacement group $D$, which is abelian
+for medial racks. Fix a left translation $T$. Every point stabilizer of $D$ is
+contained in the centralizer $H$ of $T$ in $D$ (Lemma~\ref{lem:stab}), and
+$H=D$ forces the rack to be $2$-reductive (Lemma~\ref{lem:top}). So for a
+non-$2$-reductive medial rack the index $[D:H]>1$ divides the size of every
+$D$-orbit. When the order is a prime $p$, the orbit sizes add up to $p$, so the
+index is $p$ and $D$ is transitive, hence regular (Lemma~\ref{lem:prime}).
+Coordinates from the cyclic group $D$ then put the operation in the form
+$c+(1-\lambda)x+\lambda y$, and the rack axioms force $c=0$
+(Proposition~\ref{prop:affine}).
+
+\subsection*{Prior work}
+The conjecture and the enumeration behind it are due to Vojt\v{e}chovsk\'y and
+Yang~\cite{vy}, who relied in part on counts of $2$-reductive racks and
+quandles due to Jedli\v{c}ka, Pilitowska, Stanovsk\'y and Zamojska-Dzienio:
+the quandle counts are in~\cite{jpsz}, and the rack counts were supplied by
+Jedli\v{c}ka using the methods of~\cite{jpsz}~\cite[p.~5]{vy}. That a rack is medial if and only if its
+displacement group is abelian is~\cite[Proposition~2.4(ii)]{hsv}, as quoted
+in~\cite[Section~1.1]{vy}; Lemma~\ref{lem:dis}(d) is the direction used here.
+Etingof, Soloviev and Guralnick~\cite{esg} showed that the indecomposable
+non-degenerate set-theoretical solutions of the quantum Yang--Baxter equation
+on a set of prime order are affine; in the language of quandles, every
+connected quandle of prime order is affine (a quandle is connected if the group
+generated by its left translations acts transitively~\cite[p.~3]{vy}). Hulpke, Stanovsk\'y and
+Vojt\v{e}chovsk\'y state this as~\cite[Theorem~9.3]{hsv}, attribute it
+to~\cite{esg} and give two new proofs. They also note that two connected affine
+quandles over the same abelian group $A$ are isomorphic if and only if the
+defining automorphisms are conjugate in $\Aut(A)$~\cite[p.~14]{hsv}; for
+$A=\F_p$ this criterion, translated from right to left translations, gives the
+uniqueness part of Theorem~\ref{thm:class}, which we prove directly in
+Lemma~\ref{lem:models}(b). By
+Theorem~\ref{thm:class} and Corollary~\ref{cor:regular}, the classes counted by
+the two differences are represented by connected affine quandles, which fall
+under the classification of~\cite{esg,hsv}. What the conjecture needs in
+addition is that a medial rack of prime order which is not $2$-reductive is
+connected and idempotent; the divisibility argument above supplies this. For
+medial quandles, Jedli\v{c}ka et al.\ prove conditions on the orbit sizes that
+force $m$-reductivity~\cite[Corollaries~6.3 and~6.10]{jpsz}; these concern
+quandles, so they do not apply to the racks counted in (a); and even for
+quandles of prime order they do not give $2$-reductivity directly, since
+Corollary~6.3 yields only $3$-reductivity and the hypothesis of
+Corollary~6.10 can fail (orbit sizes $6$, $10$, $15$ sum to the prime $31$). As far as we know,
+Conjecture~6.5 of~\cite{vy} has not been proved elsewhere; the searches are
+described in the final section.
+
+\section{Preliminaries}\label{sec:prelim}
+
+Throughout, permutations are composed as functions: $(gh)(z)=g(h(z))$.
+Vojt\v{e}chovsk\'y and Yang write permutations on the right,
+$yL_x=x*y$, and define the displacement group as
+$\Dis(X)=\langle L_x^{-1}L_y : x,y\in X\rangle$~\cite[Section~1.1]{vy}; in
+function notation the generator $L_x^{-1}L_y$ (first $L_x^{-1}$, then $L_y$) is
+$L_yL_x^{-1}$. Hulpke, Stanovsk\'y and Vojt\v{e}chovsk\'y work with right
+translations instead~\cite{hsv}. The Lean statements are identities in the
+operation itself, so none of these conventions enters them.
+
+Let $(X,*)$ be a rack. The self-distributive law says that every $L_x$ is an
+automorphism of $(X,*)$. If $g$ is an automorphism and $x\in X$, then
+\begin{equation}\label{eq:conj}
+gL_xg^{-1}=L_{g(x)},
+\end{equation}
+since $g(x*g^{-1}(y))=g(x)*y$. In particular $L_{x*u}=L_xL_uL_x^{-1}$.
+
+\begin{lemma}\label{lem:redmed}
+Every $2$-reductive rack is medial.
+\end{lemma}
+
+\begin{proof}
+By~\eqref{eq:2red} with $y=u$, and by $L_{u*u}=L_uL_uL_u^{-1}=L_u$, we get
+$(x*u)*v=(u*u)*v=u*v$ for all $x,u,v$. Hence
+\[
+(x*u)*(v*y)=u*(v*y)=(u*v)*(u*y)=v*(u*y)=(x*v)*(u*y).\qedhere
+\]
+\end{proof}
+
+\begin{lemma}\label{lem:inv}
+Being a rack, a quandle, medial or $2$-reductive is preserved by isomorphisms.
+\end{lemma}
+
+\begin{proof}
+Each property is a set of identities in the operation, together with the
+bijectivity of the left translations; an isomorphism $f$ transports both,
+since $L'_{f(x)}=fL_xf^{-1}$.
+\end{proof}
+
+\section{The displacement group of a medial rack}\label{sec:dis}
+
+Let $(X,*)$ be a rack, fix a base point $b\in X$, write $T=L_b$, and let
+\[
+D=\bigl\langle L_uT^{-1} : u\in X\bigr\rangle\le\Sym(X).
+\]
+Since $L_uL_v^{-1}=(L_uT^{-1})(L_vT^{-1})^{-1}$, the group $D$ contains every
+$L_uL_v^{-1}$, so $D=\Dis(X)$ in the notation of~\cite{vy}.
+
+\begin{lemma}\label{lem:dis}
+\begin{enumerate}
+\item[(a)] Every element of $D$ is an automorphism of $(X,*)$.
+\item[(b)] $L_xdL_x^{-1}\in D$ for every $x\in X$ and every $d\in D$.
+\item[(c)] $L_uL_v^{-1}\in D$ for all $u,v\in X$.
+\item[(d)] If $(X,*)$ is medial, then $D$ is abelian.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) The generators are products of left translations and their inverses.
+(c) was shown above. (b) By~\eqref{eq:conj},
+$L_x(L_uT^{-1})L_x^{-1}=L_{x*u}L_{x*b}^{-1}$, which lies in $D$ by (c). Since
+conjugation by $L_x$ is a group homomorphism, it maps the subgroup generated by
+the elements $L_uT^{-1}$ into $D$. (d) The medial law says $L_{x*u}L_v=L_{x*v}L_u$ (apply both sides to $y$).
+Take $x=b$ and substitute $L_{b*u}=TL_uT^{-1}$ and $L_{b*v}=TL_vT^{-1}$
+from~\eqref{eq:conj}: $TL_uT^{-1}L_v=TL_vT^{-1}L_u$. Multiplying by $T^{-1}$ on
+the left and on the right gives
+$(L_uT^{-1})(L_vT^{-1})=(L_vT^{-1})(L_uT^{-1})$. So the generators of $D$
+commute, and $D$ is abelian.
+\end{proof}
+
+Part (d) is the direction ``medial $\Rightarrow$ $\Dis$ abelian''
+of~\cite[Proposition~2.4(ii)]{hsv}.
+
+From now on let $(X,*)$ be a medial rack, and let
+\[
+H=\{d\in D : dT=Td\}
+\]
+be the centralizer of $T$ in $D$. (Since $D$ is abelian and
+$L_x=(L_xT^{-1})T$, conjugation by any $L_x$ induces the same automorphism
+$f$ of $D$, and $H$ is its fixed-point subgroup; this description is not
+needed below.) For $x\in X$ let $D_x=\{d\in D: d(x)=x\}$ be the stabilizer of
+$x$ in $D$.
+
+\begin{lemma}\label{lem:stab}
+$D_x\le H$ for every $x\in X$.
+\end{lemma}
+
+\begin{proof}
+Let $d\in D_x$. By Lemma~\ref{lem:dis}(a) and~\eqref{eq:conj},
+$dL_xd^{-1}=L_{d(x)}=L_x$, so $d$ commutes with $L_x$. By
+Lemma~\ref{lem:dis}(d), $d$ commutes with $L_xT^{-1}\in D$. Hence $d$ commutes
+with $(L_xT^{-1})^{-1}L_x=T$.
+\end{proof}
+
+\begin{lemma}\label{lem:top}
+If $H=D$, then $(X,*)$ is $2$-reductive.
+\end{lemma}
+
+\begin{proof}
+If $T$ commutes with every element of $D$, then the left translations
+$L_x=(L_xT^{-1})T$ commute pairwise, because $D$ is abelian. Then
+$L_{x*u}=L_xL_uL_x^{-1}=L_u$ for all $x,u$, so
+$(x*u)*v=u*v=(y*u)*v$.
+\end{proof}
+
+\section{Prime order: the displacement group is regular}\label{sec:prime}
+
+\begin{lemma}\label{lem:prime}
+Let $G$ be a group of permutations of a set $X$ with $p$ elements, $p$ prime,
+and let $K$ be a proper subgroup of $G$ that contains the stabilizer $G_x$ of
+every point $x\in X$. Then $G$ is transitive on $X$. If moreover $G$ is
+abelian, then for every $x\in X$ the map $G\to X$, $g\mapsto g(x)$, is a
+bijection; in particular $|G|=p$.
+\end{lemma}
+
+\begin{proof}
+Since $G_x\le K$, the index $[G:K]$ divides $[G:G_x]$, which is the size of
+the orbit of $x$. The orbits partition $X$, so $[G:K]$ divides their total
+size $p$. As $K\ne G$, we get $[G:K]=p$. Hence every orbit has at least $p$
+elements, and there is only one orbit. Now let $G$ be abelian, and let
+$g,h\in G$ with $g(x)=h(x)$. Every $y\in X$ has the form $y=k(x)$ with $k\in
+G$, and $g(y)=k(g(x))=k(h(x))=h(y)$. So $g=h$; the map is injective, and it is
+surjective by transitivity.
+\end{proof}
+
+\begin{corollary}\label{cor:regular}
+Let $(X,*)$ be a medial rack of prime order $p$ that is not $2$-reductive.
+Then $D$ is abelian, $|D|=p$, and for every $x\in X$ the map $d\mapsto d(x)$
+is a bijection $D\to X$.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:top}, $H$ is a proper subgroup of $D$; by
+Lemma~\ref{lem:stab} it contains every point stabilizer. Apply
+Lemma~\ref{lem:prime} with $G=D$ and $K=H$, using Lemma~\ref{lem:dis}(d).
+\end{proof}
+
+\noindent Nowhere in this section or the previous one is the rack assumed to be
+connected or idempotent; transitivity of $D$ is a conclusion.
+
+\section{Affine coordinates}\label{sec:affine}
+
+\begin{proposition}\label{prop:affine}
+Let $(X,*)$ be a medial rack of prime order $p$ that is not $2$-reductive.
+Then $(X,*)\cong A_\lambda$ for some $\lambda\in\F_p\setminus\{0,1\}$.
+\end{proposition}
+
+\begin{proof}
+By Corollary~\ref{cor:regular}, $D$ has order $p$ and is therefore cyclic. Fix
+an isomorphism $t\mapsto d_t$ from $(\F_p,+)$ onto $D$, so that
+$d_{s+t}=d_sd_t$, and fix a point $o\in X$. By Corollary~\ref{cor:regular} the
+map $e\colon\F_p\to X$, $e(t)=d_t(o)$, is a bijection, and
+$d_t(e(y))=e(t+y)$. Transport the operation: for $x,y\in\F_p$ put
+$x\circ y=e^{-1}\bigl(e(x)*e(y)\bigr)$. Then $e$ is an isomorphism from
+$(\F_p,\circ)$ onto $(X,*)$, so $(\F_p,\circ)$ is a non-$2$-reductive rack
+(Lemma~\ref{lem:inv}). It has two further properties.
+
+\emph{Translation invariance.} Since $d_t$ is an automorphism of $(X,*)$,
+\[
+(t+x)\circ(t+y)=t+(x\circ y)\qquad\text{for all }t,x,y.
+\]
+
+\emph{Normalization.} Let $L=L_{e(0)}$. By Lemma~\ref{lem:dis}(b),
+$Ld_tL^{-1}\in D$, say $Ld_tL^{-1}=d_{w}$ with $w=w(t)\in\F_p$. Applying both sides to $L(e(y))$ gives
+$L(e(t+y))=e(w+(0\circ y))$, that is,
+\[
+0\circ(t+y)=w+(0\circ y)\qquad\text{for all }y .
+\]
+
+Let $c=0\circ0$ and $\phi(t)=0\circ t-c$. Taking $y=0$ above gives
+$0\circ t=w+c$, hence $\phi(t+y)=w+0\circ y-c=\phi(t)+\phi(y)$; so $\phi$ is
+additive on $\F_p$ and $\phi(t)=\lambda t$ with $\lambda=\phi(1)$. Thus
+$0\circ y=\lambda y+c$, and by translation invariance
+\[
+x\circ y=x+\bigl(0\circ(y-x)\bigr)=c+(1-\lambda)x+\lambda y .
+\]
+If $\lambda=1$, then $x\circ y=y+c$ does not depend on $x$, and
+$(x\circ u)\circ v=v+c=(y\circ u)\circ v$, contrary to non-$2$-reductivity; so
+$\lambda\ne1$. If $\lambda=0$, then $0\circ0=0\circ1$, contrary to the
+injectivity of left translations; so $\lambda\ne0$. Finally, the
+self-distributive law with $x=y=z=0$ gives $0\circ c=c\circ c$, that is,
+$\lambda c+c=2c$, so $(1-\lambda)c=0$ and $c=0$. Hence $(\F_p,\circ)=A_\lambda$
+and $(X,*)\cong A_\lambda$.
+\end{proof}
+
+\begin{lemma}\label{lem:models}
+Let $p$ be a prime and $\lambda\in\F_p\setminus\{0,1\}$.
+\begin{enumerate}
+\item[(a)] $A_\lambda$ is a rack, it is idempotent and medial, and it is not
+$2$-reductive.
+\item[(b)] If $\mu\in\F_p$ and $A_\lambda\cong A_\mu$, then $\lambda=\mu$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) $L_x(y)=(1-\lambda)x+\lambda y$ is a bijection because $\lambda\ne0$. Both
+sides of the self-distributive law equal
+$(1-\lambda)x+\lambda(1-\lambda)y+\lambda^2z$; both sides of the medial law
+equal $(1-\lambda)^2x+\lambda(1-\lambda)(u+v)+\lambda^2y$; and
+$x*x=x$. For $x=1$ and $y=u=v=0$, the two sides of~\eqref{eq:2red} are
+$(1-\lambda)^2$ and $0$, which differ because $\lambda\ne1$.
+
+(b) Let $f\colon\F_p\to\F_p$ be a bijection with
+$f\bigl((1-\lambda)x+\lambda y\bigr)=(1-\mu)f(x)+\mu f(y)$. Putting $y=0$,
+respectively $x=0$,
+\[
+f\bigl((1-\lambda)x\bigr)=(1-\mu)f(x)+\mu f(0),\qquad
+f(\lambda y)=(1-\mu)f(0)+\mu f(y).
+\]
+Let $g(x)=f(x)-f(0)$. Given $a,b\in\F_p$, write $a=(1-\lambda)x$ and
+$b=\lambda y$, which is possible because $1-\lambda$ and $\lambda$ are
+nonzero; the three displayed identities give $g(a+b)=g(a)+g(b)$. So $g$ is
+additive and $g(x)=x\,g(1)$, where $g(1)\ne0$ because $f$ is injective. The
+second identity with $y=1$ gives $g(\lambda)=\mu\,g(1)$, while
+$g(\lambda)=\lambda\,g(1)$. Hence $\lambda=\mu$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:class}]
+Combine Lemma~\ref{lem:models} and Proposition~\ref{prop:affine}.
+\end{proof}
+
+\section{The two counts}\label{sec:count}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Part (c) follows from Theorem~\ref{thm:class}: a non-$2$-reductive medial rack
+of order $p$ is isomorphic to some $A_\lambda$, which is idempotent, and
+idempotence is preserved by isomorphisms.
+
+For (a), every rack of order $p$ is isomorphic to a rack on a fixed set of $p$
+elements, so $\rmed(p)$ is the number of isomorphism classes of medial racks on
+that set, and similarly for the other counts. By Lemmas~\ref{lem:redmed}
+and~\ref{lem:inv}, the isomorphism classes of medial racks split into the
+classes of $2$-reductive racks and the classes of non-$2$-reductive medial
+racks. By Theorem~\ref{thm:class}, $\lambda\mapsto[A_\lambda]$ is a bijection
+from $\F_p\setminus\{0,1\}$ onto the latter: it lands there by
+Lemma~\ref{lem:models}(a), it is injective by Lemma~\ref{lem:models}(b), and
+it is surjective by Proposition~\ref{prop:affine}. Hence
+$\rmed(p)=\rred(p)+(p-2)$.
+
+For (b), the same splitting holds among quandles, since a $2$-reductive
+quandle is a medial quandle. Every $A_\lambda$ is idempotent, so all $p-2$
+parameters already give quandles, and no parameter is lost when one restricts
+to idempotent operations. Conversely, a non-$2$-reductive medial quandle is in
+particular a non-$2$-reductive medial rack and is covered by
+Proposition~\ref{prop:affine}. The isomorphism condition does not depend on
+whether one regards the operations as racks or as quandles. So
+$\lambda\mapsto[A_\lambda]$ is again a bijection onto the classes of
+non-$2$-reductive medial quandles, and $\qmed(p)=\qred(p)+(p-2)$. For $p=2$
+the parameter set is empty and both differences are~$0$.
+\end{proof}
+
+{\sloppy
+\section{Formal verification}\label{sec:lean}
+
+Theorem~\ref{thm:main} is formally verified in Lean~4 (version 4.34.1) with
+Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}). Theorem~\ref{thm:class} is
+proved in the same files, for operations on $\{0,\dots,p-1\}$, on the way to
+Theorem~\ref{thm:main}, but it is not among the frozen statements. The $13$
+files are in version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/Research/TaskP/PrimeMedialRacks/}.
+
+\paragraph{The statements.}
+The statement file \texttt{Challenge.lean} contains the definitions and the
+three statements; its only proof is the short verification, inside
+\texttt{isoSetoid}, that isomorphism is an equivalence relation, which is
+needed to form the quotient; \texttt{classCount} is defined by a three-line
+tactic block. In ASCII transliteration (the module comment, the
+docstrings and the \texttt{import}, \texttt{namespace} and \texttt{end} lines
+omitted; the file itself uses Unicode):
+{\footnotesize
+\begin{verbatim}
+abbrev Operation (alpha : Type*) := alpha -> alpha -> alpha
+def IsRack {alpha : Type*} (op : Operation alpha) : Prop :=
+  (forall x, Function.Bijective (op x)) /\
+    forall x y z, op x (op y z) = op (op x y) (op x z)
+def Idempotent {alpha : Type*} (op : Operation alpha) : Prop :=
+  forall x, op x x = x
+def Medial {alpha : Type*} (op : Operation alpha) : Prop :=
+  forall x u v y, op (op x u) (op v y) = op (op x v) (op u y)
+def TwoReductive {alpha : Type*} (op : Operation alpha) : Prop :=
+  forall x y u v, op (op x u) v = op (op y u) v
+def Isomorphic {alpha beta : Type*} (op : Operation alpha) (op' : Operation beta) : Prop :=
+  exists e : alpha ~= beta, forall x y, e (op x y) = op' (e x) (e y)
+def isoSetoid (n : Nat) : Setoid (Operation (Fin n)) where
+  r := Isomorphic
+  iseqv := {
+    refl := fun _ => <Equiv.refl _, fun _ _ => rfl>
+    symm := by
+      rintro _ _ <e, h>
+      refine <e.symm, fun x y => e.injective ?_>
+      simp [h]
+    trans := by
+      rintro _ _ _ <e, h> <f, k>
+      exact <e.trans f, fun x y => by simp [h, k]> }
+abbrev IsoClass (n : Nat) := Quotient (isoSetoid n)
+noncomputable def classCount (n : Nat) (P : Operation (Fin n) -> Prop) : Nat := by
+  classical
+  let C := {q : IsoClass n // exists op, Quotient.mk (isoSetoid n) op = q /\ P op}
+  letI : Fintype C := Fintype.ofFinite C
+  exact Fintype.card C
+def RackCount : Prop :=
+  forall p : Nat, p.Prime ->
+    classCount p (fun op => IsRack op /\ Medial op) =
+      classCount p (fun op => IsRack op /\ TwoReductive op) + (p - 2)
+def QuandleCount : Prop :=
+  forall p : Nat, p.Prime ->
+    classCount p (fun op => IsRack op /\ Idempotent op /\ Medial op) =
+      classCount p (fun op => IsRack op /\ Idempotent op /\ TwoReductive op) + (p - 2)
+def AutomaticIdempotence : Prop :=
+  forall (p : Nat), p.Prime -> forall op : Operation (Fin p),
+    IsRack op -> Medial op -> not TwoReductive op -> Idempotent op
+\end{verbatim}}
+\noindent Here \texttt{alpha}, \texttt{beta} stand for $\alpha$, $\beta$,
+\texttt{forall}, \texttt{exists}, \texttt{/\textbackslash}, \texttt{->} and
+\texttt{not} for $\forall$, $\exists$, $\wedge$, $\to$, $\neg$,
+\texttt{\textasciitilde=} for $\simeq$ (a bijection, Lean's \texttt{Equiv}),
+\texttt{<}\dots\texttt{>} for the anonymous constructor
+$\langle\dots\rangle$, \texttt{Nat} for $\mathbb N$, \texttt{Fin n} is the set
+$\{0,\dots,n-1\}$, and \texttt{p - 2} is subtraction of natural numbers.
+\texttt{op x} is the left translation $L_x$, so \texttt{IsRack},
+\texttt{Idempotent}, \texttt{Medial} and \texttt{TwoReductive} are the
+definitions of Section~1 with the variables in the order of~\cite{vy}.
+\texttt{Isomorphic} relabels both inputs and the output by one bijection.
+\texttt{classCount n P} is the number of isomorphism classes of
+\emph{all} binary operations on \texttt{Fin n} that contain an operation
+satisfying \texttt{P}. All four properties are invariant under isomorphism
+(Lemma~\ref{lem:inv}; \texttt{iso\_\allowbreak rack} and its companions in
+\texttt{IsoTransfer.lean}), so ``some member satisfies \texttt{P}'' is the
+same as ``every member does'', and since every rack of order $p$ is isomorphic
+to an operation on \texttt{Fin p}, \texttt{classCount p (fun op => IsRack op
+/\textbackslash{} Medial op)} is $\rmed(p)$; likewise for the other three
+counts. \texttt{RackCount} and \texttt{QuandleCount} are parts (a) and (b) of
+Theorem~\ref{thm:main}, that is, the two equations of the conjecture in
+additive form; as noted after Theorem~\ref{thm:main}, the two forms are
+equivalent, and for a prime $p$ the subtraction \texttt{p - 2} is the ordinary
+one. Both statements cover every prime, including $p=2$.
+\texttt{AutomaticIdempotence} is part (c), the sentence that follows the two
+equations in~\cite{vy}, stated for all operations on \texttt{Fin p}. None of
+the statements assumes connectedness, idempotence of the racks, or an affine
+form. The final reviewer (see the last section) checked these points against
+the source and found no weakening, extra hypothesis or vacuity.
+
+\paragraph{Review and freezing.}
+\texttt{Challenge.lean} was reviewed against~\cite{vy} by a Codex agent that
+had written neither the proofs nor the Lean statement, and frozen, by recording
+its SHA-256 hash, on 20 November 2026 at 18:04~UTC. The development logs record
+no compilation of a proof file before that time, and the file was not changed
+afterwards.
+
+\paragraph{The proofs.}
+In \texttt{Proof.lean}, \texttt{Proof.classified} proves that every
+non-$2$-reductive medial rack on \texttt{Fin p} is isomorphic to some
+$A_\lambda$ (the property \texttt{ClassifiedAt p} of
+\texttt{Enumeration.lean}); \texttt{Proof.RackCount},
+\texttt{Proof.QuandleCount} and \texttt{Proof.\allowbreak AutomaticIdempotence}
+apply \texttt{rack\_\allowbreak count\_\allowbreak of\_\allowbreak classification},
+\texttt{quandle\_\allowbreak count\_\allowbreak of\_\allowbreak classification}
+and \texttt{idempotent\_\allowbreak of\_\allowbreak classification} to it.
+Table~\ref{tab:lean} lists the Lean counterparts of the steps of the written
+proof (names in the namespace \texttt{TaskP.PrimeMedialRacks}). In Lean the
+displacement group is the subgroup \texttt{displacement} generated by the
+permutations $L_uL_b^{-1}$, as in Section~\ref{sec:dis}, and $\lambda$ is
+written \texttt{k}.
+
+\begin{table}[ht]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.44\textwidth}>{\raggedright\arraybackslash}p{0.52\textwidth}@{}}
+\hline
+Step of the written proof & Lean (file) \\
+\hline
+Lemma~\ref{lem:redmed} & \texttt{reductive\_medial} (\texttt{IsoTransfer}) \\
+Lemma~\ref{lem:inv} & \texttt{iso\_rack}, \texttt{iso\_idempotent},
+\texttt{iso\_medial}, \texttt{iso\_reductive}, \texttt{iso\_symm},
+\texttt{iso\_trans} (\texttt{IsoTransfer}) \\
+Left translations as permutations; identity~\eqref{eq:conj} &
+\texttt{leftPerm} (\texttt{DisplacementData}); \texttt{leftPerm\_mem\_aut},
+\texttt{conjugate\_leftPerm} (\texttt{DisplacementGroup}) \\
+Lemma~\ref{lem:dis}: the group $D$; (a), (b), (c), (d) &
+\texttt{displacement}, \texttt{displacement\_acts},
+\texttt{displacement\_normalizes}, \texttt{difference\_mem},
+\texttt{displacement\_commutes} (\texttt{DisplacementGroup}) \\
+The subgroup $H$; Lemmas~\ref{lem:stab} and~\ref{lem:top} &
+\texttt{fixedDisplacements}, \texttt{stabilizer\_le\_fixed},
+\texttt{fixed\_ne\_top} (\texttt{PrimeOrbits}) \\
+Lemma~\ref{lem:prime} & \texttt{prime\_action\_transitive},
+\texttt{abelian\_transitive\_regular} (\texttt{PrimeAction}) \\
+Corollary~\ref{cor:regular} & \texttt{nonempty\_regularDisplacements}
+(\texttt{PrimeOrbits}), with the structure \texttt{RegularDisplacements}
+(\texttt{DisplacementData}) \\
+Proposition~\ref{prop:affine}: coordinates from the cyclic group $D$ &
+\texttt{regular\_affine} (\texttt{Coordinates}) \\
+Proposition~\ref{prop:affine}: the affine form, $\lambda\ne0,1$, $c=0$ &
+\texttt{normalized\_coordinates} (\texttt{CoordinatesCore}) \\
+The operation of $A_\lambda$; Lemma~\ref{lem:models}(a) & \texttt{affine},
+\texttt{affine\_isRack}, \texttt{affine\_idempotent},
+\texttt{affine\_medial}, \texttt{affine\_nonreductive} (\texttt{Affine}) \\
+Lemma~\ref{lem:models}(b) & \texttt{affine\_parameter\_unique}
+(\texttt{Affine}) \\
+$A_\lambda$ moved to $\{0,\dots,p-1\}$ & \texttt{labels},
+\texttt{affineTable}, \texttt{affineTable\_iso} (\texttt{ClassCount});
+\texttt{affineTable\_properties} (\texttt{Enumeration}) \\
+Splitting the classes; $|\F_p\setminus\{0,1\}|=p-2$; the bijection with the
+parameters & \texttt{classCount\_partition}, \texttt{parameter\_card},
+\texttt{count\_affine\_models} (\texttt{ClassCount}) \\
+Theorem~\ref{thm:main}(a), (b), (c) from the classification &
+\texttt{rack\_count\_of\_classification},
+\texttt{quandle\_count\_of\_classification},
+\texttt{idempotent\_of\_classification} (\texttt{Enumeration}) \\
+\hline
+\end{tabular}
+\caption{Lean counterparts of the steps of the proof.}
+\label{tab:lean}
+\end{table}
+
+\noindent The finite group theory comes from Mathlib: the decomposition of a
+finite set into orbits, the orbit--stabilizer correspondence, divisibility of
+indices, and the fact that a group of prime order is cyclic. The test file
+\texttt{CheckRack.lean} restates the three theorems with the frozen types
+(\texttt{check\_\allowbreak RackCount}, \texttt{check\_\allowbreak
+QuandleCount}, \texttt{check\_\allowbreak AutomaticIdempotence}). The axioms of
+these three theorems and of \texttt{Proof.RackCount},
+\texttt{Proof.QuandleCount} and \texttt{Proof.AutomaticIdempotence}, printed by
+\texttt{CheckRack.lean}, are exactly \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}. No file uses
+\texttt{sorry}, \texttt{decide}, \texttt{native\_\allowbreak decide},
+\texttt{bv\_\allowbreak decide} or an \texttt{axiom} declaration.
+
+\paragraph{Checks.}
+The $13$ files ($10$ proof modules, \texttt{Challenge.lean},
+\texttt{Proof.lean} and \texttt{CheckRack.lean}) were compiled module by
+module in two new empty directories on the author's Mac, with the pinned
+toolchain and with warnings treated as errors, on 20 November 2026
+(18:16--18:21~UTC), and every module was replayed with \texttt{leanchecker};
+each directory also ran one build of the whole package. All $54$ commands
+($27$ per directory) ended with exit code~$0$, the \texttt{leanchecker} runs
+printed nothing, and the two directories produced identical \texttt{.olean}
+files. The final reviewer (see the next section) compiled the $13$ files again,
+together with a short audit file of its own, in a third new directory on
+20 November 2026, calling \texttt{lean} directly with warnings treated as
+errors, and replayed every module with \texttt{leanchecker}; all runs ended
+with exit code~$0$ (according to its report, between 18:32 and 18:35~UTC, while
+it held the machine's Lean lock). Its audit file checks the three frozen
+statements against the test theorems with fully qualified names. Mathlib and
+its dependencies were taken from a shared prebuilt cache at the pinned commits
+and were not rechecked; the \texttt{leanchecker} replays cover the $13$ project
+modules. In the repository the files have module names under
+\texttt{Research.TaskP.PrimeMedialRacks} and differ from the checked files only
+in their \texttt{import} lines (\texttt{Challenge.lean} is unchanged).
+The repository versions were made by a script that changed only the local \texttt{import} lines, and on 20 November 2026 (19:55--20:07~UTC) they were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac, one after the other, together with the files of three other papers of version~\repoversion{} ($39$ modules in all); there were no warnings, and the two directories produced identical \texttt{.olean} files and the same axiom lists. In the whole-project rebuild of version~\repoversion{} of the repository (on the author's Windows computer, in two passes on 20 and 21 November 2026), these files were compiled and replayed with \texttt{leanchecker} again in pass~2 (21 November 2026), which built the files not included in pass~1 on top of its results; no module needed a second attempt (details in the repository). The formalization has not been checked with
+comparator or with an independent kernel.
+
+\par}
+
+\section*{How this paper was produced}
+This work was carried out from 20 to 22 November 2026 (UTC) in a workflow directed by
+the author, using OpenAI Codex with the model GPT-6.2-Astra (reasoning level
+ultra) and Anthropic Claude Code with the model Claude Opus~5.5. The author
+asked for a large new search for open problems, and Claude Code passed this
+request to Codex at 17:23~UTC. Between 17:23 and 17:53~UTC Codex screened
+$111$ problems from the literature and wrote complete proofs, each read by a
+second agent, for the five top-ranked candidates; the
+proof for this problem (the divisibility argument and the affine
+classification) was written by 17:29~UTC, according to the file times, and was
+read by another Codex agent (same model) that had not taken part in it. While
+the search was still running, the author asked that the five most important
+candidates be formalized at once, without waiting for the author's choice;
+Claude Code passed this request to Codex at 17:48~UTC. At 18:00~UTC Codex
+ranked the candidates by importance and put this problem first. From then on,
+Codex agents (same model) checked the reading of the source, searched again for
+prior work, wrote the statement file, the Lean proof and the written proof,
+and ran the checks. The reading of the source was checked by a Codex agent
+that had taken part neither in the proof nor in drafting the Lean statement,
+and the statement file was reviewed before it was frozen by a Codex agent that
+had written neither the proofs nor the Lean statement. According to the file
+timestamps and the development logs, the proof files were created after the
+freeze, between 18:05 and 18:15~UTC, and compiled between 18:05 and
+18:16~UTC; they follow the proof written in the search for problems. After the
+checks, an independent Claude Code agent (model Claude Opus~5.5) that had
+written none of the files gave the final review. It read the source itself,
+compared the statement file with it, read the written proof, the proof files
+and the raw logs of the checks, recomputed by brute force in Python all racks
+and quandles of order at most~$5$ up to isomorphism (reproducing the
+corresponding entries of~\cite[Tables~1 and~2]{vy}), and rebuilt the
+formalization as described above. Its decision was APPROVE\_FORMAL, with five
+minor remarks on the written account (one optional), all taken into account
+here. Claude Code (Claude Opus~5.5) checked the sources and wrote this text
+from Codex's manuscript and the Lean files. An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied. Throughout, ``we''
+refers to this workflow; the reading and searching described in the paper were
+done by the agents. Codex agents searched for prior work on 20 November 2026,
+in the search for problems and again before the statement was frozen; they
+found no proof of Conjecture~6.5 of~\cite{vy} (details in the repository).
+Claude Code searched again on 21 November 2026 (17:54--18:21~UTC; the arXiv, Semantic Scholar, Crossref, DataCite, Zenodo, MathDB, GitHub and repositories of AI-assisted mathematics) and found no new related work; that day the citation index OpenAlex refused to list the works citing~\cite{vy} (rate limit), and the works citing it that two other indexes list concern other questions. Claude Code searched again on 22 November 2026 (05:39--05:51~UTC), when the OpenAlex lists of citing works refused on 21 November were retrieved, and found nothing new. This reports the coverage of the searches, not a guarantee
+that they were complete. The author is not a professional mathematician.
+The author has read this paper and, using a side-by-side table, compared its Lean statements with the main theorem, Theorem~\ref{thm:main}. No human mathematician has reviewed this paper. The correctness
+of the results rests on the Lean proofs and on the agreement of the Lean
+statements with the conjecture of~\cite{vy}; the written proofs are given for
+the reader. AI systems are not authors of this paper; the author takes full
+responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Petr Vojt\v{e}chovsk\'y and Seung Yeop Yang for the
+conjecture.
+
+{\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{1pt}
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{esg} P.~Etingof, A.~Soloviev and R.~Guralnick, Indecomposable
+set-theoretical solutions to the quantum Yang--Baxter equation on a set with a
+prime number of elements, \emph{J. Algebra} 242 (2001), no.~2, 709--719,
+\url{https://doi.org/10.1006/jabr.2001.8842}; arXiv:math/0007170.
+\bibitem{hsv} A.~Hulpke, D.~Stanovsk\'y and P.~Vojt\v{e}chovsk\'y, Connected
+quandles and transitive groups, \emph{J. Pure Appl. Algebra} 220 (2016),
+no.~2, 735--758, \url{https://doi.org/10.1016/j.jpaa.2015.07.014};
+arXiv:1409.2249v2 (2015). Page numbers refer to the arXiv version.
+\bibitem{jpsz} P.~Jedli\v{c}ka, A.~Pilitowska, D.~Stanovsk\'y and
+A.~Zamojska-Dzienio, The structure of medial quandles, \emph{J. Algebra} 443
+(2015), 300--334, \url{https://doi.org/10.1016/j.jalgebra.2015.04.046};
+arXiv:1409.8396v2 (2015).
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{vy} P.~Vojt\v{e}chovsk\'y and S.~Y. Yang, Enumeration of racks and
+quandles up to isomorphism, \emph{Math. Comp.} 88 (2019), no.~319,
+2523--2540, \url{https://doi.org/10.1090/mcom/3409}; arXiv:1911.04991v1
+(2019). Page numbers refer to the arXiv version.
+\end{thebibliography}}
+\end{document}

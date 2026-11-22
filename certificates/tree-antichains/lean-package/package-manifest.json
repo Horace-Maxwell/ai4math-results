@@ -1,0 +1,149 @@
+{
+ "module_count": 11,
+ "entrypoints": [
+  "Research.TaskN.Antichain.CheckAntichain"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskN.Antichain.CheckAntichain": [
+   "TaskN.Antichain.check_WidthLowerBound",
+   "TaskN.Antichain.check_ArbitrarilyLarge"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskN/Antichain/Challenge.lean",
+   "frozen_utc": "2026-11-20T14:25:12Z",
+   "freeze_record": "antichain/FREEZE.json",
+   "sha256": "fb8861ac8b6a3d2f3f6709637b1164a03fe515b7486b7429a74fb1eefdff5d58"
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskN/Antichain/BridgeWeights.lean",
+   "module": "Research.TaskN.Antichain.BridgeWeights",
+   "sha256": "8aed83cd8db16f9c12fbb3f018745d165ed3e10776d3ee420027a65b89f3fd99",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/BridgeWeights.lean",
+   "codex_source_sha256": "2215b32fd7b4b9035b5ee4e827ea7fcc237b7adcee76701add9a25bf95b6ebd2",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Antichain.TreeCode"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Antichain/Challenge.lean",
+   "module": "Research.TaskN.Antichain.Challenge",
+   "sha256": "fb8861ac8b6a3d2f3f6709637b1164a03fe515b7486b7429a74fb1eefdff5d58",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/Challenge.lean",
+   "codex_source_sha256": "fb8861ac8b6a3d2f3f6709637b1164a03fe515b7486b7429a74fb1eefdff5d58",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Antichain/CheckAntichain.lean",
+   "module": "Research.TaskN.Antichain.CheckAntichain",
+   "sha256": "9ab9ad251367718da65d6ab81747a460dfa70064a36bc2ad7b5590ed1a5e7415",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/CheckAntichain.lean",
+   "codex_source_sha256": "90b0a28455f5746f8e4c8187be4386b9dd5ab0ccd4951a7a03dbc77919cdb176",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Antichain.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Antichain/CompareCore.lean",
+   "module": "Research.TaskN.Antichain.CompareCore",
+   "sha256": "524717a487f168c2f405ed5a4267a51cdf65b3d1e32dff495bbc5368f0a7784f",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/CompareCore.lean",
+   "codex_source_sha256": "24a61db36c49b20317dde81384a0956a1868563992e84ca033c949c0b87a585e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Antichain.GraphTransport",
+    "Research.TaskN.Antichain.SequenceGraph",
+    "Research.TaskN.Antichain.TreePolynomial"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Antichain/GraphTransport.lean",
+   "module": "Research.TaskN.Antichain.GraphTransport",
+   "sha256": "1b03dae0a317608b618229b9ce75dc75922ad48216a2f55ce46d609f2085460b",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/GraphTransport.lean",
+   "codex_source_sha256": "f1e53d4a314bae9b48778b6b63d2ecdcdb1ec0ba7e864157a5626cbefc36c06a",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Antichain.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Antichain/Numeric.lean",
+   "module": "Research.TaskN.Antichain.Numeric",
+   "sha256": "b81b914c50caef7fc4aee5ee31a7001e36ec0009ecaab3a4ad4b620f65dd8b13",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/Numeric.lean",
+   "codex_source_sha256": "b81b914c50caef7fc4aee5ee31a7001e36ec0009ecaab3a4ad4b620f65dd8b13",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Antichain/Proof.lean",
+   "module": "Research.TaskN.Antichain.Proof",
+   "sha256": "92267b8a340909c3038ce00a580ba4ddcb7f91c186bcd29e547913417344222b",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/Proof.lean",
+   "codex_source_sha256": "c42594afe83e1b83ec37b43b79642726eb8dce0400368722b0fb6a562247f80a",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Antichain.CompareCore",
+    "Research.TaskN.Antichain.TreeRoot"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Antichain/SequenceGraph.lean",
+   "module": "Research.TaskN.Antichain.SequenceGraph",
+   "sha256": "8ed27c862320541edcad05c4c771e9016941fecb2874d0b80953e710ffa7b948",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/SequenceGraph.lean",
+   "codex_source_sha256": "a2624847457742883eee4740840ae8aa76c476b56b33dbb8f555a17c4d6c1a84",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Antichain.TreeCode",
+    "Research.TaskN.Antichain.Numeric"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Antichain/TreeCode.lean",
+   "module": "Research.TaskN.Antichain.TreeCode",
+   "sha256": "471b546a7182ec312c47a2fc03933e24b1aa212b5d13a0d931983b2156d52306",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/TreeCode.lean",
+   "codex_source_sha256": "caf4fdcecf1d3ad7168afd783efe51159ceef329a372fd1c9709cc49b52109ab",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Antichain.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Antichain/TreePolynomial.lean",
+   "module": "Research.TaskN.Antichain.TreePolynomial",
+   "sha256": "20a6c02dcae95360f4585a91f5968745252cac1b9354fa39f54d99982a11c94f",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/TreePolynomial.lean",
+   "codex_source_sha256": "54957046082a2c08ac0f35339ce964d9dfb2c42549d73d2f993ebe7a3cb21725",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Antichain.BridgeWeights"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskN/Antichain/TreeRoot.lean",
+   "module": "Research.TaskN.Antichain.TreeRoot",
+   "sha256": "4029a549ba0a8bcb60a839c8eb03950ed31d48bd49ec29fadfd75f30dbda4c87",
+   "codex_source": "work/codex-r3/phase21/taskN/antichain/TreeRoot.lean",
+   "codex_source_sha256": "09401dc15848ac21edb1b9130ddcd8164ee06f42ad244d9dfe63d7040820a73f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskN.Antichain.TreeCode"
+   ]
+  }
+ ]
+}

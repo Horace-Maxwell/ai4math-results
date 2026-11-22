@@ -1,0 +1,943 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={The integer group determinants of the Heisenberg group of order 125},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.25.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\F}{\mathbb F_5}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\vp}{v_\pi}
+
+\title{The integer group determinants of the\\ Heisenberg group of order 125}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $H_5$ be the Heisenberg group of order $125$, the group of upper
+unitriangular $3\times3$ matrices over $\mathbb F_5$. We determine the set
+$\cS(H_5)$ of all values of its group determinant $\det\bigl(f(gh^{-1})\bigr)_{g,h}$
+when $f$ ranges over all integer-valued functions on $H_5$; this answers
+Olga Taussky-Todd's integer group determinant question for this group.
+Mossinghoff and Pinner had shown that the values prime to $5$ are the
+integers $m$ with $m^4\equiv1\pmod{125}$, and that every nonzero value
+divisible by $5$ is divisible by $5^{28}$. We show that every multiple of
+$5^{33}$ is a value, and that a nonzero integer whose $5$-adic valuation lies
+between $28$ and $32$ is a value if and only if it has a prime factor
+$\ell\equiv1\pmod5$ that is \emph{visible}: a generator of a prime ideal of
+$\mathbb Z[\zeta_5]$ above $\ell$ is not congruent modulo $5$ to a unit of
+$\mathbb Z[\zeta_5]$. In particular, the least positive value divisible by $5$
+is $11\cdot5^{28}=409781932830810546875$, attained by $1+x+y+y^2+xy^2$. The
+classification and the minimum are formally verified in Lean~4. The proofs
+were found and formalized by AI agents working under the author's direction;
+their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+For a finite group $G=\{g_1,\dots,g_k\}$ and variables $a_g$ ($g\in G$), the
+\emph{group determinant} is $\det\bigl(a_{g_ig_j^{-1}}\bigr)_{i,j}$, with $i$
+indexing rows and $j$ columns~\cite[(1)]{mp}. At the meeting of the American
+Mathematical Society in Hayward, California, in April 1977, Olga Taussky-Todd
+asked which integers occur as circulant determinants with integer
+entries~\cite[Section~1]{ps}; the same question can be asked for every finite group
+$G$, namely to determine
+\[
+\cS(G)=\bigl\{\det\bigl(a_{g_ig_j^{-1}}\bigr)\ :\ a_g\in\Z\ \text{for all } g\in G\bigr\}
+\]
+\cite[(2)]{mp}. Complete answers are known for all groups of order at most
+$14$~\cite{ps} and, according to~\cite{pan25}, for all groups of order less
+than $20$ and both groups of order $25$. Writing an element of the group ring
+as $F=\sum_g a_g g$, the matrix above is the matrix of left multiplication by
+$F$ on $\Z[G]$ in the basis $G$, and we write $M(F)$ for its determinant.
+
+Mossinghoff and Pinner~\cite{mp} studied the Heisenberg group
+$H_p=\{x^ay^bz^c\}$ of order $p^3$, $p$ an odd prime, in which $z$ is central
+and $yx=xyz$. Throughout we cite~\cite{mp} by the numbering of
+arXiv:2108.04870v1, the only arXiv version; we could not access the journal
+version (Michigan Math.\ J.\ 74 (2024), 551--569) to compare its numbering.
+For $p=5$ their results say:
+\begin{itemize}
+\item the values prime to $5$ are exactly the integers $m$ with
+$m^4\equiv1\pmod{125}$~\cite[Corollary~3.2]{mp};
+\item if $5\mid M(F)$ then $5^{28}\mid M(F)$, and $5^{28}\,\|\,M(F)$ occurs
+\cite[Theorem~3.4]{mp}.
+\end{itemize}
+They determined $\cS(H_3)$ completely~\cite[Theorem~3.6]{mp}; for $p\ge5$ the
+multiples of $p$ in $\cS(H_p)$ were left undetermined. Their example for
+$p=5$, $F=5-x+2y-y^2$~\cite[proof of Theorem~3.4, with $A=2$]{mp}, has
+\[
+M(F)=5^{28}\cdot7^{20}\cdot11\cdot101\cdot103^{20}\cdot131\cdot181\cdot191\cdot311,
+\]
+a cofactor of about $2.3\cdot10^{69}$ (our computation, by exact elimination
+on the $125\times125$ matrix, confirmed by the final reviewer of the
+minimum); so the
+source settles the $5$-adic valuation $28$ but not the least value.
+
+\paragraph{Visible primes.}
+Let $\zeta$ be a primitive fifth root of unity, $K=\mathbb Q(\zeta)$,
+$R=\Z[\zeta]$ its ring of integers, $\pi=1-\zeta$, and $\N=\N_{K/\mathbb Q}$
+the norm, the product of the four conjugates. Let $U\subseteq(R/5R)^\times$ be
+the image of the unit group $R^\times$.
+
+\begin{definition}\label{def:visible}
+A rational prime $\ell$ is \emph{visible} if $\ell\equiv1\pmod5$ and there is
+$\lambda\in R$ with $\N(\lambda)=\ell$ whose residue class modulo $5R$ does not
+lie in $U$.
+\end{definition}
+
+\noindent By Lemma~\ref{lem:choice}, ``there is'' can be replaced by ``for
+every'': for a prime $\ell\equiv1\pmod 5$, either all elements of norm $\ell$
+have residues in $U$ or none has. The visible primes below $600$ are
+\[
+11,31,41,61,71,101,131,151,181,191,241,251,271,311,331,401,431,491,541,571;
+\]
+the primes $\ell\equiv1\pmod5$ below $600$ that are not visible are
+$211,281,421,461,521$. For example $\N(2+\zeta)=\Phi_5(-2)=11$ and the residue
+of $2+\zeta$ is not in $U$.
+
+\begin{theorem}\label{thm:main}
+\begin{multline*}
+\cS(H_5)=\{m\in\Z:\ m^4\equiv1\!\!\pmod{125}\}\ \cup\ 5^{33}\Z\\
+\cup\ \{5^{28}n:\ n\in\Z\setminus\{0\},\ \text{some visible prime divides } n\}.
+\end{multline*}
+Equivalently, $0\in\cS(H_5)$, and for an integer $m\ne0$ with $v=v_5(m)$:
+if $v=0$, then $m\in\cS(H_5)$ if and only if $m^4\equiv1\pmod{125}$; if
+$1\le v\le27$, then $m\notin\cS(H_5)$; if $28\le v\le32$, then
+$m\in\cS(H_5)$ if and only if $m$ has a visible prime factor; if $v\ge33$, then
+$m\in\cS(H_5)$.
+\end{theorem}
+
+\begin{corollary}\label{cor:min}
+The least positive element of $\cS(H_5)$ divisible by $5$ is
+\[11\cdot5^{28}=409781932830810546875.\]
+It is the group determinant of $1+x+y+y^2+xy^2$.
+\end{corollary}
+
+\begin{corollary}\label{cor:33}
+$5^{32}\notin\cS(H_5)$. Hence $33$ is the least integer $k\ge0$ with
+$5^k\Z\subseteq\cS(H_5)$.
+\end{corollary}
+
+For instance $11\cdot5^{28}$, $31\cdot5^{30}$ and $211\cdot11\cdot5^{28}$ are
+values, while $211\cdot5^{28}$, $3\cdot5^{29}$ and $5^{28}$ are not.
+Theorem~\ref{thm:main} and Corollary~\ref{cor:min} are formally verified in
+Lean~4 (Section~\ref{sec:lean}); Corollary~\ref{cor:min} is a special case of
+Theorem~\ref{thm:main}, but it was stated and verified separately, before
+Theorem~\ref{thm:main}. Corollary~\ref{cor:33} follows from
+Theorem~\ref{thm:main} in two lines (Section~\ref{sec:proofs}); it is not a
+separate Lean statement. The second sentence of Theorem~\ref{thm:main} is an
+immediate reformulation of the first (a visible prime is not $5$); only the
+first is the Lean statement.
+
+\begin{remark}\label{rem:cft}
+Since $R$ is a principal ideal domain, the ray class group of $K$ modulo $5R$ is
+$(R/5R)^\times/U\cong\Z/5$ (Lemma~\ref{lem:units}); so $\ell\equiv1\pmod5$ is
+visible exactly when the primes above $\ell$ do not split completely in the
+ray class field modulo $5R$, and by Chebotarev's theorem the visible primes
+have density $4/5$ among the primes $\ell\equiv1\pmod5$ ($157$ of the $194$
+below $6000$). As a purely numerical observation, not proved here: for these
+$194$ primes (and, as a final reviewer checked, for all $563$ below $20{,}000$),
+$\ell$ is visible if and only if $(1+r+r^{-1})^{(\ell-1)/5}\not\equiv1\pmod\ell$
+for a primitive fifth root of unity $r$ modulo $\ell$, that is, if and only if
+the golden-ratio unit $1+\zeta+\zeta^{-1}$ is not a fifth power modulo a prime
+above $\ell$. Nothing in this remark is used below or stated in Lean.
+\end{remark}
+
+\paragraph{Prior work and what is new.}
+The factorization of $M(F)$ used below, the congruence that controls the
+five-dimensional factor, the description of the values prime to $5$ and the
+bound $5^{28}$ are due to Mossinghoff and Pinner~\cite{mp}; the explicit values
+prime to $5$ come from their Theorem~3.3. The constructions start from the three
+group ring elements of the abelian group $C_5\times C_5$ found by
+Panraksa~\cite[Proposition~3.1]{pan25}, which he used to prove
+$\cS(C_5^2)\cap5\Z=5^8\Z$. For $C_7\times C_7$, Panraksa~\cite{pan49}
+described the values at the two lowest valuations by conditions on ideals of
+$\Z[\zeta_7]$, which is a precedent for a criterion of the kind found here; for
+$C_p\times C_p$ with $p\ge7$ see~\cite{panp}; we borrow the words visible and
+invisible from~\cite{pan49}, where they are used for the analogous condition
+on primes of $\Z[\zeta_7]$. The lattice isomorphism algorithms of~\cite{bhj} decide membership in
+$\cS(G)$ in principle (an observation made during this work, not used here),
+but give no explicit description. What is new
+here, as far as the searches described at the end found, is the description of
+the multiples of $5$ in $\cS(H_5)$: the inclusion $5^{33}\Z\subseteq\cS(H_5)$,
+the visible-prime criterion at the valuations $28$ to $32$, and the minimum of
+Corollary~\ref{cor:min}.
+
+\section{The group determinant of \texorpdfstring{$H_5$}{H5}}\label{sec:factor}
+
+\paragraph{The group.} We write the elements of $H_5$ as $x^ay^bz^c$ with
+$a,b,c\in\F$; from $yx=xyz$ and the centrality of $z$,
+\[
+x^ay^bz^c\cdot x^{a'}y^{b'}z^{c'}=x^{a+a'}y^{b+b'}z^{c+c'+ba'} .
+\]
+In the matrix model of~\cite[p.~4]{mp}, $x^ay^bz^c$ is the unitriangular
+matrix with entries $b$, $a$, $c$ in positions $(1,2)$, $(2,3)$, $(1,3)$. A
+group ring element is $F=\sum f(a,b,c)\,x^ay^bz^c$ with $f:H_5\to\Z$
+arbitrary, and $M(F)=\det\bigl(f(gh^{-1})\bigr)_{g,h\in H_5}$. Its
+\emph{abelianization} is
+\[
+P(x,y)=\sum_{a,b\in\F}p_{ab}\,x^ay^b,\qquad p_{ab}=\sum_{c\in\F}f(a,b,c),
+\]
+an element of $\Z[x,y]/(x^5-1,y^5-1)$, and $t=P(1,1)=\sum_gf(g)$ is the
+augmentation. We write $P_X=\sum a\,p_{ab}$ and $P_Y=\sum b\,p_{ab}$, read
+modulo $5$.
+
+\paragraph{The factorization.}
+By Frobenius' theorem, $M(F)=\prod_\rho\det\rho(F)^{\deg\rho}$ over the
+irreducible complex representations $\rho$ of $H_5$~\cite[\S3.1]{mp}. There
+are $25$ linear characters, $x^ay^bz^c\mapsto\zeta^{ia+jb}$, with values
+$P(\zeta^i,\zeta^j)$, and four representations $\phi_\lambda$ of degree $5$,
+$\lambda=\zeta^k$ ($1\le k\le4$), in which $x$ acts by the cyclic shift
+$S e_j=e_{j+1}$, $y$ by $T=\mathrm{diag}(1,\lambda,\dots,\lambda^4)$ and $z$
+by $\lambda$. Thus $\phi_\zeta(F)=\sum_{a,b}r_{ab}S^aT^b$ with
+$r_{ab}=\sum_cf(a,b,c)\zeta^c$, and we put $D=\det\phi_\zeta(F)\in R$. The
+other three representations give the Galois conjugates of $D$, and
+Mossinghoff and Pinner obtain $M(F)=M_1M_2^5$ with
+$M_1=\prod_{i,j}P(\zeta^i,\zeta^j)$ and $M_2=\N(D)$. Grouping the $24$
+nontrivial characters into the six orbits of $\F^\times$, each of which is a
+full set of Galois conjugates, and choosing the representatives $(1,0)$ and
+$(j,1)$, $j\in\F$, we get
+\begin{equation}\label{eq:factor}
+M(F)=t\cdot\N(\gamma)\cdot\prod_{j\in\F}\N(\alpha_j)\cdot\N(D)^5,
+\qquad \gamma=P(\zeta,1),\quad \alpha_j=P(\zeta^j,\zeta).
+\end{equation}
+All factors are integers, and norms of elements of $R$ are $\ge0$. We call
+$\gamma$ and the $\alpha_j$ the values on the six \emph{rays}. The Lean files
+prove~\eqref{eq:factor} from the matrix itself (Section~\ref{sec:lean}).
+
+\paragraph{Arithmetic of $R$.} We use the following standard facts. (a)~$5R=\pi^4R$,
+$R/\pi R=\F$, $\N(\pi)=5$, and $v_5(\N(\alpha))=\vp(\alpha)$ for
+$\alpha\in R$; moreover $\zeta^n\equiv1-n\pi+\binom n2\pi^2\pmod{\pi^3}$.
+(b)~$\Tr(\pi R)\subseteq5\Z$, since $\Tr(\zeta^i-\zeta^{i+1})\in\{0,\pm5\}$;
+hence $\Tr(\pi^5R)=\Tr(5\pi R)\subseteq25\Z$ and
+$\Tr(\pi^9R)\subseteq125\Z$; also $\Tr(\pi^4)=5$ and $\Tr(\pi^8)=-275$.
+(c)~$R$ is a principal ideal domain (the class number of $K$ is one). (d)~Every
+unit $u\in R^\times$ has $\N(u)=1$, and $\bar u/u$ is a root of unity (all its
+conjugates have absolute value~$1$); comparing residues modulo $\pi$ gives
+$\bar u=\zeta^ku$ for some $k$. Let $\varphi=1+\zeta+\zeta^{-1}=-\zeta^2-\zeta^3$,
+the golden-ratio unit; $\varphi\equiv3+\pi^2+\pi^3\pmod5$.
+
+\begin{lemma}\label{lem:units}
+$(R/5R)^\times$ has $500$ elements. Every element of it can be written
+uniquely as $v\,(1+d\pi^3)$ with $v$ in the subgroup generated by $\zeta$ and
+$\varphi$ and $d\in\F$, and $d$ is a surjective homomorphism
+$(R/5R)^\times\to\F$ whose kernel is $U$; thus $|U|=100$. For the
+automorphism $\sigma_k:\zeta\mapsto\zeta^k$ of $K$, $d(\sigma_k\lambda)=k^3d(\lambda)$;
+in particular complex conjugation sends $d$ to $-d$.
+\end{lemma}
+
+\begin{proof}
+$R/5R=\F[\pi]/(\pi^4)$. Multiplying by a power of $\varphi\equiv3\pmod\pi$
+makes the constant term $1$; by a power of $\zeta\equiv1-\pi$ removes the term
+in $\pi$; by a power of $\varphi^4\equiv1+3\pi^2+3\pi^3\pmod 5$ removes the
+term in $\pi^2$. This leaves $1+d\pi^3$, and
+$(1+d\pi^3)(1+d'\pi^3)\equiv1+(d+d')\pi^3$. For uniqueness and for $U$ it
+suffices to show that a unit $u\equiv1+d\pi^3\pmod5$ has $d=0$. By~(d),
+$\bar u=\zeta^ku$; since $\bar\pi\equiv-\pi\pmod{\pi^2}$ we have
+$\bar u\equiv1-d\pi^3$, while $\zeta^ku\equiv1-k\pi\pmod{\pi^2}$; so $k=0$ and
+then $1-d\pi^3\equiv1+d\pi^3$, i.e.\ $d=0$. Finally
+$\sigma_k(\pi)=1-\zeta^k\equiv k\pi\pmod{\pi^2}$, so
+$\sigma_k(1+d\pi^3)\equiv1+k^3d\pi^3$, and $\sigma_k$ maps units to units.
+\end{proof}
+
+\begin{lemma}[choice independence]\label{lem:choice}
+Let $\ell\equiv1\pmod5$ be prime. If $\lambda,\lambda'\in R$ both have norm
+$\ell$, then $d(\lambda)=0$ if and only if $d(\lambda')=0$.
+\end{lemma}
+
+\begin{proof}
+An element of prime norm generates a prime ideal of norm $\ell$. The prime
+ideals above $\ell$ are permuted transitively by the Galois group, and two
+generators of the same ideal differ by a unit, so $\lambda'=u\,\sigma_k(\lambda)$
+with $u\in R^\times$, and $d(\lambda')=k^3d(\lambda)$ by
+Lemma~\ref{lem:units}.
+\end{proof}
+
+\begin{lemma}[prime extraction]\label{lem:extract}
+Let $\mu\in R$ with $5\nmid\N(\mu)$ and $\mu\bmod 5\notin U$. Then some
+visible prime divides $\N(\mu)$.
+\end{lemma}
+
+\begin{proof}
+Factor $\mu$ into prime elements (by~(c)). Since $d$ is a homomorphism, some
+prime factor $\lambda$ has $d(\lambda)\ne0$. If $\bar\lambda=u\lambda$ with
+$u$ a unit, then $-d(\lambda)=d(\bar\lambda)=d(\lambda)$, so $d(\lambda)=0$, a
+contradiction. Hence $\lambda$ and $\bar\lambda=\sigma_2^2\lambda$ are not
+associate, and then neither are any two of the four conjugates of $\lambda$
+(the Galois group is cyclic, generated by $\sigma_2$). All four divide the
+rational prime $\ell$ below $\lambda$, so their product $\N(\lambda)$ divides
+$\ell$ and $\N(\lambda)=\ell$. As $\N(\lambda)\equiv(\lambda\bmod\pi)^4\equiv1\pmod5$,
+$\ell$ is visible, and $\ell\mid\N(\mu)$.
+\end{proof}
+
+\section{The \texorpdfstring{$5$}{5}-adic floor and the five-dimensional factor}\label{sec:floor}
+
+\begin{lemma}[normalization]\label{lem:normalize}
+For every $f$ there is $f'$ with $M(f')=M(f)$ whose abelianization has
+$P_X\equiv0\pmod5$.
+\end{lemma}
+
+\begin{proof}
+Every automorphism of $H_5$ permutes the basis of $\Z[H_5]$ and so preserves
+$M$. Any basis of $\F^2=H_5/\langle z\rangle$ lifts to an automorphism, since
+lifts of two independent elements have order $5$ and their commutator is a
+nonzero power of $z$. The automorphism acts on the vector $(P_X,P_Y)\in\F^2$ through the induced
+linear map, and $\mathrm{GL}_2(\F)$ is transitive on nonzero vectors, so we can
+make $P_X\equiv0$.
+\end{proof}
+
+\noindent From now on in this section $P_X\equiv0$. By~(a), for a ray value,
+\begin{equation}\label{eq:taylor}
+P(\zeta^u,\zeta^v)\equiv t-(uP_X+vP_Y)\,\pi+\sum_{a,b}p_{ab}\tbinom{ua+vb}{2}\pi^2\pmod{\pi^3}.
+\end{equation}
+
+\begin{lemma}[{the congruence of~\cite{mp}}]\label{lem:c0}
+Write $\prod_{x^5=1}P(x,y)\equiv c_0+c_1y+\dots+c_4y^4\pmod{y^5-1}$, with
+$c_i\in\Z$. Then $5\mid c_i$ for $i\ne0$,
+\[
+D\equiv c_0\pmod{\pi^5},\qquad 5c_0=t\,\N(\gamma)+\Tr\beta,\quad
+\beta=\prod_{j\in\F}\alpha_j .
+\]
+\end{lemma}
+
+\begin{proof}
+The first two assertions are~(18) and the congruence after (15) and (16) in the
+proof of~\cite[Theorem~3.1]{mp}, which holds before that proof splits into the
+cases $p\mid c_0$ and $p\nmid c_0$; the Lean files prove both again, by
+expanding $D$ along column selections. For the identity,
+$5c_0=\sum_{y^5=1}\prod_{x^5=1}P(x,y)$. The term $y=1$ is
+$P(1,1)\prod_{u\ne0}P(\zeta^u,1)=t\,\N(\gamma)$, and for $y=\zeta^j$, $j\ne0$,
+the term is $\prod_uP(\zeta^u,\zeta^j)=\sigma_j(\beta)$.
+\end{proof}
+
+\begin{proposition}[{after~\cite[Theorem~3.4]{mp}}]\label{prop:floor}
+Suppose $5\mid M=M(F)$, with $P_X\equiv0$. Then $5\mid t$, $\pi^2\mid\gamma$,
+$\pi\mid\alpha_j$ for all $j$, $\pi^4\mid D$, and so $5^{28}\mid M$. If
+moreover $M\ne0$ and $v_5(M)\le32$, then $P_Y\not\equiv0$, $\vp(\alpha_j)=1$
+for all $j$, $\vp(D)=4$, and $125\nmid\Tr\beta$.
+\end{proposition}
+
+\begin{proof}
+Modulo $\pi$ every character value is $\equiv t$, and $\phi_\zeta(F)\equiv
+\sum p_{ab}S^a$, a circulant matrix with determinant
+$\prod_{x^5=1}P(x,1)\equiv t^5$; so $M\equiv t^{125}\pmod\pi$,
+and $5\mid M$ forces $\pi\mid t$, i.e.\ $5\mid t$. Then $t\equiv0\pmod{\pi^4}$,
+and~\eqref{eq:taylor} gives $\gamma\equiv-P_X\pi\equiv0$ and
+$\alpha_j\equiv-P_Y\pi\pmod{\pi^2}$. So $25\mid\N(\gamma)$ and
+$125\mid t\,\N(\gamma)$, while $\beta\in\pi^5R$ gives $\Tr\beta\in25\Z$. By
+Lemma~\ref{lem:c0}, $25\mid5c_0$, so $\pi^4\mid c_0$ and $\pi^4\mid D$.
+Counting valuations in~\eqref{eq:factor}: $1+2+5\cdot1+5\cdot4=28$.
+
+Now let $M\ne0$ and $v_5(M)\le32$. If also $P_Y\equiv0$, all six ray values
+are divisible by $\pi^2$ and $v_5(M)\ge1+12+20=33$; so $P_Y\not\equiv0$ and
+$\vp(\alpha_j)=1$. If $\pi^5\mid D$, then $v_5(M)\ge8+25=33$; so $\vp(D)=4$.
+By Lemma~\ref{lem:c0}, $\pi^5\nmid c_0$, i.e.\ $25\nmid c_0$, so
+$125\nmid5c_0$, and as $125\mid t\N(\gamma)$, $125\nmid\Tr\beta$.
+\end{proof}
+
+\begin{lemma}[{values prime to $5$; cf.~\cite[Theorem~3.1]{mp}}]\label{lem:coprime}
+$M(F)\equiv c_0^{25}\pmod{125}$. Hence, if $5\nmid M(F)$, then
+$M(F)^4\equiv1\pmod{125}$.
+\end{lemma}
+
+\begin{proof}[Proof (sketch; this is the route of \texttt{Coprime.determinant\_congruence})]
+By Lemma~\ref{lem:c0}, $D=c_0+5w$ with $\pi\mid w$, so
+$\N(D)\equiv c_0^4+5c_0^3\Tr w\equiv c_0^4\pmod{25}$ and
+$\N(D)^5\equiv c_0^{20}\pmod{125}$. Put $C(y)=\sum c_iy^i$ and
+$s=\sum_{i\ne0}c_i/5$; then $M_1=C(1)\,\N(C(\zeta))$ with $C(1)=c_0+5s$ and
+$C(\zeta)=c_0+5w'$, where $\Tr w'=-s$ and $w'\equiv s\pmod\pi$. Expanding the
+norm to second order and using $\Tr(\mu)\equiv-(\mu\bmod\pi)\pmod5$ gives
+$M_1\equiv c_0^5\pmod{125}$. If $5\nmid M$, then $5\nmid c_0$ and
+$M^4\equiv c_0^{100}\equiv1\pmod{125}$.
+\end{proof}
+
+\section{Necessity at the valuations 28 to 32: phases}\label{sec:necessity}
+
+Assume $5\mid t$, $P_X\equiv0$ and $P_Y\not\equiv0$. By~\eqref{eq:taylor},
+\begin{equation}\label{eq:AB}
+\alpha_j\equiv A\pi+B(j)\pi^2\pmod{\pi^3},\qquad
+A=-P_Y,\quad B(j)=\sum_{a,b}p_{ab}\tbinom{ja+b}{2},
+\end{equation}
+where $A\in\F^\times$ and $B$ is a polynomial function of $j\in\F$ of degree at
+most $2$ (the terms $t$ and $jP_X\pi$ lie in $5R\subseteq\pi^3R$).
+
+\begin{lemma}[phases]\label{lem:phase}
+Let $u_j\in R^\times$ ($j\in\F$) with $\pi u_j\equiv A\pi+B(j)\pi^2\pmod{\pi^3}$,
+where $A\ne0$ and $B$ has degree at most $2$. Then
+$\overline{\pi u_j}=-\zeta^{k_j}\pi u_j$ with $k_j=2B(j)/A-1$, $\sum_jk_j=0$,
+and $\Tr\prod_j\pi u_j=0$.
+\end{lemma}
+
+\begin{proof}
+By~(d), $\bar u_j=\zeta^{r}u_j$, and $\bar\pi=-\zeta^{-1}\pi$; so
+$\overline{\pi u_j}=-\zeta^{k_j}\pi u_j$ for some $k_j$. Write
+$\alpha=\pi u_j=A\pi+B\pi^2+\dots$. Since
+$\bar\pi\equiv-\pi-\pi^2\pmod{\pi^3}$, we get
+$\bar\alpha\equiv-A\pi+(B-A)\pi^2$, while
+$-\zeta^{k}\alpha\equiv-A\pi+(kA-B)\pi^2$; hence $k_jA=2B(j)-A$. Since
+$\sum_{j\in\F}j^e=0$ in $\F$ for $e=0,1,2$, $\sum_jk_j=0$. So
+$\beta'=\prod_j\pi u_j$ satisfies $\bar\beta'=-\zeta^{\sum k_j}\beta'=-\beta'$,
+and as complex conjugation preserves the trace, $\Tr\beta'=0$.
+\end{proof}
+
+\begin{proposition}\label{prop:necessity}
+If $5\mid M(F)$, then $5^{33}\mid M(F)$, or $M(F)=5^{28}n$ with $n\ne0$ and
+some visible prime divides $n$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:normalize} we may assume $P_X\equiv0$. Suppose $M\ne0$ and
+$v_5(M)\le32$. By Proposition~\ref{prop:floor}, $5^{28}\mid M$,
+$P_Y\not\equiv0$, $\alpha_j=\pi q_j$ with $\pi\nmid q_j$, and
+$125\nmid\Tr\beta$. If every $q_j$ were congruent modulo $5$ to a unit $u_j$,
+then $\alpha_j\equiv\pi u_j\pmod{5\pi}$, where $5\pi R=\pi^5R$; so $\pi u_j$
+has the same expansion~\eqref{eq:AB} and Lemma~\ref{lem:phase} gives
+$\Tr\prod\pi u_j=0$. Replacing the five factors one at a time changes the
+product by elements of $\pi^{5+4}R$, so
+$\Tr\beta\equiv\Tr\prod\pi u_j=0\pmod{125}$ by~(b), a contradiction. So
+some $q_j$ has residue outside $U$; as $5\nmid\N(q_j)$,
+Lemma~\ref{lem:extract} gives a visible prime $\ell\mid\N(q_j)$, and
+$\N(q_j)$ divides $M$ by~\eqref{eq:factor}. Since $\ell\ne5$, $\ell$ divides
+$n=M/5^{28}$.
+\end{proof}
+
+\noindent This is where the visible primes come from: when the residues of the
+$q_j$ come from global units, the phases $k_j$ sum to zero and $D$ acquires an
+extra factor $\pi$; a visible prime contributes a term $d\pi^3$, $d\ne0$, that
+breaks this balance, and the constructions below use exactly this term.
+
+\section{Sufficiency: seeds, one ray, and an exact lift}\label{sec:sufficiency}
+
+\paragraph{The seeds.} Panraksa's elements of $\Z[C_5^2]$~\cite[(12)--(14),
+Proposition~3.1]{pan25} are
+\begin{gather*}
+F_1=1+y+y^2+x+x^4y,\qquad F_5=\Phi_5(x)\Phi_5(y)-1-y+x+x^4,\\
+F_2=1+y+y^2+y^3+x+xy+xy^2+x^4+x^4y+x^4y^4 .
+\end{gather*}
+Their augmentations are $5,10,25$; their value on the ray $(1,0)$ has norm
+$25$ and the other five ray values have norm $5$~\cite[proof of
+Proposition~3.1]{pan25}. Together with $-F_1(x,y^{-1})$ and $-F_2(x,y^{-1})$
+this gives five elements $S_s$ with augmentations $5a_s$,
+$a_s\in\{1,-1,2,-2,5\}$, a complete set of residues modulo $5$, and the same
+ray norms. Exchanging the variables, put $P_s(x,y)=S_s(y,x)$. Then
+$b_s:=P_s(\zeta,1)$ has norm $5$, and $\prod_{j\in\F}\N(P_s(\zeta^j,\zeta))=25\cdot5^4=5^6$.
+
+\paragraph{Row shifts.} For $q:\F\to\Z$ put $Q(\zeta)=\sum_aq(a)\zeta^a$. Adding
+$q(a)$ to every coefficient $p_{ab}$, $b\in\F$, of an abelianization adds
+$q(a)x^a\Phi_5(y)$; this adds $5\sum_aq(a)$ to $t$ and $5Q(\zeta)$ to
+$P(\zeta,1)$, and leaves every $P(\zeta^j,\zeta)$ unchanged, because
+$\Phi_5(\zeta)=0$. So by~\eqref{eq:factor}, any $f$ whose abelianization is
+$P_s(a,b)+q(a)$ has
+\begin{equation}\label{eq:rows}
+M(f)=5\Bigl(a_s+\sum_aq(a)\Bigr)\cdot\N\bigl(b_s+5Q(\zeta)\bigr)\cdot5^6\cdot\N(D)^5 .
+\end{equation}
+
+\begin{lemma}[exact lift]\label{lem:lift}
+For every $s$ and every $q:\F\to\Z$ there is $f:H_5\to\Z$ with abelianization
+$P_s(a,b)+q(a)$ and $D=5\tau$, where $\tau=\pi$ if $5\mid\sum_aq(a)$, and
+otherwise $\tau$ is a unit with $\tau\equiv\sum_aq(a)\pmod\pi$. Thus
+$\N(D)=5^5$ or $5^4$, respectively.
+\end{lemma}
+
+\begin{proof}
+Fixing the abelianization fixes $\phi_\zeta(F)=\sum r_{ab}S^aT^b$ only up to
+$r_{ab}\in p_{ab}+\pi R$, and every such choice is realized, because
+$\{\sum_c f_c\zeta^c:\sum_cf_c=p\}=p+\pi R$. For each $s$ the Lean files
+contain an explicit base lift $f_s$ ($125$ integers) with abelianization $P_s$
+whose matrix $C_s=\phi_\zeta(f_s)$ has determinant $0$, together with the
+cofactors $l_i$ of its column $0$ and elements $e_i\in R$ such that
+$l_i\equiv1\pmod\pi$ and $\sum_il_ie_i=1$. Adding $g(a,c)$ to every
+$f(a,b,c)$, $b\in\F$, changes only column $0$ of the matrix, because
+$\sum_bT^b=\mathrm{diag}(5,0,0,0,0)$: its entry in row $a$ grows by
+$5\sum_cg(a,c)\zeta^c$, and $p_{ab}$ grows by $\sum_cg(a,c)$. Let
+$w=\sum_il_iq(i)\equiv\sum_iq(i)\pmod\pi$, choose $\tau$ as stated (so that
+$\tau\equiv w\pmod\pi$; a power of $\varphi\equiv3$ gives every nonzero
+residue), and put $x_i=(\tau-w)e_i\in\pi R$. Choose $g(i,\cdot)$ with
+$\sum_cg(i,c)=q(i)$ and $\sum_cg(i,c)\zeta^c=q(i)+x_i$, which is possible
+since $x_i\in\pi R$. Since the determinant is linear in column $0$,
+$D=\det C_s+5\sum_il_i(q(i)+x_i)=5w+5(\tau-w)=5\tau$.
+\end{proof}
+
+\noindent As Lemma~\ref{lem:c0} requires, the residue of $D/5$ modulo $\pi$ is
+determined by the abelianization (here it is $\sum_aq(a)\bmod5$).
+
+\begin{proposition}[the tail]\label{prop:tail}
+$5^{33}\Z\subseteq\cS(H_5)$.
+\end{proposition}
+
+\begin{proof}
+Given $m\in\Z$, choose $s$ with $a_s\equiv m\pmod5$ and let $q\equiv k$ be
+constant with $k=(m-a_s)/5$. Then $\sum q=5k$, $Q(\zeta)=k\Phi_5(\zeta)=0$,
+and Lemma~\ref{lem:lift} gives $\N(D)=5^5$. By~\eqref{eq:rows},
+$M(f)=5m\cdot5\cdot5^6\cdot5^{25}=5^{33}m$.
+\end{proof}
+
+\begin{proposition}[the layers $28$ to $32$]\label{prop:low}
+If $\ell$ is visible and $\ell\mid n$, then $5^{28}n\in\cS(H_5)$.
+\end{proposition}
+
+\begin{proof}
+Write $n=\ell k$. By Definition~\ref{def:visible} and Lemma~\ref{lem:units},
+after multiplying by a unit there is $\eta\in R$ with $\N(\eta)=\ell$ and
+$\eta=1+d\pi^3+5w$, $d\ne0$, $w\in R$. Choose $s$ with $a_s\equiv k+d\pmod 5$.
+A direct computation shows $\pi^3b_s\in5R$ and
+$\pi^3b_s/5\equiv-1\pmod\pi$ for all five seeds. Put
+$W=d\,\pi^3b_s/5+wb_s$, so that $b_s+5W=\eta\,b_s$ and $W\equiv-d\pmod\pi$.
+Every $W\in R$ equals $Q(\zeta)$ for integers $q(a)$ whose sum is any
+prescribed integer $\equiv W\pmod\pi$ (add a constant to all $q(a)$); take
+$\sum_aq(a)=k-a_s$, which is $\equiv-d\not\equiv0$ (this is where the class
+$d$ of the visible prime is used). By Lemma~\ref{lem:lift},
+$\N(D)=5^4$, and by~\eqref{eq:rows},
+$M(f)=5k\cdot\N(\eta)\N(b_s)\cdot5^6\cdot5^{20}=5^{28}\ell k$.
+\end{proof}
+
+\begin{proposition}[{values prime to $5$; \cite[Theorem~3.3]{mp}}]\label{prop:coprime}
+Every $m$ with $m^4\equiv1\pmod{125}$ lies in $\cS(H_5)$.
+\end{proposition}
+
+\begin{proof}
+Adding $k\sum_gg$ to $F$ changes only the trivial character, so it changes
+$M(F)$ by $125k$ times the product of the other factors. Following
+Mossinghoff and Pinner's construction (which gives $a^{25}+125k$ for
+$5\nmid a$; note $2^{25}\equiv57\pmod{125}$), the Lean files use two elements
+with $M=1$ and $M=57$ whose nontrivial factors all equal $1$, so that the
+shifts give $1+125\Z$ and $57+125\Z$; as $M(-F)=-M(F)$, this covers the four
+solutions $\pm1,\pm57$ of $m^4\equiv1\pmod{125}$.
+\end{proof}
+
+\section{Proofs of the theorem and the corollaries}\label{sec:proofs}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Let $m=M(F)$. If $5\nmid m$, Lemma~\ref{lem:coprime} gives
+$m^4\equiv1\pmod{125}$; if $5\mid m$, Proposition~\ref{prop:necessity} puts
+$m$ in the second or third set. Conversely, the three sets lie in
+$\cS(H_5)$ by Propositions~\ref{prop:coprime}, \ref{prop:tail}
+and~\ref{prop:low}. The reformulation by valuations is immediate, since a
+visible prime is not $5$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:min}]
+A positive multiple of $5$ in $\cS(H_5)$ is either a multiple of $5^{33}$ or
+$5^{28}n$ with $n\ge1$ divisible by a visible prime; $11$ is the least prime
+$\equiv1\pmod5$, and it is visible. So the minimum is
+at least $11\cdot5^{28}$, and $11\cdot5^{28}<5^{33}$. For
+$F=1+x+y+y^2+xy^2=f_0(y)+xf_1(y)$ with $f_0=1+y+y^2$, $f_1=1+y^2$,
+formulas~(9) and~(10) of~\cite{mp} give
+$D=\prod_{y^5=1}f_0(y)+\prod_{y^5=1}f_1(y)=3+2=5$, so $\N(D)=5^4$, and
+$M_1=\prod_{y^5=1}\bigl(f_0(y)^5+f_1(y)^5\bigr)$. The factor $y=1$ is
+$3^5+2^5=275$; for $y=\zeta$, $f_0^5+f_1^5=-5(1+2u)$ with
+$u=\zeta^2+\zeta^3$, and $(1+2u)^2=5$ because $u^2+u-1=0$, so the four
+conjugates multiply to $5^4\cdot25=5^6$. Hence $M_1=11\cdot5^8$ and
+$M(F)=11\cdot5^8\cdot5^{20}=11\cdot5^{28}$. In terms of~\eqref{eq:factor},
+$t=5$, $\N(P(\zeta,1))=\N(3+2\zeta)=55$, the exceptional ray $(0,1)$ has norm
+$25$ and the other four have norm~$5$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:33}]
+$5^{32}$ is divisible by $5$, not by $5^{33}$, and $5^{32}/5^{28}=625$ has no
+prime factor other than $5$; so $5^{32}\notin\cS(H_5)$ by
+Theorem~\ref{thm:main}, and hence $5^k\Z\not\subseteq\cS(H_5)$ for $k\le32$,
+while $5^{33}\Z\subseteq\cS(H_5)$. This deduction is not a separate Lean
+statement.
+\end{proof}
+
+{\sloppy
+\section{Formal verification}\label{sec:lean}
+
+Theorem~\ref{thm:main} and Corollary~\ref{cor:min} are formally verified in
+Lean~4 (version 4.34.1) with Mathlib~\cite{mathlib} (commit
+\texttt{d13f23b7}). The $63$ files are in version~\repoversion{} of the
+repository~\cite{repo}: the $37$ files of the minimum in
+\texttt{lean/Research/TaskU/H5/} and the $26$ further files of the
+classification in \texttt{lean/Research/TaskU/H5B/}; records of the freezing
+and of the checks are in the folder
+\texttt{certificates/heisenberg-125-determinants}.
+
+\paragraph{The statements.} The statement file \texttt{Challenge.lean} of the
+minimum, in ASCII transliteration (the \texttt{import} and docstring lines, the outer
+\texttt{namespace TaskU.H5} lines, four auxiliary \texttt{private} lemmas about
+the coordinates, and the proofs of the group axioms are omitted; the file uses
+Unicode, e.g.\ $\langle\ \rangle$, $\mathbb Z$, $\exists$, $\wedge$, $\mid$;
+\texttt{\^{}-1} stands for ${}^{-1}$ and \texttt{->} for $\to$):
+{\footnotesize
+\begin{verbatim}
+structure H where
+  a : ZMod 5
+  b : ZMod 5
+  c : ZMod 5
+  deriving DecidableEq, Fintype
+instance : Mul H where
+  mul g h := <g.a + h.a, g.b + h.b, g.c + h.c + g.b * h.a>
+instance : One H where
+  one := <0, 0, 0>
+instance : Inv H where
+  inv g := <-g.a, -g.b, -g.c + g.b * g.a>
+instance : Group H where ...          -- proofs of the group axioms omitted
+def x : H := <1, 0, 0>
+def y : H := <0, 1, 0>
+def witness (g : H) : Int :=
+  (if g = 1 then 1 else 0) + (if g = x then 1 else 0) +
+  (if g = y then 1 else 0) + (if g = y ^ 2 then 1 else 0) +
+  (if g = x * y ^ 2 then 1 else 0)
+noncomputable def groupDet (f : H -> Int) : Int :=
+  Matrix.det (Matrix.of fun g h : H => f (g * h^-1))
+namespace Challenge
+def witnessValue : Prop := groupDet witness = 11 * 5 ^ 28
+def leastPositiveMultiple : Prop :=
+  IsLeast {m : Int | 0 < m /\ 5 | m /\ exists f : H -> Int, groupDet f = m}
+    (11 * 5 ^ 28)
+end Challenge
+\end{verbatim}}
+\noindent The element $\langle a,b,c\rangle$ is $x^ay^bz^c$, and the
+multiplication is the one displayed in Section~\ref{sec:factor}.
+\texttt{groupDet f} is $M(F)$ with row $g$ and column $h$, as in~\cite[(1)]{mp};
+\texttt{f} is an arbitrary function $H\to\Z$, one integer per group element,
+negative values included. \texttt{IsLeast S v} means $v\in S$ and $v\le s$ for
+all $s\in S$. So \texttt{witnessValue} is the value in Corollary~\ref{cor:min}
+and \texttt{leastPositiveMultiple} is the minimality. With
+\texttt{fullSpectrum} below, the frozen targets are
+\texttt{TaskU.H5.Challenge.witnessValue},
+\texttt{TaskU.H5.Challenge.leastPositiveMultiple} and
+\texttt{TaskU.H5.ChallengeB.fullSpectrum}.
+
+The statement file \texttt{ChallengeB.lean} of the classification (imports,
+namespace and docstrings omitted; \texttt{==} stands for $\equiv$,
+\texttt{[ZMOD n]} for congruence modulo $n$, \texttt{\%} for the remainder,
+\texttt{!=} for $\ne$, \texttt{not} for $\neg$, \texttt{<->} for
+$\leftrightarrow$):
+{\footnotesize
+\begin{verbatim}
+def congrFive (x y : Cyc5.V) : Prop :=
+  x.a == y.a [ZMOD 5] /\ x.b == y.b [ZMOD 5] /\
+  x.c == y.c [ZMOD 5] /\ x.d == y.d [ZMOD 5]
+def unitImage (x : Cyc5.V) : Prop :=
+  exists u v : Cyc5.V, Cyc5.mul u v = Cyc5.scalar 1 /\ congrFive x u
+def visible (q : Nat) : Prop :=
+  q.Prime /\ q % 5 = 1 /\ exists x : Cyc5.V, Cyc5.norm x = (q : Int) /\ not unitImage x
+def fullSpectrum : Prop :=
+  forall m : Int, (exists f : H -> Int, groupDet f = m) <->
+    (m ^ 4 == 1 [ZMOD 125]) \/ (5 ^ 33 : Int) | m \/
+      exists n : Int, n != 0 /\ m = 5 ^ 28 * n /\ exists q : Nat, visible q /\ (q : Int) | n
+\end{verbatim}}
+\noindent It uses \texttt{H} and \texttt{groupDet} from \texttt{Challenge.lean}
+and the following definitions from \texttt{Cyc5.lean}, one of the files of the
+minimum (verbatim up to transliteration; the docstrings are omitted):
+{\footnotesize
+\begin{verbatim}
+@[ext] structure V where
+  a : Int
+  b : Int
+  c : Int
+  d : Int
+  deriving DecidableEq
+def scalar (n : Int) : V := <n,0,0,0>
+def mul (v w : V) : V :=
+  let e := v.b*w.d + v.c*w.c + v.d*w.b
+  <v.a*w.a+v.c*w.d+v.d*w.c-e, v.b*w.a+v.a*w.b+v.d*w.d-e,
+   v.a*w.c+v.b*w.b+v.c*w.a-e, v.a*w.d+v.b*w.c+v.c*w.b+v.d*w.a-e>
+def normForm {R : Type*} [CommRing R] (a b c d : R) : R :=
+  let s := a*c + b*d + a*d
+  let A := a^2 + b^2 + c^2 + d^2 - s
+  let B := a*b + b*c + c*d - s
+  A^2 - A*B - B^2
+def norm (v : V) : Int := normForm v.a v.b v.c v.d
+\end{verbatim}}
+\noindent An element $\langle a,b,c,d\rangle$ of \texttt{V} stands for
+$a+b\zeta+c\zeta^2+d\zeta^3\in R$, in the basis $1,\zeta,\zeta^2,\zeta^3$ of
+$R$ over $\Z$; \texttt{mul} is multiplication in $R$ (using
+$\zeta^4=-1-\zeta-\zeta^2-\zeta^3$), and \texttt{Cyc5.norm} is the full field
+norm $\N$, the product of the four conjugates (proved as
+\texttt{Cyc5.norm\_prod}). Because $1,\zeta,\zeta^2,\zeta^3$ is a $\Z$-basis,
+\texttt{congrFive} is congruence modulo $5R$; \texttt{unitImage x} says that
+the residue of $x$ lies in $U$, a unit being an element with an inverse in
+\texttt{V}; and \texttt{visible} is Definition~\ref{def:visible}. The clause
+\texttt{q \% 5 = 1} matters: without it, $5$ would count as visible, since
+$\N(\pi)=5$ and the residue of $\pi$ is not that of a unit. Like
+Definition~\ref{def:visible}, \texttt{visible} uses an existential
+quantifier; by Lemma~\ref{lem:choice}, which is proved in the text but not in
+Lean, the universal form would define the same primes. \texttt{fullSpectrum} is Theorem~\ref{thm:main}
+for every signed integer $m$, with $0$ included in the second set; it uses
+\texttt{Cyc5.mul} and \texttt{Cyc5.norm} explicitly, so the ring instances on
+\texttt{V} added in later files do not affect its meaning. The final reviewers
+restated both frozen statement files with all definitions unfolded (closed by
+\texttt{Iff.rfl}); one derived from \texttt{fullSpectrum} in Lean that $11$ is
+visible and $5^{28}$ is not a value, so neither side is trivially true.
+
+\paragraph{Review and freezing.} Each statement file was checked against the
+source by a Codex agent that had not written it, and frozen by recording its
+SHA-256 hash: \texttt{Challenge.lean} (\texttt{9a9a0e18\ldots}) on
+21~November 2026 at 01:32~UTC, and \texttt{ChallengeB.lean}
+(\texttt{2a5066bf\ldots}) at 03:22~UTC. In both cases the development logs
+record no compilation of a proof file before the freeze, and the files were
+not changed afterwards; the $37$ files of the minimum were not changed when
+the classification was added.
+
+\paragraph{The proofs.} The check files \texttt{Check.lean} and
+\texttt{CheckB.lean} contain, apart from \texttt{import} and \texttt{namespace}
+lines, exactly
+{\footnotesize
+\begin{verbatim}
+theorem check_witnessValue : Challenge.witnessValue := Proof.witnessValue
+theorem check_leastPositiveMultiple : Challenge.leastPositiveMultiple :=
+  Proof.leastPositiveMultiple
+theorem check_fullSpectrum : ChallengeB.fullSpectrum := ProofB.fullSpectrum
+\end{verbatim}}
+\noindent together with \texttt{\#print axioms} commands (the line break
+inside the second theorem is ours).
+The witness value is computed by a certificate: an explicit lower triangular
+integer matrix $L$ (\texttt{WitnessCertificate.left}) with
+$L\cdot(\text{matrix})$ upper triangular (\texttt{transformed\_eq}, proved
+symbolically; \texttt{transformed\_upper}, checked by the kernel), and the two
+diagonal products, also evaluated by the kernel, have quotient
+$11\cdot5^{28}$ (\texttt{Proof.witnessValue}). Table~\ref{tab:lean} lists the
+Lean counterparts of the other steps (names relative to the namespace
+\texttt{TaskU.H5}; file names in parentheses, without \texttt{.lean}).
+
+\begin{table}[!htbp]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.56\textwidth}@{}}
+\hline
+Step of the written proof & Lean (file) \\
+\hline
+Factorization~\eqref{eq:factor} from the matrix &
+\texttt{inverseFourier} (\texttt{Fourier}), \texttt{det\_fourier} (\texttt{Blocks}),
+\texttt{factorization} (\texttt{Factors}), \texttt{integerFactorization}
+(\texttt{IntegerFactors}) \\
+Lemma~\ref{lem:normalize} & \texttt{normalize}, \texttt{transport\_det} (\texttt{Normalize}) \\
+Lemma~\ref{lem:c0}: $D=c_0+5w$, $\pi\mid w$ &
+\texttt{TraceWords.nonlinear\_congruence} (\texttt{TraceCongruence}),
+\texttt{TraceWords.integral\_congruence} (\texttt{TraceIntegral}) \\
+Proposition~\ref{prop:floor}: $5^{28}\mid M$, the layer data &
+\texttt{aug\_necessary}, \texttt{layers\_exist}, \texttt{Layers.value},
+\texttt{Layers.deep\_zero}, \texttt{Layers.deep\_nonlin} (\texttt{Divisibility});
+\texttt{Proof.baseline} (\texttt{Minimum}) \\
+Fact~(d), Lemma~\ref{lem:phase} &
+\texttt{Cyc5.unit\_phase}, \texttt{Cyc5.ordinary\_phase} (\texttt{CycPhase});
+\texttt{phases\_vanish} (\texttt{RayMoments}); \texttt{BTrace.exact\_trace\_zero} (\texttt{BTrace}) \\
+Corollary~\ref{cor:min}, lower bound: for $m\le10$ the inert primes
+$2,3,7$ force the $q_j$ to be units &
+\texttt{Cyc5.inert\_fourth} (\texttt{CycNorm}); \texttt{Layers.small\_norm} (\texttt{Divisibility});
+\texttt{ordinary\_trace\_zero} (\texttt{TraceLower});
+\texttt{TraceFinal.deep\_average} (\texttt{TraceFinal}); \texttt{Proof.small},
+\texttt{Proof.leastPositiveMultiple} (\texttt{Minimum});
+\texttt{SmallMultiples.least\_from\_small} (\texttt{SmallMultiples}) \\
+Lemma~\ref{lem:coprime} &
+\texttt{Coprime.determinant\_congruence}, \texttt{Coprime.coprime\_necessary}
+(\texttt{CoprimeCongruence}) \\
+Fact~(c) & instance \texttt{IsPrincipalIdealRing V} (\texttt{PrimeRing}), from
+Mathlib's \texttt{IsCyclotomicExtension.Rat.five\_pid} \\
+Lemma~\ref{lem:units} &
+\texttt{Spectrum.inv\_table}, \texttt{Spectrum.normal\_table}, \texttt{Spectrum.fixed\_table}
+(\texttt{UnitTable}); \texttt{Spectrum.conjugation\_fixed},
+\texttt{Spectrum.visible\_normalized} (\texttt{UnitResidues}) \\
+Lemma~\ref{lem:extract} &
+\texttt{PrimeExtract.prime\_visible}, \texttt{PrimeExtract.visible\_dvd\_of\_not\_unitImage}
+(\texttt{PrimeExtract}); \texttt{PrimeOrbit.four\_dvd} (\texttt{PrimeOrbit}) \\
+Replacement step of Proposition~\ref{prop:necessity} &
+\texttt{BTrace.trace\_replacement} (\texttt{BTrace}), \texttt{Spectrum.deep\_of\_images}
+(\texttt{BTraceImage}) \\
+Proposition~\ref{prop:necessity} & \texttt{Spectrum.divisible\_necessary} (\texttt{Necessity}) \\
+Seeds and~\eqref{eq:rows} &
+\texttt{Spectrum.seedData}, \texttt{Spectrum.seed\_residues} (\texttt{Seeds});
+\texttt{Spectrum.swapped\_data} (\texttt{SeedMarginals}); \texttt{Spectrum.rows\_value} (\texttt{RowsValue}) \\
+Lemma~\ref{lem:lift} &
+\texttt{Spectrum.lift\_shift} (\texttt{LiftShift}); \texttt{Spectrum.compact\_matrix},
+\texttt{Spectrum.baseBlock\_det}, \texttt{Spectrum.minorDir}, \texttt{Spectrum.minorResidue}
+(\texttt{LiftColumns}); \texttt{Spectrum.shift\_block} (\texttt{LiftCorrection}) \\
+Propositions~\ref{prop:tail} and~\ref{prop:low} &
+\texttt{Spectrum.insert\_rows}, \texttt{Spectrum.seed\_quot\_spec} (\texttt{Insert});
+\texttt{Spectrum.high\_sufficient}, \texttt{Spectrum.low\_sufficient} (\texttt{Construct}) \\
+Proposition~\ref{prop:coprime} &
+\texttt{Coprime.seed\_det}, \texttt{Coprime.det\_neg}, \texttt{Coprime.coprime\_sufficient}
+(\texttt{CoprimeSeeds}) \\
+Theorem~\ref{thm:main} & \texttt{ProofB.fullSpectrum} (\texttt{ProofB}) \\
+\hline
+\end{tabular}
+\caption{Lean counterparts of the steps of the proofs.}
+\label{tab:lean}
+\end{table}
+
+\noindent The Lean proofs do not assume the results quoted
+from~\cite{mp} and~\cite{pan25}: the factorization, the congruence of
+Lemma~\ref{lem:c0}, the bound $5^{28}$, both directions of~\cite[Corollary~3.2]{mp}
+and the ray norms of the seeds are proved again (the seed values by kernel
+computation from the explicit coefficients). The class number of $K$ is taken
+from Mathlib's proved theorem. The axioms of \texttt{Check.check\_witnessValue},
+\texttt{Check.check\_leastPositiveMultiple}, \texttt{check\_fullSpectrum} and
+the corresponding \texttt{Proof} and \texttt{ProofB} theorems are exactly
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. No file uses
+\texttt{sorry}, \texttt{native\_\allowbreak decide},
+\texttt{bv\_\allowbreak decide} or an \texttt{axiom} declaration; all uses of
+\texttt{decide}, including the large tables, are checked by the kernel.
+
+\paragraph{Checks.} The $37$ files of the minimum were compiled module by
+module in two new empty directories on the author's Mac, with the pinned
+toolchain and with warnings treated as errors, on 21~November 2026
+(01:42:55--01:56:09~UTC); each directory also ran one build of the whole
+package, and every module was replayed with \texttt{leanchecker}. All $150$
+commands ($75$ per directory) ended with exit code~$0$, the
+\texttt{leanchecker} runs printed nothing, and the two directories produced
+identical \texttt{.olean} files. A first attempt, started $35$ seconds earlier, was
+stopped by the acceptance script, which misread two informational messages of
+Lake; it was kept on record, and the script was corrected only in this
+respect. The $63$ files of the classification ($37+26$) were checked in the
+same way in two further new directories (03:33:17--03:55:22~UTC): $254$
+commands ($127$ per directory), all with exit code~$0$, empty
+\texttt{leanchecker} output and identical \texttt{.olean} files. The final
+reviewers (see the next section) compiled the files again with plain
+\texttt{lean} in new directories of their own, together with short audit files
+of their own, two of them with warnings treated as errors and the third
+reporting no warnings, and replayed every module with
+\texttt{leanchecker}: one reviewer the $37$ files of the minimum (03:21--03:27~UTC),
+and two reviewers independently the $63$ files of the classification
+(04:29--04:41 and 04:42--04:55~UTC); all runs on the project files ended with
+exit code~$0$ (one line of a reviewer's own audit file had to be changed and
+recompiled). Mathlib
+and its dependencies were taken from a shared prebuilt cache at the pinned
+commits and were not rechecked; the \texttt{leanchecker} replays cover the
+project modules. In the repository the files have module names under
+\texttt{Research.TaskU.H5} and \texttt{Research.TaskU.H5B} and differ from the
+checked files only in their \texttt{import} lines (the four files that
+import only Mathlib, among them \texttt{Challenge.lean}, are unchanged).
+The repository versions were made by a script that changed only the local \texttt{import} lines, and on 21 November 2026 (17:02--17:22~UTC) the $63$ modules were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac, one after the other; there were no warnings, and the two directories produced identical \texttt{.olean} files and the same axiom lists.
+In the whole-project rebuild of version~\repoversion{} of the repository (on the author's Windows computer, in two passes on 20 and 21 November 2026), these files were compiled and replayed with \texttt{leanchecker} again in pass~2 (21 November 2026), which built the files not included in pass~1 on top of its results; no module needed a second attempt (details in the repository). The formalization has not been checked with comparator or with
+an independent kernel.
+
+\par}
+
+\section*{How this paper was produced}
+This work was carried out on 21 and 22 November 2026 (UTC) in a workflow directed by
+the author, using OpenAI Codex with the model GPT-6.2-Astra (reasoning level
+ultra) and Anthropic Claude Code with the model Claude Opus~5.5. The author
+asked for a new search for substantial open problems, and Claude Code passed
+this request to Codex at 01:00~UTC. In that search Codex screened $72$
+problems not screened in earlier rounds and prepared notes on eight of them,
+this one among them. According to the file times, by 01:12~UTC a Codex agent
+had written the proof of the minimum (Corollary~\ref{cor:min}) and checked the
+value of the witness by exact elimination on the full matrix, and another
+Codex agent (same model) that had not derived it had read the proof,
+recomputed the witness value by the formulas of~\cite{mp} and reran the
+elimination program,
+and approved it; the search ended at 01:22~UTC. The author chose this problem
+and one other. Shortly before 01:28~UTC, Codex agents (same model) began to
+check the reading of the source, search again for prior work, write the
+statement files, the Lean proofs and the written proofs, and run the checks;
+the review and freezing of the statements are described in
+Section~\ref{sec:lean}. According to the file timestamps and the development
+logs, the proof files of the minimum were created after its freeze and
+compiled during development between 01:32 and 01:42~UTC. In parallel, Codex
+wrote the written classification (file times 01:36 to 01:41~UTC), which was
+read by Codex agents that had not derived it (reviews at 01:39, 01:42 and
+01:44~UTC); one of them rebuilt the coefficients of $25$ constructed elements and recomputed
+their full $125\times125$ determinants. As allowed by the task description,
+Claude Code asked Codex at 03:20~UTC to formalize the classification; its proof
+files were created after the freeze of \texttt{ChallengeB.lean} and compiled
+during development between 03:23 and 03:33~UTC. The Lean route follows the
+written classification, except that Lemma~\ref{lem:lift} uses explicit
+cofactor certificates in place of a general lifting argument.
+
+The final reviews were done by Claude Code agents (model Claude Opus~5.5) that
+had written none of the files: one for the minimum (03:20 to about 03:28~UTC)
+and, because the classification is the main result, two independent ones for
+it (03:57 to 04:55~UTC), neither of which read the other's report. Each
+reviewer read the source itself, compared the statement files with it, read
+the written proofs and the proof files, checked the receipts of the checks,
+and rebuilt the formalization as described above. The two reviewers of the classification tested it on random integer
+functions $f$ ($4{,}650$ exact determinants in one review; about $300{,}000$
+evaluations through~\eqref{eq:factor}, checked against $140$ full
+determinants, in the other; about $150{,}000$ cases with valuation $28$ to
+$32$) and found no counterexample. All
+three decisions were APPROVE\_FORMAL, with no blocking or major remarks; their
+minor remarks ($6$, $5$ and $5$, some of them optional) concern the written
+documents; those that apply to this paper are taken into account here, among them the naming of the Lean definitions, the
+basis and the norm, the choice independence of visibility, the status of
+Corollary~\ref{cor:33}, the citation of~\cite{mp}, its example for $p=5$, and
+the labelling of Remark~\ref{rem:cft}. Claude Code (Claude Opus~5.5) checked
+the sources, recomputed in Python the determinants of the witness and of the
+example of~\cite{mp}, the group $U$ and the visible primes below $6000$, and
+wrote this text from Codex's manuscripts and the Lean files; the class field
+reformulation in Remark~\ref{rem:cft}, the proof sketch of
+Lemma~\ref{lem:coprime} and the arrangement of the necessity proof around
+Lemma~\ref{lem:extract} were added while writing and were not part of the
+documents read by the final reviewers. An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied. Throughout, ``we''
+refers to this workflow; the reading and searching described in the paper
+were done by the agents. Codex agents searched for prior work in the search for
+problems, again before the statement of the minimum was frozen (01:28--01:29~UTC,
+with further searches until 01:42~UTC), and for the classification in one
+query just before and in the main search shortly after its statement was frozen
+(03:21 and 03:28--03:31~UTC); the final reviewers
+searched again; up to 21~November 2026 these searches found no earlier
+determination of the multiples of $5$ in $\cS(H_5)$, of its least positive
+multiple of $5$, or of a prime-factor criterion of the kind in
+Theorem~\ref{thm:main} for $H_5$ (for $C_7\times C_7$ see~\cite{pan49}; details
+in the repository). The journal version of~\cite{mp} could not be
+read, and one citation index refused some queries (rate limit), so a further
+search, including recent Zenodo records of group determinant classifications,
+was planned for the release. Claude Code made this search on 21 November 2026 (17:54--18:21~UTC; the arXiv, Semantic Scholar, scite, Crossref, DataCite, Zenodo, including the series of classifications of group determinants of small orders by A.~Radolovi\'c, GitHub and repositories of AI-assisted mathematics) and found no new related work; the same citation index again refused to list the works citing~\cite{mp} (rate limit). Claude Code searched again on 22 November 2026 (05:39--05:51~UTC), when the OpenAlex lists of citing works refused on 21 November were retrieved, and found nothing new. This reports the
+coverage of the searches, not a guarantee that they were complete. The author
+is not a professional mathematician. The author has read this paper and, using a side-by-side table, compared its Lean statements with the main theorems: Theorem~\ref{thm:main} and Corollary~\ref{cor:min}. No human mathematician has
+read the proofs or reviewed this paper. The correctness of
+Theorem~\ref{thm:main} and Corollary~\ref{cor:min} rests on the Lean proofs and
+on the agreement of the Lean statements with the definitions of~\cite{mp}; the
+written proofs are given for the reader. AI systems are not authors of this
+paper; the author takes full responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Michael J. Mossinghoff and Christopher Pinner for
+the problem and the methods on which this work rests, and to Chatchawan
+Panraksa for the seeds.
+
+{\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{1pt}
+\bibitem{bhj} W.~Bley, T.~Hofmann and H.~Johnston, Computation of lattice
+isomorphisms and the integral matrix similarity problem, \emph{Forum Math.
+Sigma} 10 (2022), e87, \url{https://doi.org/10.1017/fms.2022.74};
+arXiv:2202.03526.
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{mp} M.~J. Mossinghoff and C.~Pinner, The integer group determinants
+for the Heisenberg group of order $p^3$, \emph{Michigan Math.\ J.} 74 (2024),
+no.~3, 551--569, \url{https://doi.org/10.1307/mmj/20216124};
+arXiv:2108.04870v1 (2021).
+\bibitem{pan25} C.~Panraksa, The $5$-divisible integer group determinants for
+the elementary abelian group of order $25$, arXiv:2608.04267v1 (2026).
+\bibitem{pan49} C.~Panraksa, Integer group determinants for the elementary
+abelian group of order $49$, arXiv:2609.09542v1 (2026).
+\bibitem{panp} C.~Panraksa, Bernoulli numbers and the integer group
+determinants of $C_p\times C_p$, arXiv:2610.15262v1 (2026).
+\bibitem{ps} C.~Pinner and C.~Smyth, Integer group determinants for small
+groups, \emph{Ramanujan J.} 51 (2020), no.~2, 421--453,
+\url{https://doi.org/10.1007/s11139-018-0092-x}; arXiv:1806.00199v1.
+\end{thebibliography}}
+\end{document}

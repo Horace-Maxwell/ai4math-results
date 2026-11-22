@@ -1,0 +1,759 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={The equality case of Chen's bound for invariant parking with one special preference},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.25.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\N}{\mathbb N}
+\newcommand{\W}{\mathcal W}
+\newcommand{\PA}{\mathrm{PA}}
+\newcommand{\Sub}{\Sigma}
+\newcommand{\monus}{\mathbin{\dot{-}}}
+
+\title{The equality case of Chen's bound for invariant parking\\
+with one special preference}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In the parking model of Chen, Harris, Martínez Mori, Pabón-Cancel and Sargent,
+$n$ cars of positive integer lengths $y_1,\dots,y_n$ arrive in order on a
+one-way street with $y_1+\dots+y_n$ spots. Chen considered the set $\W(y)$ of
+preferences $w$ such that all cars park whichever car prefers $w$ while every
+other car prefers the first spot. He proved $|\W(y)|\le 2^{n-1}$, gave a
+sufficient and a necessary condition for equality, and showed by an example
+that the necessary condition is not sufficient. We give a necessary and
+sufficient condition, which closes this gap: equality holds if and only if
+Chen's necessary condition holds and, in addition, a certain initial segment of
+the subset sums of $y_3,\dots,y_n$ is symmetric about its midpoint. As an
+additional result, we count, for a fixed tail $(y_2,\dots,y_n)$ satisfying
+Chen's necessary condition,
+the first-car lengths $y_1$ in the critical range for which equality holds:
+there are $1+\sum_i(2^{L_i}-1)$ of them, where the $L_i$ are the lengths of the
+maximal runs of equal consecutive terms in the sequence of differences between
+each of $y_n,y_{n-1},\dots,y_3$ and the sum of the shorter ones among them. Both results are formally
+verified in Lean~4. The proofs were found and formalized by AI agents under the
+author's direction; their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}
+
+Let $\N=\{1,2,3,\dots\}$ and $[m]=\{1,\dots,m\}$. Parking assortments were
+introduced by Chen, Harris, Martínez Mori, Pabón-Cancel and
+Sargent~\cite{chmps}. There are $n\in\N$ cars with lengths
+$y=(y_1,\dots,y_n)\in\N^n$ and a one-way street with $m=y_1+\dots+y_n$ spots.
+The cars arrive in the order $1,2,\dots,n$, and car $i$ has a preference
+$x_i\in[m]$. Following~\cite[Definition~1.3]{chen}, car $i$ drives to spot
+$x_i$ and parks in spots $x_i,\dots,x_i+y_i-1$ if they are free; otherwise it
+parks in the next $y_i$ contiguous free spots, if there are any. Thus car $i$
+occupies the first run of $y_i$ consecutive free spots that starts at or after
+$x_i$ and ends at or before $m$.
+If every car parks, $x$ is a \emph{parking assortment} for $y$, written
+$x\in\PA_n(y)$. It is \emph{(permutation) invariant} if every rearrangement of
+its entries is again in $\PA_n(y)$~\cite[Definition~1.5]{chen}; the
+rearrangements act on the preferences only, and the lengths and the arrival
+order stay fixed. Following~\cite[Definition~4.1]{chmps}, $y$ is
+\emph{minimally invariant} if the all-ones list is the only invariant parking
+assortment for $y$.
+
+Chen~\cite[Theorem~E and Definition~4.1]{chen} studied the \emph{invariant
+solution set}
+\[
+\W(y)=\{w\in\N:(1,\dots,1,w)\in\PA_n^{\mathrm{inv}}(y)\}.
+\]
+Since the rearrangements of $(1,\dots,1,w)$ put $w$ in one position and $1$ in
+the others, $w\in\W(y)$ means: whichever car is given the preference $w$, with
+preference $1$ for all other cars, every car parks. Always $1\in\W(y)$, and
+$w\le m$. By~\cite[Theorem~4.5]{chmps}, $y$ is minimally invariant if and only
+if $\W(y)=\{1\}$.
+
+\paragraph{An example.} For $y=(7,5,3,1)$, $m=16$ and
+$\W(y)=\{1,2,4,5,6,7,9\}$~\cite[Remark~4.7]{chen}. The value $w=10$ fails when
+car~$2$ gets it: car~$1$ fills spots $1$--$7$, car~$2$ parks in $10$--$14$, and
+car~$3$, of length $3$, finds only the runs $8$--$9$ and $15$--$16$. For $y=(8,5,3,1)$ the same preference leaves the
+single spot $9$, which car~$4$ fills, and indeed
+$\W(8,5,3,1)=\{1,2,4,5,6,7,9,10\}$ has $8$ elements.
+
+\paragraph{Chen's theorem.} For $n\ge2$ we write the lengths as
+$y=(a,b,y_3,\dots,y_n)$, and we let $D=y_3+\dots+y_n$, $\delta=a-b$ (when
+$a\ge b$), and
+\[
+T=\Sub(y_3,\dots,y_n)=\Bigl\{\textstyle\sum_{j\in J}y_j:J\subseteq\{3,\dots,n\}\Bigr\}
+\]
+the set of subset sums of the last $n-2$ lengths (so $T=\{0\}$ if $n=2$). We
+call a finite sequence $(v_1,\dots,v_k)$ of positive integers
+\emph{superdecreasing} if $v_j>v_{j+1}+\dots+v_k$ for every $j\in[k]$; this is
+Chen's term for his condition~(2) below.
+
+\begin{quote}
+\textbf{Theorem E of~\cite{chen}} (parts (b)--(d), in our notation). Let $y\in\N^n$.
+(b) $\W(y)\subseteq\{1+\sum_{j\in J}y_j: J\subseteq\{2,\dots,n\}\}$, and
+$|\W(y)|\le 2^{n-1}$.
+(c) If $y_j>\sum_{i=j+1}^n y_i$ for all $j\in[n-1]$ (condition~(2)), then
+equality is achieved in~(b).
+(d) If equality is achieved in~(b), then $y_1\ge y_2$ and
+$y_j>\sum_{i=j+1}^n y_i$ for all $j\in[n-1]\setminus\{1\}$ (condition~(3)).
+\end{quote}
+
+\noindent Condition~(3) says that $a\ge b$ and the tail $(b,y_3,\dots,y_n)$
+is superdecreasing; condition~(2) adds $a>b+D$, that is, $\delta>D$. Chen notes
+that ``the condition (3) is not sufficient''~\cite[Remark~4.7]{chen}, with the
+example above. He does not list the equality case among the open problems
+of~\cite[Section~5]{chen}; in \cite[Section~5.3]{chen} he suggests, as an
+approach to Open Problem~3, examining which elements of $1+\Sub(y_2,\dots,y_n)$
+lie in $\W(y)$, and Remark~\ref{rem:Wformula} answers this under
+condition~(3) only. Theorem~\ref{thm:class} below closes the gap between (c)
+and~(d).
+
+\paragraph{Results.} Call a number $z\ge0$ \emph{symmetric for $T$} if $z\in T$
+and $z-s\in T$ for every $s\in T$ with $s\le z$; equivalently, the elements of
+$T$ in $[0,z]$, listed in increasing order, are symmetric about $z/2$.
+
+\begin{theorem}[Equality classification]\label{thm:class}
+Let $n\ge1$ and $y\in\N^n$. Then $|\W(y)|\le2^{n-1}$, and $|\W(y)|=2^{n-1}$ if
+and only if $n=1$, or $n\ge2$ and
+\begin{enumerate}
+\item[(i)] $a\ge b$;
+\item[(ii)] the tail $(b,y_3,\dots,y_n)$ is superdecreasing; and
+\item[(iii)] $\delta\ge D$, or $D-\delta$ is symmetric for $T$.
+\end{enumerate}
+\end{theorem}
+
+Conditions (i) and (ii) are Chen's condition~(3); condition~(iii) is the new
+part. For $n=2$ it is empty, so equality holds exactly when $y_1\ge y_2$; for
+$n=3$ it says that $a=b$ or $a\ge b+y_3$. For $y=(7,5,3,1)$ we have
+$T=\{0,1,3,4\}$, $D=4$, $\delta=2$ and $D-\delta=2\notin T$; for $(8,5,3,1)$,
+$D-\delta=1$ is symmetric for $T$. The case $a=b$ always satisfies~(iii), as
+$T$ is symmetric about $D/2$.
+
+Our second result is an addition of ours, not a statement of~\cite{chen}. Fix
+a tail $(b,y_3,\dots,y_n)$ that is superdecreasing, as~(ii) requires, and ask
+for which first-car lengths $a$ the bound is attained. By
+Theorem~\ref{thm:class}, no $a<b$ works and every $a>b+D$ works; the question is
+the closed interval $[b,b+D]$. Write the last $k=n-2$ lengths from the smallest
+up as $u_1=y_n$, $u_2=y_{n-1}$, \dots, $u_k=y_3$, and let
+\[
+h_i=u_i-(u_1+\dots+u_{i-1})\qquad(1\le i\le k)
+\]
+be the \emph{jumps}; they are positive because the tail is superdecreasing.
+
+\begin{theorem}[First-car lengths]\label{thm:count}
+Let $b\in\N$ and let $(b,y_3,\dots,y_n)$ be superdecreasing. Let
+$L_1,\dots,L_p$ be the lengths of the maximal runs of consecutive equal terms
+of the sequence $(h_1,\dots,h_k)$. Then the number of $a\in[b,b+D]$ with
+$|\W(a,b,y_3,\dots,y_n)|=2^{n-1}$ is
+\[
+1+\sum_{i=1}^p\bigl(2^{L_i}-1\bigr).
+\]
+\end{theorem}
+
+For example, for the tail $(5,3,1)$ we have $(h_1,h_2)=(1,2)$, two runs of
+length $1$, and $3$ values: $a\in\{5,8,9\}$; so $(a,5,3,1)$ attains the bound
+exactly for $a=5$ and $a\ge8$. For the tail $(8,4,2,1)$ the jumps are
+$(1,1,1)$ and all $8$ values $a\in[8,15]$ work. In general the number lies
+between $k+1$ and $2^k$.
+
+Both theorems are proved in Lean~4 from a direct formalization of the parking
+rule (Sections~\ref{sec:gap}--\ref{sec:count} and~\ref{sec:lean});
+Section~\ref{sec:remarks} collects statements that rest on written arguments
+only.
+
+\subsection*{Prior work}
+The model, Theorem~E and the example of Remark~4.7 are due to
+Chen~\cite{chen} and to Chen, Harris, Martínez Mori, Pabón-Cancel and
+Sargent~\cite{chmps}. The gap reduction of Lemma~\ref{lem:gap} is essentially
+\cite[Corollary~4.4]{chmps} and its proof (stated there under the hypothesis of
+their Corollary~4.3, which the proof does not use), rewritten with the
+residual $\rho$; see also the proof of \cite[Lemma~4.4]{chen}. Lemma~\ref{lem:bound} is Chen's Theorem~E(b), and
+the necessity of conditions (i) and (ii) is Chen's Theorem~E(d), which we
+reprove by a counting variant of his argument. Remark~\ref{rem:vectors} extends
+the argument of~\cite[Claim~4.5.3]{chen}. Condition~(iii) and
+Theorem~\ref{thm:count} are, as far as we know, new. The searches are
+described in the final section; they found a formal statement of the
+four-car Conjecture~6.1 of~\cite{chmps} in~\cite{reuf2f} (a different
+question), one work citing~\cite{chen} in OpenAlex~\cite{bown}, on
+preference-restricted parking functions, and no treatment of the equality case
+of Theorem~E(b).
+
+\section{The gap reduction}\label{sec:gap}
+
+For a finite sequence $v=(v_1,\dots,v_k)$ of positive integers let $|v|$ be
+its length, $\|v\|=v_1+\dots+v_k$ its sum, and $\Sub(v)$ its set of subset
+sums, with $\Sub(\emptyset)=\{0\}$. We write $r\monus s=\max(r-s,0)$. Define
+the \emph{residual} $\rho(v,r)$ for $r\ge0$ by $\rho(\emptyset,r)=r$ and
+\[
+\rho\bigl((v_1,v_2,\dots,v_k),r\bigr)=
+\begin{cases}\rho\bigl((v_2,\dots,v_k),r-v_1\bigr)&\text{if }v_1\le r,\\
+\rho\bigl((v_2,\dots,v_k),r\bigr)&\text{if }v_1>r.\end{cases}
+\]
+It is what is left of a gap of size $r$ after the cars $v_1,\dots,v_k$, in this
+order, have each entered it if they fit.
+
+For $t\ge0$ and $i\in[n]$ let $x^{(i)}(t)$ be the preference list with $t+1$
+in position $i$ and $1$ elsewhere, and let $P_{i-1}=y_1+\dots+y_{i-1}$. We say
+that $t$ is \emph{admissible} for $y$ if $x^{(i)}(t)\in\PA_n(y)$ for every
+$i\in[n]$. Thus $\W(y)=\{t+1: 0\le t<m,\ t \text{ admissible}\}$.
+
+\begin{lemma}[Gap reduction]\label{lem:gap}
+Let $0\le t<m$ and $i\in[n]$. Then $x^{(i)}(t)\in\PA_n(y)$ if and only if
+$\rho\bigl((y_{i+1},\dots,y_n),\,t\monus P_{i-1}\bigr)=0$.
+\end{lemma}
+
+\begin{proof}
+Run the same rule on an infinite street with spots $1,2,3,\dots$; there every
+car parks. As long as no car of the infinite run uses a spot beyond $m$, the
+two runs agree, because the first free run of the right length at or after the
+preference is the same in both. If a car of the infinite run uses a spot
+beyond $m$, the finite street has no admissible run for it and parking fails.
+Since the largest occupied spot never decreases, $x^{(i)}(t)\in\PA_n(y)$ if
+and only if the largest occupied spot at the end of the infinite run is at
+most $m$.
+
+In the infinite run, cars $1,\dots,i-1$ fill $[1,P_{i-1}]$. If $t\le P_{i-1}$,
+car $i$ parks in $[P_{i-1}+1,P_i]$; otherwise it parks in $[t+1,t+y_i]$ and
+leaves the gap $[P_{i-1}+1,t]$. In both cases the occupied set has the form
+$[1,\ell]\cup[\ell+r+1,R]$ with all spots beyond $R$ free, where
+$r=t\monus P_{i-1}$ is the size of the gap. A later car, of length $z$ and
+preference $1$, sees two free runs: the gap and $[R+1,\infty)$. If $z\le r$ it
+parks at the left end of the gap and $r$ decreases by $z$; otherwise it parks
+in $[R+1,R+z]$ and $r$ is unchanged. Hence the final gap is
+$r'=\rho((y_{i+1},\dots,y_n),r)$, and since exactly $m$ spots are occupied, the
+largest occupied spot is $m+r'$. So the run succeeds on $[m]$ if and only if
+$r'=0$.
+\end{proof}
+
+\begin{lemma}\label{lem:rho}
+Let $v=(v_1,\dots,v_k)$ be positive integers.
+\begin{enumerate}
+\item[(a)] $\rho(v,0)=0$.
+\item[(b)] If $\rho(v,r)=0$, then $r\in\Sub(v)$.
+\item[(c)] If $v$ is superdecreasing and $r\in\Sub(v)$, then $\rho(v,r)=0$.
+\item[(d)] Every $s\in\Sub(v)$ satisfies $s\le\|v\|$ and $\|v\|-s\in\Sub(v)$.
+\item[(e)] $|\Sub(v)|\le2^k$, with equality if $v$ is superdecreasing.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+All parts follow by induction on $k$, writing $v=(v_1,v')$ and
+$\Sub(v)=\Sub(v')\cup(v_1+\Sub(v'))$. For (b): if $v_1\le r$ then
+$\rho(v',r-v_1)=0$, so $r\in v_1+\Sub(v')$; otherwise $r\in\Sub(v')$. For (c):
+if $r\in\Sub(v')$ then $r\le\|v'\|<v_1$, so car $v_1$ does not enter and
+$\rho(v,r)=\rho(v',r)=0$; if $r=v_1+s$ with $s\in\Sub(v')$, then
+$\rho(v,r)=\rho(v',s)=0$. Part (d) is complementation of subsets. For (e), if
+$v$ is superdecreasing, the two parts of $\Sub(v)$ are disjoint, because every
+element of $\Sub(v')$ is at most $\|v'\|<v_1$.
+\end{proof}
+
+\section{Proof of Theorem~\ref{thm:class}}\label{sec:class}
+
+Write $\tau=(y_2,\dots,y_n)$ for the tail, so $|\tau|=n-1$ and
+$\|\tau\|=m-y_1<m$.
+
+\begin{lemma}[{\cite[Lemma~4.4 and Theorem~E(b)]{chen}}]\label{lem:bound}
+$\W(y)\subseteq1+\Sub(\tau)$, and hence $|\W(y)|\le2^{n-1}$.
+\end{lemma}
+
+\begin{proof}
+If $t$ is admissible, then Lemma~\ref{lem:gap} with $i=1$ gives
+$\rho(\tau,t)=0$, so $t\in\Sub(\tau)$ by Lemma~\ref{lem:rho}(b). The bound
+follows from Lemma~\ref{lem:rho}(e).
+\end{proof}
+
+\begin{lemma}\label{lem:criterion}
+$|\W(y)|=2^{n-1}$ if and only if $|\Sub(\tau)|=2^{n-1}$ and every
+$t\in\Sub(\tau)$ is admissible.
+\end{lemma}
+
+\begin{proof}
+Every $t\in\Sub(\tau)$ satisfies $t\le\|\tau\|<m$. So $\W(y)-1$ is the set of
+admissible elements of $\Sub(\tau)$, by Lemma~\ref{lem:bound}, and it has
+$2^{n-1}$ elements exactly when $\Sub(\tau)$ has $2^{n-1}$ elements, all
+admissible.
+\end{proof}
+
+\begin{lemma}[cf.~{\cite[proof of Theorem~E(d)]{chen}}]\label{lem:dom}
+Let $v$ be a sequence of positive integers with $|\Sub(v)|=2^{|v|}$ and
+$\rho(v,t)=0$ for every $t\in\Sub(v)$. Then $v$ is superdecreasing.
+\end{lemma}
+
+\begin{proof}
+Induction on $k=|v|$; the case $k=0$ is empty. Let $v=(v_1,v')$. Since
+$\Sub(v)=\Sub(v')\cup(v_1+\Sub(v'))$ has $2^k$ elements and each part has at
+most $2^{k-1}$, both parts have $2^{k-1}$ elements and are disjoint. Suppose
+$v_1\le\|v'\|$ and take $t=\|v'\|\in\Sub(v')$. Then
+$0=\rho(v,t)=\rho(v',t-v_1)$, so $t-v_1\in\Sub(v')$ by
+Lemma~\ref{lem:rho}(b), and $t\in v_1+\Sub(v')$, contradicting disjointness.
+Hence $v_1>\|v'\|$. For $s\in\Sub(v')$ we then have $s<v_1$, so
+$\rho(v',s)=\rho(v,s)=0$, and the induction hypothesis applies to $v'$.
+\end{proof}
+
+From now on let $n\ge2$ and $y=(a,b,u)$ with $u=(y_3,\dots,y_n)$, $D=\|u\|$
+and $T=\Sub(u)$.
+
+\begin{lemma}[Only the first two positions matter]\label{lem:shift}
+Assume $b\le a$ and that $(b,u)$ is superdecreasing, and let $\delta=a-b$.
+Then every $t\in\Sub(b,u)$ is admissible if and only if
+\begin{equation}\label{eq:shift}
+s-\delta\in T\quad\text{for every }s\in T\text{ with }s\ge\delta .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $t\in\Sub(b,u)=T\cup(b+T)$; note $t\le b+D<2b\le a+b$. We check the
+positions $i$ of Lemma~\ref{lem:gap}. For $i=1$ the condition is
+$\rho((b,u),t)=0$, which holds by Lemma~\ref{lem:rho}(c). For $i\ge3$ we have
+$P_{i-1}\ge a+b>t$, so the gap is $0$ and the condition holds by
+Lemma~\ref{lem:rho}(a). For $i=2$ the condition is $\rho(u,t\monus a)=0$. If
+$t\in T$ then $t\le D<b\le a$ and the gap is $0$. If $t=b+s$ with $s\in T$,
+the gap is $s\monus\delta$; it is $0$ if $s<\delta$, and for $s\ge\delta$ the
+condition $\rho(u,s-\delta)=0$ is equivalent to $s-\delta\in T$, by
+Lemma~\ref{lem:rho}(b) and~(c), as $u$ is superdecreasing.
+\end{proof}
+
+\begin{lemma}[Shift closure and symmetry]\label{lem:prefix}
+Let $u$ be any finite sequence of positive integers, $D=\|u\|$, $T=\Sub(u)$
+and $\delta\ge0$. Then \eqref{eq:shift} holds if and only if $\delta\ge D$ or
+$D-\delta$ is symmetric for $T$.
+\end{lemma}
+
+\begin{proof}
+We use that $T=D-T$ (Lemma~\ref{lem:rho}(d)). Suppose \eqref{eq:shift} holds
+and $\delta<D$, and put $z=D-\delta$. Since $D\in T$ and $D\ge\delta$, we get
+$z\in T$. If $s\in T$ and $s\le z$, then $D-s\in T$ and $D-s\ge\delta$, so
+$(D-s)-\delta=z-s\in T$. Conversely, if $\delta\ge D$, then $s\ge\delta$ forces
+$s=\delta=D$ and $s-\delta=0\in T$. If $z=D-\delta$ is symmetric for $T$ and
+$s\in T$ with $s\ge\delta$, then $D-s\in T$ and $D-s\le z$, so
+$z-(D-s)=s-\delta\in T$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:class}]
+The bound is Lemma~\ref{lem:bound}. For $n=1$, $\Sub(\emptyset)=\{0\}$ and
+$t=0$ is admissible, so $\W(y)=\{1\}$ and $|\W(y)|=2^0$.
+
+Let $n\ge2$ and suppose $|\W(y)|=2^{n-1}$. By Lemma~\ref{lem:criterion},
+$|\Sub(\tau)|=2^{n-1}$ and every $t\in\Sub(\tau)$ is admissible; by
+Lemma~\ref{lem:gap} with $i=1$, $\rho(\tau,t)=0$ for all these $t$, so $\tau$
+is superdecreasing by Lemma~\ref{lem:dom}; this is~(ii). Take
+$t=\|\tau\|=b+D$ and $i=2$: Lemma~\ref{lem:gap} gives $\rho(u,(b+D)\monus a)=0$,
+so $(b+D)\monus a\in T$ and $(b+D)\monus a\le D$, which forces $b\le a$;
+this is~(i). Now Lemmas~\ref{lem:shift} and~\ref{lem:prefix} give~(iii).
+
+Conversely, assume (i)--(iii). By~(ii) and Lemma~\ref{lem:rho}(e),
+$|\Sub(\tau)|=2^{n-1}$; by (iii) and Lemma~\ref{lem:prefix},
+\eqref{eq:shift} holds; by Lemma~\ref{lem:shift} every $t\in\Sub(\tau)$ is
+admissible; and Lemma~\ref{lem:criterion} gives $|\W(y)|=2^{n-1}$.
+\end{proof}
+
+\section{Proof of Theorem~\ref{thm:count}}\label{sec:count}
+
+Throughout this section $(b,u)$ is superdecreasing, with $u=(u_k,\dots,u_1)$
+in arrival order (so $u_1=y_n$ is the shortest car), $D=\|u\|$, $T=\Sub(u)$,
+and $h_i=u_i-(u_1+\dots+u_{i-1})\ge1$. Since $u$ is superdecreasing,
+$|T|=2^k$; let $S_0<S_1<\dots<S_{2^k-1}$ be its elements.
+
+\paragraph{The ruler word.} Words are finite sequences of positive integers.
+For a letter $x$ and a word $w=w_1\cdots w_N$ let
+$x\star w=x\,w_1\,x\,w_2\cdots x\,w_N\,x$, a word of length $2N+1$. Define
+$R(\emptyset)=\emptyset$ and $R(h_1,h_2,\dots,h_k)=h_1\star R(h_2,\dots,h_k)$.
+By induction, $R(h_1,\dots,h_k)$ has length $2^k-1$ and
+\begin{equation}\label{eq:ruler}
+R(h_1,\dots,h_{k+1})=R(h_1,\dots,h_k)\;h_{k+1}\;R(h_1,\dots,h_k).
+\end{equation}
+For a word $w$ let $\Pi(w)$ be its set of prefix sums, including $0$ and the
+total $\|w\|$.
+
+\begin{lemma}\label{lem:walk}
+The word $R=R(h_1,\dots,h_k)$ has sum $D$ and $\Pi(R)=T$. Consequently the
+$i$-th prefix sum of $R$ is $S_i$ for $0\le i\le 2^k-1$.
+\end{lemma}
+
+\begin{proof}
+Induction on $k$, using \eqref{eq:ruler}. Let $D_k=u_1+\dots+u_k$ and
+$T_k=\Sub(u_1,\dots,u_k)$. Then $T_{k+1}=T_k\cup(u_{k+1}+T_k)$ and
+$u_{k+1}=D_k+h_{k+1}$. The prefix sums of $R_k\,h_{k+1}\,R_k$ are those of
+$R_k$, which form $T_k$ and end at $D_k$, followed by $D_k+h_{k+1}=u_{k+1}$
+plus those of $R_k$. As the letters are positive, the prefix sums increase
+strictly, which gives the last assertion.
+\end{proof}
+
+\begin{lemma}\label{lem:pal}
+Let $w$ be a word. Then $\|w\|-\Pi(w)=\Pi(w)$ if and only if $w$ is a
+palindrome. Consequently, for $0\le i\le 2^k-1$, the number $S_i$ is symmetric
+for $T$ if and only if the prefix of length $i$ of $R(h_1,\dots,h_k)$ is a
+palindrome.
+\end{lemma}
+
+\begin{proof}
+The set $\|w\|-\Pi(w)$ is the set of prefix sums of the reversed word, and a
+word of positive letters is determined by its set of prefix sums (the letters
+are the differences of consecutive elements). For the second statement, let
+$p$ be the prefix of length $i$. Its prefix sums are exactly the elements of
+$T$ in $[0,S_i]$, by Lemma~\ref{lem:walk}, so $S_i$ is symmetric for $T$ if and
+only if $S_i-\Pi(p)=\Pi(p)$.
+\end{proof}
+
+For a word $w$ let $\pi(w)$ be the number of $i\in\{0,\dots,|w|\}$ for which
+the prefix of length $i$ is a palindrome (the empty prefix counts), and for a
+letter $x$ let $\lambda_x(w)$ be the length of the longest prefix of $w$
+consisting of $x$'s. Let $c(h_1,\dots,h_k)=\sum_i(2^{L_i}-1)$, the sum over the
+maximal runs of equal consecutive terms.
+
+\begin{lemma}\label{lem:palcount}
+For every letter $x$, word $w$ and sequence $s=(s_1,\dots,s_k)$:
+\begin{enumerate}
+\item[(a)] $\pi(x\star w)=\lambda_x(w)+1+\pi(w)$;
+\item[(b)] $\lambda_x(R(s))+1=2^{\lambda_x(s)}$;
+\item[(c)] $\pi(R(s))=1+c(s)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) The prefix of odd length $2i+1$ of $x\star w$ is $x\star(w_1\cdots w_i)$.
+Since $(x\star v)^{\mathrm{rev}}=x\star v^{\mathrm{rev}}$ and $v\mapsto x\star v$
+is injective, it is a palindrome if and only if $w_1\cdots w_i$ is; this gives
+$\pi(w)$ prefixes. The prefix of even length $2i$ is
+$x\,w_1\,x\,w_2\cdots x\,w_i$, whose reversal is $w_i\,x\cdots w_1\,x$;
+comparing the letters in even and odd positions, it is a palindrome if and
+only if $w_1=\dots=w_i=x$, that is, $i\le\lambda_x(w)$. This gives
+$\lambda_x(w)+1$ prefixes.
+
+(b) Induction on $k$. If $k=0$ or $s_1\ne x$, both sides equal $1$. If
+$s_1=x$, then $R(s)=x\star R(s')$ with $s'=(s_2,\dots,s_k)$, whose initial run
+of $x$'s has length $2\lambda_x(R(s'))+1$; so
+$\lambda_x(R(s))+1=2\cdot2^{\lambda_x(s')}=2^{\lambda_x(s)}$.
+
+(c) Induction on $k$; for $k=0$, $\pi(\emptyset)=1$. By (a) and (b),
+$\pi(R(s))=2^{\lambda_{s_1}(s')}+\pi(R(s'))$. On the other hand
+$c(s)=2^{\lambda_{s_1}(s')}+c(s')$: if $s_1$ starts a run of length $L+1$ with
+$L=\lambda_{s_1}(s')$, the contribution of that run grows from $2^L-1$ to
+$2^{L+1}-1$ (or from $0$ to $1$ when $L=0$).
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:count}]
+Let $a\in[b,b+D]$ and $\delta=a-b\in[0,D]$. Conditions (i) and (ii) of
+Theorem~\ref{thm:class} hold, so equality holds if and only if $\delta=D$ or
+$z=D-\delta$ is symmetric for $T$. As $0$ is symmetric for $T$, the map
+$a\mapsto z=b+D-a$ is a bijection from the set of first-car lengths in question
+onto the set of numbers $z\in[0,D]$ that are symmetric for $T$. Such a $z$ lies
+in $T$, so $z=S_i$ for some $i$, and by Lemma~\ref{lem:pal} their number is
+$\pi(R(h_1,\dots,h_k))$, which is $1+c(h_1,\dots,h_k)$ by
+Lemma~\ref{lem:palcount}(c).
+\end{proof}
+
+\section{Further remarks (written arguments, not verified in Lean)}\label{sec:remarks}
+
+\begin{remark}[The whole set $\W(y)$ under Chen's condition~(3)]\label{rem:Wformula}
+\emph{Written argument, not verified in Lean.} Assume (i) and (ii), but not
+necessarily (iii). The proof of Lemma~\ref{lem:shift} shows that
+\[
+\W(y)-1=T\;\cup\;\{\,b+s:\ s\in T,\ \text{and } s\le\delta\text{ or } s-\delta\in T\,\}.
+\]
+Since $T$ and $b+T$ are disjoint, this gives $|\W(y)|$ exactly. For
+$(7,5,3,1)$ it gives $\W(y)-1=\{0,1,3,4\}\cup\{5,6,8\}$, which is Chen's set.
+\end{remark}
+
+\begin{remark}[All invariant parking assortments in the equality case]\label{rem:vectors}
+\emph{Written argument, not verified in Lean.} If $|\W(y)|=2^{n-1}$, then the
+invariant parking assortments for $y$ are the all-ones list and the lists with
+exactly one entry $w\in\W(y)\setminus\{1\}$; hence
+$|\PA^{\mathrm{inv}}_n(y)|=1+n(2^{n-1}-1)$, and $2^{n-1}$ of them are
+nondecreasing. Chen proved these counts under condition~(2)
+\cite[Theorem~E(c)]{chen}, and the argument of~\cite[Claim~4.5.3]{chen}
+extends as follows. Suppose an invariant list has two entries $w_1\le w_2$
+larger than $1$. By~\cite[Lemma~4.2]{chen}, $w_1\in\W(y)$, so $w_1-1\in\Sub(\tau)$ by
+Lemma~\ref{lem:bound}; since $|\Sub(\tau)|=2^{n-1}$ (Lemma~\ref{lem:criterion}),
+there is a unique nonempty set $C\subseteq\{2,\dots,n\}$ of cars whose lengths
+sum to $w_1-1$. Rearrange the list so that car~$1$ prefers $w_1$ and some car
+of $C$ prefers $w_2$. Car~$1$ parks at $[w_1,w_1+a-1]$, which fits, and since
+every spot must be filled and spot $w_1$ is taken, $[1,w_1-1]$ must be filled
+exactly by cars entirely inside it, that is, by the cars of $C$. The car of $C$
+preferring $w_2\ge w_1$ cannot park there, a contradiction.
+\end{remark}
+
+\begin{remark}[Computing $\W(y)$]\label{rem:algo}
+\emph{Written argument, not verified in Lean.} By Lemmas~\ref{lem:gap}
+and~\ref{lem:bound}, $\W(y)$, and hence by~\cite[Theorem~4.5]{chmps} minimal
+invariance, can be decided with $O(n^2 2^{n-1})$ integer operations,
+independently of the size of the lengths (compare~\cite[Remark~4.6]{chmps}).
+Theorem~\ref{thm:class} says nothing about \cite[Open Problem~2]{chmps} or
+Chen's Open Problems~\cite[Section~5]{chen}.
+\end{remark}
+
+{\sloppy
+\section{Formal verification}\label{sec:lean}
+
+Theorems~\ref{thm:class} and~\ref{thm:count} are formally verified in Lean~4
+(version 4.34.1) with Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}). The
+$12$ files are in version~\repoversion{} of the repository~\cite{repo},
+directory \texttt{lean/Research/TaskN/Parking/}.
+
+\paragraph{The statements.}
+The statement file \texttt{Challenge.lean} contains only definitions and
+statements, no proofs. In ASCII notation, without its comments and with two long lines re-wrapped:
+{\footnotesize
+\begin{verbatim}
+abbrev Street := List (Nat x Nat) x Nat
+def park (pref len : Nat) : List (Nat x Nat) -> Nat -> Street
+  | [], frontier =>
+      if pref <= frontier then ([], frontier + len)
+      else ([(frontier, pref)], pref + len)
+  | (l,r) :: gaps, frontier =>
+      let start := max l pref
+      if start + len <= r then
+        ((if l < start then [(l,start)] else []) ++
+         (if start + len < r then [(start + len,r)] else []) ++ gaps, frontier)
+      else
+        let after := park pref len gaps frontier
+        ((l,r) :: after.1, after.2)
+def drive (street : Street) (arrivals : List (Nat x Nat)) : Street :=
+  arrivals.foldl (fun state car => park car.2 car.1 state.1 state.2) street
+def ordinary (lengths : List Nat) : List (Nat x Nat) := lengths.map (fun len => (len,0))
+def allPositions (lengths : List Nat) (offset : Nat) : Prop :=
+  forall (before : List Nat) (len : Nat) (after : List Nat),
+    lengths = before ++ len :: after ->
+    (drive ([],0) (ordinary before ++ (len,offset) :: ordinary after)).2
+      <= lengths.sum
+noncomputable def W (lengths : List Nat) : Finset Nat :=
+  ((Finset.range lengths.sum).filter (allPositions lengths)).image Nat.succ
+def positive (lengths : List Nat) : Prop := forall x in lengths, 0 < x
+def subsetSums : List Nat -> Finset Nat
+  | [] => {0}
+  | x :: xs => subsetSums xs union (subsetSums xs).image (fun s => x+s)
+def dominant : List Nat -> Prop
+  | [] => True
+  | x :: xs => xs.sum < x /\ dominant xs
+def prefixSymmetric (xs : List Nat) (z : Nat) : Prop :=
+  z in subsetSums xs /\ forall s in subsetSums xs, s <= z -> z-s in subsetSums xs
+def extremeLengths : List Nat -> Prop
+  | [] => False
+  | [_] => True
+  | a :: b :: xs =>
+      b <= a /\ dominant (b :: xs) /\
+      (xs.sum <= a-b \/ prefixSymmetric xs (xs.sum - (a-b)))
+def jumps : List Nat -> List Nat
+  | [] => []
+  | x :: xs => jumps xs ++ [x-xs.sum]
+def runs : List Nat -> List (Nat x Nat)
+  | [] => []
+  | x :: xs =>
+      match runs xs with
+      | [] => [(x,1)]
+      | (y,k) :: rest => if x = y then (y,k+1) :: rest else (x,1) :: (y,k) :: rest
+def runContribution (spacings : List Nat) : Nat :=
+  ((runs spacings).map (fun entry => 2^entry.2 - 1)).sum
+def ExtremalClassification : Prop :=
+  forall (lengths : List Nat), lengths != [] -> positive lengths ->
+    (W lengths).card <= 2^(lengths.length-1) /\
+    ((W lengths).card = 2^(lengths.length-1) <-> extremeLengths lengths)
+def FirstLengthCount : Prop :=
+  forall (b : Nat) (xs : List Nat), dominant (b :: xs) ->
+    ((Finset.Icc b (b + xs.sum)).filter
+      (fun a => (W (a :: b :: xs)).card = 2^((b :: xs).length))).card =
+      1 + runContribution (jumps xs)
+\end{verbatim}}
+\noindent Here \texttt{x} in a type is the product $\times$, \texttt{!=} is
+$\ne$, \texttt{union} is the union of finite sets, and subtraction of natural
+numbers is truncated. The file opens the namespace
+\texttt{TaskN.Parking.Challenge} and (scoped) \texttt{Classical}, and imports Mathlib.
+
+\paragraph{How the statements encode the model.} Spot $k$ has offset $k-1$,
+so a preference $w$ is the offset $w-1$ and the preference $1$ is the offset
+$0$. A \texttt{Street} is the increasing list of finite gaps, half-open
+intervals $[l,r)$ of free offsets, together with a \emph{frontier}: offsets
+below the frontier and outside the gaps are occupied, and all offsets from the
+frontier on are free; the street is infinite to the right. \texttt{park} places a car of
+length \texttt{len} with preference \texttt{pref}: it scans the gaps from the
+left and uses the first gap $[l,r)$ with $\max(l,\mathtt{pref})+\mathtt{len}\le
+r$, at the start $\max(l,\mathtt{pref})$, returning the unused parts of the gap;
+if no gap fits, it parks at $\max(\mathtt{frontier},\mathtt{pref})$, opening a new
+gap if $\mathtt{pref}$ lies beyond the frontier. This is Chen's rule on the
+infinite street: within a gap, $\max(l,\mathtt{pref})$ is the earliest possible
+start, and a car that does not fit there fits nowhere in that gap. As in the
+proof of Lemma~\ref{lem:gap}, the run on the street $[m]$ succeeds if and only
+if the final frontier is at most $m$. \texttt{allPositions
+lengths t} quantifies over every split \texttt{before ++ len :: after}, that
+is, over every car that may receive the offset $t$, the others receiving $0$;
+the lengths are never reordered. \texttt{W} collects the admissible offsets in
+$[0,m)$ and adds $1$, which gives Chen's $\W(y)\subseteq[m]$.
+
+\texttt{ExtremalClassification} is Theorem~\ref{thm:class} for every nonempty
+list of positive lengths; \texttt{extremeLengths} is defined from the lengths
+alone (subset sums and \texttt{dominant}, which is ``superdecreasing''), with
+\texttt{[\_]} the case $n=1$ and $a$, $b$ the first two cars. For the last entry,
+\texttt{dominant} only requires positivity, so \texttt{dominant (b :: xs)} is
+condition~(ii). Condition~(iii) appears as
+\texttt{xs.sum <= a-b \textbackslash/ prefixSymmetric xs (xs.sum - (a-b))};
+the truncated subtraction is harmless because the second alternative is used
+only when $a-b<D$. In \texttt{FirstLengthCount}, \texttt{a} ranges over the
+closed interval $[b,b+D]$ and the exponent is $|(b::\mathtt{xs})|=n-1$; for
+\texttt{xs} in arrival order, \texttt{jumps xs} is $(h_1,\dots,h_k)$, and
+\texttt{runs} lists the maximal runs of equal consecutive entries with their
+lengths. The statements in Theorem~\ref{thm:count} about $a<b$ and $a>b+D$
+follow from \texttt{ExtremalClassification} but are not stated separately.
+
+\paragraph{Review and freezing.}
+\texttt{Challenge.lean} was reviewed against~\cite{chen} by a Codex agent that
+had not written it and had not worked on this problem before, and frozen, by
+recording its SHA-256 hash, on 20 November 2026 at 14:25:56~UTC. The development
+logs record no compilation of a proof file before that time (the first is at
+14:26:55~UTC), and the file was not changed afterwards.
+
+\paragraph{The proofs.}
+\texttt{Proof.ExtremalClassification} is \texttt{classification} (file
+\texttt{ParkClassification.lean}). Lemma~\ref{lem:gap} is
+\texttt{allPositions\_\allowbreak iff} (\texttt{ParkGaps.lean}), with $\rho$ as
+\texttt{residual}; it proves the agreement of \texttt{drive} with the gap
+recursion directly from the definition of \texttt{park}. The first paragraph
+of the proof of Lemma~\ref{lem:gap} (finite versus infinite street) is not part
+of the Lean proof; it is the argument, given above, that the statement file
+encodes Chen's rule. Lemma~\ref{lem:rho} is in \texttt{ParkGaps.lean} and
+\texttt{ParkSums.lean}; Lemma~\ref{lem:bound} is \texttt{offsets\_\allowbreak
+subset} (private) and \texttt{W\_\allowbreak bound}, Lemma~\ref{lem:criterion}
+is \texttt{card\_\allowbreak eq\_\allowbreak iff} (private),
+Lemma~\ref{lem:dom} is \texttt{dominant\_\allowbreak of\_\allowbreak
+greedy\_\allowbreak full}, and Lemmas~\ref{lem:shift} and~\ref{lem:prefix} are
+\texttt{full\_\allowbreak iff\_\allowbreak shift} and
+\texttt{shift\_\allowbreak iff\_\allowbreak prefix} (both private).
+\texttt{Proof.FirstLengthCount} combines \texttt{classification} with
+\texttt{arithmetic\_\allowbreak count} (\texttt{SpacingCount.lean}), the
+composition of \texttt{band\_\allowbreak eq\_\allowbreak prefix}
+(\texttt{ParkBand.lean}, the bijection in the proof of
+Theorem~\ref{thm:count}) and \texttt{palCount\_\allowbreak ruler}
+(\texttt{SpacingPalCount.lean}, Lemma~\ref{lem:palcount}(c)). In these files the
+word $R$ is \texttt{ruler}, $x\star w$ is \texttt{stretch}, and
+\eqref{eq:ruler} is \texttt{ruler\_\allowbreak append\_\allowbreak one}
+(\texttt{SpacingWord.lean}); Lemma~\ref{lem:walk} is
+\texttt{walk\_\allowbreak of\_\allowbreak dominant} and the first part of
+Lemma~\ref{lem:pal} is \texttt{symmetric\_\allowbreak iff\_\allowbreak pal}
+(\texttt{ParkWalk.lean}), the second part \texttt{prefixSymmetric\_\allowbreak
+take} (\texttt{ParkPrefix.lean}); Lemma~\ref{lem:palcount} is
+\texttt{palCount\_\allowbreak stretch}, \texttt{lead\_\allowbreak ruler} and
+\texttt{runContribution\_\allowbreak cons}. The written proofs above follow the Lean
+proofs. The test file \texttt{CheckParking.lean} restates the
+two theorems with the frozen types (\texttt{check\_\allowbreak
+ExtremalClassification}, \texttt{check\_\allowbreak FirstLengthCount}). The
+axioms of these theorems, printed by \texttt{CheckParking.lean}, are exactly
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. No file
+uses \texttt{sorry}, \texttt{native\_\allowbreak decide},
+\texttt{bv\_\allowbreak decide} or an \texttt{axiom} declaration.
+
+\paragraph{Checks.}
+The $12$ files ($9$ proof modules, \texttt{Challenge.lean},
+\texttt{Proof.lean} and \texttt{CheckParking.lean}) were compiled module by
+module, with warnings treated as errors, in two new empty directories on the
+author's Mac, with the pinned toolchain, on 20 November 2026
+(14:35--14:44~UTC), and every module was replayed with \texttt{leanchecker};
+each directory also ran one build of the whole package. All $50$ commands
+($25$ per directory) ended with exit code~$0$, the \texttt{leanchecker} runs
+printed nothing, and the two directories produced identical \texttt{.olean}
+files. The final reviewer (see the next section) compiled the $12$ files again
+in a third new directory on 20 November 2026 (17:19--17:20~UTC), with warnings
+treated as errors, and replayed every module with \texttt{leanchecker}
+(17:21--17:26~UTC); all runs ended with exit code~$0$. Mathlib and its
+dependencies were taken from a shared prebuilt cache at the pinned commits and
+were not rechecked; the \texttt{leanchecker} replays cover the $12$ project
+modules. In the repository the files have module names under
+\texttt{Research.TaskN.Parking} and differ from the checked files only in
+their \texttt{import} lines (\texttt{Challenge.lean} is unchanged).
+The repository versions were made by a script that changed only the local \texttt{import} lines, and on 20 November 2026 (17:42--17:52~UTC) they were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac, one after the other, together with the files of one other paper of version~\repoversion{} ($23$ modules in all); there were no warnings, and the two directories produced identical \texttt{.olean} files and the same axiom lists. In the whole-project rebuild of version~\repoversion{} of the repository (on the author's Windows computer, in two passes on 20 and 21 November 2026), these files were compiled and replayed with \texttt{leanchecker} again in pass~1, together with the rest of the project as it then stood; no module needed a second attempt (details in the repository). The formalization has not been checked with
+comparator or with an independent kernel.
+
+\par}
+
+\section*{How this paper was produced}
+This work was carried out from 20 to 22 November 2026 (UTC) in a workflow
+directed by the author, using OpenAI Codex with the model GPT-6.2-Astra
+(reasoning level ultra) and Anthropic Claude Code with the model Claude
+Opus~5.5. The author asked for a further search for open problems, and Claude
+Code passed this request to Codex on 19 November at 17:58~UTC. Codex's records
+of the search are dated 20 November, 04:04--04:25~UTC. Codex screened $42$
+problems and wrote proofs for several of them, including this one, for which
+the proofs covered Theorems~\ref{thm:class} and~\ref{thm:count}; it had these
+read by other Codex agents (same model), and compared Theorem~\ref{thm:class} with a simulation of the parking rule for all
+$37{,}440$ length vectors with $2$ to $5$ cars of lengths at most $8$; the
+author chose this problem and one other. From
+14:20~UTC on 20 November, Codex agents (same model) checked the reading of the
+source, searched again for prior work, wrote the statement file, the written
+proof and the Lean proof, and ran the checks. The reading of the source was
+checked, and the statement file reviewed before it was frozen, by one Codex
+agent that had not worked on this problem in the search and had not written
+the statement file. According to the session records, the statement file and
+the proof files were written directly into the task directory between 14:23
+and 14:34~UTC by the main Codex agent and by the Codex agent that had worked on
+this problem in the search, and were corrected after failed compilations; the
+records we examined contain no Lean source for this problem before 14:23~UTC.
+The development logs cover only the compilations (14:23--14:35~UTC, $23$
+runs, $11$ of them failed); they do not record the time spent on the
+mathematics, which had been worked out in the search.
+
+After the checks, an independent Claude Code agent (model Claude Opus~5.5)
+that had written none of the files gave the final review, from 17:16~UTC. It
+read the source, compared the statement file with it, read the written proof,
+the proof files and the raw logs, and rebuilt the formalization as described
+above. It also compared a computable copy of the
+statement file's parking model with its own cell-by-cell simulation of Chen's
+rule on all $340$ length vectors with at most $4$ cars of lengths at most $4$,
+Theorem~\ref{thm:class} with the simulation on $4{,}679$ length vectors ($65$
+equality cases), Theorem~\ref{thm:count} on $411$ fixed tails and
+Remark~\ref{rem:Wformula} on $566$ cases, all without differences, and Remark~\ref{rem:vectors} on six
+length vectors. These are the reviewer's checks, not part of the formal verification. Its
+decision
+was APPROVE\_FORMAL, with six minor remarks, five on the written account and
+one on contacting the author; the five were taken into account here. Claude Code (Claude Opus~5.5) checked the sources and
+wrote this text from Codex's manuscript and the Lean files. An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and another reviewed the release; their corrections were applied.
+Throughout, ``we'' refers to this workflow; the reading and searching described
+in the paper were done by the agents. Codex agents searched for prior work on 20 November 2026, in the search for problems and again before the statement was frozen, and Claude Code searched again on 21 November 2026 (17:54--18:21~UTC; the arXiv, Semantic Scholar, Crossref, DataCite, Zenodo, MathDB, GitHub and repositories of AI-assisted mathematics); they found no treatment of the equality case of Theorem~E(b) of~\cite{chen} and no earlier statement of condition~(iii) of Theorem~\ref{thm:class} or of Theorem~\ref{thm:count} (details in the repository). On 21 November the citation index OpenAlex refused to list the works citing~\cite{chen} and~\cite{chmps} (rate limit), and Semantic Scholar listed no new ones. Claude Code searched again on 22 November 2026 (05:39--05:51~UTC), when the OpenAlex lists of citing works refused on 21 November were retrieved, and found nothing new. This reports the
+coverage of the search, not a guarantee that it was complete. The author is not
+a professional mathematician. The author has read this paper and, using a side-by-side table, compared its Lean statements with the main theorems: Theorems~\ref{thm:class} and~\ref{thm:count}. No human mathematician has reviewed
+this paper. The correctness of Theorems~\ref{thm:class} and~\ref{thm:count}
+rests on the Lean proofs and on the agreement of the Lean statements with
+Chen's definitions; the written proofs are given for the reader, and the
+remarks of Section~\ref{sec:remarks} rest on their written arguments alone. AI
+systems are not authors of this paper; the author takes full responsibility for
+its content.
+
+\medskip
+\noindent Thanks are due to Douglas M. Chen for Theorem~E and the example of
+Remark~4.7, and to Douglas M. Chen, Pamela E. Harris, J. Carlos Martínez Mori,
+Eric J. Pabón-Cancel and Gabriel Sargent for the model.
+
+{\small
+\begin{thebibliography}{9}\setlength{\itemsep}{0pt}
+\bibitem{bown} J.~Bown, P.~Kagey, A.~Kappler, M.~E. Orrison and J.~Thadani,
+Preference-restricted parking functions, arXiv:2507.11701, 2025.
+\bibitem{chen} D.~M. Chen, On the structure of permutation invariant parking,
+arXiv:2311.15699v1, 2023. Only version~1 exists (20 November 2026); numbers
+refer to it.
+\bibitem{chmps} D.~M. Chen, P.~E. Harris, J.~C. Martínez Mori, E.~J.
+Pabón-Cancel and G.~Sargent, Permutation invariant parking assortments,
+\emph{Enumer. Combin. Appl.} 4:1 (2024), Article \#S2R4,
+\url{https://doi.org/10.54550/ECA2024V4S1R4}; arXiv:2211.01063v2 (2023).
+Result numbers refer to arXiv version~2.
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+\url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{reuf2f} cmu-l3, ReuF2F (GitHub repository), file
+\texttt{lean/reuF2F/chen2023permutation.lean}, commit \texttt{230023d8},
+\url{https://github.com/cmu-l3/reuF2F}.
+\end{thebibliography}}
+\end{document}
