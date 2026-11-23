@@ -1,0 +1,50 @@
+{
+ "purpose": "Whole-project clean rebuild of the Lean project of release v1.26.0 (adds Papers 28 to 31).",
+ "start_utc": "2026-11-22T21:41:50Z",
+ "end_utc": "2026-11-23T11:03:07Z",
+ "result": "4046 of 4046 modules compiled; 4045 of 4046 replayed with leanchecker; the module Research has no constants and was exempted; 0 audit problems. One pass.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.25.0-receipt.json",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs). According to a recursive file listing taken after the rebuild (evidence kept with the release work files), no file in the directories of OpenAI Codex there (.codex, ai4math-codex*, ai4math-lean-worker) was written or created during the rebuild; the newest file in them is from 2026-11-20 18:44:07 UTC.",
+ "procedure": [
+  "New empty output directory; the sources were the release tree lean/ of this version (Research.lean and Research/, 4046 Lean modules and two Python generator scripts that are not built). After the rebuild the SHA-256 hashes of all 4048 files of the source directory were compared with the release tree: no difference. The directory Comparator/ was not built here; it is unchanged since version 1.13.0, and the CI workflow checks it.",
+  "Each module compiled with lean -DautoImplicit=false -DrelaxedAutoImplicit=false, then each module replayed with leanchecker, by the driver build6.py of version 1.16.0. This is not a lake build.",
+  "Warnings are recorded and do not fail a module; an error, sorry or non-zero exit code does. The driver reruns a module automatically (up to five times) when an attempt ends in a memory or file-read failure rather than a Lean verdict. It starts a new Lean process only while enough commit charge (memory reserved by Windows) is free.",
+  "In the published logs the local workspace directory is replaced by <workspace> (no other local directory occurs in them), Windows line endings of status.json, plan.json, research-olean-constants.txt and run.log are written as Unix line endings, and the byte-order mark at the start of research-olean-constants.txt is removed; nothing else is changed. run.log is empty: the driver writes its progress to status.json."
+ ],
+ "runs": [
+  {
+   "pass": 1,
+   "start_utc": "2026-11-22T21:41:50Z",
+   "end_utc": "2026-11-23T11:03:07Z",
+   "modules": 4046,
+   "jobs": "up to 12 (free-commit threshold 14 GiB, 6 GiB reserved per start)",
+   "note": "One start, no restart. Compile phase 2026-11-22T21:41:50Z to 2026-11-23T05:25:35Z (Research, whose 82 import lines name every entry module, compiled 2026-11-23T05:25:16Z to 2026-11-23T05:25:35Z), leanchecker phase 2026-11-23T05:25:35Z to 2026-11-23T11:03:07Z. No module needed a second attempt."
+  }
+ ],
+ "module_Research": {
+  "lines": "only import lines",
+  "constants": 0,
+  "extra_constants": 0,
+  "imports": 84,
+  "how_counted": "readModuleData on Research.olean (research-olean-constants.txt in the log archive)",
+  "consequence": "leanchecker has nothing to replay in this module. It was exempted before the run, as for versions 1.15.0 to 1.25.0."
+ },
+ "audit": {
+  "modules": 4046,
+  "compile_ok": 4046,
+  "check_ok": 4045,
+  "check_exempt": 1,
+  "axiom_lists": 116908,
+  "axiom_lists_empty": 8574,
+  "warnings": 97,
+  "problem_count": 0
+ },
+ "warnings": "97 lines in 15 older modules, the same lines as for versions 1.21.0 to 1.25.0; none in Papers 28 to 31.",
+ "axioms": "every printed axiom list in the final logs is a subset of propext, Classical.choice and Quot.sound.",
+ "forbidden_tokens": "logs/clean-replay-v1.26.0-forbidden-tokens.log: outside comments, only the intentional sorry statements of the comparator challenge files lean/Comparator/ (the same hits as for version 1.25.0; none in the new files).",
+ "lean_errors": "No attempt ended in a Lean error, and no module needed a second attempt.",
+ "source_manifest": "logs/lean-sources-sha256.txt, 4056 files",
+ "logs": "logs/clean-replay-v1.26.0-logs.tar.gz (status.json, plan.json, research-olean-constants.txt, run.log and the log of every attempt)"
+}

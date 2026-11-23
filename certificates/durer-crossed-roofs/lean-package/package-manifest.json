@@ -1,0 +1,134 @@
+{
+ "module_count": 8,
+ "entrypoints": [
+  "Research.TaskV.Durer.ExactTests",
+  "Research.TaskV.Durer.Audit"
+ ],
+ "entrypoint_note": "Research.TaskV.Durer.ExactTests is imported by lean/Research.lean; Research.TaskV.Durer.Audit (which imports ExactTests and prints the definitions and the axioms of strictRoofNet and obliqueExample) is not.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskV.Durer.ExactTests": [
+   "DurerDV.checkStrictRoofNet",
+   "DurerDV.checkObliqueExample"
+  ],
+  "Research.TaskV.Durer.Audit": [
+   "DurerDV.strictRoofNet",
+   "DurerDV.obliqueExample"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskV/Durer/Challenge.lean",
+   "frozen_utc": "2026-11-21T03:57:26Z",
+   "freeze_record": "crossed-roofs/FROZEN-01.sha256, crossed-roofs/FROZEN-01.utc",
+   "frozen_sha256": "7729aa0000db875d912cbe8656d7823512ef0649b14465e64ffd923244407dfb",
+   "repository_sha256": "7729aa0000db875d912cbe8656d7823512ef0649b14465e64ffd923244407dfb",
+   "repository_identical_to_frozen": true,
+   "targets": [
+    "DurerDV.StrictRoofNet",
+    "DurerDV.ObliqueExample"
+   ]
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskV/Durer/Arc.lean",
+   "module": "Research.TaskV.Durer.Arc",
+   "sha256": "2e482d42ac0250bd8bb03d16dacda4e057e059c31bcdc3b63a8bf611a73dfcb3",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/durer/crossed-roofs/formal/DV/Arc.lean",
+   "codex_source_sha256": "3a104b5f0fda6b225d709e2577361239fc0dd16c8a67d62520ccc29923e7cbbe",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Durer.Challenge",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Durer/Audit.lean",
+   "module": "Research.TaskV.Durer.Audit",
+   "sha256": "bd859001b8153de012bbd9997d6254b38bc7124840036f4ebbf7bf45cfeae34f",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/durer/crossed-roofs/formal/DV/Audit.lean",
+   "codex_source_sha256": "9a347bb2c96afa777de8424bbc9dc28486cb71977e2ace93c9f248a3b281e70b",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Durer.ExactTests"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Durer/Challenge.lean",
+   "module": "Research.TaskV.Durer.Challenge",
+   "sha256": "7729aa0000db875d912cbe8656d7823512ef0649b14465e64ffd923244407dfb",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/durer/crossed-roofs/formal/DV/Challenge.lean",
+   "codex_source_sha256": "7729aa0000db875d912cbe8656d7823512ef0649b14465e64ffd923244407dfb",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.Analysis.Real.Sqrt",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Tactic.Positivity"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Durer/Contacts.lean",
+   "module": "Research.TaskV.Durer.Contacts",
+   "sha256": "da3dbf5d0d9822b6f8223763f6e0c1007da60b4a19131d2e81ab2200a55b42b5",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/durer/crossed-roofs/formal/DV/Contacts.lean",
+   "codex_source_sha256": "5c538cfcbccff177d0e2a502e8a350ed5c590ad441054b40c7475078f5fbb294",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Durer.Challenge",
+    "Mathlib.Tactic.NormNum"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Durer/ExactTests.lean",
+   "module": "Research.TaskV.Durer.ExactTests",
+   "sha256": "03c11e94e7c3df91f32fcdcdb687b8f6dc5a96d9af3f2e703a353470cc8d3c26",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/durer/crossed-roofs/formal/DV/ExactTests.lean",
+   "codex_source_sha256": "55ba03efe19d0e97a19a8b749ab62ff2d6ed7c60330fd974124da8fdf54fb3ce",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Durer.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Durer/Example.lean",
+   "module": "Research.TaskV.Durer.Example",
+   "sha256": "b4d053de58624d0981b19c9c6e7e27e610e012544cf44a012e7b6af64c89e66a",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/durer/crossed-roofs/formal/DV/Example.lean",
+   "codex_source_sha256": "ddd2eb7eee4c0826eb748cbcb346b76a11aa8527bb198e9073dbf2f5ddc9d892",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Durer.Challenge",
+    "Mathlib.Tactic.NormNum"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Durer/Metric.lean",
+   "module": "Research.TaskV.Durer.Metric",
+   "sha256": "e17b716985cd27885a3875d6856e13a15d2f1b01a36d1541d4d007e77793c0fc",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/durer/crossed-roofs/formal/DV/Metric.lean",
+   "codex_source_sha256": "477290da8dba6af48612f4b42bb427e3340f5b8a8b0900190b7f50a61485d8b9",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Durer.Challenge",
+    "Mathlib.Tactic.LinearCombination"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Durer/Proof.lean",
+   "module": "Research.TaskV.Durer.Proof",
+   "sha256": "654c7b464c4bccec8b72b4c98c1db9e02bc25a7abc9222c024984060ea0e340b",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/durer/crossed-roofs/formal/DV/Proof.lean",
+   "codex_source_sha256": "4e433d718a6968a7b1d14f1393fbfd7b5e316766e77b1e140cb7971a5c4a5229",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Durer.Arc",
+    "Research.TaskV.Durer.Metric",
+    "Research.TaskV.Durer.Contacts",
+    "Research.TaskV.Durer.Example"
+   ]
+  }
+ ]
+}

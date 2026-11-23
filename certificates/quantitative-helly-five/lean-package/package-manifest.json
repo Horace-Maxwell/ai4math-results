@@ -1,0 +1,475 @@
+{
+ "module_count": 35,
+ "modules_in_codex_acceptance_receipt": 31,
+ "auxiliary_modules": [
+  "Research.TaskT.HellyFive.BridgeAudit",
+  "Research.TaskT.HellyFive.FiniteAudit",
+  "Research.TaskT.HellyFive.FiniteHellyLower",
+  "Research.TaskT.HellyFive.UpperTransferAudit"
+ ],
+ "entrypoints": [
+  "Research.TaskT.HellyFive.Check"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskT.HellyFive.Check": [
+   "TaskT.HellyFive.check_ExactHellyFive",
+   "TaskT.HellyFive.check_ExactVertexFive"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskT/HellyFive/Challenge.lean",
+   "frozen_utc": "2026-11-21T01:11:55Z",
+   "freeze_record": "FREEZE.json",
+   "frozen_sha256": "faf32ea5b217b5ffdd8602b5d5787ceac010b3ef682a64d691444e9ac9636d26",
+   "repository_sha256": "faf32ea5b217b5ffdd8602b5d5787ceac010b3ef682a64d691444e9ac9636d26",
+   "repository_identical_to_frozen": true,
+   "targets": [
+    "TaskT.HellyFive.ExactHellyFive",
+    "TaskT.HellyFive.ExactVertexFive"
+   ]
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskT/HellyFive/BridgeAudit.lean",
+   "module": "Research.TaskT.HellyFive.BridgeAudit",
+   "sha256": "a077e8ab420803b8593dff0e1f24f4ac4d469527bdef501c12605e582750aaf2",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/BridgeAudit.lean",
+   "codex_source_sha256": "056fd1186e6261454ebf1d3bdec25348ef6d586f0e4f0953d99dd9bf6ce26502",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": false,
+   "imports": [
+    "Research.TaskT.HellyFive.FiniteHellyLower",
+    "Research.TaskT.HellyFive.Midpoints"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/Challenge.lean",
+   "module": "Research.TaskT.HellyFive.Challenge",
+   "sha256": "faf32ea5b217b5ffdd8602b5d5787ceac010b3ef682a64d691444e9ac9636d26",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/Challenge.lean",
+   "codex_source_sha256": "faf32ea5b217b5ffdd8602b5d5787ceac010b3ef682a64d691444e9ac9636d26",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/Check.lean",
+   "module": "Research.TaskT.HellyFive.Check",
+   "sha256": "fc4e2429b504bc45548289e993969b4e8e22b0b3b21ff920b0f044f8957b6beb",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/Check.lean",
+   "codex_source_sha256": "a5950fd9a2a89dd491272dea76649dfabf55d5c1e5c92994348e47e54422853a",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.Proof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/CoreNegative.lean",
+   "module": "Research.TaskT.HellyFive.CoreNegative",
+   "sha256": "faef7c34c4bd7a4e5b226ad65ed6171382b519299a5b4128952f1cad68f7b7f9",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/CoreNegative.lean",
+   "codex_source_sha256": "3ec07d5bdce6305d3d119eedef1ab95aadd73aacc67f7253dd6fc27d049b78fa",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.FiniteGeometry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/CorePositive.lean",
+   "module": "Research.TaskT.HellyFive.CorePositive",
+   "sha256": "62c2589d362e7df7d824431d49dc8c6f1bb0aaf21ab79edef1613be639e7eb38",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/CorePositive.lean",
+   "codex_source_sha256": "940c2d23eeaae879c90518ce67b384c03994f8aa469f0e4d1bf92d73fffb26e4",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.FiniteGeometry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/DimensionOne.lean",
+   "module": "Research.TaskT.HellyFive.DimensionOne",
+   "sha256": "d17e178d71cccbe9b30334eb3ecc67d8e1a1eb321b65dc2aa70acc42aa271ff8",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/DimensionOne.lean",
+   "codex_source_sha256": "ad6759bf924ddb5afc1237460ce85f01af91d5ee7c90d54a53b326588f63c2f8",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.FiniteGeometry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/FiberProjection.lean",
+   "module": "Research.TaskT.HellyFive.FiberProjection",
+   "sha256": "84e7a33b762a51a82def3b1d4c8676e1c67616197bc89fdf4977feef13d4d43a",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/FiberProjection.lean",
+   "codex_source_sha256": "2e672a11c43faf22cd91d5cfe46d1079216316bd2bf76c6793ba5baa07dd4293",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.FiniteKernels"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/FiniteAudit.lean",
+   "module": "Research.TaskT.HellyFive.FiniteAudit",
+   "sha256": "22528888d28432fd433c2e6e946ef1be34fe6457c90caa7c713d96b1d48a0db0",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/FiniteAudit.lean",
+   "codex_source_sha256": "090cb27a5e84e4c802d1e71a0e28a57cdd9fb2ad3f018eb09cd257192327b27e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": false,
+   "imports": [
+    "Research.TaskT.HellyFive.FiniteKernels"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/FiniteGeometry.lean",
+   "module": "Research.TaskT.HellyFive.FiniteGeometry",
+   "sha256": "a6474646e9402cbac05b12629b51a258de8505464684ac31e6865867b2ac95e7",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/FiniteGeometry.lean",
+   "codex_source_sha256": "d8b2bd7f52bf66a746f5350d7a574ef029035c32f87ac4dd61df26c5064e5b2b",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/FiniteHellyLower.lean",
+   "module": "Research.TaskT.HellyFive.FiniteHellyLower",
+   "sha256": "2913d90f3ceef07e14000f7f4ca7332db408dfaeb3961a343a9901b2c6812169",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/FiniteHellyLower.lean",
+   "codex_source_sha256": "9fed85605a2b0225538f7658af5543f6ddec65f74967b1a48eec659143049d90",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": false,
+   "imports": [
+    "Research.TaskT.HellyFive.LowerTransfer",
+    "Research.TaskT.HellyFive.WitnessThree",
+    "Research.TaskT.HellyFive.WitnessFour"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/FiniteKernels.lean",
+   "module": "Research.TaskT.HellyFive.FiniteKernels",
+   "sha256": "e566bb3830bbc6081c3a7995ba047a9206d2a0efed6fbc27dc39c92867389781",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/FiniteKernels.lean",
+   "codex_source_sha256": "d5014c6394c2c3c682435e5829cfe59ecb08ac0231d725830d94c6ecad32a050",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.WitnessThree",
+    "Research.TaskT.HellyFive.WitnessFour",
+    "Research.TaskT.HellyFive.CorePositive",
+    "Research.TaskT.HellyFive.CoreNegative"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/LiftAttainable.lean",
+   "module": "Research.TaskT.HellyFive.LiftAttainable",
+   "sha256": "dc716e93ce9ba8d68b692e31a3e71b139a8153b1cd4cdce63855c1d431432ecd",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/LiftAttainable.lean",
+   "codex_source_sha256": "8642fc91f7004ca90f4abd0682aae84a2e9c82ec4caf918b2e00b6305960942d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.LiftLayers"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/LiftLayers.lean",
+   "module": "Research.TaskT.HellyFive.LiftLayers",
+   "sha256": "3205803d5d94f34a0a92c3aba0f053e916d88eb8f74a7bf9790428a111fa98d5",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/LiftLayers.lean",
+   "codex_source_sha256": "465bd1951228e08d8ab76602e8855b66e4eb218270e58f0e56e614e50bbf3cc7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.FiberProjection"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/LowerTransfer.lean",
+   "module": "Research.TaskT.HellyFive.LowerTransfer",
+   "sha256": "8175445c61faa5d1fb6066522548b29dd158ebaac61c9f1be3bf6259a893f932",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/LowerTransfer.lean",
+   "codex_source_sha256": "ff66d035f6da7d98a65e5a694c297f77081b9890a46a345f6e89a7237cd6d805",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/Midpoints.lean",
+   "module": "Research.TaskT.HellyFive.Midpoints",
+   "sha256": "ea0e6ad2c65ca0e0400508f26214b5a6d05c917b9ad420d8329146f96674a912",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/Midpoints.lean",
+   "codex_source_sha256": "b1794804f19d8d973fa475354cb0d7923613b288ebc863e92bfc5707bc78af4d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/PlanarData.lean",
+   "module": "Research.TaskT.HellyFive.PlanarData",
+   "sha256": "84ad06ec2ce2ea9be2a36aa482e681cc96509bbeeafdce8426beab4d212139e6",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/PlanarData.lean",
+   "codex_source_sha256": "abe9d263b4dd872cc8a354d2b7e4c2eff04a95050718db9edae49ee24ec29116",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.UpperWeights"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/PlanarObstruction.lean",
+   "module": "Research.TaskT.HellyFive.PlanarObstruction",
+   "sha256": "c204de239d35ac3d29af744e07363828e99fde3ec1727e9546f6abcdc63d1f1b",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/PlanarObstruction.lean",
+   "codex_source_sha256": "6e11936d1ac367cee9275fdf0f38f08f1c41b49cc71b5a18b87d1d8461f9086f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.PlanarObstructionCross",
+    "Research.TaskT.HellyFive.UpperCharge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/PlanarObstructionCross.lean",
+   "module": "Research.TaskT.HellyFive.PlanarObstructionCross",
+   "sha256": "9bce9cd59978c035fa7de1c36f5cf718d684f07bc66b7166bc2d5753fa612b0e",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/PlanarObstructionCross.lean",
+   "codex_source_sha256": "e46729fe06b456b95c22ed96d9e3cd43cd5f431a33be5509cc26f359721e9d34",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.Midpoints"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/PlanarTable.lean",
+   "module": "Research.TaskT.HellyFive.PlanarTable",
+   "sha256": "9bf98cf04aec564494ee321e1eee332b7aad9d45c076af97e55c7c856c476402",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/PlanarTable.lean",
+   "codex_source_sha256": "7b7d5321119f32a246928d162b1995050384290c9bc792233e4ade19983d5418",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.PlanarData"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/PlanarUpper.lean",
+   "module": "Research.TaskT.HellyFive.PlanarUpper",
+   "sha256": "6a88777cb1d681184cabf36c22ce972317af666d49d1e2b7d378e1f5ce775c42",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/PlanarUpper.lean",
+   "codex_source_sha256": "ac3d83590caedc6ec4538fa34e43626fca72fa2fdad0775d355c7c4b8a1d88a7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.PlanarTable",
+    "Research.TaskT.HellyFive.PlanarObstruction",
+    "Research.TaskT.HellyFive.UpperGeom"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/Proof.lean",
+   "module": "Research.TaskT.HellyFive.Proof",
+   "sha256": "010f1b581205a103591ce9e63ab88c39c64d0d712082f2ea9b745f88630c2b97",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/Proof.lean",
+   "codex_source_sha256": "79ffcf5e085f74847f6ed642335e828723f43235a79bff232c41303b307556e9",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.DimensionOne",
+    "Research.TaskT.HellyFive.WitnessTwo",
+    "Research.TaskT.HellyFive.WitnessThree",
+    "Research.TaskT.HellyFive.LiftAttainable",
+    "Research.TaskT.HellyFive.PlanarUpper",
+    "Research.TaskT.HellyFive.UpperThree",
+    "Research.TaskT.HellyFive.UpperTransfer",
+    "Research.TaskT.HellyFive.LowerTransfer"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperCharge.lean",
+   "module": "Research.TaskT.HellyFive.UpperCharge",
+   "sha256": "188fc43745c2646386f8c80a5119d890b58f860b6995ec1dd42b1cfdc074968c",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperCharge.lean",
+   "codex_source_sha256": "69584f0c7fd2abda76edf2b2651b2bafff042061bb7d6af60c2f58aa25d4b678",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.Midpoints",
+    "Research.TaskT.HellyFive.FiniteGeometry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperGeom.lean",
+   "module": "Research.TaskT.HellyFive.UpperGeom",
+   "sha256": "5466cf716e69f988ad26a39330eb491214409fcdbb6c2ef47f48853cf52c57b3",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperGeom.lean",
+   "codex_source_sha256": "a93ec12c8fa4d7aaca014030eeffd5c8144cfc48b486f3fbe858e6096d60a2af",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.UpperWeights"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperThree.lean",
+   "module": "Research.TaskT.HellyFive.UpperThree",
+   "sha256": "46304f34f78f550f6a7d9adf4e0ca77540706d418b3f5d60441e8e9f07134858",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperThree.lean",
+   "codex_source_sha256": "097ac4d1a1f236d689182485cb1876bf3bb66bef1cbdc08fff3dfcd1966f1bb5",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.UpperThreeTable",
+    "Research.TaskT.HellyFive.UpperGeom"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperThreeData.lean",
+   "module": "Research.TaskT.HellyFive.UpperThreeData",
+   "sha256": "18fce183f4f8aeb87c072107b664214dfb83000e595eb1a5dccd757f41c0ce9e",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperThreeData.lean",
+   "codex_source_sha256": "cdeededd7ca0f82d9ebe4b49d34d7d2238af6112b3ec2cb38687660063c79b65",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.UpperWeights"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperThreeTable.lean",
+   "module": "Research.TaskT.HellyFive.UpperThreeTable",
+   "sha256": "d977d56d6109cfdb88ed4043433f81a8111dfc3f93b92d6f7756f1975bd6fe4b",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperThreeTable.lean",
+   "codex_source_sha256": "9f8d8ac73d4709503c3b6fa6a76ee609f692fae05787e16504bba0cfae40ebff",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.UpperThreeData"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperTransfer.lean",
+   "module": "Research.TaskT.HellyFive.UpperTransfer",
+   "sha256": "a29b2599f8d8f4802ba03456f4ba187e5e3a4983794f66758e611ad8e72960c8",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperTransfer.lean",
+   "codex_source_sha256": "9f10cfc5c869847f0ff28dd8e4dd28781ff155504eb2c887429d346f21b2c25f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.UpperTransferCount"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperTransferAudit.lean",
+   "module": "Research.TaskT.HellyFive.UpperTransferAudit",
+   "sha256": "ee260eb3a7cfc74ccf26cf3e046907dc9abc8a19da50dca7b23e0f5d224d5124",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperTransferAudit.lean",
+   "codex_source_sha256": "305fb55e6987afa3452214e6c20553976ecee6264ed8994ede45805211b86bfd",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": false,
+   "imports": [
+    "Research.TaskT.HellyFive.UpperTransfer"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperTransferCount.lean",
+   "module": "Research.TaskT.HellyFive.UpperTransferCount",
+   "sha256": "bdca188baf640c4284c661664040f986049ec72439dd0fe7453fad51e3620ff5",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperTransferCount.lean",
+   "codex_source_sha256": "24116f0b7af0500d75ce59e1a2f5fb2491146bc804781d9df956a1acbbef9e20",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.UpperTransferMaximal"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperTransferGeometry.lean",
+   "module": "Research.TaskT.HellyFive.UpperTransferGeometry",
+   "sha256": "afa54c027bfcab23531c78c3451908819bc0079059a78041d7c725444b7473d6",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperTransferGeometry.lean",
+   "codex_source_sha256": "8085e8e3dc524d09cb2b2b4e1fbe9bde0c88cff6f9fc31500a84b728d33305f0",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.FiniteGeometry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperTransferMaximal.lean",
+   "module": "Research.TaskT.HellyFive.UpperTransferMaximal",
+   "sha256": "e54e28e0540ec7f2e73d6afa7c5bd25f5cc75aecb622d25966473dcc4138d14a",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperTransferMaximal.lean",
+   "codex_source_sha256": "64d0543db82066b35418d5b5cd5a03ed24c5e2d32379a3151f65afb25ce5715f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.UpperTransferGeometry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/UpperWeights.lean",
+   "module": "Research.TaskT.HellyFive.UpperWeights",
+   "sha256": "e336fea51e4a93bbba0ef112e5dd0588018f2b49955a9ebacf86bd18a6dcfd5f",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/UpperWeights.lean",
+   "codex_source_sha256": "e03b1237641a8cec458f49be8e038ecf82cde079302f102e6016d28aef742e61",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.UpperCharge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/WitnessFour.lean",
+   "module": "Research.TaskT.HellyFive.WitnessFour",
+   "sha256": "9f32c9300537d1e0fdaaebc1a30694c631d28b50edc82eeb9dae5c41e72258bc",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/WitnessFour.lean",
+   "codex_source_sha256": "e3f977e312d6d2b432ed92ec8d8107922c8b1887c8502e94ede6b0fc1177bdfc",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.FiniteGeometry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/WitnessThree.lean",
+   "module": "Research.TaskT.HellyFive.WitnessThree",
+   "sha256": "bddd026a2a6de7382ceeb96ed07e2efa5510b96fdd97f856e070220dce1a6c93",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/WitnessThree.lean",
+   "codex_source_sha256": "5647c9a67b64436b16a0b06c41da68e9adfe0fee6e685a4357fd2ed1cd751da0",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.FiniteGeometry"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskT/HellyFive/WitnessTwo.lean",
+   "module": "Research.TaskT.HellyFive.WitnessTwo",
+   "sha256": "a2a0b535ae519f07686642b829a25a57d51aa3651d407e7273b82a05a3a7c0ea",
+   "codex_source": "work/codex-r3/phase27/scout-t/attempts/helly-five/formal/TaskT/HellyFive/WitnessTwo.lean",
+   "codex_source_sha256": "8b5b95dec21eddab3a469429ca53d71b468ae77656ef5684811c02cbff0c930b",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "in_codex_acceptance_receipt": true,
+   "imports": [
+    "Research.TaskT.HellyFive.FiniteGeometry"
+   ]
+  }
+ ]
+}

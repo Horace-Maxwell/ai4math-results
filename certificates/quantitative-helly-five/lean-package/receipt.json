@@ -1,0 +1,83 @@
+{
+ "package": "quantitative-helly-five",
+ "codex_acceptance": {
+  "receipts": [
+   "acceptance/2026-11-21T013611Z-43897/receipt.json"
+  ],
+  "modules": 31,
+  "note": "Codex acceptance run on the author's Mac (logs only; build directories not included); local paths replaced by <workspace> and the reviewers' scratch directory by <claude-scratch>. The four auxiliary modules of the package are not in this run; they were compiled by both final reviewers and in the repository recheck."
+ },
+ "repository_recheck": {
+  "computer": "the author's Mac",
+  "lean": "Lean 4.34.1 (arm64-apple-darwin)",
+  "start_utc": "2026-11-22T21:08Z",
+  "end_utc": "2026-11-22T21:33Z",
+  "procedure": "The 35 repository files (Research.TaskT.HellyFive; only import lines differ from the Codex files) compiled module by module with lean -DautoImplicit=false -DrelaxedAutoImplicit=false -R <lean dir>, each module replayed with leanchecker, in two new empty output directories (root1 21:08Z-21:20Z, root2 21:20Z-21:33Z), by repository-recheck-logs.tar.gz/mac_compile_generic.py.",
+  "olean_identical": true,
+  "root1": {
+   "modules": 35,
+   "compile_rc0": 35,
+   "leanchecker_rc0": 35,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskT.HellyFive.attainableCount_le_preservingBound": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.helly_three_lower": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.helly_four_lower": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.gridMid_mem_nonvertices": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.recover_vertex": "propext, Quot.sound",
+    "TaskT.HellyFive.Proof.ExactHellyFive": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.Proof.ExactVertexFive": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.check_ExactHellyFive": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.check_ExactVertexFive": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.realization": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.WitnessThree.attainable": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.WitnessFour.attainable": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.CorePositive.geometry": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.CoreNegative.geometry": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.positive_subset": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.negative_subset": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.positive_grid": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.negative_grid": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.disjoint_at_old_extreme": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.UpperTransfer.extend_closed": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.UpperTransfer.maximalContacts": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.UpperTransfer.countContacts": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.preservesFive_of_polyBound": "propext, Classical.choice, Quot.sound"
+   }
+  },
+  "root2": {
+   "modules": 35,
+   "compile_rc0": 35,
+   "leanchecker_rc0": 35,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "TaskT.HellyFive.attainableCount_le_preservingBound": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.helly_three_lower": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.helly_four_lower": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.gridMid_mem_nonvertices": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.recover_vertex": "propext, Quot.sound",
+    "TaskT.HellyFive.Proof.ExactHellyFive": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.Proof.ExactVertexFive": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.check_ExactHellyFive": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.check_ExactVertexFive": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.realization": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.WitnessThree.attainable": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.WitnessFour.attainable": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.CorePositive.geometry": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.CoreNegative.geometry": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.positive_subset": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.negative_subset": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.positive_grid": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.negative_grid": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.FiniteGeometry.disjoint_at_old_extreme": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.UpperTransfer.extend_closed": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.UpperTransfer.maximalContacts": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.UpperTransfer.countContacts": "propext, Classical.choice, Quot.sound",
+    "TaskT.HellyFive.preservesFive_of_polyBound": "propext, Classical.choice, Quot.sound"
+   }
+  }
+ },
+ "whole_project": "logs/clean-replay-v1.26.0-receipt.json"
+}

@@ -1,0 +1,48 @@
+{
+ "package": "durer-crossed-roofs",
+ "codex_acceptance": {
+  "receipts": [
+   "crossed-roofs/formal/acceptance/coordinate-01-root1/receipt.json",
+   "crossed-roofs/formal/acceptance/coordinate-02-root1/receipt.json",
+   "crossed-roofs/formal/acceptance/coordinate-03-root1/receipt.json",
+   "crossed-roofs/formal/acceptance/coordinate-03-root2/receipt.json"
+  ],
+  "pair": "crossed-roofs/formal/acceptance/coordinate-03-pair.json",
+  "note": "Codex acceptance runs on the author's Mac (receipts and logs only; build directories not included); local paths replaced by <workspace> and the reviewers' scratch directory by <claude-scratch>. coordinate-01-root1 and coordinate-02-root1 are earlier attempts that stopped at the build of the statement file because of setup errors, kept for the record; coordinate-03 is the accepted pair."
+ },
+ "repository_recheck": {
+  "computer": "the author's Mac",
+  "lean": "Lean 4.34.1 (arm64-apple-darwin)",
+  "start_utc": "2026-11-22T21:39Z",
+  "end_utc": "2026-11-22T21:40Z",
+  "procedure": "The 8 repository files (Research.TaskV.Durer; only import lines differ from the accepted files) compiled module by module with lean -DautoImplicit=false -DrelaxedAutoImplicit=false -R <lean dir>, each module replayed with leanchecker, in two new empty output directories (root1 21:39Z-21:39Z, root2 21:39Z-21:40Z), by repository-recheck-logs.tar.gz/mac_compile_generic.py.",
+  "olean_identical": true,
+  "root1": {
+   "modules": 8,
+   "compile_rc0": 8,
+   "leanchecker_rc0": 8,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "DurerDV.obliqueExample": "propext, Classical.choice, Quot.sound",
+    "DurerDV.checkStrictRoofNet": "propext, Classical.choice, Quot.sound",
+    "DurerDV.checkObliqueExample": "propext, Classical.choice, Quot.sound",
+    "DurerDV.strictRoofNet": "propext, Classical.choice, Quot.sound"
+   }
+  },
+  "root2": {
+   "modules": 8,
+   "compile_rc0": 8,
+   "leanchecker_rc0": 8,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "DurerDV.obliqueExample": "propext, Classical.choice, Quot.sound",
+    "DurerDV.checkStrictRoofNet": "propext, Classical.choice, Quot.sound",
+    "DurerDV.checkObliqueExample": "propext, Classical.choice, Quot.sound",
+    "DurerDV.strictRoofNet": "propext, Classical.choice, Quot.sound"
+   }
+  }
+ },
+ "whole_project": "logs/clean-replay-v1.26.0-receipt.json"
+}

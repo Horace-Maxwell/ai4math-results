@@ -1,0 +1,141 @@
+{
+ "module_count": 8,
+ "entrypoints": [
+  "Research.TaskV.FEI.Check"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskV.FEI.Check": [
+   "Fei.check_signedProduct",
+   "Fei.check_supportEntropy",
+   "Fei.check_lowerMassFEI",
+   "Fei.check_boundedRatioFEI",
+   "Fei.check_upperProduct",
+   "Fei.check_comparableMassFEI"
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskV/FEI/Challenge.lean",
+   "frozen_utc": "2026-11-21T03:58:46Z",
+   "freeze_record": "review/FROZEN.json",
+   "frozen_sha256": "b277a582080a00a9292544f1c924e82fba110e4c68218d9b306ae5bdfb7753c6",
+   "repository_sha256": "b277a582080a00a9292544f1c924e82fba110e4c68218d9b306ae5bdfb7753c6",
+   "repository_identical_to_frozen": true,
+   "targets": [
+    "SignedProduct",
+    "SupportEntropy",
+    "LowerMassFEI",
+    "BoundedRatioFEI"
+   ]
+  },
+  {
+   "file": "lean/Research/TaskV/FEI/UpperChallenge.lean",
+   "frozen_utc": "2026-11-21T04:02:30Z",
+   "freeze_record": "review/FROZEN-UPPER.json",
+   "frozen_sha256": "0731c4d45f85ebd25740e813be95950b9665bfd5bc110047d2cef99014fe03ab",
+   "repository_sha256": "60c4e6330e11e1758bbdf944d08da352e8fb679202e413a1fa316219fd81dd80",
+   "repository_identical_to_frozen": false,
+   "targets": [
+    "UpperProduct",
+    "ComparableMassFEI"
+   ]
+  }
+ ],
+ "note": "Codex's package also had a root module Fei (formal/Fei.lean, a single line \"import Fei.Check\"); it is not part of the repository.",
+ "files": [
+  {
+   "path": "lean/Research/TaskV/FEI/Analysis.lean",
+   "module": "Research.TaskV.FEI.Analysis",
+   "sha256": "ba1cd1cf01cc96f487219eaffdaeb79db06f409882cc33df731bf7d5897b4a34",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/fei/formal/Fei/Analysis.lean",
+   "codex_source_sha256": "b9169f43cf1cb89bd4cd9267c566ee75a9fe4faec1ae41eddd5668d5ed04b1d3",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.FEI.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/FEI/Challenge.lean",
+   "module": "Research.TaskV.FEI.Challenge",
+   "sha256": "b277a582080a00a9292544f1c924e82fba110e4c68218d9b306ae5bdfb7753c6",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/fei/formal/Fei/Challenge.lean",
+   "codex_source_sha256": "b277a582080a00a9292544f1c924e82fba110e4c68218d9b306ae5bdfb7753c6",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/FEI/Check.lean",
+   "module": "Research.TaskV.FEI.Check",
+   "sha256": "34adb5d7e7b01e2c24d5ba9280e7da6f0e29c42a4649bb115f2afbd1b33f86b8",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/fei/formal/Fei/Check.lean",
+   "codex_source_sha256": "6a6451b47efc30be1959ab11b7c75f3305260cd81d684dcba4c76fea985c07cb",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.FEI.Walsh",
+    "Research.TaskV.FEI.Determinant",
+    "Research.TaskV.FEI.Analysis",
+    "Research.TaskV.FEI.Layer",
+    "Research.TaskV.FEI.UpperAnalysis"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/FEI/Determinant.lean",
+   "module": "Research.TaskV.FEI.Determinant",
+   "sha256": "0d2f69b19d21dfad921b03eb177ca01fdc85953235b76f4bc189d31a99fd5b67",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/fei/formal/Fei/Determinant.lean",
+   "codex_source_sha256": "161ac14fcd816a3fc5bc3e84381d91a3bf3a81e5c79593da0f80ccf9fc75d29e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.FEI.UpperChallenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/FEI/Layer.lean",
+   "module": "Research.TaskV.FEI.Layer",
+   "sha256": "cd41381dcb525e234c7e149bf55fcef18e2775632a262db5720b20d71952c5da",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/fei/formal/Fei/Layer.lean",
+   "codex_source_sha256": "7ff0c85b6df0d84beffa3ad29edbce4a5cbd3012fd28dd0175534e033d96a317",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.FEI.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/FEI/UpperAnalysis.lean",
+   "module": "Research.TaskV.FEI.UpperAnalysis",
+   "sha256": "8c87827d6a5e46dcb657661194f6f7bf7769a66a27cd40da62130462a8966cfc",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/fei/formal/Fei/UpperAnalysis.lean",
+   "codex_source_sha256": "c63967ec493da8f3977eb7238470787870ae16cc9c13cf05938e6aedd3c2e244",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.FEI.UpperChallenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/FEI/UpperChallenge.lean",
+   "module": "Research.TaskV.FEI.UpperChallenge",
+   "sha256": "60c4e6330e11e1758bbdf944d08da352e8fb679202e413a1fa316219fd81dd80",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/fei/formal/Fei/UpperChallenge.lean",
+   "codex_source_sha256": "0731c4d45f85ebd25740e813be95950b9665bfd5bc110047d2cef99014fe03ab",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.FEI.Challenge"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/FEI/Walsh.lean",
+   "module": "Research.TaskV.FEI.Walsh",
+   "sha256": "7ab966a52a659c03def8b8ea9300b8df5dc8f24641918c077bad8efe6464376c",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/fei/formal/Fei/Walsh.lean",
+   "codex_source_sha256": "2b34b5db9450536e4db4a014426f85743d90e27856727c2c946afc5a2c3a51c3",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.FEI.Challenge"
+   ]
+  }
+ ]
+}

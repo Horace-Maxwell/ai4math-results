@@ -1,0 +1,51 @@
+{
+ "package": "fei-nonflat-spectra",
+ "codex_acceptance": {
+  "receipts": [
+   "acceptance/2026-11-21T050526Z/PASS.json",
+   "acceptance/2026-11-21T050526Z/ROOT-AUDIT.json",
+   "acceptance/2026-11-21T050526Z/root1/result.json",
+   "acceptance/2026-11-21T050526Z/root2/result.json"
+  ],
+  "note": "Codex acceptance run on the author's Mac (logs only; build directories not included); local paths replaced by <workspace> and the reviewers' scratch directory by <claude-scratch>. acceptance/2026-11-21T050516Z is an attempt that stopped at the version probe, kept for the record."
+ },
+ "repository_recheck": {
+  "computer": "the author's Mac",
+  "lean": "Lean 4.34.1 (arm64-apple-darwin)",
+  "start_utc": "2026-11-22T21:36Z",
+  "end_utc": "2026-11-22T21:39Z",
+  "procedure": "The 8 repository files (Research.TaskV.FEI; only import lines differ from the accepted files) compiled module by module with lean -DautoImplicit=false -DrelaxedAutoImplicit=false -R <lean dir>, each module replayed with leanchecker, in two new empty output directories (root1 21:36Z-21:37Z, root2 21:37Z-21:39Z), by repository-recheck-logs.tar.gz/mac_compile_generic.py.",
+  "olean_identical": true,
+  "root1": {
+   "modules": 8,
+   "compile_rc0": 8,
+   "leanchecker_rc0": 8,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "Fei.check_signedProduct": "propext, Classical.choice, Quot.sound",
+    "Fei.check_supportEntropy": "propext, Classical.choice, Quot.sound",
+    "Fei.check_lowerMassFEI": "propext, Classical.choice, Quot.sound",
+    "Fei.check_boundedRatioFEI": "propext, Classical.choice, Quot.sound",
+    "Fei.check_upperProduct": "propext, Classical.choice, Quot.sound",
+    "Fei.check_comparableMassFEI": "propext, Classical.choice, Quot.sound"
+   }
+  },
+  "root2": {
+   "modules": 8,
+   "compile_rc0": 8,
+   "leanchecker_rc0": 8,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {
+    "Fei.check_signedProduct": "propext, Classical.choice, Quot.sound",
+    "Fei.check_supportEntropy": "propext, Classical.choice, Quot.sound",
+    "Fei.check_lowerMassFEI": "propext, Classical.choice, Quot.sound",
+    "Fei.check_boundedRatioFEI": "propext, Classical.choice, Quot.sound",
+    "Fei.check_upperProduct": "propext, Classical.choice, Quot.sound",
+    "Fei.check_comparableMassFEI": "propext, Classical.choice, Quot.sound"
+   }
+  }
+ },
+ "whole_project": "logs/clean-replay-v1.26.0-receipt.json"
+}

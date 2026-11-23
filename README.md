@@ -1,6 +1,6 @@
-# Research papers formalized in Lean 4: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras, word-representability, distance eigenvalues of cographs, Frobenius forms of axial algebras, cycles of length 0 modulo k in critical graphs, the rank of groups of equivariant permutations, the longest Manhattan paths through boxes, the decomposition lengths of numerical semigroups, antichains of trees in the independence polynomial order, invariant parking with cars of different lengths, medial racks of prime order, the generalized Wilf conjecture for graded semigroups, the covering radius of a lattice simplex, a terrace for the alternating group A7, the largest domination roots of friendship graphs, bars that do not tile a 2 × n rectangle, the Minkowski length of lattice simplices, the covering minima of the standard terminal simplex and the integer group determinants of the Heisenberg group of order 125
+# Research papers formalized in Lean 4: graph energy, OEIS congruences, almost independent sets, triameter, Brauer monoids, Reed–Muller weights, integral sun graphs, main eigenvalues, axial algebras, word-representability, distance eigenvalues of cographs, Frobenius forms of axial algebras, cycles of length 0 modulo k in critical graphs, the rank of groups of equivariant permutations, the longest Manhattan paths through boxes, the decomposition lengths of numerical semigroups, antichains of trees in the independence polynomial order, invariant parking with cars of different lengths, medial racks of prime order, the generalized Wilf conjecture for graded semigroups, the covering radius of a lattice simplex, a terrace for the alternating group A7, the largest domination roots of friendship graphs, bars that do not tile a 2 × n rectangle, the Minkowski length of lattice simplices, the covering minima of the standard terminal simplex, the integer group determinants of the Heisenberg group of order 125, the discrete quantitative Helly number for five lattice points, the illumination of convex bodies between a prism and a cube, the Fourier entropy–influence conjecture for two classes of non-flat spectra and edge nets of crossed-roof polyhedra
 
-This repository contains twenty-seven papers, their Lean 4 formalizations and
+This repository contains thirty-one papers, their Lean 4 formalizations and
 computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.22970254](https://doi.org/10.5281/zenodo.22970254); version 1.0.0
 [10.5281/zenodo.22970255](https://doi.org/10.5281/zenodo.22970255); version 1.1.0
@@ -29,12 +29,13 @@ computational certificates. It is archived on Zenodo: all versions
 [10.5281/zenodo.24321346](https://doi.org/10.5281/zenodo.24321346); version 1.22.0
 [10.5281/zenodo.24352560](https://doi.org/10.5281/zenodo.24352560); version 1.23.0
 [10.5281/zenodo.24370025](https://doi.org/10.5281/zenodo.24370025); version 1.24.0
-[10.5281/zenodo.24399110](https://doi.org/10.5281/zenodo.24399110).
+[10.5281/zenodo.24399110](https://doi.org/10.5281/zenodo.24399110); version 1.25.0
+[10.5281/zenodo.24445329](https://doi.org/10.5281/zenodo.24445329).
 
-> **Verification status (version 1.25.0, 22 November 2026).** No human
-> mathematician has reviewed these papers. All twenty-seven papers are formalized
-> completely: Paper 1 in its version 3, Papers 2, 3, 4, 5, 6, 7 and 8 in their
-> versions 2, Papers 10 and 13 in their versions 2, and Papers 9, 11, 12 and 14 to 27. Every mathematical result in them has a Lean
+> **Verification status (version 1.26.0, 23 November 2026).** No human
+> mathematician has reviewed these papers. All thirty-one papers (Paper 1 in its version 3, Papers 2, 3, 4, 5, 6, 7 and 8 in their
+> versions 2, Papers 10 and 13 in their versions 2, and Papers 9, 11, 12 and 14 to 31) are formalized
+> in Lean, apart from the parts listed below. Every other mathematical result in them has a Lean
 > proof, checked against independently reviewed and frozen statement files. In
 > Paper 11, Remark 1, which derives its answer from a lemma of Conde, Dratman
 > and Grippo, is not formalized; it is not needed for Theorem 1, the paper's
@@ -106,7 +107,30 @@ computational certificates. It is archived on Zenodo: all versions
 > Corollary 2 (the exponent 33) follows from Theorem 1 in two lines and is
 > not a separate Lean statement, and Remark 1 (on the density of the
 > visible primes, with a numerical observation) and Lemma 2 (not needed for
-> Theorem 1) are not formalized. For
+> Theorem 1) are not formalized. In Paper 28, the frozen statements are the two parts of Theorem 1 (the
+> values of `c(Z^n, 5)` and `g(Z^n, 5)` for every `n ≥ 1`), and the value of
+> `c` is proved in Lean directly from its definition for finite families of
+> arbitrary convex sets; Theorem 2 is proved in Lean on the way, but is not
+> one of the frozen statements, and Remark 1 (a bound for other values of
+> `k`) and the link with the number of Aliev, Bassett, De Loera and
+> Louveaux, defined through the rows of a system `Ax ≤ b`, are not
+> formalized. In Paper 29, the examples that show that each of the three
+> cases occurs and the transfer to affine images are not formalized, and the
+> equivalence of the two usual forms of the definition of illumination was
+> proved in Lean only in an audit file of the final reviewer, which is not
+> among the files of the result. In Paper 30, the frozen statements are
+> Theorems 1 to 5 and Corollary 1; the examples and remarks of Section 5 and
+> the identity between the spectral and the flip form of the total influence
+> are not formalized, and the paper does not prove the Fourier
+> entropy–influence conjecture. Paper 31 is different in kind: its frozen
+> statements, Theorems 1 and 2, are the properties of the unfolding maps
+> (isometry on every facet, and no contact of two surface points beyond the
+> hinges) for every crossed-roof solid and an oblique example; that these
+> maps give a net (Corollary 1: that the solid is a convex polyhedron with
+> the facets described, that the cut edges form a Hamiltonian path and that
+> the cut surface is a disk whose image is a simple polygon), the reduction
+> to an obtuse or right corner and the comparisons of its Section 4 are
+> written arguments and are not formalized. For
 > Paper 2 this includes the existence and uniqueness of the normalized series
 > and their first terms. It does not include what the paper says about the OEIS
 > entries and the literature: no Lean statement mentions the OEIS, and the
@@ -177,6 +201,10 @@ computational certificates. It is archived on Zenodo: all versions
 | Paper 25 | Lattice simplices whose Minkowski length exceeds the lattice diameter, and dilates whose Minkowski length is not quasi-linear | answer (counterexamples) to Problems 2 and 3 of Soprunov and Soprunova (European J. Combin. 58 (2016)): a lattice tetrahedron with lattice diameter 1 and Minkowski length 2, and an empty tetrahedron `U` with `L(U) = 1` and `L(tU) = 3t` for `t ≥ 2`, carried to every dimension `d ≥ 3` by lattice pyramids; with the known case `d ≤ 2`, Problem 3 is true for `d ≤ 2` and false for every `d ≥ 3`; both tetrahedra are known objects (see below); Problem 1 is not addressed; completely formalized for `d ≥ 3`, except the periodicity remark and the remarks of Section 6 (not checked with comparator, see below) | `TaskP.GeomSimplex.check_TetrahedronDiameter`, `check_TetrahedronDilations`, `check_EveryDimensionDiameter`, `check_EveryDimensionDilations` | [`papers/minkowski-length-simplices`](papers/minkowski-length-simplices/note.pdf) |
 | Paper 26 | Covering minima of the standard terminal simplex and a discrete surface area bound for the covering radius of simplices | answer: Conjecture B of González Merino and Schymura (Discrete Comput. Geom. 58 (2017); Conjecture B of Codenotti, Santos and Schymura), `μ_i(T_n) = i/2` for all `1 ≤ i ≤ n`, proved (known before for `i ≤ 3`, `i = n` and `i = 1`), and Conjecture C of Codenotti, Santos and Schymura (Discrete Comput. Geom. 67 (2022)), the discrete surface area bound for simplices with the origin in the interior and rational vertex directions, proved in every dimension (known for `d ≤ 2` and up to a constant factor); by published arguments of these authors either gives the d/2 bound of Conjecture A for non-hollow lattice polytopes (not formalized; the equality clause of Conjecture A is false, Paper 21); the averaging lemma is elementary and claimed as no novelty; completely formalized, except Corollary 3, Section 5 and Lemma 11 (the independence of the projected volumes from the choice of projection); two independent final reviews per conjecture (not checked with comparator, see below) | `TaskS.B.check_ConjectureB`, `TaskS.C.check_conjectureC`, `TaskS.C.MeasureModel.measured_conjectureC` | [`papers/css-covering-minima`](papers/css-covering-minima/note.pdf) |
 | Paper 27 | The integer group determinants of the Heisenberg group of order 125 | answer: Olga Taussky-Todd's integer group determinant question for the Heisenberg group `H_5` of order 125, whose multiples of 5 Mossinghoff and Pinner (Michigan Math. J. 74 (2024)) had left undetermined: the whole value set `S(H_5)` consists of the integers `m` with `m^4 ≡ 1 (mod 125)` (their result), all multiples of `5^33`, and the integers `5^28·n` with `n ≠ 0` divisible by a visible prime (a prime `ℓ ≡ 1 (mod 5)` for which an element of norm `ℓ` in `Z[ζ_5]` is not congruent modulo 5 to a unit); the least positive value divisible by 5 is `11·5^28`; the factorization, the values prime to 5 and the bound `5^28` are due to Mossinghoff and Pinner, and the seeds of the constructions to Panraksa (see below); completely formalized, except Corollary 2 (a two-line deduction), Remark 1 and Lemma 2 (not needed for Theorem 1); one final review of the minimum and two independent final reviews of the classification (not checked with comparator, see below) | `TaskU.H5.Check.check_witnessValue`, `TaskU.H5.Check.check_leastPositiveMultiple`, `TaskU.H5.check_fullSpectrum` | [`papers/heisenberg-125-determinants`](papers/heisenberg-125-determinants/note.pdf) |
+| Paper 28 | The discrete quantitative Helly number for five common lattice points | answer: the case `k = 5` of the discrete quantitative Helly numbers `c(Z^n, k)` of Averkov, González Merino, Paschke, Schymura and Weltge (Adv. Appl. Math. 89 (2017)): `c(Z^n, 5) = g(Z^n, 5) = 2, 7, 18` for `n = 1, 2, 3` and `2^(n+1) + 5` for every `n ≥ 4`, where `g(Z^n, 5)` is the largest number of vertices of a lattice polytope with exactly five non-vertex lattice points; the planar value 7 (Chestnut, Hildebrand and Zenklusen; Averkov et al.), the values for `k ≤ 4` and the parity method are earlier work (see below), and the equality `c = g` for `k = 5` does not answer their Open question 3; completely formalized, the value of `c` proved directly from its definition, except Remark 1 (other values of `k`) and the link with the number of Aliev, Bassett, De Loera and Louveaux for systems `Ax ≤ b`; two independent final reviews (not checked with comparator, see below) | `TaskT.HellyFive.check_ExactHellyFive`, `check_ExactVertexFive` | [`papers/quantitative-helly-five`](papers/quantitative-helly-five/note.pdf) |
+| Paper 29 | Illumination numbers of convex bodies between a triangular prism and a cube | new result for a special family: every compact convex `K` between the prism `P = {x ∈ [0,1]³ : x_1 + x_2 ≤ 1}` and the cube `Q = [0,1]³` has illumination number 6 if `K` misses the edge `E = {(1,1,z)}` of `Q`, 7 if it meets `E` and `K ≠ Q`, and 8 if `K = Q`; the lower bounds and the values for the prism and the cube are classical, and the values 6 and 7 for some of these bodies follow from results of Wu and Zhou (Contrib. Discrete Math. 14 (2019)); what is added is the matching upper bounds for all such bodies, by an elementary argument; not a step towards the Hadwiger–Boltyanski illumination conjecture, which is open in dimension 3 (see below); completely formalized, except the examples that show that each case occurs and the transfer to affine images (not checked with comparator, see below) | `PrismIllumination.check_trichotomy` | [`papers/illumination-prism-sandwich`](papers/illumination-prism-sandwich/note.pdf) |
+| Paper 30 | A product inequality for Walsh coefficients and two conditional Fourier entropy–influence bounds | partial results on the Fourier entropy–influence conjecture of Friedgut and Kalai, which remains open: an inequality between the Fourier masses and the sizes of the sets of the Fourier support, valid for every Boolean function and obtained from an integer determinant, and from it `H(f) ≤ 4 I(f)/δ` when every nonzero mass is at least `δ/K` (`K` the number of nonzero coefficients), `H(f) ≤ 4M² I(f)` when the nonzero coefficients differ in absolute value by a factor at most `M`, and `H(f) ≤ 4L I(f)` when `p(S) ≤ L p(T)` for all nonempty `S ⊆ T` in the support; the case of equal magnitudes is due to Potapov (arXiv:2609.21563v1); the constants grow without bound, so these results do not approach the conjecture (see below); completely formalized, except the examples and remarks of Section 5 and the identity between the spectral and the flip form of the total influence (not checked with comparator, see below) | `Fei.check_supportEntropy`, `check_lowerMassFEI`, `check_boundedRatioFEI`, `check_comparableMassFEI` (6 checked statements) | [`papers/fei-nonflat-spectra`](papers/fei-nonflat-spectra/note.pdf) |
+| Paper 31 | A Lean-verified strict edge net for crossed polygonal roofs over a parallelogram | new result for a special family, in the setting of Dürer's problem (Problem 9 of The Open Problems Project, open): an explicit edge unfolding of every crossed-roof solid (vertical projection a parallelogram, a concave roof with ridges parallel to one side, a convex floor with ridges parallel to the other, any numbers of roof and floor facets) that is a strict net, with no boundary contact beyond the hinges; for a rectangular projection a net was known to exist by a theorem of O'Rourke, members with one roof or one floor facet are prismatoids, and the searches found no published edge-unfoldable class containing the oblique members with at least two roof and two floor facets; not progress on Dürer's problem in general (see below); Lean proves the isometry and contact statements of the unfolding maps and an oblique example (Theorems 1 and 2); that the maps give a net (Corollary 1: the facets, the cut tree, the disk and the simple polygon), the reduction to an obtuse or right corner and Section 4 are written arguments (not checked with comparator, see below) | `DurerDV.checkStrictRoofNet`, `checkObliqueExample` | [`papers/durer-crossed-roofs`](papers/durer-crossed-roofs/note.pdf) |
 | Also | A246056 and A376230: Lean proofs of results that follow from published theorems | formalizations of known results | `HannaA246056.*`, `HannaA376230.*` | see below |
 | Also | Case q = 3 of Roldán's Conjecture 1.3 (order `27p²`) | formalization of a known result | `ICGBridge.roldan_q3` and related | see below |
 
@@ -1808,6 +1836,296 @@ upper bound.* 9 pages.
   the text was written by Claude Code. See the disclosure below for the
   reviews.
 
+**Paper 28: [`papers/quantitative-helly-five`](papers/quantitative-helly-five/note.pdf).**
+*The discrete quantitative Helly number for five common lattice points.* 12 pages.
+
+- For `S ⊆ R^n` and `k ≥ 0`, the discrete quantitative Helly number `c(S, k)`
+  of Averkov, González Merino, Paschke, Schymura and Weltge (*Tight bounds on
+  discrete quantitative Helly numbers*, Adv. Appl. Math. 89 (2017);
+  arXiv:1602.07839v1, whose numbering the paper cites, with M. Henze in place
+  of M. Schymura among the authors) is the least `t` such that, whenever
+  finitely many convex sets have exactly `k` points of `S` in common, at most
+  `t` of them already have exactly these `k` points of `S` in common.
+  Doignon's theorem gives `c(Z^n, 0) = 2^n`. For `n ≥ 2`, Theorem 5 of Averkov
+  et al. collects `c(Z^n, 1) = c(Z^n, 2) = c(Z^n, 3) = 2^(n+1) − 2` and
+  `c(Z^n, 4) = 2^(n+1)` (the case `k = 1` is due to Aliev, Bassett, De Loera
+  and Louveaux, the case `k = 2` to Chestnut, Hildebrand and Zenklusen);
+  Averkov et al. computed the planar values for `k ≤ 30`, and `c(Z², 5) = 7`
+  was also proved by Chestnut, Hildebrand and Zenklusen. Averkov et al. showed
+  that `c(S, k)` is determined by `g(S, k)`, the largest number of vertices of
+  a polytope with vertices in `S` and exactly `k` further points of `S`.
+- **Theorem 1.** For every `n ≥ 1`, `c(Z^n, 5) = g(Z^n, 5) = v(n)`, with `v(1)
+  = 2`, `v(2) = 7`, `v(3) = 18` and `v(n) = 2^(n+1) + 5` for `n ≥ 4` (37, 69
+  and 133 for `n = 4, 5, 6`). That is, if convex sets in `R^n` have exactly
+  five lattice points in common, some `v(n)` of them already have exactly
+  these five in common, and `v(n)` cannot be lowered; and a lattice polytope
+  in `R^n` with exactly five non-vertex lattice points has at most `v(n)`
+  vertices, with equality for some polytope. **Theorem 2** (proved in Lean on
+  the way, not a frozen statement): a lattice polytope with at most five
+  non-vertex lattice points has at most `v(n) + 5` lattice points.
+- The upper bound comes from a parity argument: three lattice points of the
+  polytope in the same class modulo 2 are determined by their three pairwise
+  midpoints, which are non-vertex lattice points, so the number of lattice
+  points is at most `2^(n+1)` plus the number of 3-element sets of non-vertex
+  lattice points; for `n = 3` a table of capacities is added, and for `n = 2`
+  a table and a short planar argument. The lower bound comes from explicit
+  polytopes with 18 and 37 vertices in dimensions 3 and 4 and a lifting
+  construction for `n ≥ 5`. Lean proves the value of `c` directly from its
+  definition, not through the recursion of Averkov et al., and uses no result
+  of Averkov et al. or of Chestnut et al.
+- Scope and earlier results: the definition, the description by polytopes, the
+  values for `k ≤ 4` and the planar values are due to the authors named above.
+  Sorting lattice points into classes modulo 2 and using their midpoints is a
+  method of Chestnut, Hildebrand and Zenklusen, which Averkov et al. use in
+  their proof of `c(Z^n, 4) = 2^(n+1)`, including the fact that a triangle is
+  determined by its edge midpoints; the charging step of the paper extends
+  theirs from the facets of a tetrahedron to all 3-element sets, an elementary
+  step for which no novelty is claimed. What is new is the value 18 for `n =
+  3`, the formula `2^(n+1) + 5` for `n ≥ 4` and the polytopes that attain
+  them. The result is for finite families of arbitrary convex sets; the link
+  with the original number of Aliev et al., defined through subsets of the
+  rows of a system `Ax ≤ b`, is not formalized, and no separate claim is made
+  about it. That `c = g` for `k = 5` adds a case to the known ones but does
+  not answer Open question 3 of Averkov et al. (whether `c > g` can happen);
+  their other two open questions are not addressed. Huicochea and Navarro
+  (SIAM J. Discrete Math. 39 (2025)) bound a different Helly number; their
+  paper contains no exact values. Remark 1 (a bound for other values of `k`)
+  is not formalized; the written case analysis of the search for problems
+  (Remark 2) took a different route and is not used.
+- Lean: `lean/Research/TaskT/HellyFive/` (35 modules: the statement file
+  `Challenge.lean`, 29 proof modules, among them `Proof.lean` and the two
+  table modules `PlanarTable.lean` and `UpperThreeTable.lean`, the check file
+  `Check.lean`, and four audit modules, `BridgeAudit.lean`,
+  `FiniteAudit.lean`, `FiniteHellyLower.lean` and `UpperTransferAudit.lean`,
+  which print axioms and restate intermediate results; the proof does not
+  depend on them). `Challenge.lean` defines `Grid n` (`Z^n`) inside `Space n`
+  (`R^n`), `commonGrid C s` (the lattice points common to the sets `C_i` with
+  `i ∈ s`), `PreservesFive n t` (for every `m ≥ 1` and every family of `m`
+  convex sets with exactly five common lattice points, some subfamily of at
+  most `t` sets has exactly five common lattice points, counted with `encard`,
+  so that an infinite set never counts as five), `attainableCounts n` (the
+  numbers of extreme points of lattice polytopes, of any dimension, with
+  exactly five lattice points that are not extreme points) and `value n`, and
+  states `ExactHellyFive` (`value n` is the least admissible `t`) and
+  `ExactVertexFive` (`value n` is the largest attainable number) for every `n
+  ≥ 1`. It was compared with the source by Codex, compiled without
+  diagnostics, approved by a Codex agent that had written neither the
+  statement nor the proofs and frozen on 21 November 2026 at 01:11:55 UTC;
+  according to the compilation receipts no proof file was compiled before
+  01:12:45 UTC. OpenAI Codex wrote the statement and the proofs and checked
+  them in two new empty directories on the author's Mac
+  (`certificates/quantitative-helly-five/lean-package/`); the text was written
+  by Claude Code. See the disclosure below for the reviews.
+
+**Paper 29: [`papers/illumination-prism-sandwich`](papers/illumination-prism-sandwich/note.pdf).**
+*Illumination numbers of convex bodies between a triangular prism and a cube.* 8 pages.
+
+- A nonzero vector `u` illuminates a boundary point `p` of a convex body `K`
+  if `p + t u` lies in the interior of `K` for some `t > 0`; the illumination
+  number `I(K)` is the least number of directions, fixed in advance, that
+  illuminate every boundary point. The illumination conjecture of Hadwiger and
+  Boltyanski (Conjecture 1.2 of the survey of Bezdek and Khan, 2018) states
+  that `I(K) ≤ 2^d` for every convex body in `R^d`, `d ≥ 3`, with equality
+  only for affine cubes; in dimension 3 it is open, and the best general bound
+  in the peer-reviewed literature known to the agents is 14 (Prymak). In
+  dimension 3 it is known for several classes, among them centrally symmetric
+  bodies (Lassak), bodies symmetric about a plane (Dekster) and bodies with
+  `md K = 2` (Boltyanski); Wu and Zhou (Contrib. Discrete Math. 14 (2019))
+  settled the convex hulls of two compact convex sets in parallel planes, and
+  Livshyts and Tikhomirov showed that a convex body in `R^n`, `n ≥ 3`, close
+  enough to the cube that is not a parallelotope can be illuminated by `2^n −
+  1` directions.
+- **Theorem 1.** Let `Q = [0,1]³`, let `P = {x ∈ Q : x_1 + x_2 ≤ 1}` be the
+  triangular prism that forms half of `Q`, and let `E = {(1,1,z) : 0 ≤ z ≤ 1}`
+  be the edge of `Q` opposite to `P`. Every compact convex `K` with `P ⊆ K ⊆
+  Q` has `I(K) = 6` if `K` does not meet `E`, `I(K) = 7` if `K` meets `E` and
+  `K ≠ Q`, and `I(K) = 8` if `K = Q`. The bodies may have curved boundary.
+- The lower bounds are classical: one direction cannot illuminate two boundary
+  points that lie on opposite parallel supporting planes, so the six vertices
+  of `P`, a point of `E` in `K` and the eight vertices of `Q` need their own
+  directions. For the upper bounds, every boundary point is moved by a short
+  step into the interior of `P`, which lies in the interior of `K`.
+- Scope and earlier results: the lower bounds and the values for `P` and `Q`
+  are classical. Theorem 3.13 of Wu and Zhou gives the upper bound 7 for the
+  bodies that meet `E`, are not `Q` and are convex hulls of two sets in
+  parallel planes, their Theorem 3.5 gives the upper bound 6 for the bodies
+  that miss `E` and are the convex hull of their bottom and top faces, and the
+  theorem of Livshyts and Tikhomirov gives 7 for bodies close enough to `Q`;
+  none of these covers all bodies between `P` and `Q` (the paper gives
+  examples with curved boundary that none of them covers). What is new is only
+  the matching upper bounds 6 and 7 for all compact convex bodies between `P`
+  and `Q`. The family is a special coordinate family chosen for this purpose,
+  the argument is elementary, and the result says nothing about general convex
+  bodies and is not a step towards the illumination conjecture. The examples
+  that show that each case occurs and the transfer to affine images are not
+  formalized. Lean uses the form of the definition with one `t > 0`; its
+  equivalence with the form that requires all small `t > 0` was proved in Lean
+  only in an audit file of the final reviewer, which is not among the files of
+  the result.
+- Lean: `lean/Research/TaskV/Illumination/` (7 modules, 502 lines: the
+  statement file `Challenge.lean`, the proof modules `Lower.lean`,
+  `Planar.lean`, `Gaps.lean`, `Upper.lean` and `Result.lean`, and the check
+  file `Check.lean`; namespace `PrismIllumination`). `Challenge.lean` defines
+  `cube`, `prism` and `edge` as subsets of `Fin 3 → ℝ`, `Illuminates K u p`
+  (`p + t • u` lies in `interior K` for some `t > 0`), `CanLight K n` (some
+  `n` nonzero vectors, chosen before the boundary point, illuminate every
+  point of `frontier K`) and `Exact K n` (`n` is the least such number), and
+  states `Trichotomy` for every compact convex `K` with `prism ⊆ K ⊆ cube`,
+  with no polytope or regularity assumption. Two Codex agents that had written
+  neither the statement nor the proof read it against the written proof
+  (approvals at 03:52 UTC on 21 November 2026); it was compiled without
+  diagnostics and frozen at 03:53:24 UTC, and according to the file times and
+  the development logs all proof files were created after the freeze (the
+  development compilations began at 03:54:10 UTC). OpenAI Codex wrote the
+  statement and the proofs and checked them in two new empty directories on
+  the author's Mac (`certificates/illumination-prism-sandwich/lean-package/`);
+  the text was written by Claude Code. See the disclosure below for the
+  reviews.
+
+**Paper 30: [`papers/fei-nonflat-spectra`](papers/fei-nonflat-spectra/note.pdf).**
+*A product inequality for Walsh coefficients and two conditional Fourier entropy–influence bounds.* 9 pages.
+
+- For a Boolean function `f : {−1,1}^n → {−1,1}` let `p(S) = f̂(S)²` be its
+  Fourier masses, `H(f) = Σ p(S) lg(1/p(S))` its Fourier entropy and `I(f) = Σ
+  |S| p(S)` its total influence. The Fourier entropy–influence conjecture of
+  Friedgut and Kalai (Proc. Amer. Math. Soc. 124 (1996)) asks for an absolute
+  constant `C` with `H(f) ≤ C I(f)` for every Boolean function; O'Donnell,
+  Wright and Zhou (ICALP 2011) proved it for symmetric functions and for other
+  classes and gave the general bound `H(f) ≤ (1 + log n) I(f) + 1`. It is
+  open. Potapov (arXiv:2609.21563v1) proved `H(f) ≤ 4 I(f)` for plateaued
+  functions, whose nonzero Fourier coefficients all have the same absolute
+  value.
+- Let `U` be the Fourier support, `K` its number of elements, `t` the number
+  of nonempty sets in it and `W` the sum of their sizes. **Theorem 1:**
+  `2^(2W) ∏_{S ∈ U} f̂(S) = 2^t z` for a nonzero integer `z`. **Theorem 2:**
+  `H(f) ≤ lg K`, `K lg K ≤ Σ_{S ∈ U} lg(1/p(S))` and `Σ_{S ∈ U} lg(1/p(S)) +
+  2t ≤ 4W`. **Theorem 3:** if `δ > 0` and `δ ≤ K p(S)` for every `S ∈ U`, then
+  `δ (H(f) + 2t/K) ≤ 4 I(f)`. **Corollary 1:** if the nonzero coefficients
+  differ in absolute value by a factor at most `M ≥ 1`, then `H(f) ≤ 4M²
+  I(f)`. **Theorem 4:** the product statement of Theorem 1 for every part of
+  `U` that is upward closed in `U`. **Theorem 5:** if `L ≥ 1` and `p(S) ≤ L
+  p(T)` for all nonempty `S ⊆ T` in `U`, then `H(f) ≤ 4L I(f)`; the mass at
+  the empty set is unconstrained. All six hold for every `n ≥ 0` and every
+  Boolean function, without a balance or monotonicity assumption.
+- The main ingredient is an integer determinant: the coefficients on an upward
+  closed part of the support, scaled by finite differences that are integers,
+  are the diagonal of a triangular matrix of determinant 1 over the integers;
+  two applications of Jensen's inequality turn the product into the entropy
+  bounds.
+- Scope and earlier results: these are conditional bounds of modest
+  significance. The constants `4/δ` and `4L` grow without bound, `δ` is
+  exponentially small for many standard functions, and the paper shows that
+  neither condition holds with a uniform parameter for all Boolean functions,
+  so the results give no information on the general conjecture, which is not
+  proved here. The case of equal magnitudes of Theorem 3 and Corollary 1 (`δ =
+  1`, `M = 1`) is due to Potapov, with the constant 4; his proof also uses the
+  matrix of the inclusion order on the support, but over the field with two
+  elements, and the triangular matrix is not claimed as a new idea. What is
+  new, as far as the searches found, is Theorem 2 (with Theorems 1 and 4),
+  Theorem 3 for `δ < 1`, Corollary 1 for `M > 1` and Theorem 5; the closest
+  comparison found for Theorem 5 is a manuscript of Shmalo on equivalent forms
+  of the conjecture, which does not state a bound under this hypothesis. The
+  examples and remarks of Section 5 (the sharpness of the constant 4 for the
+  address function and for the AND function, and selector examples showing
+  that the two conditions are independent) and the identity between the
+  spectral and the flip form of the total influence are not formalized.
+- Lean: `lean/Research/TaskV/FEI/` (8 modules: the statement files
+  `Challenge.lean` and `UpperChallenge.lean`, the proof modules `Walsh.lean`,
+  `Determinant.lean`, `Analysis.lean`, `Layer.lean` and `UpperAnalysis.lean`,
+  and the check file `Check.lean`; namespace `Fei`). `Challenge.lean`
+  represents a point of `{−1,1}^n` by the set of its coordinates equal to `−1`
+  and a Boolean function by a map `Cube n → Bool`; it defines `coeff`,
+  `support` (the exact set of nonzero coefficients), `mass`, `entropy` (summed
+  over the support, which is the convention `0 lg(1/0) = 0`), `influence` (the
+  spectral form), `weightSum` and `nonemptyCount`, and states `SignedProduct`,
+  `SupportEntropy`, `LowerMassFEI` and `BoundedRatioFEI` (Theorems 1 to 3 and
+  Corollary 1); `UpperChallenge.lean` states `UpperProduct` and
+  `ComparableMassFEI` (Theorems 4 and 5). None of the statements encodes the
+  general conjecture. Each statement file was compared with the written proof
+  by a Codex agent that had not written it, compiled without diagnostics and
+  frozen on 21 November 2026, `Challenge.lean` at 03:58:46 UTC and
+  `UpperChallenge.lean` at 04:02:30 UTC; the development receipts record no
+  compilation of a proof file before 03:58:46 UTC, and two proof files,
+  `Walsh.lean` and `Analysis.lean`, were last changed at 04:01 UTC, after the
+  approval of `UpperChallenge.lean` but before its freeze. `Check.lean` does
+  not have the form `check_X := Proof.X` of the other papers (there is no
+  `Proof.lean`): each of its six theorems has a frozen proposition as its type
+  and composes proof lemmas in its body (for example, `check_signedProduct` is
+  obtained from `check_upperProduct`). OpenAI Codex wrote the statements and
+  the proofs and checked them in two new empty directories on the author's Mac
+  (`certificates/fei-nonflat-spectra/lean-package/`); the text was written by
+  Claude Code. See the disclosure below for the reviews.
+
+**Paper 31: [`papers/durer-crossed-roofs`](papers/durer-crossed-roofs/note.pdf).**
+*A Lean-verified strict edge net for crossed polygonal roofs over a parallelogram.* 9 pages.
+
+- Dürer's problem asks whether every convex polyhedron can be cut along its
+  edges and unfolded flat to a single nonoverlapping simple polygon, a net
+  (Problem 9 of The Open Problems Project; stated by Shephard in 1975); it is
+  open. The classes of convex polyhedra known to have edge unfoldings to nets
+  are listed by Demaine and O'Rourke (Section 22.5 of *Geometric Folding
+  Algorithms* and its update of September 2025), among them prismoids, domes,
+  tall or rectangular-base prismatoids, nested prismatoids and polyhedra with
+  a Hamiltonian quasigeodesic (O'Rourke).
+- A crossed-roof solid lies over a parallelogram with sides parallel to unit
+  vectors `u` and `v`, `u · v = c` with `−1 < c ≤ 0`, between a roof that is
+  the graph of a concave piecewise linear function of the `u`-coordinate
+  (ridges parallel to `v`) and a floor that is the graph of a convex piecewise
+  linear function of the `v`-coordinate (ridges parallel to `u`), the roof
+  strictly above the floor, with four vertical walls and any numbers `n, m ≥
+  1` of roof and floor facets. **Theorem 1:** for every such solid, explicit
+  planar maps of the roof, of the four walls `A`, `B`, `C`, `D` and of the
+  floor are isometric on each facet, and two surface points have the same
+  image if and only if they are the same point and it lies on every chart
+  between theirs in the order roof, `A`, `B`, `C`, `D`, floor (no overlap and
+  no boundary contact beyond the hinges). **Theorem 2:** there is such a solid
+  with `c = −1/2` and two roof and two floor facets (an oblique example).
+  **Corollary 1** (written argument): every crossed-roof solid has a strict
+  edge net, whose cut edges form a Hamiltonian path.
+- The roof and the floor each unroll to a monotone strip attached to the band
+  of walls; the argument is elementary and does not use convexity, which is
+  needed only to know that the solid is a convex polyhedron with the facets
+  described.
+- Scope and earlier results: this is a special case, not progress on the
+  general problem. For a rectangular base (`c = 0`) these solids have a
+  Hamiltonian quasigeodesic, so a net (with boundary contact allowed) exists
+  by O'Rourke's theorem (arXiv:2206.05353v3), and only the strictness of this
+  particular net is added; for the oblique example the paper shows that
+  O'Rourke's theorem does not apply, but this is not shown for every oblique
+  member. Members with one roof facet or one floor facet are prismatoids, some
+  of which may be covered by the tall case of Bian, Demaine and Madhukara;
+  Miah (Zenodo, 2026) gave edge unfoldings for a family of prismatoids with a
+  parallelogram base. The searches found no published edge-unfoldable class
+  containing the oblique members with `n, m ≥ 2`, and no further novelty is
+  claimed. Lean proves Theorems 1 and 2; that the solid is a convex polyhedron
+  with the facets described, that the cut edges form a Hamiltonian path and
+  that the cut surface is a disk whose image is a simple polygon (Corollary
+  1), the reduction to `c ≤ 0` and Section 4 are written arguments and are not
+  formalized.
+- Lean: `lean/Research/TaskV/Durer/` (8 modules: the statement file
+  `Challenge.lean`, the proof modules `Arc.lean`, `Metric.lean`,
+  `Contacts.lean`, `Example.lean` and `Proof.lean`, the check file
+  `ExactTests.lean` and the audit file `Audit.lean`, which prints the
+  definitions and the axioms; namespace `DurerDV`). `Challenge.lean` defines a
+  `Profile` (knots, slopes and a function that is tight on each supporting
+  line exactly on its own piece, hence concave and bending at every interior
+  knot) and a `Solid` (two profiles, `c` and the gap between roof and floor),
+  the six charts, the embedding in Cartesian coordinates, the planar maps
+  `flat`, `welded` (the same point, lying on every chart in between) and
+  `arcValid` (the properties of the two functions that unroll the roof and the
+  floor), and states `StrictRoofNet` (Theorem 1, for every solid) and
+  `ObliqueExample` (Theorem 2). The written proof was approved by a Codex
+  agent that had not developed the construction; the statement file was
+  compiled without diagnostics, approved by a Codex agent that had written
+  neither the statement nor the proofs and frozen on 21 November 2026 at
+  03:57:26 UTC; according to the compilation logs no proof file was compiled
+  before 03:57:57 UTC. Two draft statement files of a stronger, face-by-face
+  version, which were never frozen or proved, are not part of the repository.
+  OpenAI Codex wrote the statement and the proofs and checked them in two new
+  empty directories on the author's Mac
+  (`certificates/durer-crossed-roofs/lean-package/`); the text was written by
+  Claude Code. See the disclosure below for the reviews.
+
 **Also formalized (known results): OEIS A246056 and A376230.** Both are
 Hanna conjectures listed as open on the OEIS, but their content follows from
 published theorems, so we claim no new mathematics here:
@@ -2047,6 +2365,10 @@ no error of version 2.
 | Paper 25: Theorem 1 (`T` is a lattice 3-simplex with lattice diameter 1 and Minkowski length 2; for every `d ≥ 3` such a `d`-simplex exists) and Theorem 2 (`U` has `L(U) = 1` and `L(tU) = 3t` for every `t ≥ 2`, so `L(tU)` is not quasi-linear; the same in every dimension `d ≥ 3`), with the steps of the proof (segments and corners, the lattice points and the absence of three-segment sums in `T`, the cost bound and the segments in `2U` and `3U`, lattice pyramids) | `TaskP.GeomSimplex.check_TetrahedronDiameter`, `check_TetrahedronDilations`, `check_EveryDimensionDiameter`, `check_EveryDimensionDilations` (`lean/Research/TaskP/GeomSimplex/CheckSimplex.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `98fdde38…80a4`); proved by the theorems of the same names in `TaskP.GeomSimplex.Proof` | the 16 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (20 November 2026, 18:25–18:31 UTC; 66 commands with exit code 0, identical `.olean` files), again by the final reviewer in a third new directory, with warnings treated as errors (20:57–21:00 UTC), the repository versions again by Claude Code in two new empty directories on the author's Mac (21:04–21:16 UTC), and all 16 in the whole-project rebuild of version 1.25.0 (`certificates/minkowski-length-simplices/lean-package/`); the axiom lists of the four checks are exactly the three standard axioms; the finite tables (triples and quadruples of lattice points) and the witness inequalities are checked by `decide` in the kernel, no `native_decide`; the final reviewer also recomputed the lattice points and segment sums in Python, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Corollary 1 for `d ≤ 2` (a result of the source), the periodicity remark, the remarks of Section 6 (the identity `L_1(P) = ⌊λ_1(P)⌋` and Remark 2.21 of the source), and what the paper says about the literature |
 | Paper 26: Theorem 1 (Conjecture B: for all `1 ≤ i ≤ n`, every linear surjection `p` with `p(Z^n)` a lattice satisfies `p(Z^n) + (i/2) p(T_n) = R^i`, and for some such `p` the scale `i/2` is the least one), Theorem 2 (Conjecture C: `Z^d + rS = R^d` with `r = (D_0 + … + D_d)/(2V)` for every simplex with primitive vertex directions and the origin in its interior, in every dimension `d ≥ 1`) and Theorem 2′ (the same with Lebesgue measures of projected sets), with the steps of the proofs (Hermite's identity and the averaging lemma, the kernel rounding by splitting, the upper and lower bounds for `T_n`, the integer relation and the determinant identities, the rounding and padding, the projections and their measures) | `TaskS.B.check_ConjectureB` (`lean/Research/TaskS/B/CheckB.lean`) and `TaskS.C.check_conjectureC` (`lean/Research/TaskS/C/CheckC.lean`) and `TaskS.C.MeasureAudit.check_conjectureC` (`lean/Research/TaskS/C/MeasureAudit/CheckC.lean`), whose types are the frozen statements of `B/Challenge.lean` (SHA-256 `458363b3…58b7`) and `C/Challenge.lean` (SHA-256 `607e2915…1a57e`); proved by `TaskS.B.Proof.ConjectureB` and `TaskS.C.Proof.conjectureC`; Theorem 2′ is `TaskS.C.MeasureModel.measured_conjectureC` | built and checked with `leanchecker` by Codex in two new empty directories each, with warnings treated as errors (20 November 2026: Theorem 1, 12 modules, 22:34–22:40 UTC, 50 commands; Theorem 2, 9 modules, 22:33–22:38 UTC, 38 commands; Theorem 2′, 14 modules, 22:38–22:44 UTC, 58 commands; all with exit code 0 and identical `.olean` files), again by each of the four final reviewers in a new directory (22:43–23:16 UTC), the 25 repository versions again by Claude Code in two new empty directories on the author's Mac (23:11–23:18 UTC), and all 25 in the whole-project rebuild of version 1.25.0 (`certificates/css-covering-minima/lean-package/`); the axiom lists are exactly the three standard axioms; no `decide`, no `native_decide`; the final reviewers also tested the averaging lemma, covering radii of more than 11,000 projections of `T_n` (`n ≤ 5`, `i ≤ 4`) and the bound of Conjecture C numerically, and Claude Code checked three lemmas numerically, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Corollary 3 (the d/2 bound of Conjecture A), the remarks of Section 5, the independence of the projected volumes from the choice of projection (Lemma 11), and what the paper says about the literature |
 | Paper 27: Theorem 1 (the value set `S(H_5)`: for every integer `m`, `m` is a group determinant of `H_5` with integer entries if and only if `m^4 ≡ 1 (mod 125)`, `5^33 ∣ m`, or `m = 5^28·n` with `n ≠ 0` divisible by a visible prime) and Corollary 1 (the least positive value divisible by 5 is `11·5^28`, attained by `1 + x + y + y² + xy²`), with the steps of the proofs (the factorization derived from the matrix itself, the normalization, the congruence for `D`, the bound `5^28`, the phases and the cancellation of the trace, the residues of the units, the prime extraction, both directions for the values prime to 5, the seeds, the exact lift and the constructions) | `TaskU.H5.Check.check_witnessValue` and `TaskU.H5.Check.check_leastPositiveMultiple` (`lean/Research/TaskU/H5/Check.lean`) and `TaskU.H5.check_fullSpectrum` (`lean/Research/TaskU/H5B/CheckB.lean`), whose types are the frozen statements of `H5/Challenge.lean` (SHA-256 `9a9a0e18…1343`) and `H5B/ChallengeB.lean` (frozen version SHA-256 `2a5066bf…9ea6`; the repository version differs only in its `import` lines); proved by `TaskU.H5.Proof.witnessValue`, `TaskU.H5.Proof.leastPositiveMultiple` and `TaskU.H5.ProofB.fullSpectrum`; the class number one of `Q(ζ_5)` is taken from Mathlib's proved theorem | built and checked with `leanchecker` by Codex in two new empty directories each, with warnings treated as errors (21 November 2026: the minimum, 37 modules, 01:42:55–01:56:09 UTC, 150 commands; the classification, all 63 modules, 03:33:17–03:55:22 UTC, 254 commands; all with exit code 0 and identical `.olean` files), again by each of the three final reviewers in a new directory (03:21–04:55 UTC), the 63 repository versions again by Claude Code in two new empty directories on the author's Mac (17:02–17:22 UTC), and all 63 in the whole-project rebuild of version 1.25.0 (`certificates/heisenberg-125-determinants/lean-package/`); the axiom lists are exactly the three standard axioms (two audit lemmas use fewer); all uses of `decide`, including the large tables, are checked by the kernel, and there is no `native_decide`; the final reviewers recomputed the witness determinant by exact elimination on the 125 × 125 matrix and tested the classification on random integer functions (4,650 exact determinants in one review; about 300,000 evaluations through the factorization, checked against 140 full determinants, in the other) without finding a counterexample, and Claude Code recomputed the determinants of the witness and of the example of Mossinghoff and Pinner, the group `U` and the visible primes below 6000, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Corollary 2 (a two-line deduction from Theorem 1), Remark 1, Lemma 2 (not needed for Theorem 1), and what the paper says about the literature |
+| Paper 28: Theorem 1 (for every `n ≥ 1`, `c(Z^n, 5) = g(Z^n, 5) = v(n)` with `v(1) = 2`, `v(2) = 7`, `v(3) = 18` and `v(n) = 2^(n+1) + 5` for `n ≥ 4`: the value of `c` for finite families of arbitrary convex sets, from its definition, and that of `g` for lattice polytopes of any dimension with exactly five non-vertex lattice points, boundary points included), with the steps of the proof (the transfer between convex sets and polytopes, the midpoint lemma and the charging inequality, the capacities for `n = 3`, the planar table and obstruction, the polytopes `P_2`, `P_3`, `P_4`, `Q_±` and the lift; Theorem 2 is `TaskT.HellyFive.Proof.poly_bound`) | `TaskT.HellyFive.check_ExactHellyFive` and `check_ExactVertexFive` (`lean/Research/TaskT/HellyFive/Check.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `faf32ea5…6d26`); proved by `TaskT.HellyFive.Proof.ExactHellyFive` and `Proof.ExactVertexFive`; four audit modules (`BridgeAudit`, `FiniteAudit`, `FiniteHellyLower`, `UpperTransferAudit`), on which the proof does not depend | the 31 modules of the proof built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (21 November 2026, 01:36–02:13 UTC; 126 commands with exit code 0, identical `.olean` files; up to 14.01 GB of memory for one command), all 35 files again by each of the two final reviewers in a new directory (03:22–04:28 UTC), the 35 repository versions again by Claude Code in two new empty directories on the author's Mac (22 November 2026, 21:08–21:33 UTC), and all 35 in the whole-project rebuild of version 1.26.0 (`certificates/quantitative-helly-five/lean-package/`); the axiom lists of the two checks are exactly the three standard axioms (one lemma of an audit module uses fewer); the classification tables and the certificate checks use `decide`, checked by the kernel, and there is no `native_decide`; the final reviewers recomputed the polytopes and the capacity tables, one of them enumerated the 33,041 convex lattice polygons in `[0,4]²` (recovering the values `g(Z², k)` of Averkov et al. for `k ≤ 8`) and the other checked the lift for `n = 5, 6`, and Claude Code recomputed the vertices and lattice points of the polytopes, with programs that are not published; not checked with comparator or nanoda (see below). Not formalized: Remark 1 (other values of `k`), the link with the number `c(n, k)` of Aliev et al. for systems `Ax ≤ b`, the written case analysis of Remark 2 (not used), and what the paper says about the literature |
+| Paper 29: Theorem 1 (for every compact convex `K` with `P ⊆ K ⊆ Q`: `I(K) = 6` if `K` misses `E`, 7 if `K` meets `E` and `K ≠ Q`, 8 if `K = Q`; a direction `u` illuminates a boundary point `p` if `p + t u` is in the interior of `K` for some `t > 0`, and the directions are fixed before the boundary point; no polytope or regularity assumption), with the steps of the proof (the sign lemma and the lower bounds, the planar steps, the gap lemmas, the upper bounds through the interior of `P`) | `PrismIllumination.check_trichotomy` (`lean/Research/TaskV/Illumination/Check.lean`), whose type is the frozen statement `Trichotomy` of `Challenge.lean` (SHA-256 `2fd9927a…be6d`); proved by `PrismIllumination.prism_trichotomy` | the 7 modules built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (21 November 2026, 04:02–04:50 UTC, interrupted at about 04:04 UTC when the Codex session reached its usage limit and resumed at 04:47 UTC; 34 commands with exit code 0, identical `.olean` files, and an audit of the axioms of 23 declarations), again by the final reviewer in a new directory (04:52–04:54 UTC), the 7 repository versions again by Claude Code in two new empty directories on the author's Mac (22 November 2026, 21:34–21:36 UTC), and all 7 in the whole-project rebuild of version 1.26.0 (`certificates/illumination-prism-sandwich/lean-package/`); the axiom lists of Codex's audit and of the final reviewer's are exactly the three standard axioms (the files themselves print no axioms); `decide` is used only on finite predicates and trivial facts, checked by the kernel, and there is no `native_decide`; the final reviewer compared the theorem with a floating-point linear-programming computation of the illumination numbers of 9 polytopes and 300 random polytopes, which agreed in every case (a check, not a certificate; its program is in the certificate archive); not checked with comparator or nanoda (see below). Not formalized: the examples that show that each case occurs, the transfer to affine images, the equivalence of the two forms of the definition (proved only in an audit file of the final reviewer), and what the paper says about the literature |
+| Paper 30: Theorems 1 to 5 and Corollary 1 (for every `n ≥ 0` and every Boolean function `f`: Theorem 1, the product of the nonzero Fourier coefficients times `2^(2W)` is `2^t` times a nonzero integer; Theorem 2, `H(f) ≤ lg K`, `K lg K ≤ Σ lg(1/p(S))` and `Σ lg(1/p(S)) + 2t ≤ 4W` over the Fourier support; Theorem 3, `δ (H(f) + 2t/K) ≤ 4 I(f)` when `δ > 0` and `δ ≤ K p(S)` on the support; Corollary 1, `H(f) ≤ 4M² I(f)` when the nonzero coefficients differ in absolute value by a factor at most `M`; Theorem 4, the product statement for every upward closed part of the support; Theorem 5, `H(f) ≤ 4L I(f)` when `p(S) ≤ L p(T)` for all nonempty `S ⊆ T` in the support), with the steps of the proof (orthogonality, inversion and Parseval, the finite differences, the triangular determinant, the logarithmic lemma and the two Jensen steps, the layer sums and the majorant) | `Fei.check_signedProduct`, `check_supportEntropy`, `check_lowerMassFEI`, `check_boundedRatioFEI`, `check_upperProduct` and `check_comparableMassFEI` (`lean/Research/TaskV/FEI/Check.lean`), whose types are the frozen statements of `Challenge.lean` (SHA-256 `b277a582…53c6`) and `UpperChallenge.lean` (frozen version SHA-256 `0731c4d4…03ab`; the repository version differs only in its `import` line); there is no `Proof` module: each check theorem composes the proof lemmas in its body (see the certificate) | the 8 modules and Codex's root module built and checked with `leanchecker` by Codex in two new empty directories, with warnings treated as errors (21 November 2026, 05:05–05:11 UTC; 46 commands with exit code 0, identical `.olean` files), again by the final reviewer in a new directory (17:03–17:09 UTC), the 8 repository versions again by Claude Code in two new empty directories on the author's Mac (22 November 2026, 21:36–21:39 UTC), and all 8 in the whole-project rebuild of version 1.26.0 (`certificates/fei-nonflat-spectra/lean-package/`); the axiom lists of the six checks are exactly the three standard axioms; no `decide`, no `native_decide`; a Codex reviewer of the written proof checked all 278 Boolean functions with `n ≤ 3` and 3,460 upper sets (its program is in the certificate archive), the final reviewer tested the six statements exactly on these 278 functions and on 3,998 random functions with `4 ≤ n ≤ 7`, and Claude Code recomputed Theorems 1, 3 and 5 on 1,178 functions, all without finding a violation (the programs of the final reviewer and of Claude Code are not published); not checked with comparator or nanoda (see below). Not formalized: the examples and remarks of Section 5 (the address function, the AND function, the selector examples), the identity between the spectral and the flip form of the total influence, and what the paper says about the literature |
+| Paper 31: Theorem 1 (for every crossed-roof solid, with any numbers of roof and floor facets and `−1 < c ≤ 0`: there are increasing functions `U` and `V` with the stated slopes such that the planar maps of the six charts are isometric on each wall, roof facet and floor facet, and two points of closed charts have the same image if and only if they are the same point and it lies on every chart between theirs in the order roof, `A`, `B`, `C`, `D`, floor) and Theorem 2 (an oblique member with `c = −1/2`, `a = b = 2` and two roof and two floor facets), with the steps of the proof (the functions `U` and `V`, the metric identity, the case analysis of the contacts, the example) | `DurerDV.checkStrictRoofNet` and `checkObliqueExample` (`lean/Research/TaskV/Durer/ExactTests.lean`), whose types are the frozen statements `StrictRoofNet` and `ObliqueExample` of `Challenge.lean` (SHA-256 `7729aa00…7dfb`); proved by `DurerDV.strictRoofNet` and `obliqueExample`; `Audit.lean` prints the definitions and the axioms | the 8 modules built and checked with `leanchecker` by Codex in two new empty directories, any warning or error counting as a failure (21 November 2026, 04:56–05:01 UTC; 40 commands with exit code 0, identical `.olean` files), again by the final reviewer in a new directory (17:08–17:10 UTC), the 8 repository versions again by Claude Code in two new empty directories on the author's Mac (22 November 2026, 21:39–21:40 UTC), and all 8 in the whole-project rebuild of version 1.26.0 (`certificates/durer-crossed-roofs/lean-package/`); the axiom lists are exactly the three standard axioms; `decide` only compares ranks of charts and small numbers, checked by the kernel, and there is no `native_decide`; the final reviewer compared the Lean maps with a generic hinge-by-hinge unfolding of the convex hull for 300 random members and for 300 with non-convex profiles and found no defect (its program is in the certificate archive), and Claude Code recomputed the net of the example and the angles of Section 4; not checked with comparator or nanoda (see below). Not formalized: Corollary 1 (that the maps give a net: that the solid is a convex polyhedron with the facets described, that the cut edges form a Hamiltonian path and that the cut surface is a disk whose image is a simple polygon), the reduction to `c ≤ 0`, Section 4 (the rectangular case, the angle check showing that O'Rourke's theorem does not apply to the example, the comparison with other classes), and what the paper says about the literature |
 
 Each OEIS theorem is stated for every integer power series satisfying the
 defining equation. The energy is `∑ |eigenvalues|`, using
@@ -2592,13 +2914,44 @@ lists printed for the check theorems of Papers 17 to 27 consist of exactly
 these three. Outside comments, the forbidden tokens occur only as the
 intentional `sorry`s of the comparator challenge files
 (`logs/clean-replay-v1.25.0-forbidden-tokens.log`).
-`logs/lean-sources-sha256.txt` lists 3998 files. The full record, with both
+`logs/lean-sources-sha256.txt` listed 3998 files. The full record, with both
 passes, is in `logs/clean-replay-v1.25.0-receipt.json`, and the logs of every
 module are in `logs/clean-replay-v1.25.0-logs.tar.gz`.
 
+For version 1.26.0, which adds the 58 Lean files of Papers 28 to 31 (in
+`lean/Research/TaskT/HellyFive/` and in `lean/Research/TaskV/Illumination/`,
+`lean/Research/TaskV/FEI/` and `lean/Research/TaskV/Durer/`) and four `import`
+lines in `lean/Research.lean` (`Research.TaskT.HellyFive.Check`,
+`Research.TaskV.Illumination.Check`, `Research.TaskV.FEI.Check` and
+`Research.TaskV.Durer.ExactTests`), the whole project, 4046 modules (the 3988
+of version 1.25.0 and the 58 new ones), was rebuilt in one pass from a new
+empty directory on the author's Windows computer, from 21:41 UTC on 22
+November 2026 to 11:03 UTC on 23 November 2026, with up to 12 jobs
+(compilation until 05:25 UTC, then `leanchecker`); the sources were
+`lean/Research.lean` and `lean/Research/` of the release tree. Every module compiled, and every module except `Research` passed `leanchecker`, without a second attempt; no attempt ended with a Lean error or for
+lack of memory or file access. According to a recursive file listing taken
+after the rebuild, no file in the directories of OpenAI Codex on that computer
+was written or created during the rebuild. After the rebuild the SHA-256
+hashes of all 4048 files of the source directory (4046 Lean files and two
+Python generator scripts) were compared with `lean/Research.lean` and
+`lean/Research/`: no difference; the directory `lean/Comparator/` was not
+rebuilt here (it is unchanged since version 1.13.0, and the CI workflow checks
+it). All 4046 modules compiled, with the same 97 warning lines in 15 older
+modules as for versions 1.21.0 to 1.25.0, none in Papers 28 to 31, and with no
+error and no `sorry`, and 4045 modules passed `leanchecker`; the remaining one
+is the module `Research`, which has only imports and no constants and was
+exempted, as before. All 116,908 printed axiom lists are subsets of the three
+axioms above; the lists printed for the check theorems of Papers 28, 30 and 31
+consist of exactly these three, and the files of Paper 29 print none. Outside
+comments, the forbidden tokens occur only as the intentional `sorry`s of the
+comparator challenge files (`logs/clean-replay-v1.26.0-forbidden-tokens.log`).
+`logs/lean-sources-sha256.txt` lists 4056 files. The full record is in
+`logs/clean-replay-v1.26.0-receipt.json`, and the logs of every module are in
+`logs/clean-replay-v1.26.0-logs.tar.gz`.
+
 ### Comparator check of the completely formalized papers
 
-The completely formalized papers other than Papers 1, 2, 7 and 11 to 27 are also checked with
+The completely formalized papers other than Papers 1, 2, 7 and 11 to 31 are also checked with
 [comparator](https://github.com/leanprover/comparator). For each such paper,
 a challenge file in `lean/Comparator/` states the
 checked theorems with `sorry` proofs and imports only the paper's frozen
@@ -2652,8 +3005,10 @@ for version 1.22.0 for the same papers
 ([run 44371642744](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44371642744)),
 for version 1.23.0 for the same papers
 ([run 44530821691](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44530821691)),
-and for version 1.24.0 for the same papers
-([run 44671967866](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44671967866)).
+for version 1.24.0 for the same papers
+([run 44671967866](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/44671967866)),
+and for version 1.25.0 for the same papers
+([run 45045963062](https://github.com/Horace-Maxwell/ai4math-results/actions/runs/45045963062)).
 Paper 6 is not in the workflow: a comparator run of its 35 theorems takes much
 longer than those of the other papers (more than 30 minutes on the computer
 used for version 1.13.0), and we have not tried it on GitHub's machines. It was
@@ -2729,7 +3084,7 @@ the whole project described above, but not by an independent kernel;
 `lean/Research/TaskL/Semigroup/CheckSemigroup.lean` restates the frozen
 statements.
 
-**Papers 17 to 27 have not been checked with comparator or nanoda.** They
+**Papers 17 to 31 have not been checked with comparator or nanoda.** They
 have no challenge files in `lean/Comparator/` and no configuration in
 `ci/comparator/`. Their proofs have been replayed by the Lean kernel with
 `leanchecker` in Codex's two builds of each package, in the build of each
@@ -2747,8 +3102,11 @@ not by an independent kernel; the files
 `lean/Research/TaskP/GeomSimplex/CheckSimplex.lean`,
 `lean/Research/TaskS/B/CheckB.lean`, `lean/Research/TaskS/C/CheckC.lean`,
 `lean/Research/TaskS/C/MeasureAudit/CheckC.lean`,
-`lean/Research/TaskU/H5/Check.lean` and `lean/Research/TaskU/H5B/CheckB.lean`
-restate the frozen statements.
+`lean/Research/TaskU/H5/Check.lean`, `lean/Research/TaskU/H5B/CheckB.lean`,
+`lean/Research/TaskT/HellyFive/Check.lean`,
+`lean/Research/TaskV/Illumination/Check.lean`,
+`lean/Research/TaskV/FEI/Check.lean` and `lean/Research/TaskV/Durer/ExactTests.lean`
+restate the frozen statements (those of Paper 30 by composing the proof lemmas).
 
 For version 1.13.0, the same comparator, lean4export and nanoda versions were
 run locally by OpenAI Codex on 9 October 2026, on macOS, where the landrun
@@ -2857,6 +3215,10 @@ lake build Research.TaskS.C.CheckC  # Paper 26, Theorem 2: restates the frozen s
 lake build Research.TaskS.C.MeasureAudit.CheckC  # Paper 26, Theorem 2′: the measured form and conjectureC, printing the axioms
 lake build Research.TaskU.H5.Check  # Paper 27, Corollary 1: restates the two frozen statements witnessValue and leastPositiveMultiple, printing the axioms
 lake build Research.TaskU.H5B.CheckB  # Paper 27, Theorem 1: restates the frozen statement fullSpectrum, printing the axioms
+lake build Research.TaskT.HellyFive.Check  # Paper 28: restates the two frozen statements ExactHellyFive and ExactVertexFive, printing the axioms
+lake build Research.TaskV.Illumination.Check  # Paper 29: restates the frozen statement Trichotomy (the file prints no axioms)
+lake build Research.TaskV.FEI.Check  # Paper 30: proves the six frozen statements from the proof lemmas, printing the axioms
+lake build Research.TaskV.Durer.ExactTests Research.TaskV.Durer.Audit  # Paper 31: restates StrictRoofNet and ObliqueExample, printing the axioms; Audit also prints the definitions
 ```
 
 Toolchain: Lean 4.34.1, mathlib v4.34.1 (commit `d13f23b723b8a846827a245b89c10fc7d3f11612`).
@@ -3021,7 +3383,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Layout
 
-- `papers/`: LaTeX sources and PDFs of the twenty-seven papers.
+- `papers/`: LaTeX sources and PDFs of the thirty-one papers.
 - `ATTEMPTS.md`: every problem we worked on, and what became of it.
 - `certificates/icg-q3-general/`: programs, logs and reviews for versions 1.1 to 1.5 of Paper 1, kept as records and not used by versions 2 and 3; `certificates/icg-q3-general/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 1, version 2; `certificates/icg-q3-general/lean-package-v3/`: the same for version 3 (115 modules: the 70 of version 2 and the 45 of `lean/Research/TaskE/`).
 - `certificates/icg-equal-parity/`: programs, logs and a negative control for Theorem 3 and Proposition 15 of Paper 1, version 1.5 (Proposition 15 is withdrawn in version 2); `PROOF-working-note.md` is the working note.
@@ -3053,10 +3415,14 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 - `certificates/minkowski-length-simplices/lean-package/`: the same for the Lean files of Paper 25.
 - `certificates/css-covering-minima/lean-package/`: the same for the Lean files of Paper 26 (both statements, three acceptance receipts and the four final reviews).
 - `certificates/heisenberg-125-determinants/lean-package/`: the same for the Lean files of Paper 27 (both statement files, the acceptance receipts, among them that of an earlier attempt that was stopped, and the three final reviews).
+- `certificates/quantitative-helly-five/lean-package/`: the same for the Lean files of Paper 28 (the 31 modules of Codex's acceptance run, the four audit modules, and the two final reviews).
+- `certificates/illumination-prism-sandwich/lean-package/`: the same for the Lean files of Paper 29 (an acceptance run that was interrupted at the usage limit of Codex and resumed, and an earlier attempt that was stopped).
+- `certificates/fei-nonflat-spectra/lean-package/`: the same for the Lean files of Paper 30 (both statement files, and an earlier attempt that stopped before building).
+- `certificates/durer-crossed-roofs/lean-package/`: the same for the Lean files of Paper 31 (and two earlier attempts that stopped at setup errors).
 - `certificates/oeis-hanna/lean-package-v2/`: the manifest, receipt and build logs of the Lean package of Paper 2, version 2.
 - The files `PROOF-working-note.md` and `CONTRACT.md` in these folders are the agents' working records; they may refer to files that are not included here.
-- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper1/` (Paper 1, version 2; statement files `Challenge.lean` and `SupplementStatements.lean`, tests `ChallengeTests.lean` and `NarrowContractTests.lean`, the proof modules in the same directory, with no `Proof/` folder, and the check file `FinalContractAudit.lean`; the proofs also use the older modules `lean/Research/ICG*.lean`), `lean/Research/TaskE/` (Paper 1, version 3; the main statement file `Challenge.lean`, six auxiliary statement files `Challenge*.lean`, the tests `StatementTests.lean`, the proof modules in the same directory, with no `Proof/` folder, `Main.lean` with the main theorem, and the check file `FinalTaskEAudit.lean`; the proofs also use the modules of version 2), `lean/Research/Backfill/Paper2/` (Paper 2, version 2; the proof modules are in the same directory, with no `Proof/` folder), `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9), `lean/Research/WordRepTensor/` (Paper 10; version 2 adds `TaskF/`) and `lean/Research/CographDist/` (Paper 11; the statement file `Challenge.lean`, the tests `ChallengeTests.lean`, the proof modules `Family.lean`, `Eigen.lean` and `Main.lean` in the same directory, with no `Proof/` folder, and the check file `Audit.lean`) and `lean/Research/TaskG/` (Paper 12; the statement file `Challenge.lean`, which reuses the definitions of `lean/Research/AxialMSZ/Challenge.lean`, the proof modules `Data.lean`, `Axes.lean`, `Forms.lean`, `Automorphism.lean`, `Simplicity.lean` and `Main.lean` in the same directory, with no `Proof/` folder and no separate tests, and the check file `Check.lean`) and `lean/Research/TaskH/` (Paper 13; the statement files `Challenge.lean`, `CaseFive.lean`, `CaseSix.lean` and `CaseSeven.lean`, the tests `ExactTests.lean`, `ExactTestsFive.lean`, `ExactTestsSix.lean` and `ExactTestsSeven.lean`, the main files `MainFour.lean` to `MainSeven.lean`, the proof modules in the same directory and in `Five/`, `Six/` and `Seven/`; `Seven/SevenCheck.lean` restates the case `k = 7`; for all `k` (version 2), the assembly `OriginalQuestionTwoAssembly.lean`, the tests `OriginalQuestionTwoTests.lean`, and the proof modules in `General/`, `Gao/`, `Fan/` and `Bai/`), `lean/Research/TaskJ/Rank/` (Paper 14; the statement file `Challenge.lean` for Theorems 1 and 2, the proof modules `Parameters.lean`, `RankValues.lean` and `Proof.lean` and the check file `CheckRank.lean`, and in `Extension/` the statement file `Challenge.lean` for Theorem 3, eight proof modules and the check file `CheckExtension.lean`; no separate tests), `lean/Research/TaskJ/Grid/` (Paper 15; the statement file `Challenge.lean`, the 25 proof modules `Grid*.lean`, `Proof.lean` and the check file `CheckGrid.lean`; no separate tests), `lean/Research/TaskL/Semigroup/` (Paper 16; the statement file `Challenge.lean`, the 9 proof modules `Foundations.lean`, `FBase.lean`, `AlgebraCore.lean`, `AlgebraSwap.lean`, `Algebra.lean`, `CoverStep.lean`, `Terminal.lean`, `Interval.lean` and `Even.lean`, `Proof.lean` and the check file `CheckSemigroup.lean`; no separate tests), `lean/Research/TaskN/Antichain/` (Paper 17; the statement file `Challenge.lean`, the 8 proof modules `Numeric.lean`, `TreeCode.lean`, `GraphTransport.lean`, `TreeRoot.lean`, `BridgeWeights.lean`, `SequenceGraph.lean`, `TreePolynomial.lean` and `CompareCore.lean`, `Proof.lean` and the check file `CheckAntichain.lean`; no separate tests), `lean/Research/TaskN/Parking/` (Paper 18; the statement file `Challenge.lean`, the 9 proof modules `ParkGaps.lean`, `ParkSums.lean`, `ParkClassification.lean`, `SpacingWord.lean`, `SpacingPalCount.lean`, `ParkWalk.lean`, `ParkPrefix.lean`, `ParkBand.lean` and `SpacingCount.lean`, `Proof.lean` and the check file `CheckParking.lean`; no separate tests), `lean/Research/TaskP/PrimeMedialRacks/` (Paper 19; the statement file `Challenge.lean`, the 10 proof modules `IsoTransfer.lean`, `DisplacementData.lean`, `DisplacementGroup.lean`, `PrimeOrbits.lean`, `PrimeAction.lean`, `Coordinates.lean`, `CoordinatesCore.lean`, `Affine.lean`, `ClassCount.lean` and `Enumeration.lean`, `Proof.lean` and the check file `CheckRack.lean`; no separate tests), `lean/Research/TaskP/GradedWilf/` (Paper 20; the statement file `Challenge.lean`, the 6 proof modules `WilfScalar.lean`, `WilfLayers.lean`, `WilfAtoms.lean`, `WilfBasis.lean`, `WilfLow.lean` and `WilfHigh.lean`, `Proof.lean` and the check file `CheckWilf.lean`; no separate tests), `lean/Research/TaskR/CSS/` (Paper 21; the statement file `Challenge.lean`, the 6 proof modules `Geometry.lean`, `Residues.lean`, `Radius.lean`, `Volume.lean`, `ExclusionFinite.lean` and `Exclusion.lean`, `Proof.lean` and the check file `CheckCSS.lean`; no separate tests), `lean/Research/TaskR/A7/` (Paper 22; the statement file `Challenge.lean`, the 5 proof modules `Data.lean` (the terrace and its tables), `Kernel.lean`, `Cert.lean`, `Interpret.lean` and `Counting.lean`, `Proof.lean` and the check file `CheckA7.lean`; no separate tests), `lean/Research/TaskP/RootRadius/` (Paper 23, namespace `TaskP.GraphRootRadius`; the statement file `Challenge.lean`, the 11 proof modules `JoinDecomposition.lean`, `JoinPolynomial.lean`, `PetalCoefficient.lean`, `PetalEvaluation.lean`, `RootData.lean`, `Scale.lean`, `LogLimit.lean`, `UpperEstimate.lean`, `DiskZero.lean`, `RootDisk.lean` and `LowerBound.lean`, `Proof.lean` and the check file `CheckRootRadius.lean`; no separate tests), `lean/Research/TaskP/RectangleDefect/` (Paper 24; the statement file `Challenge.lean`, the 15 proof modules `RectCounts.lean`, `RowPlacement.lean`, `RowSplit.lean`, `StripLayout.lean`, `SmallRows.lean`, `BoundaryRows.lean`, `BoundaryWidths.lean`, `IntervalPacking.lean`, `BoundedBezout.lean`, `BalanceCases.lean`, `BalanceConstruction.lean`, `UpperCount.lean`, `UpperSparse.lean`, `LowerFamily.lean` and `MatchingLower.lean`, `Proof.lean` and the check file `CheckRectangle.lean`; no separate tests), `lean/Research/TaskP/GeomSimplex/` (Paper 25; the statement file `Challenge.lean`, the 13 proof modules `Packing.lean`, `TCoordinates.lean`, `TDiameter.lean`, `TLength.lean`, `TTetrahedron.lean`, `UCoordinates.lean`, `ULower.lean`, `UUpper.lean`, `UTetrahedron.lean`, `PyramidGeometry.lean`, `PyramidCorners.lean`, `PyramidDiameter.lean` and `PyramidTransport.lean`, `Proof.lean` and the check file `CheckSimplex.lean`; no separate tests), `lean/Research/TaskS/` (Paper 26; in `B/` the statement file `Challenge.lean`, the 8 proof modules `RationalLine.lean`, `Split.lean`, `KernelRounding.lean`, `BasisCoordinates.lean`, `Balanced.lean`, `Hull.lean`, `Upper.lean` and `Lower.lean`, `Proof.lean` and the check file `CheckB.lean`; in `C/` the statement file `Challenge.lean`, the 9 proof modules `Coordinates.lean`, `Frequencies.lean`, `Projected.lean`, `Lift.lean`, `Geometry.lean`, `ProjectionLattice.lean`, `ProjectionBody.lean`, `SimplexMeasure.lean` and `ProjectionModel.lean`, `Proof.lean` and the check files `CheckC.lean` and `MeasureAudit/CheckC.lean`; and `Shared/Sawtooth.lean`, used by both; no separate tests) and `lean/Research/TaskU/` (Paper 27; in `H5/` the statement file `Challenge.lean` of the minimum, the 33 proof modules `Fourier.lean`, `Blocks.lean`, `WitnessRows.lean`, `WitnessBase.lean`, `WitnessEval.lean`, `Witness.lean`, `Cyc5.lean`, `CycEval.lean`, `CycPos.lean`, `CycNorm.lean`, `CycPhase.lean`, `CycMoments.lean`, `Profile.lean`, `Normalize.lean`, `Phase.lean`, `RayMoments.lean`, `Factors.lean`, `ProfileEval.lean`, `TraceWords.lean`, `TraceProfile.lean`, `IntegerFactors.lean`, `CycRoots.lean`, `RayCancellation.lean`, `TraceLower.lean`, `TraceOrbit.lean`, `TraceCongruence.lean`, `TraceIntegral.lean`, `SmallMultiples.lean`, `Quotient.lean`, `Divisibility.lean`, `TraceFinal.lean`, `TraceAugment.lean` and `Minimum.lean` (`Witness.lean` and `Minimum.lean` contain the theorems `Proof.witnessValue` and `Proof.leastPositiveMultiple`; there is no `Proof.lean`), the audit file `Audit.lean` and the check files `CheckWitness.lean` and `Check.lean`; in `H5B/` the statement file `ChallengeB.lean` of the classification, the 23 proof modules `LiftRing.lean`, `BTrace.lean`, `Residues.lean`, `UnitTable.lean`, `UnitResidues.lean`, `BTraceImage.lean`, `Seeds.lean`, `SeedMarginals.lean`, `Insert.lean`, `RowsValue.lean`, `LiftBlock.lean`, `LiftData.lean`, `LiftColumns.lean`, `LiftCorrection.lean`, `LiftShift.lean`, `Construct.lean`, `PrimeOrbit.lean`, `PrimeBasis.lean`, `PrimeRing.lean`, `PrimeExtract.lean`, `Necessity.lean`, `CoprimeCongruence.lean` and `CoprimeSeeds.lean`, `ProofB.lean` and the check file `CheckB.lean`; no separate tests). `lean/Comparator/` holds the challenge files for the comparator check below.
-- `.github/workflows/comparator.yml` and `ci/comparator/`: the comparator check of the completely formalized papers (see below; the workflow does not include Paper 6, whose configuration `ci/comparator/paper6.json` was used locally, and Papers 1, 2, 7 and 11 to 27 have no configuration).
+- `lean/`: Lake project with all Lean 4 proofs (`Research.lean` imports all of them). The completely formalized papers each have a folder with the frozen statement file `Challenge.lean`, its known-answer tests, the proof modules (`Proof/`) and `Check.lean`: `lean/Research/Backfill/Paper1/` (Paper 1, version 2; statement files `Challenge.lean` and `SupplementStatements.lean`, tests `ChallengeTests.lean` and `NarrowContractTests.lean`, the proof modules in the same directory, with no `Proof/` folder, and the check file `FinalContractAudit.lean`; the proofs also use the older modules `lean/Research/ICG*.lean`), `lean/Research/TaskE/` (Paper 1, version 3; the main statement file `Challenge.lean`, six auxiliary statement files `Challenge*.lean`, the tests `StatementTests.lean`, the proof modules in the same directory, with no `Proof/` folder, `Main.lean` with the main theorem, and the check file `FinalTaskEAudit.lean`; the proofs also use the modules of version 2), `lean/Research/Backfill/Paper2/` (Paper 2, version 2; the proof modules are in the same directory, with no `Proof/` folder), `lean/Research/Backfill/Paper3/` (Paper 3, version 2; with the two data generators in `Proof/TS/gen/` and `Proof/Small/gen/`), `lean/Research/Backfill/Paper4/` (Paper 4, version 2), `lean/Research/Backfill/Paper5/` (Paper 5, version 2; the three supplementary statement files are in `Supplement/`), `lean/Research/Backfill/Paper6/` (Paper 6, version 2; statement files `ChallengeV3.lean` and `BridgeChallenge.lean`, tests `ChallengeV3Tests.lean`, check file `CheckPaper6.lean`, and the proof modules in the same directory), `lean/Research/Backfill/Paper7/` (Paper 7, version 2; the 31 statement and test files, the proof modules and the check file `ClaudePaper7FinalPackage.lean` are all in this directory, with no `Proof/` folder and no `Check.lean`), `lean/Research/Backfill/Paper8/` (Paper 8, version 2; further known-answer tests in `Proof/Tests/`), `lean/Research/AxialMSZ/` (Paper 9), `lean/Research/WordRepTensor/` (Paper 10; version 2 adds `TaskF/`) and `lean/Research/CographDist/` (Paper 11; the statement file `Challenge.lean`, the tests `ChallengeTests.lean`, the proof modules `Family.lean`, `Eigen.lean` and `Main.lean` in the same directory, with no `Proof/` folder, and the check file `Audit.lean`) and `lean/Research/TaskG/` (Paper 12; the statement file `Challenge.lean`, which reuses the definitions of `lean/Research/AxialMSZ/Challenge.lean`, the proof modules `Data.lean`, `Axes.lean`, `Forms.lean`, `Automorphism.lean`, `Simplicity.lean` and `Main.lean` in the same directory, with no `Proof/` folder and no separate tests, and the check file `Check.lean`) and `lean/Research/TaskH/` (Paper 13; the statement files `Challenge.lean`, `CaseFive.lean`, `CaseSix.lean` and `CaseSeven.lean`, the tests `ExactTests.lean`, `ExactTestsFive.lean`, `ExactTestsSix.lean` and `ExactTestsSeven.lean`, the main files `MainFour.lean` to `MainSeven.lean`, the proof modules in the same directory and in `Five/`, `Six/` and `Seven/`; `Seven/SevenCheck.lean` restates the case `k = 7`; for all `k` (version 2), the assembly `OriginalQuestionTwoAssembly.lean`, the tests `OriginalQuestionTwoTests.lean`, and the proof modules in `General/`, `Gao/`, `Fan/` and `Bai/`), `lean/Research/TaskJ/Rank/` (Paper 14; the statement file `Challenge.lean` for Theorems 1 and 2, the proof modules `Parameters.lean`, `RankValues.lean` and `Proof.lean` and the check file `CheckRank.lean`, and in `Extension/` the statement file `Challenge.lean` for Theorem 3, eight proof modules and the check file `CheckExtension.lean`; no separate tests), `lean/Research/TaskJ/Grid/` (Paper 15; the statement file `Challenge.lean`, the 25 proof modules `Grid*.lean`, `Proof.lean` and the check file `CheckGrid.lean`; no separate tests), `lean/Research/TaskL/Semigroup/` (Paper 16; the statement file `Challenge.lean`, the 9 proof modules `Foundations.lean`, `FBase.lean`, `AlgebraCore.lean`, `AlgebraSwap.lean`, `Algebra.lean`, `CoverStep.lean`, `Terminal.lean`, `Interval.lean` and `Even.lean`, `Proof.lean` and the check file `CheckSemigroup.lean`; no separate tests), `lean/Research/TaskN/Antichain/` (Paper 17; the statement file `Challenge.lean`, the 8 proof modules `Numeric.lean`, `TreeCode.lean`, `GraphTransport.lean`, `TreeRoot.lean`, `BridgeWeights.lean`, `SequenceGraph.lean`, `TreePolynomial.lean` and `CompareCore.lean`, `Proof.lean` and the check file `CheckAntichain.lean`; no separate tests), `lean/Research/TaskN/Parking/` (Paper 18; the statement file `Challenge.lean`, the 9 proof modules `ParkGaps.lean`, `ParkSums.lean`, `ParkClassification.lean`, `SpacingWord.lean`, `SpacingPalCount.lean`, `ParkWalk.lean`, `ParkPrefix.lean`, `ParkBand.lean` and `SpacingCount.lean`, `Proof.lean` and the check file `CheckParking.lean`; no separate tests), `lean/Research/TaskP/PrimeMedialRacks/` (Paper 19; the statement file `Challenge.lean`, the 10 proof modules `IsoTransfer.lean`, `DisplacementData.lean`, `DisplacementGroup.lean`, `PrimeOrbits.lean`, `PrimeAction.lean`, `Coordinates.lean`, `CoordinatesCore.lean`, `Affine.lean`, `ClassCount.lean` and `Enumeration.lean`, `Proof.lean` and the check file `CheckRack.lean`; no separate tests), `lean/Research/TaskP/GradedWilf/` (Paper 20; the statement file `Challenge.lean`, the 6 proof modules `WilfScalar.lean`, `WilfLayers.lean`, `WilfAtoms.lean`, `WilfBasis.lean`, `WilfLow.lean` and `WilfHigh.lean`, `Proof.lean` and the check file `CheckWilf.lean`; no separate tests), `lean/Research/TaskR/CSS/` (Paper 21; the statement file `Challenge.lean`, the 6 proof modules `Geometry.lean`, `Residues.lean`, `Radius.lean`, `Volume.lean`, `ExclusionFinite.lean` and `Exclusion.lean`, `Proof.lean` and the check file `CheckCSS.lean`; no separate tests), `lean/Research/TaskR/A7/` (Paper 22; the statement file `Challenge.lean`, the 5 proof modules `Data.lean` (the terrace and its tables), `Kernel.lean`, `Cert.lean`, `Interpret.lean` and `Counting.lean`, `Proof.lean` and the check file `CheckA7.lean`; no separate tests), `lean/Research/TaskP/RootRadius/` (Paper 23, namespace `TaskP.GraphRootRadius`; the statement file `Challenge.lean`, the 11 proof modules `JoinDecomposition.lean`, `JoinPolynomial.lean`, `PetalCoefficient.lean`, `PetalEvaluation.lean`, `RootData.lean`, `Scale.lean`, `LogLimit.lean`, `UpperEstimate.lean`, `DiskZero.lean`, `RootDisk.lean` and `LowerBound.lean`, `Proof.lean` and the check file `CheckRootRadius.lean`; no separate tests), `lean/Research/TaskP/RectangleDefect/` (Paper 24; the statement file `Challenge.lean`, the 15 proof modules `RectCounts.lean`, `RowPlacement.lean`, `RowSplit.lean`, `StripLayout.lean`, `SmallRows.lean`, `BoundaryRows.lean`, `BoundaryWidths.lean`, `IntervalPacking.lean`, `BoundedBezout.lean`, `BalanceCases.lean`, `BalanceConstruction.lean`, `UpperCount.lean`, `UpperSparse.lean`, `LowerFamily.lean` and `MatchingLower.lean`, `Proof.lean` and the check file `CheckRectangle.lean`; no separate tests), `lean/Research/TaskP/GeomSimplex/` (Paper 25; the statement file `Challenge.lean`, the 13 proof modules `Packing.lean`, `TCoordinates.lean`, `TDiameter.lean`, `TLength.lean`, `TTetrahedron.lean`, `UCoordinates.lean`, `ULower.lean`, `UUpper.lean`, `UTetrahedron.lean`, `PyramidGeometry.lean`, `PyramidCorners.lean`, `PyramidDiameter.lean` and `PyramidTransport.lean`, `Proof.lean` and the check file `CheckSimplex.lean`; no separate tests), `lean/Research/TaskS/` (Paper 26; in `B/` the statement file `Challenge.lean`, the 8 proof modules `RationalLine.lean`, `Split.lean`, `KernelRounding.lean`, `BasisCoordinates.lean`, `Balanced.lean`, `Hull.lean`, `Upper.lean` and `Lower.lean`, `Proof.lean` and the check file `CheckB.lean`; in `C/` the statement file `Challenge.lean`, the 9 proof modules `Coordinates.lean`, `Frequencies.lean`, `Projected.lean`, `Lift.lean`, `Geometry.lean`, `ProjectionLattice.lean`, `ProjectionBody.lean`, `SimplexMeasure.lean` and `ProjectionModel.lean`, `Proof.lean` and the check files `CheckC.lean` and `MeasureAudit/CheckC.lean`; and `Shared/Sawtooth.lean`, used by both; no separate tests) , `lean/Research/TaskU/` (Paper 27; in `H5/` the statement file `Challenge.lean` of the minimum, the 33 proof modules `Fourier.lean`, `Blocks.lean`, `WitnessRows.lean`, `WitnessBase.lean`, `WitnessEval.lean`, `Witness.lean`, `Cyc5.lean`, `CycEval.lean`, `CycPos.lean`, `CycNorm.lean`, `CycPhase.lean`, `CycMoments.lean`, `Profile.lean`, `Normalize.lean`, `Phase.lean`, `RayMoments.lean`, `Factors.lean`, `ProfileEval.lean`, `TraceWords.lean`, `TraceProfile.lean`, `IntegerFactors.lean`, `CycRoots.lean`, `RayCancellation.lean`, `TraceLower.lean`, `TraceOrbit.lean`, `TraceCongruence.lean`, `TraceIntegral.lean`, `SmallMultiples.lean`, `Quotient.lean`, `Divisibility.lean`, `TraceFinal.lean`, `TraceAugment.lean` and `Minimum.lean` (`Witness.lean` and `Minimum.lean` contain the theorems `Proof.witnessValue` and `Proof.leastPositiveMultiple`; there is no `Proof.lean`), the audit file `Audit.lean` and the check files `CheckWitness.lean` and `Check.lean`; in `H5B/` the statement file `ChallengeB.lean` of the classification, the 23 proof modules `LiftRing.lean`, `BTrace.lean`, `Residues.lean`, `UnitTable.lean`, `UnitResidues.lean`, `BTraceImage.lean`, `Seeds.lean`, `SeedMarginals.lean`, `Insert.lean`, `RowsValue.lean`, `LiftBlock.lean`, `LiftData.lean`, `LiftColumns.lean`, `LiftCorrection.lean`, `LiftShift.lean`, `Construct.lean`, `PrimeOrbit.lean`, `PrimeBasis.lean`, `PrimeRing.lean`, `PrimeExtract.lean`, `Necessity.lean`, `CoprimeCongruence.lean` and `CoprimeSeeds.lean`, `ProofB.lean` and the check file `CheckB.lean`; no separate tests), `lean/Research/TaskT/HellyFive/` (Paper 28; the statement file `Challenge.lean`, the 28 proof modules `LowerTransfer.lean`, `UpperTransfer.lean`, `UpperTransferGeometry.lean`, `UpperTransferMaximal.lean`, `UpperTransferCount.lean`, `Midpoints.lean`, `UpperCharge.lean`, `UpperGeom.lean`, `UpperWeights.lean`, `UpperThreeData.lean`, `UpperThreeTable.lean`, `UpperThree.lean`, `PlanarData.lean`, `PlanarTable.lean`, `PlanarObstructionCross.lean`, `PlanarObstruction.lean`, `PlanarUpper.lean`, `DimensionOne.lean`, `FiniteGeometry.lean`, `WitnessTwo.lean`, `WitnessThree.lean`, `WitnessFour.lean`, `CorePositive.lean`, `CoreNegative.lean`, `FiniteKernels.lean`, `FiberProjection.lean`, `LiftLayers.lean` and `LiftAttainable.lean`, `Proof.lean`, the check file `Check.lean` and the four audit modules `BridgeAudit.lean`, `FiniteAudit.lean`, `FiniteHellyLower.lean` and `UpperTransferAudit.lean`, on which the proof does not depend; no separate tests), `lean/Research/TaskV/Illumination/` (Paper 29; the statement file `Challenge.lean`, the 5 proof modules `Lower.lean`, `Planar.lean`, `Gaps.lean`, `Upper.lean` and `Result.lean`, and the check file `Check.lean`; no separate tests), `lean/Research/TaskV/FEI/` (Paper 30; the statement files `Challenge.lean` and `UpperChallenge.lean`, the 5 proof modules `Walsh.lean`, `Determinant.lean`, `Analysis.lean`, `Layer.lean` and `UpperAnalysis.lean`, and the check file `Check.lean`, which composes the proof lemmas; there is no `Proof.lean`; no separate tests) and `lean/Research/TaskV/Durer/` (Paper 31; the statement file `Challenge.lean`, the 5 proof modules `Arc.lean`, `Metric.lean`, `Contacts.lean`, `Example.lean` and `Proof.lean`, the check file `ExactTests.lean` and the audit file `Audit.lean`; no separate tests). `lean/Comparator/` holds the challenge files for the comparator check below.
+- `.github/workflows/comparator.yml` and `ci/comparator/`: the comparator check of the completely formalized papers (see below; the workflow does not include Paper 6, whose configuration `ci/comparator/paper6.json` was used locally, and Papers 1, 2, 7 and 11 to 31 have no configuration).
 - `certificates/`: certificate programs, their outputs and the OEIS b-files used.
 - `logs/`: build logs, statement audits and source hashes from the clean
   rebuilds. `roldan-q3-lean-build-receipt.json` predates the formalization of
@@ -3780,6 +4146,96 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
   Scholar returned nothing usable, and OpenAlex refused some queries of
   the reviewers (rate limit). This reports the coverage of the search, not
   a guarantee that it was complete.
+- Paper 28: the framework and the values for `k ≤ 4` are from G. Averkov, B.
+  González Merino, I. Paschke, M. Schymura and S. Weltge (Adv. Appl. Math. 89
+  (2017), 76–101; arXiv:1602.07839v1, the only arXiv version, whose author
+  list has M. Henze in place of M. Schymura; the paper cites its numbering,
+  since the journal version could not be read), after I. Aliev, R. Bassett, J.
+  A. De Loera and Q. Louveaux (Combinatorica 37 (2017)) and S. R. Chestnut, R.
+  Hildebrand and R. Zenklusen (SIAM J. Discrete Math. 32 (2018)), who also
+  proved `c(Z², 5) = 7`. M. Huicochea and B. Navarro (SIAM J. Discrete Math.
+  39 (2025)) improved the bounds of Chestnut et al. on the midpoints of vertex
+  pairs of convex polytopes and applied them to a different Helly number;
+  their paper contains no exact values. Codex agents searched during the
+  search for problems on 21 November 2026, including an independent search by
+  an agent that had not worked on the proof (completed at 01:17 UTC); the
+  second final reviewer searched again on 21 November (arXiv queries, the
+  OpenAlex and Semantic Scholar lists of works citing the three sources,
+  zbMATH Open, Crossref, the OEIS, GitHub and web search); and on 22 November
+  2026 (19:22 UTC) an independent Claude Code agent read the full text of the
+  paper of Huicochea and Navarro, from a licensed copy downloaded by the
+  author, and found in it no exact value of `c` or `g` and no counterpart of
+  the constructions. On the day of the release, 23 November 2026 (11:10–11:28 UTC), Claude Code searched again (the arXiv, the OpenAlex and Semantic Scholar lists of works citing the papers of Averkov et al., Aliev et al., Chestnut et al. and Huicochea and Navarro, Zenodo and DataCite, GitHub and the records of several AI projects, among them trureturing, 1337isnot1337/solved-conjectures, formal-conjectures, astrafala/Conjectures and openai/math) and found no new related work. No earlier determination of `c(Z^n, 5)` or
+  `g(Z^n, 5)` for any `n ≥ 3`, of the value 18 or of the formula `2^(n+1) + 5`
+  was found. This reports the coverage of the search, not a guarantee that it
+  was complete.
+- Paper 29: the conjecture and the classes for which it is known are from the
+  survey of K. Bezdek and M. A. Khan (in *Discrete Geometry and Symmetry*,
+  Springer Proc. Math. Stat. 234, 2018; arXiv:1602.06040v2); the comparison
+  rests on S. Wu and Y. Zhou (Contrib. Discrete Math. 14 (2019)) and G.
+  Livshyts and K. Tikhomirov (Discrete Comput. Geom. 63 (2020)), and the paper
+  also cites V. Boltyanski (Discrete Comput. Geom. 26 (2001)), M. Lassak (J.
+  London Math. Soc. 30 (1984)) and A. Prymak (SIAM J. Discrete Math. 37
+  (2023)); an unrefereed claim of the bound 13 in dimension 3 has been made
+  public. A Codex agent searched on 21 November 2026 (03:48–03:58 UTC: the
+  arXiv, Crossref, zbMATH Open, Semantic Scholar, DataCite and Zenodo, MathDB,
+  GitHub, repositories of AI-assisted mathematics and web search; some
+  services refused queries because of rate limits), the final reviewer
+  searched again, and on 22 November 2026 (21:12 UTC) Claude Code searched the
+  arXiv listings in convex and discrete geometry since September 2026 and the
+  web. On the day of the release, 23 November 2026 (11:10–11:28 UTC), Claude Code searched again (the arXiv, the OpenAlex and Semantic Scholar lists of works citing the survey of Bezdek and Khan and the papers of Wu and Zhou, Livshyts and Tikhomirov and Prymak, Zenodo and DataCite, GitHub and the records of several AI projects, among them trureturing, 1337isnot1337/solved-conjectures, formal-conjectures, astrafala/Conjectures and openai/math) and found no new related work; the only new record is a further deposit of the unrefereed claim of the bound 13, which concerns all convex bodies in dimension 3. No earlier statement of Theorem 1, and no earlier proof of
+  the upper bounds 6 and 7 for all compact convex bodies between `P` and `Q`,
+  was found. This reports the coverage of the search, not a guarantee that it
+  was complete.
+- Paper 30: the conjecture is from E. Friedgut and G. Kalai (Proc. Amer. Math.
+  Soc. 124 (1996)), with the quantifiers of R. O'Donnell, J. Wright and Y.
+  Zhou (ICALP 2011); the plateaued case and the matrix of the inclusion order
+  over the field with two elements are from V. N. Potapov
+  (arXiv:2609.21563v1), and the selector identities from Y. Shmalo
+  (arXiv:2610.16069v1). Other recent work (S. Arunachalam, S. Chakraborty, M.
+  Koucký, N. Saurabh and R. de Wolf, ACM Trans. Comput. Theory 13 (2021); M.
+  J. González, P. MacManus and M. C. Pereyra, arXiv:2606.00246v2; M. Paraashar
+  and N. Saurabh, arXiv:2611.06451v1) considers no lower bound on the nonzero
+  masses, no comparability condition on them and no product of all nonzero
+  coefficients; a manuscript of Shmalo on four equivalent forms of the
+  conjecture (github.com/yspennstate/fei-equivalent-forms, commit 305c4f8e)
+  bounds `H(f)` through a ratio that the hypothesis of Theorem 5 bounds only
+  from below, and states no bound under it. Codex agents searched on 21
+  November 2026 (03:53–04:03 UTC: the arXiv, GitHub, MathDB, the Moonshot and
+  Epoch problem lists, repositories of AI-assisted mathematics and web search,
+  with a separate search for the upper-set condition; some citation indexes
+  refused queries because of rate limits), the final reviewer searched again,
+  and on 22 November 2026 (21:11 UTC) Claude Code queried the arXiv for new
+  preprints on the conjecture and found none after that of Paraashar and
+  Saurabh (4 November 2026), with the preprints of Potapov and Shmalo still in
+  their version 1. On the day of the release, 23 November 2026 (11:10–11:28 UTC), Claude Code searched again (the arXiv, where the preprints of Potapov, Shmalo and Paraashar and Saurabh are still in their version 1, the OpenAlex and Semantic Scholar lists of citing works, Zenodo and DataCite, GitHub and the records of several AI projects, among them trureturing, 1337isnot1337/solved-conjectures, formal-conjectures, astrafala/Conjectures and openai/math); the only new related work found is two notes of Shmalo posted on 22 and 23 November 2026 (github.com/yspennstate/sharp-within-level-fourier-entropy and github.com/yspennstate/fei-bounded-degree-constants), on symmetric functions and on functions of bounded degree. The second note proves `H(f) ≤ C_d I(f)` with `C_d` of order `2 lg d` for functions of degree at most `d`; these functions satisfy the hypothesis of Theorem 3 with `δ = 4^(1−d)`, for which Theorem 3 gives only `H(f) ≤ 4^d I(f)`, so on this class the note's bound is far stronger. Its granularity lemma, which holds for every Boolean function, is the one of Shmalo's earlier preprint arXiv:2610.16069 and keeps the ratio between the mass of all supersets of `S` and `p(S)`. Neither note contains the statements listed next. No earlier statement of the inequality of
+  Theorem 2, of the product statements of Theorems 1 and 4, of Theorem 3 for
+  `δ < 1`, of Corollary 1 for `M > 1`, or of Theorem 5 was found. This reports
+  the coverage of the search, not a guarantee that it was complete.
+- Paper 31: the problem is Problem 9 of The Open Problems Project (E. D.
+  Demaine, J. S. B. Mitchell and J. O'Rourke, eds.), after G. C. Shephard
+  (Math. Proc. Cambridge Philos. Soc. 78 (1975)); the known classes are listed
+  by E. D. Demaine and J. O'Rourke (*Geometric Folding Algorithms*, Section
+  22.5, and its update of 3 September 2025). The comparison rests on J.
+  O'Rourke (*Hamiltonian quasigeodesics yield nets*, arXiv:2206.05353v3), V.
+  Bian, E. D. Demaine and R. Madhukara (CCCG 2021; arXiv:2106.14262v1), M.
+  Radons (Comput. Geom. 116 (2024)), G. Aloupis et al. (nested polyhedral
+  bands, Comput. Geom. 39 (2008)), M. Ghomi (Geom. Topol. 18 (2014)) and Y. T.
+  Miah (Zenodo, 10.5281/zenodo.23993991, 2026, edge unfoldings of a family of
+  prismatoids with parallelogram base); the work of the MIT CompGeom Group on
+  overlapping unfoldings (arXiv:2607.09606v1) does not settle the problem.
+  Codex searched on 21 November 2026 (03:51–04:02 UTC: the arXiv, OpenAlex,
+  Semantic Scholar, the update of Demaine and O'Rourke, public problem lists,
+  repositories of AI-assisted mathematics and targeted web searches for the
+  family; some queries were refused because of rate limits) and refreshed the
+  main sources at 17:38 UTC; the final reviewer searched again on 21 November;
+  and on 22 November 2026 (21:11–21:13 and 21:42–21:43 UTC) Claude Code ran
+  six keyword queries on the arXiv sorted by submission date and a web search
+  for the family, and found nothing newer than the paper of the MIT CompGeom
+  Group that bears on it. On the day of the release, 23 November 2026 (11:10–11:28 UTC), Claude Code searched again (the arXiv, the OpenAlex and Semantic Scholar lists of citing works, Zenodo and DataCite, GitHub and the records of several AI projects, among them trureturing, 1337isnot1337/solved-conjectures, formal-conjectures, astrafala/Conjectures and openai/math) and found nothing newer that bears on the family; work pushed on 21 November 2026 to the GitHub repository slef/lean-unfoldings (branch few-nets) concerns unfoldings into many pieces and source unfoldings. No published edge net for the oblique
+  members with `n, m ≥ 2`, and no published edge-unfoldable class containing
+  them, was found. This reports the coverage of the search, not a guarantee
+  that it was complete.
 - Roldán's conjecture, case q = 3 (the formalization here is of a known
   result):
   - S. Park, *Exact Energy Maximisation for Integral Circulant Graphs of
@@ -3825,7 +4281,7 @@ superseded hypothesis (`P > 0`); Lemma 10 of the paper assumes `P ≥ μ`.
 
 ## Tool and computational resource disclosure
 
-This work was carried out from 25 September 2026 to 22 November 2026 (UTC) in a
+This work was carried out from 25 September 2026 to 23 November 2026 (UTC) in a
 workflow directed by the author, using two AI coding agents:
 
 - OpenAI Codex (desktop app; models `gpt-6-astra`, `gpt-6-sol`, `gpt-6.1-sol`,
@@ -4625,13 +5081,158 @@ Codex's manuscripts and the Lean files, moved the Lean files into the
 repository (changing only their `import` lines), compiled the repository
 versions again and checked them with `leanchecker` on the author's Mac,
 and rebuilt the whole Lean project. No human mathematician has read the
-proofs of Paper 27. Eleven further independent Claude Code agents (model Claude Opus 5.5), which had written none of the files, reviewed the papers, one each, and another reviewed the release (the README, the certificates, the receipts and the release notes); their corrections were applied. The author has read Papers 17–27 and, using a
-side-by-side table, compared their Lean statements with the main theorems
-of each paper: Theorem 1 (apart from its last sentence) and Corollary 1 of Paper 17, Theorems 1 and 2 of
-Paper 18, Theorem 1 of Papers 19, 20, 21 and 22, Theorems 1 and 2 and
-Corollary 1 of Paper 23, Theorem 1 of Paper 24, Theorems 1 and 2 of Paper
-25, Theorems 1, 2 and 2′ of Paper 26, and Theorem 1 and Corollary 1 of
-Paper 27.
+proofs of Paper 27. Eleven further independent Claude Code agents (model Claude Opus 5.5), which had written none of the files, reviewed the papers, one each, and another reviewed the release (the README, the certificates, the receipts and the release notes); their corrections were applied.
+
+Paper 28 (version 1.26.0) was produced from 21 to 23 November 2026. It
+comes from the same search for problems as Paper 27: the author asked for a
+new round of search aimed at major open problems ("让codex开新一轮搜题，专找重大问题"), and
+Claude Code passed this request to OpenAI Codex (model GPT-6.2-Astra,
+reasoning level ultra) at 01:00 UTC on 21 November. In that search Codex
+screened 72 problems not screened in earlier rounds and prepared notes on
+eight of them, this one among them. According to the file times, by 01:05 UTC
+a Codex agent had found the four-dimensional polytope and the upper bound
+`2^(n+1) + 5`, and soon afterwards the polytopes for `n = 3` and `n ≥ 5`; the
+written proof for all dimensions was read by another Codex agent (same model)
+that had not taken part in it, which approved it at 01:09 UTC. As the task
+description allowed for a complete written proof approved in this way, Codex
+then wrote the statement file, had it approved by a Codex agent that had
+written neither the statement nor the proofs (01:11:14 UTC), froze it at
+01:11:55 UTC and began the Lean proof, without waiting for the author. The
+search ended at 01:22 UTC with this problem ranked highest, and Claude Code
+resumed the Codex session at 01:22 UTC (the time stamp of its instruction in
+the session log) to complete the formalization. According to the file times
+and the compilation receipts, the proof files were created after the freeze
+and compiled during development between 01:12 and 01:35 UTC; a Codex agent
+that had not written the proofs read the source files against the definitions
+(01:35 UTC), and the package of 31 modules was checked in two new empty
+directories on the author's Mac at 01:36–02:13 UTC. The formal upper bound
+does not follow the written case analysis of the search: it counts all lattice
+points of the polytope and uses two tables and a planar argument. The final
+review was done by two independent Claude Code agents (model Claude Opus 5.5)
+that had written none of the files, from 03:20 UTC, neither of which read the
+other's report; their model family differs from Codex's. Each reviewer read
+the sources itself, compared the statement file with them, read the written
+proofs and the proof files, checked the receipts, recomputed the polytopes and
+the capacity tables with its own programs, and rebuilt the formalization in a
+new directory, replaying every module with `leanchecker`; one also enumerated
+the 33,041 convex lattice polygons in `[0,4]²`, and the other checked the lift
+for `n = 5, 6`. The decisions were APPROVE_FORMAL and APPROVE_WITH_CHANGES,
+with no blocking or major remarks; their minor remarks (6, two of them
+optional, and 7) concern the written account and the attribution and were
+taken into account. On 22 November 2026 (19:22 UTC) a further independent
+Claude Code agent read the full text of the paper of Huicochea and Navarro,
+which the final reviewer could not access (see the prior-work section). No
+human mathematician has read the proofs of Paper 28.
+
+Papers 29, 30 and 31 (version 1.26.0) were produced from 21 to 23 November 2026. The author agreed that the next search for problems should raise
+the difficulty threshold ("同意，下一轮搜题难度门槛往上提"), and Claude Code passed this
+request to OpenAI Codex (model GPT-6.2-Astra, reasoning level ultra) at 03:19
+UTC on 21 November (file time). Codex screened 94 problems not screened in
+earlier rounds, wrote notes on eight and made short attempts on three, among
+them the three-dimensional illumination conjecture; none of the three was
+solved (report at 03:35 UTC). After reading the report, the author asked that
+Codex continue on several of these problems ("Markov 和照明也让 Codex 继续攻", "Dürer
+和 Vizing 也让 Codex 继续攻" and "傅里叶熵、Brauer 和 Moore 也让 Codex 继续攻"), and Claude
+Code passed these requests to Codex at 03:47, 03:50 and 03:53 UTC, each
+problem in its own Codex session; partial results were allowed, and a partial
+result with a complete written proof approved by a Codex agent that had not
+derived it could go on to a frozen statement and a Lean proof. The other
+problems of these requests are not part of this version. At about 04:04 UTC
+the Codex sessions reached the usage limit; from 04:11 UTC Claude Code resumed
+them one at a time through a serial queue of Codex runs, among them those of
+Paper 29 at 04:18 and 04:46 UTC, of Paper 31 at 04:51 UTC and of Paper 30 at
+05:03 UTC (the time stamps of its instructions in the session logs).
+
+For Paper 29, Codex found that convex hulls of two parallel layers had already
+been treated by Wu and Zhou and turned to the bodies between `P` and `Q`;
+according to the file times, it had written the proof by 03:51 UTC. Two Codex
+agents (same model) that had not taken part in it read the proof and the
+statement (approvals at 03:52 UTC), and the statement was frozen at 03:53:24
+UTC; the proof files were compiled during development between 03:54 and 03:56
+UTC, and a further Codex agent that had written none of them read the seven
+source files against the statement (03:58 UTC). The check in two new empty
+directories began at 04:02:39 UTC, was interrupted at the usage limit, was
+resumed at 04:47:16 UTC and ended at 04:50:54 UTC; an earlier attempt
+(03:58–04:00 UTC) was stopped after a correction of its thread setting and is
+kept on record. Codex also ran computations aimed at a counterexample to the
+general conjecture; they found none and are not part of this paper, and
+further written work by Codex on the general three-dimensional problem has not
+been reviewed or verified and is not claimed. The final review was done by a
+Claude Code agent (model Claude Opus 5.5) that had written none of the files,
+from 04:51:55 UTC; it read the statement and the written proof, read the proof
+files, checked the receipts, rebuilt the formalization in a new directory,
+proved in Lean the equivalence of the two forms of the definition, and
+compared the theorem with a floating-point linear-programming computation for
+9 polytopes and 300 random polytopes, which agreed in every case. Its decision
+was APPROVE_FORMAL, with no blocking or major remarks; of its six minor
+remarks one asked to close a placeholder in an internal review record of
+Codex, which was done by an addendum, and the other five concern the written
+account and were taken into account.
+
+For Paper 30, according to the file times, by 03:56 UTC a Codex agent had
+written the proof of Theorems 1 to 3 and Corollary 1, which another Codex
+agent that had not taken part in it approved at 03:57 UTC; the extension to
+upper sets (Theorems 4 and 5) was written by 03:58 UTC and approved at 04:00
+UTC by a Codex reviewer that had not derived it, which also checked all 278
+Boolean functions with `n ≤ 3` and 3,460 upper sets with its own program. The
+two statement files were frozen at 03:58:46 and 04:02:30 UTC. After Claude
+Code resumed the session at 05:03 UTC, the formalization was completed and the
+package was checked in two new empty directories (05:05–05:11 UTC); an attempt
+started ten seconds earlier stopped at the version probe and is kept on
+record. The handoff notes record that a reviewer of the written proofs later
+took part in the Lean work on the extension, so the final review was assigned
+to an agent that had written none of the files. The final review was done by a
+Claude Code agent (model Claude Opus 5.5), from 17:03 UTC on 21 November; it
+read the source itself, compared the statement files with it, read the written
+proofs and all proof files, checked the hashes and the receipts, rebuilt the
+formalization, and tested the six statements with its own exact program on all
+278 functions with `n ≤ 3` and on 3,998 random functions with `4 ≤ n ≤ 7`,
+finding no violation. Its decision was APPROVE_FORMAL, with no blocking or
+major remarks; its six minor remarks concern the written account and the form
+of the check file and were taken into account (Codex answered them in a note
+kept in the certificate).
+
+For Paper 31, Codex noted that the rectangular version is covered by
+O'Rourke's theorem and, according to the session log and the file times, by
+03:54:57 UTC had written the construction and the proof for an oblique
+parallelogram. The written proof was approved at 03:55:52 UTC by a Codex agent
+that had worked on a separate search and had not developed the construction;
+the statement file was approved by a Codex agent that had written neither the
+statement nor the proofs (03:57:21 UTC) and frozen at 03:57:26 UTC. The proof
+files were created after the freeze and compiled during development between
+03:57 and 04:55 UTC, and the package was checked in two new empty directories
+at 04:56–05:01 UTC; two earlier attempts stopped at the build of the statement
+file because of setup errors. The final review was done by a Claude Code agent
+(model Claude Opus 5.5) that had written none of the files, from 17:03:51 UTC
+on 21 November; it read the source, the statement file, the written proof and
+the proof files, checked the receipts and the hashes, rebuilt the
+formalization and tested the construction numerically. Its decision was
+APPROVE_WITH_CHANGES, with no blocking remark; its one major remark concerned
+the framing (the right-angle case is covered by O'Rourke's theorem, the
+mechanism is special and elementary, and priority had not yet been checked),
+and its six minor remarks the presentation. All were taken into account,
+except a numerical remark of the review about `c > 0`, which on re-examination
+during the review of the paper was found to come from the reviewer's own
+unfolding routine and not from the Lean maps, and is not repeated.
+
+On 22 November 2026 the author chose the four results of Papers 28 to 31 for
+version 1.26.0. For each of them Claude Code checked the cited passages of the
+sources, recomputed in Python the constructions and examples of the paper,
+wrote the paper from Codex's manuscripts and the Lean files, moved the Lean
+files into the repository (changing only their `import` lines), compiled the
+repository versions again and checked them with `leanchecker` on the author's
+Mac; it also checked that the nineteen entry points of Papers 17 to 31 (the
+fourteen of version 1.25.0 and five new ones, among them the audit module of
+Paper 31) can be imported together, and rebuilt the whole Lean project. No
+human mathematician has read the proofs of Papers 28–31. Four further independent Claude Code agents (model Claude Opus 5.5), which had written none of the files, reviewed the papers, one each, and two more reviewed the release (the README, the certificates, the receipts and the release notes; the second only the parts written after the rebuild of the whole project); their corrections were applied. The author
+has read Papers 17–31 and, using a side-by-side table, compared their Lean
+statements with the main theorems of each paper: Theorem 1 (apart from its
+last sentence) and Corollary 1 of Paper 17, Theorems 1 and 2 of Paper 18,
+Theorem 1 of Papers 19, 20, 21 and 22, Theorems 1 and 2 and Corollary 1 of
+Paper 23, Theorem 1 of Paper 24, Theorems 1 and 2 of Paper 25, Theorems 1, 2
+and 2′ of Paper 26, Theorem 1 and Corollary 1 of Paper 27, Theorem 1 of Papers
+28 and 29, Theorems 1 to 5 and Corollary 1 of Paper 30, and Theorems 1 and 2
+of Paper 31.
 
 For versions 1.9.0 and 1.10.0 the final review before release was done by
 an independent Claude Code agent instead of OpenAI Codex, whose usage quota
@@ -4727,7 +5328,12 @@ to 27 in their repository versions and rebuilt the whole Lean project from
 a new empty directory, as described above, and drafted the changes to the
 README and ATTEMPTS.md, which the independent agent named in the disclosure of Papers 17 to 27 as the reviewer of the release reviewed with the certificates, the receipts and the release notes; OpenAI Codex made the statement files
 and the Lean proofs of Papers 17 to 27, as described above, and took no
-part in this rebuild.
+part in this rebuild. For version 1.26.0, Claude Code (model Claude Opus 5.5) rechecked the Lean
+files of Papers 28 to 31 in their repository versions and rebuilt the whole
+Lean project from a new empty directory, as described above, and drafted the
+changes to the README and ATTEMPTS.md, which the two independent agents named in the disclosure of Papers 28 to 31 as the reviewers of the release reviewed with the certificates, the receipts and the release notes; OpenAI Codex made the
+statement files and the Lean proofs of Papers 28 to 31, as described above,
+and took no part in this rebuild.
 
 AI systems are not authors. The author takes full responsibility for the content.
 

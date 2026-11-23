@@ -1,0 +1,35 @@
+{
+ "package": "illumination-prism-sandwich",
+ "codex_acceptance": {
+  "receipts": [
+   "acceptance/dual-02/receipt.json"
+  ],
+  "post_audit": "acceptance/controller-dual-02-resume-01/POST-AUDIT.json",
+  "note": "Codex acceptance run on the author's Mac (logs only; build directories not included); local paths replaced by <workspace> and the reviewers' scratch directory by <claude-scratch>. The accepted run acceptance/dual-02 has the roots 'normal' and 'fresh'; the 'normal' root was interrupted at the Codex usage limit and resumed from the replay of Upper (resumption record in the receipt). acceptance/dual-01 is a stopped earlier attempt kept for the record."
+ },
+ "repository_recheck": {
+  "computer": "the author's Mac",
+  "lean": "Lean 4.34.1 (arm64-apple-darwin)",
+  "start_utc": "2026-11-22T21:34Z",
+  "end_utc": "2026-11-22T21:36Z",
+  "procedure": "The 7 repository files (Research.TaskV.Illumination; only import lines differ from the accepted files) compiled module by module with lean -DautoImplicit=false -DrelaxedAutoImplicit=false -R <lean dir>, each module replayed with leanchecker, in two new empty output directories (root1 21:34Z-21:35Z, root2 21:35Z-21:36Z), by repository-recheck-logs.tar.gz/mac_compile_generic.py. The files contain no #print axioms command, so no axiom lists are printed here; see codex_axiom_audit in package-manifest.json.",
+  "olean_identical": true,
+  "root1": {
+   "modules": 7,
+   "compile_rc0": 7,
+   "leanchecker_rc0": 7,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {}
+  },
+  "root2": {
+   "modules": 7,
+   "compile_rc0": 7,
+   "leanchecker_rc0": 7,
+   "warnings": 0,
+   "errors": 0,
+   "axiom_lists": {}
+  }
+ },
+ "whole_project": "logs/clean-replay-v1.26.0-receipt.json"
+}

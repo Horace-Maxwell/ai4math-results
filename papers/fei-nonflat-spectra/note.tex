@@ -1,0 +1,704 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={A product inequality for Walsh coefficients and two conditional Fourier entropy-influence bounds},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newcommand{\repoversion}{1.26.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\renewcommand{\lg}{\log_2}
+
+\title{A product inequality for Walsh coefficients\\ and two conditional Fourier
+entropy--influence bounds}
+\author{Horace Dong\\ \small Independent researcher\\
+\small\texttt{maxwelldhx@gmail.com}\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{23 November 2026}
+\begin{document}
+\sloppy
+\maketitle
+
+\begin{abstract}
+The Fourier entropy--influence (FEI) conjecture of Friedgut and Kalai asks for
+an absolute constant $C$ such that $H(f)\le C\,I(f)$ for every Boolean function
+$f:\{-1,1\}^n\to\{-1,1\}$, where $H(f)$ is the entropy of the distribution
+$p(S)=\hat f(S)^2$ and $I(f)=\sum_S|S|\,p(S)$ is the total influence. It is
+open. We prove two partial results. Let $K$ be the number of nonzero Fourier
+coefficients of $f$ and $t$ the number of nonempty sets among them. (a) If
+$\delta>0$ and $p(S)\ge\delta/K$ for every $S$ with $p(S)\ne0$, then
+$\delta\,(H(f)+2t/K)\le4\,I(f)$; in particular $H(f)\le4I(f)/\delta$, and
+$H(f)\le4M^2I(f)$ when the nonzero coefficients differ in absolute value by a
+factor at most $M$. (b) If $L\ge1$ and $p(S)\le L\,p(T)$ for all nonempty sets
+$S\subseteq T$ with nonzero coefficients, then $H(f)\le4L\,I(f)$; the mass at
+the empty set is unconstrained. Potapov proved the case of equal nonzero
+magnitudes of~(a), with the constant $4$. The main ingredient is the inequality
+$\sum_S\lg(1/p(S))+2t\le4\sum_S|S|$ over the nonzero coefficients, valid for
+every Boolean function, which comes from an integer determinant. The constants
+grow as $\delta\to0$ or $L\to\infty$, so these results do not approach the
+conjecture itself. All six results of the paper (Theorems 1--5 and Corollary~1), including (a), (b) and the
+product inequality, are formally verified in Lean~4. The
+proofs were found and formalized by AI agents working under the author's
+direction; their role is described at the end of the paper.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+For $f:\{-1,1\}^n\to\{-1,1\}$ (any $n\ge0$) and $S\subseteq[n]=\{1,\dots,n\}$
+let $\chi_S(x)=\prod_{i\in S}x_i$ and
+$\hat f(S)=2^{-n}\sum_x f(x)\chi_S(x)$, the expectation under the uniform
+measure. By Parseval the numbers $p(S)=\hat f(S)^2$ sum to $1$. The
+\emph{Fourier entropy} and the \emph{total influence} are
+\[
+H(f)=\sum_{S}p(S)\lg\frac1{p(S)},\qquad I(f)=\sum_S|S|\,p(S),
+\]
+with $0\lg(1/0)=0$. The total influence equals the expected number of
+coordinates $i$ for which flipping $x_i$ changes $f(x)$
+(\cite[Section~2.1]{owz}, \cite[Theorem~2.38]{odo}); this identity is standard
+and is not part of the formal verification, which uses the spectral form of
+$I$. Friedgut and Kalai~\cite{fk} made the following conjecture; we quote the
+quantifiers from O'Donnell, Wright and Zhou~\cite[Section~1]{owz}.
+
+\begin{quote}
+\textbf{FEI conjecture.} There is a constant $C$ such that $H(f)\le C\,I(f)$
+for every $n$ and every $f:\{-1,1\}^n\to\{-1,1\}$.
+\end{quote}
+
+\noindent O'Donnell, Wright and Zhou proved it for symmetric functions, for
+functions with symmetry group $S_{n_1}\times\dots\times S_{n_d}$ with $d$
+bounded, and for read-once decision trees; they note that the AND and OR
+functions force $C\ge4$, and that an explicit family forces $C\ge60/13$
+(larger lower bounds are known today, e.g.\ $C>6.45$~\cite{hod}), and
+they show the general bound $H(f)\le(1+\log n)I(f)+1$~\cite[Section~1]{owz}.
+The conjecture is open in general; this paper does not prove it.
+
+\paragraph{Notation.} Fix $f$. Let $U=\{S:\hat f(S)\ne0\}$ be its Fourier
+support, $K=|U|\ge1$, $t=|U\setminus\{\varnothing\}|$ and
+$W=\sum_{S\in U}|S|$. For $V\subseteq U$ put $W_V=\sum_{S\in V}|S|$ and
+$t_V=|V\setminus\{\varnothing\}|$. A set $V\subseteq U$ is \emph{upward closed
+in $U$} if $S\in V$, $T\in U$ and $S\subseteq T$ imply $T\in V$. The empty
+family is upward closed. The empty set $\varnothing$ is the constant character,
+$\hat f(\varnothing)=\mathbb E f$, and it belongs to $U$ unless $f$ is balanced.
+
+\paragraph{The results.} All six statements below hold for every $n\ge0$ and
+every $f$, without any balance or monotonicity assumption, and all six are
+proved in Lean (Section~\ref{sec:lean}).
+
+\begin{theorem}[signed product]\label{thm:prod}
+$2^{2W}\prod_{S\in U}\hat f(S)=2^t z$ for a nonzero integer $z$.
+\end{theorem}
+
+\begin{theorem}[support entropy]\label{thm:supp}
+$H(f)\le\lg K$, \ $K\lg K\le\sum_{S\in U}\lg\frac1{p(S)}$, \ and
+\[
+\sum_{S\in U}\lg\frac1{p(S)}+2t\ \le\ 4W .
+\]
+\end{theorem}
+
+\begin{theorem}[lower mass bound]\label{thm:lower}
+Let $\delta>0$ and suppose $\delta\le K\,p(S)$ for every $S\in U$. Then
+\[
+\delta\Bigl(H(f)+\frac{2t}{K}\Bigr)\ \le\ 4\,I(f).
+\]
+In particular $H(f)\le4I(f)/\delta$.
+\end{theorem}
+
+\noindent The hypothesis forces $\delta\le1$, by summing over $U$. Restricting
+to $0<\delta\le1$ in the statement would change nothing; the Lean statement
+requires only $\delta>0$.
+
+\begin{corollary}[bounded ratio]\label{cor:ratio}
+Let $M\ge1$ and suppose $|\hat f(S)|\le M|\hat f(T)|$ for all $S,T\in U$. Then
+$H(f)\le4M^2I(f)$.
+\end{corollary}
+
+\begin{theorem}[upper sets]\label{thm:upper}
+For every $V\subseteq U$ that is upward closed in $U$,
+$2^{2W_V}\prod_{S\in V}\hat f(S)=2^{t_V}z$ for a nonzero integer $z$.
+\end{theorem}
+
+\begin{theorem}[comparable masses]\label{thm:comp}
+Let $L\ge1$ and suppose $p(S)\le L\,p(T)$ for all nonempty $S,T\in U$ with
+$S\subseteq T$. Then $H(f)\le4L\,I(f)$.
+\end{theorem}
+
+\noindent In Theorem~\ref{thm:comp} the hypothesis involves only nonempty sets:
+the mass $p(\varnothing)$ is arbitrary, and sets that are not comparable under
+inclusion are not compared. Taking $S=T$ shows that $L\ge1$ is automatic as
+soon as $f$ is not constant. Theorem~\ref{thm:prod} is the case $V=U$ of
+Theorem~\ref{thm:upper}; in the formal proof it is derived that way.
+
+\paragraph{Scope and significance.} These are conditional bounds, and their
+significance is modest. The constants $4/\delta$ and $4L$ grow without bound as
+$\delta\to0$ or $L\to\infty$, and for many standard functions $\delta$ is
+exponentially small: for the AND of $n\ge2$ bits, $K\min_U p=4\cdot2^{-n}$. A
+product of $m$ AND functions on disjoint blocks of three bits has
+$K\min_Up=2^{-m}$ and a ratio $9^{m-1}$ between two nonempty comparable masses,
+while its entropy and influence both grow only linearly in $m$ (an observation
+in the Codex notes, not formalized). So neither condition holds with a uniform
+parameter for all Boolean functions, and the two theorems give no information
+on the general conjecture. What they give is a dimension-free bound on two
+classes of non-flat spectra, and the product inequality of
+Theorem~\ref{thm:supp}, which holds for all $f$.
+
+\paragraph{Prior work and what is new.} Potapov~\cite{pot} proved $H(f)\le4I(f)$
+for all plateaued functions, that is, functions whose nonzero Fourier
+coefficients all have the same absolute value~\cite[Theorem~2]{pot}, and $2$
+for partially bent functions~\cite[Theorem~1]{pot}; he states that $4$ is sharp
+for plateaued functions. For a plateaued $f$, $K\,p(S)=1$ on $U$, so
+Theorem~\ref{thm:lower} with $\delta=1$ and Corollary~\ref{cor:ratio} with
+$M=1$ give $H(f)\le4I(f)$ again: this case is due to Potapov, and our
+Theorem~\ref{thm:lower} contains no new information on it beyond the additive
+term $2t/K$. His proof also uses the matrix of the inclusion order on the
+Fourier support, which is unitriangular, but over the field with two elements:
+he deduces from $\det(MM^{\mathsf T})=1$ a permutation $\pi$ of the support
+such that the number of support points above both $y$ and $\pi(y)$ is odd for
+every $y$~\cite[Lemma~1]{pot}, and combines it with a bound on
+the algebraic degree of the support indicator of a plateaued
+function~\cite[Proposition~4 and Theorem~3]{pot}. We put the actual signed
+coefficients on the diagonal and use integrality of the determinant over
+$\Z$, so that the magnitudes may differ. We do not claim the triangular matrix
+as a new idea. Other recent work on FEI includes Arunachalam, Chakraborty,
+Koucký, Saurabh and de Wolf~\cite{acksw} (min-entropy, parity certificates and
+flat approximating polynomials), Gonz\'alez, MacManus and Pereyra~\cite{gmp}
+(stopping binary trees and tribes-like classes) and Shmalo~\cite{shm} (linear
+threshold functions, compositions and selectors), and Paraashar and
+Saurabh~\cite{ps} (approximate spectral norms and parity certificates); none
+of these considers a
+lower bound on the nonzero masses, a comparability condition on them, or a
+product of all nonzero coefficients. The closest comparison for
+Theorem~\ref{thm:comp} that the searches found is Shmalo's manuscript on
+equivalent forms of the conjecture~\cite{shm2}, which bounds $H(f)$ by the
+expected logarithm of the ratio between the mass of all supersets of $S$ and
+$p(S)$; our hypothesis bounds this ratio only from below, and that manuscript
+does not state a bound under it. What is new here, as far as the searches
+described at the end found, is Theorem~\ref{thm:supp} (with
+Theorems~\ref{thm:prod} and~\ref{thm:upper}), Theorem~\ref{thm:lower} for
+$\delta<1$, Corollary~\ref{cor:ratio} for $M>1$, and Theorem~\ref{thm:comp}.
+
+\section{Finite differences and the signed product}\label{sec:prod}
+
+\begin{lemma}[finite differences]\label{lem:tail}
+For every $R\subseteq[n]$ the number $2^{|R|}\sum_{T\supseteq R}\hat f(T)$ is an
+integer, and it is even if $R\ne\varnothing$.
+\end{lemma}
+
+\begin{proof}
+For $A\subseteq R$ let $x^{(A)}$ be the point with $x_i=-1$ exactly for
+$i\in A$. By Fourier inversion,
+\[
+\sum_{A\subseteq R}(-1)^{|A|}f(x^{(A)})=\sum_T\hat f(T)\sum_{A\subseteq R}(-1)^{|A|}(-1)^{|A\cap T|}
+=\sum_T\hat f(T)\prod_{i\in R}\bigl(1-(-1)^{\mathbf 1[i\in T]}\bigr),
+\]
+and the product is $2^{|R|}$ if $R\subseteq T$ and $0$ otherwise. So
+$2^{|R|}\sum_{T\supseteq R}\hat f(T)$ is a signed sum of $2^{|R|}$ values $\pm1$:
+an integer, and even when $R\ne\varnothing$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:upper} (and of Theorem~\ref{thm:prod})]
+Let $V$ be upward closed in $U$ and order $V$ by nondecreasing cardinality.
+The matrix $Z_{S,T}=\mathbf 1[S\subseteq T]$ ($S,T\in V$) is upper triangular
+with ones on the diagonal, so $\det Z=1$. Let $D=\operatorname{diag}(2^{|S|})$,
+$C=\operatorname{diag}(\hat f(S))$ and $B=DZCZ^{\mathsf T}D$. Then
+\[
+B_{S,R}=2^{|S|+|R|}\sum_{T\in V,\ T\supseteq S\cup R}\hat f(T).
+\]
+A set $T\in U$ with $T\supseteq S\cup R$ contains $S\in V$, so it lies in $V$;
+hence the sum runs over all $T\supseteq S\cup R$ (the others have
+$\hat f(T)=0$). Since $|S|+|R|\ge|S\cup R|$, Lemma~\ref{lem:tail} shows that
+$B_{S,R}$ is an integer, and an even one whenever $S\ne\varnothing$. Dividing
+the $t_V$ rows with $S\ne\varnothing$ by $2$ gives an integer matrix $B'$, and
+\[
+\det B'=2^{-t_V}\det B=2^{-t_V}\,2^{2W_V}\prod_{S\in V}\hat f(S).
+\]
+It is an integer, and nonzero because every $\hat f(S)$ with $S\in V$ is
+nonzero. For $V=\varnothing$ both sides are $1$. Theorem~\ref{thm:prod} is the
+case $V=U$.
+\end{proof}
+
+\section{Entropy consequences}\label{sec:entropy}
+
+\begin{lemma}[logarithms]\label{lem:log}
+If $V\subseteq U$ satisfies the conclusion of Theorem~\ref{thm:upper}, then
+$\sum_{S\in V}\lg\frac1{p(S)}+2t_V\le4W_V$.
+\end{lemma}
+
+\begin{proof}
+Take $\lg$ of absolute values: $2W_V+\sum_V\lg|\hat f(S)|=t_V+\lg|z|\ge t_V$,
+and $\lg(1/p(S))=-2\lg|\hat f(S)|$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:supp}]
+By concavity of $\lg$ with weights $p(S)$,
+$H(f)\le\lg\sum_Up(S)\cdot\frac1{p(S)}=\lg K$. By convexity of $-\lg$ with
+uniform weights on $U$ and $\frac1K\sum_Up(S)=\frac1K$,
+$\frac1K\sum_U\lg\frac1{p(S)}\ge\lg K$. The third inequality is
+Lemma~\ref{lem:log} with $V=U$ and Theorem~\ref{thm:prod}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:lower}]
+From $\delta\le Kp(S)$ we get $\delta W\le K\sum_U|S|p(S)=K\,I(f)$. By
+Theorem~\ref{thm:supp} and $\delta>0$,
+\[
+K\delta\Bigl(H(f)+\frac{2t}K\Bigr)=\delta\bigl(KH(f)+2t\bigr)\le\delta(K\lg K+2t)
+\le\delta\Bigl(\sum_U\lg\tfrac1{p(S)}+2t\Bigr)\le4\delta W\le4K\,I(f).
+\]
+Divide by $K$. Since $2t/K\ge0$, also $\delta H(f)\le4I(f)$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:ratio}]
+Let $m=\min_Up$. Then $p(S)\le M^2m$ on $U$, so $1=\sum_Up\le KM^2m$, and
+$\delta=M^{-2}$ satisfies the hypothesis of Theorem~\ref{thm:lower}.
+\end{proof}
+
+\section{Comparable masses}\label{sec:comp}
+
+\begin{lemma}[layers]\label{lem:layer}
+Let $A$ be a finite set, $a,g:A\to\R$ with $a\ge0$, and suppose
+$\sum_{i\in A,\ a_i\ge r}g_i\le0$ for every $r>0$. Then $\sum_{i\in A}a_ig_i\le0$.
+\end{lemma}
+
+\begin{proof}
+Let $0<r_1<\dots<r_k$ be the positive values of $a$ and $r_0=0$. Then
+$\sum_ia_ig_i=\sum_{j=1}^k(r_j-r_{j-1})\sum_{a_i\ge r_j}g_i\le0$.
+\end{proof}
+
+\begin{lemma}[the empty frequency]\label{lem:dc}
+For $0\le p\le1$, \ $p\lg\frac1p\le2(1-p)$.
+\end{lemma}
+
+\begin{proof}
+For $p=0$ both sides are $\ge0$ with the left side $0$. For $0<p\le1$,
+$\ln(1/p)\le1/p-1$ gives $p\ln(1/p)\le1-p$, and $\ln2\ge\frac12$ (from
+$\ln x\ge1-1/x$ at $x=2$) gives $p\lg(1/p)\le(1-p)/\ln2\le2(1-p)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:comp}]
+Let $U'=U\setminus\{\varnothing\}$. If $U'=\varnothing$, then
+$p(\varnothing)=1$ and $H(f)=I(f)=0$. Otherwise define, for $S\in U'$,
+\[
+a_S=\max\{p(T):T\in U',\ T\subseteq S\}.
+\]
+Then $p(S)\le a_S\le L\,p(S)$ by the hypothesis, and $a$ is nondecreasing under
+inclusion on $U'$. For $r>0$ the set $V_r=\{S\in U':a_S\ge r\}$ is upward
+closed in $U$ (a set of $U$ containing a member of $V_r$ is nonempty and has a
+larger value of $a$), and $t_{V_r}=|V_r|$. By Theorem~\ref{thm:upper} and
+Lemma~\ref{lem:log}, $\sum_{S\in V_r}g_S\le0$ with
+$g_S=\lg\frac1{p(S)}+2-4|S|$. Lemma~\ref{lem:layer} gives
+\[
+\sum_{S\in U'}a_S\Bigl(\lg\frac1{p(S)}+2\Bigr)\le4\sum_{S\in U'}a_S|S|.
+\]
+On the left $\lg(1/p(S))+2\ge0$, so $a_S$ may be decreased to $p(S)$; on the
+right $a_S$ may be increased to $Lp(S)$. This gives
+$\sum_{U'}p(S)\lg\frac1{p(S)}+2(1-p(\varnothing))\le4L\,I(f)$ by Parseval, and
+Lemma~\ref{lem:dc} applied to $p(\varnothing)$ (which is $0$ if
+$\varnothing\notin U$) completes the proof.
+\end{proof}
+
+\section{Examples and remarks (not formalized)}\label{sec:examples}
+
+Nothing in this section is part of the Lean verification.
+
+\begin{remark}[sharpness of $4$ in Theorem~\ref{thm:supp}]\label{rem:address}
+The address function on $r$ address bits and $2^r$ data bits returns the data
+bit selected by the address. Its Fourier support consists of the sets formed by
+a subset of the address bits and one data bit, all with $p(S)=4^{-r}$; so
+$K=4^r$, $\lg K=2r$ and the mean of $|S|$ over $U$ is $r/2+1$
+(cf.~\cite[Sections~5.7 and~8]{shm}; in Section~5.7 $H=2r$ and $I=1+r/2$ are stated). Hence the
+ratio $\lg K\big/\bigl(\frac1K\sum_U|S|\bigr)$ tends to $4$, and the constant $4$
+in the consequence $K\lg K\le4W$ of Theorem~\ref{thm:supp} cannot be lowered.
+The same family shows that $4$ cannot be lowered in Theorem~\ref{thm:lower} at
+$\delta=1$ (Potapov states this sharpness for plateaued
+functions~\cite[Section~2]{pot}, using a construction of Li and Tang; the
+address function gives another such family). Our own
+computation reproduced these values for $r=1,2,3$.
+\end{remark}
+
+\begin{remark}[the constant in Theorem~\ref{thm:comp} for $L=1$]\label{rem:and}
+For the AND function of $n$ bits, all nonempty coefficients have the same
+absolute value $2^{1-n}$, so Theorem~\ref{thm:comp} applies with $L=1$; a direct
+computation gives $H/I\to4$ as $n\to\infty$ (we found $3.84$ for $n=8$ and $3.91$
+for $n=12$). So the constant $4$ in Theorem~\ref{thm:comp} cannot be lowered at
+$L=1$. Since the best constant in the FEI conjecture is
+larger than $4$ ($60/13$ in~\cite[Section~1]{owz}, more than $6.45$
+in~\cite{hod}), the hypothesis of Theorem~\ref{thm:comp} with
+$L=1$ cannot hold for all Boolean functions. The computation for the AND
+function was added while writing this paper and was not part of the documents
+read by the reviewers; the observation that a lower bound above $4$ for the FEI
+constant rules out $L=1$ for all functions was made by the Codex reviewer of
+the extension.
+\end{remark}
+
+\begin{remark}[the two conditions are independent]\label{rem:selectors}
+Codex's written proofs give selector examples, built on the selector identities
+of~\cite[Section~8]{shm}. For $r\ge3$ and $N=2^r$, split the $N$ addresses into
+one cell of $N/2-1$ addresses and $N/2+1$ singleton cells, give each cell its
+own data bit, and output the data bit of the cell containing the address. All
+cells have odd size, every magnitude $N^{-1}|\sum_{z\in C}\chi_S(z)|$ is
+nonzero, $K\min_Up=\frac12+\frac2N>\frac12$, and the ratio of the largest to
+the smallest nonzero magnitude is $N/2-1\to\infty$. So
+Theorem~\ref{thm:lower} gives $H\le8I$ on this family while
+Corollary~\ref{cor:ratio} gives no uniform bound. If the large cell is chosen as
+the hyperplane $z_1=0$ without the zero address and the output is multiplied by
+the parity of all address bits, the masses become nondecreasing under inclusion
+on the support ($L=1$), and products of independent copies keep $L=1$ while
+$K\min_Up$ tends to $0$; the untwisted examples have $K\min_Up>\frac12$ but
+$L\to\infty$ (with $L=(N/2-1)^2$ for the cells used in our computation). So
+neither condition implies the other (the product
+observation is due to a Codex reviewer). Our computation for $r=3,4$
+reproduced $K=48,160$, $K\min_Up=0.75,0.625$, magnitude ratios $3,7$, and
+$L=9,49$ for the untwisted and $L=1$ for the twisted examples. We do not claim
+that these selector examples are new.
+\end{remark}
+
+\section{Formal verification}\label{sec:lean}
+
+{\sloppy
+The six statements are formally verified in Lean~4 (version 4.34.1) with
+Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}). The eight source files
+\texttt{Challenge}, \texttt{UpperChallenge}, \texttt{Walsh},
+\texttt{Determinant}, \texttt{Analysis}, \texttt{Layer},
+\texttt{UpperAnalysis} and \texttt{Check} are in version~\repoversion{} of the
+repository~\cite{repo}, directory \texttt{lean/Research/TaskV/FEI/}; records of
+the freezing and of the checks are in the folder
+\texttt{certificates/fei-nonflat-spectra}.
+
+\paragraph{The statements.} The statement file \texttt{Challenge.lean}, in ASCII
+transliteration (the \texttt{import Mathlib} line, a two-line docstring, blank
+lines, and
+the lines \texttt{namespace Fei}, \texttt{open Finset} and \texttt{end Fei} are
+omitted; the file uses Unicode: \texttt{Nat}, \texttt{Int}, \texttt{Real} stand
+for $\mathbb N$, $\Z$, $\R$, \texttt{delta} for $\delta$, \texttt{sum} and
+\texttt{prod} for the big operators $\sum$ and $\prod$, \texttt{in},
+\texttt{!=}, \texttt{<=}, \texttt{->}, \texttt{/\char`\\}, \texttt{forall},
+\texttt{exists} and \texttt{subseteq} for $\in$, $\ne$, $\le$, $\to$, $\wedge$,
+$\forall$, $\exists$ and $\subseteq$):
+{\scriptsize
+\begin{verbatim}
+abbrev Cube (n : Nat) := Finset (Fin n)
+noncomputable def value {n : Nat} (f : Cube n -> Bool) (x : Cube n) : Real :=
+  if f x then -1 else 1
+noncomputable def character {n : Nat} (s x : Cube n) : Real :=
+  prod i in x, if i in s then (-1 : Real) else 1
+noncomputable def coeff {n : Nat} (f : Cube n -> Bool) (s : Cube n) : Real :=
+  (sum x : Cube n, value f x * character s x) / 2 ^ n
+noncomputable def support {n : Nat} (f : Cube n -> Bool) : Finset (Cube n) := by
+  classical exact univ.filter fun s => coeff f s != 0
+noncomputable def mass {n : Nat} (f : Cube n -> Bool) (s : Cube n) := (coeff f s) ^ 2
+noncomputable def entropy {n : Nat} (f : Cube n -> Bool) : Real :=
+  sum s in support f, mass f s * (-Real.logb 2 (mass f s))
+noncomputable def influence {n : Nat} (f : Cube n -> Bool) : Real :=
+  sum s in support f, mass f s * s.card
+noncomputable def weightSum {n : Nat} (f : Cube n -> Bool) : Nat :=
+  sum s in support f, s.card
+noncomputable def nonemptyCount {n : Nat} (f : Cube n -> Bool) : Nat :=
+  ((support f).erase {}).card
+def SignedProduct : Prop :=
+  forall (n : Nat) (f : Cube n -> Bool), exists z : Int, z != 0 /\
+    (2 : Real) ^ (2 * weightSum f) * (prod s in support f, coeff f s) =
+      (2 : Real) ^ nonemptyCount f * (z : Real)
+def SupportEntropy : Prop :=
+  forall (n : Nat) (f : Cube n -> Bool),
+    entropy f <= Real.logb 2 (support f).card /\
+    (support f).card * Real.logb 2 (support f).card <=
+      sum s in support f, -Real.logb 2 (mass f s) /\
+    (sum s in support f, -Real.logb 2 (mass f s)) + 2 * nonemptyCount f <=
+      (4 : Real) * weightSum f
+def LowerMassFEI : Prop :=
+  forall (n : Nat) (f : Cube n -> Bool) (delta : Real), 0 < delta ->
+    (forall s in support f, delta <= (support f).card * mass f s) ->
+    delta * (entropy f + (2 : Real) * (nonemptyCount f : Real) /
+      ((support f).card : Real)) <= 4 * influence f
+def BoundedRatioFEI : Prop :=
+  forall (n : Nat) (f : Cube n -> Bool) (M : Real), 1 <= M ->
+    (forall s in support f, forall t in support f, |coeff f s| <= M * |coeff f t|) ->
+    entropy f <= 4 * M ^ 2 * influence f
+\end{verbatim}}
+\noindent The line break inside \texttt{LowerMassFEI} is ours, and \texttt{\{\}}
+stands for the empty set $\varnothing$. A point of \texttt{Cube n} is the set of
+its coordinates equal to $-1$, and the value \texttt{true} means $-1$; this is a
+bijection with the functions $\{-1,1\}^n\to\{-1,1\}$, for every $n$ including
+$n=0$. \texttt{character s x} is $(-1)^{|s\cap x|}=\chi_s(x)$, \texttt{coeff}
+is $\hat f(s)$, \texttt{support f} is $U$ (the exact set of nonzero
+coefficients), \texttt{mass} is $p$, and \texttt{Real.logb 2} is $\lg$. Summing
+\texttt{entropy} over the support only is the convention $0\lg(1/0)=0$, and
+\texttt{influence} is the spectral form of $I(f)$. \texttt{weightSum} is $W$ and
+\texttt{nonemptyCount} is $t$. So \texttt{SignedProduct},
+\texttt{SupportEntropy}, \texttt{LowerMassFEI} and \texttt{BoundedRatioFEI}
+are Theorems~\ref{thm:prod}, \ref{thm:supp}, \ref{thm:lower} and
+Corollary~\ref{cor:ratio}; the hypothesis of \texttt{LowerMassFEI} is written
+$\delta\le K\,p(S)$ without division, and its conclusion is the stronger form
+with $2t/K$. The second statement file \texttt{UpperChallenge.lean} (imports
+\texttt{Fei.Challenge}, in the repository
+\texttt{Research.TaskV.FEI.Challenge}; same omissions) contains exactly
+{\footnotesize
+\begin{verbatim}
+def UpperProduct : Prop :=
+  forall (n : Nat) (f : Cube n -> Bool) (V : Finset (Cube n)),
+    V subseteq support f ->
+    (forall s in V, forall w in support f, s subseteq w -> w in V) ->
+    exists z : Int, z != 0 /\
+      (2 : Real) ^ (2 * sum s in V, s.card) * (prod s in V, coeff f s) =
+        (2 : Real) ^ (V.erase {}).card * (z : Real)
+def ComparableMassFEI : Prop :=
+  forall (n : Nat) (f : Cube n -> Bool) (L : Real), 1 <= L ->
+    (forall s in (support f).erase {}, forall t in (support f).erase {}, s subseteq t ->
+      mass f s <= L * mass f t) ->
+    entropy f <= 4 * L * influence f
+\end{verbatim}}
+\noindent These are Theorems~\ref{thm:upper} and~\ref{thm:comp}; in
+\texttt{ComparableMassFEI} the empty set is removed from both quantified
+indices, so $p(\varnothing)$ is unconstrained. None of the statements encodes
+the general FEI conjecture, the identity between $I$ and the flip influence, or
+the examples of Section~\ref{sec:examples}.
+
+\paragraph{Review and freezing.} Both statement files were compiled with no
+diagnostics before they were frozen: \texttt{Challenge.lean} between 03:58:30
+and 03:58:38~UTC on 21 November 2026 and \texttt{UpperChallenge.lean} between
+04:02:10 and 04:02:15~UTC. Each was compared with the written proof by a Codex
+agent that had not written the statement or the proof (approvals recorded at
+03:58:15 and 04:00:58~UTC); the first reviewer had flagged an ambiguous
+natural-number expression in an earlier draft of \texttt{LowerMassFEI}, which
+was replaced by the real quotient shown above. The files were frozen by
+recording their SHA-256 hashes, \texttt{b277a582\ldots} at 03:58:46~UTC and
+\texttt{0731c4d4\ldots} at 04:02:30~UTC, and were not changed afterwards. The
+development receipts record no compilation of a proof file before the first
+freeze (the first is at 04:01:22~UTC); the extension statement was written at
+04:00:40~UTC and approved at 04:00:58~UTC; \texttt{Walsh} and
+\texttt{Analysis} (which contains the lemma \texttt{upper\_log} used for
+Theorem~\ref{thm:comp}) were last changed at 04:01:38 and 04:01:54~UTC, after
+that approval but before the second freeze, and \texttt{Layer},
+\texttt{UpperAnalysis} and the final version of \texttt{Determinant} were
+created or rewritten after the second freeze. \texttt{Analysis},
+\texttt{Layer}, \texttt{UpperAnalysis} and \texttt{Determinant} were first
+compiled successfully at 05:03--05:05~UTC.
+
+\paragraph{The proofs.} The check file \texttt{Check.lean} does not have the
+form \texttt{theorem check\_X : Challenge.X := Proof.X} used in our other
+papers: each check theorem has the frozen proposition as its type and composes
+proof lemmas in its body. Apart from the \texttt{import} lines and the lines
+\texttt{namespace Fei}, \texttt{open Finset} and \texttt{end Fei}, it contains
+exactly
+{\footnotesize
+\begin{verbatim}
+theorem check_upperProduct : UpperProduct := upperProduct_of (fun _ => tail_integral)
+theorem check_signedProduct : SignedProduct := signedProduct_of_upper check_upperProduct
+theorem check_supportEntropy : SupportEntropy :=
+  supportEntropy_of check_signedProduct (fun _ => parseval)
+theorem check_lowerMassFEI : LowerMassFEI :=
+  lowerMassFEI_of check_supportEntropy (fun _ => parseval)
+theorem check_boundedRatioFEI : BoundedRatioFEI :=
+  boundedRatioFEI_of check_lowerMassFEI (fun _ => parseval)
+theorem check_comparableMassFEI : ComparableMassFEI :=
+  comparableMassFEI_core (fun _ => upper_layer_sum) (fun _ => parseval)
+    (fun n f V hs hu => upper_log f V hs (check_upperProduct n f V hs hu))
+\end{verbatim}}
+\noindent together with three \texttt{example} lines that evaluate
+\texttt{character} and \texttt{coeff} on tiny cases and six \texttt{\#print
+axioms} commands. The checked declarations are
+\texttt{Fei.check\_signedProduct}, \texttt{Fei.check\_supportEntropy},
+\texttt{Fei.check\_lowerMassFEI}, \texttt{Fei.check\_boundedRatioFEI},
+\texttt{Fei.check\_upperProduct} and \texttt{Fei.check\_comparableMassFEI}.
+Every module is in the namespace \texttt{Fei}, so a redeclaration of a frozen
+name would be a Lean error; no proof module declares one, and the final
+reviewer confirmed with its own file that
+\texttt{example : Fei.X := Fei.check\_X} compiles for all six. Table~\ref{tab:lean}
+lists the Lean counterparts of the steps (file names in parentheses, without
+\texttt{.lean}; names marked $^*$ are \texttt{private}).
+
+\begin{table}[!htbp]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.62\textwidth}@{}}
+\hline
+Step of the written proof & Lean (file) \\
+\hline
+Orthogonality, inversion, Parseval & \texttt{orthogonal}$^*$, \texttt{inversion}$^*$,
+\texttt{parseval} (\texttt{Walsh}) \\
+Lemma~\ref{lem:tail} & \texttt{signed\_face}$^*$, \texttt{face\_sum}$^*$,
+\texttt{tail\_integral} (\texttt{Walsh}) \\
+Theorem~\ref{thm:upper}: $\det Z=1$, integer entries, row factors &
+\texttt{inc\_det}$^*$, \texttt{entry\_factor}$^*$, \texttt{row\_prod}$^*$,
+\texttt{upperProduct\_of} (\texttt{Determinant}) \\
+Theorem~\ref{thm:prod} from Theorem~\ref{thm:upper} &
+\texttt{signedProduct\_of\_upper} (\texttt{Determinant}) \\
+Lemma~\ref{lem:log} & \texttt{upper\_log} (\texttt{Analysis}) \\
+Theorem~\ref{thm:supp} (two Jensen steps) & \texttt{entropy\_bounds}$^*$,
+\texttt{supportEntropy\_of} (\texttt{Analysis}) \\
+Theorem~\ref{thm:lower}, Corollary~\ref{cor:ratio} & \texttt{lowerMassFEI\_of},
+\texttt{boundedRatioFEI\_of} (\texttt{Analysis}) \\
+Lemma~\ref{lem:layer} & \texttt{upper\_layer\_sum} (\texttt{Layer}) \\
+Lemma~\ref{lem:dc}, Theorem~\ref{thm:comp} & \texttt{entropy\_dc\_le}$^*$,
+\texttt{comparableMassFEI\_core} (\texttt{UpperAnalysis}) \\
+\hline
+\end{tabular}
+\caption{Lean counterparts of the steps of the proof.}
+\label{tab:lean}
+\end{table}
+
+\noindent The Jensen steps are proved from $\ln x\ge1-1/x$ and $\ln x\le x-1$,
+and the majorant $a_S$ of Section~\ref{sec:comp} is defined in
+\texttt{comparableMassFEI\_core} as a maximum over the nonempty supported
+subsets of $S$ together with $S$ itself. The axioms of all six check theorems
+are exactly \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound}. No file uses \texttt{sorry}, \texttt{native\_\allowbreak
+decide}, \texttt{bv\_\allowbreak decide}, \texttt{decide} or an \texttt{axiom}
+declaration; the only option set is one \texttt{maxHeartbeats 800000} in
+\texttt{UpperAnalysis}.
+
+\paragraph{Checks.} The nine modules (the eight files and a root module
+\texttt{Fei} that imports \texttt{Check}) were compiled module by module in two
+new empty directories on the author's Mac, one after the other, with the frozen
+Lake configuration and warnings treated as errors, on 21 November 2026
+(05:05:26--05:11:43~UTC); each directory also ran one build of the whole
+package, replayed every module with \texttt{leanchecker} and printed the axioms.
+All commands ended with exit code~$0$, the \texttt{leanchecker} runs printed
+nothing, the two directories produced identical \texttt{.olean} files, and the
+largest memory use of a single step was $6.0$~GB. An attempt started ten seconds
+earlier stopped at the version probe, before building any module, because the
+timing tool was not allowed to read a system clock setting; it was kept on
+record. The final reviewer (see the next section) compiled the nine modules
+again with plain \texttt{lean} in a new directory of its own, together with a
+short audit file of its own, and replayed every module with
+\texttt{leanchecker} (21 November 2026, between 17:03 and 17:09~UTC); all ten
+modules compiled with exit code~$0$ and no warnings, and all
+\texttt{leanchecker} runs ended with exit code~$0$ and empty output. Mathlib and
+its dependencies were taken from a shared prebuilt cache at the pinned commits
+and were not rechecked; the \texttt{leanchecker} replays cover the project
+modules. In the repository the eight files have the module names
+\texttt{Research.TaskV.FEI.Challenge}, \dots,
+\texttt{Research.TaskV.FEI.Check}, keep the namespace \texttt{Fei} (so the
+checked names \texttt{Fei.check\_X} are unchanged), and differ from the checked
+files only in their \texttt{import} lines; \texttt{Challenge.lean}, which
+imports only Mathlib, is byte-identical (SHA-256 \texttt{b277a582\ldots}). The
+root module \texttt{Fei} of the checked package, which only imports
+\texttt{Check}, is not part of the repository.
+These versions were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac (22 November 2026, 21:36--21:39~UTC), with no warnings and identical \texttt{.olean} files and the same axiom lists.
+In the whole-project rebuild of version~\repoversion{} of the repository (on the author's Windows computer, in one pass from 22 to 23 November 2026), these files were compiled and replayed with \texttt{leanchecker} again together with the rest of the project; no module needed a second attempt (details in the repository). The formalization has not been checked with comparator or with an
+independent kernel.
+
+\par}
+
+\section*{How this paper was produced}
+This work was carried out from 21 to 23 November 2026 (UTC) in a workflow
+directed by the author, using OpenAI Codex with the model GPT-6.2-Astra
+(reasoning level ultra) and Anthropic Claude Code with the model Claude
+Opus~5.5. The author asked for a search for well-known open problems, and
+Claude Code passed this request to Codex at 03:19~UTC on 21 November; in that
+search Codex prepared a note on the FEI conjecture among others. The author
+then asked that Codex continue to attack it, and Claude Code started a Codex
+session for this at 03:53~UTC; its task allowed partial results with a complete
+written proof approved by an agent that had not derived it to go on to a frozen
+statement and a Lean proof. According to the file times, by 03:56~UTC a Codex
+agent had written the proof of Theorems~\ref{thm:prod}--\ref{thm:lower} and
+Corollary~\ref{cor:ratio}, and another Codex agent that had not taken part in
+it approved it at 03:57~UTC; the extension to upper sets
+(Theorems~\ref{thm:upper} and~\ref{thm:comp}) was written by 03:58~UTC and
+approved by a non-author Codex reviewer at 04:00~UTC, who also checked all
+$278$ functions with $n\le3$ and $3{,}460$ upper sets with its own program
+(review and freezing: Section~\ref{sec:lean}). The Codex session reached its usage limit at 04:04~UTC;
+Claude Code resumed it at 05:03~UTC, and the formalization and the checks were
+completed by 05:12~UTC. The handoff notes record that a reviewer of the
+written proofs later took part in the Lean work on the extension, so the final
+review was assigned to an agent that had written none of the files. The Lean proofs
+follow the written proofs.
+
+The final review was done by a Claude Code agent (model Claude Opus~5.5) that
+had written none of the files, on 21 November 2026 from 17:03~UTC. It read the
+source~\cite{owz} itself, compared the statement files with it, read the written
+proofs and all proof files, checked the hashes and the receipts, rebuilt the
+formalization as described above, and tested the six statements with its own
+exact program on all $278$ functions with $n\le3$ and $3{,}998$ random functions
+with $4\le n\le7$, finding no violation. Its decision was APPROVE\_FORMAL, with
+no blocking or major remarks; its six minor remarks concern the written account
+and the form of the check file and are taken into account here (among them the
+form of \texttt{Check.lean}, the marking of material that is not in Lean, the
+stronger form of Theorem~\ref{thm:lower}, the unconstrained empty frequency in
+Theorem~\ref{thm:comp}, and the search before publication). Codex then wrote an
+English summary of the mathematics (17:36~UTC). Claude Code (Claude Opus~5.5)
+checked the sources, recomputed in Python Theorems~\ref{thm:prod}, \ref{thm:lower}
+and~\ref{thm:comp} on $1{,}178$ functions
+(all functions with $n\le3$ and random ones with $n=4,5,6$), the examples of
+Remarks~\ref{rem:address}--\ref{rem:selectors} and the AND function, and wrote
+this text from Codex's manuscripts and the Lean files; the AND computation in
+Remark~\ref{rem:and} and the scope paragraph of Section~\ref{sec:intro} were added while writing.
+An independent Claude Code agent (model Claude Opus~5.5) that had written none of the files reviewed this paper, and two others reviewed the release; their corrections were applied. Throughout, ``we'' refers to this workflow; the reading and
+searching described in the paper were done by the agents. Codex agents searched
+for prior work on 21 November (03:53--04:03~UTC: arXiv, GitHub, MathDB, the
+Moonshot and Epoch problem lists, repositories of AI-assisted mathematics and
+general web searches, with a separate search for the upper-set condition); some
+citation indexes refused queries (rate limit). The final reviewer searched
+again on 21 November, and on 22 November 2026 (21:11~UTC) Claude Code queried
+the arXiv for new preprints on the conjecture and found none after~\cite{ps} (4 November
+2026), with~\cite{pot} and~\cite{shm} still in their first versions. Up to
+22~November 2026 these searches found no earlier statement of the inequality of
+Theorem~\ref{thm:supp}, of the product statements of Theorems~\ref{thm:prod}
+and~\ref{thm:upper}, of Theorem~\ref{thm:lower} for $\delta<1$, of
+Corollary~\ref{cor:ratio} for $M>1$, or of Theorem~\ref{thm:comp} (details in
+the repository). On 23~November 2026 (11:10--11:28~UTC) Claude Code searched again (the arXiv, the OpenAlex and Semantic Scholar lists of works citing the main sources, Zenodo, DataCite, GitHub and repositories of AI-assisted mathematics); the only new related work found is two notes of Y.~Shmalo posted on 22 and 23~November 2026, on symmetric functions and on functions of bounded degree; their entropy--influence bounds assume symmetry or a bound on the degree (functions of degree at most~$d$ satisfy the hypothesis of Theorem~\ref{thm:lower} with $\delta=4^{1-d}$, and on them the second note's constant, of order $2\lg d$, is far smaller than the constant $4^d$ given by Theorem~\ref{thm:lower}), and neither note contains the results here. This reports the coverage of the searches,
+not a guarantee that they were complete. The author is not a professional
+mathematician. The author has read this paper and, using a side-by-side table, compared its Lean statements with Theorems~\ref{thm:prod}--\ref{thm:comp} and Corollary~\ref{cor:ratio}. No human mathematician has read the proofs or
+reviewed this paper. The correctness of the six statements rests on the Lean
+proofs and on the agreement of the Lean statements with the definitions
+of~\cite{owz}; the written proofs are given for the reader. AI systems are not
+authors of this paper; the author takes full responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Vladimir N. Potapov for the plateaued case and the
+triangular matrix on which this work builds, to Ryan O'Donnell, John Wright and
+Yuan Zhou for the framework, and to Yitzchak Shmalo for the selector identities.
+
+{\footnotesize
+\begin{thebibliography}{99}
+\setlength{\itemsep}{0pt}
+\bibitem{acksw} S.~Arunachalam, S.~Chakraborty, M.~Kouck\'y, N.~Saurabh and
+R.~de~Wolf, Improved bounds on Fourier entropy and min-entropy, \emph{ACM
+Trans.\ Comput.\ Theory} 13 (2021), no.~4; arXiv:1809.09819v2 (2021).
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{fk} E.~Friedgut and G.~Kalai, Every monotone graph property has a sharp
+threshold, \emph{Proc.\ Amer.\ Math.\ Soc.} 124 (1996), no.~10, 2993--3002,
+\url{https://doi.org/10.1090/S0002-9939-96-03732-X}.
+\bibitem{gmp} M.~J. Gonz\'alez, P.~MacManus and M.~C. Pereyra, Further evidence
+towards the Fourier entropy-influence conjecture, arXiv:2606.00246v2 (2026).
+\bibitem{hod} R.~Hod, Improved lower bounds for the Fourier entropy/influence
+conjecture via lexicographic functions, arXiv:1711.00762v1 (2017).
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+367--381, \url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{odo} R.~O'Donnell, \emph{Analysis of Boolean Functions}, Cambridge
+University Press, 2014, \url{https://doi.org/10.1017/CBO9781139814782}.
+\bibitem{owz} R.~O'Donnell, J.~Wright and Y.~Zhou, The Fourier entropy--influence
+conjecture for certain classes of Boolean functions, in \emph{Automata,
+Languages and Programming} (ICALP 2011, Part~I), Lecture Notes in Comput.\ Sci.\
+6755, Springer, 2011, 330--341, \url{https://doi.org/10.1007/978-3-642-22006-7_28}.
+\bibitem{ps} M.~Paraashar and N.~Saurabh, Fourier entropy bounds via
+approximations, arXiv:2611.06451v1 (2026).
+\bibitem{pot} V.~N. Potapov, On the Fourier entropy-influence conjecture for
+Boolean plateaued functions, arXiv:2609.21563v1 (2026).
+\bibitem{shm} Y.~Shmalo, Fourier entropy of threshold functions and their
+compositions, arXiv:2610.16069v1 (2026).
+\bibitem{shm2} Y.~Shmalo, Four equivalent forms of the Fourier entropy-influence
+conjecture, manuscript,
+\url{https://github.com/yspennstate/fei-equivalent-forms} (commit
+\texttt{305c4f8e}, 2026).
+\end{thebibliography}}
+\end{document}

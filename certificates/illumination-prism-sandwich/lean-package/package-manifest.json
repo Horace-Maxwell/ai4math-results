@@ -1,0 +1,155 @@
+{
+ "module_count": 7,
+ "entrypoints": [
+  "Research.TaskV.Illumination.Check"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "Research.TaskV.Illumination.Check": [
+   "PrismIllumination.check_trichotomy"
+  ]
+ },
+ "codex_axiom_audit": {
+  "record": "acceptance/dual-02/receipt.json",
+  "declarations": [
+   "PrismIllumination.Space",
+   "PrismIllumination.cube",
+   "PrismIllumination.prism",
+   "PrismIllumination.edge",
+   "PrismIllumination.Illuminates",
+   "PrismIllumination.CanLight",
+   "PrismIllumination.Exact",
+   "PrismIllumination.Trichotomy",
+   "PrismIllumination.dx",
+   "PrismIllumination.dy",
+   "PrismIllumination.Step",
+   "PrismIllumination.planarThree",
+   "PrismIllumination.planarFour",
+   "PrismIllumination.gapSix",
+   "PrismIllumination.gapSeven",
+   "PrismIllumination.lowerSix",
+   "PrismIllumination.lowerSeven",
+   "PrismIllumination.lowerEight",
+   "PrismIllumination.upperSix",
+   "PrismIllumination.upperSeven",
+   "PrismIllumination.cubeEight",
+   "PrismIllumination.prism_trichotomy",
+   "PrismIllumination.check_trichotomy"
+  ],
+  "axioms_in_both_roots": [
+   [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  ]
+ },
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskV/Illumination/Challenge.lean",
+   "frozen_utc": "2026-11-21T03:53:24Z",
+   "freeze_record": "acceptance/FROZEN.sha256, acceptance/FROZEN.utc",
+   "frozen_sha256": "2fd9927a0e7b532493e5de4038665d92490e479fb712298ad2b7321b863bbe6d",
+   "repository_sha256": "2fd9927a0e7b532493e5de4038665d92490e479fb712298ad2b7321b863bbe6d",
+   "repository_identical_to_frozen": true,
+   "targets": [
+    "PrismIllumination.Trichotomy"
+   ]
+  }
+ ],
+ "files": [
+  {
+   "path": "lean/Research/TaskV/Illumination/Challenge.lean",
+   "module": "Research.TaskV.Illumination.Challenge",
+   "sha256": "2fd9927a0e7b532493e5de4038665d92490e479fb712298ad2b7321b863bbe6d",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/illumination/formal/Illumination/Challenge.lean",
+   "codex_source_sha256": "2fd9927a0e7b532493e5de4038665d92490e479fb712298ad2b7321b863bbe6d",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.Analysis.Convex.Basic",
+    "Mathlib.Topology.MetricSpace.Pseudo.Pi",
+    "Mathlib.Topology.Instances.RealVectorSpace"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Illumination/Check.lean",
+   "module": "Research.TaskV.Illumination.Check",
+   "sha256": "480418c1ac8c442aa3955507032e8b7e6603a617562757d3a67765dd23f5947e",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/illumination/formal/Illumination/Check.lean",
+   "codex_source_sha256": "34e0b19aa01520859e77aac48d8f082d67f3b8c110c236a3555b62400a144347",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Illumination.Result"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Illumination/Gaps.lean",
+   "module": "Research.TaskV.Illumination.Gaps",
+   "sha256": "b84d4f959282d4dff6c53429ea3bb622ac77e737fced283d806db1261e5bd158",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/illumination/formal/Illumination/Gaps.lean",
+   "codex_source_sha256": "a21497952131532b491b30c5e73bcc2124fe202707c38aaeb9b4d07c4bf0d1b5",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Illumination.Challenge",
+    "Mathlib.Analysis.Convex.Combination",
+    "Mathlib.Topology.Order.Compact",
+    "Mathlib.Tactic.FinCases",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.FunProp"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Illumination/Lower.lean",
+   "module": "Research.TaskV.Illumination.Lower",
+   "sha256": "fa4953c53370871291dacdb6c68eb8ce2c8e94554f2193c7c685936cdd1bdcc0",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/illumination/formal/Illumination/Lower.lean",
+   "codex_source_sha256": "efe6d6ea94de4645a6db6eafbc79ce2cc86a7144ee185b3f3b7b6d8737b06f14",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Illumination.Challenge",
+    "Mathlib.Topology.Order.DenselyOrdered",
+    "Mathlib.Data.Fintype.Card",
+    "Mathlib.Tactic.FinCases",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Illumination/Planar.lean",
+   "module": "Research.TaskV.Illumination.Planar",
+   "sha256": "1838966a7627331bcd8575e04f7f5c48d80ac2ba5d874225b099e340f569c0e3",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/illumination/formal/Illumination/Planar.lean",
+   "codex_source_sha256": "a779c88882706ff41d8b415665dfd6f0563f17f78d1d0c0fd7dd2f972da8abfc",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Illumination.Challenge",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Illumination/Result.lean",
+   "module": "Research.TaskV.Illumination.Result",
+   "sha256": "14c701bb3d76b2b79e65f5998fc74be77bccca9324b2ff0366203ef365657da4",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/illumination/formal/Illumination/Result.lean",
+   "codex_source_sha256": "ff2bfbe83b47fad9184bf92a98866171efeb75c5a2928a574d7d57a47ae25a92",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Illumination.Gaps",
+    "Research.TaskV.Illumination.Upper",
+    "Research.TaskV.Illumination.Lower"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Illumination/Upper.lean",
+   "module": "Research.TaskV.Illumination.Upper",
+   "sha256": "3bc9a99d6938366b2fb4a7e5df094f747bbe7a8965304f1f2d2a5c9f24884816",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/illumination/formal/Illumination/Upper.lean",
+   "codex_source_sha256": "63d3eb03ee201eb8acdc7969cdeea2ce3841e149e97e325bd803ffa9ad15aa0f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Illumination.Planar"
+   ]
+  }
+ ]
+}

@@ -76,3 +76,7 @@ import Research.TaskS.C.CheckC
 import Research.TaskS.C.MeasureAudit.CheckC
 import Research.TaskU.H5.Check
 import Research.TaskU.H5B.CheckB
+import Research.TaskT.HellyFive.Check
+import Research.TaskV.Illumination.Check
+import Research.TaskV.FEI.Check
+import Research.TaskV.Durer.ExactTests
