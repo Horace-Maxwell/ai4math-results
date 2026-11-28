@@ -1,0 +1,997 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+ pdftitle={Two sufficient conditions for a tree to be determined by its chromatic symmetric function},
+ pdfauthor={Horace Dong}}
+\newtheorem{theorem}{Theorem}
+\renewcommand{\thetheorem}{\Alph{theorem}}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem{corollary}[lemma]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Definition}
+\newtheorem{example}[lemma]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[lemma]{Remark}
+\newcommand{\repoversion}{1.27.0}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\N}{\mathbb N}
+
+\title{Two sufficient conditions for a tree to be determined\\ by its chromatic symmetric function}
+\author{Horace Dong\\ \small Independent researcher\\
+\small ORCID: \href{https://orcid.org/0009-0002-7554-7548}{0009-0002-7554-7548}}
+\date{28 November 2026}
+\begin{document}
+\sloppy
+\maketitle
+
+\begin{abstract}
+Stanley asked in 1995 whether two non-isomorphic finite trees can have the same
+chromatic symmetric function~$X_T$; the question is open. For a tree $T$, let
+its core be the subtree of non-leaf vertices, and give each core vertex the
+weight $1$ plus its number of leaf neighbours. We prove two sufficient
+conditions, both stated only for $T$: every tree with the same $X$ is isomorphic
+to $T$ if (A) every core vertex has a leaf neighbour, every leaf of the core has
+a weight that occurs only once in the core, and any two sets of core vertices
+with the same total weight contain the same leaves of the core; or if (B) every
+core vertex has a leaf neighbour, no core weight is the sum of the weights of
+two or more other core vertices, and at most one leaf of the core has a weight
+that occurs elsewhere in the core. Both conditions allow internal core weights
+to coincide, also at adjacent vertices, unlike the recent conditions of Zeng
+and of Awan, which require unique weights at internal core vertices. The
+reconstruction step for (A) rebuilds the core from data indexed by the core
+leaves with Buneman's classical theorem, a device used earlier, for a different
+class allowing one connected class of repeated weights, in a public preprint of
+Atwell. The ingredients that $X_T$
+determines the number of leaves, properness and the multiset of core weights are
+known. The two classes are thin: family~(A) has $O(\log n)$ core leaves and
+family~(B) fewer than $\sqrt{2n+2}$; every member with at most $29$ vertices is
+already covered by the computations of Heil and Ji, every member of diameter six
+is covered by two public results posted later on the day this work was completed
+(one of them with a Lean proof; both unrefereed, and we have not checked them),
+and the general question remains open. Both theorems are formally verified in Lean~4, with $X_T$ defined
+through proper colourings. The proofs and the formalization were produced by AI
+agents working under the author's direction; their role is described at the end
+of the paper.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+For a finite simple graph $G$ with vertex set $V$, Stanley's \emph{chromatic
+symmetric function}~\cite{stanley} is
+\[
+X_G=\sum_{\kappa}\ \prod_{v\in V}x_{\kappa(v)},
+\]
+the sum over all proper colourings $\kappa:V\to\{1,2,3,\dots\}$ (adjacent
+vertices receive different colours), in commuting variables $x_1,x_2,\dots$.
+Stanley~\cite{stanley} asked whether non-isomorphic trees always have different
+chromatic symmetric functions; this is often called Stanley's tree isomorphism
+conjecture, and it is open. It has been verified by computer for all trees with
+at most $29$ vertices (Heil and Ji~\cite[Theorem~4.5]{hj}), and proved for several
+classes: spiders and some caterpillars (Martin, Morin and
+Wagner~\cite{mmw}), proper caterpillars (Aliste-Prieto and Zamora~\cite{apz}),
+all caterpillars (Loebl and Sereni~\cite[Theorem~2]{ls}), proper trees of
+diameter at most~$5$ (Aliste-Prieto, de Mier, Orellana and
+Zamora~\cite[Corollary~7.14]{apdmoz}), and all trees of diameter at most~$5$
+(Gonzalez, Orellana and Tomba~\cite[Theorem~5.20, Proposition~5.24 and
+Theorem~5.27]{got}). Orellana and
+Tomba~\cite[Corollary~4.12]{ot} showed that it suffices to prove the conjecture
+for proper trees all of whose core weights (defined below) are equal to a fixed
+$k\ge2$.
+
+\paragraph{Cores and weights.} Let $T$ be a finite tree with at least three
+vertices. Its leaves are the vertices of degree~$1$; its \emph{core} $K(T)$ is
+the subtree induced by the other vertices, and the \emph{leaves of the core} are
+the vertices of degree~$1$ in $K(T)$ (they are not leaves of $T$). Every leaf of
+$T$ has exactly one neighbour, which lies in the core. The \emph{weight} of a
+core vertex $v$ is
+\[
+w(v)=1+\#\{\text{leaves of $T$ adjacent to $v$}\},
+\]
+so that $w(v)$ is the number of vertices in the star formed by $v$ and its leaf
+neighbours, and $\sum_{v\in K(T)}w(v)=n$, the number of vertices of $T$. We write
+$w(P)=\sum_{v\in P}w(v)$ for $P\subseteq K(T)$ and $W(T)$ for the multiset of
+core weights. The tree $T$ is \emph{proper} if every core vertex has a leaf
+neighbour, that is, $w(v)\ge2$ for all core vertices. Conversely, $T$ is
+determined up to isomorphism by its weighted core: attach $w(v)-1$ new leaves to
+each core vertex~$v$.
+
+\paragraph{The results.} The hypotheses are imposed only on $T$; the tree $T'$
+is arbitrary.
+
+\begin{theorem}[anchor family]\label{thm:A}
+Let $T$ be a finite tree whose core $K$ has at least two vertices, and assume:
+\begin{itemize}
+\item[(A1)] $T$ is proper;
+\item[(A2)] every leaf $a$ of the core has a weight that no other core vertex
+has: $w(v)=w(a)$ with $v\in K$ implies $v=a$;
+\item[(A3)] if $P,Q\subseteq K$ and $w(P)=w(Q)$, then $P$ and $Q$ contain the
+same leaves of the core.
+\end{itemize}
+Then every finite tree $T'$ with $X_{T'}=X_T$ is isomorphic to $T$.
+\end{theorem}
+
+\begin{theorem}[peeling family]\label{thm:B}
+Let $T$ be a finite tree whose core $K$ has at least two vertices, and assume:
+\begin{itemize}
+\item[(B1)] $T$ is proper;
+\item[(B2)] no core weight is a sum of core weights over a set of at least two
+vertices: $w(v)\ne w(P)$ for all $v\in K$ and all $P\subseteq K$ with
+$|P|\ge2$;
+\item[(B3)] at most one leaf of the core has a weight that also occurs at
+another core vertex.
+\end{itemize}
+Then every finite tree $T'$ with $X_{T'}=X_T$ is isomorphic to $T$.
+\end{theorem}
+
+\noindent The core leaves act as labels (``anchors'') in Theorem~\ref{thm:A}:
+by~(A3), the total weight of a set of core vertices determines which core leaves
+it contains. Condition~(B2) holds, for example, when all core weights lie in an
+interval $[b,2b)$. Neither theorem requires the internal core weights to be
+distinct: they may coincide, at adjacent vertices and with any multiplicity. Both theorems are
+formally verified in Lean~4 (Section~\ref{sec:lean}), with $X$ defined through
+proper colourings; the examples and estimates of Section~\ref{sec:examples} are
+not part of the Lean statements.
+
+\paragraph{Prior work and what is new.} The facts about $X_T$ used in the proofs
+are known. That $X_T$ determines the number of vertices and the number of
+leaves is in Martin, Morin and Wagner~\cite[Proposition~2(i) and~(v)]{mmw} (they also
+recover the degree sequence~\cite[Corollary~5]{mmw}). That $X_T$ determines
+whether $T$ is proper and, for proper $T$, the multiset $W(T)$ of core weights
+follows from Gonzalez, Orellana and Tomba~\cite[Theorem~4.15 and
+Corollary~4.20]{got}: the leading partition of $X_T$ in the star basis is the
+partition of the orders of the leaf components, and it has no part~$1$ exactly
+when $T$ is proper. That $X_T$ of a proper tree is computed from its weighted
+core is in~\cite[Theorem~5.10 and Corollary~5.11]{apdmoz} (see
+also~\cite[Proposition~3.8]{ot}), and coefficients that come from spanning
+forests with a single non-singleton component are used in~\cite[Lemma~7.4]{apdmoz}.
+The reconstruction step of Theorem~\ref{thm:A} is a version of the classical
+fact that a tree is determined by its splits (Buneman~\cite{buneman}), with the
+masses of the splits ordering the vertices of degree~$2$ in the core. This
+method is not new: Atwell~\cite[Theorem~2.1 and Lemma~5.1]{atwell1} (a public
+preprint of 12 November 2026, unrefereed and not formally verified) recovers from $X_T$ the distances between the tagged vertices of a connected
+subtree $C$ of the core on which one weight repeats, among them all leaves of $C$,
+and rebuilds $C$ from them by Buneman's theorem on additive tree metrics; Theorem~\ref{thm:A} recovers instead the splits of the
+core labelled by its leaves and rebuilds the core from them.
+
+Among the closest sufficient conditions are those of Zeng~\cite[Theorem~1.1]{zeng}: a
+proper tree is determined by $X_T$ if every core vertex that is not a leaf of the
+core has a weight occurring nowhere else in the core, while repetitions among core
+leaves are unrestricted (``multiplicity-isolated'' cores); Awan~\cite[Theorem~1]{awan}
+shows that for the same trees the weaker invariant
+$\partial X_T/\partial p_1|_{p_1=0}$ already distinguishes them among proper
+trees. Theorems~\ref{thm:A} and~\ref{thm:B} put the uniqueness on the core
+leaves instead and leave the internal weights free, at the price of the
+arithmetic conditions (A3) and (B2). Atwell's criterion~\cite[Theorem~2.1]{atwell1}
+also allows repeated internal weights at adjacent vertices: exactly one weight $a$
+may repeat, its vertices must form a connected subtree $C$ of the core, all
+other weights are unique, every component of the rest of the core is attached to
+$C$ by one edge with an isolated mass, every such peripheral mass is smaller
+than~$a$, and every leaf of $C$ carries such an attachment. His class and our two
+families are incomparable: his $69$-vertex example~\cite[Section~6]{atwell1}
+satisfies (A1)--(A3) and (B1)--(B3) and has diameter~$7$; his class contains trees
+in neither family (for example a star of four vertices of weight $20$, his $C$, with single
+attached vertices of weights $2$, $3$ and~$5$, since $5=2+3$); and our examples of diameter~$7$ violate his condition
+that the peripheral masses be smaller than~$a$ (Remark~\ref{rem:public}). An
+earlier preprint of Atwell~\cite{atwell2} treats proper trees whose weights are
+all congruent modulo some $m\ge2$ and whose repeated weights sit at pairwise
+non-adjacent vertices, against proper competitors. If the internal weights of a tree in
+family~(A) are pairwise distinct, then all its core weights are distinct by
+(A2), and the tree is covered by~\cite{zeng,awan}; so family~(A) adds only trees
+in which some internal core weight repeats. A tree that lies in family~(B) and
+in Zeng's class has all core weights distinct (a repeated weight would have to
+sit at two core leaves), so it is covered by~\cite[Corollary~5.15]{got}, which
+treats proper trees with pairwise distinct core weights. The two families are
+incomparable (Example~\ref{ex:incomp}). Neither contains the trees of the
+reduction of Orellana and Tomba~\cite[Corollary~4.12]{ot}: if all core weights
+are equal and the core has at least two vertices, then every core leaf violates
+(A2) and at least two core leaves violate~(B3).
+
+Both families are thin (Section~\ref{sec:examples}): a tree in family~(A) with
+$n$ vertices has at most $\log_2(n+1)$ core leaves, and a tree in family~(B)
+fewer than $\sqrt{2n+2}$. Every member with at most $29$ vertices is already
+covered by the computation of Heil and Ji~\cite{hj}. In an exhaustive search
+over cores with at most $8$ vertices, made by the final reviewer of
+Theorem~\ref{thm:A} (see the end of the paper), the smallest member of
+family~(A) that is not a caterpillar or a spider and has diameter at least~$6$
+has $33$ vertices; for family~(B), the final reviewer of Theorem~\ref{thm:B}
+found members with $30$ and $36$ vertices that lie outside all published and
+public criteria it checked on 27 November (Example~\ref{ex:small}). These
+examples have diameter~$6$. Two public results posted later that day state that
+$X_T$ determines every such tree: a repository of K.~Feng~\cite{kyf} (created at
+06:11~UTC, release~1.0.0 at 06:33~UTC, release~1.1.0 at 21:16~UTC) states, with a
+manuscript and a Lean~4 proof that we have not compiled, that $X_T$ determines
+every tree of diameter six among all trees; and a written proof without formal
+verification~\cite[pull request~1081]{sc}, merged at 18:17~UTC, states this for
+every proper tree of diameter six (its initial step, stated there for proper
+trees of every diameter, recovers from $X_T$ the numbers of sets of core vertices
+with given cardinality and weight and given numbers of core edges inside the set
+and inside its complement). Both are unrefereed, and we have not checked them;
+they cover all members of both families of diameter~$6$. Both families
+have members of every larger diameter. Among the members that are not
+caterpillars, the smallest of diameter at least~$7$ have $41$ vertices in
+family~(A) and, outside Zeng's class, $21$ vertices in family~(B); family~(B)
+also has members with $30$ vertices and diameter~$7$. The members with $41$ and
+$30$ vertices given in Examples~\ref{ex:A} and~\ref{ex:small} satisfy none of the
+explicit public criteria we checked (Remark~\ref{rem:public}), whereas other
+members of diameter~$7$, such as Atwell's $69$-vertex example, are covered
+by~\cite{atwell1}; the density and genericity results of~\cite{sc} do not decide
+individual trees and were not used. The coloured reconstruction
+lemma used for Theorem~\ref{thm:B} (Lemma~\ref{lem:colour}) is elementary; we
+did not find it stated, but it may well be known.
+
+Several public AI-assisted projects work on the same question; their results are
+written, unrefereed and, unless stated otherwise, not formally verified. Working
+notes in the pull request~\cite{aur} state sufficient conditions on repeated
+weights, some of them with a similar device of distinct subset sums. The pull
+requests~\cite{sc} of another project, merged on 27 November 2026, state
+conditions based on long subdivisions, balanced edges, leaf-rich centroids, one
+or two branch vertices with long arms, and arbitrary cores with long exterior
+arms. One of them (pull request~1029, merged at 14:43~UTC, after the Lean proof of
+Theorem~\ref{thm:A} was completed at 03:18~UTC) reconstructs arbitrary tree cores
+carrying long exterior arms whose orders have separated subset sums; it turns cut
+sizes into labelled splits by the same device as the reconstruction step of
+Theorem~\ref{thm:A}, for a different class of trees: there every arm at a hub
+has at least three vertices, so the hubs carry no pendant leaves, whereas every
+vertex of degree at least three of a proper tree has a leaf neighbour.
+Another (pull request~1081, merged at 18:17~UTC) is the diameter-six result
+mentioned above, as is the repository~\cite{kyf}, which states the result for all trees of
+diameter six with a Lean proof that we have not compiled. A preprint of
+Carptopus~\cite{carp} treats trees with exactly three branch vertices. A third
+condition, concerning trees with many leaves at a centroid, was studied in the
+same work and frozen as a Lean statement at the same time, but a public draft
+merged on 27 November 2026 at 04:28~UTC~\cite[pull request~977]{sc} covers it
+with a weaker hypothesis; it is not part of this paper.
+
+So the new content, as far as the searches described at the end of the paper
+found, is the two sufficient conditions themselves, with complete proofs and a
+Lean verification from the colouring definition of~$X$; every member they add
+beyond earlier and public results has diameter at least~$7$ and more than $29$
+vertices, and not all such members are new (Atwell's $69$-vertex example is
+one). The reconstruction method of Theorem~\ref{thm:A} is not new
+either~\cite{atwell1}. They are modest results: the arguments use only data from $X_T$
+that is known to be accessible, the classes are thin, and they say nothing about
+the reduced case of~\cite{ot} or about the general question.
+
+\section{What the chromatic symmetric function determines}\label{sec:known}
+
+For a tree $T$ and a partition $\lambda$ of $n=|V(T)|$, let $N_T(\lambda)$ be the
+number of partitions of $V(T)$ into blocks that induce connected subgraphs and
+have sizes~$\lambda$. In a tree, such partitions correspond bijectively to sets
+of edges (the edges inside the blocks), and the block sizes are the orders of
+the components of the spanning forest formed by these edges.
+
+\begin{lemma}[Stanley]\label{lem:stanley}
+$X_T$ determines $n$ and $N_T(\lambda)$ for every partition $\lambda$ of~$n$.
+\end{lemma}
+
+\begin{proof}
+By~\cite[Theorem~2.5]{stanley}, $X_T=\sum_{S\subseteq E}(-1)^{|S|}p_{\lambda(S)}$,
+where $p_\lambda$ are the power sums and $\lambda(S)$ is the partition of the
+component orders of $(V,S)$. A forest with $\ell(\lambda)$ components has
+$n-\ell(\lambda)$ edges, so the coefficient of $p_\lambda$ is
+$(-1)^{n-\ell(\lambda)}N_T(\lambda)$, and the power sums of degree $n$ are
+linearly independent. The degree of $X_T$ is~$n$.
+\end{proof}
+
+\noindent The Lean proof does not use power sums. It shows directly that two
+trees with the same colouring counts have the same number of ordered partitions
+into connected blocks of every sequence of sizes, by counting colourings of
+forests ($q^c(q-1)^{n-c}$ proper $q$-colourings for a forest with $c$
+components) with refined colour classes (Section~\ref{sec:lean}).
+
+\begin{lemma}[number of leaves; {\cite[Proposition~2(v)]{mmw}}]\label{lem:leaves}
+If $n\ge3$, then $N_T((n-1,1))$ is the number of leaves of $T$. Hence $X_T$
+determines the number $k=|K(T)|$ of core vertices.
+\end{lemma}
+
+\begin{proof}
+A partition into a connected block of size $n-1$ and a single vertex $u$ exists
+exactly when $T-u$ is connected, that is, when $u$ is a leaf; it is then unique.
+\end{proof}
+
+\begin{lemma}[properness and weights; {\cite[Theorem~4.15, Corollary~4.20]{got}}]\label{lem:weights}
+Let $T$ and $T'$ be trees with $X_T=X_{T'}$ and $n\ge3$ vertices. If $T$ is
+proper, then $T'$ is proper and $W(T')=W(T)$.
+\end{lemma}
+
+\begin{proof}
+Let $k$ be the common core order (Lemma~\ref{lem:leaves}). In a partition of
+$V(T)$ into connected blocks with no block of size~$1$, each block contains a
+core vertex (two leaves are never adjacent when $n\ge3$), so there are at most
+$k$ blocks. If there are exactly $k$, each block contains exactly one core
+vertex~$v$ together with leaves, and each leaf lies in the block of its only
+neighbour; so the block of $v$ consists of $v$ and all its leaf neighbours, and
+there is no block of size~$1$ only if $T$ is proper. Hence a tree has such a
+partition with $k$ blocks if and only if it is proper, and then the partition is
+unique and its block sizes are the core weights. By Lemma~\ref{lem:stanley}
+these numbers agree for $T$ and~$T'$.
+\end{proof}
+
+\noindent In particular there is a weight-preserving bijection between the cores
+of $T$ and $T'$; it need not preserve adjacency.
+
+\begin{lemma}[core cuts]\label{lem:cuts}
+Let $T$ be proper with $k\ge2$. Removing a core edge $e$ splits the core into
+two sides $K_1,K_2$, and $V(T)$ into two connected blocks of sizes
+$w(K_1),w(K_2)\ge2$. For trees $T,T'$ as in Lemma~\ref{lem:weights}, the
+multisets of unordered pairs $\{w(K_1),w(K_2)\}$ over all core edges of $T$
+and of $T'$ coincide.
+\end{lemma}
+
+\begin{proof}
+Two-block connected partitions of $V(T)$ correspond to the edges of $T$; leaf
+edges give the sizes $(n-1,1)$, core edges give two sizes at least~$2$, since
+each side contains a core vertex of weight at least~$2$. Apply
+Lemma~\ref{lem:stanley} to the partitions $(a,n-a)$ with $2\le a\le n-2$; $T'$
+is proper by Lemma~\ref{lem:weights}.
+\end{proof}
+
+\section{Proof of Theorem~\ref{thm:A}}\label{sec:A}
+
+Let $T$ satisfy the hypotheses and $X_{T'}=X_T$. By Lemma~\ref{lem:weights}, $T'$
+is proper with $W(T')=W(T)$; fix a weight-preserving bijection
+$\varphi:K(T)\to K(T')$. Let $A\subseteq K(T)$ be the set of core leaves of $T$
+and $A'=\varphi(A)$. By~(A2) each $a\in A$ is the only core vertex of $T$ with
+weight $w(a)$, so $\varphi(a)$ is the only core vertex of $T'$ with that weight.
+
+\emph{Decoding.} For an integer $s$ that is the total weight of some
+$P\subseteq K(T)$, let $\mathrm{marks}(s)=P\cap A$; by~(A3) this does not depend
+on~$P$. If $P'\subseteq K(T')$ has $w(P')=s$, then $\varphi^{-1}(P')$ has total
+weight $s$, so $P'\cap A'=\varphi(\mathrm{marks}(s))$. Thus in both trees the
+total weight of a set of core vertices determines which anchors it contains.
+
+\emph{Every side contains an anchor.} In $T$, each side of a core edge contains
+a leaf of the core (follow a longest path inside the side, starting at the
+endpoint of the edge), hence an anchor. If $e'$ is a core edge of $T'$ with side
+weights $\{a,b\}$, then by Lemma~\ref{lem:cuts} some core edge of $T$ has the same
+side weights, so $\mathrm{marks}(a)$ and $\mathrm{marks}(b)$ are nonempty and
+complementary in~$A$; by decoding, the sides of $e'$ contain the anchors
+$\varphi(\mathrm{marks}(a))$ and $\varphi(\mathrm{marks}(b))$, both nonempty. No
+assumption on the core leaves of $T'$ is needed.
+
+\emph{Records.} Fix $r\in A$ and $r'=\varphi(r)$, and root both cores there. For
+a core vertex $v\ne r$ of $T$, let $D_v$ be the set of descendants of $v$ (its
+side of the edge to its parent), and put $D_r=K(T)$. The \emph{record} of $v$ is
+$(\mathrm{marks}(w(D_v)),\,w(D_v))$; for $T'$ we define records in the same way,
+with marks pulled back by~$\varphi$. Each record is determined by the side weights
+of one core edge: of the two sides, exactly one contains $r$, and it is the one
+whose marks contain~$r$. By Lemma~\ref{lem:cuts}, the multisets of records of the
+non-root vertices of $T$ and $T'$ coincide, and both roots have the record
+$(A,n)$.
+
+\emph{Order.} The sets $D_v$ form a laminar family: two of them are nested or
+disjoint. We claim that $D_u\subsetneq D_v$ holds if and only if either
+$\mathrm{marks}(u)\subsetneq\mathrm{marks}(v)$, or the marks are equal and
+$w(D_u)<w(D_v)$ (writing $\mathrm{marks}(u)$ for the marks of the record of $u$).
+If $D_u\subsetneq D_v$, the marks are included and the weight is smaller, since
+weights are positive. Conversely, nonempty marks that are included or equal force
+$D_u\cap D_v\ne\emptyset$, so the sets are nested; $D_v\subseteq D_u$ would give
+the opposite inclusion of marks or a weight that is not smaller. It follows that
+different vertices have different records, so the records identify the core
+vertices of $T$, and in the same way those of $T'$; this gives a bijection
+$\beta:K(T)\to K(T')$ with equal records and $\beta(r)=r'$, and $\beta$
+preserves the relation $D_u\subsetneq D_v$.
+
+\emph{Adjacency and weights.} The parent of $u\ne r$ is the vertex $v$ for which
+$D_v$ is the smallest set strictly containing $D_u$, so $\beta$ preserves
+parents, and hence adjacency. The weight of $v$ is
+$w(D_v)-\sum_u w(D_u)$ over the children $u$ of~$v$, so $\beta$ preserves
+weights. Thus $\beta$ is an isomorphism of weighted cores, and attaching $w(v)-1$
+leaves at every core vertex gives $T\cong T'$. \qed
+
+\begin{remark}[the Lean proof]\label{rem:leanA}
+The Lean proof follows the same route with a slightly different bookkeeping:
+it compares the sets of records of both trees, associates to each core vertex
+the smallest record containing it, recovers adjacency from the fact that two
+core vertices are adjacent exactly when one cut separates them, and recovers
+the weights by induction on the size of the branches. The written proof prepared
+by Codex allows an arbitrary set of uniquely weighted anchors containing the core
+leaves; this is equivalent to~(A2)--(A3), since every condition on the anchors is
+universal over the anchors.
+\end{remark}
+
+\section{Proof of Theorem~\ref{thm:B}}\label{sec:B}
+
+\paragraph{Coloured connected sets.} A \emph{coloured tree} is a finite tree $R$
+with a map $c$ from its vertices to an alphabet. Its \emph{connected-set
+polynomial} is
+\[
+C(R)=\sum_{\emptyset\ne B\subseteq V(R),\ R[B]\text{ connected}}\ \ \prod_{v\in B}z_{c(v)},
+\]
+in commuting variables $z_\alpha$, one for each colour. A leaf of $R$ is
+\emph{tagged} if its colour occurs at no other vertex of~$R$.
+
+\begin{lemma}[extraction]\label{lem:extract}
+Let $T$ satisfy (B1) and (B2), and let $X_{T'}=X_T$. Colour each core vertex by
+its weight. Then the cores of $T$ and $T'$ have the same connected-set
+polynomial.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:weights}, $T'$ is proper with the same multiset $W$ of core
+weights; condition (B2) depends only on $W$, so it also holds for~$T'$. In a
+proper tree, a partition of $V(T)$ into connected blocks of sizes at least~$2$
+puts each leaf in the block of its neighbour, so it corresponds to a partition of
+the core into connected blocks, a block $B$ having size $w(B)$. Let $S$ be the
+set of values in~$W$. By~(B2), a core block has total weight in $S$ if and only
+if it is a single vertex. Let $M$ be a submultiset of $W$ with $|M|\ge2$ and
+$\lambda$ the partition with parts $W\setminus M$ and $\sum M$. The partitions of
+$V(T)$ counted by $N_T(\lambda)$ have exactly one block whose size is not in~$S$;
+on the core this is one connected set $B$ with $|B|\ge2$, all other core vertices
+being singletons whose weights form $W\setminus M$, so the weights in $B$ form the
+multiset~$M$. Hence $N_T(\lambda)$ is the number of connected sets of core
+vertices whose multiset of weights is~$M$, and the same holds for $T'$ with the
+same~$\lambda$. Sets with one vertex are counted by~$W$. By
+Lemma~\ref{lem:stanley} all coefficients of $C$ agree.
+\end{proof}
+
+\begin{lemma}[peeling]\label{lem:colour}
+Let $R$ be a coloured tree with at most one untagged leaf. If $R'$ is any
+coloured tree with $C(R')=C(R)$, then there is a colour-preserving isomorphism
+$R\to R'$.
+\end{lemma}
+
+\begin{proof}
+Induction on the number $m$ of vertices of~$R$. The linear part of $C$ lists the
+colours with multiplicity, so $R'$ has $m$ vertices and the same colours; for
+$m=1$ we are done. Let $m\ge2$. Then $R$ has at least two leaves, so it has a
+tagged leaf $a$, of colour~$\alpha$; $R'$ has exactly one vertex $a'$ of
+colour~$\alpha$. The connected sets of size~$2$ are the edges, so the sum of the
+coefficients of the monomials $z_\alpha z_\gamma$ is the degree of the vertex of
+colour $\alpha$; hence $a'$ is a leaf of~$R'$.
+
+Let $v$ be the neighbour of $a$, of colour $\gamma$, and $R_0=R-a$. Setting
+$z_\alpha=0$ in $C(R)$ gives $C(R_0)$. Every connected set containing $a$ is
+$\{a\}$ or $\{a\}\cup B$ with $B$ connected in $R_0$ and $v\in B$, so
+\[
+F=\frac{C(R)-C(R_0)}{z_\alpha}-1
+\]
+is the connected-set polynomial of the sets of $R_0$ that contain~$v$. Its
+linear part is $z_\gamma$, so the neighbour $v'$ of $a'$ in $R'$ also has
+colour~$\gamma$, and the same formula, applied to $R'$, gives the same~$F$. Now
+recolour $v$ with a new colour $y$ that occurs in neither tree; the resulting tree
+$R_0^y$ has
+\[
+C(R_0^y)=C(R_0)-F+z_y\,F/z_\gamma,
+\]
+since every connected set containing $v$ contributes one factor $z_\gamma$ for
+$v$, which is replaced by $z_y$. The same holds for $R'_0{}^{y}$, obtained from
+$R'-a'$ by recolouring $v'$, so $C(R_0^y)=C(R'_0{}^{y})$.
+
+In $R_0^y$, a leaf is either a leaf of $R$ other than $a$, whose colour is still
+unique if it was unique in $R$, or the vertex $v$, whose colour $y$ is unique.
+So $R_0^y$ has at most one untagged leaf, and by induction there is a
+colour-preserving isomorphism $R_0^y\to R'_0{}^{y}$. It maps $v$ to $v'$, the
+only vertices of colour~$y$; restoring the colour $\gamma$ and mapping $a$ to
+$a'$ gives the required isomorphism.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:B}]
+By Lemma~\ref{lem:extract} the weight-coloured cores of $T$ and $T'$ have the
+same connected-set polynomial. By~(B3) the core of $T$ has at most one untagged
+leaf, so by Lemma~\ref{lem:colour} the cores are isomorphic by a
+weight-preserving isomorphism. Attaching $w(v)-1$ leaves at each core vertex
+gives $T\cong T'$.
+\end{proof}
+
+\noindent Lemma~\ref{lem:colour} assumes nothing about $R'$; that is why no
+hypothesis on $T'$ is needed. In Lean, the lemma is proved for trees coloured by
+natural numbers, so that a new colour always exists.
+
+\section{Examples and estimates (not formalized)}\label{sec:examples}
+
+Nothing in this section is part of the Lean verification. The general
+constructions are derived by hand; the specific trees were checked by Python
+programs against the literal Lean hypotheses, by the reviewers of the work and
+again while writing this paper.
+
+\begin{proposition}[size of the families]\label{prop:size}
+Let $T$ have $n$ vertices and $\ell$ core leaves. If $T$ satisfies (A2)--(A3),
+then $2^\ell\le n+1$. If $T$ satisfies (B1) and (B3), then $\ell<\sqrt{2n+2}$.
+\end{proposition}
+
+\begin{proof}
+By (A3), different sets of core leaves have different total weights, which lie
+in $\{0,\dots,n\}$. Under (B3), at least $\ell-1$ core leaves have pairwise
+distinct weights, all at least~$2$, so $n\ge2+3+\dots+\ell=(\ell-1)(\ell+2)/2$,
+which gives $\ell^2+\ell\le 2n+2$.
+\end{proof}
+
+\begin{example}[family~(A)]\label{ex:A}
+Let $S$ be any finite tree with at least two vertices. Give its non-leaves
+arbitrary weights at least~$2$, with total $s$, choose $B>s$ with $B\ge2$, and
+give the leaves of $S$ the weights $B,2B,4B,\dots$. Every subset sum of the
+internal weights is less than $B$, so the total weight of a set $P$ determines
+$\lfloor w(P)/B\rfloor$ and hence its leaves of $S$; and the leaf weights exceed
+all internal weights. Attaching $w(v)-1$ leaves gives a tree satisfying
+Theorem~\ref{thm:A} with core~$S$. So every tree shape occurs as a core, with any
+pattern of internal weights; by Proposition~\ref{prop:size} the number of
+vertices grows exponentially in the number of core leaves. The smallest member
+found by the final reviewer that is not a caterpillar or a spider and has
+diameter at least~$6$ (exhaustive over cores with at most $8$ vertices; the
+reviewer of this paper confirmed it over all cores) has $33$ vertices: its core
+is a spider with legs of lengths $2,2,1$, the three internal core vertices have
+weight~$2$, and the core leaves have weights $3,8,16$. It has diameter~$6$, so
+it is covered by the later public results~\cite{kyf} and~\cite[pull
+request~1081]{sc}. Among the
+members that are not caterpillars, the smallest of diameter at least~$7$ have
+$41$ vertices (exhaustive search over the numbers and weights of internal
+vertices and core leaves, which is all that (A1)--(A3) depend on). One of them
+has as core a path $p_1p_2p_3p_4$ with core leaves $a$ at $p_1$, $b$ at $p_4$ and
+$c$ at $p_2$, the weights $2$ at $p_1,\dots,p_4$, and the weights $3,10,20$ at
+$a,b,c$; it has diameter~$7$ and seven vertices of degree at least~$3$, and also
+satisfies the hypotheses of Theorem~\ref{thm:B}. Remark~\ref{rem:public} compares
+it with the public criteria.
+\end{example}
+
+\begin{example}[family~(B)]\label{ex:B}
+Let the core be the complete binary tree of height $h\ge3$, with $\ell=2^h$
+leaves, and put $b=\ell+2$. Give all internal core vertices and one core leaf the
+weight $b$, and the other core leaves the weights $b+1,\dots,b+\ell-1$. All
+weights lie in $[b,2b)$, so (B2) holds, and only one core leaf has a repeated
+weight. The tree has $(2\ell-1)b+\ell(\ell-1)/2$ vertices and diameter $2h+2$,
+and its number of core leaves grows like the square root of the number of
+vertices. For $h=3$ it has $178$ vertices and diameter~$8$; the weight $10$
+occurs eight times, once at a core leaf. It violates~(A2), the internal weights
+repeat, and the internal vertices of equal weight are adjacent.
+\end{example}
+
+\begin{example}[small members of family~(B)]\label{ex:small}
+Take as core the spider with legs of lengths $2,2,1$ (a centre $c$, paths
+$c x_1 a_1$ and $c x_2 a_2$, and a leaf $a_3$ at~$c$). With weights $5$ at $c,x_1,x_2$
+and $5,4,6$ at $a_1,a_2,a_3$, the tree has $30$ vertices; with $6,6,6$ and
+$6,5,7$ it has $36$ vertices. Both satisfy (B1)--(B3), have diameter~$6$, and
+violate (A2). The final reviewer of Theorem~\ref{thm:B} found that they lie
+outside all published and public criteria it checked, among them those
+of~\cite{zeng,awan}, \cite[Corollary~5.15]{got}, diameter at most~$5$,
+caterpillars, spiders, \cite{aur} and~\cite{sc} (as of pull request~988
+of~\cite{sc}). Both have diameter six, so the later
+results~\cite{kyf} and~\cite[pull request~1081]{sc} cover them. Among the members
+of family~(B) with at most $20$ vertices, those that are not caterpillars or
+spiders and have diameter at least~$6$ all have $18$ vertices (for example the
+core above with weights $3,3,3$ and $3,2,4$); they lie outside Zeng's class and
+family~(A) and are covered by~\cite{hj}. Among the members of family~(B) outside
+Zeng's class that are not caterpillars, the smallest of diameter at least~$7$
+have $21$ vertices (covered by~\cite{hj}). Members of diameter~$7$ with $30$
+vertices also exist: take as core a path $p_0p_1p_2p_3$ with one further core
+vertex attached at each of $p_0$, $p_1$, $p_3$, give $p_0,\dots,p_3$ weight~$3$
+and the three core leaves (at $p_0,p_1,p_3$) the weights $3,4,11$. This tree
+satisfies (B1)--(B3), violates~(A2), lies outside Zeng's class, and has seven
+vertices of degree at least~$3$; Remark~\ref{rem:public} compares it with the
+public criteria.
+\end{example}
+
+\begin{example}[the families are incomparable]\label{ex:incomp}
+A path core with weights $16,2,4,2,32$ (a caterpillar with $56$ vertices)
+satisfies (A1)--(A3) but violates (B2), since $4=2+2$. The tree with $178$
+vertices of Example~\ref{ex:B} satisfies (B1)--(B3) but violates~(A2).
+\end{example}
+
+\begin{remark}[comparison with public criteria]\label{rem:public}
+While revising this paper on 27 November 2026 (after 18:42~UTC), Claude Code
+checked the trees with $41$ vertices (Example~\ref{ex:A}) and $30$ vertices and
+diameter~$7$ (Example~\ref{ex:small}), with a program of its own, against the
+explicit criteria of the works cited here, with the following results. Both
+trees are proper, are not caterpillars or spiders, have diameter~$7$ and more
+than $29$ vertices, and have a repeated internal weight; so they are outside
+\cite{mmw,apz,ls,hj}, Zeng's and Awan's classes, \cite[Corollary~5.15]{got},
+the diameter-five results of~\cite{got,apdmoz}, and the diameter-six results~\cite{kyf} (checked on 28 November)
+and~\cite[pull request~1081]{sc}; each has seven vertices of degree at least~$3$,
+so~\cite{carp} (checked on 28 November) does not apply. Each has a unique centroid with at most two
+leaf neighbours, whereas its largest branch has $20$ and $14$ vertices,
+respectively, so the leaf-rich centroid criterion of~\cite[pull request~977]{sc}
+fails; no edge of either tree satisfies the balanced-edge criterion
+of~\cite[pull request~977]{sc} or the subdivided-edge criteria of~\cite[pull
+requests~972 and~977]{sc}; no vertex has all its branches isomorphic, as the
+repeated-branch criteria of~\cite[pull request~972]{sc} require; and every vertex
+of degree at least~$3$ has a leaf neighbour, so neither tree has the long arms at
+its branch vertices required in~\cite[pull requests~985, 1024 and~1029]{sc}. The
+observable path-count certificate of~\cite[pull request~1030]{sc} fails for
+both. Both fail necessary conditions of every criterion of~\cite{aur} listed in
+the prior-work check of the final reviewer (repeated weights at adjacent vertices,
+with multiplicity at least four, and a vertex of repeated weight with no neighbour
+of unique weight). The density and genericity results of~\cite{sc}, for random or generic edge lengths, do not decide individual trees
+and were not checked. On 28 November 2026 the release-day search (see the end of
+the paper) added Atwell's criteria: both trees violate the condition
+of~\cite[Theorem~2.1]{atwell1} that every peripheral mass be smaller than the
+repeated weight (the repeated weight is $2$ with peripheral masses $3,10,20$ in the tree with $41$
+vertices, and $3$ with peripheral masses $4,11$ in the tree with $30$ vertices), and both
+violate the hypotheses of~\cite{atwell2} (vertices of repeated weight are adjacent,
+and the weights are not all congruent modulo any $m\ge2$); the tree with $178$
+vertices of Example~\ref{ex:B} also violates the former (repeated weight $10$,
+peripheral masses $11,\dots,17$).
+\end{remark}
+
+\begin{remark}[computer checks]\label{rem:brute}
+The final reviewers also ran exhaustive checks (checks, not proofs): for every
+$n$ from $4$ to $18$, no member of family~(A) shares $X$ with another tree; for
+$n\le20$, no member of family~(B) shares $X$ with another proper tree with the
+same core weights; and Lemma~\ref{lem:colour} was tested on all coloured trees
+with at most $8$ vertices and at most $3$ colours, where collisions of $C$ occur
+only among trees with at least two untagged leaves.
+\end{remark}
+
+{\sloppy
+\section{Formal verification}\label{sec:lean}
+
+Theorems~\ref{thm:A} and~\ref{thm:B} are formally verified in Lean~4 (version
+4.34.1) with Mathlib~\cite{mathlib} (commit \texttt{d13f23b7}), as the
+statements \texttt{AnchorReconstruction} and \texttt{PeelingReconstruction} in
+the namespace \texttt{StanleyContinuation}. The $38$ files ($3{,}222$ lines) are
+in version~\repoversion{} of the repository~\cite{repo}, directory
+\texttt{lean/Research/TaskV/Stanley/}; records of the freezing and of the checks
+are in the folder \texttt{certificates/stanley-chromatic-trees}. The import
+closure of Theorem~\ref{thm:A} has $26$ files, that of Theorem~\ref{thm:B} has
+$30$, and $18$ files are shared.
+
+\paragraph{The statements.} The statement files \texttt{ChallengeA.lean} and
+\texttt{ChallengePeel.lean}, in ASCII transliteration (the \texttt{import},
+\texttt{namespace}, \texttt{noncomputable section}, \texttt{open} and
+\texttt{end} lines, comments and blank lines are omitted; the files use Unicode:
+\texttt{Nat} stands for $\N$, \texttt{->} for $\to$, \texttt{forall},
+\texttt{exists}, \texttt{in}, \texttt{/\char`\\}, \texttt{<->}, \texttt{<=},
+\texttt{!=}, \texttt{subset}, \texttt{inter} and \texttt{sum} for $\forall$,
+$\exists$, $\in$, $\wedge$, $\leftrightarrow$, $\le$, $\ne$, $\subseteq$, $\cap$
+and $\sum$, \texttt{\char`\\} is set difference, and \texttt{G =\char`~g H}
+stands for Mathlib's type $G\simeq_g H$ of graph isomorphisms):
+{\footnotesize
+\begin{verbatim}
+-- ChallengeA.lean
+def colorCoefficient {n : Nat} (G : SimpleGraph (Fin n)) (k : Nat)
+    (multiplicity : Fin k -> Nat) : Nat :=
+  Nat.card { f : Fin n -> Fin k //
+    (forall i j, G.Adj i j -> f i != f j) /\
+    forall c, Nat.card {i : Fin n // f i = c} = multiplicity c }
+def SameCSF {n m : Nat} (G : SimpleGraph (Fin n)) (H : SimpleGraph (Fin m)) : Prop :=
+  forall k (multiplicity : Fin k -> Nat),
+    colorCoefficient G k multiplicity = colorCoefficient H k multiplicity
+def neighbors {n : Nat} (G : SimpleGraph (Fin n)) (v : Fin n) : Finset (Fin n) := by
+  classical exact univ.filter (G.Adj v)
+def core {n : Nat} (G : SimpleGraph (Fin n)) : Finset (Fin n) := by
+  classical exact univ.filter fun v => (neighbors G v).card != 1
+def coreWeight {n : Nat} (G : SimpleGraph (Fin n)) (v : Fin n) : Nat :=
+  1 + ((neighbors G v) \ core G).card
+def DecodableLeafAnchors {n : Nat} (G : SimpleGraph (Fin n)) : Prop :=
+  2 <= (core G).card /\
+  (forall v in core G, 2 <= coreWeight G v) /\
+  exists A : Finset (Fin n),
+    A subset core G /\
+    (forall a in A, forall v in core G, coreWeight G v = coreWeight G a -> v = a) /\
+    (forall v in core G, ((neighbors G v) inter core G).card = 1 -> v in A) /\
+    forall P Q : Finset (Fin n), P subset core G -> Q subset core G ->
+      (sum v in P, coreWeight G v) = (sum v in Q, coreWeight G v) ->
+      forall a in A, (a in P <-> a in Q)
+def AnchorReconstruction : Prop :=
+  forall (n m : Nat) (G : SimpleGraph (Fin n)) (H : SimpleGraph (Fin m)),
+    G.IsTree -> H.IsTree -> DecodableLeafAnchors G -> SameCSF G H ->
+      Nonempty (G =~g H)
+-- ChallengePeel.lean (imports ChallengeA.lean)
+def untaggedCoreLeaf {n : Nat} (G : SimpleGraph (Fin n)) (v : Fin n) : Prop :=
+  v in core G /\ ((neighbors G v) inter core G).card = 1 /\
+    exists u in core G, u != v /\ coreWeight G u = coreWeight G v
+def PeelingWeights {n : Nat} (G : SimpleGraph (Fin n)) : Prop :=
+  2 <= (core G).card /\
+  (forall v in core G, 2 <= coreWeight G v) /\
+  (forall v in core G, forall P : Finset (Fin n), P subset core G -> 2 <= P.card ->
+    (sum u in P, coreWeight G u) != coreWeight G v) /\
+  forall v u, untaggedCoreLeaf G v -> untaggedCoreLeaf G u -> v = u
+def PeelingReconstruction : Prop :=
+  forall (n m : Nat) (G : SimpleGraph (Fin n)) (H : SimpleGraph (Fin m)),
+    G.IsTree -> H.IsTree -> PeelingWeights G -> SameCSF G H ->
+      Nonempty (G =~g H)
+\end{verbatim}}
+
+\noindent \texttt{colorCoefficient G k mult} counts the proper colourings
+$f:V\to\{1,\dots,k\}$ with exactly $\mathrm{mult}(c)$ vertices of colour~$c$,
+which is the coefficient of $x_1^{\mathrm{mult}(1)}\cdots x_k^{\mathrm{mult}(k)}$
+in $X_G$ (a proper colouring with these class sizes uses only the colours
+$1,\dots,k$). Since $X_G$ is symmetric and each of its monomials involves finitely
+many variables, \texttt{SameCSF G H}, which compares these numbers for all $k$
+and all sequences (zeros included), is equivalent to $X_G=X_H$; it also forces
+equal numbers of vertices (Lean: \texttt{sameOrder\_of\_sameCSF}). The final
+reviewer of Theorem~\ref{thm:A} confirmed the equivalence numerically on all
+$52$ graphs with at most $5$ vertices, including Stanley's pair of
+non-isomorphic graphs with the same~$X$. Every finite tree is isomorphic to a
+tree on \texttt{Fin n}, and Mathlib's \texttt{IsTree} means connected and
+acyclic. \texttt{core G} is the set of vertices whose degree is not~$1$; for
+trees with at least three vertices these are the non-leaves, and trees with at
+most two vertices have at most one such vertex, so they never satisfy the
+hypotheses. \texttt{coreWeight} is $1$ plus the number of neighbours outside the
+core, that is, the weight~$w$. In \texttt{DecodableLeafAnchors} the set
+\texttt{A} must contain every core vertex with exactly one core neighbour, and
+all conditions on \texttt{A} are universal over its elements; so the predicate is
+equivalent to (A1)--(A3) with $A$ the set of core leaves (the final reviewer also
+confirmed this by exhaustive search for $n\le10$). \texttt{untaggedCoreLeaf}
+expresses a core leaf whose weight occurs at another core vertex, and
+\texttt{PeelingWeights} is (B1)--(B3). The hypotheses constrain \texttt{G} only,
+\texttt{H} is an arbitrary tree, and the conclusion is an isomorphism of the
+whole trees, leaves included.
+
+\paragraph{Review and freezing.} The statement files were read against the
+written proofs by Codex agents that had not written them (approvals at
+03:47~UTC for \texttt{ChallengeA.lean} and 03:51~UTC for
+\texttt{ChallengePeel.lean} on 21 November 2026), compiled with no diagnostics
+(03:53~UTC), and frozen at 03:53:48 and 03:53:59~UTC by recording their SHA-256
+hashes (\texttt{683c4463\ldots} and \texttt{dcc0d30a\ldots}) together with those
+of the written proofs, the reviews and the compilation receipts. According to the
+file timestamps, all proof files were created after the freezes (the earliest at
+03:54:26~UTC), with one exception: \texttt{ProfileDefs.lean}, an $18$-line file
+of two definitions (counts of ordered partitions into connected blocks), was
+created at 03:48:33~UTC and not changed afterwards; the statement files do not
+import it. The statement files were not changed after the freezes; the final
+reviewers recomputed their hashes.
+
+\paragraph{The proofs.} The check files \texttt{CheckAnchor.lean} and
+\texttt{CheckPeel.lean} contain, apart from the \texttt{import} and
+\texttt{namespace} lines, exactly
+{\footnotesize
+\begin{verbatim}
+theorem check_anchorReconstruction : AnchorReconstruction := anchorReconstruction
+theorem check_peelingReconstruction : PeelingReconstruction := peelingReconstruction
+\end{verbatim}}
+\noindent respectively. Table~\ref{tab:lean} lists the Lean counterparts of the
+steps (names in the namespace \texttt{StanleyContinuation}; file names in
+parentheses, without \texttt{.lean}).
+
+\begin{table}[!htbp]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.69\textwidth}@{}}
+\hline
+Step of the written proof & Lean (file) \\
+\hline
+Lemma~\ref{lem:stanley} & \texttt{sameConnected\_of\_sameCSF} (\texttt{CSFBridge}),
+with \texttt{Forest}, \texttt{Isolation}, \texttt{Cell}, \texttt{Refinement};
+\texttt{sameOrder\_of\_sameCSF} (\texttt{Histogram}) \\
+Lemma~\ref{lem:leaves} & \texttt{singleton\_count\_eq\_leaf\_count},
+\texttt{same\_core\_card} (\texttt{AnchorLeaves}); \texttt{leafCount\_of\_sameCSF}
+(\texttt{CoreWeights}) \\
+Lemma~\ref{lem:weights} & \texttt{coreWeights\_of\_sameCSF} (\texttt{CoreWeights}),
+\texttt{weightPreservingCoreEquiv} (\texttt{StarProfiles}) \\
+Lemma~\ref{lem:cuts} and decoding & \texttt{matching\_core\_cut} (\texttt{StarSplit}),
+\texttt{anchorCutProfiles\_of\_sameCSF} (\texttt{AnchorCutLabels}) \\
+Records and order & \texttt{matching\_record\_order} (\texttt{AnchorOrder}), with
+\texttt{AnchorTerminals}, \texttt{AnchorSides}, \texttt{AnchorTree},
+\texttt{AnchorIncidence} \\
+Adjacency and weights & \texttt{reconstruct\_core\_adj} (\texttt{AnchorRecords}),
+\texttt{weights\_of\_record\_sums} (\texttt{AnchorVertexWeights}) \\
+Attaching the leaves & \texttt{expand\_weighted\_core\_iso} (\texttt{ExpandCore}) \\
+Theorem~\ref{thm:A} & \texttt{anchorReconstruction} (\texttt{AnchorProof}),
+\texttt{check\_anchorReconstruction} (\texttt{CheckAnchor}) \\
+\hline
+Lemma~\ref{lem:extract} & \texttt{coreColoredSets\_of\_sameCSF},
+\texttt{peel\_coloredSets\_of\_sameCSF} (\texttt{PeelInventory}), with
+\texttt{PeelPartitions}, \texttt{PeelLabelings} \\
+Lemma~\ref{lem:colour}, one step & \texttt{peel\_step},
+\texttt{core\_peel\_step\_of\_sameCSF} (\texttt{PeelRetag}), with \texttt{PeelTagged},
+\texttt{PeelDeletion} \\
+Lemma~\ref{lem:colour}, induction & \texttt{atMostOne\_after\_deletion}
+(\texttt{PeelLeaves}), \texttt{reattach\_tagged\_leaf} (\texttt{PeelReattach}),
+\texttt{colored\_tree\_reconstruction} (\texttt{PeelInduction}) \\
+Theorem~\ref{thm:B} & \texttt{peelingReconstruction} (\texttt{PeelProof}),
+\texttt{check\_peelingReconstruction} (\texttt{CheckPeel}) \\
+\hline
+\end{tabular}
+\caption{Lean counterparts of the steps of the proofs.}
+\label{tab:lean}
+\end{table}
+
+\noindent In \texttt{PeelInventory}, the multiplicities of repeated weights are
+handled by naming the vertices outside the connected set; each set is then
+counted as many times as there are weight-preserving permutations of these
+names, a factor that is the same for both trees and is cancelled. The axioms of
+\texttt{check\_anchorReconstruction} and \texttt{check\_peelingReconstruction}
+are exactly \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
+No file uses \texttt{sorry}, \texttt{native\_\allowbreak decide},
+\texttt{bv\_\allowbreak decide}, \texttt{decide}, an \texttt{axiom} declaration or
+\texttt{set\_option}, and the checked package sets no options.
+
+\paragraph{Checks.} Each theorem was checked in two new empty directories on the
+author's Mac, one after the other, with the pinned toolchain, on 27 November
+2026: each directory compiled every module of the import closure separately
+with warnings treated as errors (\texttt{lake build --wfail}), built the
+package's root module \texttt{Stanley}, which imports only the check file (each
+directory contained exactly the import closure),
+replayed every module with \texttt{leanchecker}, and audited the axioms of all public theorems and lemmas ($86$ for
+Theorem~\ref{thm:A}, $92$ for Theorem~\ref{thm:B}). For Theorem~\ref{thm:A} ($27$ modules, $57$ commands per
+directory) the directories ran from 03:01:56 to 03:09:56 and from 03:09:56 to
+03:17:37~UTC; for Theorem~\ref{thm:B} ($31$ modules, $65$ commands) from 05:11:58
+to 05:20:33 and from 05:20:33 to 05:27:37~UTC. All commands ended with exit
+code~$0$, all \texttt{leanchecker} runs printed nothing, the two directories
+produced byte-identical \texttt{.olean} files, every audited theorem uses
+only the three axioms above, and the axiom lists agreed. Intermediate results had been compiled and replayed with \texttt{leanchecker}
+during development (21 and 27 November), each round in a new directory that
+reused earlier checked modules by hash; these receipts are kept on record. Each final reviewer (see the
+next section) checked with plain \texttt{lean}, against the compiled files of the earlier of the two directories and without writing to the project, that the check theorem
+has exactly the frozen type and the three axioms, and that the definitions are
+unchanged; the reviewers did not recompile the files. Mathlib and its
+dependencies were taken from a shared prebuilt cache at the pinned commits and
+were not rechecked; the \texttt{leanchecker} replays cover the project modules.
+In the repository the files have module names under
+\texttt{Research.TaskV.Stanley}, keep the namespace \texttt{StanleyContinuation},
+and differ from the checked files only in their \texttt{import} lines
+(\texttt{ChallengeA.lean} and \texttt{Isolation.lean}, which import only Mathlib,
+are byte-identical); the root module \texttt{Stanley} of the checked package is
+not part of the repository.
+These versions were compiled and replayed with \texttt{leanchecker} again, module by module, in two new empty directories on the author's Mac (27 November 2026, 18:11--18:18~UTC), with no warnings and identical \texttt{.olean} files; the axioms of the two check theorems are again exactly \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
+In the whole-project rebuild of version~\repoversion{} of the repository (on the author's Windows computer, in one pass from 27 to 28 November 2026), these files were compiled and replayed with \texttt{leanchecker} again together with the rest of the project; no module needed a second attempt (details in the repository). The formalization has not been checked with comparator or with an
+independent kernel.
+
+\par}
+
+\section*{How this paper was produced}
+This work was carried out on 21 November and from 27 to 28 November 2026 (UTC), and the paper was written on 27 November and revised on 28 November, in a workflow directed by the author, using OpenAI Codex
+with the model GPT-6.2-Astra (reasoning level ultra) and Anthropic Claude Code
+with the model Claude Opus~5.5. The author asked for a new search for problems,
+with a higher threshold aimed at famous open problems, and Claude Code passed
+this request to Codex at 03:19~UTC on 21 November (file time). Codex screened
+$94$ problems, wrote notes on eight, and made short attempts on three, among
+them Stanley's question, which its report recommended for further work; none of
+the three was solved (report at
+03:35~UTC). After reading the report, the author asked that Codex continue on
+Stanley's question, and Claude Code passed this request to the same Codex session
+at 03:43~UTC (the time stamp of its instruction in the session log). According to
+the file times, Codex had written the proofs of Theorems~\ref{thm:A}
+and~\ref{thm:B} by 03:46 and 03:47~UTC; Codex agents of the same session (model GPT-6.2-Astra) that had not
+derived them approved the written proofs at 03:47 and 03:49~UTC, and the
+statements were reviewed and frozen as described in Section~\ref{sec:lean}. The
+Lean work started at 03:54~UTC; the session reached its usage limit at
+04:04~UTC. From then on Codex worked in a queue, one task at a time, and Claude
+Code resumed the session at 04:11 and 17:13~UTC on 21 November and at 00:33,
+02:21, 02:57, 03:59, 04:36 and 05:09~UTC on 27 November (the time stamps of its
+instructions in the session logs); each round ended at a recorded intermediate
+result. The Lean proof that equal colouring counts give equal counts of connected
+partitions was completed on 21 November (17:13--17:18~UTC), the recovery of the
+leaves and of the core weights and the cut records on 27 November
+(00:33--02:26~UTC), Theorem~\ref{thm:A} at 03:18~UTC and Theorem~\ref{thm:B} at
+05:28~UTC, after the checks of Section~\ref{sec:lean}. The Lean proofs follow the
+written proofs (Remark~\ref{rem:leanA}). Codex also ran computations aimed at a
+counterexample to the general question, among them a cross-comparison of a
+prefix of $1{,}016{,}250{,}000$ of the $14{,}830{,}871{,}802$ trees with $30$
+vertices; they found none, cover only part of the trees, and are not part of this
+paper. The third, centroid condition mentioned in Section~\ref{sec:intro} and
+further unreviewed written work by Codex are not claimed here.
+
+The final reviews were done by Claude Code agents (model Claude Opus~5.5) that
+had written none of the files. For Theorem~\ref{thm:A}, Claude Code started a
+final review and a separate search for prior work at 03:56~UTC on 27 November;
+the search report is dated 04:05~UTC and the review 04:07~UTC. For
+Theorem~\ref{thm:B}, one agent did both, from 05:46 to 06:01~UTC. The reviewers
+read the statements line by line, read the written proofs and the proof files,
+recomputed the hashes, checked the receipts, checked the Lean types and axioms as
+described in Section~\ref{sec:lean}, tested the statements and the examples with
+programs of their own (Remark~\ref{rem:brute}), and determined the size of the
+classes and the smallest examples outside the known criteria. Both decisions were
+PASS, with no blocking remarks; their recommended corrections concern the written
+account and are taken into account here (the coverage up to $29$ vertices and the
+smallest new examples, the bounds on the number of core leaves, the credit for
+the known ingredients and the comparison with~\cite{zeng,awan,got}, the
+incomparability of the two families, and that the example families are not
+verified in Lean). Claude Code (Claude Opus~5.5) checked the sources, checked
+the examples of Section~\ref{sec:examples} in Python against the literal Lean
+hypotheses, and wrote this text from Codex's manuscripts, the reviews and the
+Lean files. An independent Claude Code agent (model Claude Opus~5.5) that had written none
+of the files reviewed this paper, and two others reviewed the release (the second
+only the parts written after the rebuild of the whole project); their corrections
+were applied. Throughout, ``we'' refers to this workflow; the reading
+and searching described in the paper were done by the agents. Codex agents
+searched for prior work on 21 November (from 03:44~UTC: the arXiv, citation
+indexes, GitHub, repositories of AI-assisted mathematics and the public
+discussions of the question), repeated a fixed set of $17$ queries daily from 22
+to 27 November, and searched again before each round on 27 November; the final
+reviewers searched again on 27 November (the arXiv, Semantic Scholar, scite, web
+search, GitHub and the public AI projects~\cite{aur,sc}; some code searches
+returned nothing because repositories were not indexed, which was not taken as
+evidence). On 27 November 2026 (18:42~UTC), while revising this paper after an
+independent review, Claude Code read the list of pull requests merged
+in~\cite{sc} that day and the documents of those on Stanley's question, and
+compared the examples with them (Remark~\ref{rem:public}). Up to 27~November 2026
+these searches found no earlier statement of Theorem~\ref{thm:A} or
+Theorem~\ref{thm:B}; the related public work found is described in
+Section~\ref{sec:intro} (details in the repository).
+On 28~November 2026 (08:15--08:34~UTC) Claude Code searched again: the pull
+requests, commits and issue of~\cite{sc} (no merge on Stanley's question after
+pull request~1081), the repositories of~\cite{aur}, the arXiv (listings up to
+26 November; submissions after about 25 November 19:00~UTC were not yet
+announced), the OpenAlex and Semantic Scholar lists of works citing the papers of
+Martin, Morin and Wagner, Gonzalez, Orellana and Tomba, Zeng and Awan (Semantic
+Scholar refused the query for Gonzalez, Orellana and Tomba because of a rate
+limit, and an OpenAlex date filter was refused), GitHub, the records of several
+AI projects, Zenodo and DataCite. It found no statement of Theorem~\ref{thm:A}
+or Theorem~\ref{thm:B}, and four related public works not described before: Atwell's two
+preprints~\cite{atwell1,atwell2}, the preprint~\cite{carp} and the
+repository~\cite{kyf}, which
+are discussed in Section~\ref{sec:intro} and Remark~\ref{rem:public}; none of
+them covers the examples of diameter~$7$ given there. This reports the coverage of the searches, not a guarantee
+that they were complete. The author is not a professional mathematician.
+The author has read this paper and, using a side-by-side table, compared its Lean statements with Theorems~\ref{thm:A} and~\ref{thm:B}. No human mathematician has read the proofs or reviewed this paper.
+The correctness of Theorems~\ref{thm:A} and~\ref{thm:B} rests on the Lean proofs
+and on the agreement of the Lean statements with the definition of the chromatic
+symmetric function; the written proofs are given for the reader. AI systems are
+not authors of this paper; the author takes full responsibility for its content.
+
+\medskip
+\noindent Thanks are due to Richard Stanley for the question, and to the authors
+of~\cite{got,apdmoz,ot,zeng,awan,mmw,hj}, on whose results the comparison rests.
+
+{\small
+\begin{thebibliography}{99}
+\setlength{\itemsep}{1pt}
+\bibitem{apdmoz} J.~Aliste-Prieto, A.~de~Mier, R.~Orellana and J.~Zamora, Marked
+graphs and the chromatic symmetric function, \emph{SIAM J. Discrete Math.} 37
+(2023), no.~3, 1881--1919, \url{https://doi.org/10.1137/22M148046X};
+arXiv:2202.11787v1 (numbering of results as in the arXiv version).
+\bibitem{apz} J.~Aliste-Prieto and J.~Zamora, Proper caterpillars are
+distinguished by their chromatic symmetric function, \emph{Discrete Math.}
+315--316 (2014), 158--164, \url{https://doi.org/10.1016/j.disc.2013.10.016}.
+\bibitem{aur} Aurantium-47, First-derivative reconstruction for proper trees with
+independent repeated weights, pull request~5 of the repository
+\emph{aurantium-mathematics},
+\url{https://github.com/Aurantium-47/aurantium-mathematics/pull/5} (working notes,
+last updated 22 November 2026).
+\bibitem{atwell1} C.~Atwell, Chromatic symmetric reconstruction of proper trees
+with leaf-observed repeated-weight cores, research preprint, version 1.0.2,
+Zenodo, 12 November 2026, \url{https://doi.org/10.5281/zenodo.24163711}.
+\bibitem{atwell2} C.~Atwell, Congruence-class Gram reconstruction for proper
+trees: multiple repeated-weight classes without a common-divisor hypothesis,
+research preprint, version 1.3.1, Zenodo, 24 October 2026,
+\url{https://doi.org/10.5281/zenodo.23627746}.
+\bibitem{awan} S.~A. Awan, First-derivative chromatic symmetric reconstruction for
+proper trees, arXiv:2609.13464v2 (2026).
+\bibitem{buneman} P.~Buneman, The recovery of trees from measures of
+dissimilarity, in \emph{Mathematics in the Archaeological and Historical
+Sciences}, Edinburgh University Press, 1971, 387--395.
+\bibitem{carp} Carptopus, Trees with three branch vertices are determined by
+their chromatic symmetric functions, preprint, version 0.1-beta, Zenodo,
+17 September 2026, \url{https://doi.org/10.5281/zenodo.22813491}.
+\bibitem{repo} H.~Dong, \emph{ai4math-results}, repository,
+\url{https://github.com/Horace-Maxwell/ai4math-results}, version~\repoversion{}
+(2026); archived at Zenodo under the concept DOI
+\url{https://doi.org/10.5281/zenodo.22970254}.
+\bibitem{kyf} K.~Feng, Reconstructing trees of diameter six from the ordinary
+chromatic symmetric function, manuscript and Lean~4 proof, repository
+\url{https://github.com/Kyf-eng/diameter-six-chromatic-trees}, releases v1.0.0
+and v1.1.0 (27 November 2026).
+\bibitem{got} M.~Gonzalez, R.~Orellana and M.~Tomba, The chromatic symmetric
+function in the star-basis, \emph{Discrete Math.} 349 (2026), no.~2, 114691,
+\url{https://doi.org/10.1016/j.disc.2025.114691}; arXiv:2404.06002v2 (numbering
+of results as in the arXiv version).
+\bibitem{hj} S.~Heil and C.~Ji, On an algorithm for comparing the chromatic
+symmetric functions of trees, \emph{Australas. J. Combin.} 75 (2019), no.~2,
+210--222, \url{https://ajc.maths.uq.edu.au/pdf/75/ajc_v75_p210.pdf}.
+\bibitem{ls} M.~Loebl and J.-S. Sereni, Isomorphism of weighted trees and
+Stanley's isomorphism conjecture for caterpillars, \emph{Ann. Inst. Henri
+Poincar\'e D} 6 (2019), no.~3, 357--384, \url{https://doi.org/10.4171/AIHPD/74};
+arXiv:1405.4132v4 (numbering of results as in the arXiv version).
+\bibitem{mmw} J.~L. Martin, M.~Morin and J.~D. Wagner, On distinguishing trees by
+their chromatic symmetric functions, \emph{J. Combin. Theory Ser.~A} 115 (2008),
+no.~2, 237--253, \url{https://doi.org/10.1016/j.jcta.2007.05.008};
+arXiv:math/0609339v3 (numbering of results as in the arXiv version).
+\bibitem{mathlib}
+The mathlib Community, The Lean mathematical library, in \emph{Proc.\ 9th ACM
+SIGPLAN Int.\ Conf.\ Certified Programs and Proofs} (CPP '20), ACM, 2020,
+367--381, \url{https://doi.org/10.1145/3372885.3373824}.
+\bibitem{ot} R.~Orellana and M.~Tomba, Proper implies improper for the chromatic
+symmetric function, arXiv:2611.18940v1 (2026).
+\bibitem{sc} \emph{solved-conjectures}, repository of AI-assisted mathematics,
+\url{https://github.com/1337isnot1337/solved-conjectures}, pull requests 972,
+977, 985, 1024, 1029, 1030, 1079 and 1081 on Stanley's question, merged on 27
+November 2026 (972 at 04:11, 977 at 04:28, 985 at 05:00, 1024 at 14:31, 1029 at
+14:43, 1030 at 14:48, 1079 at 18:00 and 1081 at 18:17~UTC; main branch at commit
+\texttt{23c9001e}); written proofs with internal reviews, not peer reviewed and
+not formally verified.
+\bibitem{stanley} R.~P. Stanley, A symmetric function generalization of the
+chromatic polynomial of a graph, \emph{Adv. Math.} 111 (1995), no.~1, 166--194,
+\url{https://doi.org/10.1006/aima.1995.1020}.
+\bibitem{zeng} Z.~Zeng, Multiplicity-isolated cores and chromatic symmetric
+reconstruction of trees, arXiv:2608.18179v1 (2026).
+\end{thebibliography}}
+\end{document}

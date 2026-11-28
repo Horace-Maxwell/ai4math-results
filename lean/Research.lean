@@ -80,3 +80,5 @@ import Research.TaskT.HellyFive.Check
 import Research.TaskV.Illumination.Check
 import Research.TaskV.FEI.Check
 import Research.TaskV.Durer.ExactTests
+import Research.TaskV.Stanley.CheckAnchor
+import Research.TaskV.Stanley.CheckPeel

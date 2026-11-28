@@ -1,0 +1,50 @@
+{
+ "purpose": "Whole-project clean rebuild of the Lean project of release v1.27.0 (adds Paper 32).",
+ "start_utc": "2026-11-27T18:19:43Z",
+ "end_utc": "2026-11-28T08:10:38Z",
+ "result": "4084 of 4084 modules compiled; 4083 of 4084 replayed with leanchecker; the module Research has no constants and was exempted; 0 audit problems. One pass.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612 (v4.34.1)",
+ "previous": "logs/clean-replay-v1.26.0-receipt.json",
+ "computer": "the author's Windows computer (63 GB of memory, 16 logical CPUs). During the rebuild OpenAI Codex also ran, on the same computer, computer searches for another problem (the Kotzig question for K_64; directories kotzig-u1b-* in the user folder), and Codex's own state files under .codex were written; according to a recursive file listing taken after the rebuild (evidence kept with the release work files), no file in the other Codex directories (ai4math-codex*, ai4math-lean-worker) was written or created during the rebuild (the newest file in them is from 2026-11-20 18:44:07 UTC). None of these jobs used the build directory; after the rebuild the source hashes were compared with the release tree (next item).",
+ "procedure": [
+  "New empty output directory; the sources were the release tree lean/ of this version (Research.lean and Research/, 4084 Lean modules and two Python generator scripts that are not built). After the rebuild the SHA-256 hashes of all 4086 files of the source directory were compared with the release tree: no difference. The directory Comparator/ was not built here; it is unchanged since version 1.13.0, and the CI workflow checks it.",
+  "Each module compiled with lean -DautoImplicit=false -DrelaxedAutoImplicit=false, then each module replayed with leanchecker, by the driver build6.py of version 1.16.0. This is not a lake build.",
+  "Warnings are recorded and do not fail a module; an error, sorry or non-zero exit code does. The driver reruns a module automatically (up to five times) when an attempt ends in a memory or file-read failure rather than a Lean verdict. It starts a new Lean process only while enough commit charge (memory reserved by Windows) is free.",
+  "In the published logs the local workspace directory is replaced by <workspace> (no other local directory occurs in them), Windows line endings of status.json, plan.json, research-olean-constants.txt and run.log are written as Unix line endings, and the byte-order mark at the start of research-olean-constants.txt is removed; nothing else is changed. run.log is empty: the driver writes its progress to status.json."
+ ],
+ "runs": [
+  {
+   "pass": 1,
+   "start_utc": "2026-11-27T18:19:43Z",
+   "end_utc": "2026-11-28T08:10:38Z",
+   "modules": 4084,
+   "jobs": "up to 12 (free-commit threshold 14 GiB, 6 GiB reserved per start)",
+   "note": "One start, no restart. Compile phase 2026-11-27T18:19:43Z to 2026-11-28T02:28:29Z (Research, whose 84 import lines name every entry module, compiled 2026-11-28T02:28:06Z to 2026-11-28T02:28:29Z), leanchecker phase 2026-11-28T02:28:29Z to 2026-11-28T08:10:38Z. No module needed a second attempt."
+  }
+ ],
+ "module_Research": {
+  "lines": "only import lines",
+  "constants": 0,
+  "extra_constants": 0,
+  "imports": 86,
+  "how_counted": "readModuleData on Research.olean (research-olean-constants.txt in the log archive)",
+  "consequence": "leanchecker has nothing to replay in this module. It was exempted before the run, as for versions 1.15.0 to 1.26.0."
+ },
+ "audit": {
+  "modules": 4084,
+  "compile_ok": 4084,
+  "check_ok": 4083,
+  "check_exempt": 1,
+  "axiom_lists": 116908,
+  "axiom_lists_empty": 8574,
+  "warnings": 97,
+  "problem_count": 0
+ },
+ "warnings": "97 lines in 15 older modules, the same lines as for versions 1.21.0 to 1.26.0; none in Paper 32.",
+ "axioms": "every printed axiom list in the final logs is a subset of propext, Classical.choice and Quot.sound.",
+ "forbidden_tokens": "logs/clean-replay-v1.27.0-forbidden-tokens.log: outside comments, only the intentional sorry statements of the comparator challenge files lean/Comparator/ (the same hits as for version 1.26.0; none in the new files).",
+ "lean_errors": "No attempt ended in a Lean error, and no module needed a second attempt.",
+ "source_manifest": "logs/lean-sources-sha256.txt, 4094 files",
+ "logs": "logs/clean-replay-v1.27.0-logs.tar.gz (status.json, plan.json, research-olean-constants.txt, run.log and the log of every attempt)"
+}

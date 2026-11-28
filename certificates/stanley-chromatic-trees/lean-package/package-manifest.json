@@ -1,0 +1,479 @@
+{
+ "module_count": 38,
+ "entrypoints": [
+  "Research.TaskV.Stanley.CheckAnchor",
+  "Research.TaskV.Stanley.CheckPeel"
+ ],
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "check_theorems": {
+  "StanleyContinuation.check_anchorReconstruction": "propext, Classical.choice, Quot.sound",
+  "StanleyContinuation.check_peelingReconstruction": "propext, Classical.choice, Quot.sound"
+ },
+ "axiom_check": "repository-recheck-logs.tar.gz/AxiomsStanley.lean and axioms-stanley.log (run against root1)",
+ "statement_files": [
+  {
+   "file": "lean/Research/TaskV/Stanley/ChallengeA.lean",
+   "frozen_utc": "2026-11-21T03:53:48Z",
+   "freeze_record": "formal/FREEZE-A.json",
+   "frozen_sha256": "683c4463a7521b2536f7fcb9b92375a7e2e93f80fd4c882f6e27a32ce9876591",
+   "repository_sha256": "683c4463a7521b2536f7fcb9b92375a7e2e93f80fd4c882f6e27a32ce9876591",
+   "repository_identical_to_frozen": true
+  },
+  {
+   "file": "lean/Research/TaskV/Stanley/ChallengePeel.lean",
+   "frozen_utc": "2026-11-21T03:53:59Z",
+   "freeze_record": "formal/FREEZE-Peel.json",
+   "frozen_sha256": "dcc0d30ad44625a6d81cb1518ccd9f2ab60e3dcebacaf60fc8606272b4e7c8a3",
+   "repository_sha256": "5f91fa541a7b3140570bed67e0c668769e4a00cec32aded717a690b4d6dec9d7",
+   "repository_identical_to_frozen": false
+  }
+ ],
+ "note": "Codex's package also had a root module Stanley (Stanley.lean) and unaccepted modules (Hub*, ChallengeHub) of a third route; they are not part of the repository.",
+ "files": [
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorCutLabels.lean",
+   "module": "Research.TaskV.Stanley.AnchorCutLabels",
+   "sha256": "fbd2f6998cb8107ee58a0b8ef14b9234b16a09c9fc5c89a7478aa1c74d896deb",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorCutLabels.lean",
+   "codex_source_sha256": "f35e8120f05ccb04e296d80cf37209f7d230bf1cfab4f0c09ccca18996e7cbcb",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.CoreWeights",
+    "Research.TaskV.Stanley.StarSplit"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorCuts.lean",
+   "module": "Research.TaskV.Stanley.AnchorCuts",
+   "sha256": "28ed56737606f5421a2aead64b5334b950535e3ae4f6de1376edcafb167039b5",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorCuts.lean",
+   "codex_source_sha256": "cfd0ea1890ea48d4411288c5b750e909214e7efd369f2f7f7b70c07bdc4fb555",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.StarBasics",
+    "Mathlib.Tactic.FinCases"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorIncidence.lean",
+   "module": "Research.TaskV.Stanley.AnchorIncidence",
+   "sha256": "07a35b2c4a0ed6f339b8bee645e223eda89dc8da7f87a805a54ed59b09584aed",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorIncidence.lean",
+   "codex_source_sha256": "af2e2e4988061ff296a99ed402e0e6818db95f03579d7ded77175e8406211461",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.AnchorSides"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorLeaves.lean",
+   "module": "Research.TaskV.Stanley.AnchorLeaves",
+   "sha256": "7db778c21c353c2a5c05c7e9b0c721d103d67c823448d9fdffae53ec887a2667",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorLeaves.lean",
+   "codex_source_sha256": "2b1d6be0ef659082ae576fe5e00945a18b266d6799d71fff3439e30b767386b6",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.AnchorCuts"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorOrder.lean",
+   "module": "Research.TaskV.Stanley.AnchorOrder",
+   "sha256": "18945c5ffac5af68b5a29a326c098584ad5761c604771f61af1dc2d77f186215",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorOrder.lean",
+   "codex_source_sha256": "a6363fbe132b20a23e11510eb4818924bdb65dff77ca20033550fb4b73b77e74",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.AnchorCutLabels",
+    "Research.TaskV.Stanley.AnchorRecords"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorProof.lean",
+   "module": "Research.TaskV.Stanley.AnchorProof",
+   "sha256": "dd1dbbc39278045fb16aa3579c8421457a079be5b12fde62870ab601058ce3c2",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorProof.lean",
+   "codex_source_sha256": "d3b03393fc1d2e84ca91acb8c3f1eff69881cd5613fd51a64e047a983b90af0a",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.AnchorVertexWeights",
+    "Research.TaskV.Stanley.AnchorTerminals",
+    "Research.TaskV.Stanley.ExpandCore"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorRecords.lean",
+   "module": "Research.TaskV.Stanley.AnchorRecords",
+   "sha256": "d19b9f18273e14574a683c9ffab2d4352932055163e2e7ee3443678b79f5a7b6",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorRecords.lean",
+   "codex_source_sha256": "2533620de86d1b81586d04695f0061cbbaedf2cf097c4312d78e955154b2910f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.AnchorIncidence"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorSides.lean",
+   "module": "Research.TaskV.Stanley.AnchorSides",
+   "sha256": "464becc6480f2e03c0bbfa168a5119710000b6d1b6bb53afe501503f97928d29",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorSides.lean",
+   "codex_source_sha256": "ee06694816f3d2dab8b2f940d70c96f8070f71aeb498b94f89fe9f8e08b92025",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.AnchorTree"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorTerminals.lean",
+   "module": "Research.TaskV.Stanley.AnchorTerminals",
+   "sha256": "8e1299bad21d5d05198435931907a126787411a5c8b32701e72dbe3f1284c1ea",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorTerminals.lean",
+   "codex_source_sha256": "b0b44ad7adeb69254db717c6a4afd24cdd070dc3b0da1714b1be5ba14402f56f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.AnchorSides",
+    "Research.TaskV.Stanley.StarCore"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorTree.lean",
+   "module": "Research.TaskV.Stanley.AnchorTree",
+   "sha256": "503fb14f6f3457c0a9f9c50c29d245c6229213817d688695c06a3d621ad1363e",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorTree.lean",
+   "codex_source_sha256": "49a4aa0df433ec0d740dd7aedca264dc7131fd9a0020b97ec7682620d5f6406e",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.StarBasics"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/AnchorVertexWeights.lean",
+   "module": "Research.TaskV.Stanley.AnchorVertexWeights",
+   "sha256": "d4d1f6d5fd4942c210b45a38242b43758ce0bc9afe9674a1b0dba5dbf7d47071",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/AnchorVertexWeights.lean",
+   "codex_source_sha256": "a839c8aab72104ce60255444399161d58a43b67bd498935ff5fcde7647217f0f",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.AnchorOrder"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/CSFBridge.lean",
+   "module": "Research.TaskV.Stanley.CSFBridge",
+   "sha256": "138b7e3397c5cc794f23e6544e6554bd391b80d6feec62f0df245a23a46550b3",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/CSFBridge.lean",
+   "codex_source_sha256": "b5e2d421a860efb2154a319e0cfcc19677d17714393a39886359c9f75ea24969",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.Cell",
+    "Research.TaskV.Stanley.Forest"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/Cell.lean",
+   "module": "Research.TaskV.Stanley.Cell",
+   "sha256": "7da9d2fab209add18b622f8463021a43f75db3c5e4eb8045655b88811386b618",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/Cell.lean",
+   "codex_source_sha256": "f57faaff090d593c4d723f2b8799ab47a8b8d24e8a00a5a19cdb98328fb9908d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.Refinement",
+    "Research.TaskV.Stanley.Isolation",
+    "Mathlib.Combinatorics.SimpleGraph.Connectivity.Finite"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/ChallengeA.lean",
+   "module": "Research.TaskV.Stanley.ChallengeA",
+   "sha256": "683c4463a7521b2536f7fcb9b92375a7e2e93f80fd4c882f6e27a32ce9876591",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/ChallengeA.lean",
+   "codex_source_sha256": "683c4463a7521b2536f7fcb9b92375a7e2e93f80fd4c882f6e27a32ce9876591",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.Combinatorics.SimpleGraph.Acyclic",
+    "Mathlib.Data.Fintype.Card"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/ChallengePeel.lean",
+   "module": "Research.TaskV.Stanley.ChallengePeel",
+   "sha256": "5f91fa541a7b3140570bed67e0c668769e4a00cec32aded717a690b4d6dec9d7",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/ChallengePeel.lean",
+   "codex_source_sha256": "dcc0d30ad44625a6d81cb1518ccd9f2ab60e3dcebacaf60fc8606272b4e7c8a3",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.ChallengeA"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/CheckAnchor.lean",
+   "module": "Research.TaskV.Stanley.CheckAnchor",
+   "sha256": "eaea0e4ba74aa02eab311a509a94e6043d4ff531e408327963d0b775f8e1508b",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/CheckAnchor.lean",
+   "codex_source_sha256": "f6e52519bee1c37c25394aafb8e5afa0a9ce08535fa8f49208d017b020edf98d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.AnchorProof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/CheckPeel.lean",
+   "module": "Research.TaskV.Stanley.CheckPeel",
+   "sha256": "1e173d1d9b0d55c925a422b6ddf264779e1586dd7737e59d8d7d88179f09fc70",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/CheckPeel.lean",
+   "codex_source_sha256": "cf1c65baa0be20a3ed382775c0901ff03e356fec86d6291d60c01486ecfd0f13",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.PeelProof"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/CoreWeights.lean",
+   "module": "Research.TaskV.Stanley.CoreWeights",
+   "sha256": "058f426ce97d0b0512ccf32a4a0f292e79ddfc971fc767002bf3a9e61c42ef9a",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/CoreWeights.lean",
+   "codex_source_sha256": "fa96c82b2965320776b98656e909e51cdb55e756d20ad291bf7114cfd1b26741",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.CSFBridge",
+    "Research.TaskV.Stanley.AnchorLeaves",
+    "Research.TaskV.Stanley.StarProfiles"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/ExpandCore.lean",
+   "module": "Research.TaskV.Stanley.ExpandCore",
+   "sha256": "a52a27c94a45dd0f9ad1ac491a6fe5365d669ce9f269789e008e95ca0882125b",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/ExpandCore.lean",
+   "codex_source_sha256": "be03dac11201102a1b946511d6b7d89daad5c1377eaaf429a7ef0383d2b994c1",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.StarBasics"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/Forest.lean",
+   "module": "Research.TaskV.Stanley.Forest",
+   "sha256": "69916e81b221e2b936979f473f4cf1e574e0c15f497daf304ae341e49ed0fb61",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/Forest.lean",
+   "codex_source_sha256": "7b22f87eb73f62519ee1ee560441a7488e61f7cc867ac0011f321fe383446352",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.Histogram",
+    "Mathlib.Combinatorics.SimpleGraph.Acyclic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/Histogram.lean",
+   "module": "Research.TaskV.Stanley.Histogram",
+   "sha256": "094ae7ddafca5e908c0310146cb219b4c66251f38e27e424b6acae150a6ac3a2",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/Histogram.lean",
+   "codex_source_sha256": "9396d22d9b2ca27ac057478dbee5b37a76bdc374e03b92cb61cc4447074eff32",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.ProfileDefs",
+    "Mathlib.Data.Fintype.BigOperators",
+    "Mathlib.SetTheory.Cardinal.Finite"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/Isolation.lean",
+   "module": "Research.TaskV.Stanley.Isolation",
+   "sha256": "064e7169d8606301bc7a660c6d9396cb6e8789d2374939e9b49ba0d763e7430e",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/Isolation.lean",
+   "codex_source_sha256": "064e7169d8606301bc7a660c6d9396cb6e8789d2374939e9b49ba0d763e7430e",
+   "differs_from_codex_source_only_in_import_lines": false,
+   "imports": [
+    "Mathlib.Algebra.BigOperators.ModEq",
+    "Mathlib.Data.Nat.GCD.BigOperators",
+    "Mathlib.Tactic"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/PeelDeletion.lean",
+   "module": "Research.TaskV.Stanley.PeelDeletion",
+   "sha256": "361ecde528ef949ef2f088fadefade522050c190c0476ecea5ce822ec9658b2c",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/PeelDeletion.lean",
+   "codex_source_sha256": "202cb1a20f14b46aaecc29520ba2c10397931aa22e5d8a2554ff9ea68610b545",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.PeelTagged"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/PeelInduction.lean",
+   "module": "Research.TaskV.Stanley.PeelInduction",
+   "sha256": "eb04c153048fbb98dfef98253398d839078b04d8a4a7309aa3277a6ee9c7fc3a",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/PeelInduction.lean",
+   "codex_source_sha256": "21f0383e43c4372c5f24986380a9dabeb2288cb3c0e522250c1ec1520c60d264",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.PeelReattach"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/PeelInventory.lean",
+   "module": "Research.TaskV.Stanley.PeelInventory",
+   "sha256": "d91f4e1dc0ec4c8f27cb5263f05b8d4bf995565af193a58e6434cbf5e8870d3c",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/PeelInventory.lean",
+   "codex_source_sha256": "735441d3c67995c620decc7f7ff1aad59c3a724b36baa46a22b6a77bc54561da",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.PeelLabelings"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/PeelLabelings.lean",
+   "module": "Research.TaskV.Stanley.PeelLabelings",
+   "sha256": "f3e32ace3be6b017fe54ff5a909f5957a1ee4c34683f96b8c12f8b7b7de51326",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/PeelLabelings.lean",
+   "codex_source_sha256": "979194fb88c81d60caa62d20e4810e615e519707bc7987558c55dffef3b86ffe",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.PeelPartitions"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/PeelLeaves.lean",
+   "module": "Research.TaskV.Stanley.PeelLeaves",
+   "sha256": "f3216e4d39451efab1358a1c60632649c3a93e486a18c6418001471cfa61fdb6",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/PeelLeaves.lean",
+   "codex_source_sha256": "c8089d900a2dd6fff01c992c21cd6eb53beabb782304d50be0bf9ae14dfbddca",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.PeelRetag"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/PeelPartitions.lean",
+   "module": "Research.TaskV.Stanley.PeelPartitions",
+   "sha256": "7b57cad002ecef7baecae042e00592a3f8fa1c89d4b67f9dccf6b8f1ef195398",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/PeelPartitions.lean",
+   "codex_source_sha256": "af48d180374cccf0fb1488d22568154e17cc1fd55a646b2988796fffbe210066",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.CoreWeights",
+    "Research.TaskV.Stanley.StarCore",
+    "Research.TaskV.Stanley.ChallengePeel"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/PeelProof.lean",
+   "module": "Research.TaskV.Stanley.PeelProof",
+   "sha256": "42f21072629b773f7ef19d024856b8a580ab70490c0b1df0c022b8a33fc9b84f",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/PeelProof.lean",
+   "codex_source_sha256": "e7fe79dd2d70a6df1774db010bbf375c2e674b8f8d7f8327a29aa12aca939734",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.PeelInduction",
+    "Research.TaskV.Stanley.AnchorTerminals",
+    "Research.TaskV.Stanley.ExpandCore"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/PeelReattach.lean",
+   "module": "Research.TaskV.Stanley.PeelReattach",
+   "sha256": "d923ea1df0c7dbea762cf2b716b52cbc20c99b1cc80146661b94ff4235a59c62",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/PeelReattach.lean",
+   "codex_source_sha256": "fe75c0ee4c1ef9a3eaa771783d609d3b2f5f10fe9393fca746e2f59eb29f58a7",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.PeelLeaves"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/PeelRetag.lean",
+   "module": "Research.TaskV.Stanley.PeelRetag",
+   "sha256": "ef395c674fed3cb004283c219ffa11a7406a183ac645c612d43f575e685044cd",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/PeelRetag.lean",
+   "codex_source_sha256": "85a0730c4a4310b144885ddb6097d780a032eb61d1dafe6d77fe8df5bdbd1c15",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.PeelDeletion"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/PeelTagged.lean",
+   "module": "Research.TaskV.Stanley.PeelTagged",
+   "sha256": "050719d75b249b169155367d41b2abd28ebbe4d33970c1af3176920303c9a532",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/PeelTagged.lean",
+   "codex_source_sha256": "991f42a401dbe020590b99b1f2c3e2cdde3af6cdd3457faa6f4bdbfd01f2bd58",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.PeelInventory",
+    "Mathlib.Combinatorics.SimpleGraph.Connectivity.Subgraph"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/ProfileDefs.lean",
+   "module": "Research.TaskV.Stanley.ProfileDefs",
+   "sha256": "6931123b743192a5cbd8f5708f4a24a4ef9b4afabf0d887ba8a4615e37d700c1",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/ProfileDefs.lean",
+   "codex_source_sha256": "1067260e28e95352a5122658bd12ee67b0597f922dc21060231d0a3ea2647314",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.ChallengeA"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/Refinement.lean",
+   "module": "Research.TaskV.Stanley.Refinement",
+   "sha256": "96cf9a457622ca45433eca1af96034e76a99c5795c1d4a531d8a3d145394c801",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/Refinement.lean",
+   "codex_source_sha256": "6ba644ff10a606f87f10dcbf3086a9d137c52807ad5811284482cf15bbb4bb13",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.Histogram"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/StarBasics.lean",
+   "module": "Research.TaskV.Stanley.StarBasics",
+   "sha256": "bc4231d136328e3d88d4faf7de197e3669fa8a8a1b7a38e77f0777820f981f65",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/StarBasics.lean",
+   "codex_source_sha256": "b9843858b79f047aa6eb0e7606ec8e0958f51dd4ca1ad2c5960d8a419b3913ae",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.ProfileDefs"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/StarCore.lean",
+   "module": "Research.TaskV.Stanley.StarCore",
+   "sha256": "acfc310343f739d12be0f3db339351fbc8c5dbc35cee81604bad7f4709063370",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/StarCore.lean",
+   "codex_source_sha256": "67d8d7f209eebabc1a6aa50f89d0642eb6e1a1b9dc29f3e20bed2850925adb2d",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.StarBasics"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/StarProfiles.lean",
+   "module": "Research.TaskV.Stanley.StarProfiles",
+   "sha256": "c71d8196c9ea5fafb5b050fb5d43e38afc5aed06393752aebf0b218df8d3d526",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/StarProfiles.lean",
+   "codex_source_sha256": "5be73a3f73f860e83a6265558448ed199e6355749b728f306a5da20bf951691c",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.StarBasics",
+    "Mathlib.Data.Fintype.EquivFin"
+   ]
+  },
+  {
+   "path": "lean/Research/TaskV/Stanley/StarSplit.lean",
+   "module": "Research.TaskV.Stanley.StarSplit",
+   "sha256": "38df4e050ee9fc7a3d50cfbaf87b48f1dee605ac82f9d2598158ed0302c7547f",
+   "codex_source": "work/codex-r3/phase29/scout-v/attempts/stanley/formal/Stanley/StarSplit.lean",
+   "codex_source_sha256": "f544683ed92778223b273ac9627158692004b583482c4640bc4df5e8906ee1cd",
+   "differs_from_codex_source_only_in_import_lines": true,
+   "imports": [
+    "Research.TaskV.Stanley.StarCore",
+    "Research.TaskV.Stanley.StarProfiles",
+    "Research.TaskV.Stanley.AnchorCuts",
+    "Research.TaskV.Stanley.AnchorSides"
+   ]
+  }
+ ]
+}
